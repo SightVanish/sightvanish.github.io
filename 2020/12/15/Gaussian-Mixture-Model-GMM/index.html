@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"sightvanish.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Guassian ModelGaussian Single ModelGuassian probability model is widely used in machine learning. The density function of single Guassian is:$$f(x) &#x3D; \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gaussian Mixture Model (GMM) &amp; Expectation Maximization (EM)">
+<meta property="og:url" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/index.html">
+<meta property="og:site_name" content="Li Wuchen">
+<meta property="og:description" content="Guassian ModelGaussian Single ModelGuassian probability model is widely used in machine learning. The density function of single Guassian is:$$f(x) &#x3D; \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/1-DGaussian.png">
+<meta property="og:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/2-DGaussian.png">
+<meta property="og:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/3-DGaussian.png">
+<meta property="og:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/ex1_2.png">
+<meta property="og:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/ex1_1.png">
+<meta property="og:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/ex1_3.png">
+<meta property="og:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_1.png">
+<meta property="og:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_2.png">
+<meta property="og:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_3.png">
+<meta property="og:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_4.png">
+<meta property="og:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_5.png">
+<meta property="og:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/inclusion.png">
+<meta property="article:published_time" content="2020-12-15T08:25:20.000Z">
+<meta property="article:modified_time" content="2021-09-15T05:57:07.326Z">
+<meta property="article:author" content="Li Wuchen">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="GMM">
+<meta property="article:tag" content="Unsupervised learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/1-DGaussian.png">
+
+<link rel="canonical" href="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Gaussian Mixture Model (GMM) & Expectation Maximization (EM) | Li Wuchen</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Li Wuchen</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Li Wuchen">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Gaussian Mixture Model (GMM) & Expectation Maximization (EM)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-15 16:25:20" itemprop="dateCreated datePublished" datetime="2020-12-15T16:25:20+08:00">2020-12-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-15 13:57:07" itemprop="dateModified" datetime="2021-09-15T13:57:07+08:00">2021-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Guassian-Model"><a href="#Guassian-Model" class="headerlink" title="Guassian Model"></a>Guassian Model</h1><h3 id="Gaussian-Single-Model"><a href="#Gaussian-Single-Model" class="headerlink" title="Gaussian Single Model"></a>Gaussian Single Model</h3><p>Guassian probability model is widely used in machine learning. The density function of single Guassian is:<br>$$<br>f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})<br>$$<br>$\mu $ is the mean and $\sigma$ is the variance.</p>
+<p>$X\sim N(\mu, \sigma^2)$ means X is distributed according to N.</p>
+<h3 id="Multivariate-Guassian-Model"><a href="#Multivariate-Guassian-Model" class="headerlink" title="Multivariate Guassian Model"></a>Multivariate Guassian Model</h3><p>If $X = (x_1, x_2, x_3, \dots, x_n)$, the density function is:<br>$$<br>f(X) = \frac{1}{(2\pi)^{d/2}|\sum|^{1/2}}exp[-\frac 12(X-\mu)^T(\sum )^{-1}(X-\mu)]<br>$$</p>
+<p>note: $d$ is the dimension of variable ($x_1$); $\mu$ is a nx1 matrix, means of each variable.</p>
+<p>$\sum$ is the covariance matrix of $X$, degree to which $x_i$ vary together.</p>
+<p>For a 2-D Guassian model, $\sum = \left[ \begin{matrix} \delta_{11} &amp; \delta_{12} \ \delta_{21} &amp; \delta_{22} \end{matrix} \right]$. $\sum$  determines the shape of distribution.</p>
+<h1 id="Guassian-Mixture-Model-GMM"><a href="#Guassian-Mixture-Model-GMM" class="headerlink" title="Guassian Mixture Model, GMM"></a>Guassian Mixture Model, GMM</h1><h3 id="Why-GMM"><a href="#Why-GMM" class="headerlink" title="Why GMM"></a>Why GMM</h3><ul>
+<li>Some cluster may be ‘wider’ than others</li>
+<li>Clusters may overlap</li>
+</ul>
+<p>If we use one Guassian model, it cannot handle tha data set generated by multi Guassian models, so we introduce GMM – use multi Gussain models and mix them to one with certain weights.</p>
+<h3 id="GMM-formula"><a href="#GMM-formula" class="headerlink" title="GMM formula"></a>GMM formula</h3><p>Assume GMM is mixed by $\pmb K$ Guassian models, the density fucntion of GMM is:<br>$$<br>p(X) = \sum_ {k = 1}^K p(k)p(X|k) = \sum_ {k = 1}^K \Pi_ k N(X|\mu_k,\Sigma_ k)<br>$$<br>note: $ p(X|k) = N(X|\mu_ k,(\sum)_ k )$ is the density function of $k^{th}$ Gaussian model. $\Pi_k$ is the weight and $ \sum_ {k = 1}^K\Pi_ k = 1$.</p>
+<p>So basically GMM is the mixture of multi Gaussian models. In theory, with enough number of mixed Guassian models and proper weights, GMM can fit any distribution. </p>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/1-DGaussian.png"></p>
+<center>Picture1: 1-D GMM</center>
+
+
+<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/2-DGaussian.png"></p>
+<center>Picture2: 2-D GMM</center>
+
+
+<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/3-DGaussian.png"></p>
+<center>Picture3: 3-D GMM</center>
+
+<h1 id="Supervised-Learning-for-GMM"><a href="#Supervised-Learning-for-GMM" class="headerlink" title="Supervised Learning for GMM"></a>Supervised Learning for GMM</h1><h3 id="Generating-data"><a href="#Generating-data" class="headerlink" title="Generating data"></a>Generating data</h3><ol>
+<li>Choose component (cluster, which Guassian model) $\pmb i$ with probability $\pi_ i$.</li>
+<li>Generate data point from $N(X|\mu_ i, \Sigma_ i)$.</li>
+</ol>
+<h3 id="How-to-estimate-parameters-of-GMM"><a href="#How-to-estimate-parameters-of-GMM" class="headerlink" title="How to estimate parameters of GMM"></a>How to estimate parameters of GMM</h3><ul>
+<li><p>We observe the <strong>data points X</strong>  and their <strong>labels y</strong> (generate from with Guassian component).</p>
+</li>
+<li><p>Maximize the likelihood:<br>$$<br>\prod_ j P(y_ i = i, X_ j) = \prod_j \pi_ i N(X_ j | \mu_ i, \Sigma_ i)<br>$$</p>
+<p>Product of probability on all the data points ( j ). $P(y_ i = i)$ means the probabilty of this point is generated by $i^{th}$ Gaussian component.</p>
+</li>
+<li><p><strong>Closed Form Solution</strong></p>
+<p>We have $m$ data points. For component $i$, suppose we have $n$ data points labelled by $i$.<br>$$<br>\mu_ i = \frac 1 n \sum_ {j = 1} ^n X_ j<br>$$</p>
+<p>$\mu_ i$ is the mean of $i_{th}$ Guassian component, so it should be the mean/center of all data point.<br>$$<br>\Sigma_ i = \frac 1 n \sum_ {j = 1}^n(X_ j-\mu_ i)(X_ j - \mu_ i)^T<br>$$<br>$(\sum)_ i$ is the covarivance matrix of $i_ {th}$ Guassian component.</p>
+<p>$\pi_ i$ is weight, # of points belonging to $i_ {th}$ Guassian component / # of all points</p>
+</li>
+</ul>
+<p>$$<br>\pi_ i = \frac nm<br>$$</p>
+<p>We have already solved such problem</p>
+<h1 id="Unsupervised-Learning-for-GMM"><a href="#Unsupervised-Learning-for-GMM" class="headerlink" title="Unsupervised Learning for GMM"></a>Unsupervised Learning for GMM</h1><h3 id="In-clusterin-we-don’t-know-the-labels-Y"><a href="#In-clusterin-we-don’t-know-the-labels-Y" class="headerlink" title="In clusterin, we don’t know the labels Y !"></a>In clusterin, we don’t know the labels Y !</h3><ul>
+<li><p>Maximize marginal likelihood:<br>$$<br>\prod_ j P(X_ j) = \prod_ j\sum_ i P(y_ j = i, X_ j) = \prod_ j\sum_ i \pi_ i N(\mu_ i, \Sigma_ i)P(y_ i = i)<br>$$<br>It is to improve the P of all components</p>
+</li>
+<li><p>Parameters to be learnt:</p>
+<p>$\pi$, $\mu$, $\Sigma$, $y$</p>
+</li>
+<li><p>How to optimize it? (No closed form solution) </p>
+<ul>
+<li>Expectation Maximization (EM)<ul>
+<li>pick k random Guassian models</li>
+<li>assign data proportionally to these k models</li>
+<li>revis model based on the distance between predicted points with real points (just like k-means)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Examples-1"><a href="#Examples-1" class="headerlink" title="Examples"></a>Examples</h3><p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex1_2.png"></p>
+<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex1_1.png"></p>
+<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex1_3.png"></p>
+<h1 id="Expectation-Maximization-EM"><a href="#Expectation-Maximization-EM" class="headerlink" title="Expectation Maximization (EM)"></a>Expectation Maximization (EM)</h1><p><strong>Pretend</strong> we do know the parameter.</p>
+<ul>
+<li>Initialize randomly</li>
+<li>[E step] Compute probability of each instance having possible label (note: one point shares <strong>multiple probabilities</strong> corresponding to multiple Guassian models).</li>
+<li>[M step] Treating each instance as fractionally having these labels (one point is treated as having many labels with certain probability), compute the new parameter values. </li>
+<li>Repeat E-&gt;M steps</li>
+</ul>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
+<li>We get data like this</li>
+</ul>
+<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_1.png"></p>
+<ul>
+<li>Randomly initialize</li>
+</ul>
+<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_2.png"></p>
+<ul>
+<li>Assign labels to point based on current Guassian models</li>
+</ul>
+<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_3.png"></p>
+<ul>
+<li>Recompute the parameters of Guassian models based on current label distribution</li>
+</ul>
+<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_4.png"></p>
+<ul>
+<li>Repeat–based on current Guassian models, reassign labels to points</li>
+</ul>
+<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_5.png"></p>
+<ul>
+<li>Stop when no changes</li>
+</ul>
+<h3 id="Inclusion"><a href="#Inclusion" class="headerlink" title="Inclusion"></a>Inclusion</h3><p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/inclusion.png"></p>
+<p>K-means is a special case of GMM–all Gaussians are spherical and have identical weights and covariance (the only parameter is mean).</p>
+<h3 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h3><p>In general, EM can be used to learn any model with hidden variables.</p>
+<p>EM for HMMs(hidden markov models)–aka. Baum-Welch algorithm</p>
+<ul>
+<li>[M step] compute the distribution of hidden states given each training instance</li>
+<li>[E step] update the parameters to maximize expected log likelihood based on distributions over hidden states.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+              <a href="/tags/GMM/" rel="tag"># GMM</a>
+              <a href="/tags/Unsupervised-learning/" rel="tag"># Unsupervised learning</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/28/%E7%A6%85%E8%AF%97%E8%A7%A3%E8%AF%BB/" rel="prev" title="禅诗解读">
+      <i class="fa fa-chevron-left"></i> 禅诗解读
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/" rel="next" title="Markdown在github上公式显示错误">
+      Markdown在github上公式显示错误 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Guassian-Model"><span class="nav-number">1.</span> <span class="nav-text">Guassian Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gaussian-Single-Model"><span class="nav-number">1.0.1.</span> <span class="nav-text">Gaussian Single Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multivariate-Guassian-Model"><span class="nav-number">1.0.2.</span> <span class="nav-text">Multivariate Guassian Model</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Guassian-Mixture-Model-GMM"><span class="nav-number">2.</span> <span class="nav-text">Guassian Mixture Model, GMM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-GMM"><span class="nav-number">2.0.1.</span> <span class="nav-text">Why GMM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GMM-formula"><span class="nav-number">2.0.2.</span> <span class="nav-text">GMM formula</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples"><span class="nav-number">2.0.3.</span> <span class="nav-text">Examples</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Supervised-Learning-for-GMM"><span class="nav-number">3.</span> <span class="nav-text">Supervised Learning for GMM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Generating-data"><span class="nav-number">3.0.1.</span> <span class="nav-text">Generating data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-estimate-parameters-of-GMM"><span class="nav-number">3.0.2.</span> <span class="nav-text">How to estimate parameters of GMM</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Unsupervised-Learning-for-GMM"><span class="nav-number">4.</span> <span class="nav-text">Unsupervised Learning for GMM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#In-clusterin-we-don%E2%80%99t-know-the-labels-Y"><span class="nav-number">4.0.1.</span> <span class="nav-text">In clusterin, we don’t know the labels Y !</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples-1"><span class="nav-number">4.0.2.</span> <span class="nav-text">Examples</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Expectation-Maximization-EM"><span class="nav-number">5.</span> <span class="nav-text">Expectation Maximization (EM)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">5.0.1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inclusion"><span class="nav-number">5.0.2.</span> <span class="nav-text">Inclusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extension"><span class="nav-number">5.0.3.</span> <span class="nav-text">Extension</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Li Wuchen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sightvanish" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sightvanish" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/1105416184@qq.com" title="E-Mail → 1105416184@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/7541448" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;7541448" rel="noopener" target="_blank"><i class="fa fa-fw fa-bilibili"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Wuchen</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

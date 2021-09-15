@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"sightvanish.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Margin  从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。   上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。 Linear Seperatable SVM首先考虑所有sample本身线性可分。 Problem Definition对于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVM(Support Vector Machine)">
+<meta property="og:url" content="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/index.html">
+<meta property="og:site_name" content="Li Wuchen">
+<meta property="og:description" content="Margin  从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。   上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。 Linear Seperatable SVM首先考虑所有sample本身线性可分。 Problem Definition对于">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/1.png">
+<meta property="og:image" content="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/2.png">
+<meta property="og:image" content="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/3.png">
+<meta property="article:published_time" content="2021-05-25T07:00:11.000Z">
+<meta property="article:modified_time" content="2021-09-15T06:02:39.339Z">
+<meta property="article:author" content="Li Wuchen">
+<meta property="article:tag" content="SVL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/1.png">
+
+<link rel="canonical" href="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>SVM(Support Vector Machine) | Li Wuchen</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Li Wuchen</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Li Wuchen">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SVM(Support Vector Machine)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-25 15:00:11" itemprop="dateCreated datePublished" datetime="2021-05-25T15:00:11+08:00">2021-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-15 14:02:39" itemprop="dateModified" datetime="2021-09-15T14:02:39+08:00">2021-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Margin"><a href="#Margin" class="headerlink" title="Margin"></a>Margin</h2><img src="/2021/05/25/SVM-Support-Vector-Machine/1.png" alt="1" style="zoom:50%;">
+
+<p>从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。</p>
+<img src="/2021/05/25/SVM-Support-Vector-Machine/2.png" alt="2" style="zoom:50%;">
+
+<p>上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。</p>
+<h2 id="Linear-Seperatable-SVM"><a href="#Linear-Seperatable-SVM" class="headerlink" title="Linear Seperatable SVM"></a>Linear Seperatable SVM</h2><p>首先考虑所有sample本身线性可分。</p>
+<h3 id="Problem-Definition"><a href="#Problem-Definition" class="headerlink" title="Problem Definition"></a>Problem Definition</h3><p>对于线性分类器的超平面为：$X^TW+b=0$。We define those with $X^TW+b&gt;1$ is labeled +1, which means geometrically the <em>left-top</em> part of the line is labeled positive.</p>
+<img src="/2021/05/25/SVM-Support-Vector-Machine/3.png" alt="2" style="zoom:50%;">
+
+<p>So we can see that $margin = \frac{2}{||W||}$. We want to maximum margin which is same with $min||W||^2$.</p>
+<p>[primal  problem]</p>
+<p>The whole problem can be written as :</p>
+<p>$min||W||^2, \  st. y_i(X_i^TW+b)&gt;=1$.</p>
+<h3 id="How-to-find-W-b"><a href="#How-to-find-W-b" class="headerlink" title="How to find W, b"></a>How to find W, b</h3><p>If all the data is linear seperatable, those points that determine margin are called support vectors. For support vectors we have: $y_i(X_i^TW+b)=1$. For other points, they have no influence on this algorithm so that this algorithm is called SVM.</p>
+<h2 id="NonLinear-Seperatable-SVM"><a href="#NonLinear-Seperatable-SVM" class="headerlink" title="NonLinear Seperatable SVM"></a>NonLinear Seperatable SVM</h2><p>Since the data is not linear speratable itself, we allow SVM has some mistakes–<em>soft margin</em>.</p>
+<h3 id="hinge-loss"><a href="#hinge-loss" class="headerlink" title="hinge loss"></a>hinge loss</h3><p>We will modify our objective function by adding hinge loss ($l_{hinge}=max(0,1-z), z=y_i(X_i^TW+b)$).</p>
+<p>Objective function: $min \ ||W||^2+C\Sigma l_{hinge}$. C is hyper-parameter. If C-&gt;0, the model allows any mistakes–easily undercutting; if C-&gt;$\infin$, the model is same with Linear Speratable SVM–easily overfitting.</p>
+<p>[primal  problem]</p>
+<p>The whole problem can be written as:</p>
+<p>$min||W||^2+C\Sigma_i\xi_i, \ st.y_i(X_i^TW+b)&gt;=1-\xi_i,\xi&gt;=0$.</p>
+<h2 id="What-if-the-sample-is-totally-nonlinear-seperatable"><a href="#What-if-the-sample-is-totally-nonlinear-seperatable" class="headerlink" title="What if the sample is totally nonlinear seperatable?"></a>What if the sample is totally nonlinear seperatable?</h2><h3 id="Kernel"><a href="#Kernel" class="headerlink" title="Kernel"></a>Kernel</h3><p>Introduce Lagranginan function and we get dual form of primal problem:</p>
+<p>$min_{\alpha}\Sigma_i^n\Sigma_j^n\alpha_i\alpha_jy_iy_j(X_i\cdot X_j)-\Sigma_i^n\alpha_i. \ st. \Sigma_i^n\alpha_iy_i=0, \ 0\leq\alpha_i&lt;C$.</p>
+<p>We can choose proper kernel $K$ to replace $(X_i\cdot X_j)$.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SVL/" rel="tag"># SVL</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/24/AdaBoosting/" rel="prev" title="AdaBoosting">
+      <i class="fa fa-chevron-left"></i> AdaBoosting
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/27/Principal-Component-Analysis/" rel="next" title="Principal Component Analysis">
+      Principal Component Analysis <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Margin"><span class="nav-number">1.</span> <span class="nav-text">Margin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Seperatable-SVM"><span class="nav-number">2.</span> <span class="nav-text">Linear Seperatable SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-Definition"><span class="nav-number">2.1.</span> <span class="nav-text">Problem Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-find-W-b"><span class="nav-number">2.2.</span> <span class="nav-text">How to find W, b</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NonLinear-Seperatable-SVM"><span class="nav-number">3.</span> <span class="nav-text">NonLinear Seperatable SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hinge-loss"><span class="nav-number">3.1.</span> <span class="nav-text">hinge loss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-if-the-sample-is-totally-nonlinear-seperatable"><span class="nav-number">4.</span> <span class="nav-text">What if the sample is totally nonlinear seperatable?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Kernel"><span class="nav-number">4.1.</span> <span class="nav-text">Kernel</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Li Wuchen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sightvanish" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sightvanish" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/1105416184@qq.com" title="E-Mail → 1105416184@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/7541448" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;7541448" rel="noopener" target="_blank"><i class="fa fa-fw fa-bilibili"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Wuchen</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
