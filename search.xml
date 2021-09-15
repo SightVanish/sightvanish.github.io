@@ -189,30 +189,60 @@
       </categories>
   </entry>
   <entry>
-    <title>C++11 in Mac (VsCode)</title>
-    <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
-    <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of <code>gcc</code>. You can still use <code>clang++</code> or <code>g++</code> to run a <code>.cpp</code> file. But basically, <code>clang</code> will use <code>-std=c++98</code> as default.</p>
-<p>So if you want to switch to new c++ standard in VsCode (Mac), do as follows:</p>
-<ol type="1">
-<li><p>Edit you c++ settings of VsCode:</p>
-<ol type="1">
-<li><p>create <code>.vscode/c_cpp_properties.json</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Mac&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [],</span><br><span class="line">            &quot;macFrameworkPath&quot;: [</span><br><span class="line">                &quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;/usr/bin/clang&quot;,</span><br><span class="line">            &quot;cStandard&quot;: &quot;c11&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;c++11&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;macos-clang-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>In terminal:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;alias g++=&#x27;g++ -std=c++11&#x27;&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source    ~/.bashrc</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-</ol>
-<p>Run your <code>.cpp</code> files in terminals:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">g++ filename.cpp -o objectname</span><br><span class="line">./objectname</span><br></pre></td></tr></table></figure>
-<p>Note: you can use <code>g++</code> in std11, but <code>clang++</code> is still in std98. (<code>clang/gcc</code> is for <code>.c</code> file)</p>
+    <title>9月剑道keigo</title>
+    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
+    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
+<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-jBcFjwqaQKgOwuhw" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-jBcFjwqaQKgOwuhw").style.height=document.getElementById("mmedia-jBcFjwqaQKgOwuhw").scrollWidth*0.76+"px";
+    window.onresize = function(){
+      document.getElementById("mmedia-jBcFjwqaQKgOwuhw").style.height=document.getElementById("mmedia-jBcFjwqaQKgOwuhw").scrollWidth*0.76+"px";
+    }; </script>
 ]]></content>
       <categories>
-        <category>Learning</category>
+        <category>Kendo</category>
       </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Mac</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>AdaBoosting</title>
+    <url>/2021/05/24/AdaBoosting/</url>
+    <content><![CDATA[<h3 id="boosting-bagging">Boosting &amp; Bagging</h3>
+<p>Bagging是传统算法常常采用的方法：</p>
+<ol type="1">
+<li>从原始sample中用Bootstraping（类似cross-validation）选出n个样本，进行k次。</li>
+<li>分别对k个训练集训练得到k个模型</li>
+<li>加权得到最终模型</li>
+</ol>
+<ul>
+<li>当算法结果不稳定时使用（训练集、测试集对结果影响大）</li>
+</ul>
+<p>-&gt;Bagging可能出现多个模型对同一样的sample都分类错误</p>
+<p>-&gt;不能并行所有model的训练而要串行（每次关注之前训练不当的地方）</p>
+<p>AdaBoosting</p>
+<ol type="1">
+<li>在整个数据集上训练model（h1）</li>
+<li>对h1表现好的sample降低权重，对h2表现不好的sample增加权重，训练model（h2）</li>
+<li>repeat</li>
+</ol>
+<h3 id="adaboost">AdaBoost</h3>
+<p>如何实现AdaBoosting呢？</p>
+<h4 id="加权误差">加权误差</h4>
+<p>一般 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} 1/n\)</span>，但是在对样本进行加权后 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} w _i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分类失败）的sample。</p>
+<p>如何找弱分类器呢？</p>
+<h4 id="决策树桩">决策树桩</h4>
+<p><img src="/2021/05/24/AdaBoosting/1.png" alt="1" style="zoom:50%;"></p>
+<p>上图中简单的情况，有12种树桩组合。</p>
+<blockquote>
+<p>我们可以对上面的情况做 12 种可能的「测试」。每条分割线边上的数字「2」简单地表示了这样一个事实：位于分割线某一侧的所有点都可能属于 0 类或 1 类。因此，每条分割线嵌入了 2 个「测试」。</p>
+</blockquote>
+<p>针对不同的问题首先要选好弱分类器h，在迭代的过程中每次选择对当前（加权后）sample分类最优的弱分类器作为基本分类器进行融合。</p>
+<ul>
+<li>AdaBoost不需要先验，同时不容易过拟合，同时不依赖弱分类器效果（可以自由分配权重）。</li>
+<li>AdaBoost错误样本权重指数上升--容易受噪音干扰</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
   </entry>
   <entry>
     <title>Anchor Free (After Faster R-CNN)</title>
@@ -338,6 +368,46 @@
       </tags>
   </entry>
   <entry>
+    <title>Blender Cloth Rendering</title>
+    <url>/2021/09/14/Blender-Cloth-Rending/</url>
+    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
+<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
+<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
+<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
+<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
+<p><img src="/2021/09/14/Blender-Cloth-Rending/1.png" width="75%" height="75%"></p>
+]]></content>
+      <categories>
+        <category>Rendering</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>C++11 in Mac (VsCode)</title>
+    <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
+    <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of <code>gcc</code>. You can still use <code>clang++</code> or <code>g++</code> to run a <code>.cpp</code> file. But basically, <code>clang</code> will use <code>-std=c++98</code> as default.</p>
+<p>So if you want to switch to new c++ standard in VsCode (Mac), do as follows:</p>
+<ol type="1">
+<li><p>Edit you c++ settings of VsCode:</p>
+<ol type="1">
+<li><p>create <code>.vscode/c_cpp_properties.json</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Mac&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [],</span><br><span class="line">            &quot;macFrameworkPath&quot;: [</span><br><span class="line">                &quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;/usr/bin/clang&quot;,</span><br><span class="line">            &quot;cStandard&quot;: &quot;c11&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;c++11&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;macos-clang-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>In terminal:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;alias g++=&#x27;g++ -std=c++11&#x27;&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source    ~/.bashrc</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+</ol>
+<p>Run your <code>.cpp</code> files in terminals:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">g++ filename.cpp -o objectname</span><br><span class="line">./objectname</span><br></pre></td></tr></table></figure>
+<p>Note: you can use <code>g++</code> in std11, but <code>clang++</code> is still in std98. (<code>clang/gcc</code> is for <code>.c</code> file)</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C/C++ openmp</title>
     <url>/2020/05/30/C-C-openmp/</url>
     <content><![CDATA[<p>Just a note for myself !</p>
@@ -350,48 +420,6 @@
         <tag>C/C++</tag>
         <tag>openmp</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>AdaBoosting</title>
-    <url>/2021/05/24/AdaBoosting/</url>
-    <content><![CDATA[<h3 id="boosting-bagging">Boosting &amp; Bagging</h3>
-<p>Bagging是传统算法常常采用的方法：</p>
-<ol type="1">
-<li>从原始sample中用Bootstraping（类似cross-validation）选出n个样本，进行k次。</li>
-<li>分别对k个训练集训练得到k个模型</li>
-<li>加权得到最终模型</li>
-</ol>
-<ul>
-<li>当算法结果不稳定时使用（训练集、测试集对结果影响大）</li>
-</ul>
-<p>-&gt;Bagging可能出现多个模型对同一样的sample都分类错误</p>
-<p>-&gt;不能并行所有model的训练而要串行（每次关注之前训练不当的地方）</p>
-<p>AdaBoosting</p>
-<ol type="1">
-<li>在整个数据集上训练model（h1）</li>
-<li>对h1表现好的sample降低权重，对h2表现不好的sample增加权重，训练model（h2）</li>
-<li>repeat</li>
-</ol>
-<h3 id="adaboost">AdaBoost</h3>
-<p>如何实现AdaBoosting呢？</p>
-<h4 id="加权误差">加权误差</h4>
-<p>一般 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} 1/n\)</span>，但是在对样本进行加权后 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} w _i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分类失败）的sample。</p>
-<p>如何找弱分类器呢？</p>
-<h4 id="决策树桩">决策树桩</h4>
-<p><img src="/2021/05/24/AdaBoosting/1.png" alt="1" style="zoom:50%;"></p>
-<p>上图中简单的情况，有12种树桩组合。</p>
-<blockquote>
-<p>我们可以对上面的情况做 12 种可能的「测试」。每条分割线边上的数字「2」简单地表示了这样一个事实：位于分割线某一侧的所有点都可能属于 0 类或 1 类。因此，每条分割线嵌入了 2 个「测试」。</p>
-</blockquote>
-<p>针对不同的问题首先要选好弱分类器h，在迭代的过程中每次选择对当前（加权后）sample分类最优的弱分类器作为基本分类器进行融合。</p>
-<ul>
-<li>AdaBoost不需要先验，同时不容易过拟合，同时不依赖弱分类器效果（可以自由分配权重）。</li>
-<li>AdaBoost错误样本权重指数上升--容易受噪音干扰</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
   </entry>
   <entry>
     <title>C++: Difference between int* and int&amp; and int</title>
@@ -416,29 +444,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Cannot get access to Github</title>
-    <url>/2021/03/04/Cannot-get-access-to-Github/</url>
-    <content><![CDATA[<p>MacOS 11.2</p>
-<ol type="1">
-<li><p><code>sudo vim /private/etc/hosts</code></p></li>
-<li><p>Delete all path about Github</p></li>
-<li><p>Search IP address of <code>github.com</code> and <code>github.global.ssl.fastly.net</code> in <code>https://github.com.ipaddress.com</code></p></li>
-<li><p>Add</p>
-<p><code>#github</code></p>
-<p><code>140.82.114.4 github.com</code></p>
-<p><code>199.232.69.194 github.global.ssl.fastly.net</code></p>
-<p>replace the IP address with the search result.</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-        <tag>MacOS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Copy &amp; Deepcopy in Python</title>
     <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
     <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
@@ -448,6 +453,46 @@
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Difference between Override &amp; Overload</title>
+    <url>/2020/12/16/Difference-between-Override-Overload/</url>
+    <content><![CDATA[<p>Both of them only happen when difference function using same name.</p>
+<ul>
+<li><p>Overloading: picking a method <strong>signature</strong> at compile time based on the number and type of the arguments specified</p>
+<p>Overload--在compile时抓取function signature，每个function参数列表（参数数目和数量）不同，所以区别开来。</p></li>
+<li><p>Overriding: picking a method <strong>implementation</strong> at execution time based on the actual type of the target object (as opposed to the compile-time type of the expression)</p>
+<p>Override--在execution时选取不同的function来执行，注意这些function名称相同，参数列表相同。发生在类的继承中，子类function override夫类function，返回类型相同。</p></li>
+</ul>
+<p>Example (with java):</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">// this function will overload the function above</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">double</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(double)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;		</span><br><span class="line">  	<span class="comment">// this function override the function in Base</span></span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Base b = <span class="keyword">new</span> Child();</span><br><span class="line">b.foo(<span class="number">10</span>); <span class="comment">// Prints Child.foo(int)</span></span><br><span class="line">b.foo(<span class="number">5.0</span>); <span class="comment">// Prints Base.foo(double)</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
+    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
+    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
+<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code> and <code>const a int</code> are totally same. Both of them tell the compiler that the value stored in <code>a</code> can not be modified. But when it is combined with pointer, things go complicated</p>
+<h2 id="const-int">const int *</h2>
+<p>For C++, <code>int*</code> is not viewed as a type. Only <code>*a</code> be viewed as a mark telling the complier <code>a</code> is a pointer. So as we have already known that <code>int const</code> is same with <code>const int</code>, <code>int const *a</code> is also same with <code>const int *a</code>. Both of them means <code>*a</code> is a const, which means the value poined by <code>a</code> can not be modified but <code>a</code>, as a pointer, can point to different places.</p>
+<h2 id="int-const">int* const</h2>
+<p>By contrast, the <code>const</code> in <code>int* const</code> is a mark for <code>a</code>, so <code>a</code>, as a pointer, can only point to one specific place(determined when it is initialized), but the value pointed by it can be changed.</p>
+<p>Besides, we can combine two usages of <code>const</code>together: <code>const int* const a</code>--<code>a</code>, as a pointer, can not be modified and the value pointed by <code>a</code> cannot be modified.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>const</tag>
+        <tag>pointer</tag>
       </tags>
   </entry>
   <entry>
@@ -537,70 +582,39 @@
       </tags>
   </entry>
   <entry>
-    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
-    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
-    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
-<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code> and <code>const a int</code> are totally same. Both of them tell the compiler that the value stored in <code>a</code> can not be modified. But when it is combined with pointer, things go complicated</p>
-<h2 id="const-int">const int *</h2>
-<p>For C++, <code>int*</code> is not viewed as a type. Only <code>*a</code> be viewed as a mark telling the complier <code>a</code> is a pointer. So as we have already known that <code>int const</code> is same with <code>const int</code>, <code>int const *a</code> is also same with <code>const int *a</code>. Both of them means <code>*a</code> is a const, which means the value poined by <code>a</code> can not be modified but <code>a</code>, as a pointer, can point to different places.</p>
-<h2 id="int-const">int* const</h2>
-<p>By contrast, the <code>const</code> in <code>int* const</code> is a mark for <code>a</code>, so <code>a</code>, as a pointer, can only point to one specific place(determined when it is initialized), but the value pointed by it can be changed.</p>
-<p>Besides, we can combine two usages of <code>const</code>together: <code>const int* const a</code>--<code>a</code>, as a pointer, can not be modified and the value pointed by <code>a</code> cannot be modified.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>const</tag>
-        <tag>pointer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
-    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
-    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
-<p>Try <code>nvidia-settings</code> in terminal, then:</p>
-<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
+    <title>Cannot get access to Github</title>
+    <url>/2021/03/04/Cannot-get-access-to-Github/</url>
+    <content><![CDATA[<p>MacOS 11.2</p>
+<ol type="1">
+<li><p><code>sudo vim /private/etc/hosts</code></p></li>
+<li><p>Delete all path about Github</p></li>
+<li><p>Search IP address of <code>github.com</code> and <code>github.global.ssl.fastly.net</code> in <code>https://github.com.ipaddress.com</code></p></li>
+<li><p>Add</p>
+<p><code>#github</code></p>
+<p><code>140.82.114.4 github.com</code></p>
+<p><code>199.232.69.194 github.global.ssl.fastly.net</code></p>
+<p>replace the IP address with the search result.</p></li>
+</ol>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
+        <tag>Github</tag>
+        <tag>MacOS</tag>
       </tags>
   </entry>
   <entry>
-    <title>How to generate random number via C++ (srand version)</title>
-    <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
-    <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>Experience of MacOS Big Sur</title>
+    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
+    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
+<p>(for test purpose--transfer Blog)</p>
 ]]></content>
       <categories>
-        <category>Learning</category>
+        <category>Chat</category>
       </categories>
       <tags>
-        <tag>C++</tag>
-        <tag>Srand</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Difference between Override &amp; Overload</title>
-    <url>/2020/12/16/Difference-between-Override-Overload/</url>
-    <content><![CDATA[<p>Both of them only happen when difference function using same name.</p>
-<ul>
-<li><p>Overloading: picking a method <strong>signature</strong> at compile time based on the number and type of the arguments specified</p>
-<p>Overload--在compile时抓取function signature，每个function参数列表（参数数目和数量）不同，所以区别开来。</p></li>
-<li><p>Overriding: picking a method <strong>implementation</strong> at execution time based on the actual type of the target object (as opposed to the compile-time type of the expression)</p>
-<p>Override--在execution时选取不同的function来执行，注意这些function名称相同，参数列表相同。发生在类的继承中，子类function override夫类function，返回类型相同。</p></li>
-</ul>
-<p>Example (with java):</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">// this function will overload the function above</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">double</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(double)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;		</span><br><span class="line">  	<span class="comment">// this function override the function in Base</span></span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Base b = <span class="keyword">new</span> Child();</span><br><span class="line">b.foo(<span class="number">10</span>); <span class="comment">// Prints Child.foo(int)</span></span><br><span class="line">b.foo(<span class="number">5.0</span>); <span class="comment">// Prints Base.foo(double)</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
+        <tag>MacOS</tag>
       </tags>
   </entry>
   <entry>
@@ -745,6 +759,33 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
+    <title>How to generate random number via C++ (srand version)</title>
+    <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
+    <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Srand</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
+    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
+    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
+<p>Try <code>nvidia-settings</code> in terminal, then:</p>
+<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Image Test</title>
     <url>/2021/09/15/Image-Test/</url>
     <content><![CDATA[<p>You see the image? <img src="/2021/09/15/Image-Test/test.jpg" alt="image"></p>
@@ -752,19 +793,6 @@ Picture3: 3-D GMM
       <categories>
         <category>Test</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Experience of MacOS Big Sur</title>
-    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
-    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
-<p>(for test purpose--transfer Blog)</p>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-      <tags>
-        <tag>MacOS</tag>
-      </tags>
   </entry>
   <entry>
     <title>How to get matrix transform in python</title>
@@ -789,16 +817,19 @@ Picture3: 3-D GMM
       </categories>
   </entry>
   <entry>
-    <title>Markdown在github上公式显示错误</title>
-    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
+    <title>Mac上vscode显示没有修改文件权限</title>
+    <url>/2020/05/22/Mac%E4%B8%8Avscode%E6%98%BE%E7%A4%BA%E6%B2%A1%E6%9C%89%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<p>mac上vscode显示<code>fail to save</code>要求<code>try as sudo</code></p>
+<h2 id="问题解决">问题解决</h2>
+<p>当然你可以每次都手动输入一遍密码，但是太麻烦，而且也有可能失败 所以最好就是直接给vscode对当前文件夹的完全权限</p>
+<p><code>sudo chown -R &lt;usrname&gt; &lt;/address&gt;</code></p>
+<h2 id="more">more</h2>
+<p><code>chown</code>表示权限 <code>-R</code>表示对子文件递推 但是要注意，每次在该文件下以vscode以外的终端新增的文件依然没有权限，重新进行一下命令就好了。</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
   </entry>
   <entry>
     <title>Mac上极好的Github使用教程(转载)</title>
@@ -817,18 +848,113 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
-    <title>Mac上vscode显示没有修改文件权限</title>
-    <url>/2020/05/22/Mac%E4%B8%8Avscode%E6%98%BE%E7%A4%BA%E6%B2%A1%E6%9C%89%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<p>mac上vscode显示<code>fail to save</code>要求<code>try as sudo</code></p>
-<h2 id="问题解决">问题解决</h2>
-<p>当然你可以每次都手动输入一遍密码，但是太麻烦，而且也有可能失败 所以最好就是直接给vscode对当前文件夹的完全权限</p>
-<p><code>sudo chown -R &lt;usrname&gt; &lt;/address&gt;</code></p>
-<h2 id="more">more</h2>
-<p><code>chown</code>表示权限 <code>-R</code>表示对子文件递推 但是要注意，每次在该文件下以vscode以外的终端新增的文件依然没有权限，重新进行一下命令就好了。</p>
+    <title>Markdown在github上公式显示错误</title>
+    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
 ]]></content>
       <categories>
         <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>My Donut in Blender</title>
+    <url>/2020/08/20/My-Donut-in-Blender/</url>
+    <content><![CDATA[<p>OHHHHHHH，终于完成了Blender里的Donut。真的能学的很多，不过说实话这种技术活得练，不然很快就要忘记了orz。</p>
+<p>先放一张成品图：</p>
+<p><img src="/2020/08/20/My-Donut-in-Blender/1.png"></p>
+<p>HOHO，看起来还行，仔细看纹理的话还是挺复杂的，在面包部分的凹凸不平花了很大的功夫来调整，咖啡液面也是特别调整出水面张力的感觉，要进一步提高的话估计是最好在咖啡表面能有一些不均匀的细泡沫就更好了！</p>
+<p>下面是一些细节图：</p>
+<figure>
+<img src="/2020/08/20/My-Donut-in-Blender/4.png" alt="简单的白模居然有几分禅意"><figcaption aria-hidden="true">简单的白模居然有几分禅意</figcaption>
+</figure>
+<figure>
+<img src="/2020/08/20/My-Donut-in-Blender/2.png" alt="Donut本身临近成品"><figcaption aria-hidden="true">Donut本身临近成品</figcaption>
+</figure>
+<figure>
+<img src="/2020/08/20/My-Donut-in-Blender/5.png" alt="没有做好的杯子（杯子柄连接处没有封口），但是看起来确实最好看的"><figcaption aria-hidden="true">没有做好的杯子（杯子柄连接处没有封口），但是看起来确实最好看的</figcaption>
+</figure>
+<figure>
+<img src="/2020/08/20/My-Donut-in-Blender/3.png" alt="杯子本身临近成品"><figcaption aria-hidden="true">杯子本身临近成品</figcaption>
+</figure>
+<figure>
+<img src="/2020/08/20/My-Donut-in-Blender/6.png" alt="这个现象很奇怪，透明的水质感像水银一样，教程解释说是水面和杯子之前不能完全接触，光线在两者之间还打到了空气，造成了反常的折射，所以要故意穿模来解决"><figcaption aria-hidden="true">这个现象很奇怪，透明的水质感像水银一样，教程解释说是水面和杯子之前不能完全接触，光线在两者之间还打到了空气，造成了反常的折射，所以要故意穿模来解决</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Rendering</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>NPR Cup--a taste to NPR</title>
+    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
+    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果"><figcaption aria-hidden="true">简单的一个效果</figcaption>
+</figure>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了"><figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Rendering</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Overwatch yes</title>
+    <url>/2021/06/10/Overwatch-yes/</url>
+    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
+<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
+]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>PDF &amp; CDF</title>
+    <url>/2021/02/24/PDF_CDF/</url>
+    <content><![CDATA[<p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。 为此引入了PDF（Probability Density Function），直观地理解可以近似理解为概率本身--也就是说如果我们不关心纯粹的概率值，而只要求相对的概率大小，那么就可以使用某个点的PDF值进行计算（比如最大似然估计）。但是要认识到某个点的具体概率值实际为<span class="math inline">\(PDF(x)*dx = 0\)</span>，一个点的概率本身没有意义。</p>
+<p>为此需要引入CDF，即为PDF在一定区间上的积分，这使得CDF具有了实际的概率意义。</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Probability Density Function</tag>
+        <tag>Cumulative Distribution Function</tag>
+        <tag>Norm Distribution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Next主题迁移配置文档</title>
+    <url>/2021/09/15/Next%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E9%85%8D%E7%BD%AE%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h3 id="section">2021.9.15</h3>
+<p>+完成了next主题的基本安装 +更改了next主题的个人信息 +新增了about界面 +增加了social/bilibili +增加了文章加密功能 +迁移了原blog的日记 +成功添加音乐/视频播放功能 +成功添加了对图片的支持 +成功添加了对公式的支持 -social/bilibili无法使用第三方图标 -远程相册功能开发中（github push出现问题） -对原本数据的修复仍在进行中 -由于更换主题，对公式的支持采用了新方法，需要重新对之前的公式进行优化</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Python set</title>
+    <url>/2020/09/24/Python-set/</url>
+    <content><![CDATA[<h3 id="basic-use-of-set">Basic use of set</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;x = <span class="built_in">set</span>(<span class="string">&#x27;runoob&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;y = <span class="built_in">set</span>(<span class="string">&#x27;google&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;x, y</span><br><span class="line">(<span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>]), <span class="built_in">set</span>([<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>]))   <span class="comment"># delete duplicated items</span></span><br><span class="line">&gt;&gt;&gt;x &amp; y         <span class="comment"># return the same items in both set</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;o&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x | y         <span class="comment"># return all the items</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x - y         <span class="comment"># like difference</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;n&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="practice">Practice</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;a = <span class="built_in">set</span>(<span class="string">&quot;Google&quot;</span>)</span><br><span class="line">a</span><br><span class="line">&#123;<span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;e&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;b = <span class="built_in">set</span>(<span class="string">&quot;Bob&quot;</span>)</span><br><span class="line">b</span><br><span class="line">&#123;<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;o&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;a.difference(b)</span><br><span class="line">&#123;<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># set A and set B</span></span><br><span class="line"><span class="comment"># deep copy set</span></span><br><span class="line">C = A.copy()</span><br><span class="line"><span class="comment"># add elements in B to A</span></span><br><span class="line">A.update(B)</span><br></pre></td></tr></table></figure>
+<h3 id="how-to-init">How to init</h3>
+<ol type="1">
+<li><code>s = set([1,2,3,4,5])</code></li>
+<li><code>s = &#123;1,2,3,4,5&#125; # it is a set</code></li>
+</ol>
+<h3 id="how-to-determine-an-empty-set">How to determine an empty set</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> s: <span class="comment"># if the set is empty</span></span><br><span class="line">	<span class="comment"># do sth</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
       </categories>
   </entry>
   <entry>
@@ -853,36 +979,31 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
-    <title>Python set</title>
-    <url>/2020/09/24/Python-set/</url>
-    <content><![CDATA[<h3 id="basic-use-of-set">Basic use of set</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;x = <span class="built_in">set</span>(<span class="string">&#x27;runoob&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;y = <span class="built_in">set</span>(<span class="string">&#x27;google&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;x, y</span><br><span class="line">(<span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>]), <span class="built_in">set</span>([<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>]))   <span class="comment"># delete duplicated items</span></span><br><span class="line">&gt;&gt;&gt;x &amp; y         <span class="comment"># return the same items in both set</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;o&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x | y         <span class="comment"># return all the items</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x - y         <span class="comment"># like difference</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;n&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="practice">Practice</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;a = <span class="built_in">set</span>(<span class="string">&quot;Google&quot;</span>)</span><br><span class="line">a</span><br><span class="line">&#123;<span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;e&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;b = <span class="built_in">set</span>(<span class="string">&quot;Bob&quot;</span>)</span><br><span class="line">b</span><br><span class="line">&#123;<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;o&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;a.difference(b)</span><br><span class="line">&#123;<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># set A and set B</span></span><br><span class="line"><span class="comment"># deep copy set</span></span><br><span class="line">C = A.copy()</span><br><span class="line"><span class="comment"># add elements in B to A</span></span><br><span class="line">A.update(B)</span><br></pre></td></tr></table></figure>
-<h3 id="how-to-init">How to init</h3>
-<ol type="1">
-<li><code>s = set([1,2,3,4,5])</code></li>
-<li><code>s = &#123;1,2,3,4,5&#125; # it is a set</code></li>
-</ol>
-<h3 id="how-to-determine-an-empty-set">How to determine an empty set</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> s: <span class="comment"># if the set is empty</span></span><br><span class="line">	<span class="comment"># do sth</span></span><br></pre></td></tr></table></figure>
+    <title>Python technique</title>
+    <url>/2020/06/06/Python-technique/</url>
+    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking or dynamic programing:</p>
+<p>cause it will avoid reuse of data and reach good performance</p>
+<hr>
+<p>how to create a vector</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
+<p>Directly read/ wirte is quite different from <code>append()</code></p>
+<p><code>append()</code> will treat elements as data, which is more flexible</p>
+<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned vector</p>
+<hr>
+<p>spilt part of string</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>init a vector:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
+<p>vector is a row*column size vector with all entries initialized by a.</p>
+<p>note <code>a</code> is just a value and can be anything you wang. <code>i</code> is just an iterator, even can use <code>_</code></p>
 ]]></content>
       <categories>
         <category>Learning</category>
       </categories>
-  </entry>
-  <entry>
-    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
-    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
-    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
-<p>Literally, it is a <code>const iterator</code>, which means: iterator, as a pointer, can not be modified, but the value pointed by this iterator is permitted to be modified.</p>
-<h1 id="const_iterator">const_iterator</h1>
-<p><code>const_iterator</code>is a specially defined class. It is defined to go through a const container, which we are not intended to modify.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>SVM(Support Vector Machine)</title>
@@ -922,43 +1043,6 @@ Picture3: 3-D GMM
       </categories>
       <tags>
         <tag>SVL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Next主题迁移配置文档</title>
-    <url>/2021/09/15/Next%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E9%85%8D%E7%BD%AE%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[<h3 id="section">2021.9.15</h3>
-<p>+完成了next主题的基本安装 +更改了next主题的个人信息 +新增了about界面 +增加了social/bilibili +增加了文章加密功能 +迁移了原blog的日记 +成功添加音乐/视频播放功能 +成功添加了对图片的支持 +成功添加了对公式的支持 -social/bilibili无法使用第三方图标 -远程相册功能开发中（github push出现问题） -对原本数据的修复仍在进行中 -由于更换主题，对公式的支持采用了新方法，需要重新对之前的公式进行优化</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Python technique</title>
-    <url>/2020/06/06/Python-technique/</url>
-    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking or dynamic programing:</p>
-<p>cause it will avoid reuse of data and reach good performance</p>
-<hr>
-<p>how to create a vector</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
-<p>Directly read/ wirte is quite different from <code>append()</code></p>
-<p><code>append()</code> will treat elements as data, which is more flexible</p>
-<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned vector</p>
-<hr>
-<p>spilt part of string</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>init a vector:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
-<p>vector is a row*column size vector with all entries initialized by a.</p>
-<p>note <code>a</code> is just a value and can be anything you wang. <code>i</code> is just an iterator, even can use <code>_</code></p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1019,28 +1103,16 @@ Picture3: 3-D GMM
       </categories>
   </entry>
   <entry>
-    <title>Test discription</title>
-    <url>/2021/09/15/Test-discription/</url>
-    <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>PDF &amp; CDF</title>
-    <url>/2021/02/24/PDF_CDF/</url>
-    <content><![CDATA[<p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。 为此引入了PDF（Probability Density Function），直观地理解可以近似理解为概率本身--也就是说如果我们不关心纯粹的概率值，而只要求相对的概率大小，那么就可以使用某个点的PDF值进行计算（比如最大似然估计）。但是要认识到某个点的具体概率值实际为<span class="math inline">\(PDF(x)*dx = 0\)</span>，一个点的概率本身没有意义。</p>
-<p>为此需要引入CDF，即为PDF在一定区间上的积分，这使得CDF具有了实际的概率意义。</p>
+    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
+    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
+    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
+<p>Literally, it is a <code>const iterator</code>, which means: iterator, as a pointer, can not be modified, but the value pointed by this iterator is permitted to be modified.</p>
+<h1 id="const_iterator">const_iterator</h1>
+<p><code>const_iterator</code>is a specially defined class. It is defined to go through a const container, which we are not intended to modify.</p>
 ]]></content>
       <categories>
         <category>Learning</category>
       </categories>
-      <tags>
-        <tag>Probability Density Function</tag>
-        <tag>Cumulative Distribution Function</tag>
-        <tag>Norm Distribution</tag>
-      </tags>
   </entry>
   <entry>
     <title>Test Latex Formula</title>
@@ -1084,6 +1156,15 @@ e=mc^2
       </categories>
   </entry>
   <entry>
+    <title>Test discription</title>
+    <url>/2021/09/15/Test-discription/</url>
+    <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Use of &#39;numpy&#39; package in Python</title>
     <url>/2020/09/27/Use-of-numpy-package-in-Python/</url>
     <content><![CDATA[<h2 id="import">Import</h2>
@@ -1108,64 +1189,11 @@ e=mc^2
       </categories>
   </entry>
   <entry>
-    <title>What is the use of activation function</title>
-    <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
-    <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
-<p>The following picture illustrates the basic structure of neural network.</p>
-<figure>
-<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn"><figcaption aria-hidden="true">nn</figcaption>
-</figure>
-<p>Extracted featrures are passed into the net as input.</p>
-<p># of input node = # of extracted feature types</p>
-<h1 id="why-we-need-activation">Why we need activation</h1>
-<p>For a classifiying issue:</p>
-<h3 id="without-activation">Without activation</h3>
-<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
-<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input} input+loss_1)+loss_2\)</span></p>
-<p>So bascically, we can derive that no matter how many layers you add into the net, without activation, the net can only produce a <strong>linear classifier</strong>.</p>
-<h3 id="with-activation">With activation</h3>
-<p>The aim of activation is to transfer a linear classifer to a non-linear classifer.</p>
-<p>The basic actication we use is: <span class="math display">\[
-\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0 \\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
-\]</span> It is same as nerve cell--if the cell is activated it produce a signal, otherwise, it does nothing.</p>
-<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
-\sigma(y) = \frac 1 {1+e^{-y}}
-\]</span> (we prefer to ues <span class="math inline">\(y\)</span>, because actication is added inside the net which means the input of activation is the output of prior layer)</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
-<center>
-<p>NN structure with activation</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
-<center>
-<p>Output of NN with activation</p>
-</center></center>]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Relu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>assert expression in Python</title>
-    <url>/2020/09/24/assert-expression-in-Python/</url>
-    <content><![CDATA[<h2 id="tags">tags:</h2>
-<h3 id="synatx">1. synatx</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert [expression]</span><br><span class="line"># it is same with</span><br><span class="line">if not [expression]:</span><br><span class="line">    raise AssertionError</span><br></pre></td></tr></table></figure>
-<h3 id="with-parameters">2. with parameters</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert expression [, arguments]</span><br><span class="line"># same with</span><br><span class="line">if not expression:</span><br><span class="line">    raise AssertionError(arguments)</span><br></pre></td></tr></table></figure>
-<h3 id="conclusion">conclusion</h3>
-<p>if an assert is not satisfied, throw exception. easy to detect the errors in code.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Video test</title>
     <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-vimsniGterYGFxim" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ/&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-vimsniGterYGFxim").style.height=document.getElementById("mmedia-vimsniGterYGFxim").scrollWidth*0.76+"px";
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-BvQxdUhzCcmxNzJO" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-BvQxdUhzCcmxNzJO").style.height=document.getElementById("mmedia-BvQxdUhzCcmxNzJO").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-vimsniGterYGFxim").style.height=document.getElementById("mmedia-vimsniGterYGFxim").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-BvQxdUhzCcmxNzJO").style.height=document.getElementById("mmedia-BvQxdUhzCcmxNzJO").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <thead>
@@ -1235,6 +1263,59 @@ e=mc^2
       </categories>
   </entry>
   <entry>
+    <title>What is the use of activation function</title>
+    <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
+    <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
+<p>The following picture illustrates the basic structure of neural network.</p>
+<figure>
+<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn"><figcaption aria-hidden="true">nn</figcaption>
+</figure>
+<p>Extracted featrures are passed into the net as input.</p>
+<p># of input node = # of extracted feature types</p>
+<h1 id="why-we-need-activation">Why we need activation</h1>
+<p>For a classifiying issue:</p>
+<h3 id="without-activation">Without activation</h3>
+<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
+<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input} input+loss_1)+loss_2\)</span></p>
+<p>So bascically, we can derive that no matter how many layers you add into the net, without activation, the net can only produce a <strong>linear classifier</strong>.</p>
+<h3 id="with-activation">With activation</h3>
+<p>The aim of activation is to transfer a linear classifer to a non-linear classifer.</p>
+<p>The basic actication we use is: <span class="math display">\[
+\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0 \\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
+\]</span> It is same as nerve cell--if the cell is activated it produce a signal, otherwise, it does nothing.</p>
+<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
+\sigma(y) = \frac 1 {1+e^{-y}}
+\]</span> (we prefer to ues <span class="math inline">\(y\)</span>, because actication is added inside the net which means the input of activation is the output of prior layer)</p>
+<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
+<center>
+<p>NN structure with activation</p>
+<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
+<center>
+<p>Output of NN with activation</p>
+</center></center>]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Relu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>assert expression in Python</title>
+    <url>/2020/09/24/assert-expression-in-Python/</url>
+    <content><![CDATA[<h2 id="tags">tags:</h2>
+<h3 id="synatx">1. synatx</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert [expression]</span><br><span class="line"># it is same with</span><br><span class="line">if not [expression]:</span><br><span class="line">    raise AssertionError</span><br></pre></td></tr></table></figure>
+<h3 id="with-parameters">2. with parameters</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert expression [, arguments]</span><br><span class="line"># same with</span><br><span class="line">if not expression:</span><br><span class="line">    raise AssertionError(arguments)</span><br></pre></td></tr></table></figure>
+<h3 id="conclusion">conclusion</h3>
+<p>if an assert is not satisfied, throw exception. easy to detect the errors in code.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>hexo图片在md文档中显示正常但是网页无法显示</title>
     <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
     <content><![CDATA[<h4 id="step-1">Step 1</h4>
@@ -1267,6 +1348,19 @@ e=mc^2
       </tags>
   </entry>
   <entry>
+    <title>how to change you local git name</title>
+    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
+<p>Your name will be shown on github each time you push to it.</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>solution to git@github.com出现Permission denied (publickey)</title>
     <url>/2020/12/21/solution-to-git-github-com%E5%87%BA%E7%8E%B0Permission-denied-publickey/</url>
     <content><![CDATA[<ol type="1">
@@ -1288,37 +1382,6 @@ e=mc^2
       </tags>
   </entry>
   <entry>
-    <title>how to change you local git name</title>
-    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
-<p>Your name will be shown on github each time you push to it.</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用hexo theme Butterfly 报错</title>
-    <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
-    <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly 报错</h2>
-<p>直接用github上作者提供的代码</p>
-<p>git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/Butterfly</p>
-<p>结果是页面根本无法正常渲染，只有一行字：</p>
-<p><font color="#DC143C">extends includes/layout.pug block content include ./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include includes/pagination.pug</font></p>
-<h2 id="问题解决">问题解决</h2>
-<p>参照原作者提供的文章<a href="https://docs.jerryc.me/#/config/question">Butterfly</a></p>
-<p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
-<hr>
-<h2 id="丝滑进入">丝滑进入</h2>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
     <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="问题描述">问题描述</h2>
@@ -1330,32 +1393,6 @@ e=mc^2
       <tags>
         <tag>-ubuntu -install</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
-    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
-<h2 id="问题原因">问题原因</h2>
-<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错 因此有一下三种解决办法：</p>
-<ol type="1">
-<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
-<li><p>手动打开preinterpreter</p></li>
-</ol>
-<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<ol start="3" type="1">
-<li>重新为mac安装</li>
-</ol>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
-<p>如果有了就更新一下</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
-<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
   </entry>
   <entry>
     <title>yilia主题的头像配置失败</title>
@@ -1393,39 +1430,58 @@ e=mc^2
       </categories>
   </entry>
   <entry>
-    <title>禅诗解读</title>
-    <url>/2020/11/28/%E7%A6%85%E8%AF%97%E8%A7%A3%E8%AF%BB/</url>
-    <content><![CDATA[<h1 id="僧璨禅师信心铭">僧璨禅师《信心铭》</h1>
-<h3 id="前部分解读">--前部分解读</h3>
-<h2 id="一引言">一、引言</h2>
-<p>僧璨大师是禅宗三祖,一般认为是隋朝初期的禅师。《信心铭》是解读其思想最重要的文献，篇幅很长，思想繁复深邃，此处仅仅结合课上教学选取前几句自己稍微有些感悟的诗句解读。前人对《信心铭》的解读中都提到其最核心的内容在于<u>“不二”</u>，下文也会尝试结合这一核心词进行解读。</p>
-<h2 id="二解读">二、解读</h2>
-<h3 id="信心铭标题">《信心铭》（标题）</h3>
-<p>慧广法师解读信心铭三个字时，解释信为五十一心所法的第三类，也就是善心所中的一个法--“信”。信在字面的意思解释为诚实、不欺骗，做动词也可以解释为相信。信心直观地解释为相信心，也可以解释为诚实的心（将信做为心法，即是做一种观念来对待）。铭字面解释可以说是一种文体，同时也是需要铭记，类似纲领性文字。标题似乎是在说相信自己的内心，也可以说是内心诚实没有迷惘。</p>
-<span id="more"></span>
-<h3 id="至道无难唯嫌拣择但莫憎爱洞然明白">“至道无难，唯嫌拣择，但莫憎爱，洞然明白。”</h3>
-<p>“至道”是最极致的“道”，是一切规则的极致发展，或者是一切规则的起源（统一）。整句解释就是：终极的道没有什么难以理解的，只是不要挑挑拣拣，只要没有憎爱，就能马上明白。首先这里有个问题：拣择的宾语是什么？如果是至道，是不是说至道本身并不唯一？如果是道，是不是说没有选择的道就是至道，还是说至道的理解是建立在所有道之上还是至道本身就是所有道的集合？就我个人而言，既然说世间万物都有佛性，那么应该说是“至道”本身就是普遍的--至道本身是一种道的集合的称谓。而“唯嫌拣择，但莫憎爱”两句和六祖诗句“明镜本清净，何处惹尘埃”有类似的精神内核—事实判断本身没有什么对错。哲学家常常说认识世界总要受到有色眼镜的限制，但是有色眼镜并不待在眼睛上，而是在内心里，所见都是真实，是内心对感受的处理导致了观念的不同，才有了对错的区分。这两句同样都是再说要放下内心的道德判断，屏蔽内心对事实（道）的处理，反而能够得见真实（道）。</p>
-<h3 id="毫厘有差天地悬隔欲得现前莫存顺逆">“毫厘有差，天地悬隔；欲得现前，莫存顺逆。”</h3>
-<p>“毫厘有差，天地悬隔”一句显得很突兀，前后相互联系似乎没有什么内在联系，这里只好先简单地解读为是三祖在作诗时，对弟子的规劝警戒。“欲得现前，莫存顺逆”的对象应当是与前句的“至道”统一，如果至道在面前出现，不要存在内心的顺逆。这和前一句的思想是一致的，都是要放弃自己内心的道德判断，绝对客观地理解、认识世界，不存在“顺逆”。</p>
-<h3 id="违顺相争是为心病不识元旨徒劳念静">“违顺相争，是为心病；不识元旨，徒劳念静。”</h3>
-<p>这里就指出内心“违顺”相互的矛盾，是内心的病灶。这里前半句应和本文“不二”的思想。“不二”应当是对某种绝对存在的表述，这种绝对的存在可以视为思想的统一，也可以视为是独立于外界的某种存在。这里既然说不能存在“顺逆”，那么这里的“不二”也应当是独立的存在（处于内心而又独立于顺逆），而不是统一。这里的“心病”的根源也应当是需要通过摒弃“违顺”来根除。之后提到的“念静”应当就是摒弃内心违顺的一种做法。问题又来了，这里数次指出问题所在，但是从来没有明确过要怎么样解决问题？没有可以用来实际操作的手段。既然“违顺”本身是内心对外界感受处理后的一种内心的状态/反应，那么这里到底应该是在处理之后不做出反应；还是做出的反应不存在主观的“顺逆”反应；还是干脆不处理；甚至更进一步根本就不去感受（禅宗中完全封闭感受的人似乎也是有的），这里都没有说明白。“不识元旨”有人也写作“不识玄旨”，字面解释是不知道最初的意义（旨在古汉语中常作想法、志向解释）。这里的“元旨”到底是什么？联系上下文可以解释说这个“元旨”就是之前说的“莫存顺逆”的道理，即是说这一道理是学习禅最初的道理，也是说这是学习禅最根本的道理（“元”）。这样似乎解释得很顺畅，但是“元旨”也有可能是说世界最根本的道理--客观上的最初的道理，或者说是本来就有的道理。那么这样又可以解释说是在认识世界的时候要去认识“元旨”，世界本来是什么样子的就是什么样子的，不要经过判断地去认识，才能认识到真正的“至道”。</p>
-<p>### “圆同太虚，无欠无余；良由取舍，所以不如。”</p>
-<p>这里的主语应当也还是“至道”，“圆”是说至道本身就是圆满的，“太虚”比较难以解释（“太虚”是道教词汇，《信心铭》除去此处外也有多处使用道教术语），《道德经》中“太虚”一般认为就是“道”的代名词，是世界的本源，但是在古文的语境内，也常常用“太虚”来代指世界所在的宇宙，不过因为当时还没有对世界的观测能力和一般的天文认识，这里“太虚”所指的应当是广义上的世界。“圆同太虚，无欠无余”即是说“至道”如同这个世界一样（或者全部统一为道本身），没有少，也没有多。这里又有难以解释的地方：多、少都是相对的概念，但是在之前的论述中都一直在尝试塑造一个绝对的存在（“至道”），那么这里是说“至道”本身的存在没有多少的比较，强调这个比较的概念本身就不存在，进而从侧面描述一个绝对的概念；还是说“至道”不增不减，反映的是一种早期朴素的物质守恒的观念（当然从目前看物质可以转化为能量，但是是否也意味着世界总体的能量守恒，目前还没有定论）？“良由取舍，所以不如”字面上是说因为（源自于）取舍，所以“不如”。这里的“如”法音法师解释为是“吻合”，是说“跟你生命原本的本来面貌、本来的心态不吻合了……就破坏了你本来的心态，也就是不相应了，就破坏了你跟大宇宙的瑜伽。”我认为这里说的“不如”是类比了世界的不增不减来讲述内心的某种“不增不减”的状态，如同世界、至道是绝对的一样，内心对外界的判断（也是某种境界、状态、反应） 同样应当是不会改变的（不增不减），联系前文指的就是放弃了所有的道德判断，达到“莫存顺逆”。</p>
-<p>### “莫逐有缘，勿住空忍；一种平怀，泯然自尽。”</p>
-<p>“有缘”和“空忍”明显相应。“莫逐有缘”是说不要去追求“有缘”，“有缘”的解释我查询了很多资料也没能得出一个通顺的解释。很多人解释“缘”为条件，我校老师在文明通识课程中解释佛教的“缘”为万事万物之间普遍的联系。这里粗略地可以解释为不要追求与自身相联系的事物，当然这句的核心应当在于“莫逐”，宾语只能模糊解释。但是紧随其后还有一句“勿住空忍”，不要强行忍受，是指对于这种“逐”的欲望，不要压制而是要消除它，用一种更为根本的方式结局，这种方式与前文也是统一的—没有好恶、放弃道德判断，消除自身的对外界事物的加工理解从而实现。最终的成果就是“一种平怀，泯然自尽”，内心平静，这种顺逆之间的矛盾（对有缘的追求）自己就消散了。</p>
-<h2 id="三结语">三、结语</h2>
-<p>作为禅宗的经典之一，《信心铭》很多的哲学观念与之后的六祖思想一以贯之，有很多类同之处，但同时在理解和表述上总有些许差异。在同时在思想语言表述上明显有我国传统的一些观念影响（全文中反复提到“道”，这一道教术语，但是却没有针对禅宗进行限定明确）。解读上遇到了很多困难：由于以诗为载体，很多语言的表述并不充分、严谨，主语和宾语多有缺失。再加上语言本身随时间就有很多变化，对于字句在当时时代的具体表义不明确等等因素，很多时候解读只能猜测。最重要的是自己本身对禅宗的总体思想把握不够明确，解读出的结果有各种可能，不能确信结果。自己理解不足，而表达更为困难，修改几次也不知道应该怎么说才好，正应了“言语道断”。</p>
-<h2 id="四原文">四、原文</h2>
-<p>原文附上：</p>
-<h3 id="信心铭">《信心铭》</h3>
-<p>僧璨禅师</p>
-<p>至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。违顺相争，是为心病；不识元旨，徒劳念静。圆同太虚，无欠无余；良由取舍，所以不如。莫逐有缘，勿住空忍；一种平怀，泯然自尽。止动归止，止更弥动；唯滞两边，宁知一种。一种不通，两处失功；遣有没有，从空背空。多言多虑，转不相应；绝言绝虑，无处不通。归根得旨，随照失宗；须臾返照，胜却前空。前空转变，皆由妄见；不用求真，唯须息见。至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。欲得现前，莫存顺逆，莫存顺逆。二见不住，慎勿追寻；才有是非，纷然失心。二由一有，一亦莫守。一心不生，万法无咎；无咎无法，不生不心。能随境灭，境逐能沉；境由能境，能由境能。欲知两段，元是一空。一空同两，齐含万象；不见精粗，宁有偏党。大道体宽，无易无难；小见狐疑，转急转迟。执之失度，必入邪路；放之自然，体无去住。任性合道，逍遥绝恼；系念乖真，昏沉不好。不好劳神，何用疏亲。欲取一乘，勿恶六尘；六尘不恶，还同正觉。智者无为，愚人自缚。智者无为，愚人自缚。法无异法，妄自爱着；将心用心，岂非大错。迷生寂乱，悟无好恶；一切二边，良由斟酌。梦幻空花，何劳把捉；得失是非，一时放却。眼若不睡，诸梦自除；心若不异，万法一如。一如体玄，兀尔忘缘；万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。泯其所以，不可方比。止动无动，动止无止；两既不成，一何有尔。究竟穷极，不存轨则；契心平等，所作俱息。狐疑净尽，正信调直。一切不留，无可记忆；虚明自照，不劳心力。非思量处，识情难测；真如法界，无他无自。要急相应，唯言不二；不二皆同，无不包容。十方智者，皆入此宗。宗非促延，一念万年；无在不在，十方目前。极小同大，忘绝境界；极大同小，不见边表。有即是无，无即是有；若不如是，必不须守。一即一切，一切即一，但能如是，何虑不毕。信心不二，不二信心；言语道断，非去来今。信心不二，不二信心；言语道断，非去来今。</p>
-<h2 id="参考文献">参考文献</h2>
-<p>《信心铭》释义，慧广法师，2017 ，“禅宗思想”。</p>
-<p>《信心铭》直解，法音法师，1982，讲述文字。</p>
+    <title>使用hexo theme Butterfly 报错</title>
+    <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
+    <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly 报错</h2>
+<p>直接用github上作者提供的代码</p>
+<p>git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/Butterfly</p>
+<p>结果是页面根本无法正常渲染，只有一行字：</p>
+<p><font color="#DC143C">extends includes/layout.pug block content include ./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include includes/pagination.pug</font></p>
+<h2 id="问题解决">问题解决</h2>
+<p>参照原作者提供的文章<a href="https://docs.jerryc.me/#/config/question">Butterfly</a></p>
+<p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
+<hr>
+<h2 id="丝滑进入">丝滑进入</h2>
 ]]></content>
       <categories>
-        <category>essay</category>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
+    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
+<h2 id="问题原因">问题原因</h2>
+<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错 因此有一下三种解决办法：</p>
+<ol type="1">
+<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
+<li><p>手动打开preinterpreter</p></li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<ol start="3" type="1">
+<li>重新为mac安装</li>
+</ol>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
+<p>如果有了就更新一下</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
+<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>感谢好太阳哥哥们</title>
+    <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
+    <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
+<p>Long May the Sun Shine!</p>
+<p><img src="/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/1.png"></p>
+]]></content>
+      <categories>
+        <category>Chat</category>
       </categories>
   </entry>
   <entry>
@@ -1476,6 +1532,42 @@ e=mc^2
       </categories>
   </entry>
   <entry>
+    <title>禅诗解读</title>
+    <url>/2020/11/28/%E7%A6%85%E8%AF%97%E8%A7%A3%E8%AF%BB/</url>
+    <content><![CDATA[<h1 id="僧璨禅师信心铭">僧璨禅师《信心铭》</h1>
+<h3 id="前部分解读">--前部分解读</h3>
+<h2 id="一引言">一、引言</h2>
+<p>僧璨大师是禅宗三祖,一般认为是隋朝初期的禅师。《信心铭》是解读其思想最重要的文献，篇幅很长，思想繁复深邃，此处仅仅结合课上教学选取前几句自己稍微有些感悟的诗句解读。前人对《信心铭》的解读中都提到其最核心的内容在于<u>“不二”</u>，下文也会尝试结合这一核心词进行解读。</p>
+<h2 id="二解读">二、解读</h2>
+<h3 id="信心铭标题">《信心铭》（标题）</h3>
+<p>慧广法师解读信心铭三个字时，解释信为五十一心所法的第三类，也就是善心所中的一个法--“信”。信在字面的意思解释为诚实、不欺骗，做动词也可以解释为相信。信心直观地解释为相信心，也可以解释为诚实的心（将信做为心法，即是做一种观念来对待）。铭字面解释可以说是一种文体，同时也是需要铭记，类似纲领性文字。标题似乎是在说相信自己的内心，也可以说是内心诚实没有迷惘。</p>
+<span id="more"></span>
+<h3 id="至道无难唯嫌拣择但莫憎爱洞然明白">“至道无难，唯嫌拣择，但莫憎爱，洞然明白。”</h3>
+<p>“至道”是最极致的“道”，是一切规则的极致发展，或者是一切规则的起源（统一）。整句解释就是：终极的道没有什么难以理解的，只是不要挑挑拣拣，只要没有憎爱，就能马上明白。首先这里有个问题：拣择的宾语是什么？如果是至道，是不是说至道本身并不唯一？如果是道，是不是说没有选择的道就是至道，还是说至道的理解是建立在所有道之上还是至道本身就是所有道的集合？就我个人而言，既然说世间万物都有佛性，那么应该说是“至道”本身就是普遍的--至道本身是一种道的集合的称谓。而“唯嫌拣择，但莫憎爱”两句和六祖诗句“明镜本清净，何处惹尘埃”有类似的精神内核—事实判断本身没有什么对错。哲学家常常说认识世界总要受到有色眼镜的限制，但是有色眼镜并不待在眼睛上，而是在内心里，所见都是真实，是内心对感受的处理导致了观念的不同，才有了对错的区分。这两句同样都是再说要放下内心的道德判断，屏蔽内心对事实（道）的处理，反而能够得见真实（道）。</p>
+<h3 id="毫厘有差天地悬隔欲得现前莫存顺逆">“毫厘有差，天地悬隔；欲得现前，莫存顺逆。”</h3>
+<p>“毫厘有差，天地悬隔”一句显得很突兀，前后相互联系似乎没有什么内在联系，这里只好先简单地解读为是三祖在作诗时，对弟子的规劝警戒。“欲得现前，莫存顺逆”的对象应当是与前句的“至道”统一，如果至道在面前出现，不要存在内心的顺逆。这和前一句的思想是一致的，都是要放弃自己内心的道德判断，绝对客观地理解、认识世界，不存在“顺逆”。</p>
+<h3 id="违顺相争是为心病不识元旨徒劳念静">“违顺相争，是为心病；不识元旨，徒劳念静。”</h3>
+<p>这里就指出内心“违顺”相互的矛盾，是内心的病灶。这里前半句应和本文“不二”的思想。“不二”应当是对某种绝对存在的表述，这种绝对的存在可以视为思想的统一，也可以视为是独立于外界的某种存在。这里既然说不能存在“顺逆”，那么这里的“不二”也应当是独立的存在（处于内心而又独立于顺逆），而不是统一。这里的“心病”的根源也应当是需要通过摒弃“违顺”来根除。之后提到的“念静”应当就是摒弃内心违顺的一种做法。问题又来了，这里数次指出问题所在，但是从来没有明确过要怎么样解决问题？没有可以用来实际操作的手段。既然“违顺”本身是内心对外界感受处理后的一种内心的状态/反应，那么这里到底应该是在处理之后不做出反应；还是做出的反应不存在主观的“顺逆”反应；还是干脆不处理；甚至更进一步根本就不去感受（禅宗中完全封闭感受的人似乎也是有的），这里都没有说明白。“不识元旨”有人也写作“不识玄旨”，字面解释是不知道最初的意义（旨在古汉语中常作想法、志向解释）。这里的“元旨”到底是什么？联系上下文可以解释说这个“元旨”就是之前说的“莫存顺逆”的道理，即是说这一道理是学习禅最初的道理，也是说这是学习禅最根本的道理（“元”）。这样似乎解释得很顺畅，但是“元旨”也有可能是说世界最根本的道理--客观上的最初的道理，或者说是本来就有的道理。那么这样又可以解释说是在认识世界的时候要去认识“元旨”，世界本来是什么样子的就是什么样子的，不要经过判断地去认识，才能认识到真正的“至道”。</p>
+<p>### “圆同太虚，无欠无余；良由取舍，所以不如。”</p>
+<p>这里的主语应当也还是“至道”，“圆”是说至道本身就是圆满的，“太虚”比较难以解释（“太虚”是道教词汇，《信心铭》除去此处外也有多处使用道教术语），《道德经》中“太虚”一般认为就是“道”的代名词，是世界的本源，但是在古文的语境内，也常常用“太虚”来代指世界所在的宇宙，不过因为当时还没有对世界的观测能力和一般的天文认识，这里“太虚”所指的应当是广义上的世界。“圆同太虚，无欠无余”即是说“至道”如同这个世界一样（或者全部统一为道本身），没有少，也没有多。这里又有难以解释的地方：多、少都是相对的概念，但是在之前的论述中都一直在尝试塑造一个绝对的存在（“至道”），那么这里是说“至道”本身的存在没有多少的比较，强调这个比较的概念本身就不存在，进而从侧面描述一个绝对的概念；还是说“至道”不增不减，反映的是一种早期朴素的物质守恒的观念（当然从目前看物质可以转化为能量，但是是否也意味着世界总体的能量守恒，目前还没有定论）？“良由取舍，所以不如”字面上是说因为（源自于）取舍，所以“不如”。这里的“如”法音法师解释为是“吻合”，是说“跟你生命原本的本来面貌、本来的心态不吻合了……就破坏了你本来的心态，也就是不相应了，就破坏了你跟大宇宙的瑜伽。”我认为这里说的“不如”是类比了世界的不增不减来讲述内心的某种“不增不减”的状态，如同世界、至道是绝对的一样，内心对外界的判断（也是某种境界、状态、反应） 同样应当是不会改变的（不增不减），联系前文指的就是放弃了所有的道德判断，达到“莫存顺逆”。</p>
+<p>### “莫逐有缘，勿住空忍；一种平怀，泯然自尽。”</p>
+<p>“有缘”和“空忍”明显相应。“莫逐有缘”是说不要去追求“有缘”，“有缘”的解释我查询了很多资料也没能得出一个通顺的解释。很多人解释“缘”为条件，我校老师在文明通识课程中解释佛教的“缘”为万事万物之间普遍的联系。这里粗略地可以解释为不要追求与自身相联系的事物，当然这句的核心应当在于“莫逐”，宾语只能模糊解释。但是紧随其后还有一句“勿住空忍”，不要强行忍受，是指对于这种“逐”的欲望，不要压制而是要消除它，用一种更为根本的方式结局，这种方式与前文也是统一的—没有好恶、放弃道德判断，消除自身的对外界事物的加工理解从而实现。最终的成果就是“一种平怀，泯然自尽”，内心平静，这种顺逆之间的矛盾（对有缘的追求）自己就消散了。</p>
+<h2 id="三结语">三、结语</h2>
+<p>作为禅宗的经典之一，《信心铭》很多的哲学观念与之后的六祖思想一以贯之，有很多类同之处，但同时在理解和表述上总有些许差异。在同时在思想语言表述上明显有我国传统的一些观念影响（全文中反复提到“道”，这一道教术语，但是却没有针对禅宗进行限定明确）。解读上遇到了很多困难：由于以诗为载体，很多语言的表述并不充分、严谨，主语和宾语多有缺失。再加上语言本身随时间就有很多变化，对于字句在当时时代的具体表义不明确等等因素，很多时候解读只能猜测。最重要的是自己本身对禅宗的总体思想把握不够明确，解读出的结果有各种可能，不能确信结果。自己理解不足，而表达更为困难，修改几次也不知道应该怎么说才好，正应了“言语道断”。</p>
+<h2 id="四原文">四、原文</h2>
+<p>原文附上：</p>
+<h3 id="信心铭">《信心铭》</h3>
+<p>僧璨禅师</p>
+<p>至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。违顺相争，是为心病；不识元旨，徒劳念静。圆同太虚，无欠无余；良由取舍，所以不如。莫逐有缘，勿住空忍；一种平怀，泯然自尽。止动归止，止更弥动；唯滞两边，宁知一种。一种不通，两处失功；遣有没有，从空背空。多言多虑，转不相应；绝言绝虑，无处不通。归根得旨，随照失宗；须臾返照，胜却前空。前空转变，皆由妄见；不用求真，唯须息见。至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。欲得现前，莫存顺逆，莫存顺逆。二见不住，慎勿追寻；才有是非，纷然失心。二由一有，一亦莫守。一心不生，万法无咎；无咎无法，不生不心。能随境灭，境逐能沉；境由能境，能由境能。欲知两段，元是一空。一空同两，齐含万象；不见精粗，宁有偏党。大道体宽，无易无难；小见狐疑，转急转迟。执之失度，必入邪路；放之自然，体无去住。任性合道，逍遥绝恼；系念乖真，昏沉不好。不好劳神，何用疏亲。欲取一乘，勿恶六尘；六尘不恶，还同正觉。智者无为，愚人自缚。智者无为，愚人自缚。法无异法，妄自爱着；将心用心，岂非大错。迷生寂乱，悟无好恶；一切二边，良由斟酌。梦幻空花，何劳把捉；得失是非，一时放却。眼若不睡，诸梦自除；心若不异，万法一如。一如体玄，兀尔忘缘；万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。泯其所以，不可方比。止动无动，动止无止；两既不成，一何有尔。究竟穷极，不存轨则；契心平等，所作俱息。狐疑净尽，正信调直。一切不留，无可记忆；虚明自照，不劳心力。非思量处，识情难测；真如法界，无他无自。要急相应，唯言不二；不二皆同，无不包容。十方智者，皆入此宗。宗非促延，一念万年；无在不在，十方目前。极小同大，忘绝境界；极大同小，不见边表。有即是无，无即是有；若不如是，必不须守。一即一切，一切即一，但能如是，何虑不毕。信心不二，不二信心；言语道断，非去来今。信心不二，不二信心；言语道断，非去来今。</p>
+<h2 id="参考文献">参考文献</h2>
+<p>《信心铭》释义，慧广法师，2017 ，“禅宗思想”。</p>
+<p>《信心铭》直解，法音法师，1982，讲述文字。</p>
+]]></content>
+      <categories>
+        <category>essay</category>
+      </categories>
+  </entry>
+  <entry>
     <title>给你的Vscode加一个毛玻璃特效</title>
     <url>/2020/05/22/%E7%BB%99%E4%BD%A0%E7%9A%84Vscode%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%AF%9B%E7%8E%BB%E7%92%83%E7%89%B9%E6%95%88/</url>
     <content><![CDATA[<h2 id="环境">环境</h2>
@@ -1490,6 +1582,18 @@ e=mc^2
 ]]></content>
       <categories>
         <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>还是大GT优雅</title>
+    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
+    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
+<figure>
+<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT"><figcaption aria-hidden="true">宾利欧陆GT</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Chat</category>
       </categories>
   </entry>
   <entry>

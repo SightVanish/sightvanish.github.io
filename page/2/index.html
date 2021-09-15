@@ -188,6 +188,460 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/07/02/C-11-in-Mac-VsCode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Li Wuchen">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/02/C-11-in-Mac-VsCode/" class="post-title-link" itemprop="url">C++11 in Mac (VsCode)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-02 12:23:06" itemprop="dateCreated datePublished" datetime="2021-07-02T12:23:06+08:00">2021-07-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-15 13:55:13" itemprop="dateModified" datetime="2021-09-15T13:55:13+08:00">2021-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>For some purposes, mac is using <code>clang</code> instead of <code>gcc</code>. You can still use <code>clang++</code> or <code>g++</code> to run a <code>.cpp</code> file. But basically, <code>clang</code> will use <code>-std=c++98</code> as default.</p>
+<p>So if you want to switch to new c++ standard in VsCode (Mac), do as follows:</p>
+<ol type="1">
+<li><p>Edit you c++ settings of VsCode:</p>
+<ol type="1">
+<li><p>create <code>.vscode/c_cpp_properties.json</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Mac&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [],</span><br><span class="line">            &quot;macFrameworkPath&quot;: [</span><br><span class="line">                &quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;/usr/bin/clang&quot;,</span><br><span class="line">            &quot;cStandard&quot;: &quot;c11&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;c++11&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;macos-clang-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>In terminal:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;alias g++=&#x27;g++ -std=c++11&#x27;&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source    ~/.bashrc</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+</ol>
+<p>Run your <code>.cpp</code> files in terminals:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">g++ filename.cpp -o objectname</span><br><span class="line">./objectname</span><br></pre></td></tr></table></figure>
+<p>Note: you can use <code>g++</code> in std11, but <code>clang++</code> is still in std98. (<code>clang/gcc</code> is for <code>.c</code> file)</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/06/10/Overwatch-yes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Li Wuchen">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/10/Overwatch-yes/" class="post-title-link" itemprop="url">Overwatch yes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-06-10 17:24:12" itemprop="dateCreated datePublished" datetime="2021-06-10T17:24:12+08:00">2021-06-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-15 23:40:04" itemprop="dateModified" datetime="2021-09-15T23:40:04+08:00">2021-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Chat/" itemprop="url" rel="index"><span itemprop="name">Chat</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>猩猩真快乐666666666666666</p>
+<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/05/27/Principal-Component-Analysis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Li Wuchen">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/27/Principal-Component-Analysis/" class="post-title-link" itemprop="url">Principal Component Analysis</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-27 21:41:37" itemprop="dateCreated datePublished" datetime="2021-05-27T21:41:37+08:00">2021-05-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-15 14:01:07" itemprop="dateModified" datetime="2021-09-15T14:01:07+08:00">2021-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h1>
+<h2 id="why-pca">WHY PCA</h2>
+<p>实践中比如我们看到一个人的信息，他可能有很多很多的feature--身高、体重、血小板数量等等，但是对我们所关心的话题（他长得帅不帅）所有实际意义的feature可能很少。因此我们尝试用PCA找出哪些feature对我们所关系的问题有实际的意义，从而实现对数据的降维（有损）。</p>
+<h2 id="how-to-find-principal-component">How to find Principal Component？</h2>
+<p>在数据的层面上什么是PC呢？</p>
+<p>举个例子--如何把二维的数据降维到一维：</p>
+<p>原本<span class="math inline">\(x \in R^2\)</span>，现在是<span class="math inline">\(x \in R\)</span>。降维的方式是任意的，但是我们如何评价这个降维是合理的？--降维后的数据的方差尽可能大，这样可以很直观地保证数据内部的信息尽可能地被保留。</p>
+<p>在二维平面上的一系列点降维到一维上，从过程上看是将平面上的点投影到一条直线上去。</p>
+<p>一般情况下我们会对数据进行中心化处理（数据均值变为原点），由此使得我们找的直线也能经过原点。</p>
+<p>投影过后，投影的值假设为<span class="math inline">\(b1,b2,b3,b4,b5,b6\)</span>。它们的均值也为0（原数据经过均值化）。那么方差即为<span class="math inline">\((b1^2+b2^2+b3^2+b4^2+b5^2+b6^2)/6\)</span>。所以我们要做的就是让<strong>投影后的norm2之和最大化</strong>。同样这也等价于<strong>让原数据点到直线的距离的平方和最小</strong>。（注意这是两种视角）</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Li Wuchen">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/25/SVM-Support-Vector-Machine/" class="post-title-link" itemprop="url">SVM(Support Vector Machine)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-25 15:00:11" itemprop="dateCreated datePublished" datetime="2021-05-25T15:00:11+08:00">2021-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-15 14:02:39" itemprop="dateModified" datetime="2021-09-15T14:02:39+08:00">2021-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="margin">Margin</h2>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/1.png" alt="1" style="zoom:50%;"></p>
+<p>从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。</p>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/2.png" alt="2" style="zoom:50%;"></p>
+<p>上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。</p>
+<h2 id="linear-seperatable-svm">Linear Seperatable SVM</h2>
+<p>首先考虑所有sample本身线性可分。</p>
+<h3 id="problem-definition">Problem Definition</h3>
+<p>对于线性分类器的超平面为：<span class="math inline">\(X^TW+b=0\)</span>。We define those with <span class="math inline">\(X^TW+b&gt;1\)</span> is labeled +1, which means geometrically the <em>left-top</em> part of the line is labeled positive.</p>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/3.png" alt="2" style="zoom:50%;"></p>
+<p>So we can see that <span class="math inline">\(margin = \frac{2}{||W||}\)</span>. We want to maximum margin which is same with <span class="math inline">\(min||W||^2\)</span>.</p>
+<p>[primal problem]</p>
+<p>The whole problem can be written as :</p>
+<p><span class="math inline">\(min||W||^2, \  st. y_i(X_i^TW+b)&gt;=1\)</span>.</p>
+<h3 id="how-to-find-w-b">How to find W, b</h3>
+<p>If all the data is linear seperatable, those points that determine margin are called support vectors. For support vectors we have: <span class="math inline">\(y_i(X_i^TW+b)=1\)</span>. For other points, they have no influence on this algorithm so that this algorithm is called SVM.</p>
+<h2 id="nonlinear-seperatable-svm">NonLinear Seperatable SVM</h2>
+<p>Since the data is not linear speratable itself, we allow SVM has some mistakes--<em>soft margin</em>.</p>
+<h3 id="hinge-loss">hinge loss</h3>
+<p>We will modify our objective function by adding hinge loss (<span class="math inline">\(l_{hinge}=max(0,1-z), z=y_i(X_i^TW+b)\)</span>).</p>
+<p>Objective function: <span class="math inline">\(min \ ||W||^2+C\Sigma l_{hinge}\)</span>. C is hyper-parameter. If C-&gt;0, the model allows any mistakes--easily undercutting; if C-&gt;<span class="math inline">\(\infin\)</span>, the model is same with Linear Speratable SVM--easily overfitting.</p>
+<p>[primal problem]</p>
+<p>The whole problem can be written as:</p>
+<p><span class="math inline">\(min||W||^2+C\Sigma_i\xi_i, \ st.y_i(X_i^TW+b)&gt;=1-\xi_i,\xi&gt;=0\)</span>.</p>
+<h2 id="what-if-the-sample-is-totally-nonlinear-seperatable">What if the sample is totally nonlinear seperatable?</h2>
+<h3 id="kernel">Kernel</h3>
+<p>Introduce Lagranginan function and we get dual form of primal problem:</p>
+<p><span class="math inline">\(min_{\alpha}\Sigma_i^n\Sigma_j^n\alpha_i\alpha_jy_iy_j(X_i\cdot X_j)-\Sigma_i^n\alpha_i. \ st. \Sigma_i^n\alpha_iy_i=0, \ 0\leq\alpha_i&lt;C\)</span>.</p>
+<p>We can choose proper kernel <span class="math inline">\(K\)</span> to replace <span class="math inline">\((X_i\cdot X_j)\)</span>.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/05/24/AdaBoosting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Li Wuchen">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/24/AdaBoosting/" class="post-title-link" itemprop="url">AdaBoosting</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-24 18:55:28" itemprop="dateCreated datePublished" datetime="2021-05-24T18:55:28+08:00">2021-05-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-15 13:50:38" itemprop="dateModified" datetime="2021-09-15T13:50:38+08:00">2021-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="boosting-bagging">Boosting &amp; Bagging</h3>
+<p>Bagging是传统算法常常采用的方法：</p>
+<ol type="1">
+<li>从原始sample中用Bootstraping（类似cross-validation）选出n个样本，进行k次。</li>
+<li>分别对k个训练集训练得到k个模型</li>
+<li>加权得到最终模型</li>
+</ol>
+<ul>
+<li>当算法结果不稳定时使用（训练集、测试集对结果影响大）</li>
+</ul>
+<p>-&gt;Bagging可能出现多个模型对同一样的sample都分类错误</p>
+<p>-&gt;不能并行所有model的训练而要串行（每次关注之前训练不当的地方）</p>
+<p>AdaBoosting</p>
+<ol type="1">
+<li>在整个数据集上训练model（h1）</li>
+<li>对h1表现好的sample降低权重，对h2表现不好的sample增加权重，训练model（h2）</li>
+<li>repeat</li>
+</ol>
+<h3 id="adaboost">AdaBoost</h3>
+<p>如何实现AdaBoosting呢？</p>
+<h4 id="加权误差">加权误差</h4>
+<p>一般 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} 1/n\)</span>，但是在对样本进行加权后 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} w _i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分类失败）的sample。</p>
+<p>如何找弱分类器呢？</p>
+<h4 id="决策树桩">决策树桩</h4>
+<p><img src="/2021/05/24/AdaBoosting/1.png" alt="1" style="zoom:50%;"></p>
+<p>上图中简单的情况，有12种树桩组合。</p>
+<blockquote>
+<p>我们可以对上面的情况做 12 种可能的「测试」。每条分割线边上的数字「2」简单地表示了这样一个事实：位于分割线某一侧的所有点都可能属于 0 类或 1 类。因此，每条分割线嵌入了 2 个「测试」。</p>
+</blockquote>
+<p>针对不同的问题首先要选好弱分类器h，在迭代的过程中每次选择对当前（加权后）sample分类最优的弱分类器作为基本分类器进行融合。</p>
+<ul>
+<li>AdaBoost不需要先验，同时不容易过拟合，同时不依赖弱分类器效果（可以自由分配权重）。</li>
+<li>AdaBoost错误样本权重指数上升--容易受噪音干扰</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/04/14/Copy-Deepcopy-in-Python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -730,682 +1184,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/02/24/PDF_CDF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Li Wuchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/24/PDF_CDF/" class="post-title-link" itemprop="url">PDF & CDF</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-24 12:52:23" itemprop="dateCreated datePublished" datetime="2021-02-24T12:52:23+08:00">2021-02-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 14:00:46" itemprop="dateModified" datetime="2021-09-15T14:00:46+08:00">2021-09-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。 为此引入了PDF（Probability Density Function），直观地理解可以近似理解为概率本身--也就是说如果我们不关心纯粹的概率值，而只要求相对的概率大小，那么就可以使用某个点的PDF值进行计算（比如最大似然估计）。但是要认识到某个点的具体概率值实际为<span class="math inline">\(PDF(x)*dx = 0\)</span>，一个点的概率本身没有意义。</p>
-<p>为此需要引入CDF，即为PDF在一定区间上的积分，这使得CDF具有了实际的概率意义。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/02/22/The-basic-concept-of-faster-RCNN/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Li Wuchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/22/The-basic-concept-of-faster-RCNN/" class="post-title-link" itemprop="url">The basic concept of faster-RCNN</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-22 11:25:29" itemprop="dateCreated datePublished" datetime="2021-02-22T11:25:29+08:00">2021-02-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 14:03:00" itemprop="dateModified" datetime="2021-09-15T14:03:00+08:00">2021-09-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Computer-Vision/" itemprop="url" rel="index"><span itemprop="name">Computer Vision</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Computer-Vision/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="发展顺序">发展顺序</h2>
-<p>本文仅关注从R-CNN、SPP-Net（2014）至Fast R-CNN、Faster R-CNN（2015）的图像分割技术。</p>
-<h2 id="r-cnn">R-CNN</h2>
-<p>Region-CNN</p>
-<h3 id="efficient-graph-based-image-segmentation">Efficient Graph-Based Image Segmentation</h3>
-<p>主要目的也就是将图像（image）分割成若干个特定的、具有独特性质的区域（region），然后从中提取出感兴趣的目标（object）。</p>
-<p>为了找到有意义的图像区域，我们很容易想到根据灰度gradient变化，但是会产生下图问题：</p>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image1.png" width="50%" height="50%"></p>
-<p>左侧图像灰度变化均匀，右侧图像仅有部分区域有灰度变化。上图的例子告诉我们不能使用<strong>灰度的变化</strong>作为分割依据，也不能使用<strong>单一的灰度阈值</strong>来作为分割的评判标准。</p>
-<h4 id="graph-based-image-minimal-spanning-tree">Graph-based image &amp; minimal spanning tree</h4>
-<p>首先我们要将图片以graph图论的形式表示，graph的vertex为image的每个像素点，graph的edge一般定义为像素点的相邻关系，权重为灰度差或者距离等。</p>
-<p>如何分割这个tree，也就是合并像素点呢？这里用到的是最小生成树，简单说就是尝试找出一个tree结构使得所有的点都能被联通，并且使tree的edge权重和最低。直观地看就是尽可能使相似的像素点结合在一个subtree上。最终结果可以大大减少图的edge数量。</p>
-<p>具体举个例子：</p>
-<p>图像（image）的图（graph）表示为G=(V,E)，每个像素点代表图的一个顶点vi ∈ V ，相邻（相邻的像素点，可以是像素的4邻域也可以是8邻域）的两个像素点构成一条边(vi, vj) ∈ E。图每条边的权值是像素与相邻像素的关系(<strong>灰度图的话是灰度值差的绝对值，RGB图像为3个通道值差平方和开根号</strong>)，表达了相邻像素之间的相似度。权值越小，表示像素点之间的相似度就越高，反之，相似度就越低。</p>
-<h4 id="graph-cut">Graph Cut</h4>
-<p>将每个节点（像素点）看成单一的区域，然后进行合并。 (1) 对所有边根据权值从小到大排序，权值越小，两像素的相似度越大。 (2) S[0]是一个原始分割，相当于每个顶点当做是一个分割区域。 (3) 从小到大遍历所有边，如果这条边(vi,vj)的两个顶点属于不同的分割区域，并且权值不大于两个区域的内部差(区域内eege最大权值)，那么合并这两个区域。更新合并区域的参数和内部差。</p>
-<p>最后对所有区域中，像素数都小于min_size的两个相邻区域，进行合并得到最后的分割。</p>
-<h3 id="selective-search">Selective Search</h3>
-<p>有了上述的基于图的图像分割技术，接下来我们可以讨论如何生成region proposal。</p>
-<p>最简单的方法当然是用不同大小的框去遍历图像，然后把所有框出来的图像都让分类器处理，但是这样明显性能开销太大，那么就可以模仿上述的image segmentation技术，以合并类似图像块的方式得到region proposal。</p>
-<h4 id="implementation">Implementation</h4>
-<p>step0：生成区域集R，基于<a target="_blank" rel="noopener" href="http://cs.brown.edu/people/pfelzens/segment/">《Efficient Graph-Based Image Segmentation》</a> step1：计算区域集R里每个相邻区域的相似度S={s1,s2,…} step2：找出相似度最高的两个区域，将其合并为新集，添加进R step3：从S中移除所有与step2中有关的子集 step4：计算新集与所有子集的相似度 step5：跳至step2，直至S为空</p>
-<h3 id="r-cnn实现">R-CNN实现</h3>
-<p>R-CNN全称为Regions with CNN features，基本思想就是由基础的AlexNet直接处理特征滑窗进化为先选取出proposal region，然后再直接处理proposal region（proposal region的数量由人为控制）来判断到底是背景还是前景。</p>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image2.png" width="100%"></p>
-<p>RCNN的输入为完整图片，首先通过区域建议算法产生一系列的候选目标区域，其中使用的区域建议算法为Selective Search。然后对于这些目标区域候选提取其CNN特征，并训练SVM分类这些特征。最后为了提高定位的准确性在SVM分类后区域基础上进行BoundingBox回归。</p>
-<h4 id="alexnet-细节">AlexNet 细节</h4>
-<p>R-CNN使用的AlexNet为了加速训练使用了fine tune。AlexNet的参数并不是完全随机初始化的，而是先用AlexNet+Classifier训练了一个单一物体分类的神经网络，然后直接把这个网络的参数作为初始值使用。这样可以使网络的参数在初始化时就能具有一定的分类意义，大大加快训练速度。</p>
-<p>同时还要注意AlexNet只能处理224x224的图像大小，为了能够使region proposal能够适应这个大小，论文使用原图像类填充这个范围（在原图像填充、原图像均值填充、直接拉伸，三种方法中为最优）。</p>
-<h4 id="如何训练分类器svms">如何训练分类器SVMs</h4>
-<p>CNN已经能很好地提取出特征了，经过实验，使用FC层作为最后的特征输出。</p>
-<h5 id="hard-mining">Hard mining</h5>
-<p>在tag region proposal时，R-CNN将IOU（重合度）&gt;50%的都作为<strong>正样本</strong>（标注对应tag），但是实际上正样本实在太少，于是又将IOU&lt;30%的设置为<strong>负样本</strong>（标注为background），这种做法称之为<strong>Hard Mining</strong></p>
-<h5 id="非极大值抑制">非极大值抑制</h5>
-<p>region proposal有将近2k个区域，有很多重合。首先把IOU超过某个阈值的几个区域取出来，然后比较他们由SVM得到的置信概率，仅取最大置信。</p>
-<h5 id="bounding-box">Bounding Box</h5>
-<p>bounding box回归，目标是使得预测的region proposal向groundtruth窗口相接近。</p>
-<p>窗口一般使用四维向量(x,y,w,h)表示，x y表示框的中心位置，w h表示框的weight height。</p>
-<p>Bouding box目标是寻找一种关系使得输入原始的窗口 P 经过映射得到一个跟真实窗口 G 更接近的回归窗口Ĝ，即：给定(P<sub>x</sub>, P<sub>y</sub>, P<sub>w</sub>, P<sub>h</sub>)寻找一种映射f，使得f(P<sub>x</sub>, P<sub>y</sub>, P<sub>w</sub>, P<sub>h</sub>)=(Ĝ<sub>x</sub>, Ĝ<sub>y</sub>, Ĝ<sub>w</sub>, Ĝ<sub>h</sub>) 并且(Ĝ<sub>x</sub>, Ĝ<sub>y</sub>, Ĝ<sub>w</sub>, Ĝ<sub>h</sub>)≈(Gx,Gy,Gw,Gh)。</p>
-<p>很直观的一个想法是先平移然后缩放：</p>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image3.png"></p>
-<p>为了能够得到Ĝ，我们需要四个参数：</p>
-<p><span class="math inline">\(d _x(P), d _y(P), d _w(P), d _h(P)\)</span>**，这四个对应的ground truth定义为：</p>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image4.png" width="75%" height="75%"></p>
-<p>由于这个线性回归网络是建立在AlexNet之后的，所以input实际为一个4096维的特征向量（记为<span class="math inline">\(Φ _5(P)\)</span>），那么目标函数（预测值）就可以写作：<span class="math inline">\(d _∗(P)=w ^T∗Φ _5(P)\)</span>，其中<span class="math inline">\(*\)</span>意为(x,y,w,h)参数。</p>
-<p>Loss function可以直观地定义：</p>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image6.png" width="75%" height="75%"></p>
-<p>加入<span class="math inline">\(\lambda ||w _*|| ^2\)</span>抑制过拟合：</p>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image5.png" width="75%" height="75%"></p>
-<p>那么上述公式为什么要设置的这么复杂？</p>
-<ol type="1">
-<li><span class="math inline">\(\Delta x/\Delta y\)</span>：这里不能将<span class="math inline">\(t _x\)</span>简单设为<span class="math inline">\(G _x - P _x\)</span>是为了满足CNN的尺度不变性：同样的图经过缩放后理论上特征不会变，如果不用<span class="math inline">\(/P _w\)</span>那么显示图片的大小就会有影响。</li>
-<li><span class="math inline">\(S _w/S _h\)</span>：这里一定要用<span class="math inline">\(exp\)</span>的原因是因为学习的结构是不受控的<span class="math inline">\(d _w(P)\)</span>可能为负数，所以很直观地想到用<span class="math inline">\(exp\)</span>保证参数不为负。</li>
-</ol>
-<p>还有一个很关键的问题：为什么可以用线性拟合？</p>
-<p>这里是有一个限制的--region proposal 与 ground truth 相差较小时(R-CNN设置为IOU&gt;0.6)才能认为是线性变化。</p>
-<p>很直观地去理解：首先要明确线性拟合的是什么？是input特征向量和ouput最后的<span class="math inline">\(d _*(P)\)</span>（即对box的修正）。那么在region proposal和ground truth接近时，可以假定为region proposal约接近ground truth，input的特征向量也越接近，导致最后output也越趋近于0（无修正），在足够小的范围内用线性来理解是可行的。</p>
-<h4 id="note">Note</h4>
-<p>为什么不直接先用AlexNet分好类而是要用SVM呢？</p>
-<p>R-CNN尝试过，但是精度下降了，可能是由于在tag region proposal时IOU&gt;50%的限制过于宽松，但是如果考虑放开限制，数据量却会大大下降，远远不能满足需求</p>
-<h2 id="sppnet">SPPNet</h2>
-<p>Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition</p>
-<h3 id="r-cnn-sppnet">R-CNN-&gt;SPPNet</h3>
-<p>R-CNN的问题：</p>
-<ul>
-<li>Selective Search对于每幅图片产生2K左右个region proposal，也就是意味着一幅图片需要经过2K次的完整的CNN计算得到最终的结果。</li>
-<li>对于所有的region proposal放缩到224*224会导致几何形变。</li>
-</ul>
-<p>其实CNN的卷积核可以适应不同大小的输入，但是最终的FC层却要求固定大小，从而使得CNN的输入为恒定大小。为了解决这个问题，很直接的一个思路就是在FC之前加一层pooling，保证输入到FC的feature数稳定。进一步为了解决对一幅图片过多次提取feature，SPPNet提出<strong>SPP(Spatial Pyramid Pooling)</strong>。</p>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image7.png" width="75%" height="75%"></p>
-<p>Input image -&gt; Conv -&gt; <strong>SPP</strong> -&gt; FC</p>
-<h3 id="spp">SPP</h3>
-<p>输入到SPP的feature大小为H*W*255（Conv最后一层有255个filter）。</p>
-<p>SPP将一层feature map按照不同的大小多次划分处理：先划分为1、4、16块，然后进行MaxPooling，最后拼接在一起（得到(16+4+1)*256大小的feature vector）。</p>
-<h4 id="training">Training</h4>
-<p>由于当时的学习框架都固定input大小，所以SPPNet先固定一个inputsize（对输入缩放得到），训练一个epoch后固定参数，改变inputsize训练。</p>
-<p>SPPNet的网络特性使得训练时的inputsize改变非常容易实现（多尺度训练），同时针对同一个尺度，SPP也保证了训练特征有多尺度的特性。</p>
-<h4 id="testing">Testing</h4>
-<p>在测试时，由于SPP可以接受任意大小的输入，因此接受到region proposal时，想办法将其映射到feature map上，然后仅对这一块feature map进行空间金字塔池化就可以得到固定维度的特征用以训练CNN了。这样子我们就可以定位每一个region proposal的feature在整个图片feature map的位置，从而只需要对图片特征提取一次。 映射方法：</p>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image8.png" width="75%" height="75%"></p>
-<p>比起R-CNN，SPPNet的精度有所下降，但是速度得到了极大的提升，特别是在多尺度图片处理中，而且SPP的思想也可以在几乎所有CNN上推广。</p>
-<h2 id="fast-r-cnn">Fast R-CNN</h2>
-<h3 id="sppnet-fast-r-cnn">SPPNet-&gt;Fast R-CNN</h3>
-<p>与R-CNN一样，SPPNet同样需要多阶段训练：预训练CNN网络-&gt;Fine Tune-&gt;SVM-&gt;Bounding Box</p>
-<p>Fast R-CNN希望能简化这一流程。</p>
-<h3 id="网络结构">网络结构</h3>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image9.png" width="75%" height="75%">Fast R-CNN吸取了SPPNet的优点： 先对整张图片经过ConvNet提取特征得到Conv feature map，然后根据不同的RoI（region of interest，即为由selective search得到的region proposal）经过RoI projection找到Conv feature map中RoI对应的feature map。为了使网络能够应对不同大小的RoI，feature map需要经过RoI pooling得到固定大小的feature map作为FC输入（Fast R-CNN中FC输入为512*7*7）。</p>
-<p>注意SPP能提取多尺寸特征，RoI Pooling是单一尺度的。</p>
-<h3 id="softmax">Softmax</h3>
-<h4 id="二元分类-logistic-regression">二元分类-Logistic Regression</h4>
-<p>简单来说softmax是logistic regression的一种推广。</p>
-<p>用logistic regression和linear regression一起对比可以更直观地看出来核心区别：</p>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image10.png" width="75%" height="75%"></p>
-<p>关键核心在于logistic使用了cross entropy（两个分布的近似情况）来作为衡量net好坏的依据。</p>
-<p>比起Generative model（假定某个概率分布，去求最大似然估计），Logistic Regression作为Discriminative model的先验信息更少，因此效率更高，但是不能应对隐变量的存在。</p>
-<h4 id="多元分类-softmax-regression">多元分类-Softmax Regression</h4>
-<p>输入x后如何得到y：</p>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image11.png" width="75%" height="75%"></p>
-<p>Softmax的意义在于可以归一化output到0～1之间，同时可以强化最大值/概率（<span class="math inline">\(y _i为input \ x 为C _1 的概率\)</span>）。</p>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image12.png" width="75%" height="75%"></p>
-<p>通过上述操作，可以计算<span class="math inline">\(y\)</span>和<span class="math inline">\(\hat{y}\)</span>之间的cross entropy。</p>
-<h4 id="继续faster-r-cnn">继续Faster R-CNN</h4>
-<p>Fast RCNN主要有3个改进：</p>
-<ol type="1">
-<li>卷积不再是对每个region proposal进行，而是直接对整张图像，这样减少了很多重复计算。（原来RCNN是对每个region proposal分别做卷积，因为一张图像中有2000左右的region proposal，肯定相互之间的重叠率很高。）</li>
-<li>用ROI pooling进行特征的尺寸变换，因为全连接层的输入要求尺寸大小一样，因此不能直接把region proposal作为输入。</li>
-<li>将regressor放进网络一起训练，每个类别对应一个regressor，同时用softmax代替原来的SVM分类器。仅一层网络，比训练多个SVM分类器效率更高。</li>
-</ol>
-<p>note：对于一般的训练器，最后的FC层往往占比很小（FC大小为最后分的类的个数），但是对于Fast R-CNN，FC的开销很大。为例解决这一问题，作者使用了<strong>SVD分解</strong>（奇异值分解）。</p>
-<h3 id="training-1">Training</h3>
-<p>由于一个网络内有多个任务，Loss Function也因此做出了改变：</p>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image13.png"></p>
-<p>Loss Function实际上为Loss of classification + Loss of location(Bbox)</p>
-<h2 id="faster-r-cnn">Faster R-CNN</h2>
-<p>卷积神经网络部分运行在GPU上，而selective search运行在CPU上，因此在使用中selective search成为了巨大的阻碍。为此提出了Region Proposal Network(RPN)，用GPU实现快速的区域建议，让测试近乎实时。</p>
-<p>在之前的算法中<strong>region proposal</strong>与后续的<strong>detection</strong>往往是分开进行的。region proposal一般分为两类：基于超像素（一系列位置相邻且颜色、亮度、纹理等特征相似的像素点组成的小区域）合并；基于滑窗。</p>
-<p>那么为了让两个任务融合在一起，Faster R-CNN用了更加直白的想法--既然在原image上用滑窗开销太大，那么在feature map上用滑窗不就节省计算了吗？这也就是RPN。但是因为feature map上的滑窗相对于原image上的滑窗精度更低，RPN给每一个滑窗都加上了回归（Bbox）来使窗口更加精准。</p>
-<h3 id="net-structure">Net Structure</h3>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image14.png" width="75%" height="75%"></p>
-<p>输入P*Q大小图片--缩放为M*N大小--经过Conv--<strong>Feature Map</strong></p>
-<p>Feature Map--经过RPN输出Region Proposal--找出Feature Map对应区域（即为ROI）--同Fast R-CNN</p>
-<h3 id="region-proposal-networksrpn">Region Proposal Networks(RPN)</h3>
-<h4 id="anchors">Anchors</h4>
-<p>要解释RPN，先要解释Anchors。</p>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image16.png" width="50%" height="50%"></p>
-<p>原文中的anchors即为大小不同的9个矩形框，每个矩形框用4个数据表示（对角两个点坐标）。假设CNN得到的feature map大小为w*h，那总的anchors个数为9*w*h，9为上述的9种anchors。说白了就是用这些anchor把feature map全部遍历一边，根据对应的anchor矩形框的区域可以计算出原图像上对应的区域（也就是在原图像上间隔地用更大的尺度遍历一遍）。</p>
-<h4 id="rpn">RPN</h4>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image17.png" width="75%" height="75%"></p>
-<p>CNN的最后输出为265层（即265张feature map），首先经过3*3卷积最后输出还是265层（265-d）。</p>
-<p>对于分类层（cls layer）中，在conv5 feature map中每个点上有k个anchor（原文如上k=9），而每个anhcor要分foreground和background，所以每个点由256-d feature转化为cls=2k scores。</p>
-<p>对于框位置的回归层（reg layer），每个anchor都有4个偏移量，所以reg=4k coordinates。</p>
-<p>RPN的最终输出scores和coordinates。</p>
-<p>全部anchors拿去训练太多了，训练程序会在合适的anchors中随机选取128个postive anchors+128个negative anchors进行训练。</p>
-<p><strong>RPN其实是在原图尺度上，设置了候选Anchor。然后用cnn去判断哪些Anchor是前景，哪些是背景。本质上是二分类器。</strong></p>
-<p>在此之后网络有两条路径，先说上面一条(-&gt;1x1 conv-&gt;reshape-&gt;softmax-&gt;reshape)</p>
-<h4 id="softmax找出前景anchor">Softmax找出前景anchor</h4>
-<p>经过1x1 conv之后的输出为2k层（图中为18，对于k=9）。reshape层是为了应对caffe特殊的数据存储方式。之后通过softmax进行二分类，找出前景（positive anchor）和背景（negative anchor）</p>
-<p>Proposal Layer forward（caffe layer的前传函数）按照以下顺序依次处理：</p>
-<ol type="1">
-<li>生成anchors，利用Bbox输出的结果修正anchors。</li>
-<li>按照输入的foreground softmax scores由大到小排序anchors，提取前N个。</li>
-<li>限定超出图像边界的foreground anchors为图像边界。</li>
-<li>剔除非常小的foreground anchors。</li>
-<li>进行nonmaximum suppression（即相交超过一定程度的anchors之间保留softmax score最高的一个）。</li>
-<li>再次按照foreground softmax scores由大到小排序，提取前N个结果作为proposal输出。</li>
-<li>之后输出proposal=[x1, y1, x2, y2]（对角坐标）。</li>
-</ol>
-<h3 id="train">Train</h3>
-<h4 id="loss-function">Loss Function</h4>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image18.png"></p>
-<p><span class="math inline">\(i\)</span>表示anchors index</p>
-<p><span class="math inline">\(p _i\)</span>表示foreground softmax probability</p>
-<p><span class="math inline">\(p _i ^*\)</span>代表对应的ground truth predict概率（即当第i个anchor与ground true间IoU&gt;0.7，认为是该anchor是foreground，此时<span class="math inline">\(p _i ^* = 1\)</span>；反之IoU&lt;0.3时，认为是该anchor是background，此时<span class="math inline">\(p _i ^* = 0\)</span>；至于那些0.3&lt;IoU&lt;0.7的anchor则不参与训练)</p>
-<p><span class="math inline">\(t\)</span>代表predict bounding box，<span class="math inline">\(t ^*\)</span>代表对应foreground anchor对应的ground truth box。</p>
-<p><span class="math inline">\(\lambda\)</span>的引入是因为<span class="math inline">\(N _{cls}\)</span>和<span class="math inline">\(N _{reg}\)</span>之间有一个数量级的差距，所以需要参数来平衡使两者对Loss的贡献类似。</p>
-<p>L分为两部分 = cls loss（即rpn_cls_loss层计算的softmax loss） + reg loss（即rpn_loss_bbox层计算的soomth L1 loss，该loss中<span class="math inline">\(*p _i ^*\)</span>，因此只关心前景的loss）</p>
-<p>其中</p>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image19.png" width="75%" height="75%"></p>
-<p>使用smooth L1 loss可以避免L2 loss造成的梯度爆炸。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/01/04/%E3%80%8A%E4%B8%8D%E5%8A%A8%E6%99%BA%E7%A5%9E%E5%A6%99%E5%BD%95%E3%80%8B%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Li Wuchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/04/%E3%80%8A%E4%B8%8D%E5%8A%A8%E6%99%BA%E7%A5%9E%E5%A6%99%E5%BD%95%E3%80%8B%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">《不动智神妙录》笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-04 20:47:51" itemprop="dateCreated datePublished" datetime="2021-01-04T20:47:51+08:00">2021-01-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 13:46:31" itemprop="dateModified" datetime="2021-09-15T13:46:31+08:00">2021-09-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Essay/" itemprop="url" rel="index"><span itemprop="name">Essay</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center>
-《不动智神妙录》笔记
-<center>
-<p>--恰巧与剑道相关，故而记录一下 1、无明烦恼住地</p>
-<p>​ 无明者，晦暗不明，智慧为闇所述。住地者，迟滞之境。</p>
-<p>​ 佛法修行可分五十二阶位，若于任一阶位，心为尘所滞，即称住地。住，止之意；止，心为尘所取。就兵法而言，于眼剑来之剎那，若心有以剑攻防之意，则心为彼剑所滞，身心失念，即被斩杀，此称心有所住。</p>
-<p>​ 若眼观剑来，不分别思维，见剑则否，心无所住，亦无欲抢先机而反击之意，无有少法，是心所住，入彼剑所及之距，状若败势，逆取彼刃而溃敌手，恰如禅宗所云：“还把枪头倒刺人。”此与无刀流之旨，有同工之妙。</p>
-<p>​ <u>这里可能是说柳生古流里的无刀取，剑道里称之为“活人剑”，是在近距离无刀夺刀制服对手的技巧。</u></p>
-<p>​ 主客交锋，此方彼方，己剑彼剑，拍子节奏，若于是中，心有所住，则行动缓顿，为彼所斩。若临敌时有自身想，心则有住，故不应执着自身。</p>
-<p>​ 修行初始，心易受身形而紧绷，若心住于剑，则为剑所滞；若心欲抢先机，则为欲抢先机所滞，以要言之，若心有住，则失其念，佛法称此迟滞之心为无明住地烦恼。</p>
-<p>​ <u>剑道里有说法叫“望远山”，就是说交剑的时候，注意力不在对手身上，而在对手背后的“远山”。实践中有一点很巧妙—往往人的注意不专注在对手身上，反而能够清晰察觉到对手的攻击意图，这种感觉很微妙，人确实能从非常细节的方面来抓住攻击间隙，但是回想起来却又不明白。</u></p>
-<p>​ <u>而在心态上，剑道称之为“无念”，讲究交剑后心中无所想，不过在我的实际体会中，这种无所想与其说是放下这种打击执念，不如说是千锤百炼之后的稳健心态。我也去问过八段的香田俊秀老师（在苏州），他的意思大致是剑道可以输剑，不能输心，先在内心胜过对手，自己就能保持这种平常心，身体才能不受心所连累。</u></p>
-<p>2、诸佛不动智</p>
-<p>​ 诸佛不动智，虽云不动，非同草木，心遍十方，无有所住，是名不动。</p>
-<p>佛法有不动明王尊者，右手持剑左持绳，利齿暴出目怒视，现愤怒相护持法，妨佛法者悉降服，自坐盘石妙不动，普遍十方一切剎，愤怒为相智为体，示现一切诸众生。</p>
-<p>​ 一般凡夫于是中作恐布想，不敢碍佛，离悟近者，则知此为不动智之体现。去一切迷闇，不动智即明，身现明王心不动。故不动明王者，一心不动，无有住处，但住众生心想。</p>
-<p>​ <u>剑道里很推崇“不动明王身”，从很多高段位老师身上就能勉强窥见—远距离的气和，坚实的中段，通过自身“构”的稳定，来实现心理上的seme（这个词很难翻译，直译是进攻，但是意义广泛），引出对手的“惊、惧、疑、怒”来找到打击机会。</u></p>
-<p>​ 若心有住，生种种分别，于分别中，心生黏滞，虽形能动，不能自在。</p>
-<p>​ <u>往往“无心”时更能轻易地打出应击技，越是高段越是强调这种能随心所欲应对的境界，不过对我来说太遥远了。</u></p>
-<p>​ 譬如临敌十人，以一剑应之，心无所住，即舍即取，以寡敌众，无有不足。若心有住，于第一人或能取胜，于余诸敌，则心形黏滞。</p>
-<p>​ <u>这里一定是说应击技随心所欲的使用。观察对手然后做出动作，而不是自己想打什么打什么。这种是不是就是“无心”中把“自我”抛却掉呢？</u></p>
-<p>​ 观千手观音尊者，虽云千手持千宝，若于一手心有住，则余九百九十九手，不能妙用妙自在。因心无有所住故，千手能随顺自在，以是具妙智不动，能示一身具千手，随顺自在无有碍。如人于林中，心若住一叶，则不见余叶，行者悟此道，则了千手尊。</p>
-<p>​ 无知凡夫者，于身具千手，终难生信解，而起诸诽谤。今得闻少分，不应诽谤亦不执着，以法为本真实观。</p>
-<p>​ 若仅观外相，而无有心法，犹不应轻率，以慢心攻击。是故千手道，普门普示现，法门有种种，果位则不异。</p>
-<p>​ <u>这句不懂。</u></p>
-<p>​ 自初学至不动智者，即回归本心，兵法亦如是。</p>
-<p>​ 行者初习剑时，无招无势，心亦无所住，若见剑来，亦不分别，心无所住，随机而应。习剑日久，得种种知见，或持剑之法，或心之置所，于临敌手时，惊觉不自由。 渐学渐参访，积聚见地心要，于身形剑法，皆回向初学无有知见时，概因地果位本一如故。譬如算数，自一至十，于进位时，一十相邻。复观音乐，十二调：一壱 越，二断金，三平调，四胜绝，五下无，六双调，七凫钟，八黄钟，九蛮，十盘涉，十一神仙，十二上无。</p>
-<p>​ <u>深有此感，开始是不会打，之后是会打一些动作但是打不出来（就是说练习时能打，但稽古的时候就做不出），后来随着稍微懂了些剑理，开始逐渐能够打得随心所欲，尤其挂稽古，看起来有时像乱打一样。</u></p>
-<p>​ <u>新西兰一位六段的老师也解释过这个问题，不过他说的是：练习和稽古存在间隙—古人练习是为了砍人，但是今人练习几乎不是为了这个，所以练习出来的构有些“学术派”的味道，不是以目的为导向的，而是以动作为导向的。实际中韩国人的打击方式就往往是目的为导向的，很多时候能打到，却被认为不合“剑理”的，关于所谓“剑理”方面我一直搞不明白。</u></p>
-<p>​ <u>个人我对于这种“不动”的理解倾向于是：丰富的经验+娴熟的技巧=&gt;心态上不对任何对手=&gt;心中没有剑法，只有剑理和打击目标。</u></p>
-<p>​ 最低壱越，最高上无，初音终音，紧密相邻，故至高至低，至实至空，大智若愚，无华巧之饰。以是义故，无明住地，不动妙智，本来一如，无心无念，动静自在，不为烦恼所缚。</p>
-<p>​ <u>真是说起来简单，做起来难啊，所有人刚开始时都是“无心无念”，但是随着seme（进攻）+tame（压迫），烦恼是逐渐滋生的，特别在面对强大的对手和性命之忧时，内心的动摇甚至察觉不到，自己已经被本能完全压制了。</u></p>
-<p>​ 譬如田中稻草人形，其相离持弓箭，本无守护作物之心，而鸟兽见之径自逃散。世间众道究竟，亦复如是。相虽种种，无住为要，无心无念，如稻草人形。</p>
-<p>​ <u>这个例子我反而觉得不好，“不动心”强大是强大在“不动”所带来“势”上。不动意味着稳定，随时可能发起攻击，是最危险的时候。但是稻草人哪怕不动也不具备这种“势”，鸟兽一两次被吓跑后，以后就能逐渐认识到真实，不过黔之驴罢了。</u></p>
-<p>​ 痴愚无智者，以无智慧故，不能显锋；具甚深智者，不露锋芒；一知半解者，有聪无智，示其小慧，甚为可笑，今出家众，状似有道而作佛事，应以为耻。</p>
-<p>​ 后论理事修行，理者为尊，其究竟则不取万物，唯舍一心。然若无事之修行，纵得其理，身形不得自在。有事无理之修行，亦复如是。故理事修行，如车两轮，不可缺一。</p>
-<p>​ <u>这里阐释佛法—要理事相结合修行，个人理解是既要能懂，还要能实践。</u></p>
-<p>3、间不容发</p>
-<p>​ 间不容发者，两掌相击至有音声，无一发可容之隙。掌击之声鸣，非经思量而后有。于交锋时，心住彼剑，便显间隙；若彼剑与自形间，无一发可容，则彼剑己剑，本无差别。此理与禅宗公案同，佛法以无住为要，呵迟滞之心，称其为无明烦恼。</p>
-<p>​ <u>“若彼剑与自形间，无一发可容，则彼剑己剑，本无差别。”确实精妙，“不动”的境界所追求的就是自己剑与对手剑融为一体，所谓中段技巧千千万，也无外乎是让对手的剑始终不脱离自己的剑，如“浮木”一般紧贴对手，才能压制对手的威胁，随时应对。</u></p>
-<p>4、石火之机</p>
-<p>​ 此意与间不容发同，非关快慢，以无住为要。心若有住，则为人所伺；心欲速疾，则为欲速疾之念所滞。江口游女，有咏歌云：「浮生若梦，为求心止。」此实兵法之要。</p>
-<p>​ <u>“欲速不达”，不过在实践中，我倾向于认为是“欲速”，心就会乱，往往会不受控制地表达自己的攻击意图，很容易被引出下意识的被动反应；反而心不乱，才能仔细观察对手，找到时机。</u></p>
-<p>​ 若问：「如何是佛？」「佛法心要？」于彼声将绝未绝之隆，或举拳，或答之以「一枝梅花」、「庭前柏子树」。此答非关善恶，无思量处，贵心无住故。若心无住，则不为六尘所滞，此不动心，若经思量，寓于文字，则美言藻饰，亦是烦恼分别。</p>
-<p>​ <u>完全不懂。</u></p>
-<p>​ 石火之机，迅如闪电。譬如有人，呼彼名字，彼不经思量，诺应之，此非经思维之心，即不动智。若闻名字，思维分别，则心为尘所动，是为凡夫。法门虽三万六千，以明心为要。未明心之人，心随业转。世或有缘觉，自明其心，是事甚难。欲以文字，以明其心，是事亦难。如人饮水，冷暖自知。世间学问，亦论是心，然理事有碍，不能一如。参佛悟道者，恰如兔角，行未深故。不经一番寒彻骨，焉得梅花扑鼻香？</p>
-<p>​ <u>内心通明，技巧纯熟才能做到如此，这或许就是“理事一如”。</u></p>
-<p>5、心之置所</p>
-<p>​ 心若置彼身，则为彼身所取；若置彼剑，则为彼剑所取；若置我剑，则为我剑所取，若置戒备，则戒备所取。</p>
-<p>​ 或曰：「心若置余所，则为余所取，故心置丹田，以应敌之机。」以此为极意，然于佛法，此非究竟。心置丹田，为次第法，同孟子所云「求放心」之阶。若心置丹田 而弃绝余事，则心为弃绝余事所取，不能自在。或问：「若心置丹田，不能得自在，心应置何处？」答曰：「心不应有住，若心住于此，则心失于彼。若心无有住，舍分别思，身心皆脱落，则全体在用，能遍于十方。」故无有一处，是心所住，此为修行之要。</p>
-<p>​ <u>这里写得更加玄而又玄了。孟子的“放心”很多人解读为“失落的心”，所以孟子的主张是将心安定下来，专注做事。一般的剑理我也是这么理解的—“心”专注之后“心”自然会“溶解”掉；因为人高度专注以后，人内心的自省机制就被关闭了，意识统一为一个，不能认知到自己的思绪，由此达到“无心”。</u></p>
-<p>​ <u>但是这里直接被否定了，指出“心不应有住”，但是心是什么呢？心不就是人的思维吗？或者说是人对自我的认识？如果心没有住的话，那么不就没有自我了吗？由此看来似乎之忧机器人才能满足这个境界—完全的无心而又能随心所欲不逾矩地地应对敌人。但是剑道砍人的目的来看，也似乎是这样的机器人更有效率一些。</u></p>
-<p>6、本心妄心</p>
-<p>​ 本心者，无住之心，全体在用。妄心者，有住之心。本心若有所住，即是妄心。若失本心，不能全用，故不失本心，是事为大。本心如水，妄心如冰，水洗万物，冰则不能。冰水非异，若冰溶解，则具妙用。心若有住，如水结冰，不能自在，去有住心，即为自由。</p>
-<p>​ <u>冰水的比喻确实精妙，核心之处在于—水无常形，灵动自如，恰如剑道中稳定如“山”的中段，蓄势待发；冰坚硬强大，反而有所定型，恰如打击出刀之后，是最危险的时刻，同时也是剑道必打的时刻（指后之先，对手出刀之后暴露出的打击时机）。但由此来喻指“心”，理解起来就很困难了：“妄心”好理解，有所定型，有所目的，但是“本心”的理解我觉得要更加复杂一点，不知道该怎么表述。</u></p>
-<p>7、有心无心</p>
-<p>​ 有心者，心有所住，此为妄心。无心者，虽云不动，非同草木，无有所住，不为尘所动，不即一事，不离一事，全体在用。心若有住，则不自由。譬如车轮。若为固定，则不能转，心亦如是。心住一处，则见不遍余色，闻不及余声，心有一物故。若心无住，则能随应，然若有除事之想，则心尚存一物。故不思维，尘自离心，是为无心。行者修习渐久，火侯渐深，自得个中三昧。若心汲汲，反不能至。</p>
-<p>​ <u>“虽云不动，非同草木”，那这稻草人的比喻不就不攻自破了。</u></p>
-<p>​ <u>“见不遍余色，闻不及余声，心有一物故。”这不就是绝对的专注吗？或许是他想强调专注的某种境界？与之前否定孟子的“放心”一句，感觉有所冲突。</u></p>
-<p>8、水上葫芦</p>
-<p>​ 若捺水上葫芦，一碰即转，无有所滞故。行者之心，应如捺水上葫芦，片刻不留。</p>
-<p>​ <u>这不就是剑道说的“浮木”吗？为此我还专门去拿木头去感受。</u></p>
-<p>​ <u>“浮木”很有意思的是它始终保持在相对稳定的状态，在（不用太大力）去按它的时候，无论何时它都会紧贴你的手，而且你用的力越大，它回馈的力也越大，哪怕你猛的一按（剑道里杀剑），它也会很快返回。</u></p>
-<p>​ <u>剑道用“浮木”来解释好的中段是什么样子。现在新学了一个“水上葫芦”来解释“心”，这种“浮”我觉得就是之前提到的“自在”。</u></p>
-<p>9、应无所住而生其心</p>
-<p>​ 行一事时，若心有事相，即为斯事所滞。故应无所住而生其心。于种种道艺，若心无住而行之，则堪称达人。因心有执，而有轮回，生死相伴。譬如赏花，心生赞叹之时，应无所住。故古歌云：「花不迷人人自迷。」</p>
-<p>​ <u>“心有事相”真的很巧妙，如何隐藏攻击意图一直是剑道进阶后学习的核心之一。</u></p>
-<p>​ 敬者，主一无适（专一不去往别的地方）。持剑挥剑，心住一所，不及旁务。儒家事君，以敬为重，然于佛法，则非究竟，为次第法。主一无适，不及旁务，戒慎恐惧，若以此境为常，日久反 不自由。譬如为绳所缚之猫，捕雀不得自在。若捕不捕，善调练之而去诸缚，则趋应无所住而生其心之趣。行者之心，亦复如是。善以调练，去心散乱，能收能放， 心无所住，自由无碍，方为究竟。以剑而言，心不住彼，不住己，人空、我空、剑空，亦不住空。</p>
-<p>​ <u>这里倒是提醒我了，想要避免“惊、惧、疑、怒”的最好办法不是压制它—越是压制，越是不自由；最好的办法是让它们根本不存在，犹如“明镜本清净”。但是要如何做到呢？说着容易，实践中光是压制就已经很困难了，完全放弃不仅仅是智慧，还需要勇气（生死之间根本没有时间去调整来放弃“心”所住）。具体如何做到完全没有头绪。</u></p>
-<p>​ 昔镰仓无学禅师于中国时，为元兵所捕，于斩首之际，作「电光影里斩春风」偈。无心之境，则电光迅雷之瞬，心无一念，人空我空一切空。心无所住，能斩初春之风。于斩春风时，亦无剑、手之想。如是忘却心事，方堪称高人。譬如彩女妙舞蹈，扇羽蝶形步莲花，若彼心欲妙扇、步，则心有住有罣碍，如是有心之作为，不堪极意为下乘。</p>
-<p>​ <u>这不是纯粹的唯心主义吗？我一直不认同这一点。剑道作为在生死之间发展起来的技术，一定是极其实用的，但是考虑到生死之间人往往容易质疑自我和世界，将救赎诉诸在唯心上，也可以理解。</u></p>
-<p>​ <u>而且之前批评儒家刻意，这里又说别人“下乘”，明明自己才是最刻意的。若是真正的“不动心”，那应该对外界完全无所谓才对，完全没有道德判断，只有世界的事实。</u></p>
-<p>10、 求放心</p>
-<p>​ 孟子云：「求其放心而已。」意为求散乱放逸之心回自身。譬如鸡犬逃散而寻回舍。心为身主，故莫放逸。然邵康节云：「心要放。」意为心若有缚，则不自由。心若 放逸，则摄心回身，如莲花出于淤泥，此为初学之阶。其上者，如水精于淤泥中，不以为意，不为泥染，来去随意。故孟子之求放心至究竟时，则为邵康节之心要放。中峰和尚亦云：「具放心」、「具不退转」，即精进而行，无疲惫想。身心性命，若不趋于上乘，则终于下乘。</p>
-<p>​ <u>我还是不认同“上者，如水精于淤泥中”。我认为真正的“上者”一定是对外界环境无所谓的，修行已经全部转移到了内心，身处闹市，依然心静。</u></p>
-<p>11、 急水上打毯子，念念不留</p>
-<p>​ 置毯于激流之上，潮来浪去，毯不滞一处，心之作用，亦复如是。</p>
-<p>​ <u>这里“心之作用”是什么？“心”是水吗？是“心”将思绪（毯子）推来推去的吗？这里感觉很突兀，不理解。</u></p>
-<p>12、 前后际断</p>
-<p>​ 前心不舍，今心残留，则心有住，舍前心今心之隙，无有一处心停留，是为前后际断。</p>
-<p>​ <u>这里我学随机过程的时候反而有所感悟。</u></p>
-<p>​ <u>举例说在多个随机事件中前一个事件结果不对后一个事件提供任何先验信息，所以从任何时刻截断观察都是完全一致的。人的心态如果能如此，我一度以为是超脱了时间的象征，佛教中也说“一念不生，前后际断”。但是回想过来这不就是不思进取吗？不吸取教训，前面的“念”如果完全割舍，那么“念”的意义何在？或许佛教的目的就是为了割舍“念”。</u></p>
-<p>​ <u>“舍前心今心之隙，无有一处心停留”这里我不是确定理解正不正确：佛教认为“念”是离散存在，有生有灭；但从生物角度说普遍认为思维是连续的，甚至表现上都不是线性的，那么这个“隙”本就不存在，“心”不可能停留，看似还在前一个“念”，事实上已经不同了。这里我只能简单理解到是大概是强调专注的意思。</u></p>
-<p>13、 水焦上，火洒云</p>
-<p>​ 都云：「唯愿武藏野，今莫火燎原。以此蔽天草，护隐夫与我。」</p>
-<p>​ 谁解：「明日朝阳东方起，便是紫花淍零时。」</p>
-<p>​ 世间无常，生死如电，行者自重。</p>
-<p>​ <u>这两句没有查到出处，意思也不是很明确。感觉有几分朝生暮死的意味，但是不明白具体什么意思。</u></p>
-<p>​ 盖兵法者，不争胜负，不拘强弱，不出一步，不退一步。</p>
-<p>​ <u>剑道又叫“小兵法”，几人成阵。这里应该是强调剑道的终极追求--不争胜负，不拘强弱，为了内心的强大而不是胜负。</u></p>
-<p>​ 敌不见我，我不见敌，撤天地未分阴阳不到处直须得功。</p>
-<p>​ <u>有几分剑道的玄学意味了。剑道一直强调：不是我比赛胜 了所以我胜了，而是我先胜了，所以比赛胜了。这里“先胜”不仅仅是心态上胜了，还有更加深入的意味，但是我自己没搞清楚，说也说不出来。</u></p>
-<p>​ 通达人者，不用刀杀人，用刀活人，要杀即杀，要活即活，杀杀三昧，活活三昧也。</p>
-<p>​ <u>柳生兵法最核心的论点就是“活人”，这里是说制服对手而不是单纯杀死他，这里说的“要杀即杀，要活即活”或许也是这个意思。</u></p>
-<p>​ 不见是非而能见是非。不作分别，而能作分别。</p>
-<p>​ <u>不主动去理解就能理解，有两种可能：一是自己完全不理解，二是自己完全理解。似乎全文还是更倾向于第一种：不判断而来的判断（放弃道德判断），得到真实判断（事实判断）。</u></p>
-<p>踏水如地，踏地如水。若得此自由，尽大地不奈他，悉绝同侣。 <u>“水”与“地”没有区分，这难道不是说佛教的终极追求是绝对的内心世界，而对外界不所谓？这与前文一直强调“上乘”难道不矛盾吗？</u></p>
-<p><u>不过这种“自由”概念倒是在很多宗教中屡见不鲜。但不管怎么样至少它承认了现实不是最优的，所以才有“自由”这个钙奶呢。若是真的佛，我觉得它的“自由”是一种更加广泛的定义—水是水，地是地，世界本身就很自由。</u></p>
-<p>​ 遇得这个么，行住坐卧，语里默里，茶里饭里，功夫不息，急着眼穷去穷来，直须见。</p>
-<p>​ 月积年久而如，自然暗里得灯相似。得无师智发妙作用。</p>
-<p>​ <u>这句没理解。</u></p>
-<p>​ 正与么时，只不出寻常之中，而超乎寻常之外，名之曰太阿。</p>
-<p>​ <u>“太阿”不是剑名吗？楚国名剑，往往用以指权柄。这里完全不明白了。</u></p>
-<p>​ 此太阿利剑人人具足，个个圆成，明之者，天魔怕之，昧之者，外道欺之。</p>
-<p>​ 或上手与上手，锋芒相交，不决胜负者，释尊拈花，迦叶微笑。</p>
-<p>​ 如又举一明三，目机铢两，是寻常之灵利也。</p>
-<p>​ 若夫事了毕人，于一未举三未明以前，早截三段，况颜颜相对乎。</p>
-<p>​ <u>不懂，不懂，完全不懂，没有足够的佛教背景知识。</u></p>
-<p>​ 如是人终不露锋芒，其疾也，电光无通；其短也，急岚无及。</p>
-<p>​ <u>这里我觉得一方面是由于“不动”带来的“势”，一方面是“不动”对外界变化的自如。</u></p>
-<p>​ 无这般手段，终拈却着拟却着，更伤锋犯手，不足为好手，莫以情势卜度，无言语所可传，无法度样可习。教外别传是也。</p>
-<p>​ <u>是我了。</u></p>
-<p>​ 大用现前不存规则，顺行逆行，天下无测，是什么道理。</p>
-<p>​ <u>规则始终在，改变万有引力是不现实的，所以应当不是无规则而是“随心所欲，不逾矩”</u></p>
-<p>​ 古人云：家无白泽图，无如是妖怪。</p>
-<p>​ <u>白泽是神兽啊，我能理解“无知”是妖怪，但是用白泽举例有些奇怪吧。</u></p>
-<p>​ 若人练得至这个道理，一剑平天下，学之者莫轻忽。</p>
-</center></center>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/01/04/How-to-get-matrix-transform-in-python/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Li Wuchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/04/How-to-get-matrix-transform-in-python/" class="post-title-link" itemprop="url">How to get matrix transform in python</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-04 17:23:39" itemprop="dateCreated datePublished" datetime="2021-01-04T17:23:39+08:00">2021-01-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 13:58:36" itemprop="dateModified" datetime="2021-09-15T13:58:36+08:00">2021-09-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Here is a special trick:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2020/12/30/What-is-the-use-of-activation-function/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Li Wuchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/30/What-is-the-use-of-activation-function/" class="post-title-link" itemprop="url">What is the use of activation function</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-12-30 18:34:35" itemprop="dateCreated datePublished" datetime="2020-12-30T18:34:35+08:00">2020-12-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 14:04:01" itemprop="dateModified" datetime="2021-09-15T14:04:01+08:00">2021-09-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
-<p>The following picture illustrates the basic structure of neural network.</p>
-<figure>
-<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn"><figcaption aria-hidden="true">nn</figcaption>
-</figure>
-<p>Extracted featrures are passed into the net as input.</p>
-<p># of input node = # of extracted feature types</p>
-<h1 id="why-we-need-activation">Why we need activation</h1>
-<p>For a classifiying issue:</p>
-<h3 id="without-activation">Without activation</h3>
-<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
-<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input} input+loss_1)+loss_2\)</span></p>
-<p>So bascically, we can derive that no matter how many layers you add into the net, without activation, the net can only produce a <strong>linear classifier</strong>.</p>
-<h3 id="with-activation">With activation</h3>
-<p>The aim of activation is to transfer a linear classifer to a non-linear classifer.</p>
-<p>The basic actication we use is: <span class="math display">\[
-\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0 \\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
-\]</span> It is same as nerve cell--if the cell is activated it produce a signal, otherwise, it does nothing.</p>
-<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
-\sigma(y) = \frac 1 {1+e^{-y}}
-\]</span> (we prefer to ues <span class="math inline">\(y\)</span>, because actication is added inside the net which means the input of activation is the output of prior layer)</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
-<center>
-<p>NN structure with activation</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
-<center>
-<p>Output of NN with activation</p>
-</center></center>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1475,14 +1253,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
