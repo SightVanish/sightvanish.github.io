@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"sightvanish.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="DefinitionTensor–”张量”, actually it is a little bit like the vector to store numbers(linear algebra)Operationimport torch 第一步永远是先导入torch库才能使用 0 Initializatin x &#x3D; torch.empty(a, b) a rows and b columns">
+  <meta name="description" content="Definition Tensor--&quot;张量&quot;, actually it is a little bit like the vector to store numbers(linear algebra) Operation import torch 第一步永远是先导入torch库才能使用 0 Initializatin  x &#x3D; torch.empty(a, b) a rows and b col">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tensor">
 <meta property="og:url" content="https://sightvanish.github.io/2020/05/23/1-tensor/index.html">
 <meta property="og:site_name" content="Li Wuchen">
-<meta property="og:description" content="DefinitionTensor–”张量”, actually it is a little bit like the vector to store numbers(linear algebra)Operationimport torch 第一步永远是先导入torch库才能使用 0 Initializatin x &#x3D; torch.empty(a, b) a rows and b columns">
+<meta property="og:description" content="Definition Tensor--&quot;张量&quot;, actually it is a little bit like the vector to store numbers(linear algebra) Operation import torch 第一步永远是先导入torch库才能使用 0 Initializatin  x &#x3D; torch.empty(a, b) a rows and b col">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-23T09:43:04.000Z">
 <meta property="article:modified_time" content="2021-09-15T05:47:01.664Z">
@@ -246,175 +246,185 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h1><h2 id="Tensor–”张量”-actually-it-is-a-little-bit-like-the-vector-to-store-numbers-linear-algebra"><a href="#Tensor–”张量”-actually-it-is-a-little-bit-like-the-vector-to-store-numbers-linear-algebra" class="headerlink" title="Tensor–”张量”, actually it is a little bit like the vector to store numbers(linear algebra)"></a>Tensor–”张量”, actually it is a little bit like the vector to store numbers(linear algebra)</h2><h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><p><code>import torch</code></p>
+        <h1 id="definition">Definition</h1>
+<h2 id="tensor--张量-actually-it-is-a-little-bit-like-the-vector-to-store-numberslinear-algebra">Tensor--"张量", actually it is a little bit like the vector to store numbers(linear algebra)</h2>
+<h1 id="operation">Operation</h1>
+<p><code>import torch</code></p>
 <p>第一步永远是先导入torch库才能使用</p>
-<h2 id="0-Initializatin"><a href="#0-Initializatin" class="headerlink" title="0 Initializatin"></a>0 Initializatin</h2><ol>
+<h2 id="initializatin">0 Initializatin</h2>
+<ol type="1">
 <li><code>x = torch.empty(a, b)</code> a rows and b columns of 0</li>
 <li><code>x = torch.random(a, b)</code> a rows and b columns of random number</li>
 <li><code>x = torch.zeros(a, b, dtype = torch.long)</code> use dtype to specify the type of the entries in tensor(in this case, type is long)</li>
 <li><code>x = torch.tensor([x1, x2, ...])</code> use square brackets to init the size/ values of a tensor</li>
-<li><code>y = torch.random_like(x, detype = torch.float)</code> , <code>_like </code>mesans using an existing tensor to init another one(in this case, we use the size of the old tensor to create a new tensor with type float)</li>
+<li><code>y = torch.random_like(x, detype = torch.float)</code> , <code>_like</code>mesans using an existing tensor to init another one(in this case, we use the size of the old tensor to create a new tensor with type float)</li>
 </ol>
 <p>More functions to init</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>函数</th>
 <th>功能</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Tensor(*sizes)</td>
 <td>基础构造函数</td>
 </tr>
-<tr>
+<tr class="even">
 <td>tensor(data,)</td>
 <td>类似np.array的构造函数</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>ones(*sizes)</td>
 <td>全1Tensor</td>
 </tr>
-<tr>
+<tr class="even">
 <td>zeros(*sizes)</td>
 <td>全0Tensor</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>eye(*sizes)</td>
 <td>对角线为1，其他为0</td>
 </tr>
-<tr>
+<tr class="even">
 <td>arange(s,e,step)</td>
 <td>从s到e，步长为step</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>linspace(s,e,steps)</td>
 <td>从s到e，均匀切分成steps份</td>
 </tr>
-<tr>
+<tr class="even">
 <td>rand/randn(*sizes)</td>
 <td>均匀/标准分布</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>normal(mean,std)/uniform(from,to)</td>
 <td>正态分布/均匀分布</td>
 </tr>
-<tr>
+<tr class="even">
 <td>randperm(m)</td>
 <td>随机排列</td>
 </tr>
-</tbody></table>
-<h2 id="1-Addition"><a href="#1-Addition" class="headerlink" title="1 Addition"></a>1 Addition</h2><p>The following 4 ways are same with same size tensors <code>x</code> <code>y</code> <code>z</code></p>
-<ol>
-<li><code>z = x + y</code></li>
-<li><code>z = torch.add(x, y)</code></li>
-<li><code>torch.add(x, y, out = z)</code> </li>
-<li><code>y.add_(x)</code> note: this is an inplace function, each inplace function has a postfix<code>_</code></li>
-</ol>
-<h2 id="2-Index"><a href="#2-Index" class="headerlink" title="2 Index"></a>2 Index</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y  = x[0,: ] # y points to all of x</span><br><span class="line">y += 1 # all entries will plus 1</span><br></pre></td></tr></table></figure>
+</tbody>
+</table>
+<h2 id="addition">1 Addition</h2>
+<p>The following 4 ways are same with same size tensors <code>x</code> <code>y</code> <code>z</code> 1. <code>z = x + y</code> 2. <code>z = torch.add(x, y)</code> 3. <code>torch.add(x, y, out = z)</code> 4. <code>y.add_(x)</code> note: this is an inplace function, each inplace function has a postfix<code>_</code></p>
+<h2 id="index">2 Index</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y  = x[0,: ] # y points to all of x</span><br><span class="line">y += 1 # all entries will plus 1</span><br></pre></td></tr></table></figure>
 <p>note: with this method, y will share memory with x, so you cannot only modify y without touching x</p>
 <p>More high level function to select index</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>函数</th>
 <th>功能</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>index_select(input, dim, index)</td>
 <td>在指定维度dim上选取，比如选取某些行、某些列</td>
 </tr>
-<tr>
+<tr class="even">
 <td>masked_select(input, mask)</td>
 <td>如上，a[a&gt;0]，使用ByteTensor进行选取</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>nonzero(input)</td>
 <td>非0元素的下标</td>
 </tr>
-<tr>
+<tr class="even">
 <td>gather(input, dim, index)</td>
 <td>根据index，在dim维度上选取数据，输出的size与index一样</td>
 </tr>
-</tbody></table>
-<h2 id="3-Shape-changing"><a href="#3-Shape-changing" class="headerlink" title="3 Shape changing"></a>3 Shape changing</h2><ol>
-<li><p>use <code>view() </code>function</p>
-<p> <code>y = x.view(a*b)</code>change the shape of x to 1 row 1*b column</p>
-<p> <code>x.size() = torch.size([a,b]), y.size() = torch.size([a*b])</code></p>
-<p> note: <code>view()</code> function still shares memory and does not change the number of entries</p>
-<p> if you want a copy just use <code>clone</code> </p>
-<p> eg. <code>x_copy = x.clone().veiw(new_a, new_b)</code></p>
-<h3 id="more"><a href="#more" class="headerlink" title="more"></a>more</h3><p><code>item()</code> function:</p>
-</li>
+</tbody>
+</table>
+<h2 id="shape-changing">3 Shape changing</h2>
+<ol type="1">
+<li><p>use <code>view()</code>function</p>
+<p><code>y = x.view(a*b)</code>change the shape of x to 1 row 1*b column</p>
+<p><code>x.size() = torch.size([a,b]), y.size() = torch.size([a*b])</code></p>
+<p>note: <code>view()</code> function still shares memory and does not change the number of entries</p>
+<p>if you want a copy just use <code>clone</code></p>
+<p>eg. <code>x_copy = x.clone().veiw(new_a, new_b)</code> ### more <code>item()</code> function:</p></li>
 </ol>
-<p>–change a tensor to a number</p>
+<p>--change a tensor to a number</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = torch.tensor([x1])</span><br><span class="line">y = x.item() # y will be a number = x1 </span><br></pre></td></tr></table></figure>
 <p>Note: it only happenes when there is only one 1 entry in tensor x</p>
-<h3 id="some-linear-operation"><a href="#some-linear-operation" class="headerlink" title="some linear operation"></a>some linear operation</h3><table>
+<h3 id="some-linear-operation">some linear operation</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>函数</th>
 <th>功能</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>trace</td>
 <td>对角线元素之和(矩阵的迹)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>diag</td>
 <td>对角线元素</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>triu/tril</td>
 <td>矩阵的上三角/下三角，可指定偏移量</td>
 </tr>
-<tr>
+<tr class="even">
 <td>mm/bmm</td>
 <td>矩阵乘法，batch的矩阵乘法</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>addmm/addbmm/addmv/addr/baddbmm..</td>
 <td>矩阵运算</td>
 </tr>
-<tr>
+<tr class="even">
 <td>t</td>
 <td>转置</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>dot/cross</td>
 <td>内积/外积</td>
 </tr>
-<tr>
+<tr class="even">
 <td>inverse</td>
 <td>求逆矩阵</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>svd</td>
 <td>奇异值分解</td>
 </tr>
-</tbody></table>
-<h2 id="3-Broadcasting"><a href="#3-Broadcasting" class="headerlink" title="3 Broadcasting"></a>3 Broadcasting</h2><p>Operations on two tensors with different shape<br>generally, tensors will be broadcast to larger size that can fit the operation.</p>
-<p>–One tensor’s dimension must be one</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">tensor x is 3*5, then y must be 1*5 or 3*1</span><br><span class="line">eg.</span><br><span class="line">x = torch.arange(0, 15).view(3, 5)</span><br><span class="line">y = torch.arange(0, 5).view(1, 5)</span><br><span class="line">#x + y = tensor([[ 0,  2,  4,  6,  8],</span><br><span class="line">                 [ 5,  7,  9, 11, 13],</span><br><span class="line">                 [10, 12, 14, 16, 18]])</span><br><span class="line">y = torch.arange(0,3).view(3,1)</span><br><span class="line">#x + y = tensor([[ 0,  1,  2,  3,  4],</span><br><span class="line">                 [ 6,  7,  8,  9, 10],</span><br><span class="line">                 [12, 13, 14, 15, 16]])</span><br><span class="line">more: </span><br><span class="line">x = torch.arange(0,5).view(1,5)</span><br><span class="line">y = torch.arange(0,3).view(3,1)</span><br><span class="line">#x + y = tensor([[0, 1, 2, 3, 4],</span><br><span class="line">                 [1, 2, 3, 4, 5],</span><br><span class="line">                 [2, 3, 4, 5, 6]])</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="Memory-Overhead"><a href="#Memory-Overhead" class="headerlink" title="Memory Overhead"></a>Memory Overhead</h1><ol>
+</tbody>
+</table>
+<h2 id="broadcasting">3 Broadcasting</h2>
+<p>Operations on two tensors with different shape generally, tensors will be broadcast to larger size that can fit the operation.</p>
+<p>--One tensor's dimension must be one</p>
+<h2 id="section"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">tensor x is 3*5, then y must be 1*5 or 3*1</span><br><span class="line">eg.</span><br><span class="line">x = torch.arange(0, 15).view(3, 5)</span><br><span class="line">y = torch.arange(0, 5).view(1, 5)</span><br><span class="line">#x + y = tensor([[ 0,  2,  4,  6,  8],</span><br><span class="line">                 [ 5,  7,  9, 11, 13],</span><br><span class="line">                 [10, 12, 14, 16, 18]])</span><br><span class="line">y = torch.arange(0,3).view(3,1)</span><br><span class="line">#x + y = tensor([[ 0,  1,  2,  3,  4],</span><br><span class="line">                 [ 6,  7,  8,  9, 10],</span><br><span class="line">                 [12, 13, 14, 15, 16]])</span><br><span class="line">more: </span><br><span class="line">x = torch.arange(0,5).view(1,5)</span><br><span class="line">y = torch.arange(0,3).view(3,1)</span><br><span class="line">#x + y = tensor([[0, 1, 2, 3, 4],</span><br><span class="line">                 [1, 2, 3, 4, 5],</span><br><span class="line">                 [2, 3, 4, 5, 6]])</span><br></pre></td></tr></table></figure></h2>
+<h1 id="memory-overhead">Memory Overhead</h1>
+<ol type="1">
 <li>there is <strong>no</strong> memory overhead using <strong>index</strong>, just copy the address instead of creatign a new memory space.</li>
 <li><strong>mathematical operations</strong> will create a <strong>new</strong> memory space.</li>
 <li><code>torch.add(x, y, out=y) &amp;&amp; y += x(y.add_(x))</code> also create <strong>new</strong> space</li>
 </ol>
-<h4 id="Specaial-note-although-view-function-will-create-a-tensor-sharing-data-with-the-old-one-you-can-modify-one-to-modify-both-but-new-tensor-has-a-new-memory-because-view-function-just-share-date-and-tensor-has-more-attributes"><a href="#Specaial-note-although-view-function-will-create-a-tensor-sharing-data-with-the-old-one-you-can-modify-one-to-modify-both-but-new-tensor-has-a-new-memory-because-view-function-just-share-date-and-tensor-has-more-attributes" class="headerlink" title="! Specaial note: although view() function will create a tensor sharing data with the old one(you can modify one to modify both), but new tensor has a new memory, because view() function just share date and tensor has more attributes."></a>! Specaial note: although <code>view()</code> function will create a tensor sharing data with the old one(you can modify one to modify both), but new tensor has a new memory, because <code>view()</code> function just share date and tensor has more attributes.</h4><h1 id="Exchange-between-tensor-and-numpy-数组"><a href="#Exchange-between-tensor-and-numpy-数组" class="headerlink" title="Exchange between tensor and numpy(数组)"></a>Exchange between <code>tensor</code> and <code>numpy(数组)</code></h1><p><code>import numpy as np</code> always remember to import</p>
+<h4 id="specaial-note-although-view-function-will-create-a-tensor-sharing-data-with-the-old-oneyou-can-modify-one-to-modify-both-but-new-tensor-has-a-new-memory-because-view-function-just-share-date-and-tensor-has-more-attributes.">! Specaial note: although <code>view()</code> function will create a tensor sharing data with the old one(you can modify one to modify both), but new tensor has a new memory, because <code>view()</code> function just share date and tensor has more attributes.</h4>
+<h1 id="exchange-between-tensor-and-numpy数组">Exchange between <code>tensor</code> and <code>numpy(数组)</code></h1>
+<p><code>import numpy as np</code> always remember to import</p>
 <p>Using functions:</p>
-<p><code>numpy() #chang tensor to numpy </code></p>
+<p><code>numpy() #chang tensor to numpy</code></p>
 <p><code>from_numpy() #change numpy to tensor</code></p>
-<p>Note: </p>
-<ol>
+<p>Note:</p>
+<ol type="1">
 <li>created numpy/tensor also shares memory(modify one to modify both), so <strong>changing between tensor and numpy is really fast</strong></li>
 <li>only tensor(containing numbers) can be changed to numpy, chartensor(containing characters) cannot</li>
 </ol>
-<p>More:<br>If you do not want to share memory, just use <code>torch.tensor(numpy)</code></p>
-<h1 id="Tensor-on-GPU"><a href="#Tensor-on-GPU" class="headerlink" title="Tensor on GPU"></a>Tensor on GPU</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">device = torch.device(&quot;cuda&quot;) #specify device to GPU</span><br><span class="line">x = x.to(device) #transfer tensor to GPU</span><br><span class="line">#or just x.to(&quot;cuda&quot;)</span><br></pre></td></tr></table></figure>
+<p>More: If you do not want to share memory, just use <code>torch.tensor(numpy)</code></p>
+<h1 id="tensor-on-gpu">Tensor on GPU</h1>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">device = torch.device(&quot;cuda&quot;) #specify device to GPU</span><br><span class="line">x = x.to(device) #transfer tensor to GPU</span><br><span class="line">#or just x.to(&quot;cuda&quot;)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = torch.ones(a, b, device=device) #init a tensor in GPU</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -496,7 +506,41 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Definition"><span class="nav-number">1.</span> <span class="nav-text">Definition</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tensor%E2%80%93%E2%80%9D%E5%BC%A0%E9%87%8F%E2%80%9D-actually-it-is-a-little-bit-like-the-vector-to-store-numbers-linear-algebra"><span class="nav-number">1.1.</span> <span class="nav-text">Tensor–”张量”, actually it is a little bit like the vector to store numbers(linear algebra)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Operation"><span class="nav-number">2.</span> <span class="nav-text">Operation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-Initializatin"><span class="nav-number">2.1.</span> <span class="nav-text">0 Initializatin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Addition"><span class="nav-number">2.2.</span> <span class="nav-text">1 Addition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Index"><span class="nav-number">2.3.</span> <span class="nav-text">2 Index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Shape-changing"><span class="nav-number">2.4.</span> <span class="nav-text">3 Shape changing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#more"><span class="nav-number">2.4.1.</span> <span class="nav-text">more</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#some-linear-operation"><span class="nav-number">2.4.2.</span> <span class="nav-text">some linear operation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Broadcasting"><span class="nav-number">2.5.</span> <span class="nav-text">3 Broadcasting</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Memory-Overhead"><span class="nav-number">3.</span> <span class="nav-text">Memory Overhead</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Specaial-note-although-view-function-will-create-a-tensor-sharing-data-with-the-old-one-you-can-modify-one-to-modify-both-but-new-tensor-has-a-new-memory-because-view-function-just-share-date-and-tensor-has-more-attributes"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">! Specaial note: although view() function will create a tensor sharing data with the old one(you can modify one to modify both), but new tensor has a new memory, because view() function just share date and tensor has more attributes.</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exchange-between-tensor-and-numpy-%E6%95%B0%E7%BB%84"><span class="nav-number">4.</span> <span class="nav-text">Exchange between tensor and numpy(数组)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tensor-on-GPU"><span class="nav-number">5.</span> <span class="nav-text">Tensor on GPU</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#definition"><span class="nav-number">1.</span> <span class="nav-text">Definition</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tensor--%E5%BC%A0%E9%87%8F-actually-it-is-a-little-bit-like-the-vector-to-store-numberslinear-algebra"><span class="nav-number">1.1.</span> <span class="nav-text">Tensor--&quot;张量&quot;, actually it is a little bit like the vector to store numbers(linear algebra)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#operation"><span class="nav-number">2.</span> <span class="nav-text">Operation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#initializatin"><span class="nav-number">2.1.</span> <span class="nav-text">0 Initializatin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#addition"><span class="nav-number">2.2.</span> <span class="nav-text">1 Addition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#index"><span class="nav-number">2.3.</span> <span class="nav-text">2 Index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shape-changing"><span class="nav-number">2.4.</span> <span class="nav-text">3 Shape changing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#some-linear-operation"><span class="nav-number">2.4.1.</span> <span class="nav-text">some linear operation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#broadcasting"><span class="nav-number">2.5.</span> <span class="nav-text">3 Broadcasting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section"><span class="nav-number">2.6.</span> <span class="nav-text">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+tensor x is 3*5, then y must be 1*5 or 3*1
+eg.
+x &#x3D; torch.arange(0, 15).view(3, 5)
+y &#x3D; torch.arange(0, 5).view(1, 5)
+#x + y &#x3D; tensor([[ 0,  2,  4,  6,  8],
+                 [ 5,  7,  9, 11, 13],
+                 [10, 12, 14, 16, 18]])
+y &#x3D; torch.arange(0,3).view(3,1)
+#x + y &#x3D; tensor([[ 0,  1,  2,  3,  4],
+                 [ 6,  7,  8,  9, 10],
+                 [12, 13, 14, 15, 16]])
+more: 
+x &#x3D; torch.arange(0,5).view(1,5)
+y &#x3D; torch.arange(0,3).view(3,1)
+#x + y &#x3D; tensor([[0, 1, 2, 3, 4],
+                 [1, 2, 3, 4, 5],
+                 [2, 3, 4, 5, 6]])
+</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#memory-overhead"><span class="nav-number">3.</span> <span class="nav-text">Memory Overhead</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#specaial-note-although-view-function-will-create-a-tensor-sharing-data-with-the-old-oneyou-can-modify-one-to-modify-both-but-new-tensor-has-a-new-memory-because-view-function-just-share-date-and-tensor-has-more-attributes."><span class="nav-number">3.0.0.1.</span> <span class="nav-text">! Specaial note: although view() function will create a tensor sharing data with the old one(you can modify one to modify both), but new tensor has a new memory, because view() function just share date and tensor has more attributes.</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#exchange-between-tensor-and-numpy%E6%95%B0%E7%BB%84"><span class="nav-number">4.</span> <span class="nav-text">Exchange between tensor and numpy(数组)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tensor-on-gpu"><span class="nav-number">5.</span> <span class="nav-text">Tensor on GPU</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -510,7 +554,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -618,6 +662,8 @@
 
 
 
+
+  
 
   
 

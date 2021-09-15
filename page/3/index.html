@@ -188,6 +188,81 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2020/12/21/how-to-change-you-local-git-name/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Li Wuchen">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/21/how-to-change-you-local-git-name/" class="post-title-link" itemprop="url">how to change you local git name</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-21 22:05:21" itemprop="dateCreated datePublished" datetime="2020-12-21T22:05:21+08:00">2020-12-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-15 13:58:16" itemprop="dateModified" datetime="2021-09-15T13:58:16+08:00">2021-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
+<p>Your name will be shown on github each time you push to it.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2020/12/21/solution-to-git-github-com%E5%87%BA%E7%8E%B0Permission-denied-publickey/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -242,17 +317,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <ol>
+          <ol type="1">
 <li><p>Create SSH key</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># change your path to .ssh file</span></span><br><span class="line">cd ~/.ssh</span><br><span class="line"><span class="section"># create new SSH key</span></span><br><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your git email&quot;</span><br><span class="line"><span class="section"># note that name of the file to save key should be &quot;id<span class="emphasis">_rsa&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, it will reprot &quot;Permission denied (publickey).&quot; when &quot;ssh -T git@github.com&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"></span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, remember to add it </span></span></span><br><span class="line"><span class="emphasis"><span class="section">ssh-add ~/.ssh/your_</span>name </span></span><br></pre></td></tr></table></figure></li>
 <li><p>Add SSH key to git</p>
-<p>You are supposed to find <code>id_rsa</code> and <code>id_rsa.pub</code>. The former is you SSH key. </p>
-<p>Create a new SSH key in your github and copy everything in <code>id_rsa.pub</code> to it.</p>
-</li>
+<p>You are supposed to find <code>id_rsa</code> and <code>id_rsa.pub</code>. The former is you SSH key.</p>
+<p>Create a new SSH key in your github and copy everything in <code>id_rsa.pub</code> to it.</p></li>
 <li><p>Test your connection with git</p>
 <p><code>ssh -T git@github.com</code></p>
-<p>If there is no bug report, you key is acceptable.</p>
-</li>
+<p>If there is no bug report, you key is acceptable.</p></li>
 </ol>
 
       
@@ -330,15 +403,12 @@
           <p>Both of them only happen when difference function using same name.</p>
 <ul>
 <li><p>Overloading: picking a method <strong>signature</strong> at compile time based on the number and type of the arguments specified</p>
-<p>Overload–在compile时抓取function signature，每个function参数列表（参数数目和数量）不同，所以区别开来。</p>
-</li>
+<p>Overload--在compile时抓取function signature，每个function参数列表（参数数目和数量）不同，所以区别开来。</p></li>
 <li><p>Overriding: picking a method <strong>implementation</strong> at execution time based on the actual type of the target object (as opposed to the compile-time type of the expression)</p>
-<p>Override–在execution时选取不同的function来执行，注意这些function名称相同，参数列表相同。发生在类的继承中，子类function override夫类function，返回类型相同。</p>
-</li>
+<p>Override--在execution时选取不同的function来执行，注意这些function名称相同，参数列表相同。发生在类的继承中，子类function override夫类function，返回类型相同。</p></li>
 </ul>
 <p>Example (with java):</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">// this function will overload the function above</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">double</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(double)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;		</span><br><span class="line">  	<span class="comment">// this function override the function in Base</span></span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Base b = <span class="keyword">new</span> Child();</span><br><span class="line">b.foo(<span class="number">10</span>); <span class="comment">// Prints Child.foo(int)</span></span><br><span class="line">b.foo(<span class="number">5.0</span>); <span class="comment">// Prints Base.foo(double)</span></span><br></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -412,7 +482,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如$a_ 1$应写为<code>a_ 1</code></p>
+          <p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
 
       
     </div>
@@ -486,76 +556,102 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Guassian-Model"><a href="#Guassian-Model" class="headerlink" title="Guassian Model"></a>Guassian Model</h1><h3 id="Gaussian-Single-Model"><a href="#Gaussian-Single-Model" class="headerlink" title="Gaussian Single Model"></a>Gaussian Single Model</h3><p>Guassian probability model is widely used in machine learning. The density function of single Guassian is:<br>$$<br>f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})<br>$$<br>$\mu $ is the mean and $\sigma$ is the variance.</p>
-<p>$X\sim N(\mu, \sigma^2)$ means X is distributed according to N.</p>
-<h3 id="Multivariate-Guassian-Model"><a href="#Multivariate-Guassian-Model" class="headerlink" title="Multivariate Guassian Model"></a>Multivariate Guassian Model</h3><p>If $X = (x_1, x_2, x_3, \dots, x_n)$, the density function is:<br>$$<br>f(X) = \frac{1}{(2\pi)^{d/2}|\sum|^{1/2}}exp[-\frac 12(X-\mu)^T(\sum )^{-1}(X-\mu)]<br>$$</p>
-<p>note: $d$ is the dimension of variable ($x_1$); $\mu$ is a nx1 matrix, means of each variable.</p>
-<p>$\sum$ is the covariance matrix of $X$, degree to which $x_i$ vary together.</p>
-<p>For a 2-D Guassian model, $\sum = \left[ \begin{matrix} \delta_{11} &amp; \delta_{12} \ \delta_{21} &amp; \delta_{22} \end{matrix} \right]$. $\sum$  determines the shape of distribution.</p>
-<h1 id="Guassian-Mixture-Model-GMM"><a href="#Guassian-Mixture-Model-GMM" class="headerlink" title="Guassian Mixture Model, GMM"></a>Guassian Mixture Model, GMM</h1><h3 id="Why-GMM"><a href="#Why-GMM" class="headerlink" title="Why GMM"></a>Why GMM</h3><ul>
-<li>Some cluster may be ‘wider’ than others</li>
+          <h1 id="guassian-model">Guassian Model</h1>
+<h3 id="gaussian-single-model">Gaussian Single Model</h3>
+<p>Guassian probability model is widely used in machine learning. The density function of single Guassian is: <span class="math display">\[
+f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
+\]</span> $$ is the mean and <span class="math inline">\(\sigma\)</span> is the variance.</p>
+<p><span class="math inline">\(X\sim N(\mu, \sigma^2)\)</span> means X is distributed according to N.</p>
+<h3 id="multivariate-guassian-model">Multivariate Guassian Model</h3>
+<p>If <span class="math inline">\(X = (x_1, x_2, x_3, \dots, x_n)\)</span>, the density function is: <span class="math display">\[
+f(X) = \frac{1}{(2\pi)^{d/2}|\sum|^{1/2}}exp[-\frac 12(X-\mu)^T(\sum )^{-1}(X-\mu)]
+\]</span></p>
+<p>note: <span class="math inline">\(d\)</span> is the dimension of variable (<span class="math inline">\(x_1\)</span>); <span class="math inline">\(\mu\)</span> is a nx1 matrix, means of each variable.</p>
+<p><span class="math inline">\(\sum\)</span> is the covariance matrix of <span class="math inline">\(X\)</span>, degree to which <span class="math inline">\(x_i\)</span> vary together.</p>
+<p>For a 2-D Guassian model, <span class="math inline">\(\sum = \left[ \begin{matrix} \delta_{11} &amp; \delta_{12} \\ \delta_{21} &amp; \delta_{22} \end{matrix} \right]\)</span>. <span class="math inline">\(\sum\)</span> determines the shape of distribution.</p>
+<h1 id="guassian-mixture-model-gmm">Guassian Mixture Model, GMM</h1>
+<h3 id="why-gmm">Why GMM</h3>
+<ul>
+<li>Some cluster may be 'wider' than others</li>
 <li>Clusters may overlap</li>
 </ul>
-<p>If we use one Guassian model, it cannot handle tha data set generated by multi Guassian models, so we introduce GMM – use multi Gussain models and mix them to one with certain weights.</p>
-<h3 id="GMM-formula"><a href="#GMM-formula" class="headerlink" title="GMM formula"></a>GMM formula</h3><p>Assume GMM is mixed by $\pmb K$ Guassian models, the density fucntion of GMM is:<br>$$<br>p(X) = \sum_ {k = 1}^K p(k)p(X|k) = \sum_ {k = 1}^K \Pi_ k N(X|\mu_k,\Sigma_ k)<br>$$<br>note: $ p(X|k) = N(X|\mu_ k,(\sum)_ k )$ is the density function of $k^{th}$ Gaussian model. $\Pi_k$ is the weight and $ \sum_ {k = 1}^K\Pi_ k = 1$.</p>
-<p>So basically GMM is the mixture of multi Gaussian models. In theory, with enough number of mixed Guassian models and proper weights, GMM can fit any distribution. </p>
-<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/1-DGaussian.png"></p>
-<center>Picture1: 1-D GMM</center>
-
-
+<p>If we use one Guassian model, it cannot handle tha data set generated by multi Guassian models, so we introduce GMM -- use multi Gussain models and mix them to one with certain weights.</p>
+<h3 id="gmm-formula">GMM formula</h3>
+<p>Assume GMM is mixed by <span class="math inline">\(\pmb K\)</span> Guassian models, the density fucntion of GMM is: <span class="math display">\[
+p(X) = \sum_ {k = 1}^K p(k)p(X|k) = \sum_ {k = 1}^K \Pi_ k N(X|\mu_k,\Sigma_ k)
+\]</span> note: $ p(X|k) = N(X|_ k,()_ k )$ is the density function of <span class="math inline">\(k^{th}\)</span> Gaussian model. <span class="math inline">\(\Pi_k\)</span> is the weight and $ _ {k = 1}^K_ k = 1$.</p>
+<p>So basically GMM is the mixture of multi Gaussian models. In theory, with enough number of mixed Guassian models and proper weights, GMM can fit any distribution.</p>
+<h3 id="examples">Examples</h3>
+<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/1-DGaussian.png"></p>
+<center>
+Picture1: 1-D GMM
+</center>
 <p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/2-DGaussian.png"></p>
-<center>Picture2: 2-D GMM</center>
-
-
+<center>
+Picture2: 2-D GMM
+</center>
 <p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/3-DGaussian.png"></p>
-<center>Picture3: 3-D GMM</center>
-
-<h1 id="Supervised-Learning-for-GMM"><a href="#Supervised-Learning-for-GMM" class="headerlink" title="Supervised Learning for GMM"></a>Supervised Learning for GMM</h1><h3 id="Generating-data"><a href="#Generating-data" class="headerlink" title="Generating data"></a>Generating data</h3><ol>
-<li>Choose component (cluster, which Guassian model) $\pmb i$ with probability $\pi_ i$.</li>
-<li>Generate data point from $N(X|\mu_ i, \Sigma_ i)$.</li>
+<center>
+Picture3: 3-D GMM
+</center>
+<h1 id="supervised-learning-for-gmm">Supervised Learning for GMM</h1>
+<h3 id="generating-data">Generating data</h3>
+<ol type="1">
+<li>Choose component (cluster, which Guassian model) <span class="math inline">\(\pmb i\)</span> with probability <span class="math inline">\(\pi_ i\)</span>.</li>
+<li>Generate data point from <span class="math inline">\(N(X|\mu_ i, \Sigma_ i)\)</span>.</li>
 </ol>
-<h3 id="How-to-estimate-parameters-of-GMM"><a href="#How-to-estimate-parameters-of-GMM" class="headerlink" title="How to estimate parameters of GMM"></a>How to estimate parameters of GMM</h3><ul>
-<li><p>We observe the <strong>data points X</strong>  and their <strong>labels y</strong> (generate from with Guassian component).</p>
-</li>
-<li><p>Maximize the likelihood:<br>$$<br>\prod_ j P(y_ i = i, X_ j) = \prod_j \pi_ i N(X_ j | \mu_ i, \Sigma_ i)<br>$$</p>
-<p>Product of probability on all the data points ( j ). $P(y_ i = i)$ means the probabilty of this point is generated by $i^{th}$ Gaussian component.</p>
-</li>
-<li><p><strong>Closed Form Solution</strong></p>
-<p>We have $m$ data points. For component $i$, suppose we have $n$ data points labelled by $i$.<br>$$<br>\mu_ i = \frac 1 n \sum_ {j = 1} ^n X_ j<br>$$</p>
-<p>$\mu_ i$ is the mean of $i_{th}$ Guassian component, so it should be the mean/center of all data point.<br>$$<br>\Sigma_ i = \frac 1 n \sum_ {j = 1}^n(X_ j-\mu_ i)(X_ j - \mu_ i)^T<br>$$<br>$(\sum)_ i$ is the covarivance matrix of $i_ {th}$ Guassian component.</p>
-<p>$\pi_ i$ is weight, # of points belonging to $i_ {th}$ Guassian component / # of all points</p>
-</li>
-</ul>
-<p>$$<br>\pi_ i = \frac nm<br>$$</p>
-<p>We have already solved such problem</p>
-<h1 id="Unsupervised-Learning-for-GMM"><a href="#Unsupervised-Learning-for-GMM" class="headerlink" title="Unsupervised Learning for GMM"></a>Unsupervised Learning for GMM</h1><h3 id="In-clusterin-we-don’t-know-the-labels-Y"><a href="#In-clusterin-we-don’t-know-the-labels-Y" class="headerlink" title="In clusterin, we don’t know the labels Y !"></a>In clusterin, we don’t know the labels Y !</h3><ul>
-<li><p>Maximize marginal likelihood:<br>$$<br>\prod_ j P(X_ j) = \prod_ j\sum_ i P(y_ j = i, X_ j) = \prod_ j\sum_ i \pi_ i N(\mu_ i, \Sigma_ i)P(y_ i = i)<br>$$<br>It is to improve the P of all components</p>
-</li>
-<li><p>Parameters to be learnt:</p>
-<p>$\pi$, $\mu$, $\Sigma$, $y$</p>
-</li>
-<li><p>How to optimize it? (No closed form solution) </p>
+<h3 id="how-to-estimate-parameters-of-gmm">How to estimate parameters of GMM</h3>
 <ul>
-<li>Expectation Maximization (EM)<ul>
+<li><p>We observe the <strong>data points X</strong> and their <strong>labels y</strong> (generate from with Guassian component).</p></li>
+<li><p>Maximize the likelihood: <span class="math display">\[
+\prod_ j P(y_ i = i, X_ j) = \prod_j \pi_ i N(X_ j | \mu_ i, \Sigma_ i)
+\]</span></p>
+<p>Product of probability on all the data points ( j ). <span class="math inline">\(P(y_ i = i)\)</span> means the probabilty of this point is generated by <span class="math inline">\(i^{th}\)</span> Gaussian component.</p></li>
+<li><p><strong>Closed Form Solution</strong></p>
+<p>We have <span class="math inline">\(m\)</span> data points. For component <span class="math inline">\(i\)</span>, suppose we have <span class="math inline">\(n\)</span> data points labelled by <span class="math inline">\(i\)</span>. <span class="math display">\[
+\mu_ i = \frac 1 n \sum_ {j = 1} ^n X_ j
+\]</span></p>
+<p><span class="math inline">\(\mu_ i\)</span> is the mean of <span class="math inline">\(i_{th}\)</span> Guassian component, so it should be the mean/center of all data point. <span class="math display">\[
+\Sigma_ i = \frac 1 n \sum_ {j = 1}^n(X_ j-\mu_ i)(X_ j - \mu_ i)^T
+\]</span> <span class="math inline">\((\sum)_ i\)</span> is the covarivance matrix of <span class="math inline">\(i_ {th}\)</span> Guassian component.</p>
+<p><span class="math inline">\(\pi_ i\)</span> is weight, # of points belonging to <span class="math inline">\(i_ {th}\)</span> Guassian component / # of all points</p></li>
+</ul>
+<p><span class="math display">\[
+\pi_ i = \frac nm
+\]</span></p>
+<p>We have already solved such problem</p>
+<h1 id="unsupervised-learning-for-gmm">Unsupervised Learning for GMM</h1>
+<h3 id="in-clusterin-we-dont-know-the-labels-y">In clusterin, we don't know the labels Y !</h3>
+<ul>
+<li><p>Maximize marginal likelihood: <span class="math display">\[
+  \prod_ j P(X_ j) = \prod_ j\sum_ i P(y_ j = i, X_ j) = \prod_ j\sum_ i \pi_ i N(\mu_ i, \Sigma_ i)P(y_ i = i)
+  \]</span> It is to improve the P of all components</p></li>
+<li><p>Parameters to be learnt:</p>
+<p><span class="math inline">\(\pi\)</span>, <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\Sigma\)</span>, <span class="math inline">\(y\)</span></p></li>
+<li><p>How to optimize it? (No closed form solution)</p>
+<ul>
+<li>Expectation Maximization (EM)
+<ul>
 <li>pick k random Guassian models</li>
 <li>assign data proportionally to these k models</li>
 <li>revis model based on the distance between predicted points with real points (just like k-means)</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Examples-1"><a href="#Examples-1" class="headerlink" title="Examples"></a>Examples</h3><p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex1_2.png"></p>
+<h3 id="examples-1">Examples</h3>
+<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex1_2.png"></p>
 <p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex1_1.png"></p>
 <p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex1_3.png"></p>
-<h1 id="Expectation-Maximization-EM"><a href="#Expectation-Maximization-EM" class="headerlink" title="Expectation Maximization (EM)"></a>Expectation Maximization (EM)</h1><p><strong>Pretend</strong> we do know the parameter.</p>
+<h1 id="expectation-maximization-em">Expectation Maximization (EM)</h1>
+<p><strong>Pretend</strong> we do know the parameter.</p>
 <ul>
 <li>Initialize randomly</li>
 <li>[E step] Compute probability of each instance having possible label (note: one point shares <strong>multiple probabilities</strong> corresponding to multiple Guassian models).</li>
-<li>[M step] Treating each instance as fractionally having these labels (one point is treated as having many labels with certain probability), compute the new parameter values. </li>
+<li>[M step] Treating each instance as fractionally having these labels (one point is treated as having many labels with certain probability), compute the new parameter values.</li>
 <li>Repeat E-&gt;M steps</li>
 </ul>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
+<h3 id="example">Example</h3>
+<ul>
 <li>We get data like this</li>
 </ul>
 <p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_1.png"></p>
@@ -572,16 +668,18 @@
 </ul>
 <p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_4.png"></p>
 <ul>
-<li>Repeat–based on current Guassian models, reassign labels to points</li>
+<li>Repeat--based on current Guassian models, reassign labels to points</li>
 </ul>
 <p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_5.png"></p>
 <ul>
 <li>Stop when no changes</li>
 </ul>
-<h3 id="Inclusion"><a href="#Inclusion" class="headerlink" title="Inclusion"></a>Inclusion</h3><p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/inclusion.png"></p>
-<p>K-means is a special case of GMM–all Gaussians are spherical and have identical weights and covariance (the only parameter is mean).</p>
-<h3 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h3><p>In general, EM can be used to learn any model with hidden variables.</p>
-<p>EM for HMMs(hidden markov models)–aka. Baum-Welch algorithm</p>
+<h3 id="inclusion">Inclusion</h3>
+<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/inclusion.png"></p>
+<p>K-means is a special case of GMM--all Gaussians are spherical and have identical weights and covariance (the only parameter is mean).</p>
+<h3 id="extension">Extension</h3>
+<p>In general, EM can be used to learn any model with hidden variables.</p>
+<p>EM for HMMs(hidden markov models)--aka. Baum-Welch algorithm</p>
 <ul>
 <li>[M step] compute the distribution of hidden states given each training instance</li>
 <li>[E step] update the parameters to maximize expected log likelihood based on distributions over hidden states.</li>
@@ -659,8 +757,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="僧璨禅师《信心铭》"><a href="#僧璨禅师《信心铭》" class="headerlink" title="僧璨禅师《信心铭》"></a>僧璨禅师《信心铭》</h1><h3 id="–前部分解读"><a href="#–前部分解读" class="headerlink" title="–前部分解读"></a>–前部分解读</h3><h2 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h2><p>僧璨大师是禅宗三祖,一般认为是隋朝初期的禅师。《信心铭》是解读其思想最重要的文献，篇幅很长，思想繁复深邃，此处仅仅结合课上教学选取前几句自己稍微有些感悟的诗句解读。前人对《信心铭》的解读中都提到其最核心的内容在于<u>“不二”</u>，下文也会尝试结合这一核心词进行解读。</p>
-<h2 id="二、解读"><a href="#二、解读" class="headerlink" title="二、解读"></a>二、解读</h2><h3 id="《信心铭》（标题）"><a href="#《信心铭》（标题）" class="headerlink" title="《信心铭》（标题）"></a>《信心铭》（标题）</h3><p>慧广法师解读信心铭三个字时，解释信为五十一心所法的第三类，也就是善心所中的一个法–“信”。信在字面的意思解释为诚实、不欺骗，做动词也可以解释为相信。信心直观地解释为相信心，也可以解释为诚实的心（将信做为心法，即是做一种观念来对待）。铭字面解释可以说是一种文体，同时也是需要铭记，类似纲领性文字。标题似乎是在说相信自己的内心，也可以说是内心诚实没有迷惘。</p>
+          <h1 id="僧璨禅师信心铭">僧璨禅师《信心铭》</h1>
+<h3 id="前部分解读">--前部分解读</h3>
+<h2 id="一引言">一、引言</h2>
+<p>僧璨大师是禅宗三祖,一般认为是隋朝初期的禅师。《信心铭》是解读其思想最重要的文献，篇幅很长，思想繁复深邃，此处仅仅结合课上教学选取前几句自己稍微有些感悟的诗句解读。前人对《信心铭》的解读中都提到其最核心的内容在于<u>“不二”</u>，下文也会尝试结合这一核心词进行解读。</p>
+<h2 id="二解读">二、解读</h2>
+<h3 id="信心铭标题">《信心铭》（标题）</h3>
+<p>慧广法师解读信心铭三个字时，解释信为五十一心所法的第三类，也就是善心所中的一个法--“信”。信在字面的意思解释为诚实、不欺骗，做动词也可以解释为相信。信心直观地解释为相信心，也可以解释为诚实的心（将信做为心法，即是做一种观念来对待）。铭字面解释可以说是一种文体，同时也是需要铭记，类似纲领性文字。标题似乎是在说相信自己的内心，也可以说是内心诚实没有迷惘。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/11/28/%E7%A6%85%E8%AF%97%E8%A7%A3%E8%AF%BB/#more" rel="contents">
@@ -741,8 +844,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother–faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
-<p>(for test purpose–transfer Blog)</p>
+          <p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
+<p>(for test purpose--transfer Blog)</p>
 
       
     </div>
@@ -816,13 +919,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h4><p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
-<br>
-
-<h4 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h4><p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
-<br>
-
-<h4 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h4><p>引用图片时注意路径<strong>只能</strong>是相对路径：<code> ./name/name.png</code>，注意开头的 <code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
+          <h4 id="step-1">Step 1</h4>
+<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
+<p><br></p>
+<h4 id="step-2">Step 2</h4>
+<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
+<p><br></p>
+<h4 id="step-3">Step 3</h4>
+<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的 <code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
 
       
     </div>
@@ -901,12 +1005,14 @@
 
       
           <p>1.请叙述重视剑道礼仪的理由</p>
-<p>剑道常常说“以礼始以礼终”，事实上在剑道中礼仪确实无处不在–从进入道场对道场的行礼，到稽古时对对手的行礼，再到结束时集合后的行礼。可以说剑道中的礼仪非常细节而琐碎，几乎对所有的行为都进行了细节的指导，这种礼仪当然有古代剑术遗留下来的一些制度性要求，但是从当今的现代剑道中剑道礼仪也有非常特别的作用。我认为剑道礼仪主要体现了剑道对两方面的要求：其一是剑道技术层面，其二是剑道精神层面。<br>a. 就技术层面上说，剑道中的很多细节的利于本身就是现代剑道乃至古代剑术中的技术指导，而在现在被视为了剑道礼仪中的一部分。比如剑道向对手行礼时要求双眼不能离开对手事实上实在警惕对手随时可能发起的攻击；剑道要求竹刀不能刀尖指向地面放置，在真剑上则实在保护刀尖；剑道稽古前的蹲踞行礼可以视为是维持与对手合理的安全距离，并且激活脚踝和大腿肌肉。等等诸如此类的礼仪细节剑道中数不胜数，这其中有直接对剑道稽古、打击有帮助的内容，也有基于古代剑术的内容，体现了剑道视竹刀为真剑，视稽古为真实战斗的初心。<br>b. 从精神层面上说我认为礼仪最核心的部分则还可以细分为两点：一是剑道作为武力的一种体现，礼仪是对武力的限制，二是剑道在发展中收到的禅学影响。对于第一点上，中国人常说“武以止戈”，武力在出现后就频繁引起争斗，不受限制的武力不仅是危险的而且是无用的。武力本身并不错误，如何使用武力决定了武力的性质。剑道的礼仪就好像是刀的刀柄一般让武力有了被操纵的可能，用理性压制住内心的不安。最后从禅学上说。剑道最初的发展是一项非常注重实用性的技术，是禅宗赋予了其思想内核。铃木和尚在弘法的时候曾经就类比禅宗和剑道的修行（可能当时还没有现代严格意义上的剑道），他说剑道和禅学是一样的，都是通过迫使肉体在极端条件下去有机会来脱离外在世界来探求内心。在我看来剑道的礼仪也是如此，剑道的礼仪和禅宗的打坐诵经并无区别，都是形式罢了，具体的形式如何其实没有任何意义，有意义的是通过这种形式能够收敛内心，能尝试在专注中体会自我。事实上在形式上也有很多有趣的相似，有说法是“剑禅如一”，我们甚至能看到剑道的默想的手印和禅宗的佛印极为相似，礼仪上受到禅宗的影响不可谓不深。<br>由此可见，无论是从实用性的技术层面，还是从精神层面学会束缚武力、增强内心上，礼仪都是有实际价值的存在，是剑道修行中不可分割的一部分，值得所有剑道人牢记。<br><br></p>
+<p>剑道常常说“以礼始以礼终”，事实上在剑道中礼仪确实无处不在--从进入道场对道场的行礼，到稽古时对对手的行礼，再到结束时集合后的行礼。可以说剑道中的礼仪非常细节而琐碎，几乎对所有的行为都进行了细节的指导，这种礼仪当然有古代剑术遗留下来的一些制度性要求，但是从当今的现代剑道中剑道礼仪也有非常特别的作用。我认为剑道礼仪主要体现了剑道对两方面的要求：其一是剑道技术层面，其二是剑道精神层面。 a. 就技术层面上说，剑道中的很多细节的利于本身就是现代剑道乃至古代剑术中的技术指导，而在现在被视为了剑道礼仪中的一部分。比如剑道向对手行礼时要求双眼不能离开对手事实上实在警惕对手随时可能发起的攻击；剑道要求竹刀不能刀尖指向地面放置，在真剑上则实在保护刀尖；剑道稽古前的蹲踞行礼可以视为是维持与对手合理的安全距离，并且激活脚踝和大腿肌肉。等等诸如此类的礼仪细节剑道中数不胜数，这其中有直接对剑道稽古、打击有帮助的内容，也有基于古代剑术的内容，体现了剑道视竹刀为真剑，视稽古为真实战斗的初心。 b. 从精神层面上说我认为礼仪最核心的部分则还可以细分为两点：一是剑道作为武力的一种体现，礼仪是对武力的限制，二是剑道在发展中收到的禅学影响。对于第一点上，中国人常说“武以止戈”，武力在出现后就频繁引起争斗，不受限制的武力不仅是危险的而且是无用的。武力本身并不错误，如何使用武力决定了武力的性质。剑道的礼仪就好像是刀的刀柄一般让武力有了被操纵的可能，用理性压制住内心的不安。最后从禅学上说。剑道最初的发展是一项非常注重实用性的技术，是禅宗赋予了其思想内核。铃木和尚在弘法的时候曾经就类比禅宗和剑道的修行（可能当时还没有现代严格意义上的剑道），他说剑道和禅学是一样的，都是通过迫使肉体在极端条件下去有机会来脱离外在世界来探求内心。在我看来剑道的礼仪也是如此，剑道的礼仪和禅宗的打坐诵经并无区别，都是形式罢了，具体的形式如何其实没有任何意义，有意义的是通过这种形式能够收敛内心，能尝试在专注中体会自我。事实上在形式上也有很多有趣的相似，有说法是“剑禅如一”，我们甚至能看到剑道的默想的手印和禅宗的佛印极为相似，礼仪上受到禅宗的影响不可谓不深。 由此可见，无论是从实用性的技术层面，还是从精神层面学会束缚武力、增强内心上，礼仪都是有实际价值的存在，是剑道修行中不可分割的一部分，值得所有剑道人牢记。 <br></p>
 <p>2.请说明残心。</p>
-<p>剑道残心很多时候被解释为打击后不放松对对对手的警惕，而有时残心也被广义地理解为是对对手无时无刻的警惕，哪怕还没有开始稽古也已经做好来随时应对的准备。单纯从体育的角度来看是十分匪夷所思的：就拿奥运会中类似的击剑而言，在裁判喊开始之前二者都是绝对安全的，而在击中的灯亮起后两者也是绝对安全的，很多运动员都会非常放松。剑道非常特殊，它不仅要求残心，甚至将残心作为比赛胜利的必要组件，强制要求残心。这实际上体现了剑道作为实用性技术的素质同样还体现了剑道在对内心塑造的要求。<br>a. 作为使用性技术，残心使得打击后能够仍保有最低限度的余力应对可能的反击、追击，在打击后不会因为放松而失败悔恨；同样广义上的残心要求人做到随时随地应对的准备–比如在蹲踞起来后应对对手马上发起的攻击，在近距离交锷时防范应对对手可能的退击，在远距离时不放松警惕，防范远距离的进攻。残心在剑道的实际练习和稽古中都是有着非常具体的落实和要求的，而在古代剑术中残心很大程度上更是自己生命安全的必不可少的保证。<br>b. 从精神训练上说，残心不仅仅是形式上表现出来的，更多是内心中的，是精神上的。残心要求精神上时刻保持专注，而不是单纯打击后高举竹刀脱离对手。有意义的残心并不一定要打击后一直向前冲出脱离，而是将专注力放在对手身上，打击后不忘警惕，转身时小心对手。残心在精神上是让剑道练习者在打击后保持游刃有余同时保持警惕心态的必要训练。</p>
+<p>剑道残心很多时候被解释为打击后不放松对对对手的警惕，而有时残心也被广义地理解为是对对手无时无刻的警惕，哪怕还没有开始稽古也已经做好来随时应对的准备。单纯从体育的角度来看是十分匪夷所思的：就拿奥运会中类似的击剑而言，在裁判喊开始之前二者都是绝对安全的，而在击中的灯亮起后两者也是绝对安全的，很多运动员都会非常放松。剑道非常特殊，它不仅要求残心，甚至将残心作为比赛胜利的必要组件，强制要求残心。这实际上体现了剑道作为实用性技术的素质同样还体现了剑道在对内心塑造的要求。 a. 作为使用性技术，残心使得打击后能够仍保有最低限度的余力应对可能的反击、追击，在打击后不会因为放松而失败悔恨；同样广义上的残心要求人做到随时随地应对的准备--比如在蹲踞起来后应对对手马上发起的攻击，在近距离交锷时防范应对对手可能的退击，在远距离时不放松警惕，防范远距离的进攻。残心在剑道的实际练习和稽古中都是有着非常具体的落实和要求的，而在古代剑术中残心很大程度上更是自己生命安全的必不可少的保证。 b. 从精神训练上说，残心不仅仅是形式上表现出来的，更多是内心中的，是精神上的。残心要求精神上时刻保持专注，而不是单纯打击后高举竹刀脱离对手。有意义的残心并不一定要打击后一直向前冲出脱离，而是将专注力放在对手身上，打击后不忘警惕，转身时小心对手。残心在精神上是让剑道练习者在打击后保持游刃有余同时保持警惕心态的必要训练。</p>
 <hr>
 <p>下面是实际提交的版本，我认为修改得更明确了些：</p>
-<p><img src="/2020/11/13/kendo-2-nd-dan-exam/kendo-2nd-exam.png" alt="kendo-2-nd"></p>
+<figure>
+<img src="/2020/11/13/kendo-2-nd-dan-exam/kendo-2nd-exam.png" alt="kendo-2-nd"><figcaption aria-hidden="true">kendo-2-nd</figcaption>
+</figure>
 
       
     </div>
@@ -980,12 +1086,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Import"><a href="#Import" class="headerlink" title="Import"></a>Import</h2><p><code>import numpy</code> or <code>import numpy as np</code></p>
-<h2 id="Feature"><a href="#Feature" class="headerlink" title="Feature"></a>Feature</h2><p>The key feature of numpy package is that it introduce a new data structure – array</p>
+          <h2 id="import">Import</h2>
+<p><code>import numpy</code> or <code>import numpy as np</code></p>
+<h2 id="feature">Feature</h2>
+<p>The key feature of numpy package is that it introduce a new data structure -- array</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">&gt;&gt;&gt;a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">a</span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">type</span>(a)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">numpy</span>.<span class="title">ndarray</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="Propertities-of-array"><a href="#Propertities-of-array" class="headerlink" title="Propertities of array"></a>Propertities of array</h4><p>ndarray 的重要属性包括:</p>
-<ol>
+<h4 id="propertities-of-array">Propertities of array</h4>
+<p>ndarray 的重要属性包括:</p>
+<ol type="1">
 <li>ndarray.ndim：数组的维数，也称为rank</li>
 <li>ndarray.shape：数组各维的大小，对一个n行m列的矩阵来说， shape 为 (n,m)</li>
 <li>ndarray.size：元素的总数。</li>
@@ -993,84 +1101,7 @@
 <li>ndarray.itemsize：每个元素占用的字节数。</li>
 <li>ndarray.data：指向数据内存。</li>
 </ol>
-<h2 id="More-details-similar-with-tensor"><a href="#More-details-similar-with-tensor" class="headerlink" title="More details similar with tensor"></a>More details similar with tensor</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2020/09/24/assert-expression-in-Python/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Li Wuchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/24/assert-expression-in-Python/" class="post-title-link" itemprop="url">assert expression in Python</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-24 19:31:18" itemprop="dateCreated datePublished" datetime="2020-09-24T19:31:18+08:00">2020-09-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 13:54:11" itemprop="dateModified" datetime="2021-09-15T13:54:11+08:00">2021-09-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><h3 id="1-synatx"><a href="#1-synatx" class="headerlink" title="1. synatx"></a>1. synatx</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">assert [expression]</span><br><span class="line"># it is same with</span><br><span class="line">if not [expression]:</span><br><span class="line">    raise AssertionError</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-with-parameters"><a href="#2-with-parameters" class="headerlink" title="2. with parameters"></a>2. with parameters</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">assert expression [, arguments]</span><br><span class="line"># same with</span><br><span class="line">if not expression:</span><br><span class="line">    raise AssertionError(arguments)</span><br></pre></td></tr></table></figure>
-
-<h3 id="conclusion"><a href="#conclusion" class="headerlink" title="conclusion"></a>conclusion</h3><p>if an assert is not satisfied, throw exception. easy to detect the errors in code.</p>
+<h2 id="more-details-similar-with-tensor">More details similar with tensor</h2>
 
       
     </div>
@@ -1155,7 +1186,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1263,6 +1294,8 @@
 
 
 
+
+  
 
   
 

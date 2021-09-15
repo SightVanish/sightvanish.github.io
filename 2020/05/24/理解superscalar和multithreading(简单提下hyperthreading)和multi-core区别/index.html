@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"sightvanish.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="看到网上有一篇文章用汽车收费站来解释这三个概念，想法很好，但是感觉没说那么清楚，于是我自己来说一遍 0. 一般情况 想象一下你是公路的设计者，现在要对车子进行收费，你怎么办？ 最一般的情况就很简单了：让所有车子排一排，依次通过一个收费站，结束。  如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？ 1. 多收">
+  <meta name="description" content="看到网上有一篇文章用汽车收费站来解释这三个概念，想法很好，但是感觉没说那么清楚，于是我自己来说一遍 0. 一般情况  想象一下你是公路的设计者，现在要对车子进行收费，你怎么办？ 最一般的情况就很简单了：让所有车子排一排，依次通过一个收费站，结束。  如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？  1.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解superscalar和multithreading(简单提及hyperthreading)和multi-core区别">
 <meta property="og:url" content="https://sightvanish.github.io/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="Li Wuchen">
-<meta property="og:description" content="看到网上有一篇文章用汽车收费站来解释这三个概念，想法很好，但是感觉没说那么清楚，于是我自己来说一遍 0. 一般情况 想象一下你是公路的设计者，现在要对车子进行收费，你怎么办？ 最一般的情况就很简单了：让所有车子排一排，依次通过一个收费站，结束。  如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？ 1. 多收">
+<meta property="og:description" content="看到网上有一篇文章用汽车收费站来解释这三个概念，想法很好，但是感觉没说那么清楚，于是我自己来说一遍 0. 一般情况  想象一下你是公路的设计者，现在要对车子进行收费，你怎么办？ 最一般的情况就很简单了：让所有车子排一排，依次通过一个收费站，结束。  如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？  1.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sightvanish.github.io/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/normal.jpg">
 <meta property="og:image" content="https://sightvanish.github.io/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/hyperthreading.jpg">
@@ -251,41 +251,43 @@
 
       
         <p>看到网上有一篇文章用汽车收费站来解释这三个概念，想法很好，但是感觉没说那么清楚，于是我自己来说一遍</p>
-<h2 id="0-一般情况"><a href="#0-一般情况" class="headerlink" title="0. 一般情况"></a>0. 一般情况</h2><p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/normal.jpg"></p>
+<h2 id="一般情况">0. 一般情况</h2>
+<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/normal.jpg"></p>
 <p>想象一下你是公路的设计者，现在要对车子进行收费，你怎么办？</p>
 <p>最一般的情况就很简单了：<strong>让所有车子排一排，依次通过一个收费站</strong>，结束。</p>
 <hr>
-<h5 id="如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？"><a href="#如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？" class="headerlink" title="如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？"></a>如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？</h5><hr>
-<h2 id="1-多收费站"><a href="#1-多收费站" class="headerlink" title="1. 多收费站"></a>1. 多收费站</h2><p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/hyperthreading.jpg"></p>
+<h5 id="如果车流很少的话当然没有问题但是高速公路cpu很贵为了不浪费我们会让尽可能多的车上高速这样所有的车都会堵在收费站那么怎么加速呢">如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？</h5>
+<hr>
+<h2 id="多收费站">1. 多收费站</h2>
+<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/hyperthreading.jpg"></p>
 <p>很多地方采取的解决办法就是<strong>多加几个收费站</strong>（当然可以不止两个）。这样一次就能进来两辆车，两个收费站无论哪个空了就会有新的车子不补上去，理论上如果有n个收费站速度就加快了n倍（实际上当然做不到）。</p>
-<h2 id="2-多开几条车道"><a href="#2-多开几条车道" class="headerlink" title="2. 多开几条车道"></a>2. 多开几条车道</h2><p>如果你真正在高速上开过车你就会发现：实际上一条路上有多个车道（快车道、慢车道），而在临近收费站的时候甚至会被突然<strong>扩展成更多的车道</strong>，让车子能够分流。</p>
+<h2 id="多开几条车道">2. 多开几条车道</h2>
+<p>如果你真正在高速上开过车你就会发现：实际上一条路上有多个车道（快车道、慢车道），而在临近收费站的时候甚至会被突然<strong>扩展成更多的车道</strong>，让车子能够分流。</p>
 <p>车子到达收费站的时候，实际上你就能看到有多个车道，那个空去那里，理论上设立n条车道也能提高n倍效率。</p>
-<h2 id="3-另开一条路"><a href="#3-另开一条路" class="headerlink" title="3. 另开一条路"></a>3. 另开一条路</h2><p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/multicore.jpg"></p>
+<h2 id="另开一条路">3. 另开一条路</h2>
+<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/multicore.jpg"></p>
 <p>比如A地到B地的公路很堵，恰巧政府有很有钱的话，那就很简单了：<strong>再铺一条公路</strong>。两条路是完全互不干涉的（independent），人们看着那条路比较空就往哪条路走就行了。</p>
 <p>最终你就得到了现在实际运行中的收费站模式</p>
-<h2 id="结合CPU"><a href="#结合CPU" class="headerlink" title="结合CPU"></a>结合CPU</h2><p>上面已经说的很明白了：</p>
+<h2 id="结合cpu">结合CPU</h2>
+<p>上面已经说的很明白了：</p>
 <p>方法1就是<code>multithreading</code>,方法2就是<code>superscalar</code>，方法3就是<code>multicore</code>。</p>
-<ol>
+<ol type="1">
 <li><p><code>multithreading</code>就是在一个CPU core上设立n条thread让多个程序同时进行。那么可能就有人问了：CPU一个core不是只能同时跑一个程序吗，为什么现在能同时跑多个了？其实这里要明白一个核心问题：<strong>CPU core很贵但是同时也非常快</strong>，拖累你运行速度的其实很多是与memory之间的交互。</p>
-<p>打个比方就是收费员算你要交多少钱很快，但是你拿钱和收费员找零就很慢了。那么对于cpu而言所谓的设立多个收费站其实就是在你拿钱的时候让收费员去算下一个人的钱–有可能下一个人拿etc卡很快就过去了，而这个时候正好可以等你拿钱。CPU core实际上就是在多个程序之间跳来跳去，如果有人需要与memory交互，让就交给memory去办，cpu先去跑别的程序。</p>
+<p>打个比方就是收费员算你要交多少钱很快，但是你拿钱和收费员找零就很慢了。那么对于cpu而言所谓的设立多个收费站其实就是在你拿钱的时候让收费员去算下一个人的钱--有可能下一个人拿etc卡很快就过去了，而这个时候正好可以等你拿钱。CPU core实际上就是在多个程序之间跳来跳去，如果有人需要与memory交互，让就交给memory去办，cpu先去跑别的程序。</p>
 <p><code>multithreading</code>本质上是对CPU core性能的高效利用，尽可能让CPU core始终满负荷运行。所以这种方法受限于cpu本身的性能。</p>
-<p>这里额外提一句<code>hyperthreading</code>，这个技术比较复杂而且实际表现也没有那么好（在intel顶级CPU上还在使用，追求极致效率），用比较模糊的话说就是把一个CPU核心掰成两半  (其实还是thread的优化)，模拟出多个 <code>logical units</code>，本质上是建立在multithreading中每个thread利用率不高的前提下进一步提高效率。</p>
-</li>
+<p>这里额外提一句<code>hyperthreading</code>，这个技术比较复杂而且实际表现也没有那么好（在intel顶级CPU上还在使用，追求极致效率），用比较模糊的话说就是把一个CPU核心掰成两半 (其实还是thread的优化)，模拟出多个 <code>logical units</code>，本质上是建立在multithreading中每个thread利用率不高的前提下进一步提高效率。</p></li>
+<li><p><code>superscalar</code>是risc的技术，需要硬件的支持是用空间换效率，在一个core上需要放多个<code>functional units（ALU, FPU, etc）</code>但是又共享一部分硬件，这样一个CPU core一次clock cycle里就能执行多个指令。其中当然还有很多细节问题，但是大体上逻辑如此。</p></li>
+<li><p><code>multi-core</code>这个就很简单了，堆CPU核心就完事儿了（实际上如何堆核心是很大的一个难题--如何把一个本来单线程的程序均匀地分布到多个核心上运算，最后还能合回来，很难），这也是现在的发展主流。相反过去疯狂提升频率的方法被逐渐抛弃，甚至有些cpu主动降频来获得更好的发热表现。</p></li>
 </ol>
-<ol start="2">
-<li><code>superscalar</code>是risc的技术，需要硬件的支持是用空间换效率，在一个core上需要放多个<code>functional units（ALU, FPU, etc）</code>但是又共享一部分硬件，这样一个CPU core一次clock cycle里就能执行多个指令。其中当然还有很多细节问题，但是大体上逻辑如此。</li>
-<li><code>multi-core</code>这个就很简单了，堆CPU核心就完事儿了（实际上如何堆核心是很大的一个难题–如何把一个本来单线程的程序均匀地分布到多个核心上运算，最后还能合回来，很难），这也是现在的发展主流。相反过去疯狂提升频率的方法被逐渐抛弃，甚至有些cpu主动降频来获得更好的发热表现。</li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虽然基本的原理就是如此，但是上述三种提高性能的方法都需要程序员来协调如何分配车流（有些东西最底层的硬件已经完成）</p>
+<h2 id="总结">总结</h2>
+<p>虽然基本的原理就是如此，但是上述三种提高性能的方法都需要程序员来协调如何分配车流（有些东西最底层的硬件已经完成）</p>
 <hr>
-<h2 id="更新–进程、线程、超线程"><a href="#更新–进程、线程、超线程" class="headerlink" title="更新–进程、线程、超线程"></a>更新–进程、线程、超线程</h2><ol>
-<li><p>进程（process）是操作系统（OS）的调度单位，一个任务对于OS就是一个进程–比如QQ、微信。OS接收到任务之后会给每个进程单独开辟一块虚拟内存，让每个进程之间可以互相不影响。</p>
-</li>
-<li><p>线程（thread）是CPU的调度单位，一般来说一个CPU核心只有一个线程，由于现在的额CPU往往是多核心的，所以是多线程。CPU在接收到OS发布的process之后会调动多个核心（也就是多个线程）去处理这个任务。在不同线程之间的资源相互共享（线程之间交互的速度远远大于进程之间交互的速度），可以将一个进程拆成多个部分在不同的CPU上进行–比如一个core被IO占用，那么另一个core就可以去处理ALU的部分。</p>
-</li>
+<h2 id="更新--进程线程超线程">更新--进程、线程、超线程</h2>
+<ol type="1">
+<li><p>进程（process）是操作系统（OS）的调度单位，一个任务对于OS就是一个进程--比如QQ、微信。OS接收到任务之后会给每个进程单独开辟一块虚拟内存，让每个进程之间可以互相不影响。</p></li>
+<li><p>线程（thread）是CPU的调度单位，一般来说一个CPU核心只有一个线程，由于现在的额CPU往往是多核心的，所以是多线程。CPU在接收到OS发布的process之后会调动多个核心（也就是多个线程）去处理这个任务。在不同线程之间的资源相互共享（线程之间交互的速度远远大于进程之间交互的速度），可以将一个进程拆成多个部分在不同的CPU上进行--比如一个core被IO占用，那么另一个core就可以去处理ALU的部分。</p></li>
 <li><p>超线程（superthread）是Intel提出的，本质是欺骗CPU，让CPU内部的pipeline尽可能同时进行。Intel计划让一个core可以同时进行两个线程（比如8核心16线程的CPU）。在一个core处理IO时，欺骗core，让它另一部分处理ALU。比起多个core的多车道，超线程见缝插针，只有恰好有core的计算资源闲置同时thread之间不冲突时才会发生。那之所以一个core只分成两个thread就是因为管理这些thread之间的硬件面积会大幅增加，需要承担thread之间相互等待的开销，得不偿失了。</p>
-<p>但同时IBM也有8核32线程的核心，不过主要针对的是有高并发任务的服务器平台了。</p>
-</li>
+<p>但同时IBM也有8核32线程的核心，不过主要针对的是有高并发任务的服务器平台了。</p></li>
 </ol>
 
     </div>
@@ -367,7 +369,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-%E4%B8%80%E8%88%AC%E6%83%85%E5%86%B5"><span class="nav-number">1.</span> <span class="nav-text">0. 一般情况</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E8%BD%A6%E6%B5%81%E5%BE%88%E5%B0%91%E7%9A%84%E8%AF%9D%E5%BD%93%E7%84%B6%E6%B2%A1%E6%9C%89%E9%97%AE%E9%A2%98%EF%BC%8C%E4%BD%86%E6%98%AF%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AF%EF%BC%88CPU%EF%BC%89%E5%BE%88%E8%B4%B5%EF%BC%8C%E4%B8%BA%E4%BA%86%E4%B8%8D%E6%B5%AA%E8%B4%B9%E6%88%91%E4%BB%AC%E4%BC%9A%E8%AE%A9%E5%B0%BD%E5%8F%AF%E8%83%BD%E5%A4%9A%E7%9A%84%E8%BD%A6%E4%B8%8A%E9%AB%98%E9%80%9F%EF%BC%8C%E8%BF%99%E6%A0%B7%E6%89%80%E6%9C%89%E7%9A%84%E8%BD%A6%E9%83%BD%E4%BC%9A%E5%A0%B5%E5%9C%A8%E6%94%B6%E8%B4%B9%E7%AB%99%E3%80%82%E9%82%A3%E4%B9%88%E6%80%8E%E4%B9%88%E5%8A%A0%E9%80%9F%E5%91%A2%EF%BC%9F"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%A4%9A%E6%94%B6%E8%B4%B9%E7%AB%99"><span class="nav-number">2.</span> <span class="nav-text">1. 多收费站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%A4%9A%E5%BC%80%E5%87%A0%E6%9D%A1%E8%BD%A6%E9%81%93"><span class="nav-number">3.</span> <span class="nav-text">2. 多开几条车道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%8F%A6%E5%BC%80%E4%B8%80%E6%9D%A1%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">3. 另开一条路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E5%90%88CPU"><span class="nav-number">5.</span> <span class="nav-text">结合CPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E2%80%93%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E8%B6%85%E7%BA%BF%E7%A8%8B"><span class="nav-number">7.</span> <span class="nav-text">更新–进程、线程、超线程</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E6%83%85%E5%86%B5"><span class="nav-number">1.</span> <span class="nav-text">0. 一般情况</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E8%BD%A6%E6%B5%81%E5%BE%88%E5%B0%91%E7%9A%84%E8%AF%9D%E5%BD%93%E7%84%B6%E6%B2%A1%E6%9C%89%E9%97%AE%E9%A2%98%E4%BD%86%E6%98%AF%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AFcpu%E5%BE%88%E8%B4%B5%E4%B8%BA%E4%BA%86%E4%B8%8D%E6%B5%AA%E8%B4%B9%E6%88%91%E4%BB%AC%E4%BC%9A%E8%AE%A9%E5%B0%BD%E5%8F%AF%E8%83%BD%E5%A4%9A%E7%9A%84%E8%BD%A6%E4%B8%8A%E9%AB%98%E9%80%9F%E8%BF%99%E6%A0%B7%E6%89%80%E6%9C%89%E7%9A%84%E8%BD%A6%E9%83%BD%E4%BC%9A%E5%A0%B5%E5%9C%A8%E6%94%B6%E8%B4%B9%E7%AB%99%E9%82%A3%E4%B9%88%E6%80%8E%E4%B9%88%E5%8A%A0%E9%80%9F%E5%91%A2"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E6%94%B6%E8%B4%B9%E7%AB%99"><span class="nav-number">2.</span> <span class="nav-text">1. 多收费站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%BC%80%E5%87%A0%E6%9D%A1%E8%BD%A6%E9%81%93"><span class="nav-number">3.</span> <span class="nav-text">2. 多开几条车道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%A6%E5%BC%80%E4%B8%80%E6%9D%A1%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">3. 另开一条路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E5%90%88cpu"><span class="nav-number">5.</span> <span class="nav-text">结合CPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0--%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E8%B6%85%E7%BA%BF%E7%A8%8B"><span class="nav-number">7.</span> <span class="nav-text">更新--进程、线程、超线程</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -381,7 +383,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -489,6 +491,8 @@
 
 
 
+
+  
 
   
 

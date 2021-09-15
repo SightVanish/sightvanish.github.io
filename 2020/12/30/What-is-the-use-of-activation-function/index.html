@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"sightvanish.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Brief intro to Neural NetworkThe following picture illustrates the basic structure of neural network.  Extracted featrures are passed into the net as input. # of input node &#x3D; # of extracted feature ty">
+  <meta name="description" content="Brief intro to Neural Network The following picture illustrates the basic structure of neural network.  nn  Extracted featrures are passed into the net as input. # of input node &#x3D; # of extracted featu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="What is the use of activation function">
 <meta property="og:url" content="https://sightvanish.github.io/2020/12/30/What-is-the-use-of-activation-function/index.html">
 <meta property="og:site_name" content="Li Wuchen">
-<meta property="og:description" content="Brief intro to Neural NetworkThe following picture illustrates the basic structure of neural network.  Extracted featrures are passed into the net as input. # of input node &#x3D; # of extracted feature ty">
+<meta property="og:description" content="Brief intro to Neural Network The following picture illustrates the basic structure of neural network.  nn  Extracted featrures are passed into the net as input. # of input node &#x3D; # of extracted featu">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sightvanish.github.io/2020/12/30/What-is-the-use-of-activation-function/nn.jpg">
 <meta property="og:image" content="https://sightvanish.github.io/2020/12/30/What-is-the-use-of-activation-function/activation1.png">
@@ -251,22 +251,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Brief-intro-to-Neural-Network"><a href="#Brief-intro-to-Neural-Network" class="headerlink" title="Brief intro to Neural Network"></a>Brief intro to Neural Network</h1><p>The following picture illustrates the basic structure of neural network.</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn"></p>
+        <h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
+<p>The following picture illustrates the basic structure of neural network.</p>
+<figure>
+<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn"><figcaption aria-hidden="true">nn</figcaption>
+</figure>
 <p>Extracted featrures are passed into the net as input.</p>
 <p># of input node = # of extracted feature types</p>
-<h1 id="Why-we-need-activation"><a href="#Why-we-need-activation" class="headerlink" title="Why we need activation"></a>Why we need activation</h1><p>For a classifiying issue:</p>
-<h3 id="Without-activation"><a href="#Without-activation" class="headerlink" title="Without activation"></a>Without activation</h3><p>If there is only one-layer(input-output), the output is $output = \sum input + loss$</p>
-<p>If there rae two-layers(with one hidden layer), the output is $output = \sum_ {hidden}(\sum_ {input} input+loss_1)+loss_2$</p>
+<h1 id="why-we-need-activation">Why we need activation</h1>
+<p>For a classifiying issue:</p>
+<h3 id="without-activation">Without activation</h3>
+<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
+<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input} input+loss_1)+loss_2\)</span></p>
 <p>So bascically, we can derive that no matter how many layers you add into the net, without activation, the net can only produce a <strong>linear classifier</strong>.</p>
-<h3 id="With-activation"><a href="#With-activation" class="headerlink" title="With activation"></a>With activation</h3><p>The aim of activation is to transfer a linear classifer to a non-linear classifer.</p>
-<p>The basic actication we use is:<br>$$<br>\begin{equation} {y}=f(x) =\left{ \begin{array}{ll}     1 &amp; x&gt;0 \     0 &amp; x&lt;0 \end{array}\right. \end{equation}<br>$$<br>It is same as nerve cell–if the cell is activated it produce a signal, otherwise, it does nothing.</p>
-<p>More then, what we use is <strong>sigmoid</strong> function.<br>$$<br>\sigma(y) = \frac 1 {1+e^{-y}}<br>$$<br>(we prefer to ues $y$, because actication is added inside the net which means the input of activation is the output of prior layer)</p>
+<h3 id="with-activation">With activation</h3>
+<p>The aim of activation is to transfer a linear classifer to a non-linear classifer.</p>
+<p>The basic actication we use is: <span class="math display">\[
+\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0 \\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
+\]</span> It is same as nerve cell--if the cell is activated it produce a signal, otherwise, it does nothing.</p>
+<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
+\sigma(y) = \frac 1 {1+e^{-y}}
+\]</span> (we prefer to ues <span class="math inline">\(y\)</span>, because actication is added inside the net which means the input of activation is the output of prior layer)</p>
 <p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
-<center>NN structure with activation
-
+<center>
+<p>NN structure with activation</p>
 <p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
-<center>Output of NN with activation
+<center>
+<p>Output of NN with activation</p>
 </center></center>
     </div>
 
@@ -350,7 +361,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Brief-intro-to-Neural-Network"><span class="nav-number">1.</span> <span class="nav-text">Brief intro to Neural Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Why-we-need-activation"><span class="nav-number">2.</span> <span class="nav-text">Why we need activation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Without-activation"><span class="nav-number">2.0.1.</span> <span class="nav-text">Without activation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#With-activation"><span class="nav-number">2.0.2.</span> <span class="nav-text">With activation</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#brief-intro-to-neural-network"><span class="nav-number">1.</span> <span class="nav-text">Brief intro to Neural Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#why-we-need-activation"><span class="nav-number">2.</span> <span class="nav-text">Why we need activation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#without-activation"><span class="nav-number">2.0.1.</span> <span class="nav-text">Without activation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#with-activation"><span class="nav-number">2.0.2.</span> <span class="nav-text">With activation</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -364,7 +375,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -472,6 +483,8 @@
 
 
 
+
+  
 
   
 

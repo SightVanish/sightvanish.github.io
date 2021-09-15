@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"sightvanish.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Margin  从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。   上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。 Linear Seperatable SVM首先考虑所有sample本身线性可分。 Problem Definition对于">
+  <meta name="description" content="Margin  从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。  上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。 Linear Seperatable SVM 首先考虑所有sample本身线性可分。 Problem Definition 对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SVM(Support Vector Machine)">
 <meta property="og:url" content="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/index.html">
 <meta property="og:site_name" content="Li Wuchen">
-<meta property="og:description" content="Margin  从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。   上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。 Linear Seperatable SVM首先考虑所有sample本身线性可分。 Problem Definition对于">
+<meta property="og:description" content="Margin  从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。  上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。 Linear Seperatable SVM 首先考虑所有sample本身线性可分。 Problem Definition 对">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/1.png">
 <meta property="og:image" content="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/2.png">
@@ -251,30 +251,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Margin"><a href="#Margin" class="headerlink" title="Margin"></a>Margin</h2><img src="/2021/05/25/SVM-Support-Vector-Machine/1.png" alt="1" style="zoom:50%;">
-
+        <h2 id="margin">Margin</h2>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/1.png" alt="1" style="zoom:50%;"></p>
 <p>从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。</p>
-<img src="/2021/05/25/SVM-Support-Vector-Machine/2.png" alt="2" style="zoom:50%;">
-
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/2.png" alt="2" style="zoom:50%;"></p>
 <p>上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。</p>
-<h2 id="Linear-Seperatable-SVM"><a href="#Linear-Seperatable-SVM" class="headerlink" title="Linear Seperatable SVM"></a>Linear Seperatable SVM</h2><p>首先考虑所有sample本身线性可分。</p>
-<h3 id="Problem-Definition"><a href="#Problem-Definition" class="headerlink" title="Problem Definition"></a>Problem Definition</h3><p>对于线性分类器的超平面为：$X^TW+b=0$。We define those with $X^TW+b&gt;1$ is labeled +1, which means geometrically the <em>left-top</em> part of the line is labeled positive.</p>
-<img src="/2021/05/25/SVM-Support-Vector-Machine/3.png" alt="2" style="zoom:50%;">
-
-<p>So we can see that $margin = \frac{2}{||W||}$. We want to maximum margin which is same with $min||W||^2$.</p>
-<p>[primal  problem]</p>
+<h2 id="linear-seperatable-svm">Linear Seperatable SVM</h2>
+<p>首先考虑所有sample本身线性可分。</p>
+<h3 id="problem-definition">Problem Definition</h3>
+<p>对于线性分类器的超平面为：<span class="math inline">\(X^TW+b=0\)</span>。We define those with <span class="math inline">\(X^TW+b&gt;1\)</span> is labeled +1, which means geometrically the <em>left-top</em> part of the line is labeled positive.</p>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/3.png" alt="2" style="zoom:50%;"></p>
+<p>So we can see that <span class="math inline">\(margin = \frac{2}{||W||}\)</span>. We want to maximum margin which is same with <span class="math inline">\(min||W||^2\)</span>.</p>
+<p>[primal problem]</p>
 <p>The whole problem can be written as :</p>
-<p>$min||W||^2, \  st. y_i(X_i^TW+b)&gt;=1$.</p>
-<h3 id="How-to-find-W-b"><a href="#How-to-find-W-b" class="headerlink" title="How to find W, b"></a>How to find W, b</h3><p>If all the data is linear seperatable, those points that determine margin are called support vectors. For support vectors we have: $y_i(X_i^TW+b)=1$. For other points, they have no influence on this algorithm so that this algorithm is called SVM.</p>
-<h2 id="NonLinear-Seperatable-SVM"><a href="#NonLinear-Seperatable-SVM" class="headerlink" title="NonLinear Seperatable SVM"></a>NonLinear Seperatable SVM</h2><p>Since the data is not linear speratable itself, we allow SVM has some mistakes–<em>soft margin</em>.</p>
-<h3 id="hinge-loss"><a href="#hinge-loss" class="headerlink" title="hinge loss"></a>hinge loss</h3><p>We will modify our objective function by adding hinge loss ($l_{hinge}=max(0,1-z), z=y_i(X_i^TW+b)$).</p>
-<p>Objective function: $min \ ||W||^2+C\Sigma l_{hinge}$. C is hyper-parameter. If C-&gt;0, the model allows any mistakes–easily undercutting; if C-&gt;$\infin$, the model is same with Linear Speratable SVM–easily overfitting.</p>
-<p>[primal  problem]</p>
+<p><span class="math inline">\(min||W||^2, \  st. y_i(X_i^TW+b)&gt;=1\)</span>.</p>
+<h3 id="how-to-find-w-b">How to find W, b</h3>
+<p>If all the data is linear seperatable, those points that determine margin are called support vectors. For support vectors we have: <span class="math inline">\(y_i(X_i^TW+b)=1\)</span>. For other points, they have no influence on this algorithm so that this algorithm is called SVM.</p>
+<h2 id="nonlinear-seperatable-svm">NonLinear Seperatable SVM</h2>
+<p>Since the data is not linear speratable itself, we allow SVM has some mistakes--<em>soft margin</em>.</p>
+<h3 id="hinge-loss">hinge loss</h3>
+<p>We will modify our objective function by adding hinge loss (<span class="math inline">\(l_{hinge}=max(0,1-z), z=y_i(X_i^TW+b)\)</span>).</p>
+<p>Objective function: <span class="math inline">\(min \ ||W||^2+C\Sigma l_{hinge}\)</span>. C is hyper-parameter. If C-&gt;0, the model allows any mistakes--easily undercutting; if C-&gt;<span class="math inline">\(\infin\)</span>, the model is same with Linear Speratable SVM--easily overfitting.</p>
+<p>[primal problem]</p>
 <p>The whole problem can be written as:</p>
-<p>$min||W||^2+C\Sigma_i\xi_i, \ st.y_i(X_i^TW+b)&gt;=1-\xi_i,\xi&gt;=0$.</p>
-<h2 id="What-if-the-sample-is-totally-nonlinear-seperatable"><a href="#What-if-the-sample-is-totally-nonlinear-seperatable" class="headerlink" title="What if the sample is totally nonlinear seperatable?"></a>What if the sample is totally nonlinear seperatable?</h2><h3 id="Kernel"><a href="#Kernel" class="headerlink" title="Kernel"></a>Kernel</h3><p>Introduce Lagranginan function and we get dual form of primal problem:</p>
-<p>$min_{\alpha}\Sigma_i^n\Sigma_j^n\alpha_i\alpha_jy_iy_j(X_i\cdot X_j)-\Sigma_i^n\alpha_i. \ st. \Sigma_i^n\alpha_iy_i=0, \ 0\leq\alpha_i&lt;C$.</p>
-<p>We can choose proper kernel $K$ to replace $(X_i\cdot X_j)$.</p>
+<p><span class="math inline">\(min||W||^2+C\Sigma_i\xi_i, \ st.y_i(X_i^TW+b)&gt;=1-\xi_i,\xi&gt;=0\)</span>.</p>
+<h2 id="what-if-the-sample-is-totally-nonlinear-seperatable">What if the sample is totally nonlinear seperatable?</h2>
+<h3 id="kernel">Kernel</h3>
+<p>Introduce Lagranginan function and we get dual form of primal problem:</p>
+<p><span class="math inline">\(min_{\alpha}\Sigma_i^n\Sigma_j^n\alpha_i\alpha_jy_iy_j(X_i\cdot X_j)-\Sigma_i^n\alpha_i. \ st. \Sigma_i^n\alpha_iy_i=0, \ 0\leq\alpha_i&lt;C\)</span>.</p>
+<p>We can choose proper kernel <span class="math inline">\(K\)</span> to replace <span class="math inline">\((X_i\cdot X_j)\)</span>.</p>
 
     </div>
 
@@ -358,7 +363,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Margin"><span class="nav-number">1.</span> <span class="nav-text">Margin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Seperatable-SVM"><span class="nav-number">2.</span> <span class="nav-text">Linear Seperatable SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-Definition"><span class="nav-number">2.1.</span> <span class="nav-text">Problem Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-find-W-b"><span class="nav-number">2.2.</span> <span class="nav-text">How to find W, b</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NonLinear-Seperatable-SVM"><span class="nav-number">3.</span> <span class="nav-text">NonLinear Seperatable SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hinge-loss"><span class="nav-number">3.1.</span> <span class="nav-text">hinge loss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-if-the-sample-is-totally-nonlinear-seperatable"><span class="nav-number">4.</span> <span class="nav-text">What if the sample is totally nonlinear seperatable?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Kernel"><span class="nav-number">4.1.</span> <span class="nav-text">Kernel</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#margin"><span class="nav-number">1.</span> <span class="nav-text">Margin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linear-seperatable-svm"><span class="nav-number">2.</span> <span class="nav-text">Linear Seperatable SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-definition"><span class="nav-number">2.1.</span> <span class="nav-text">Problem Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#how-to-find-w-b"><span class="nav-number">2.2.</span> <span class="nav-text">How to find W, b</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nonlinear-seperatable-svm"><span class="nav-number">3.</span> <span class="nav-text">NonLinear Seperatable SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hinge-loss"><span class="nav-number">3.1.</span> <span class="nav-text">hinge loss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#what-if-the-sample-is-totally-nonlinear-seperatable"><span class="nav-number">4.</span> <span class="nav-text">What if the sample is totally nonlinear seperatable?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kernel"><span class="nav-number">4.1.</span> <span class="nav-text">Kernel</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -372,7 +377,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -480,6 +485,8 @@
 
 
 
+
+  
 
   
 
