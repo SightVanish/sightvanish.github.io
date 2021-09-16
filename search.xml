@@ -193,9 +193,9 @@
     <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
     <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
 <p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-NIjoQNcFNNLZksMm" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-NIjoQNcFNNLZksMm").style.height=document.getElementById("mmedia-NIjoQNcFNNLZksMm").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-zBOLeiLKwyhLpLHI" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-zBOLeiLKwyhLpLHI").style.height=document.getElementById("mmedia-zBOLeiLKwyhLpLHI").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-NIjoQNcFNNLZksMm").style.height=document.getElementById("mmedia-NIjoQNcFNNLZksMm").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-zBOLeiLKwyhLpLHI").style.height=document.getElementById("mmedia-zBOLeiLKwyhLpLHI").scrollWidth*0.76+"px";
     }; </script>
 ]]></content>
       <categories>
@@ -382,6 +382,20 @@
       </categories>
   </entry>
   <entry>
+    <title>C/C++ openmp</title>
+    <url>/2020/05/30/C-C-openmp/</url>
+    <content><![CDATA[<p>Just a note for myself !</p>
+<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del> </strong> !!!</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>openmp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++11 in Mac (VsCode)</title>
     <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
     <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of <code>gcc</code>. You can still use <code>clang++</code> or <code>g++</code> to run a <code>.cpp</code> file. But basically, <code>clang</code> will use <code>-std=c++98</code> as default.</p>
@@ -430,6 +444,18 @@
       </tags>
   </entry>
   <entry>
+    <title>Copy &amp; Deepcopy in Python</title>
+    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Cannot get access to Github</title>
     <url>/2021/03/04/Cannot-get-access-to-Github/</url>
     <content><![CDATA[<p>MacOS 11.2</p>
@@ -471,74 +497,6 @@
       <tags>
         <tag>C++</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Copy &amp; Deepcopy in Python</title>
-    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Experience of MacOS Big Sur</title>
-    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
-    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
-<p>(for test purpose--transfer Blog)</p>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-      <tags>
-        <tag>MacOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
-    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
-    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
-<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code> and <code>const a int</code> are totally same. Both of them tell the compiler that the value stored in <code>a</code> can not be modified. But when it is combined with pointer, things go complicated</p>
-<h2 id="const-int">const int *</h2>
-<p>For C++, <code>int*</code> is not viewed as a type. Only <code>*a</code> be viewed as a mark telling the complier <code>a</code> is a pointer. So as we have already known that <code>int const</code> is same with <code>const int</code>, <code>int const *a</code> is also same with <code>const int *a</code>. Both of them means <code>*a</code> is a const, which means the value poined by <code>a</code> can not be modified but <code>a</code>, as a pointer, can point to different places.</p>
-<h2 id="int-const">int* const</h2>
-<p>By contrast, the <code>const</code> in <code>int* const</code> is a mark for <code>a</code>, so <code>a</code>, as a pointer, can only point to one specific place(determined when it is initialized), but the value pointed by it can be changed.</p>
-<p>Besides, we can combine two usages of <code>const</code>together: <code>const int* const a</code>--<code>a</code>, as a pointer, can not be modified and the value pointed by <code>a</code> cannot be modified.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>const</tag>
-        <tag>pointer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C/C++ openmp</title>
-    <url>/2020/05/30/C-C-openmp/</url>
-    <content><![CDATA[<p>Just a note for myself !</p>
-<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del> </strong> !!!</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C/C++</tag>
-        <tag>openmp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GIF test</title>
-    <url>/2021/09/16/GIF-test/</url>
-    <content><![CDATA[<p>You should see this. <iframe height="75%" width="75%" src="1.gif"></iframe></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
   </entry>
   <entry>
     <title>Difference between new and malloc</title>
@@ -627,18 +585,46 @@
       </tags>
   </entry>
   <entry>
-    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
-    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
-    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
-<p>Try <code>nvidia-settings</code> in terminal, then:</p>
-<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
+    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
+    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
+    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
+<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code> and <code>const a int</code> are totally same. Both of them tell the compiler that the value stored in <code>a</code> can not be modified. But when it is combined with pointer, things go complicated</p>
+<h2 id="const-int">const int *</h2>
+<p>For C++, <code>int*</code> is not viewed as a type. Only <code>*a</code> be viewed as a mark telling the complier <code>a</code> is a pointer. So as we have already known that <code>int const</code> is same with <code>const int</code>, <code>int const *a</code> is also same with <code>const int *a</code>. Both of them means <code>*a</code> is a const, which means the value poined by <code>a</code> can not be modified but <code>a</code>, as a pointer, can point to different places.</p>
+<h2 id="int-const">int* const</h2>
+<p>By contrast, the <code>const</code> in <code>int* const</code> is a mark for <code>a</code>, so <code>a</code>, as a pointer, can only point to one specific place(determined when it is initialized), but the value pointed by it can be changed.</p>
+<p>Besides, we can combine two usages of <code>const</code>together: <code>const int* const a</code>--<code>a</code>, as a pointer, can not be modified and the value pointed by <code>a</code> cannot be modified.</p>
 ]]></content>
       <categories>
-        <category>Configuration</category>
+        <category>Learning</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
+        <tag>C++</tag>
+        <tag>const</tag>
+        <tag>pointer</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Experience of MacOS Big Sur</title>
+    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
+    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
+<p>(for test purpose--transfer Blog)</p>
+]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+      <tags>
+        <tag>MacOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GIF test</title>
+    <url>/2021/09/16/GIF-test/</url>
+    <content><![CDATA[<p>You should see this. <iframe height="75%" width="75%" src="1.gif"></iframe></p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
   </entry>
   <entry>
     <title>Gaussian Mixture Model (GMM) &amp; Expectation Maximization (EM)</title>
@@ -782,6 +768,33 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
+    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
+    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
+    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
+<p>Try <code>nvidia-settings</code> in terminal, then:</p>
+<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to generate random number via C++ (srand version)</title>
+    <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
+    <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Srand</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to get matrix transform in python</title>
     <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
     <content><![CDATA[<p>Here is a special trick:</p>
@@ -802,22 +815,6 @@ Picture3: 3-D GMM
       <categories>
         <category>Test</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Mac上极好的Github使用教程(转载)</title>
-    <url>/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/Capgras/article/details/100540501">原文链接</a></p>
-<p>以下为截图</p>
-<figure>
-<img src="/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/Github(tutorial).jpg" alt="git"><figcaption aria-hidden="true">git</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Tutorial</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
   </entry>
   <entry>
     <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
@@ -844,19 +841,6 @@ Picture3: 3-D GMM
       </categories>
   </entry>
   <entry>
-    <title>How to generate random number via C++ (srand version)</title>
-    <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
-    <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Srand</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown在github上公式显示错误</title>
     <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
     <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
@@ -869,19 +853,20 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
-    <title>NPR Cup--a taste to NPR</title>
-    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
-    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
+    <title>Mac上极好的Github使用教程(转载)</title>
+    <url>/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/Capgras/article/details/100540501">原文链接</a></p>
+<p>以下为截图</p>
 <figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果"><figcaption aria-hidden="true">简单的一个效果</figcaption>
-</figure>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了"><figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
+<img src="/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/Github(tutorial).jpg" alt="git"><figcaption aria-hidden="true">git</figcaption>
 </figure>
 ]]></content>
       <categories>
-        <category>Rendering</category>
+        <category>Tutorial</category>
       </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
   </entry>
   <entry>
     <title>My Donut in Blender</title>
@@ -905,6 +890,21 @@ Picture3: 3-D GMM
 </figure>
 <figure>
 <img src="/2020/08/20/My-Donut-in-Blender/6.png" alt="这个现象很奇怪，透明的水质感像水银一样，教程解释说是水面和杯子之前不能完全接触，光线在两者之间还打到了空气，造成了反常的折射，所以要故意穿模来解决"><figcaption aria-hidden="true">这个现象很奇怪，透明的水质感像水银一样，教程解释说是水面和杯子之前不能完全接触，光线在两者之间还打到了空气，造成了反常的折射，所以要故意穿模来解决</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Rendering</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>NPR Cup--a taste to NPR</title>
+    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
+    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果"><figcaption aria-hidden="true">简单的一个效果</figcaption>
+</figure>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了"><figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
 </figure>
 ]]></content>
       <categories>
@@ -943,6 +943,26 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
+    <title>Python set</title>
+    <url>/2020/09/24/Python-set/</url>
+    <content><![CDATA[<h3 id="basic-use-of-set">Basic use of set</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;x = <span class="built_in">set</span>(<span class="string">&#x27;runoob&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;y = <span class="built_in">set</span>(<span class="string">&#x27;google&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;x, y</span><br><span class="line">(<span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>]), <span class="built_in">set</span>([<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>]))   <span class="comment"># delete duplicated items</span></span><br><span class="line">&gt;&gt;&gt;x &amp; y         <span class="comment"># return the same items in both set</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;o&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x | y         <span class="comment"># return all the items</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x - y         <span class="comment"># like difference</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;n&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="practice">Practice</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;a = <span class="built_in">set</span>(<span class="string">&quot;Google&quot;</span>)</span><br><span class="line">a</span><br><span class="line">&#123;<span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;e&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;b = <span class="built_in">set</span>(<span class="string">&quot;Bob&quot;</span>)</span><br><span class="line">b</span><br><span class="line">&#123;<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;o&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;a.difference(b)</span><br><span class="line">&#123;<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># set A and set B</span></span><br><span class="line"><span class="comment"># deep copy set</span></span><br><span class="line">C = A.copy()</span><br><span class="line"><span class="comment"># add elements in B to A</span></span><br><span class="line">A.update(B)</span><br></pre></td></tr></table></figure>
+<h3 id="how-to-init">How to init</h3>
+<ol type="1">
+<li><code>s = set([1,2,3,4,5])</code></li>
+<li><code>s = &#123;1,2,3,4,5&#125; # it is a set</code></li>
+</ol>
+<h3 id="how-to-determine-an-empty-set">How to determine an empty set</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> s: <span class="comment"># if the set is empty</span></span><br><span class="line">	<span class="comment"># do sth</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>PDF &amp; CDF</title>
     <url>/2021/02/24/PDF_CDF/</url>
     <content><![CDATA[<p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。 为此引入了PDF（Probability Density Function），直观地理解可以近似理解为概率本身--也就是说如果我们不关心纯粹的概率值，而只要求相对的概率大小，那么就可以使用某个点的PDF值进行计算（比如最大似然估计）。但是要认识到某个点的具体概率值实际为<span class="math inline">\(PDF(x)*dx = 0\)</span>，一个点的概率本身没有意义。</p>
@@ -956,18 +976,6 @@ Picture3: 3-D GMM
         <tag>Cumulative Distribution Function</tag>
         <tag>Norm Distribution</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
-    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
-    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
-<p>Literally, it is a <code>const iterator</code>, which means: iterator, as a pointer, can not be modified, but the value pointed by this iterator is permitted to be modified.</p>
-<h1 id="const_iterator">const_iterator</h1>
-<p><code>const_iterator</code>is a specially defined class. It is defined to go through a const container, which we are not intended to modify.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
   </entry>
   <entry>
     <title>Python technique</title>
@@ -997,72 +1005,15 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
-    <title>Python set</title>
-    <url>/2020/09/24/Python-set/</url>
-    <content><![CDATA[<h3 id="basic-use-of-set">Basic use of set</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;x = <span class="built_in">set</span>(<span class="string">&#x27;runoob&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;y = <span class="built_in">set</span>(<span class="string">&#x27;google&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;x, y</span><br><span class="line">(<span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>]), <span class="built_in">set</span>([<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>]))   <span class="comment"># delete duplicated items</span></span><br><span class="line">&gt;&gt;&gt;x &amp; y         <span class="comment"># return the same items in both set</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;o&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x | y         <span class="comment"># return all the items</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x - y         <span class="comment"># like difference</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;n&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="practice">Practice</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;a = <span class="built_in">set</span>(<span class="string">&quot;Google&quot;</span>)</span><br><span class="line">a</span><br><span class="line">&#123;<span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;e&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;b = <span class="built_in">set</span>(<span class="string">&quot;Bob&quot;</span>)</span><br><span class="line">b</span><br><span class="line">&#123;<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;o&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;a.difference(b)</span><br><span class="line">&#123;<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># set A and set B</span></span><br><span class="line"><span class="comment"># deep copy set</span></span><br><span class="line">C = A.copy()</span><br><span class="line"><span class="comment"># add elements in B to A</span></span><br><span class="line">A.update(B)</span><br></pre></td></tr></table></figure>
-<h3 id="how-to-init">How to init</h3>
-<ol type="1">
-<li><code>s = set([1,2,3,4,5])</code></li>
-<li><code>s = &#123;1,2,3,4,5&#125; # it is a set</code></li>
-</ol>
-<h3 id="how-to-determine-an-empty-set">How to determine an empty set</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> s: <span class="comment"># if the set is empty</span></span><br><span class="line">	<span class="comment"># do sth</span></span><br></pre></td></tr></table></figure>
+    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
+    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
+    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
+<p>Literally, it is a <code>const iterator</code>, which means: iterator, as a pointer, can not be modified, but the value pointed by this iterator is permitted to be modified.</p>
+<h1 id="const_iterator">const_iterator</h1>
+<p><code>const_iterator</code>is a specially defined class. It is defined to go through a const container, which we are not intended to modify.</p>
 ]]></content>
       <categories>
         <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>SVM(Support Vector Machine)</title>
-    <url>/2021/05/25/SVM-Support-Vector-Machine/</url>
-    <content><![CDATA[<h2 id="margin">Margin</h2>
-<p><img src="/2021/05/25/SVM-Support-Vector-Machine/1.png" alt="1" style="zoom:50%;"></p>
-<p>从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。</p>
-<p><img src="/2021/05/25/SVM-Support-Vector-Machine/2.png" alt="2" style="zoom:50%;"></p>
-<p>上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。</p>
-<h2 id="linear-seperatable-svm">Linear Seperatable SVM</h2>
-<p>首先考虑所有sample本身线性可分。</p>
-<h3 id="problem-definition">Problem Definition</h3>
-<p>对于线性分类器的超平面为：<span class="math inline">\(X^TW+b=0\)</span>。We define those with <span class="math inline">\(X^TW+b&gt;1\)</span> is labeled +1, which means geometrically the <em>left-top</em> part of the line is labeled positive.</p>
-<p><img src="/2021/05/25/SVM-Support-Vector-Machine/3.png" alt="2" style="zoom:50%;"></p>
-<p>So we can see that <span class="math inline">\(margin = \frac{2}{||W||}\)</span>. We want to maximum margin which is same with <span class="math inline">\(min||W||^2\)</span>.</p>
-<p>[primal problem]</p>
-<p>The whole problem can be written as :</p>
-<p><span class="math inline">\(min||W||^2, \  st. y_i(X_i^TW+b)&gt;=1\)</span>.</p>
-<h3 id="how-to-find-w-b">How to find W, b</h3>
-<p>If all the data is linear seperatable, those points that determine margin are called support vectors. For support vectors we have: <span class="math inline">\(y_i(X_i^TW+b)=1\)</span>. For other points, they have no influence on this algorithm so that this algorithm is called SVM.</p>
-<h2 id="nonlinear-seperatable-svm">NonLinear Seperatable SVM</h2>
-<p>Since the data is not linear speratable itself, we allow SVM has some mistakes--<em>soft margin</em>.</p>
-<h3 id="hinge-loss">hinge loss</h3>
-<p>We will modify our objective function by adding hinge loss (<span class="math inline">\(l_{hinge}=max(0,1-z), z=y_i(X_i^TW+b)\)</span>).</p>
-<p>Objective function: <span class="math inline">\(min \ ||W||^2+C\Sigma l_{hinge}\)</span>. C is hyper-parameter. If C-&gt;0, the model allows any mistakes--easily undercutting; if C-&gt;<span class="math inline">\(\infin\)</span>, the model is same with Linear Speratable SVM--easily overfitting.</p>
-<p>[primal problem]</p>
-<p>The whole problem can be written as:</p>
-<p><span class="math inline">\(min||W||^2+C\Sigma_i\xi_i, \ st.y_i(X_i^TW+b)&gt;=1-\xi_i,\xi&gt;=0\)</span>.</p>
-<h2 id="what-if-the-sample-is-totally-nonlinear-seperatable">What if the sample is totally nonlinear seperatable?</h2>
-<h3 id="kernel">Kernel</h3>
-<p>Introduce Lagranginan function and we get dual form of primal problem:</p>
-<p><span class="math inline">\(min_{\alpha}\Sigma_i^n\Sigma_j^n\alpha_i\alpha_jy_iy_j(X_i\cdot X_j)-\Sigma_i^n\alpha_i. \ st. \Sigma_i^n\alpha_iy_i=0, \ 0\leq\alpha_i&lt;C\)</span>.</p>
-<p>We can choose proper kernel <span class="math inline">\(K\)</span> to replace <span class="math inline">\((X_i\cdot X_j)\)</span>.</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>SVL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Test discription</title>
-    <url>/2021/09/15/Test-discription/</url>
-    <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
-]]></content>
-      <categories>
-        <category>Test</category>
       </categories>
   </entry>
   <entry>
@@ -1123,6 +1074,55 @@ Picture3: 3-D GMM
       </categories>
   </entry>
   <entry>
+    <title>SVM(Support Vector Machine)</title>
+    <url>/2021/05/25/SVM-Support-Vector-Machine/</url>
+    <content><![CDATA[<h2 id="margin">Margin</h2>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/1.png" alt="1" style="zoom:50%;"></p>
+<p>从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。</p>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/2.png" alt="2" style="zoom:50%;"></p>
+<p>上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。</p>
+<h2 id="linear-seperatable-svm">Linear Seperatable SVM</h2>
+<p>首先考虑所有sample本身线性可分。</p>
+<h3 id="problem-definition">Problem Definition</h3>
+<p>对于线性分类器的超平面为：<span class="math inline">\(X^TW+b=0\)</span>。We define those with <span class="math inline">\(X^TW+b&gt;1\)</span> is labeled +1, which means geometrically the <em>left-top</em> part of the line is labeled positive.</p>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/3.png" alt="2" style="zoom:50%;"></p>
+<p>So we can see that <span class="math inline">\(margin = \frac{2}{||W||}\)</span>. We want to maximum margin which is same with <span class="math inline">\(min||W||^2\)</span>.</p>
+<p>[primal problem]</p>
+<p>The whole problem can be written as :</p>
+<p><span class="math inline">\(min||W||^2, \  st. y_i(X_i^TW+b)&gt;=1\)</span>.</p>
+<h3 id="how-to-find-w-b">How to find W, b</h3>
+<p>If all the data is linear seperatable, those points that determine margin are called support vectors. For support vectors we have: <span class="math inline">\(y_i(X_i^TW+b)=1\)</span>. For other points, they have no influence on this algorithm so that this algorithm is called SVM.</p>
+<h2 id="nonlinear-seperatable-svm">NonLinear Seperatable SVM</h2>
+<p>Since the data is not linear speratable itself, we allow SVM has some mistakes--<em>soft margin</em>.</p>
+<h3 id="hinge-loss">hinge loss</h3>
+<p>We will modify our objective function by adding hinge loss (<span class="math inline">\(l_{hinge}=max(0,1-z), z=y_i(X_i^TW+b)\)</span>).</p>
+<p>Objective function: <span class="math inline">\(min \ ||W||^2+C\Sigma l_{hinge}\)</span>. C is hyper-parameter. If C-&gt;0, the model allows any mistakes--easily undercutting; if C-&gt;<span class="math inline">\(\infin\)</span>, the model is same with Linear Speratable SVM--easily overfitting.</p>
+<p>[primal problem]</p>
+<p>The whole problem can be written as:</p>
+<p><span class="math inline">\(min||W||^2+C\Sigma_i\xi_i, \ st.y_i(X_i^TW+b)&gt;=1-\xi_i,\xi&gt;=0\)</span>.</p>
+<h2 id="what-if-the-sample-is-totally-nonlinear-seperatable">What if the sample is totally nonlinear seperatable?</h2>
+<h3 id="kernel">Kernel</h3>
+<p>Introduce Lagranginan function and we get dual form of primal problem:</p>
+<p><span class="math inline">\(min_{\alpha}\Sigma_i^n\Sigma_j^n\alpha_i\alpha_jy_iy_j(X_i\cdot X_j)-\Sigma_i^n\alpha_i. \ st. \Sigma_i^n\alpha_iy_i=0, \ 0\leq\alpha_i&lt;C\)</span>.</p>
+<p>We can choose proper kernel <span class="math inline">\(K\)</span> to replace <span class="math inline">\((X_i\cdot X_j)\)</span>.</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>SVL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Test discription</title>
+    <url>/2021/09/15/Test-discription/</url>
+    <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Test Latex Formula</title>
     <url>/2021/09/15/Test-Latex-Formula/</url>
     <content><![CDATA[<p>This is an inline formula: <span class="math inline">\(x=7\)</span>. This is a simple equation: <span class="math display">\[
@@ -1153,11 +1153,46 @@ e=mc^2
       </categories>
   </entry>
   <entry>
+    <title>Use of Tuple in Python</title>
+    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>Tuple最特别在于<br></p>
+<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Use of &#39;numpy&#39; package in Python</title>
+    <url>/2020/09/27/Use-of-numpy-package-in-Python/</url>
+    <content><![CDATA[<h2 id="import">Import</h2>
+<p><code>import numpy</code> or <code>import numpy as np</code></p>
+<h2 id="feature">Feature</h2>
+<p>The key feature of numpy package is that it introduce a new data structure -- array</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">&gt;&gt;&gt;a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">a</span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">type</span>(a)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">numpy</span>.<span class="title">ndarray</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="propertities-of-array">Propertities of array</h4>
+<p>ndarray 的重要属性包括:</p>
+<ol type="1">
+<li>ndarray.ndim：数组的维数，也称为rank</li>
+<li>ndarray.shape：数组各维的大小，对一个n行m列的矩阵来说， shape 为 (n,m)</li>
+<li>ndarray.size：元素的总数。</li>
+<li>ndarray.dtype：每个元素的类型，可以是numpy.int32, numpy.int16, and numpy.float64等</li>
+<li>ndarray.itemsize：每个元素占用的字节数。</li>
+<li>ndarray.data：指向数据内存。</li>
+</ol>
+<h2 id="more-details-similar-with-tensor">More details similar with tensor</h2>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Video test</title>
     <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-gkXaJvObLcudvWDx" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-gkXaJvObLcudvWDx").style.height=document.getElementById("mmedia-gkXaJvObLcudvWDx").scrollWidth*0.76+"px";
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-sFbNUYMZJTufQTyO" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-sFbNUYMZJTufQTyO").style.height=document.getElementById("mmedia-sFbNUYMZJTufQTyO").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-gkXaJvObLcudvWDx").style.height=document.getElementById("mmedia-gkXaJvObLcudvWDx").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-sFbNUYMZJTufQTyO").style.height=document.getElementById("mmedia-sFbNUYMZJTufQTyO").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <thead>
@@ -1227,17 +1262,6 @@ e=mc^2
       </categories>
   </entry>
   <entry>
-    <title>Use of Tuple in Python</title>
-    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<p>Tuple最特别在于<br></p>
-<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>What is the use of activation function</title>
     <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
     <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
@@ -1276,30 +1300,6 @@ e=mc^2
       </tags>
   </entry>
   <entry>
-    <title>Use of &#39;numpy&#39; package in Python</title>
-    <url>/2020/09/27/Use-of-numpy-package-in-Python/</url>
-    <content><![CDATA[<h2 id="import">Import</h2>
-<p><code>import numpy</code> or <code>import numpy as np</code></p>
-<h2 id="feature">Feature</h2>
-<p>The key feature of numpy package is that it introduce a new data structure -- array</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">&gt;&gt;&gt;a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">a</span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">type</span>(a)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">numpy</span>.<span class="title">ndarray</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="propertities-of-array">Propertities of array</h4>
-<p>ndarray 的重要属性包括:</p>
-<ol type="1">
-<li>ndarray.ndim：数组的维数，也称为rank</li>
-<li>ndarray.shape：数组各维的大小，对一个n行m列的矩阵来说， shape 为 (n,m)</li>
-<li>ndarray.size：元素的总数。</li>
-<li>ndarray.dtype：每个元素的类型，可以是numpy.int32, numpy.int16, and numpy.float64等</li>
-<li>ndarray.itemsize：每个元素占用的字节数。</li>
-<li>ndarray.data：指向数据内存。</li>
-</ol>
-<h2 id="more-details-similar-with-tensor">More details similar with tensor</h2>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>assert expression in Python</title>
     <url>/2020/09/24/assert-expression-in-Python/</url>
     <content><![CDATA[<h2 id="tags">tags:</h2>
@@ -1313,19 +1313,6 @@ e=mc^2
       <categories>
         <category>Learning</category>
       </categories>
-  </entry>
-  <entry>
-    <title>how to change you local git name</title>
-    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
-<p>Your name will be shown on github each time you push to it.</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
   </entry>
   <entry>
     <title>hexo图片在md文档中显示正常但是网页无法显示</title>
@@ -1344,6 +1331,35 @@ e=mc^2
       </categories>
   </entry>
   <entry>
+    <title>hexo部署到git出现不同步问题</title>
+    <url>/2020/05/20/hexo%E9%83%A8%E7%BD%B2%E5%88%B0git%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<ol type="1">
+<li><p>hexo到git上部署首先要检查自己的config里的repo地址对不对</p></li>
+<li><p>如果地址正确可以考虑在_config.yml的repo下面一行添加上</p></li>
+</ol>
+<p><code>branch: master</code></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>-部署</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>how to change you local git name</title>
+    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
+<p>Your name will be shown on github each time you push to it.</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>kendo 2-nd dan exam</title>
     <url>/2020/11/13/kendo-2-nd-dan-exam/</url>
     <content><![CDATA[<p>1.请叙述重视剑道礼仪的理由</p>
@@ -1360,6 +1376,40 @@ e=mc^2
         <category>Chat</category>
         <category>Kendo</category>
       </categories>
+  </entry>
+  <entry>
+    <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
+    <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<p>在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用<code>easyBCD</code>也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。 ## 问题解决 本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。 我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的引导是<code>UEFI+LEGACY</code>，那应该bios也行啊。 但是我抱着试试的态度把它改成<code>UEFI</code>，可能有些主板要改这个比较麻烦，然后上网找了个UEFI引导的ubuntu安装教程。 然后就打开了，困扰了好几天的问题解决了。 --- ## more 注意在bios里面把第一启动项改为ubuntu，然后再打开。 因为ubuntu可以引导windows，但是要让windows引导ubuntu需要用<code>easyuefi</code>自行配置 --- 这个问题很细节，但是同时也很恶心，反正就是要注意教程的环境和自己到底一不一样，还有就是要每一个设置的意义都要明白。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>-ubuntu -install</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>solution to git@github.com出现Permission denied (publickey)</title>
+    <url>/2020/12/21/solution-to-git-github-com%E5%87%BA%E7%8E%B0Permission-denied-publickey/</url>
+    <content><![CDATA[<ol type="1">
+<li><p>Create SSH key</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># change your path to .ssh file</span></span><br><span class="line">cd ~/.ssh</span><br><span class="line"><span class="section"># create new SSH key</span></span><br><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your git email&quot;</span><br><span class="line"><span class="section"># note that name of the file to save key should be &quot;id<span class="emphasis">_rsa&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, it will reprot &quot;Permission denied (publickey).&quot; when &quot;ssh -T git@github.com&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"></span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, remember to add it </span></span></span><br><span class="line"><span class="emphasis"><span class="section">ssh-add ~/.ssh/your_</span>name </span></span><br></pre></td></tr></table></figure></li>
+<li><p>Add SSH key to git</p>
+<p>You are supposed to find <code>id_rsa</code> and <code>id_rsa.pub</code>. The former is you SSH key.</p>
+<p>Create a new SSH key in your github and copy everything in <code>id_rsa.pub</code> to it.</p></li>
+<li><p>Test your connection with git</p>
+<p><code>ssh -T git@github.com</code></p>
+<p>If there is no bug report, you key is acceptable.</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用hexo theme Butterfly 报错</title>
@@ -1406,22 +1456,6 @@ e=mc^2
       </categories>
   </entry>
   <entry>
-    <title>hexo部署到git出现不同步问题</title>
-    <url>/2020/05/20/hexo%E9%83%A8%E7%BD%B2%E5%88%B0git%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<ol type="1">
-<li><p>hexo到git上部署首先要检查自己的config里的repo地址对不对</p></li>
-<li><p>如果地址正确可以考虑在_config.yml的repo下面一行添加上</p></li>
-</ol>
-<p><code>branch: master</code></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>-部署</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>yilia主题的头像配置失败</title>
     <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
     <content><![CDATA[<h2 id="问题描述">问题描述</h2>
@@ -1439,80 +1473,11 @@ e=mc^2
       </categories>
   </entry>
   <entry>
-    <title>solution to git@github.com出现Permission denied (publickey)</title>
-    <url>/2020/12/21/solution-to-git-github-com%E5%87%BA%E7%8E%B0Permission-denied-publickey/</url>
-    <content><![CDATA[<ol type="1">
-<li><p>Create SSH key</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># change your path to .ssh file</span></span><br><span class="line">cd ~/.ssh</span><br><span class="line"><span class="section"># create new SSH key</span></span><br><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your git email&quot;</span><br><span class="line"><span class="section"># note that name of the file to save key should be &quot;id<span class="emphasis">_rsa&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, it will reprot &quot;Permission denied (publickey).&quot; when &quot;ssh -T git@github.com&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"></span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, remember to add it </span></span></span><br><span class="line"><span class="emphasis"><span class="section">ssh-add ~/.ssh/your_</span>name </span></span><br></pre></td></tr></table></figure></li>
-<li><p>Add SSH key to git</p>
-<p>You are supposed to find <code>id_rsa</code> and <code>id_rsa.pub</code>. The former is you SSH key.</p>
-<p>Create a new SSH key in your github and copy everything in <code>id_rsa.pub</code> to it.</p></li>
-<li><p>Test your connection with git</p>
-<p><code>ssh -T git@github.com</code></p>
-<p>If there is no bug report, you key is acceptable.</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>感谢好太阳哥哥们</title>
     <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
     <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
 <p>Long May the Sun Shine!</p>
 <p><img src="/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/1.png"></p>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>禅诗解读</title>
-    <url>/2020/11/28/%E7%A6%85%E8%AF%97%E8%A7%A3%E8%AF%BB/</url>
-    <content><![CDATA[<h1 id="僧璨禅师信心铭">僧璨禅师《信心铭》</h1>
-<h3 id="前部分解读">--前部分解读</h3>
-<h2 id="一引言">一、引言</h2>
-<p>僧璨大师是禅宗三祖,一般认为是隋朝初期的禅师。《信心铭》是解读其思想最重要的文献，篇幅很长，思想繁复深邃，此处仅仅结合课上教学选取前几句自己稍微有些感悟的诗句解读。前人对《信心铭》的解读中都提到其最核心的内容在于<u>“不二”</u>，下文也会尝试结合这一核心词进行解读。</p>
-<h2 id="二解读">二、解读</h2>
-<h3 id="信心铭标题">《信心铭》（标题）</h3>
-<p>慧广法师解读信心铭三个字时，解释信为五十一心所法的第三类，也就是善心所中的一个法--“信”。信在字面的意思解释为诚实、不欺骗，做动词也可以解释为相信。信心直观地解释为相信心，也可以解释为诚实的心（将信做为心法，即是做一种观念来对待）。铭字面解释可以说是一种文体，同时也是需要铭记，类似纲领性文字。标题似乎是在说相信自己的内心，也可以说是内心诚实没有迷惘。</p>
-<span id="more"></span>
-<h3 id="至道无难唯嫌拣择但莫憎爱洞然明白">“至道无难，唯嫌拣择，但莫憎爱，洞然明白。”</h3>
-<p>“至道”是最极致的“道”，是一切规则的极致发展，或者是一切规则的起源（统一）。整句解释就是：终极的道没有什么难以理解的，只是不要挑挑拣拣，只要没有憎爱，就能马上明白。首先这里有个问题：拣择的宾语是什么？如果是至道，是不是说至道本身并不唯一？如果是道，是不是说没有选择的道就是至道，还是说至道的理解是建立在所有道之上还是至道本身就是所有道的集合？就我个人而言，既然说世间万物都有佛性，那么应该说是“至道”本身就是普遍的--至道本身是一种道的集合的称谓。而“唯嫌拣择，但莫憎爱”两句和六祖诗句“明镜本清净，何处惹尘埃”有类似的精神内核—事实判断本身没有什么对错。哲学家常常说认识世界总要受到有色眼镜的限制，但是有色眼镜并不待在眼睛上，而是在内心里，所见都是真实，是内心对感受的处理导致了观念的不同，才有了对错的区分。这两句同样都是再说要放下内心的道德判断，屏蔽内心对事实（道）的处理，反而能够得见真实（道）。</p>
-<h3 id="毫厘有差天地悬隔欲得现前莫存顺逆">“毫厘有差，天地悬隔；欲得现前，莫存顺逆。”</h3>
-<p>“毫厘有差，天地悬隔”一句显得很突兀，前后相互联系似乎没有什么内在联系，这里只好先简单地解读为是三祖在作诗时，对弟子的规劝警戒。“欲得现前，莫存顺逆”的对象应当是与前句的“至道”统一，如果至道在面前出现，不要存在内心的顺逆。这和前一句的思想是一致的，都是要放弃自己内心的道德判断，绝对客观地理解、认识世界，不存在“顺逆”。</p>
-<h3 id="违顺相争是为心病不识元旨徒劳念静">“违顺相争，是为心病；不识元旨，徒劳念静。”</h3>
-<p>这里就指出内心“违顺”相互的矛盾，是内心的病灶。这里前半句应和本文“不二”的思想。“不二”应当是对某种绝对存在的表述，这种绝对的存在可以视为思想的统一，也可以视为是独立于外界的某种存在。这里既然说不能存在“顺逆”，那么这里的“不二”也应当是独立的存在（处于内心而又独立于顺逆），而不是统一。这里的“心病”的根源也应当是需要通过摒弃“违顺”来根除。之后提到的“念静”应当就是摒弃内心违顺的一种做法。问题又来了，这里数次指出问题所在，但是从来没有明确过要怎么样解决问题？没有可以用来实际操作的手段。既然“违顺”本身是内心对外界感受处理后的一种内心的状态/反应，那么这里到底应该是在处理之后不做出反应；还是做出的反应不存在主观的“顺逆”反应；还是干脆不处理；甚至更进一步根本就不去感受（禅宗中完全封闭感受的人似乎也是有的），这里都没有说明白。“不识元旨”有人也写作“不识玄旨”，字面解释是不知道最初的意义（旨在古汉语中常作想法、志向解释）。这里的“元旨”到底是什么？联系上下文可以解释说这个“元旨”就是之前说的“莫存顺逆”的道理，即是说这一道理是学习禅最初的道理，也是说这是学习禅最根本的道理（“元”）。这样似乎解释得很顺畅，但是“元旨”也有可能是说世界最根本的道理--客观上的最初的道理，或者说是本来就有的道理。那么这样又可以解释说是在认识世界的时候要去认识“元旨”，世界本来是什么样子的就是什么样子的，不要经过判断地去认识，才能认识到真正的“至道”。</p>
-<p>### “圆同太虚，无欠无余；良由取舍，所以不如。”</p>
-<p>这里的主语应当也还是“至道”，“圆”是说至道本身就是圆满的，“太虚”比较难以解释（“太虚”是道教词汇，《信心铭》除去此处外也有多处使用道教术语），《道德经》中“太虚”一般认为就是“道”的代名词，是世界的本源，但是在古文的语境内，也常常用“太虚”来代指世界所在的宇宙，不过因为当时还没有对世界的观测能力和一般的天文认识，这里“太虚”所指的应当是广义上的世界。“圆同太虚，无欠无余”即是说“至道”如同这个世界一样（或者全部统一为道本身），没有少，也没有多。这里又有难以解释的地方：多、少都是相对的概念，但是在之前的论述中都一直在尝试塑造一个绝对的存在（“至道”），那么这里是说“至道”本身的存在没有多少的比较，强调这个比较的概念本身就不存在，进而从侧面描述一个绝对的概念；还是说“至道”不增不减，反映的是一种早期朴素的物质守恒的观念（当然从目前看物质可以转化为能量，但是是否也意味着世界总体的能量守恒，目前还没有定论）？“良由取舍，所以不如”字面上是说因为（源自于）取舍，所以“不如”。这里的“如”法音法师解释为是“吻合”，是说“跟你生命原本的本来面貌、本来的心态不吻合了……就破坏了你本来的心态，也就是不相应了，就破坏了你跟大宇宙的瑜伽。”我认为这里说的“不如”是类比了世界的不增不减来讲述内心的某种“不增不减”的状态，如同世界、至道是绝对的一样，内心对外界的判断（也是某种境界、状态、反应） 同样应当是不会改变的（不增不减），联系前文指的就是放弃了所有的道德判断，达到“莫存顺逆”。</p>
-<p>### “莫逐有缘，勿住空忍；一种平怀，泯然自尽。”</p>
-<p>“有缘”和“空忍”明显相应。“莫逐有缘”是说不要去追求“有缘”，“有缘”的解释我查询了很多资料也没能得出一个通顺的解释。很多人解释“缘”为条件，我校老师在文明通识课程中解释佛教的“缘”为万事万物之间普遍的联系。这里粗略地可以解释为不要追求与自身相联系的事物，当然这句的核心应当在于“莫逐”，宾语只能模糊解释。但是紧随其后还有一句“勿住空忍”，不要强行忍受，是指对于这种“逐”的欲望，不要压制而是要消除它，用一种更为根本的方式结局，这种方式与前文也是统一的—没有好恶、放弃道德判断，消除自身的对外界事物的加工理解从而实现。最终的成果就是“一种平怀，泯然自尽”，内心平静，这种顺逆之间的矛盾（对有缘的追求）自己就消散了。</p>
-<h2 id="三结语">三、结语</h2>
-<p>作为禅宗的经典之一，《信心铭》很多的哲学观念与之后的六祖思想一以贯之，有很多类同之处，但同时在理解和表述上总有些许差异。在同时在思想语言表述上明显有我国传统的一些观念影响（全文中反复提到“道”，这一道教术语，但是却没有针对禅宗进行限定明确）。解读上遇到了很多困难：由于以诗为载体，很多语言的表述并不充分、严谨，主语和宾语多有缺失。再加上语言本身随时间就有很多变化，对于字句在当时时代的具体表义不明确等等因素，很多时候解读只能猜测。最重要的是自己本身对禅宗的总体思想把握不够明确，解读出的结果有各种可能，不能确信结果。自己理解不足，而表达更为困难，修改几次也不知道应该怎么说才好，正应了“言语道断”。</p>
-<h2 id="四原文">四、原文</h2>
-<p>原文附上：</p>
-<h3 id="信心铭">《信心铭》</h3>
-<p>僧璨禅师</p>
-<p>至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。违顺相争，是为心病；不识元旨，徒劳念静。圆同太虚，无欠无余；良由取舍，所以不如。莫逐有缘，勿住空忍；一种平怀，泯然自尽。止动归止，止更弥动；唯滞两边，宁知一种。一种不通，两处失功；遣有没有，从空背空。多言多虑，转不相应；绝言绝虑，无处不通。归根得旨，随照失宗；须臾返照，胜却前空。前空转变，皆由妄见；不用求真，唯须息见。至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。欲得现前，莫存顺逆，莫存顺逆。二见不住，慎勿追寻；才有是非，纷然失心。二由一有，一亦莫守。一心不生，万法无咎；无咎无法，不生不心。能随境灭，境逐能沉；境由能境，能由境能。欲知两段，元是一空。一空同两，齐含万象；不见精粗，宁有偏党。大道体宽，无易无难；小见狐疑，转急转迟。执之失度，必入邪路；放之自然，体无去住。任性合道，逍遥绝恼；系念乖真，昏沉不好。不好劳神，何用疏亲。欲取一乘，勿恶六尘；六尘不恶，还同正觉。智者无为，愚人自缚。智者无为，愚人自缚。法无异法，妄自爱着；将心用心，岂非大错。迷生寂乱，悟无好恶；一切二边，良由斟酌。梦幻空花，何劳把捉；得失是非，一时放却。眼若不睡，诸梦自除；心若不异，万法一如。一如体玄，兀尔忘缘；万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。泯其所以，不可方比。止动无动，动止无止；两既不成，一何有尔。究竟穷极，不存轨则；契心平等，所作俱息。狐疑净尽，正信调直。一切不留，无可记忆；虚明自照，不劳心力。非思量处，识情难测；真如法界，无他无自。要急相应，唯言不二；不二皆同，无不包容。十方智者，皆入此宗。宗非促延，一念万年；无在不在，十方目前。极小同大，忘绝境界；极大同小，不见边表。有即是无，无即是有；若不如是，必不须守。一即一切，一切即一，但能如是，何虑不毕。信心不二，不二信心；言语道断，非去来今。信心不二，不二信心；言语道断，非去来今。</p>
-<h2 id="参考文献">参考文献</h2>
-<p>《信心铭》释义，慧广法师，2017 ，“禅宗思想”。</p>
-<p>《信心铭》直解，法音法师，1982，讲述文字。</p>
-]]></content>
-      <categories>
-        <category>essay</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>还是大GT优雅</title>
-    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
-    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
-<figure>
-<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT"><figcaption aria-hidden="true">宾利欧陆GT</figcaption>
-</figure>
 ]]></content>
       <categories>
         <category>Chat</category>
@@ -1566,17 +1531,40 @@ e=mc^2
       </categories>
   </entry>
   <entry>
-    <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
-    <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<p>在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用<code>easyBCD</code>也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。 ## 问题解决 本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。 我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的引导是<code>UEFI+LEGACY</code>，那应该bios也行啊。 但是我抱着试试的态度把它改成<code>UEFI</code>，可能有些主板要改这个比较麻烦，然后上网找了个UEFI引导的ubuntu安装教程。 然后就打开了，困扰了好几天的问题解决了。 --- ## more 注意在bios里面把第一启动项改为ubuntu，然后再打开。 因为ubuntu可以引导windows，但是要让windows引导ubuntu需要用<code>easyuefi</code>自行配置 --- 这个问题很细节，但是同时也很恶心，反正就是要注意教程的环境和自己到底一不一样，还有就是要每一个设置的意义都要明白。</p>
+    <title>禅诗解读</title>
+    <url>/2020/11/28/%E7%A6%85%E8%AF%97%E8%A7%A3%E8%AF%BB/</url>
+    <content><![CDATA[<h1 id="僧璨禅师信心铭">僧璨禅师《信心铭》</h1>
+<h3 id="前部分解读">--前部分解读</h3>
+<h2 id="一引言">一、引言</h2>
+<p>僧璨大师是禅宗三祖,一般认为是隋朝初期的禅师。《信心铭》是解读其思想最重要的文献，篇幅很长，思想繁复深邃，此处仅仅结合课上教学选取前几句自己稍微有些感悟的诗句解读。前人对《信心铭》的解读中都提到其最核心的内容在于<u>“不二”</u>，下文也会尝试结合这一核心词进行解读。</p>
+<h2 id="二解读">二、解读</h2>
+<h3 id="信心铭标题">《信心铭》（标题）</h3>
+<p>慧广法师解读信心铭三个字时，解释信为五十一心所法的第三类，也就是善心所中的一个法--“信”。信在字面的意思解释为诚实、不欺骗，做动词也可以解释为相信。信心直观地解释为相信心，也可以解释为诚实的心（将信做为心法，即是做一种观念来对待）。铭字面解释可以说是一种文体，同时也是需要铭记，类似纲领性文字。标题似乎是在说相信自己的内心，也可以说是内心诚实没有迷惘。</p>
+<span id="more"></span>
+<h3 id="至道无难唯嫌拣择但莫憎爱洞然明白">“至道无难，唯嫌拣择，但莫憎爱，洞然明白。”</h3>
+<p>“至道”是最极致的“道”，是一切规则的极致发展，或者是一切规则的起源（统一）。整句解释就是：终极的道没有什么难以理解的，只是不要挑挑拣拣，只要没有憎爱，就能马上明白。首先这里有个问题：拣择的宾语是什么？如果是至道，是不是说至道本身并不唯一？如果是道，是不是说没有选择的道就是至道，还是说至道的理解是建立在所有道之上还是至道本身就是所有道的集合？就我个人而言，既然说世间万物都有佛性，那么应该说是“至道”本身就是普遍的--至道本身是一种道的集合的称谓。而“唯嫌拣择，但莫憎爱”两句和六祖诗句“明镜本清净，何处惹尘埃”有类似的精神内核—事实判断本身没有什么对错。哲学家常常说认识世界总要受到有色眼镜的限制，但是有色眼镜并不待在眼睛上，而是在内心里，所见都是真实，是内心对感受的处理导致了观念的不同，才有了对错的区分。这两句同样都是再说要放下内心的道德判断，屏蔽内心对事实（道）的处理，反而能够得见真实（道）。</p>
+<h3 id="毫厘有差天地悬隔欲得现前莫存顺逆">“毫厘有差，天地悬隔；欲得现前，莫存顺逆。”</h3>
+<p>“毫厘有差，天地悬隔”一句显得很突兀，前后相互联系似乎没有什么内在联系，这里只好先简单地解读为是三祖在作诗时，对弟子的规劝警戒。“欲得现前，莫存顺逆”的对象应当是与前句的“至道”统一，如果至道在面前出现，不要存在内心的顺逆。这和前一句的思想是一致的，都是要放弃自己内心的道德判断，绝对客观地理解、认识世界，不存在“顺逆”。</p>
+<h3 id="违顺相争是为心病不识元旨徒劳念静">“违顺相争，是为心病；不识元旨，徒劳念静。”</h3>
+<p>这里就指出内心“违顺”相互的矛盾，是内心的病灶。这里前半句应和本文“不二”的思想。“不二”应当是对某种绝对存在的表述，这种绝对的存在可以视为思想的统一，也可以视为是独立于外界的某种存在。这里既然说不能存在“顺逆”，那么这里的“不二”也应当是独立的存在（处于内心而又独立于顺逆），而不是统一。这里的“心病”的根源也应当是需要通过摒弃“违顺”来根除。之后提到的“念静”应当就是摒弃内心违顺的一种做法。问题又来了，这里数次指出问题所在，但是从来没有明确过要怎么样解决问题？没有可以用来实际操作的手段。既然“违顺”本身是内心对外界感受处理后的一种内心的状态/反应，那么这里到底应该是在处理之后不做出反应；还是做出的反应不存在主观的“顺逆”反应；还是干脆不处理；甚至更进一步根本就不去感受（禅宗中完全封闭感受的人似乎也是有的），这里都没有说明白。“不识元旨”有人也写作“不识玄旨”，字面解释是不知道最初的意义（旨在古汉语中常作想法、志向解释）。这里的“元旨”到底是什么？联系上下文可以解释说这个“元旨”就是之前说的“莫存顺逆”的道理，即是说这一道理是学习禅最初的道理，也是说这是学习禅最根本的道理（“元”）。这样似乎解释得很顺畅，但是“元旨”也有可能是说世界最根本的道理--客观上的最初的道理，或者说是本来就有的道理。那么这样又可以解释说是在认识世界的时候要去认识“元旨”，世界本来是什么样子的就是什么样子的，不要经过判断地去认识，才能认识到真正的“至道”。</p>
+<p>### “圆同太虚，无欠无余；良由取舍，所以不如。”</p>
+<p>这里的主语应当也还是“至道”，“圆”是说至道本身就是圆满的，“太虚”比较难以解释（“太虚”是道教词汇，《信心铭》除去此处外也有多处使用道教术语），《道德经》中“太虚”一般认为就是“道”的代名词，是世界的本源，但是在古文的语境内，也常常用“太虚”来代指世界所在的宇宙，不过因为当时还没有对世界的观测能力和一般的天文认识，这里“太虚”所指的应当是广义上的世界。“圆同太虚，无欠无余”即是说“至道”如同这个世界一样（或者全部统一为道本身），没有少，也没有多。这里又有难以解释的地方：多、少都是相对的概念，但是在之前的论述中都一直在尝试塑造一个绝对的存在（“至道”），那么这里是说“至道”本身的存在没有多少的比较，强调这个比较的概念本身就不存在，进而从侧面描述一个绝对的概念；还是说“至道”不增不减，反映的是一种早期朴素的物质守恒的观念（当然从目前看物质可以转化为能量，但是是否也意味着世界总体的能量守恒，目前还没有定论）？“良由取舍，所以不如”字面上是说因为（源自于）取舍，所以“不如”。这里的“如”法音法师解释为是“吻合”，是说“跟你生命原本的本来面貌、本来的心态不吻合了……就破坏了你本来的心态，也就是不相应了，就破坏了你跟大宇宙的瑜伽。”我认为这里说的“不如”是类比了世界的不增不减来讲述内心的某种“不增不减”的状态，如同世界、至道是绝对的一样，内心对外界的判断（也是某种境界、状态、反应） 同样应当是不会改变的（不增不减），联系前文指的就是放弃了所有的道德判断，达到“莫存顺逆”。</p>
+<p>### “莫逐有缘，勿住空忍；一种平怀，泯然自尽。”</p>
+<p>“有缘”和“空忍”明显相应。“莫逐有缘”是说不要去追求“有缘”，“有缘”的解释我查询了很多资料也没能得出一个通顺的解释。很多人解释“缘”为条件，我校老师在文明通识课程中解释佛教的“缘”为万事万物之间普遍的联系。这里粗略地可以解释为不要追求与自身相联系的事物，当然这句的核心应当在于“莫逐”，宾语只能模糊解释。但是紧随其后还有一句“勿住空忍”，不要强行忍受，是指对于这种“逐”的欲望，不要压制而是要消除它，用一种更为根本的方式结局，这种方式与前文也是统一的—没有好恶、放弃道德判断，消除自身的对外界事物的加工理解从而实现。最终的成果就是“一种平怀，泯然自尽”，内心平静，这种顺逆之间的矛盾（对有缘的追求）自己就消散了。</p>
+<h2 id="三结语">三、结语</h2>
+<p>作为禅宗的经典之一，《信心铭》很多的哲学观念与之后的六祖思想一以贯之，有很多类同之处，但同时在理解和表述上总有些许差异。在同时在思想语言表述上明显有我国传统的一些观念影响（全文中反复提到“道”，这一道教术语，但是却没有针对禅宗进行限定明确）。解读上遇到了很多困难：由于以诗为载体，很多语言的表述并不充分、严谨，主语和宾语多有缺失。再加上语言本身随时间就有很多变化，对于字句在当时时代的具体表义不明确等等因素，很多时候解读只能猜测。最重要的是自己本身对禅宗的总体思想把握不够明确，解读出的结果有各种可能，不能确信结果。自己理解不足，而表达更为困难，修改几次也不知道应该怎么说才好，正应了“言语道断”。</p>
+<h2 id="四原文">四、原文</h2>
+<p>原文附上：</p>
+<h3 id="信心铭">《信心铭》</h3>
+<p>僧璨禅师</p>
+<p>至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。违顺相争，是为心病；不识元旨，徒劳念静。圆同太虚，无欠无余；良由取舍，所以不如。莫逐有缘，勿住空忍；一种平怀，泯然自尽。止动归止，止更弥动；唯滞两边，宁知一种。一种不通，两处失功；遣有没有，从空背空。多言多虑，转不相应；绝言绝虑，无处不通。归根得旨，随照失宗；须臾返照，胜却前空。前空转变，皆由妄见；不用求真，唯须息见。至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。欲得现前，莫存顺逆，莫存顺逆。二见不住，慎勿追寻；才有是非，纷然失心。二由一有，一亦莫守。一心不生，万法无咎；无咎无法，不生不心。能随境灭，境逐能沉；境由能境，能由境能。欲知两段，元是一空。一空同两，齐含万象；不见精粗，宁有偏党。大道体宽，无易无难；小见狐疑，转急转迟。执之失度，必入邪路；放之自然，体无去住。任性合道，逍遥绝恼；系念乖真，昏沉不好。不好劳神，何用疏亲。欲取一乘，勿恶六尘；六尘不恶，还同正觉。智者无为，愚人自缚。智者无为，愚人自缚。法无异法，妄自爱着；将心用心，岂非大错。迷生寂乱，悟无好恶；一切二边，良由斟酌。梦幻空花，何劳把捉；得失是非，一时放却。眼若不睡，诸梦自除；心若不异，万法一如。一如体玄，兀尔忘缘；万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。泯其所以，不可方比。止动无动，动止无止；两既不成，一何有尔。究竟穷极，不存轨则；契心平等，所作俱息。狐疑净尽，正信调直。一切不留，无可记忆；虚明自照，不劳心力。非思量处，识情难测；真如法界，无他无自。要急相应，唯言不二；不二皆同，无不包容。十方智者，皆入此宗。宗非促延，一念万年；无在不在，十方目前。极小同大，忘绝境界；极大同小，不见边表。有即是无，无即是有；若不如是，必不须守。一即一切，一切即一，但能如是，何虑不毕。信心不二，不二信心；言语道断，非去来今。信心不二，不二信心；言语道断，非去来今。</p>
+<h2 id="参考文献">参考文献</h2>
+<p>《信心铭》释义，慧广法师，2017 ，“禅宗思想”。</p>
+<p>《信心铭》直解，法音法师，1982，讲述文字。</p>
 ]]></content>
       <categories>
-        <category>Configuration</category>
+        <category>essay</category>
       </categories>
-      <tags>
-        <tag>-ubuntu -install</tag>
-      </tags>
   </entry>
   <entry>
     <title>给你的Vscode加一个毛玻璃特效</title>
@@ -1593,6 +1581,18 @@ e=mc^2
 ]]></content>
       <categories>
         <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>还是大GT优雅</title>
+    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
+    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
+<figure>
+<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT"><figcaption aria-hidden="true">宾利欧陆GT</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Chat</category>
       </categories>
   </entry>
   <entry>
