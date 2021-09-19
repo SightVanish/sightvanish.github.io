@@ -31,9 +31,9 @@
 <meta property="og:image" content="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/2.png">
 <meta property="og:image" content="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/3.png">
 <meta property="article:published_time" content="2021-05-25T07:00:11.000Z">
-<meta property="article:modified_time" content="2021-09-15T06:02:39.339Z">
+<meta property="article:modified_time" content="2021-09-19T12:35:08.733Z">
 <meta property="article:author" content="Li Wuchen">
-<meta property="article:tag" content="SVL">
+<meta property="article:tag" content="SVM">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/1.png">
 
@@ -243,7 +243,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 14:02:39" itemprop="dateModified" datetime="2021-09-15T14:02:39+08:00">2021-09-15</time>
+                <time title="Modified: 2021-09-19 20:35:08" itemprop="dateModified" datetime="2021-09-19T20:35:08+08:00">2021-09-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,8 +285,9 @@
 <h2 id="nonlinear-seperatable-svm">NonLinear Seperatable SVM</h2>
 <p>Since the data is not linear speratable itself, we allow SVM has some mistakes--<em>soft margin</em>.</p>
 <h3 id="hinge-loss">hinge loss</h3>
-<p>We will modify our objective function by adding hinge loss (<span class="math inline">\(l_{hinge}=max(0,1-z), z=y_i(X_i^TW+b)\)</span>).</p>
-<p>Objective function: <span class="math inline">\(min \ ||W||^2+C\Sigma l_{hinge}\)</span>. C is hyper-parameter. If C-&gt;0, the model allows any mistakes--easily undercutting; if C-&gt;<span class="math inline">\(\infin\)</span>, the model is same with Linear Speratable SVM--easily overfitting.</p>
+<p>We will modify our objective function by adding hinge loss</p>
+<p>(<span class="math inline">\(l_{hinge}=max(0,1-z), z=y_i(X_i^TW+b)\)</span>).</p>
+<p>Objective function: <span class="math inline">\(min \ ||W||^2+C\Sigma l_{hinge}\)</span>. C is hyper-parameter. If C-&gt;0, the model allows any mistakes--easily undercutting; if C-&gt;∞, the model is same with Linear Speratable SVM--easily overfitting.</p>
 <p>[primal problem]</p>
 <p>The whole problem can be written as:</p>
 <p><span class="math inline">\(min||W||^2+C\Sigma_i\xi_i, \ st.y_i(X_i^TW+b)&gt;=1-\xi_i,\xi&gt;=0\)</span>.</p>
@@ -304,7 +305,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/SVL/" rel="tag"># SVL</a>
+              <a href="/tags/SVM/" rel="tag"># SVM</a>
           </div>
 
         
@@ -394,7 +395,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -506,6 +507,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
