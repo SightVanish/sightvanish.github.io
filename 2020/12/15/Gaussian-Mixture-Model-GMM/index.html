@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_5.png">
 <meta property="og:image" content="https://sightvanish.github.io/2020/12/15/Gaussian-Mixture-Model-GMM/inclusion.png">
 <meta property="article:published_time" content="2020-12-15T08:25:20.000Z">
-<meta property="article:modified_time" content="2021-09-19T12:50:38.077Z">
+<meta property="article:modified_time" content="2021-09-19T12:59:52.131Z">
 <meta property="article:author" content="Li Wuchen">
 <meta property="article:tag" content="Machine Learning">
 <meta property="article:tag" content="GMM">
@@ -254,7 +254,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-19 20:50:38" itemprop="dateModified" datetime="2021-09-19T20:50:38+08:00">2021-09-19</time>
+                <time title="Modified: 2021-09-19 20:59:52" itemprop="dateModified" datetime="2021-09-19T20:59:52+08:00">2021-09-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -301,7 +301,7 @@ f(X) = \frac{1}{(2\pi)^{d/2}|\sum|^{1/2}}exp[-\frac 12(X-\mu)^T(\sum )^{-1}(X-\m
 <h3 id="gmm-formula">GMM formula</h3>
 <p>Assume GMM is mixed by <span class="math inline">\(\pmb K\)</span> Guassian models, the density fucntion of GMM is: <span class="math display">\[
 p(X) = \sum_ {k = 1}^K p(k)p(X|k) = \sum_ {k = 1}^K \Pi_ k N(X|\mu_k,\Sigma_ k)
-\]</span> note: $ p(X|k) = N(X|_ k,()_ k )$ is the density function of <span class="math inline">\(k^{th}\)</span> Gaussian model. <span class="math inline">\(\Pi_k\)</span> is the weight and $ _ {k = 1}^K_ k = 1$.</p>
+\]</span> note: $ p(X|k) = N(X|_ k,()_ k )$ is the density function of <span class="math inline">\(k^{th}\)</span> Gaussian model. <span class="math inline">\(\Pi_k\)</span> is the weight and <span class="math inline">\(\sum_ {k = 1}^{K} \Pi_ {k} = 1\)</span>.</p>
 <p>So basically GMM is the mixture of multi Gaussian models. In theory, with enough number of mixed Guassian models and proper weights, GMM can fit any distribution.</p>
 <h3 id="examples">Examples</h3>
 <p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/1-DGaussian.png"></p>
@@ -619,6 +619,59 @@ Picture3: 3-D GMM
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
