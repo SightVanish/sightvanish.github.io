@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>九月剑道稽古</title>
+    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
+    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
+<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-SgJjzvRPTHOvkkTm" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-SgJjzvRPTHOvkkTm").style.height=document.getElementById("mmedia-SgJjzvRPTHOvkkTm").scrollWidth*0.76+"px";
+    window.onresize = function(){
+      document.getElementById("mmedia-SgJjzvRPTHOvkkTm").style.height=document.getElementById("mmedia-SgJjzvRPTHOvkkTm").scrollWidth*0.76+"px";
+    }; </script>
+]]></content>
+      <categories>
+        <category>Kendo</category>
+      </categories>
+  </entry>
+  <entry>
     <title>tensor</title>
     <url>/2020/05/23/1-tensor/</url>
     <content><![CDATA[<h1 id="definition">Definition</h1>
@@ -189,20 +203,6 @@
       </categories>
   </entry>
   <entry>
-    <title>九月剑道稽古</title>
-    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
-    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
-<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-TrgwQkFVuiEszdWM" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-TrgwQkFVuiEszdWM").style.height=document.getElementById("mmedia-TrgwQkFVuiEszdWM").scrollWidth*0.76+"px";
-    window.onresize = function(){
-      document.getElementById("mmedia-TrgwQkFVuiEszdWM").style.height=document.getElementById("mmedia-TrgwQkFVuiEszdWM").scrollWidth*0.76+"px";
-    }; </script>
-]]></content>
-      <categories>
-        <category>Kendo</category>
-      </categories>
-  </entry>
-  <entry>
     <title>AdaBoosting</title>
     <url>/2021/05/24/AdaBoosting/</url>
     <content><![CDATA[<h3 id="boosting-bagging">Boosting &amp; Bagging</h3>
@@ -242,20 +242,6 @@
 ]]></content>
       <categories>
         <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Blender Cloth Rendering</title>
-    <url>/2021/09/14/Blender-Cloth-Rending/</url>
-    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
-<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
-<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
-<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
-<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
-<p><img src="/2021/09/14/Blender-Cloth-Rending/1.png" width="75%" height="75%"></p>
-]]></content>
-      <categories>
-        <category>Rendering</category>
       </categories>
   </entry>
   <entry>
@@ -382,30 +368,18 @@
       </tags>
   </entry>
   <entry>
-    <title>C++11 in Mac (VsCode)</title>
-    <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
-    <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of <code>gcc</code>. You can still use <code>clang++</code> or <code>g++</code> to run a <code>.cpp</code> file. But basically, <code>clang</code> will use <code>-std=c++98</code> as default.</p>
-<p>So if you want to switch to new c++ standard in VsCode (Mac), do as follows:</p>
-<ol type="1">
-<li><p>Edit you c++ settings of VsCode:</p>
-<ol type="1">
-<li><p>create <code>.vscode/c_cpp_properties.json</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Mac&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [],</span><br><span class="line">            &quot;macFrameworkPath&quot;: [</span><br><span class="line">                &quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;/usr/bin/clang&quot;,</span><br><span class="line">            &quot;cStandard&quot;: &quot;c11&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;c++11&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;macos-clang-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>In terminal:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;alias g++=&#x27;g++ -std=c++11&#x27;&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source    ~/.bashrc</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-</ol>
-<p>Run your <code>.cpp</code> files in terminals:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">g++ filename.cpp -o objectname</span><br><span class="line">./objectname</span><br></pre></td></tr></table></figure>
-<p>Note: you can use <code>g++</code> in std11, but <code>clang++</code> is still in std98. (<code>clang/gcc</code> is for <code>.c</code> file)</p>
+    <title>Blender Cloth Rendering</title>
+    <url>/2021/09/14/Blender-Cloth-Rending/</url>
+    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
+<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
+<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
+<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
+<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
+<p><img src="/2021/09/14/Blender-Cloth-Rending/1.png" width="75%" height="75%"></p>
 ]]></content>
       <categories>
-        <category>Learning</category>
+        <category>Rendering</category>
       </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Mac</tag>
-      </tags>
   </entry>
   <entry>
     <title>C++: Difference between int* and int&amp; and int</title>
@@ -453,6 +427,44 @@
       </tags>
   </entry>
   <entry>
+    <title>C++11 in Mac (VsCode)</title>
+    <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
+    <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of <code>gcc</code>. You can still use <code>clang++</code> or <code>g++</code> to run a <code>.cpp</code> file. But basically, <code>clang</code> will use <code>-std=c++98</code> as default.</p>
+<p>So if you want to switch to new c++ standard in VsCode (Mac), do as follows:</p>
+<ol type="1">
+<li><p>Edit you c++ settings of VsCode:</p>
+<ol type="1">
+<li><p>create <code>.vscode/c_cpp_properties.json</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Mac&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [],</span><br><span class="line">            &quot;macFrameworkPath&quot;: [</span><br><span class="line">                &quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;/usr/bin/clang&quot;,</span><br><span class="line">            &quot;cStandard&quot;: &quot;c11&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;c++11&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;macos-clang-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>In terminal:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;alias g++=&#x27;g++ -std=c++11&#x27;&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source    ~/.bashrc</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+</ol>
+<p>Run your <code>.cpp</code> files in terminals:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">g++ filename.cpp -o objectname</span><br><span class="line">./objectname</span><br></pre></td></tr></table></figure>
+<p>Note: you can use <code>g++</code> in std11, but <code>clang++</code> is still in std98. (<code>clang/gcc</code> is for <code>.c</code> file)</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Copy &amp; Deepcopy in Python</title>
+    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Difference between Override &amp; Overload</title>
     <url>/2020/12/16/Difference-between-Override-Overload/</url>
     <content><![CDATA[<p>Both of them only happen when difference function using same name.</p>
@@ -470,154 +482,6 @@
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C/C++ openmp</title>
-    <url>/2020/05/30/C-C-openmp/</url>
-    <content><![CDATA[<p>Just a note for myself !</p>
-<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del> </strong> !!!</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C/C++</tag>
-        <tag>openmp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Copy &amp; Deepcopy in Python</title>
-    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Difference between new and malloc</title>
-    <url>/2020/06/04/Difference-between-new-and-malloc/</url>
-    <content><![CDATA[<p>今天写作业的时候要求实现vector，很自然地用 <code>malloc</code>，但是告知不能使用<code>stdlib.h</code>，没有办法就只能使用<code>new</code>了。于是忽然想到<code>new</code>、<code>malloc</code>都是在<code>heap</code>上开辟动态空间，那么有什么异同呢？</p>
-<h2 id="malloc">malloc()</h2>
-<p>malloc只负责开辟一个指定大小的空间，类似的<code>calloc</code>则使得在开辟空间的同时初始化为0。 malloc的特点在于将内存空间视为链表，在内存上找到足够长的初始空间返回给目标空间的开头地址，如果失败就会返回<code>NULL</code>（因此使用malloc必须要检验返回指针）。</p>
-<p>由于malloc开辟的空间在<code>heap</code>上，这就使得可以在函数内定义的变量在函数被销毁会变量不会被同步销毁。因此释放heap的空间只能通过手动<code>free()</code>。</p>
-<p><code>malloc</code>在开辟新空间时往往会多开辟一些空间用于存储空间长度，前后空间指针的信息，由<code>free</code>源码可见，实际上free是将<code>heap</code>上的可用空间定义为指针传入的指针位置减去malloc所要求的大小--所以free本质上是定义了一个指针告诉OS：一个指针到另一个指针之间的空间是可用的<code>free-&gt;is_available = 1;</code>。由此<code>free</code>函数对传入的指针要求非常严格，必须是malloc空间的起始指针。</p>
-<h2 id="new">new()</h2>
-<p>intuitive的区别： 首先<code>new</code>有个好处可以简单地进行初始化，即使用new时会调用该类型的默认构造函数。并且<code>new</code>开辟的空间需要用<code>delete</code>函数删除。</p>
-<p>更重要的区别是：</p>
-<p><code>new</code>函数调用的空间在C++被抽象为<code>free store</code>（反向定义--new的空间才被视为free store，由OS特别管理）上。<code>free store</code>一般都是在heap上，但是取决于<code>new</code>自身的实现，也可以在<code>static</code>区域。</p>
-<p><code>new</code>有多种变体，如定位new--直接使用传入的地址而不考虑是否该地址为空可以使用<code>new (address) int[10]</code></p>
-<p><code>new</code>函数返回的指针类型与开辟空间的数据类型相符合，这就意味着不需要像malloc一样在cast后才能使用，在数据上更加安全。</p>
-<p><code>new</code>如果分配失败，不会返回错误会直接丢出异常，如果想要确认需要使用catch <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">    int *a = new int();</span><br><span class="line">&#125;</span><br><span class="line">catch (bad_alloc)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>summary：</p>
-<table>
-<thead>
-<tr class="header">
-<th>特征</th>
-<th>new/delete</th>
-<th>malloc/free</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>分配内存的位置</td>
-<td>自由存储区</td>
-<td>堆</td>
-</tr>
-<tr class="even">
-<td>内存分配失败返回值</td>
-<td>完整类型指针</td>
-<td>void*</td>
-</tr>
-<tr class="odd">
-<td>内存分配失败返回值</td>
-<td>默认抛出异常</td>
-<td>返回NULL</td>
-</tr>
-<tr class="even">
-<td>分配内存的大小</td>
-<td>由编译器根据类型计算得出</td>
-<td>必须显式指定字节数</td>
-</tr>
-<tr class="odd">
-<td>处理数组</td>
-<td>有处理数组的new版本new[]</td>
-<td>需要用户计算数组的大小后进行内存分配</td>
-</tr>
-<tr class="even">
-<td>已分配内存的扩充</td>
-<td>无法直观地处理</td>
-<td>使用realloc简单完成</td>
-</tr>
-<tr class="odd">
-<td>是否相互调用</td>
-<td>可以，看具体的operator new/delete实现</td>
-<td>不可调用new</td>
-</tr>
-<tr class="even">
-<td>分配内存时内存不足</td>
-<td>客户能够指定处理函数或重新制定分配器</td>
-<td>无法通过用户代码进行处理</td>
-</tr>
-<tr class="odd">
-<td>函数重载</td>
-<td>允许</td>
-<td>不允许</td>
-</tr>
-<tr class="even">
-<td>构造函数与析构函数</td>
-<td>调用</td>
-<td>不调用</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>new</tag>
-        <tag>malloc</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GIF test</title>
-    <url>/2021/09/16/GIF-test/</url>
-    <content><![CDATA[<p>You should see this. <iframe height="75%" width="75%" src="1.gif"></iframe></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
-    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
-    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
-<p>Try <code>nvidia-settings</code> in terminal, then:</p>
-<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Experience of MacOS Big Sur</title>
-    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
-    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
-<p>(for test purpose--transfer Blog)</p>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-      <tags>
-        <tag>MacOS</tag>
       </tags>
   </entry>
   <entry>
@@ -639,6 +503,42 @@
         <tag>const</tag>
         <tag>pointer</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Experience of MacOS Big Sur</title>
+    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
+    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
+<p>(for test purpose--transfer Blog)</p>
+]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+      <tags>
+        <tag>MacOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C/C++ openmp</title>
+    <url>/2020/05/30/C-C-openmp/</url>
+    <content><![CDATA[<p>Just a note for myself !</p>
+<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del> </strong> !!!</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>openmp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GIF test</title>
+    <url>/2021/09/16/GIF-test/</url>
+    <content><![CDATA[<p>You should see this. <iframe height="75%" width="75%" src="1.gif"></iframe></p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
   </entry>
   <entry>
     <title>Gaussian Mixture Model (GMM) &amp; Expectation Maximization (EM)</title>
@@ -783,6 +683,29 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
+    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
+    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
+    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
+<p>Try <code>nvidia-settings</code> in terminal, then:</p>
+<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Image Test</title>
+    <url>/2021/09/15/Image-Test/</url>
+    <content><![CDATA[<p>You see the image? <img src="/2021/09/15/Image-Test/test.jpg" alt="image"></p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>How to generate random number via C++ (srand version)</title>
     <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
     <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -809,12 +732,98 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
-    <title>Image Test</title>
-    <url>/2021/09/15/Image-Test/</url>
-    <content><![CDATA[<p>You see the image? <img src="/2021/09/15/Image-Test/test.jpg" alt="image"></p>
+    <title>Difference between new and malloc</title>
+    <url>/2020/06/04/Difference-between-new-and-malloc/</url>
+    <content><![CDATA[<p>今天写作业的时候要求实现vector，很自然地用 <code>malloc</code>，但是告知不能使用<code>stdlib.h</code>，没有办法就只能使用<code>new</code>了。于是忽然想到<code>new</code>、<code>malloc</code>都是在<code>heap</code>上开辟动态空间，那么有什么异同呢？</p>
+<h2 id="malloc">malloc()</h2>
+<p>malloc只负责开辟一个指定大小的空间，类似的<code>calloc</code>则使得在开辟空间的同时初始化为0。 malloc的特点在于将内存空间视为链表，在内存上找到足够长的初始空间返回给目标空间的开头地址，如果失败就会返回<code>NULL</code>（因此使用malloc必须要检验返回指针）。</p>
+<p>由于malloc开辟的空间在<code>heap</code>上，这就使得可以在函数内定义的变量在函数被销毁会变量不会被同步销毁。因此释放heap的空间只能通过手动<code>free()</code>。</p>
+<p><code>malloc</code>在开辟新空间时往往会多开辟一些空间用于存储空间长度，前后空间指针的信息，由<code>free</code>源码可见，实际上free是将<code>heap</code>上的可用空间定义为指针传入的指针位置减去malloc所要求的大小--所以free本质上是定义了一个指针告诉OS：一个指针到另一个指针之间的空间是可用的<code>free-&gt;is_available = 1;</code>。由此<code>free</code>函数对传入的指针要求非常严格，必须是malloc空间的起始指针。</p>
+<h2 id="new">new()</h2>
+<p>intuitive的区别： 首先<code>new</code>有个好处可以简单地进行初始化，即使用new时会调用该类型的默认构造函数。并且<code>new</code>开辟的空间需要用<code>delete</code>函数删除。</p>
+<p>更重要的区别是：</p>
+<p><code>new</code>函数调用的空间在C++被抽象为<code>free store</code>（反向定义--new的空间才被视为free store，由OS特别管理）上。<code>free store</code>一般都是在heap上，但是取决于<code>new</code>自身的实现，也可以在<code>static</code>区域。</p>
+<p><code>new</code>有多种变体，如定位new--直接使用传入的地址而不考虑是否该地址为空可以使用<code>new (address) int[10]</code></p>
+<p><code>new</code>函数返回的指针类型与开辟空间的数据类型相符合，这就意味着不需要像malloc一样在cast后才能使用，在数据上更加安全。</p>
+<p><code>new</code>如果分配失败，不会返回错误会直接丢出异常，如果想要确认需要使用catch <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">    int *a = new int();</span><br><span class="line">&#125;</span><br><span class="line">catch (bad_alloc)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>summary：</p>
+<table>
+<thead>
+<tr class="header">
+<th>特征</th>
+<th>new/delete</th>
+<th>malloc/free</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>分配内存的位置</td>
+<td>自由存储区</td>
+<td>堆</td>
+</tr>
+<tr class="even">
+<td>内存分配失败返回值</td>
+<td>完整类型指针</td>
+<td>void*</td>
+</tr>
+<tr class="odd">
+<td>内存分配失败返回值</td>
+<td>默认抛出异常</td>
+<td>返回NULL</td>
+</tr>
+<tr class="even">
+<td>分配内存的大小</td>
+<td>由编译器根据类型计算得出</td>
+<td>必须显式指定字节数</td>
+</tr>
+<tr class="odd">
+<td>处理数组</td>
+<td>有处理数组的new版本new[]</td>
+<td>需要用户计算数组的大小后进行内存分配</td>
+</tr>
+<tr class="even">
+<td>已分配内存的扩充</td>
+<td>无法直观地处理</td>
+<td>使用realloc简单完成</td>
+</tr>
+<tr class="odd">
+<td>是否相互调用</td>
+<td>可以，看具体的operator new/delete实现</td>
+<td>不可调用new</td>
+</tr>
+<tr class="even">
+<td>分配内存时内存不足</td>
+<td>客户能够指定处理函数或重新制定分配器</td>
+<td>无法通过用户代码进行处理</td>
+</tr>
+<tr class="odd">
+<td>函数重载</td>
+<td>允许</td>
+<td>不允许</td>
+</tr>
+<tr class="even">
+<td>构造函数与析构函数</td>
+<td>调用</td>
+<td>不调用</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
       <categories>
-        <category>Test</category>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>new</tag>
+        <tag>malloc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
+    <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
+    <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -833,13 +842,16 @@ Picture3: 3-D GMM
       </categories>
   </entry>
   <entry>
-    <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
-    <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
-    <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
+    <title>Markdown在github上公式显示错误</title>
+    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
   </entry>
   <entry>
     <title>Mac上极好的Github使用教程(转载)</title>
@@ -858,15 +870,24 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
-    <title>Markdown在github上公式显示错误</title>
-    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
+    <title>Principal Component Analysis</title>
+    <url>/2021/05/27/Principal-Component-Analysis/</url>
+    <content><![CDATA[<h1 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h1>
+<h2 id="why-pca">WHY PCA</h2>
+<p>实践中比如我们看到一个人的信息，他可能有很多很多的feature--身高、体重、血小板数量等等，但是对我们所关心的话题（他长得帅不帅）所有实际意义的feature可能很少。因此我们尝试用PCA找出哪些feature对我们所关系的问题有实际的意义，从而实现对数据的降维（有损）。</p>
+<h2 id="how-to-find-principal-component">How to find Principal Component？</h2>
+<p>在数据的层面上什么是PC呢？</p>
+<p>举个例子--如何把二维的数据降维到一维：</p>
+<p>原本 <span class="math inline">\(x \in R^2\)</span> ，现在是 <span class="math inline">\(x \in R\)</span> 。降维的方式是任意的，但是我们如何评价这个降维是合理的？--降维后的数据的方差尽可能大，这样可以很直观地保证数据内部的信息尽可能地被保留。</p>
+<p>在二维平面上的一系列点降维到一维上，从过程上看是将平面上的点投影到一条直线上去。</p>
+<p>一般情况下我们会对数据进行中心化处理（数据均值变为原点），由此使得我们找的直线也能经过原点。</p>
+<p>投影过后，投影的值假设为 <span class="math inline">\(b1,b2,b3,b4,b5,b6\)</span> 。它们的均值也为0（原数据经过均值化）。那么方差即为 <span class="math inline">\((b1^2+b2^2+b3^2+b4^2+b5^2+b6^2)/6\)</span> 。所以我们要做的就是让<strong>投影后的norm2之和最大化</strong>。同样这也等价于<strong>让原数据点到直线的距离的平方和最小</strong>。（注意这是两种视角）</p>
 ]]></content>
       <categories>
-        <category>Configuration</category>
+        <category>Machine Learning</category>
       </categories>
       <tags>
-        <tag>markdown</tag>
+        <tag>PCA</tag>
       </tags>
   </entry>
   <entry>
@@ -895,16 +916,6 @@ Picture3: 3-D GMM
 ]]></content>
       <categories>
         <category>Rendering</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Overwatch yes</title>
-    <url>/2021/06/10/Overwatch-yes/</url>
-    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
-<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
-]]></content>
-      <categories>
-        <category>Chat</category>
       </categories>
   </entry>
   <entry>
@@ -938,25 +949,14 @@ Picture3: 3-D GMM
       </categories>
   </entry>
   <entry>
-    <title>Principal Component Analysis</title>
-    <url>/2021/05/27/Principal-Component-Analysis/</url>
-    <content><![CDATA[<h1 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h1>
-<h2 id="why-pca">WHY PCA</h2>
-<p>实践中比如我们看到一个人的信息，他可能有很多很多的feature--身高、体重、血小板数量等等，但是对我们所关心的话题（他长得帅不帅）所有实际意义的feature可能很少。因此我们尝试用PCA找出哪些feature对我们所关系的问题有实际的意义，从而实现对数据的降维（有损）。</p>
-<h2 id="how-to-find-principal-component">How to find Principal Component？</h2>
-<p>在数据的层面上什么是PC呢？</p>
-<p>举个例子--如何把二维的数据降维到一维：</p>
-<p>原本 <span class="math inline">\(x \in R^2\)</span> ，现在是 <span class="math inline">\(x \in R\)</span> 。降维的方式是任意的，但是我们如何评价这个降维是合理的？--降维后的数据的方差尽可能大，这样可以很直观地保证数据内部的信息尽可能地被保留。</p>
-<p>在二维平面上的一系列点降维到一维上，从过程上看是将平面上的点投影到一条直线上去。</p>
-<p>一般情况下我们会对数据进行中心化处理（数据均值变为原点），由此使得我们找的直线也能经过原点。</p>
-<p>投影过后，投影的值假设为 <span class="math inline">\(b1,b2,b3,b4,b5,b6\)</span> 。它们的均值也为0（原数据经过均值化）。那么方差即为 <span class="math inline">\((b1^2+b2^2+b3^2+b4^2+b5^2+b6^2)/6\)</span> 。所以我们要做的就是让<strong>投影后的norm2之和最大化</strong>。同样这也等价于<strong>让原数据点到直线的距离的平方和最小</strong>。（注意这是两种视角）</p>
+    <title>Overwatch yes</title>
+    <url>/2021/06/10/Overwatch-yes/</url>
+    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
+<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
 ]]></content>
       <categories>
-        <category>Machine Learning</category>
+        <category>Chat</category>
       </categories>
-      <tags>
-        <tag>PCA</tag>
-      </tags>
   </entry>
   <entry>
     <title>Python set</title>
@@ -1354,6 +1354,25 @@ Picture3: 3-D GMM
       </categories>
   </entry>
   <entry>
+    <title>Test password</title>
+    <url>/2021/09/15/Test-password/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="d0f22fb8ec934b630357bfed8eddaebceee1d75a12c7b7f676982c457b1c24c3">165d50f05814027fb7fe5e4ae8a088d8aa2b5ed724ea7f4f8aea8267289667dd0de0240fdde409598408170417c80b66d2288279e5571a43ddc20d8f87d5d48034dddfe8e1d8a865ebee019b43336466</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Please Eneter Password!</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Test Latex Formula</title>
     <url>/2021/09/15/Test-Latex-Formula/</url>
     <content><![CDATA[<p>This is an inline formula: <span class="math inline">\(x=7\)</span>. This is a simple equation: <span class="math display">\[
@@ -1377,36 +1396,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 ]]></content>
       <categories>
         <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Test password</title>
-    <url>/2021/09/15/Test-password/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="d0f22fb8ec934b630357bfed8eddaebceee1d75a12c7b7f676982c457b1c24c3">165d50f05814027fb7fe5e4ae8a088d8aa2b5ed724ea7f4f8aea8267289667dd0de0240fdde409598408170417c80b66d2288279e5571a43ddc20d8f87d5d48034dddfe8e1d8a865ebee019b43336466</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Please Eneter Password!</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Use of Tuple in Python</title>
-    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<p>Tuple最特别在于<br></p>
-<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
       </categories>
   </entry>
   <entry>
@@ -1436,9 +1425,9 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
   <entry>
     <title>Video test</title>
     <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-jRTmiKrCpSPIlazc" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-jRTmiKrCpSPIlazc").style.height=document.getElementById("mmedia-jRTmiKrCpSPIlazc").scrollWidth*0.76+"px";
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-LUaZbYOqZbtonNdy" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-LUaZbYOqZbtonNdy").style.height=document.getElementById("mmedia-LUaZbYOqZbtonNdy").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-jRTmiKrCpSPIlazc").style.height=document.getElementById("mmedia-jRTmiKrCpSPIlazc").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-LUaZbYOqZbtonNdy").style.height=document.getElementById("mmedia-LUaZbYOqZbtonNdy").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <thead>
@@ -1508,6 +1497,17 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
+    <title>Use of Tuple in Python</title>
+    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>Tuple最特别在于<br></p>
+<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>assert expression in Python</title>
     <url>/2020/09/24/assert-expression-in-Python/</url>
     <content><![CDATA[<h2 id="tags">tags:</h2>
@@ -1520,6 +1520,22 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 ]]></content>
       <categories>
         <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo图片在md文档中显示正常但是网页无法显示</title>
+    <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
+    <content><![CDATA[<h4 id="step-1">Step 1</h4>
+<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
+<p><br></p>
+<h4 id="step-2">Step 2</h4>
+<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
+<p><br></p>
+<h4 id="step-3">Step 3</h4>
+<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的 <code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -1561,32 +1577,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </tags>
   </entry>
   <entry>
-    <title>hexo图片在md文档中显示正常但是网页无法显示</title>
-    <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
-    <content><![CDATA[<h4 id="step-1">Step 1</h4>
-<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
-<p><br></p>
-<h4 id="step-2">Step 2</h4>
-<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
-<p><br></p>
-<h4 id="step-3">Step 3</h4>
-<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的 <code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>hexo中使用markdown无法处理特殊字符</title>
-    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。 比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
-<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>hexo部署到git出现不同步问题</title>
     <url>/2020/05/20/hexo%E9%83%A8%E7%BD%B2%E5%88%B0git%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<ol type="1">
@@ -1603,17 +1593,14 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </tags>
   </entry>
   <entry>
-    <title>how to change you local git name</title>
-    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
-<p>Your name will be shown on github each time you push to it.</p>
+    <title>hexo中使用markdown无法处理特殊字符</title>
+    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。 比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
+<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
   </entry>
   <entry>
     <title>solution to git@github.com出现Permission denied (publickey)</title>
@@ -1635,6 +1622,67 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       <tags>
         <tag>Github</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>yilia主题的头像配置失败</title>
+    <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<ol type="1">
+<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
+<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code> 但是打开之后依然无法显示，甚至还有一个问号</li>
+</ol>
+<hr>
+<h2 id="问题解决">问题解决</h2>
+<p>这里有一个很tricky的地方搞了我很久 在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code> 比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
+<p><strong>注意</strong> 麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>kendo 2-nd dan exam</title>
+    <url>/2020/11/13/kendo-2-nd-dan-exam/</url>
+    <content><![CDATA[<p>1.请叙述重视剑道礼仪的理由</p>
+<p>剑道常常说“以礼始以礼终”，事实上在剑道中礼仪确实无处不在--从进入道场对道场的行礼，到稽古时对对手的行礼，再到结束时集合后的行礼。可以说剑道中的礼仪非常细节而琐碎，几乎对所有的行为都进行了细节的指导，这种礼仪当然有古代剑术遗留下来的一些制度性要求，但是从当今的现代剑道中剑道礼仪也有非常特别的作用。我认为剑道礼仪主要体现了剑道对两方面的要求：其一是剑道技术层面，其二是剑道精神层面。 a. 就技术层面上说，剑道中的很多细节的利于本身就是现代剑道乃至古代剑术中的技术指导，而在现在被视为了剑道礼仪中的一部分。比如剑道向对手行礼时要求双眼不能离开对手事实上实在警惕对手随时可能发起的攻击；剑道要求竹刀不能刀尖指向地面放置，在真剑上则实在保护刀尖；剑道稽古前的蹲踞行礼可以视为是维持与对手合理的安全距离，并且激活脚踝和大腿肌肉。等等诸如此类的礼仪细节剑道中数不胜数，这其中有直接对剑道稽古、打击有帮助的内容，也有基于古代剑术的内容，体现了剑道视竹刀为真剑，视稽古为真实战斗的初心。 b. 从精神层面上说我认为礼仪最核心的部分则还可以细分为两点：一是剑道作为武力的一种体现，礼仪是对武力的限制，二是剑道在发展中收到的禅学影响。对于第一点上，中国人常说“武以止戈”，武力在出现后就频繁引起争斗，不受限制的武力不仅是危险的而且是无用的。武力本身并不错误，如何使用武力决定了武力的性质。剑道的礼仪就好像是刀的刀柄一般让武力有了被操纵的可能，用理性压制住内心的不安。最后从禅学上说。剑道最初的发展是一项非常注重实用性的技术，是禅宗赋予了其思想内核。铃木和尚在弘法的时候曾经就类比禅宗和剑道的修行（可能当时还没有现代严格意义上的剑道），他说剑道和禅学是一样的，都是通过迫使肉体在极端条件下去有机会来脱离外在世界来探求内心。在我看来剑道的礼仪也是如此，剑道的礼仪和禅宗的打坐诵经并无区别，都是形式罢了，具体的形式如何其实没有任何意义，有意义的是通过这种形式能够收敛内心，能尝试在专注中体会自我。事实上在形式上也有很多有趣的相似，有说法是“剑禅如一”，我们甚至能看到剑道的默想的手印和禅宗的佛印极为相似，礼仪上受到禅宗的影响不可谓不深。 由此可见，无论是从实用性的技术层面，还是从精神层面学会束缚武力、增强内心上，礼仪都是有实际价值的存在，是剑道修行中不可分割的一部分，值得所有剑道人牢记。 <br></p>
+<p>2.请说明残心。</p>
+<p>剑道残心很多时候被解释为打击后不放松对对对手的警惕，而有时残心也被广义地理解为是对对手无时无刻的警惕，哪怕还没有开始稽古也已经做好来随时应对的准备。单纯从体育的角度来看是十分匪夷所思的：就拿奥运会中类似的击剑而言，在裁判喊开始之前二者都是绝对安全的，而在击中的灯亮起后两者也是绝对安全的，很多运动员都会非常放松。剑道非常特殊，它不仅要求残心，甚至将残心作为比赛胜利的必要组件，强制要求残心。这实际上体现了剑道作为实用性技术的素质同样还体现了剑道在对内心塑造的要求。 a. 作为使用性技术，残心使得打击后能够仍保有最低限度的余力应对可能的反击、追击，在打击后不会因为放松而失败悔恨；同样广义上的残心要求人做到随时随地应对的准备--比如在蹲踞起来后应对对手马上发起的攻击，在近距离交锷时防范应对对手可能的退击，在远距离时不放松警惕，防范远距离的进攻。残心在剑道的实际练习和稽古中都是有着非常具体的落实和要求的，而在古代剑术中残心很大程度上更是自己生命安全的必不可少的保证。 b. 从精神训练上说，残心不仅仅是形式上表现出来的，更多是内心中的，是精神上的。残心要求精神上时刻保持专注，而不是单纯打击后高举竹刀脱离对手。有意义的残心并不一定要打击后一直向前冲出脱离，而是将专注力放在对手身上，打击后不忘警惕，转身时小心对手。残心在精神上是让剑道练习者在打击后保持游刃有余同时保持警惕心态的必要训练。</p>
+<hr>
+<p>下面是实际提交的版本，我认为修改得更明确了些：</p>
+<figure>
+<img src="/2020/11/13/kendo-2-nd-dan-exam/kendo-2nd-exam.png" alt="kendo-2-nd"><figcaption aria-hidden="true">kendo-2-nd</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Chat</category>
+        <category>Kendo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
+    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
+<h2 id="问题原因">问题原因</h2>
+<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错 因此有一下三种解决办法：</p>
+<ol type="1">
+<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
+<li><p>手动打开preinterpreter</p></li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<ol start="3" type="1">
+<li>重新为mac安装</li>
+</ol>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
+<p>如果有了就更新一下</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
+<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
   </entry>
   <entry>
     <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
@@ -1668,65 +1716,17 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>kendo 2-nd dan exam</title>
-    <url>/2020/11/13/kendo-2-nd-dan-exam/</url>
-    <content><![CDATA[<p>1.请叙述重视剑道礼仪的理由</p>
-<p>剑道常常说“以礼始以礼终”，事实上在剑道中礼仪确实无处不在--从进入道场对道场的行礼，到稽古时对对手的行礼，再到结束时集合后的行礼。可以说剑道中的礼仪非常细节而琐碎，几乎对所有的行为都进行了细节的指导，这种礼仪当然有古代剑术遗留下来的一些制度性要求，但是从当今的现代剑道中剑道礼仪也有非常特别的作用。我认为剑道礼仪主要体现了剑道对两方面的要求：其一是剑道技术层面，其二是剑道精神层面。 a. 就技术层面上说，剑道中的很多细节的利于本身就是现代剑道乃至古代剑术中的技术指导，而在现在被视为了剑道礼仪中的一部分。比如剑道向对手行礼时要求双眼不能离开对手事实上实在警惕对手随时可能发起的攻击；剑道要求竹刀不能刀尖指向地面放置，在真剑上则实在保护刀尖；剑道稽古前的蹲踞行礼可以视为是维持与对手合理的安全距离，并且激活脚踝和大腿肌肉。等等诸如此类的礼仪细节剑道中数不胜数，这其中有直接对剑道稽古、打击有帮助的内容，也有基于古代剑术的内容，体现了剑道视竹刀为真剑，视稽古为真实战斗的初心。 b. 从精神层面上说我认为礼仪最核心的部分则还可以细分为两点：一是剑道作为武力的一种体现，礼仪是对武力的限制，二是剑道在发展中收到的禅学影响。对于第一点上，中国人常说“武以止戈”，武力在出现后就频繁引起争斗，不受限制的武力不仅是危险的而且是无用的。武力本身并不错误，如何使用武力决定了武力的性质。剑道的礼仪就好像是刀的刀柄一般让武力有了被操纵的可能，用理性压制住内心的不安。最后从禅学上说。剑道最初的发展是一项非常注重实用性的技术，是禅宗赋予了其思想内核。铃木和尚在弘法的时候曾经就类比禅宗和剑道的修行（可能当时还没有现代严格意义上的剑道），他说剑道和禅学是一样的，都是通过迫使肉体在极端条件下去有机会来脱离外在世界来探求内心。在我看来剑道的礼仪也是如此，剑道的礼仪和禅宗的打坐诵经并无区别，都是形式罢了，具体的形式如何其实没有任何意义，有意义的是通过这种形式能够收敛内心，能尝试在专注中体会自我。事实上在形式上也有很多有趣的相似，有说法是“剑禅如一”，我们甚至能看到剑道的默想的手印和禅宗的佛印极为相似，礼仪上受到禅宗的影响不可谓不深。 由此可见，无论是从实用性的技术层面，还是从精神层面学会束缚武力、增强内心上，礼仪都是有实际价值的存在，是剑道修行中不可分割的一部分，值得所有剑道人牢记。 <br></p>
-<p>2.请说明残心。</p>
-<p>剑道残心很多时候被解释为打击后不放松对对对手的警惕，而有时残心也被广义地理解为是对对手无时无刻的警惕，哪怕还没有开始稽古也已经做好来随时应对的准备。单纯从体育的角度来看是十分匪夷所思的：就拿奥运会中类似的击剑而言，在裁判喊开始之前二者都是绝对安全的，而在击中的灯亮起后两者也是绝对安全的，很多运动员都会非常放松。剑道非常特殊，它不仅要求残心，甚至将残心作为比赛胜利的必要组件，强制要求残心。这实际上体现了剑道作为实用性技术的素质同样还体现了剑道在对内心塑造的要求。 a. 作为使用性技术，残心使得打击后能够仍保有最低限度的余力应对可能的反击、追击，在打击后不会因为放松而失败悔恨；同样广义上的残心要求人做到随时随地应对的准备--比如在蹲踞起来后应对对手马上发起的攻击，在近距离交锷时防范应对对手可能的退击，在远距离时不放松警惕，防范远距离的进攻。残心在剑道的实际练习和稽古中都是有着非常具体的落实和要求的，而在古代剑术中残心很大程度上更是自己生命安全的必不可少的保证。 b. 从精神训练上说，残心不仅仅是形式上表现出来的，更多是内心中的，是精神上的。残心要求精神上时刻保持专注，而不是单纯打击后高举竹刀脱离对手。有意义的残心并不一定要打击后一直向前冲出脱离，而是将专注力放在对手身上，打击后不忘警惕，转身时小心对手。残心在精神上是让剑道练习者在打击后保持游刃有余同时保持警惕心态的必要训练。</p>
-<hr>
-<p>下面是实际提交的版本，我认为修改得更明确了些：</p>
-<figure>
-<img src="/2020/11/13/kendo-2-nd-dan-exam/kendo-2nd-exam.png" alt="kendo-2-nd"><figcaption aria-hidden="true">kendo-2-nd</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Chat</category>
-        <category>Kendo</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>yilia主题的头像配置失败</title>
-    <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<ol type="1">
-<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
-<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code> 但是打开之后依然无法显示，甚至还有一个问号</li>
-</ol>
-<hr>
-<h2 id="问题解决">问题解决</h2>
-<p>这里有一个很tricky的地方搞了我很久 在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code> 比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
-<p><strong>注意</strong> 麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
+    <title>how to change you local git name</title>
+    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
+<p>Your name will be shown on github each time you push to it.</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
-  </entry>
-  <entry>
-    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
-    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
-<h2 id="问题原因">问题原因</h2>
-<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错 因此有一下三种解决办法：</p>
-<ol type="1">
-<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
-<li><p>手动打开preinterpreter</p></li>
-</ol>
-<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<ol start="3" type="1">
-<li>重新为mac安装</li>
-</ol>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
-<p>如果有了就更新一下</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
-<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
   </entry>
   <entry>
     <title>感谢好太阳哥哥们</title>
@@ -1784,18 +1784,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 ]]></content>
       <categories>
         <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>还是大GT优雅</title>
-    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
-    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
-<figure>
-<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT"><figcaption aria-hidden="true">宾利欧陆GT</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Chat</category>
       </categories>
   </entry>
   <entry>
@@ -1866,6 +1854,18 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 ]]></content>
       <categories>
         <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>还是大GT优雅</title>
+    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
+    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
+<figure>
+<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT"><figcaption aria-hidden="true">宾利欧陆GT</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Chat</category>
       </categories>
   </entry>
   <entry>
