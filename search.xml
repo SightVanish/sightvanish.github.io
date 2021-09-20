@@ -189,6 +189,20 @@
       </categories>
   </entry>
   <entry>
+    <title>九月剑道稽古</title>
+    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
+    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
+<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-TrgwQkFVuiEszdWM" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-TrgwQkFVuiEszdWM").style.height=document.getElementById("mmedia-TrgwQkFVuiEszdWM").scrollWidth*0.76+"px";
+    window.onresize = function(){
+      document.getElementById("mmedia-TrgwQkFVuiEszdWM").style.height=document.getElementById("mmedia-TrgwQkFVuiEszdWM").scrollWidth*0.76+"px";
+    }; </script>
+]]></content>
+      <categories>
+        <category>Kendo</category>
+      </categories>
+  </entry>
+  <entry>
     <title>AdaBoosting</title>
     <url>/2021/05/24/AdaBoosting/</url>
     <content><![CDATA[<h3 id="boosting-bagging">Boosting &amp; Bagging</h3>
@@ -228,6 +242,20 @@
 ]]></content>
       <categories>
         <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Blender Cloth Rendering</title>
+    <url>/2021/09/14/Blender-Cloth-Rending/</url>
+    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
+<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
+<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
+<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
+<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
+<p><img src="/2021/09/14/Blender-Cloth-Rending/1.png" width="75%" height="75%"></p>
+]]></content>
+      <categories>
+        <category>Rendering</category>
       </categories>
   </entry>
   <entry>
@@ -354,34 +382,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Blender Cloth Rendering</title>
-    <url>/2021/09/14/Blender-Cloth-Rending/</url>
-    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
-<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
-<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
-<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
-<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
-<p><img src="/2021/09/14/Blender-Cloth-Rending/1.png" width="75%" height="75%"></p>
-]]></content>
-      <categories>
-        <category>Rendering</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>九月剑道稽古</title>
-    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
-    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
-<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-ZWxRkHDSdstIEQfR" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-ZWxRkHDSdstIEQfR").style.height=document.getElementById("mmedia-ZWxRkHDSdstIEQfR").scrollWidth*0.76+"px";
-    window.onresize = function(){
-      document.getElementById("mmedia-ZWxRkHDSdstIEQfR").style.height=document.getElementById("mmedia-ZWxRkHDSdstIEQfR").scrollWidth*0.76+"px";
-    }; </script>
-]]></content>
-      <categories>
-        <category>Kendo</category>
-      </categories>
-  </entry>
-  <entry>
     <title>C++11 in Mac (VsCode)</title>
     <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
     <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of <code>gcc</code>. You can still use <code>clang++</code> or <code>g++</code> to run a <code>.cpp</code> file. But basically, <code>clang</code> will use <code>-std=c++98</code> as default.</p>
@@ -453,38 +453,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Copy &amp; Deepcopy in Python</title>
-    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
-    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
-    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
-<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code> and <code>const a int</code> are totally same. Both of them tell the compiler that the value stored in <code>a</code> can not be modified. But when it is combined with pointer, things go complicated</p>
-<h2 id="const-int">const int *</h2>
-<p>For C++, <code>int*</code> is not viewed as a type. Only <code>*a</code> be viewed as a mark telling the complier <code>a</code> is a pointer. So as we have already known that <code>int const</code> is same with <code>const int</code>, <code>int const *a</code> is also same with <code>const int *a</code>. Both of them means <code>*a</code> is a const, which means the value poined by <code>a</code> can not be modified but <code>a</code>, as a pointer, can point to different places.</p>
-<h2 id="int-const">int* const</h2>
-<p>By contrast, the <code>const</code> in <code>int* const</code> is a mark for <code>a</code>, so <code>a</code>, as a pointer, can only point to one specific place(determined when it is initialized), but the value pointed by it can be changed.</p>
-<p>Besides, we can combine two usages of <code>const</code>together: <code>const int* const a</code>--<code>a</code>, as a pointer, can not be modified and the value pointed by <code>a</code> cannot be modified.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>const</tag>
-        <tag>pointer</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Difference between Override &amp; Overload</title>
     <url>/2020/12/16/Difference-between-Override-Overload/</url>
     <content><![CDATA[<p>Both of them only happen when difference function using same name.</p>
@@ -519,26 +487,16 @@
       </tags>
   </entry>
   <entry>
-    <title>Experience of MacOS Big Sur</title>
-    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
-    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
-<p>(for test purpose--transfer Blog)</p>
+    <title>Copy &amp; Deepcopy in Python</title>
+    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Chat</category>
+        <category>Learning</category>
       </categories>
       <tags>
-        <tag>MacOS</tag>
+        <tag>Python</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>GIF test</title>
-    <url>/2021/09/16/GIF-test/</url>
-    <content><![CDATA[<p>You should see this. <iframe height="75%" width="75%" src="1.gif"></iframe></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
   </entry>
   <entry>
     <title>Difference between new and malloc</title>
@@ -627,16 +585,59 @@
       </tags>
   </entry>
   <entry>
-    <title>How to generate random number via C++ (srand version)</title>
-    <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
-    <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>GIF test</title>
+    <url>/2021/09/16/GIF-test/</url>
+    <content><![CDATA[<p>You should see this. <iframe height="75%" width="75%" src="1.gif"></iframe></p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
+    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
+    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
+<p>Try <code>nvidia-settings</code> in terminal, then:</p>
+<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Experience of MacOS Big Sur</title>
+    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
+    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
+<p>(for test purpose--transfer Blog)</p>
+]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+      <tags>
+        <tag>MacOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
+    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
+    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
+<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code> and <code>const a int</code> are totally same. Both of them tell the compiler that the value stored in <code>a</code> can not be modified. But when it is combined with pointer, things go complicated</p>
+<h2 id="const-int">const int *</h2>
+<p>For C++, <code>int*</code> is not viewed as a type. Only <code>*a</code> be viewed as a mark telling the complier <code>a</code> is a pointer. So as we have already known that <code>int const</code> is same with <code>const int</code>, <code>int const *a</code> is also same with <code>const int *a</code>. Both of them means <code>*a</code> is a const, which means the value poined by <code>a</code> can not be modified but <code>a</code>, as a pointer, can point to different places.</p>
+<h2 id="int-const">int* const</h2>
+<p>By contrast, the <code>const</code> in <code>int* const</code> is a mark for <code>a</code>, so <code>a</code>, as a pointer, can only point to one specific place(determined when it is initialized), but the value pointed by it can be changed.</p>
+<p>Besides, we can combine two usages of <code>const</code>together: <code>const int* const a</code>--<code>a</code>, as a pointer, can not be modified and the value pointed by <code>a</code> cannot be modified.</p>
 ]]></content>
       <categories>
         <category>Learning</category>
       </categories>
       <tags>
         <tag>C++</tag>
-        <tag>Srand</tag>
+        <tag>const</tag>
+        <tag>pointer</tag>
       </tags>
   </entry>
   <entry>
@@ -782,6 +783,19 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
+    <title>How to generate random number via C++ (srand version)</title>
+    <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
+    <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Srand</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to get matrix transform in python</title>
     <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
     <content><![CDATA[<p>Here is a special trick:</p>
@@ -828,18 +842,6 @@ Picture3: 3-D GMM
       </categories>
   </entry>
   <entry>
-    <title>Markdown在github上公式显示错误</title>
-    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mac上极好的Github使用教程(转载)</title>
     <url>/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/</url>
     <content><![CDATA[<p><a href="https://blog.csdn.net/Capgras/article/details/100540501">原文链接</a></p>
@@ -856,33 +858,16 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
-    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
-    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
-    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
-<p>Try <code>nvidia-settings</code> in terminal, then:</p>
-<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
+    <title>Markdown在github上公式显示错误</title>
+    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
+        <tag>markdown</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>NPR Cup--a taste to NPR</title>
-    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
-    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果"><figcaption aria-hidden="true">简单的一个效果</figcaption>
-</figure>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了"><figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Rendering</category>
-      </categories>
   </entry>
   <entry>
     <title>My Donut in Blender</title>
@@ -938,6 +923,21 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
+    <title>NPR Cup--a taste to NPR</title>
+    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
+    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果"><figcaption aria-hidden="true">简单的一个效果</figcaption>
+</figure>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了"><figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Rendering</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Principal Component Analysis</title>
     <url>/2021/05/27/Principal-Component-Analysis/</url>
     <content><![CDATA[<h1 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h1>
@@ -973,6 +973,18 @@ Picture3: 3-D GMM
 </ol>
 <h3 id="how-to-determine-an-empty-set">How to determine an empty set</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> s: <span class="comment"># if the set is empty</span></span><br><span class="line">	<span class="comment"># do sth</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
+    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
+    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
+<p>Literally, it is a <code>const iterator</code>, which means: iterator, as a pointer, can not be modified, but the value pointed by this iterator is permitted to be modified.</p>
+<h1 id="const_iterator">const_iterator</h1>
+<p><code>const_iterator</code>is a specially defined class. It is defined to go through a const container, which we are not intended to modify.</p>
 ]]></content>
       <categories>
         <category>Learning</category>
@@ -1104,12 +1116,238 @@ Picture3: 3-D GMM
       </categories>
   </entry>
   <entry>
-    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
-    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
-    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
-<p>Literally, it is a <code>const iterator</code>, which means: iterator, as a pointer, can not be modified, but the value pointed by this iterator is permitted to be modified.</p>
-<h1 id="const_iterator">const_iterator</h1>
-<p><code>const_iterator</code>is a specially defined class. It is defined to go through a const container, which we are not intended to modify.</p>
+    <title>Sort Algorithms</title>
+    <url>/2021/09/17/Sorting-Algorithms/</url>
+    <content><![CDATA[<h2 id="preface">Preface</h2>
+<p>关于排序有很多人整理了，但是看下来基本是东抄一点，西抄一点，非常混乱，并没有统一的逻辑，而且往往写的非常复杂。本文希望能够实现统一的代码风格，保持命名、实现方式上的统一，以体现出不同算法之间的改进和区别，同时尽可能使用简洁的代码来实现（因此可能会存在一些不常规的技巧），减少代码工作量（毕竟平时都是直接sort，哪关心怎么实现）。本文代码经过本地测试全部为从小打大排序，但是testcase并不全面，可能后续还会进行修正。</p>
+<p><br></p>
+<hr>
+<h2 id="sort-algorithms">Sort Algorithms</h2>
+<h3 id="bubble-sort">1. Bubble Sort</h3>
+<h4 id="principle">1.1 Principle</h4>
+<p>Compare the adjacent two elements and put the larger one the the right then move to the next pair.</p>
+<h4 id="implement">1.2 Implement</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length<span class="number">-1</span>; i++) <span class="comment">// note: it should be length-1</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;length<span class="number">-1</span>-i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>]) <span class="built_in">swap</span>(arr[j],arr[j+<span class="number">1</span>]); <span class="comment">// note: swap is also suitable for array</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="performance">1.3 Performance</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Time Complexity (Best/Worst/Average)</th>
+<th>Space Complexity</th>
+<th>Stability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(n<sup>2</sup>)</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>stable</strong> <br>(no change in relative position for same elements)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><br></p>
+<h3 id="selection-sort-improvement-of-bubble">2. Selection Sort (Improvement of Bubble)</h3>
+<h4 id="principle-1">2.1 Principle</h4>
+<p>Always try to find the smallest element from thoes have not be sorted.</p>
+<h4 id="implement-1">2.2 Implement</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectionSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length<span class="number">-1</span>;i++) <span class="comment">// note: you do not to sort the last element</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> min=i; <span class="comment">// the index of the smallest element</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;length; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j]&lt;arr[min]) min=j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">swap</span>(arr[i], arr[min]); <span class="comment">// put the min element to the head of array</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="performance-1">2.3 Performance</h4>
+<table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time Complexity (Best/Worst/Average)</th>
+<th>Space Complexity</th>
+<th>Stability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(n<sup>2</sup>)</strong></td>
+<td><strong>O(1)</strong> <br>(one more element for swapping)</td>
+<td><strong>unstable</strong> <br>(the swap will let the same element change their relative position)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><br></p>
+<h3 id="insertion-sort">3. Insertion Sort</h3>
+<h4 id="principle-2">3.1 Principle</h4>
+<p>Reconstruct a new array. Insert the elements one by one.</p>
+<h4 id="implement-2">3.2 Implement</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertionSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;length; i++) <span class="comment">// note: you have to sort the first element</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> key=arr[i];</span><br><span class="line">        <span class="keyword">int</span> j=i<span class="number">-1</span>; <span class="comment">// compare this one with the elements before</span></span><br><span class="line">        <span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; key&lt;arr[j])</span><br><span class="line">        &#123;</span><br><span class="line">            arr[j+<span class="number">1</span>]=arr[j];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[j+<span class="number">1</span>]=key; <span class="comment">// note: at this time: j=-1 or arr[j]&lt;key, so it should be j+1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="performance-2">3.3 Performance</h4>
+<table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time Complexity (Best/Worst/Average)</th>
+<th>Space Complexity</th>
+<th>Stability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(n)</strong>/<strong>O(n<sup>2</sup>)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
+<td><strong>O(1)</strong> <br>(one more element for swapping)</td>
+<td><strong>stable</strong> <br>(no change in relative position for same elements)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><br></p>
+<h3 id="shells-sort-improvement-of-insertion">4. Shell's Sort (Improvement of Insertion)</h3>
+<h4 id="principle-3">4.1 Principle</h4>
+<p>Divid the sequence to several subsequence. Sort this sequence locally, then sort the whole sequence. eg. 0,1,2,3,4,5,6,7-&gt;0,2,4,6 will be subsequence1;1,3,5,7 will be subsequence2.</p>
+<h4 id="implement-3">4.2 Implement</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> increment = <span class="number">3</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> step=length/increment+<span class="number">1</span>; <span class="comment">// you can choose increment=3 or anything else(&lt;length)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(step&gt;=<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// this part is same with insertion sort</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=step; i&lt;length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> key=arr[i];</span><br><span class="line">            <span class="keyword">int</span> j=i-step;</span><br><span class="line">            <span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; key&lt;arr[j])</span><br><span class="line">            &#123;</span><br><span class="line">                arr[j+step]=arr[j];</span><br><span class="line">                j-=step;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[j+step]=key;</span><br><span class="line">        &#125;</span><br><span class="line">        step=step/increment;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<h4 id="performance-3">4.3 Performance</h4>
+<table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time Complexity (Best/Worst/Average)</th>
+<th>Space Complexity</th>
+<th>Stability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>The worst case is better than <strong>O(n<sup>2</sup>)</strong>.<br> With certian increment, the worst case can be <strong>O(n<sup>1.3</sup>)</strong></td>
+<td><strong>O(1)</strong> <br>(one more element for swapping)</td>
+<td><strong>unstable</strong> <br>(the insertion sort will be performed with different gaps)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><br></p>
+<h3 id="merge-sort">5. Merge Sort</h3>
+<h4 id="principle-4">5.1 Principle</h4>
+<p>Based on Divide and Conquer.</p>
+<p>Divid the sequence to two sub-sequence(new space). Sort them seperatly, then merge two sub-sequence.</p>
+<p>Note: There are two different ways of implementation: recursive and unrecursive way. We only consider recursive way in C++.</p>
+<h4 id="implement-4">5.2 Implement</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// recursive way</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// first, we need to know where the two arrays are located.</span></span><br><span class="line">    <span class="keyword">int</span> leftMid=(startIndex+endIndex)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> rightMid=leftMid+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// we need to allocate new space for sorting</span></span><br><span class="line">    <span class="keyword">int</span> arrayLeft[leftMid-startIndex+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> arrayRight[endIndex-rightMid+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=startIndex; i&lt;=leftMid; i++)  arrayLeft[i-startIndex]=arr[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=rightMid; i&lt;=endIndex; i++)  arrayRight[i-rightMid]=arr[i];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// two pointer to merge</span></span><br><span class="line">    <span class="keyword">int</span> index_L=<span class="number">0</span>, index_R=<span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// merge to the original arr--to save space</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=startIndex; i&lt;=endIndex; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(index_L != (leftMid-startIndex+<span class="number">1</span>) &amp;&amp; index_R != (endIndex-rightMid+<span class="number">1</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arrayLeft[index_L]&lt;arrayRight[index_R])    arr[i]=arrayLeft[index_L++];</span><br><span class="line">            <span class="keyword">else</span>    arr[i]=arrayRight[index_R++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// if left array is done</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(index_L == (leftMid-startIndex+<span class="number">1</span>))  arr[i]=arrayRight[index_R++];</span><br><span class="line">        <span class="comment">// if right array is done</span></span><br><span class="line">        <span class="keyword">else</span>    arr[i]=arrayLeft[index_L++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span> <span class="comment">// since it is a recursive way, we need to save both indices</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(endIndex&gt;startIndex) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">MergeSort</span>(arr, startIndex, (startIndex+endIndex)/<span class="number">2</span>); <span class="comment">// sort left part</span></span><br><span class="line">        <span class="built_in">MergeSort</span>(arr, (startIndex+endIndex)/<span class="number">2</span>+<span class="number">1</span>, endIndex);</span><br><span class="line">        <span class="built_in">Merge</span>(arr, startIndex, endIndex); <span class="comment">// note: we need to sort in [startIndex, endIndex]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="performance-4">5.3 Performance</h4>
+<table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time Complexity (Best/Worst/Average)</th>
+<th>Space Complexity</th>
+<th>Stability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(nlogn)</strong><br>with improvement, the best can be O(n)</td>
+<td><strong>O(n)</strong> <br></td>
+<td><strong>stable</strong> <br>the stability is ensured in Merge</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><br></p>
+<h3 id="quicksort-important">6. <strong>QuickSort</strong> (Important)</h3>
+<h4 id="principle-5">6.1 Principle</h4>
+<p>Based on Divide and conquer. As an improvement of BubbleSort.</p>
+<p>It is the fastest sorting algorithm in average.</p>
+<p>Select a pivot, put smaller (than pivot) elements in pivot's left and larger elements in pivot's right. Do it recursively.</p>
+<h4 id="implement-5">6.2 Implement</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(endIndex&gt;startIndex)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> i=startIndex, j=endIndex;</span><br><span class="line">        <span class="comment">// select pivot</span></span><br><span class="line">        <span class="keyword">int</span> pivot=arr[startIndex];</span><br><span class="line">        <span class="comment">// seperate the sequence</span></span><br><span class="line">        <span class="keyword">while</span>(i&lt;j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;j &amp;&amp; arr[j]&gt;=pivot) j--; <span class="comment">// if you select the most left element as pivot, you should go from right--&gt;so that when i==j, the element will be smaller than pivot.</span></span><br><span class="line">            <span class="keyword">if</span>(i&lt;j) arr[i++]=arr[j]; <span class="comment">// put the smaller one to left</span></span><br><span class="line">            <span class="keyword">while</span>(i&lt;j &amp;&amp; arr[i]&lt;=pivot) i++;</span><br><span class="line">            <span class="keyword">if</span>(i&lt;j) arr[j--]=arr[i]; <span class="comment">// put the larger one to right</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// put the pivot, i==j</span></span><br><span class="line">        arr[i]=pivot; <span class="comment">// the original arr[i] is in arr[i+1/i-1]</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// recursive</span></span><br><span class="line">        <span class="built_in">QuickSort</span>(arr, startIndex, i<span class="number">-1</span>); <span class="comment">// left side</span></span><br><span class="line">        <span class="built_in">QuickSort</span>(arr, i+<span class="number">1</span>, endIndex); <span class="comment">// right side</span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="performance-5">6.3 Performance</h4>
+<table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time Complexity (Best/Worst/Average)</th>
+<th>Space Complexity</th>
+<th>Stability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(nlogn)</strong>/<strong>O(nlogn)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
+<td><strong>O(logn)</strong><br>(on average, the space complexity it the depth of recursion; for the worst case, it can be O(n))</td>
+<td><strong>unstable</strong> <br>(the swap of pivot makes it unstable)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><br></p>
+<h3 id="radixbucket-sort">7. Radix/Bucket Sort</h3>
+<h4 id="principle-6">7.1 Principle</h4>
+<p>Sort input array using counting sort according to the i’th (from the least significant digit to the most significant) digit.</p>
+<h4 id="implement-6">7.2 Implement</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// helper function, return the max number of digit</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxBit</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d=<span class="number">1</span>; </span><br><span class="line">    <span class="keyword">int</span> p=<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(arr[i]&gt;=<span class="built_in">pow</span>(p,d))    d++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">RadixSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d=<span class="built_in">maxBit</span>(arr, length); <span class="comment">// the max number of digit</span></span><br><span class="line">    <span class="keyword">int</span> temp[length];</span><br><span class="line">    <span class="keyword">int</span> buckets[<span class="number">10</span>]; <span class="comment">// there are 10 buckets (0-9)</span></span><br><span class="line">    <span class="keyword">int</span> base=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> remainder=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=d; i++) <span class="comment">// you need to sort b times</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;<span class="number">10</span>; j++) buckets[j] = <span class="number">0</span>; <span class="comment">// clear buckets</span></span><br><span class="line">        <span class="comment">// put arr[] into buckets</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;length; j++) </span><br><span class="line">        &#123;</span><br><span class="line">            remainder=(arr[j]/base)%<span class="number">10</span>;</span><br><span class="line">            buckets[remainder]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// count the total number of elements that are stored in buckets</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;length; j++) buckets[j]+=buckets[j<span class="number">-1</span>];</span><br><span class="line">        <span class="comment">// you should go from back to front--make sure this algorithm is stable</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=length<span class="number">-1</span>; j&gt;=<span class="number">0</span>; j--)</span><br><span class="line">        &#123;</span><br><span class="line">            remainder=(arr[j]/base)%<span class="number">10</span>;</span><br><span class="line">            temp[buckets[remainder]<span class="number">-1</span>]=arr[j];</span><br><span class="line">            buckets[remainder]--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// put temp back to arr</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;length; j++) arr[j]=temp[j];</span><br><span class="line">        </span><br><span class="line">        base=base*<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="performance-6">7.2 Performance</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Time Complexity (Best/Worst/Average)</th>
+<th>Space Complexity</th>
+<th>Stability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(nd)</strong><br>(d is the number of digits)</td>
+<td><strong>O(n+d)</strong></td>
+<td><strong>stable</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><br></p>
+<h3 id="heap-sort">8. Heap Sort</h3>
+<h4 id="principle-7">8.1 Principle</h4>
+<p>Heap Sort is designed for heap. Heap is a complete binary tree and its childen nodes should be always larger/smaller than parent nodes.</p>
+<p>For a Min-Heap, it satisfiies:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#### 8.2 Implement</span><br><span class="line">```c++</span><br><span class="line">// create maxheap</span><br><span class="line">void MaxHeapify(int arr[], int startIndex, int endIndex)</span><br><span class="line">&#123;</span><br><span class="line">    int parentNode=startIndex;</span><br><span class="line">    int childNode=2*startIndex+1;</span><br><span class="line">    while(childNode&lt;=endIndex)</span><br><span class="line">    &#123;</span><br><span class="line">        // compare the two child nodes, and choose the larger one</span><br><span class="line">        if (childNode+1&lt;=endIndex &amp;&amp; arr[childNode]&lt;arr[childNode+1])  childNode++;</span><br><span class="line">        if (arr[parentNode]&lt;arr[childNode])</span><br><span class="line">        &#123;</span><br><span class="line">            swap(arr[parentNode], arr[childNode]);</span><br><span class="line">            parentNode=childNode;</span><br><span class="line">            childNode=parentNode*2+1;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">            return;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void HeapSort(int arr[], int length)</span><br><span class="line">&#123;</span><br><span class="line">    // create the heap--start from the last parent node</span><br><span class="line">    for(int i=length/2-1; i&gt;=0; i--)    MaxHeapify(arr, i, length-1);</span><br><span class="line"></span><br><span class="line">    for(int i=length-1; i&gt;=0; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        swap(arr[0], arr[i]); // put the largest element to the end of array</span><br><span class="line">        MaxHeapify(arr, 0, i-1); // rebalance the tree</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="performance-7">8.3 Performance</h4>
+<table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time Complexity (Best/Worst/Average)</th>
+<th>Space Complexity</th>
+<th>Stability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(n+nlogn)</strong><br>(n for creating the heap; rebalance the tree(logn) for n times)</td>
+<td><strong>O(1)</strong><br>(one more element for swapping)</td>
+<td><strong>unstable</strong> <br>(eg. 64, 27, 16, 27. After 64, the second 27 will be ouput.)</td>
+</tr>
+</tbody>
+</table>
+<hr>
 ]]></content>
       <categories>
         <category>Learning</category>
@@ -1142,247 +1380,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>Use of Tuple in Python</title>
-    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<p>Tuple最特别在于<br></p>
-<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Sort Algorithms</title>
-    <url>/2021/09/17/Sorting-Algorithms/</url>
-    <content><![CDATA[<h2 id="sort-algorithms">Sort Algorithms</h2>
-<h3 id="bubble-sort">1. Bubble Sort</h3>
-<h4 id="principle">1.1 Principle</h4>
-<p>Compare the adjacent two elements and put the larger one the the right then move to the next pair.</p>
-<h4 id="implement">1.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length<span class="number">-1</span>; i++) <span class="comment">// note: it should be length-1</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;length<span class="number">-1</span>-i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>]) <span class="built_in">swap</span>(arr[j],arr[j+<span class="number">1</span>]); <span class="comment">// note: swap is also suitable for array</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="performance">1.3 Performance</h4>
-<table>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(1)</strong></td>
-<td><strong>stable</strong> <br>(no change in relative position for same elements)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h3 id="selection-sort-improvement-of-bubble">2. Selection Sort (Improvement of Bubble)</h3>
-<h4 id="principle-1">2.1 Principle</h4>
-<p>Always try to find the smallest element from thoes have not be sorted.</p>
-<h4 id="implement-1">2.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectionSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length<span class="number">-1</span>;i++) <span class="comment">// note: you do not to sort the last element</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> min=i; <span class="comment">// the index of the smallest element</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;length; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j]&lt;arr[min]) min=j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">swap</span>(arr[i], arr[min]); <span class="comment">// put the min element to the head of array</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="performance-1">2.3 Performance</h4>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(1)</strong> <br>(one more element for swapping)</td>
-<td><strong>unstable</strong> <br>(the swap will let the same element change their relative position)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h3 id="insertion-sort">3. Insertion Sort</h3>
-<h4 id="principle-2">3.1 Principle</h4>
-<p>Reconstruct a new array. Insert the elements one by one.</p>
-<h4 id="implement-2">3.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertionSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;length; i++) <span class="comment">// note: you have to sort the first element</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> key=arr[i];</span><br><span class="line">        <span class="keyword">int</span> j=i<span class="number">-1</span>; <span class="comment">// compare this one with the elements before</span></span><br><span class="line">        <span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; key&lt;arr[j])</span><br><span class="line">        &#123;</span><br><span class="line">            arr[j+<span class="number">1</span>]=arr[j];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[j+<span class="number">1</span>]=key; <span class="comment">// note: at this time: j=-1 or arr[j]&lt;key, so it should be j+1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="performance-2">3.3 Performance</h4>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(n)</strong>/<strong>O(n<sup>2</sup>)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(1)</strong> <br>(one more element for swapping)</td>
-<td><strong>stable</strong> <br>(no change in relative position for same elements)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h3 id="shells-sort-improvement-of-insertion">4. Shell's Sort (Improvement of Insertion)</h3>
-<h4 id="principle-3">4.1 Principle</h4>
-<p>Divid the sequence to several subsequence. Sort this sequence locally, then sort the whole sequence. eg. 0,1,2,3,4,5,6,7-&gt;0,2,4,6 will be subsequence1;1,3,5,7 will be subsequence2.</p>
-<h4 id="implement-3">4.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> increment = <span class="number">3</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> step=length/increment+<span class="number">1</span>; <span class="comment">// you can choose increment=3 or anything else(&lt;length)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(step&gt;=<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// this part is same with insertion sort</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=step; i&lt;length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> key=arr[i];</span><br><span class="line">            <span class="keyword">int</span> j=i-step;</span><br><span class="line">            <span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; key&lt;arr[j])</span><br><span class="line">            &#123;</span><br><span class="line">                arr[j+step]=arr[j];</span><br><span class="line">                j-=step;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[j+step]=key;</span><br><span class="line">        &#125;</span><br><span class="line">        step=step/increment;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-<h4 id="performance-3">4.3 Performance</h4>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>The worst case is better than <strong>O(n<sup>2</sup>)</strong>.<br> With certian increment, the worst case can be <strong>O(n<sup>1.3</sup>)</strong></td>
-<td><strong>O(1)</strong> <br>(one more element for swapping)</td>
-<td><strong>unstable</strong> <br>(the insertion sort will be performed with different gaps)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h3 id="merge-sort">5. Merge Sort</h3>
-<h4 id="principle-4">5.1 Principle</h4>
-<p>Based on Divide and Conquer.</p>
-<p>Divid the sequence to two sub-sequence(new space). Sort them seperatly, then merge two sub-sequence.</p>
-<p>Note: There are two different ways of implementation: recursive and unrecursive way. We only consider recursive way in C++.</p>
-<h4 id="implement-4">5.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// recursive way</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// first, we need to know where the two arrays are located.</span></span><br><span class="line">    <span class="keyword">int</span> leftMid=(startIndex+endIndex)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> rightMid=leftMid+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// we need to allocate new space for sorting</span></span><br><span class="line">    <span class="keyword">int</span> arrayLeft[leftMid-startIndex+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> arrayRight[endIndex-rightMid+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=startIndex; i&lt;=leftMid; i++)  arrayLeft[i-startIndex]=arr[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=rightMid; i&lt;=endIndex; i++)  arrayRight[i-rightMid]=arr[i];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// two pointer to merge</span></span><br><span class="line">    <span class="keyword">int</span> index_L=<span class="number">0</span>, index_R=<span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// merge to the original arr--to save space</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=startIndex; i&lt;=endIndex; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(index_L != (leftMid-startIndex+<span class="number">1</span>) &amp;&amp; index_R != (endIndex-rightMid+<span class="number">1</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arrayLeft[index_L]&lt;arrayRight[index_R])    arr[i]=arrayLeft[index_L++];</span><br><span class="line">            <span class="keyword">else</span>    arr[i]=arrayRight[index_R++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// if left array is done</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(index_L == (leftMid-startIndex+<span class="number">1</span>))  arr[i]=arrayRight[index_R++];</span><br><span class="line">        <span class="comment">// if right array is done</span></span><br><span class="line">        <span class="keyword">else</span>    arr[i]=arrayLeft[index_L++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span> <span class="comment">// since it is a recursive way, we need to save both indices</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(endIndex&gt;startIndex) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">MergeSort</span>(arr, startIndex, (startIndex+endIndex)/<span class="number">2</span>); <span class="comment">// sort left part</span></span><br><span class="line">        <span class="built_in">MergeSort</span>(arr, (startIndex+endIndex)/<span class="number">2</span>+<span class="number">1</span>, endIndex);</span><br><span class="line">        <span class="built_in">Merge</span>(arr, startIndex, endIndex); <span class="comment">// note: we need to sort in [startIndex, endIndex]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="performance-4">5.3 Performance</h4>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(nlogn)</strong><br>with improvement, the best can be O(n)</td>
-<td><strong>O(n)</strong> <br></td>
-<td><strong>stable</strong> <br>the stability is ensured in Merge</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h3 id="quicksort-important">6. <strong>QuickSort</strong> (Important)</h3>
-<h4 id="principle-5">6.1 Principle</h4>
-<p>Based on Divide and conquer. As an improvement of BubbleSort.</p>
-<p>It is the fastest sorting algorithm in average.</p>
-<p>Select a pivot, put smaller (than pivot) elements in pivot's left and larger elements in pivot's right. Do it recursively.</p>
-<h4 id="implement-5">6.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(endIndex&gt;startIndex)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> i=startIndex, j=endIndex;</span><br><span class="line">        <span class="comment">// select pivot</span></span><br><span class="line">        <span class="keyword">int</span> pivot=arr[startIndex];</span><br><span class="line">        <span class="comment">// seperate the sequence</span></span><br><span class="line">        <span class="keyword">while</span>(i&lt;j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;j &amp;&amp; arr[j]&gt;=pivot) j--; <span class="comment">// if you select the most left element as pivot, you should go from right--&gt;so that when i==j, the element will be smaller than pivot.</span></span><br><span class="line">            <span class="keyword">if</span>(i&lt;j) arr[i++]=arr[j]; <span class="comment">// put the smaller one to left</span></span><br><span class="line">            <span class="keyword">while</span>(i&lt;j &amp;&amp; arr[i]&lt;=pivot) i++;</span><br><span class="line">            <span class="keyword">if</span>(i&lt;j) arr[j--]=arr[i]; <span class="comment">// put the larger one to right</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// put the pivot, i==j</span></span><br><span class="line">        arr[i]=pivot; <span class="comment">// the original arr[i] is in arr[i+1/i-1]</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// recursive</span></span><br><span class="line">        <span class="built_in">QuickSort</span>(arr, startIndex, i<span class="number">-1</span>); <span class="comment">// left side</span></span><br><span class="line">        <span class="built_in">QuickSort</span>(arr, i+<span class="number">1</span>, endIndex); <span class="comment">// right side</span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="performance-5">6.3 Performance</h4>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(nlogn)</strong>/<strong>O(nlogn)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(logn)</strong><br>(on average, the space complexity it the depth of recursion; for the worst case, it can be O(n))</td>
-<td><strong>unstable</strong> <br>(the swap of pivot makes it unstable)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h3 id="radix-sort">7. Radix Sort</h3>
-<h4 id="principle-6">7.1 Principle</h4>
-<h4 id="implement-6">7.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="performance-6">7.2 Performance</h4>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(nlogn)</strong>/<strong>O(nlogn)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(logn)</strong><br>(on average, the space complexity it the depth of recursion; for the worst case, it can be O(n))</td>
-<td><strong>unstable</strong> <br>(the swap of pivot makes it unstable)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h3 id="bucket-sort">8. Bucket Sort</h3>
-<h4 id="principle-7">8.1 Principle</h4>
-<h4 id="implement-7">8.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="performance-7">8.3 Performance</h4>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(nlogn)</strong>/<strong>O(nlogn)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(logn)</strong><br>(on average, the space complexity it the depth of recursion; for the worst case, it can be O(n))</td>
-<td><strong>unstable</strong> <br>(the swap of pivot makes it unstable)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Test password</title>
     <url>/2021/09/15/Test-password/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -1399,6 +1396,17 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 <script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Use of Tuple in Python</title>
+    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>Tuple最特别在于<br></p>
+<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
       </categories>
   </entry>
   <entry>
@@ -1426,74 +1434,11 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>What is the use of activation function</title>
-    <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
-    <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
-<p>The following picture illustrates the basic structure of neural network.</p>
-<figure>
-<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn"><figcaption aria-hidden="true">nn</figcaption>
-</figure>
-<p>Extracted featrures are passed into the net as input.</p>
-<p># of input node = # of extracted feature types</p>
-<h1 id="why-we-need-activation">Why we need activation</h1>
-<p>For a classifiying issue:</p>
-<h3 id="without-activation">Without activation</h3>
-<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
-<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input} input+loss_1)+loss_2\)</span></p>
-<p>So bascically, we can derive that no matter how many layers you add into the net, without activation, the net can only produce a <strong>linear classifier</strong>.</p>
-<h3 id="with-activation">With activation</h3>
-<p>The aim of activation is to transfer a linear classifer to a non-linear classifer.</p>
-<p>The basic actication we use is: <span class="math display">\[
-\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0 \\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
-\]</span> It is same as nerve cell--if the cell is activated it produce a signal, otherwise, it does nothing.</p>
-<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
-\sigma(y) = \frac 1 {1+e^{-y}}
-\]</span> (we prefer to ues <span class="math inline">\(y\)</span>, because actication is added inside the net which means the input of activation is the output of prior layer)</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
-<center>
-<p>NN structure with activation</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
-<center>
-<p>Output of NN with activation</p>
-</center></center>]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Relu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>assert expression in Python</title>
-    <url>/2020/09/24/assert-expression-in-Python/</url>
-    <content><![CDATA[<h2 id="tags">tags:</h2>
-<h3 id="synatx">1. synatx</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert [expression]</span><br><span class="line"># it is same with</span><br><span class="line">if not [expression]:</span><br><span class="line">    raise AssertionError</span><br></pre></td></tr></table></figure>
-<h3 id="with-parameters">2. with parameters</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert expression [, arguments]</span><br><span class="line"># same with</span><br><span class="line">if not expression:</span><br><span class="line">    raise AssertionError(arguments)</span><br></pre></td></tr></table></figure>
-<h3 id="conclusion">conclusion</h3>
-<p>if an assert is not satisfied, throw exception. easy to detect the errors in code.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>hexo中使用markdown无法处理特殊字符</title>
-    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。 比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
-<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Video test</title>
     <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-JHHuVfPCKkypIUOi" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-JHHuVfPCKkypIUOi").style.height=document.getElementById("mmedia-JHHuVfPCKkypIUOi").scrollWidth*0.76+"px";
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-jRTmiKrCpSPIlazc" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-jRTmiKrCpSPIlazc").style.height=document.getElementById("mmedia-jRTmiKrCpSPIlazc").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-JHHuVfPCKkypIUOi").style.height=document.getElementById("mmedia-JHHuVfPCKkypIUOi").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-jRTmiKrCpSPIlazc").style.height=document.getElementById("mmedia-jRTmiKrCpSPIlazc").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <thead>
@@ -1563,17 +1508,83 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>how to change you local git name</title>
-    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
-<p>Your name will be shown on github each time you push to it.</p>
+    <title>assert expression in Python</title>
+    <url>/2020/09/24/assert-expression-in-Python/</url>
+    <content><![CDATA[<h2 id="tags">tags:</h2>
+<h3 id="synatx">1. synatx</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert [expression]</span><br><span class="line"># it is same with</span><br><span class="line">if not [expression]:</span><br><span class="line">    raise AssertionError</span><br></pre></td></tr></table></figure>
+<h3 id="with-parameters">2. with parameters</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert expression [, arguments]</span><br><span class="line"># same with</span><br><span class="line">if not expression:</span><br><span class="line">    raise AssertionError(arguments)</span><br></pre></td></tr></table></figure>
+<h3 id="conclusion">conclusion</h3>
+<p>if an assert is not satisfied, throw exception. easy to detect the errors in code.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>What is the use of activation function</title>
+    <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
+    <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
+<p>The following picture illustrates the basic structure of neural network.</p>
+<figure>
+<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn"><figcaption aria-hidden="true">nn</figcaption>
+</figure>
+<p>Extracted featrures are passed into the net as input.</p>
+<p># of input node = # of extracted feature types</p>
+<h1 id="why-we-need-activation">Why we need activation</h1>
+<p>For a classifiying issue:</p>
+<h3 id="without-activation">Without activation</h3>
+<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
+<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input} input+loss_1)+loss_2\)</span></p>
+<p>So bascically, we can derive that no matter how many layers you add into the net, without activation, the net can only produce a <strong>linear classifier</strong>.</p>
+<h3 id="with-activation">With activation</h3>
+<p>The aim of activation is to transfer a linear classifer to a non-linear classifer.</p>
+<p>The basic actication we use is: <span class="math display">\[
+\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0 \\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
+\]</span> It is same as nerve cell--if the cell is activated it produce a signal, otherwise, it does nothing.</p>
+<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
+\sigma(y) = \frac 1 {1+e^{-y}}
+\]</span> (we prefer to ues <span class="math inline">\(y\)</span>, because actication is added inside the net which means the input of activation is the output of prior layer)</p>
+<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
+<center>
+<p>NN structure with activation</p>
+<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
+<center>
+<p>Output of NN with activation</p>
+</center></center>]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Relu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo图片在md文档中显示正常但是网页无法显示</title>
+    <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
+    <content><![CDATA[<h4 id="step-1">Step 1</h4>
+<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
+<p><br></p>
+<h4 id="step-2">Step 2</h4>
+<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
+<p><br></p>
+<h4 id="step-3">Step 3</h4>
+<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的 <code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>hexo中使用markdown无法处理特殊字符</title>
+    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。 比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
+<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
   </entry>
   <entry>
     <title>hexo部署到git出现不同步问题</title>
@@ -1592,51 +1603,17 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </tags>
   </entry>
   <entry>
-    <title>kendo 2-nd dan exam</title>
-    <url>/2020/11/13/kendo-2-nd-dan-exam/</url>
-    <content><![CDATA[<p>1.请叙述重视剑道礼仪的理由</p>
-<p>剑道常常说“以礼始以礼终”，事实上在剑道中礼仪确实无处不在--从进入道场对道场的行礼，到稽古时对对手的行礼，再到结束时集合后的行礼。可以说剑道中的礼仪非常细节而琐碎，几乎对所有的行为都进行了细节的指导，这种礼仪当然有古代剑术遗留下来的一些制度性要求，但是从当今的现代剑道中剑道礼仪也有非常特别的作用。我认为剑道礼仪主要体现了剑道对两方面的要求：其一是剑道技术层面，其二是剑道精神层面。 a. 就技术层面上说，剑道中的很多细节的利于本身就是现代剑道乃至古代剑术中的技术指导，而在现在被视为了剑道礼仪中的一部分。比如剑道向对手行礼时要求双眼不能离开对手事实上实在警惕对手随时可能发起的攻击；剑道要求竹刀不能刀尖指向地面放置，在真剑上则实在保护刀尖；剑道稽古前的蹲踞行礼可以视为是维持与对手合理的安全距离，并且激活脚踝和大腿肌肉。等等诸如此类的礼仪细节剑道中数不胜数，这其中有直接对剑道稽古、打击有帮助的内容，也有基于古代剑术的内容，体现了剑道视竹刀为真剑，视稽古为真实战斗的初心。 b. 从精神层面上说我认为礼仪最核心的部分则还可以细分为两点：一是剑道作为武力的一种体现，礼仪是对武力的限制，二是剑道在发展中收到的禅学影响。对于第一点上，中国人常说“武以止戈”，武力在出现后就频繁引起争斗，不受限制的武力不仅是危险的而且是无用的。武力本身并不错误，如何使用武力决定了武力的性质。剑道的礼仪就好像是刀的刀柄一般让武力有了被操纵的可能，用理性压制住内心的不安。最后从禅学上说。剑道最初的发展是一项非常注重实用性的技术，是禅宗赋予了其思想内核。铃木和尚在弘法的时候曾经就类比禅宗和剑道的修行（可能当时还没有现代严格意义上的剑道），他说剑道和禅学是一样的，都是通过迫使肉体在极端条件下去有机会来脱离外在世界来探求内心。在我看来剑道的礼仪也是如此，剑道的礼仪和禅宗的打坐诵经并无区别，都是形式罢了，具体的形式如何其实没有任何意义，有意义的是通过这种形式能够收敛内心，能尝试在专注中体会自我。事实上在形式上也有很多有趣的相似，有说法是“剑禅如一”，我们甚至能看到剑道的默想的手印和禅宗的佛印极为相似，礼仪上受到禅宗的影响不可谓不深。 由此可见，无论是从实用性的技术层面，还是从精神层面学会束缚武力、增强内心上，礼仪都是有实际价值的存在，是剑道修行中不可分割的一部分，值得所有剑道人牢记。 <br></p>
-<p>2.请说明残心。</p>
-<p>剑道残心很多时候被解释为打击后不放松对对对手的警惕，而有时残心也被广义地理解为是对对手无时无刻的警惕，哪怕还没有开始稽古也已经做好来随时应对的准备。单纯从体育的角度来看是十分匪夷所思的：就拿奥运会中类似的击剑而言，在裁判喊开始之前二者都是绝对安全的，而在击中的灯亮起后两者也是绝对安全的，很多运动员都会非常放松。剑道非常特殊，它不仅要求残心，甚至将残心作为比赛胜利的必要组件，强制要求残心。这实际上体现了剑道作为实用性技术的素质同样还体现了剑道在对内心塑造的要求。 a. 作为使用性技术，残心使得打击后能够仍保有最低限度的余力应对可能的反击、追击，在打击后不会因为放松而失败悔恨；同样广义上的残心要求人做到随时随地应对的准备--比如在蹲踞起来后应对对手马上发起的攻击，在近距离交锷时防范应对对手可能的退击，在远距离时不放松警惕，防范远距离的进攻。残心在剑道的实际练习和稽古中都是有着非常具体的落实和要求的，而在古代剑术中残心很大程度上更是自己生命安全的必不可少的保证。 b. 从精神训练上说，残心不仅仅是形式上表现出来的，更多是内心中的，是精神上的。残心要求精神上时刻保持专注，而不是单纯打击后高举竹刀脱离对手。有意义的残心并不一定要打击后一直向前冲出脱离，而是将专注力放在对手身上，打击后不忘警惕，转身时小心对手。残心在精神上是让剑道练习者在打击后保持游刃有余同时保持警惕心态的必要训练。</p>
-<hr>
-<p>下面是实际提交的版本，我认为修改得更明确了些：</p>
-<figure>
-<img src="/2020/11/13/kendo-2-nd-dan-exam/kendo-2nd-exam.png" alt="kendo-2-nd"><figcaption aria-hidden="true">kendo-2-nd</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Chat</category>
-        <category>Kendo</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
-    <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<p>在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用<code>easyBCD</code>也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。 ## 问题解决 本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。 我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的引导是<code>UEFI+LEGACY</code>，那应该bios也行啊。 但是我抱着试试的态度把它改成<code>UEFI</code>，可能有些主板要改这个比较麻烦，然后上网找了个UEFI引导的ubuntu安装教程。 然后就打开了，困扰了好几天的问题解决了。 --- ## more 注意在bios里面把第一启动项改为ubuntu，然后再打开。 因为ubuntu可以引导windows，但是要让windows引导ubuntu需要用<code>easyuefi</code>自行配置 --- 这个问题很细节，但是同时也很恶心，反正就是要注意教程的环境和自己到底一不一样，还有就是要每一个设置的意义都要明白。</p>
+    <title>how to change you local git name</title>
+    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
+<p>Your name will be shown on github each time you push to it.</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
       <tags>
-        <tag>-ubuntu -install</tag>
+        <tag>Github</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>hexo图片在md文档中显示正常但是网页无法显示</title>
-    <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
-    <content><![CDATA[<h4 id="step-1">Step 1</h4>
-<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
-<p><br></p>
-<h4 id="step-2">Step 2</h4>
-<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
-<p><br></p>
-<h4 id="step-3">Step 3</h4>
-<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的 <code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
   </entry>
   <entry>
     <title>solution to git@github.com出现Permission denied (publickey)</title>
@@ -1658,6 +1635,55 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       <tags>
         <tag>Github</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
+    <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<p>在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用<code>easyBCD</code>也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。 ## 问题解决 本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。 我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的引导是<code>UEFI+LEGACY</code>，那应该bios也行啊。 但是我抱着试试的态度把它改成<code>UEFI</code>，可能有些主板要改这个比较麻烦，然后上网找了个UEFI引导的ubuntu安装教程。 然后就打开了，困扰了好几天的问题解决了。 --- ## more 注意在bios里面把第一启动项改为ubuntu，然后再打开。 因为ubuntu可以引导windows，但是要让windows引导ubuntu需要用<code>easyuefi</code>自行配置 --- 这个问题很细节，但是同时也很恶心，反正就是要注意教程的环境和自己到底一不一样，还有就是要每一个设置的意义都要明白。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>-ubuntu -install</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用hexo theme Butterfly 报错</title>
+    <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
+    <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly 报错</h2>
+<p>直接用github上作者提供的代码</p>
+<p>git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/Butterfly</p>
+<p>结果是页面根本无法正常渲染，只有一行字：</p>
+<p><font color="#DC143C">extends includes/layout.pug block content include ./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include includes/pagination.pug</font></p>
+<h2 id="问题解决">问题解决</h2>
+<p>参照原作者提供的文章<a href="https://docs.jerryc.me/#/config/question">Butterfly</a></p>
+<p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
+<hr>
+<h2 id="丝滑进入">丝滑进入</h2>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>kendo 2-nd dan exam</title>
+    <url>/2020/11/13/kendo-2-nd-dan-exam/</url>
+    <content><![CDATA[<p>1.请叙述重视剑道礼仪的理由</p>
+<p>剑道常常说“以礼始以礼终”，事实上在剑道中礼仪确实无处不在--从进入道场对道场的行礼，到稽古时对对手的行礼，再到结束时集合后的行礼。可以说剑道中的礼仪非常细节而琐碎，几乎对所有的行为都进行了细节的指导，这种礼仪当然有古代剑术遗留下来的一些制度性要求，但是从当今的现代剑道中剑道礼仪也有非常特别的作用。我认为剑道礼仪主要体现了剑道对两方面的要求：其一是剑道技术层面，其二是剑道精神层面。 a. 就技术层面上说，剑道中的很多细节的利于本身就是现代剑道乃至古代剑术中的技术指导，而在现在被视为了剑道礼仪中的一部分。比如剑道向对手行礼时要求双眼不能离开对手事实上实在警惕对手随时可能发起的攻击；剑道要求竹刀不能刀尖指向地面放置，在真剑上则实在保护刀尖；剑道稽古前的蹲踞行礼可以视为是维持与对手合理的安全距离，并且激活脚踝和大腿肌肉。等等诸如此类的礼仪细节剑道中数不胜数，这其中有直接对剑道稽古、打击有帮助的内容，也有基于古代剑术的内容，体现了剑道视竹刀为真剑，视稽古为真实战斗的初心。 b. 从精神层面上说我认为礼仪最核心的部分则还可以细分为两点：一是剑道作为武力的一种体现，礼仪是对武力的限制，二是剑道在发展中收到的禅学影响。对于第一点上，中国人常说“武以止戈”，武力在出现后就频繁引起争斗，不受限制的武力不仅是危险的而且是无用的。武力本身并不错误，如何使用武力决定了武力的性质。剑道的礼仪就好像是刀的刀柄一般让武力有了被操纵的可能，用理性压制住内心的不安。最后从禅学上说。剑道最初的发展是一项非常注重实用性的技术，是禅宗赋予了其思想内核。铃木和尚在弘法的时候曾经就类比禅宗和剑道的修行（可能当时还没有现代严格意义上的剑道），他说剑道和禅学是一样的，都是通过迫使肉体在极端条件下去有机会来脱离外在世界来探求内心。在我看来剑道的礼仪也是如此，剑道的礼仪和禅宗的打坐诵经并无区别，都是形式罢了，具体的形式如何其实没有任何意义，有意义的是通过这种形式能够收敛内心，能尝试在专注中体会自我。事实上在形式上也有很多有趣的相似，有说法是“剑禅如一”，我们甚至能看到剑道的默想的手印和禅宗的佛印极为相似，礼仪上受到禅宗的影响不可谓不深。 由此可见，无论是从实用性的技术层面，还是从精神层面学会束缚武力、增强内心上，礼仪都是有实际价值的存在，是剑道修行中不可分割的一部分，值得所有剑道人牢记。 <br></p>
+<p>2.请说明残心。</p>
+<p>剑道残心很多时候被解释为打击后不放松对对对手的警惕，而有时残心也被广义地理解为是对对手无时无刻的警惕，哪怕还没有开始稽古也已经做好来随时应对的准备。单纯从体育的角度来看是十分匪夷所思的：就拿奥运会中类似的击剑而言，在裁判喊开始之前二者都是绝对安全的，而在击中的灯亮起后两者也是绝对安全的，很多运动员都会非常放松。剑道非常特殊，它不仅要求残心，甚至将残心作为比赛胜利的必要组件，强制要求残心。这实际上体现了剑道作为实用性技术的素质同样还体现了剑道在对内心塑造的要求。 a. 作为使用性技术，残心使得打击后能够仍保有最低限度的余力应对可能的反击、追击，在打击后不会因为放松而失败悔恨；同样广义上的残心要求人做到随时随地应对的准备--比如在蹲踞起来后应对对手马上发起的攻击，在近距离交锷时防范应对对手可能的退击，在远距离时不放松警惕，防范远距离的进攻。残心在剑道的实际练习和稽古中都是有着非常具体的落实和要求的，而在古代剑术中残心很大程度上更是自己生命安全的必不可少的保证。 b. 从精神训练上说，残心不仅仅是形式上表现出来的，更多是内心中的，是精神上的。残心要求精神上时刻保持专注，而不是单纯打击后高举竹刀脱离对手。有意义的残心并不一定要打击后一直向前冲出脱离，而是将专注力放在对手身上，打击后不忘警惕，转身时小心对手。残心在精神上是让剑道练习者在打击后保持游刃有余同时保持警惕心态的必要训练。</p>
+<hr>
+<p>下面是实际提交的版本，我认为修改得更明确了些：</p>
+<figure>
+<img src="/2020/11/13/kendo-2-nd-dan-exam/kendo-2nd-exam.png" alt="kendo-2-nd"><figcaption aria-hidden="true">kendo-2-nd</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Chat</category>
+        <category>Kendo</category>
+      </categories>
   </entry>
   <entry>
     <title>yilia主题的头像配置失败</title>
@@ -1703,21 +1729,14 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>使用hexo theme Butterfly 报错</title>
-    <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
-    <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly 报错</h2>
-<p>直接用github上作者提供的代码</p>
-<p>git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/Butterfly</p>
-<p>结果是页面根本无法正常渲染，只有一行字：</p>
-<p><font color="#DC143C">extends includes/layout.pug block content include ./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include includes/pagination.pug</font></p>
-<h2 id="问题解决">问题解决</h2>
-<p>参照原作者提供的文章<a href="https://docs.jerryc.me/#/config/question">Butterfly</a></p>
-<p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
-<hr>
-<h2 id="丝滑进入">丝滑进入</h2>
+    <title>感谢好太阳哥哥们</title>
+    <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
+    <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
+<p>Long May the Sun Shine!</p>
+<p><img src="/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/1.png"></p>
 ]]></content>
       <categories>
-        <category>Configuration</category>
+        <category>Chat</category>
       </categories>
   </entry>
   <entry>
@@ -1768,6 +1787,18 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
+    <title>还是大GT优雅</title>
+    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
+    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
+<figure>
+<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT"><figcaption aria-hidden="true">宾利欧陆GT</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+  </entry>
+  <entry>
     <title>禅诗解读</title>
     <url>/2020/11/28/%E7%A6%85%E8%AF%97%E8%A7%A3%E8%AF%BB/</url>
     <content><![CDATA[<h1 id="僧璨禅师信心铭">僧璨禅师《信心铭》</h1>
@@ -1804,46 +1835,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>给你的Vscode加一个毛玻璃特效</title>
-    <url>/2020/05/22/%E7%BB%99%E4%BD%A0%E7%9A%84Vscode%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%AF%9B%E7%8E%BB%E7%92%83%E7%89%B9%E6%95%88/</url>
-    <content><![CDATA[<h2 id="环境">环境</h2>
-<p>macOS：10.15 VScode：1.4 --- ## 问题描述 在macos下想给vscode加一个酷炫的毛玻璃效果，参考了<a href="https://www.jianshu.com/p/25fecde188d4">炫酷的VS Code毛玻璃效果</a>,但是实际操作中css文件并没有生效。 --- ## 问题解决 起哦一开始以为是mac恶心的权限问题，然后尝试给vscode权限，但是没有用。 然后我去看了git上原作者的说明：https://github.com/Microsoft/vscode/issues/32257 &gt;Sorry. This method has failed after the vscode v1.36 update. The reason is that a black background color has been added to the window. And the Electron's setBackgroundColor() method has some bugs on the MacOS. I can't dynamically change the background color in the script. Now you can only modify the vscode source to enable the vibrant effect.</p>
-<blockquote>
-<p>hi guys. I have some good news. The old way has failed after the vscode v1.36 update. I changed the custom.js file: w = nodeRequire('electron') .remote .getCurrentWindow(); w.setBackgroundColor('#00000000'); w.setVibrancy('ultra-dark'); w.setFullScreen(true); Don't forget to execute the command "Reload Custom CSS and JS". with automatic full screen vscode, the problem has been fixed. You can turn off full screen manually.</p>
-</blockquote>
-<p>于是首先我尝试降级到1.5之前，事实上成功了。 然后我采取作者的说法，尝试修改.js文件，但是又不行了，vscode在1.3.7之后又有新的问题。 巧合的是我看到作者其实好像是个中国人，并且开发了一个vscode拓展。。。。 这TM就很尴尬，拓展一装就完事了，我其实定制化需求也不是很大</p>
-<p><a href="https://eyhn.in/vscode-vibrancy/">vibrancy</a></p>
-<h2 id="section"></h2>
-<p>此插件在windows下同样适用，并且可以自行去作者git上看说明。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>感谢好太阳哥哥们</title>
-    <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
-    <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
-<p>Long May the Sun Shine!</p>
-<p><img src="/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/1.png"></p>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>还是大GT优雅</title>
-    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
-    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
-<figure>
-<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT"><figcaption aria-hidden="true">宾利欧陆GT</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
     <title>遍历二叉树-前/中/后序-递归/非递归</title>
     <url>/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/</url>
     <content><![CDATA[<h3 id="递归方法">递归方法</h3>
@@ -1859,6 +1850,23 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
         <tag>C++</tag>
         <tag>Binary Tree</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>给你的Vscode加一个毛玻璃特效</title>
+    <url>/2020/05/22/%E7%BB%99%E4%BD%A0%E7%9A%84Vscode%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%AF%9B%E7%8E%BB%E7%92%83%E7%89%B9%E6%95%88/</url>
+    <content><![CDATA[<h2 id="环境">环境</h2>
+<p>macOS：10.15 VScode：1.4 --- ## 问题描述 在macos下想给vscode加一个酷炫的毛玻璃效果，参考了<a href="https://www.jianshu.com/p/25fecde188d4">炫酷的VS Code毛玻璃效果</a>,但是实际操作中css文件并没有生效。 --- ## 问题解决 起哦一开始以为是mac恶心的权限问题，然后尝试给vscode权限，但是没有用。 然后我去看了git上原作者的说明：https://github.com/Microsoft/vscode/issues/32257 &gt;Sorry. This method has failed after the vscode v1.36 update. The reason is that a black background color has been added to the window. And the Electron's setBackgroundColor() method has some bugs on the MacOS. I can't dynamically change the background color in the script. Now you can only modify the vscode source to enable the vibrant effect.</p>
+<blockquote>
+<p>hi guys. I have some good news. The old way has failed after the vscode v1.36 update. I changed the custom.js file: w = nodeRequire('electron') .remote .getCurrentWindow(); w.setBackgroundColor('#00000000'); w.setVibrancy('ultra-dark'); w.setFullScreen(true); Don't forget to execute the command "Reload Custom CSS and JS". with automatic full screen vscode, the problem has been fixed. You can turn off full screen manually.</p>
+</blockquote>
+<p>于是首先我尝试降级到1.5之前，事实上成功了。 然后我采取作者的说法，尝试修改.js文件，但是又不行了，vscode在1.3.7之后又有新的问题。 巧合的是我看到作者其实好像是个中国人，并且开发了一个vscode拓展。。。。 这TM就很尴尬，拓展一装就完事了，我其实定制化需求也不是很大</p>
+<p><a href="https://eyhn.in/vscode-vibrancy/">vibrancy</a></p>
+<h2 id="section"></h2>
+<p>此插件在windows下同样适用，并且可以自行去作者git上看说明。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
   </entry>
   <entry>
     <title>The basic concept of faster-RCNN</title>

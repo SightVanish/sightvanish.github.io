@@ -303,7 +303,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-20 01:05:14" itemprop="dateModified" datetime="2021-09-20T01:05:14+08:00">2021-09-20</time>
+                <time title="Modified: 2021-09-20 12:22:33" itemprop="dateModified" datetime="2021-09-20T12:22:33+08:00">2021-09-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -326,7 +326,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="sort-algorithms">Sort Algorithms</h2>
+          <h2 id="preface">Preface</h2>
+<p>关于排序有很多人整理了，但是看下来基本是东抄一点，西抄一点，非常混乱，并没有统一的逻辑，而且往往写的非常复杂。本文希望能够实现统一的代码风格，保持命名、实现方式上的统一，以体现出不同算法之间的改进和区别，同时尽可能使用简洁的代码来实现（因此可能会存在一些不常规的技巧），减少代码工作量（毕竟平时都是直接sort，哪关心怎么实现）。本文代码经过本地测试全部为从小打大排序，但是testcase并不全面，可能后续还会进行修正。</p>
+<p><br></p>
+<hr>
+<h2 id="sort-algorithms">Sort Algorithms</h2>
 <h3 id="bubble-sort">1. Bubble Sort</h3>
 <h4 id="principle">1.1 Principle</h4>
 <p>Compare the adjacent two elements and put the larger one the the right then move to the next pair.</p>
@@ -350,6 +354,7 @@
 </tbody>
 </table>
 <hr>
+<p><br></p>
 <h3 id="selection-sort-improvement-of-bubble">2. Selection Sort (Improvement of Bubble)</h3>
 <h4 id="principle-1">2.1 Principle</h4>
 <p>Always try to find the smallest element from thoes have not be sorted.</p>
@@ -378,6 +383,7 @@
 </tbody>
 </table>
 <hr>
+<p><br></p>
 <h3 id="insertion-sort">3. Insertion Sort</h3>
 <h4 id="principle-2">3.1 Principle</h4>
 <p>Reconstruct a new array. Insert the elements one by one.</p>
@@ -406,6 +412,7 @@
 </tbody>
 </table>
 <hr>
+<p><br></p>
 <h3 id="shells-sort-improvement-of-insertion">4. Shell's Sort (Improvement of Insertion)</h3>
 <h4 id="principle-3">4.1 Principle</h4>
 <p>Divid the sequence to several subsequence. Sort this sequence locally, then sort the whole sequence. eg. 0,1,2,3,4,5,6,7-&gt;0,2,4,6 will be subsequence1;1,3,5,7 will be subsequence2.</p>
@@ -434,6 +441,7 @@
 </tbody>
 </table>
 <hr>
+<p><br></p>
 <h3 id="merge-sort">5. Merge Sort</h3>
 <h4 id="principle-4">5.1 Principle</h4>
 <p>Based on Divide and Conquer.</p>
@@ -464,6 +472,7 @@
 </tbody>
 </table>
 <hr>
+<p><br></p>
 <h3 id="quicksort-important">6. <strong>QuickSort</strong> (Important)</h3>
 <h4 id="principle-5">6.1 Principle</h4>
 <p>Based on Divide and conquer. As an improvement of BubbleSort.</p>
@@ -494,17 +503,14 @@
 </tbody>
 </table>
 <hr>
-<h3 id="radix-sort">7. Radix Sort</h3>
+<p><br></p>
+<h3 id="radixbucket-sort">7. Radix/Bucket Sort</h3>
 <h4 id="principle-6">7.1 Principle</h4>
+<p>Sort input array using counting sort according to the i’th (from the least significant digit to the most significant) digit.</p>
 <h4 id="implement-6">7.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// helper function, return the max number of digit</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxBit</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d=<span class="number">1</span>; </span><br><span class="line">    <span class="keyword">int</span> p=<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(arr[i]&gt;=<span class="built_in">pow</span>(p,d))    d++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">RadixSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d=<span class="built_in">maxBit</span>(arr, length); <span class="comment">// the max number of digit</span></span><br><span class="line">    <span class="keyword">int</span> temp[length];</span><br><span class="line">    <span class="keyword">int</span> buckets[<span class="number">10</span>]; <span class="comment">// there are 10 buckets (0-9)</span></span><br><span class="line">    <span class="keyword">int</span> base=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> remainder=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=d; i++) <span class="comment">// you need to sort b times</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;<span class="number">10</span>; j++) buckets[j] = <span class="number">0</span>; <span class="comment">// clear buckets</span></span><br><span class="line">        <span class="comment">// put arr[] into buckets</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;length; j++) </span><br><span class="line">        &#123;</span><br><span class="line">            remainder=(arr[j]/base)%<span class="number">10</span>;</span><br><span class="line">            buckets[remainder]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// count the total number of elements that are stored in buckets</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;length; j++) buckets[j]+=buckets[j<span class="number">-1</span>];</span><br><span class="line">        <span class="comment">// you should go from back to front--make sure this algorithm is stable</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=length<span class="number">-1</span>; j&gt;=<span class="number">0</span>; j--)</span><br><span class="line">        &#123;</span><br><span class="line">            remainder=(arr[j]/base)%<span class="number">10</span>;</span><br><span class="line">            temp[buckets[remainder]<span class="number">-1</span>]=arr[j];</span><br><span class="line">            buckets[remainder]--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// put temp back to arr</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;length; j++) arr[j]=temp[j];</span><br><span class="line">        </span><br><span class="line">        base=base*<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="performance-6">7.2 Performance</h4>
 <table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Time Complexity (Best/Worst/Average)</th>
@@ -514,17 +520,19 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>O(nlogn)</strong>/<strong>O(nlogn)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(logn)</strong><br>(on average, the space complexity it the depth of recursion; for the worst case, it can be O(n))</td>
-<td><strong>unstable</strong> <br>(the swap of pivot makes it unstable)</td>
+<td><strong>O(nd)</strong><br>(d is the number of digits)</td>
+<td><strong>O(n+d)</strong></td>
+<td><strong>stable</strong></td>
 </tr>
 </tbody>
 </table>
 <hr>
-<h3 id="bucket-sort">8. Bucket Sort</h3>
+<p><br></p>
+<h3 id="heap-sort">8. Heap Sort</h3>
 <h4 id="principle-7">8.1 Principle</h4>
-<h4 id="implement-7">8.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Heap Sort is designed for heap. Heap is a complete binary tree and its childen nodes should be always larger/smaller than parent nodes.</p>
+<p>For a Min-Heap, it satisfiies:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#### 8.2 Implement</span><br><span class="line">```c++</span><br><span class="line">// create maxheap</span><br><span class="line">void MaxHeapify(int arr[], int startIndex, int endIndex)</span><br><span class="line">&#123;</span><br><span class="line">    int parentNode=startIndex;</span><br><span class="line">    int childNode=2*startIndex+1;</span><br><span class="line">    while(childNode&lt;=endIndex)</span><br><span class="line">    &#123;</span><br><span class="line">        // compare the two child nodes, and choose the larger one</span><br><span class="line">        if (childNode+1&lt;=endIndex &amp;&amp; arr[childNode]&lt;arr[childNode+1])  childNode++;</span><br><span class="line">        if (arr[parentNode]&lt;arr[childNode])</span><br><span class="line">        &#123;</span><br><span class="line">            swap(arr[parentNode], arr[childNode]);</span><br><span class="line">            parentNode=childNode;</span><br><span class="line">            childNode=parentNode*2+1;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">            return;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void HeapSort(int arr[], int length)</span><br><span class="line">&#123;</span><br><span class="line">    // create the heap--start from the last parent node</span><br><span class="line">    for(int i=length/2-1; i&gt;=0; i--)    MaxHeapify(arr, i, length-1);</span><br><span class="line"></span><br><span class="line">    for(int i=length-1; i&gt;=0; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        swap(arr[0], arr[i]); // put the largest element to the end of array</span><br><span class="line">        MaxHeapify(arr, 0, i-1); // rebalance the tree</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="performance-7">8.3 Performance</h4>
 <table>
 <colgroup>
@@ -541,9 +549,9 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>O(nlogn)</strong>/<strong>O(nlogn)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(logn)</strong><br>(on average, the space complexity it the depth of recursion; for the worst case, it can be O(n))</td>
-<td><strong>unstable</strong> <br>(the swap of pivot makes it unstable)</td>
+<td><strong>O(n+nlogn)</strong><br>(n for creating the heap; rebalance the tree(logn) for n times)</td>
+<td><strong>O(1)</strong><br>(one more element for swapping)</td>
+<td><strong>unstable</strong> <br>(eg. 64, 27, 16, 27. After 64, the second 27 will be ouput.)</td>
 </tr>
 </tbody>
 </table>
@@ -837,9 +845,9 @@
       
           <p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
 <p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-ZWxRkHDSdstIEQfR" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-ZWxRkHDSdstIEQfR").style.height=document.getElementById("mmedia-ZWxRkHDSdstIEQfR").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-TrgwQkFVuiEszdWM" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-TrgwQkFVuiEszdWM").style.height=document.getElementById("mmedia-TrgwQkFVuiEszdWM").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-ZWxRkHDSdstIEQfR").style.height=document.getElementById("mmedia-ZWxRkHDSdstIEQfR").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-TrgwQkFVuiEszdWM").style.height=document.getElementById("mmedia-TrgwQkFVuiEszdWM").scrollWidth*0.76+"px";
     }; </script>
 
       
@@ -1139,9 +1147,9 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
     <div class="post-body" itemprop="articleBody">
 
       
-          <style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-JHHuVfPCKkypIUOi" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-JHHuVfPCKkypIUOi").style.height=document.getElementById("mmedia-JHHuVfPCKkypIUOi").scrollWidth*0.76+"px";
+          <style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-jRTmiKrCpSPIlazc" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-jRTmiKrCpSPIlazc").style.height=document.getElementById("mmedia-jRTmiKrCpSPIlazc").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-JHHuVfPCKkypIUOi").style.height=document.getElementById("mmedia-JHHuVfPCKkypIUOi").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-jRTmiKrCpSPIlazc").style.height=document.getElementById("mmedia-jRTmiKrCpSPIlazc").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <thead>
