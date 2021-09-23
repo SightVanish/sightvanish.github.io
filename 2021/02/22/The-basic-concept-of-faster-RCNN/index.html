@@ -46,7 +46,7 @@
 <meta property="og:image" content="https://sightvanish.github.io/2021/02/22/The-basic-concept-of-faster-RCNN/image18.png">
 <meta property="og:image" content="https://sightvanish.github.io/2021/02/22/The-basic-concept-of-faster-RCNN/image19.png">
 <meta property="article:published_time" content="2021-02-22T03:25:29.000Z">
-<meta property="article:modified_time" content="2021-09-15T06:03:00.816Z">
+<meta property="article:modified_time" content="2021-09-23T09:18:46.150Z">
 <meta property="article:author" content="Li Wuchen">
 <meta property="article:tag" content="Deep Learning">
 <meta property="article:tag" content="Image detection">
@@ -260,7 +260,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 14:03:00" itemprop="dateModified" datetime="2021-09-15T14:03:00+08:00">2021-09-15</time>
+                <time title="Modified: 2021-09-23 17:18:46" itemprop="dateModified" datetime="2021-09-23T17:18:46+08:00">2021-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -296,6 +296,7 @@
 <p>为了找到有意义的图像区域，我们很容易想到根据灰度gradient变化，但是会产生下图问题：</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image1.png" width="50%" height="50%"></p>
 <p>左侧图像灰度变化均匀，右侧图像仅有部分区域有灰度变化。上图的例子告诉我们不能使用<strong>灰度的变化</strong>作为分割依据，也不能使用<strong>单一的灰度阈值</strong>来作为分割的评判标准。</p>
+<span id="more"></span>
 <h4 id="graph-based-image-minimal-spanning-tree">Graph-based image &amp; minimal spanning tree</h4>
 <p>首先我们要将图片以graph图论的形式表示，graph的vertex为image的每个像素点，graph的edge一般定义为像素点的相邻关系，权重为灰度差或者距离等。</p>
 <p>如何分割这个tree，也就是合并像素点呢？这里用到的是最小生成树，简单说就是尝试找出一个tree结构使得所有的点都能被联通，并且使tree的edge权重和最低。直观地看就是尽可能使相似的像素点结合在一个subtree上。最终结果可以大大减少图的edge数量。</p>
@@ -452,6 +453,21 @@
     
     
     
+        <div class="reward-container">
+  <div>给阿姨倒一杯卡布奇诺</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/ali_pay.jpg" alt="Li Wuchen Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
 
       <footer class="post-footer">
           <div class="post-tags">

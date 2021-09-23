@@ -303,7 +303,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-20 12:22:33" itemprop="dateModified" datetime="2021-09-20T12:22:33+08:00">2021-09-20</time>
+                <time title="Modified: 2021-09-23 17:18:22" itemprop="dateModified" datetime="2021-09-23T17:18:22+08:00">2021-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -353,210 +353,14 @@
 </tr>
 </tbody>
 </table>
-<hr>
-<p><br></p>
-<h3 id="selection-sort-improvement-of-bubble">2. Selection Sort (Improvement of Bubble)</h3>
-<h4 id="principle-1">2.1 Principle</h4>
-<p>Always try to find the smallest element from thoes have not be sorted.</p>
-<h4 id="implement-1">2.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectionSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length<span class="number">-1</span>;i++) <span class="comment">// note: you do not to sort the last element</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> min=i; <span class="comment">// the index of the smallest element</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;length; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j]&lt;arr[min]) min=j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">swap</span>(arr[i], arr[min]); <span class="comment">// put the min element to the head of array</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="performance-1">2.3 Performance</h4>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(1)</strong> <br>(one more element for swapping)</td>
-<td><strong>unstable</strong> <br>(the swap will let the same element change their relative position)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><br></p>
-<h3 id="insertion-sort">3. Insertion Sort</h3>
-<h4 id="principle-2">3.1 Principle</h4>
-<p>Reconstruct a new array. Insert the elements one by one.</p>
-<h4 id="implement-2">3.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertionSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;length; i++) <span class="comment">// note: you have to sort the first element</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> key=arr[i];</span><br><span class="line">        <span class="keyword">int</span> j=i<span class="number">-1</span>; <span class="comment">// compare this one with the elements before</span></span><br><span class="line">        <span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; key&lt;arr[j])</span><br><span class="line">        &#123;</span><br><span class="line">            arr[j+<span class="number">1</span>]=arr[j];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[j+<span class="number">1</span>]=key; <span class="comment">// note: at this time: j=-1 or arr[j]&lt;key, so it should be j+1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="performance-2">3.3 Performance</h4>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(n)</strong>/<strong>O(n<sup>2</sup>)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(1)</strong> <br>(one more element for swapping)</td>
-<td><strong>stable</strong> <br>(no change in relative position for same elements)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><br></p>
-<h3 id="shells-sort-improvement-of-insertion">4. Shell's Sort (Improvement of Insertion)</h3>
-<h4 id="principle-3">4.1 Principle</h4>
-<p>Divid the sequence to several subsequence. Sort this sequence locally, then sort the whole sequence. eg. 0,1,2,3,4,5,6,7-&gt;0,2,4,6 will be subsequence1;1,3,5,7 will be subsequence2.</p>
-<h4 id="implement-3">4.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> increment = <span class="number">3</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> step=length/increment+<span class="number">1</span>; <span class="comment">// you can choose increment=3 or anything else(&lt;length)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(step&gt;=<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// this part is same with insertion sort</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=step; i&lt;length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> key=arr[i];</span><br><span class="line">            <span class="keyword">int</span> j=i-step;</span><br><span class="line">            <span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; key&lt;arr[j])</span><br><span class="line">            &#123;</span><br><span class="line">                arr[j+step]=arr[j];</span><br><span class="line">                j-=step;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[j+step]=key;</span><br><span class="line">        &#125;</span><br><span class="line">        step=step/increment;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-<h4 id="performance-3">4.3 Performance</h4>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>The worst case is better than <strong>O(n<sup>2</sup>)</strong>.<br> With certian increment, the worst case can be <strong>O(n<sup>1.3</sup>)</strong></td>
-<td><strong>O(1)</strong> <br>(one more element for swapping)</td>
-<td><strong>unstable</strong> <br>(the insertion sort will be performed with different gaps)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><br></p>
-<h3 id="merge-sort">5. Merge Sort</h3>
-<h4 id="principle-4">5.1 Principle</h4>
-<p>Based on Divide and Conquer.</p>
-<p>Divid the sequence to two sub-sequence(new space). Sort them seperatly, then merge two sub-sequence.</p>
-<p>Note: There are two different ways of implementation: recursive and unrecursive way. We only consider recursive way in C++.</p>
-<h4 id="implement-4">5.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// recursive way</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// first, we need to know where the two arrays are located.</span></span><br><span class="line">    <span class="keyword">int</span> leftMid=(startIndex+endIndex)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> rightMid=leftMid+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// we need to allocate new space for sorting</span></span><br><span class="line">    <span class="keyword">int</span> arrayLeft[leftMid-startIndex+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> arrayRight[endIndex-rightMid+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=startIndex; i&lt;=leftMid; i++)  arrayLeft[i-startIndex]=arr[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=rightMid; i&lt;=endIndex; i++)  arrayRight[i-rightMid]=arr[i];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// two pointer to merge</span></span><br><span class="line">    <span class="keyword">int</span> index_L=<span class="number">0</span>, index_R=<span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// merge to the original arr--to save space</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=startIndex; i&lt;=endIndex; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(index_L != (leftMid-startIndex+<span class="number">1</span>) &amp;&amp; index_R != (endIndex-rightMid+<span class="number">1</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arrayLeft[index_L]&lt;arrayRight[index_R])    arr[i]=arrayLeft[index_L++];</span><br><span class="line">            <span class="keyword">else</span>    arr[i]=arrayRight[index_R++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// if left array is done</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(index_L == (leftMid-startIndex+<span class="number">1</span>))  arr[i]=arrayRight[index_R++];</span><br><span class="line">        <span class="comment">// if right array is done</span></span><br><span class="line">        <span class="keyword">else</span>    arr[i]=arrayLeft[index_L++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span> <span class="comment">// since it is a recursive way, we need to save both indices</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(endIndex&gt;startIndex) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">MergeSort</span>(arr, startIndex, (startIndex+endIndex)/<span class="number">2</span>); <span class="comment">// sort left part</span></span><br><span class="line">        <span class="built_in">MergeSort</span>(arr, (startIndex+endIndex)/<span class="number">2</span>+<span class="number">1</span>, endIndex);</span><br><span class="line">        <span class="built_in">Merge</span>(arr, startIndex, endIndex); <span class="comment">// note: we need to sort in [startIndex, endIndex]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="performance-4">5.3 Performance</h4>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(nlogn)</strong><br>with improvement, the best can be O(n)</td>
-<td><strong>O(n)</strong> <br></td>
-<td><strong>stable</strong> <br>the stability is ensured in Merge</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><br></p>
-<h3 id="quicksort-important">6. <strong>QuickSort</strong> (Important)</h3>
-<h4 id="principle-5">6.1 Principle</h4>
-<p>Based on Divide and conquer. As an improvement of BubbleSort.</p>
-<p>It is the fastest sorting algorithm in average.</p>
-<p>Select a pivot, put smaller (than pivot) elements in pivot's left and larger elements in pivot's right. Do it recursively.</p>
-<h4 id="implement-5">6.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(endIndex&gt;startIndex)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> i=startIndex, j=endIndex;</span><br><span class="line">        <span class="comment">// select pivot</span></span><br><span class="line">        <span class="keyword">int</span> pivot=arr[startIndex];</span><br><span class="line">        <span class="comment">// seperate the sequence</span></span><br><span class="line">        <span class="keyword">while</span>(i&lt;j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;j &amp;&amp; arr[j]&gt;=pivot) j--; <span class="comment">// if you select the most left element as pivot, you should go from right--&gt;so that when i==j, the element will be smaller than pivot.</span></span><br><span class="line">            <span class="keyword">if</span>(i&lt;j) arr[i++]=arr[j]; <span class="comment">// put the smaller one to left</span></span><br><span class="line">            <span class="keyword">while</span>(i&lt;j &amp;&amp; arr[i]&lt;=pivot) i++;</span><br><span class="line">            <span class="keyword">if</span>(i&lt;j) arr[j--]=arr[i]; <span class="comment">// put the larger one to right</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// put the pivot, i==j</span></span><br><span class="line">        arr[i]=pivot; <span class="comment">// the original arr[i] is in arr[i+1/i-1]</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// recursive</span></span><br><span class="line">        <span class="built_in">QuickSort</span>(arr, startIndex, i<span class="number">-1</span>); <span class="comment">// left side</span></span><br><span class="line">        <span class="built_in">QuickSort</span>(arr, i+<span class="number">1</span>, endIndex); <span class="comment">// right side</span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="performance-5">6.3 Performance</h4>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(nlogn)</strong>/<strong>O(nlogn)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(logn)</strong><br>(on average, the space complexity it the depth of recursion; for the worst case, it can be O(n))</td>
-<td><strong>unstable</strong> <br>(the swap of pivot makes it unstable)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><br></p>
-<h3 id="radixbucket-sort">7. Radix/Bucket Sort</h3>
-<h4 id="principle-6">7.1 Principle</h4>
-<p>Sort input array using counting sort according to the i’th (from the least significant digit to the most significant) digit.</p>
-<h4 id="implement-6">7.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// helper function, return the max number of digit</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxBit</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d=<span class="number">1</span>; </span><br><span class="line">    <span class="keyword">int</span> p=<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(arr[i]&gt;=<span class="built_in">pow</span>(p,d))    d++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">RadixSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d=<span class="built_in">maxBit</span>(arr, length); <span class="comment">// the max number of digit</span></span><br><span class="line">    <span class="keyword">int</span> temp[length];</span><br><span class="line">    <span class="keyword">int</span> buckets[<span class="number">10</span>]; <span class="comment">// there are 10 buckets (0-9)</span></span><br><span class="line">    <span class="keyword">int</span> base=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> remainder=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=d; i++) <span class="comment">// you need to sort b times</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;<span class="number">10</span>; j++) buckets[j] = <span class="number">0</span>; <span class="comment">// clear buckets</span></span><br><span class="line">        <span class="comment">// put arr[] into buckets</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;length; j++) </span><br><span class="line">        &#123;</span><br><span class="line">            remainder=(arr[j]/base)%<span class="number">10</span>;</span><br><span class="line">            buckets[remainder]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// count the total number of elements that are stored in buckets</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;length; j++) buckets[j]+=buckets[j<span class="number">-1</span>];</span><br><span class="line">        <span class="comment">// you should go from back to front--make sure this algorithm is stable</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=length<span class="number">-1</span>; j&gt;=<span class="number">0</span>; j--)</span><br><span class="line">        &#123;</span><br><span class="line">            remainder=(arr[j]/base)%<span class="number">10</span>;</span><br><span class="line">            temp[buckets[remainder]<span class="number">-1</span>]=arr[j];</span><br><span class="line">            buckets[remainder]--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// put temp back to arr</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;length; j++) arr[j]=temp[j];</span><br><span class="line">        </span><br><span class="line">        base=base*<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="performance-6">7.2 Performance</h4>
-<table>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(nd)</strong><br>(d is the number of digits)</td>
-<td><strong>O(n+d)</strong></td>
-<td><strong>stable</strong></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><br></p>
-<h3 id="heap-sort">8. Heap Sort</h3>
-<h4 id="principle-7">8.1 Principle</h4>
-<p>Heap Sort is designed for heap. Heap is a complete binary tree and its childen nodes should be always larger/smaller than parent nodes.</p>
-<p>For a Min-Heap, it satisfiies:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#### 8.2 Implement</span><br><span class="line">```c++</span><br><span class="line">// create maxheap</span><br><span class="line">void MaxHeapify(int arr[], int startIndex, int endIndex)</span><br><span class="line">&#123;</span><br><span class="line">    int parentNode=startIndex;</span><br><span class="line">    int childNode=2*startIndex+1;</span><br><span class="line">    while(childNode&lt;=endIndex)</span><br><span class="line">    &#123;</span><br><span class="line">        // compare the two child nodes, and choose the larger one</span><br><span class="line">        if (childNode+1&lt;=endIndex &amp;&amp; arr[childNode]&lt;arr[childNode+1])  childNode++;</span><br><span class="line">        if (arr[parentNode]&lt;arr[childNode])</span><br><span class="line">        &#123;</span><br><span class="line">            swap(arr[parentNode], arr[childNode]);</span><br><span class="line">            parentNode=childNode;</span><br><span class="line">            childNode=parentNode*2+1;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">            return;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void HeapSort(int arr[], int length)</span><br><span class="line">&#123;</span><br><span class="line">    // create the heap--start from the last parent node</span><br><span class="line">    for(int i=length/2-1; i&gt;=0; i--)    MaxHeapify(arr, i, length-1);</span><br><span class="line"></span><br><span class="line">    for(int i=length-1; i&gt;=0; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        swap(arr[0], arr[i]); // put the largest element to the end of array</span><br><span class="line">        MaxHeapify(arr, 0, i-1); // rebalance the tree</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="performance-7">8.3 Performance</h4>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(n+nlogn)</strong><br>(n for creating the heap; rebalance the tree(logn) for n times)</td>
-<td><strong>O(1)</strong><br>(one more element for swapping)</td>
-<td><strong>unstable</strong> <br>(eg. 64, 27, 16, 27. After 64, the second 27 will be ouput.)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/17/Sorting-Algorithms/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -598,10 +402,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-09-16 19:52:34 / Modified: 20:24:18" itemprop="dateCreated datePublished" datetime="2021-09-16T19:52:34+08:00">2021-09-16</time>
+              <time title="Created: 2021-09-16 19:52:34" itemprop="dateCreated datePublished" datetime="2021-09-16T19:52:34+08:00">2021-09-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-23 17:12:14" itemprop="dateModified" datetime="2021-09-23T17:12:14+08:00">2021-09-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -625,10 +435,14 @@
       
           <h3 id="递归方法">递归方法</h3>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line"> 	path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="非递归方法">非递归方法</h3>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>)); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Reference: https://blog.csdn.net/czy47/article/details/81254984</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -845,9 +659,9 @@
       
           <p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
 <p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-NDiwppfuNMIPnmHv" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-NDiwppfuNMIPnmHv").style.height=document.getElementById("mmedia-NDiwppfuNMIPnmHv").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-cXJorKtKXrFXQNOl" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-cXJorKtKXrFXQNOl").style.height=document.getElementById("mmedia-cXJorKtKXrFXQNOl").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-NDiwppfuNMIPnmHv").style.height=document.getElementById("mmedia-NDiwppfuNMIPnmHv").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-cXJorKtKXrFXQNOl").style.height=document.getElementById("mmedia-cXJorKtKXrFXQNOl").scrollWidth*0.76+"px";
     }; </script>
 
       
@@ -1147,9 +961,9 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
     <div class="post-body" itemprop="articleBody">
 
       
-          <style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-ZGVQnIzqsbBCwudX" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-ZGVQnIzqsbBCwudX").style.height=document.getElementById("mmedia-ZGVQnIzqsbBCwudX").scrollWidth*0.76+"px";
+          <style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-fggIjnuxtnfqFTsD" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-fggIjnuxtnfqFTsD").style.height=document.getElementById("mmedia-fggIjnuxtnfqFTsD").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-ZGVQnIzqsbBCwudX").style.height=document.getElementById("mmedia-ZGVQnIzqsbBCwudX").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-fggIjnuxtnfqFTsD").style.height=document.getElementById("mmedia-fggIjnuxtnfqFTsD").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <thead>

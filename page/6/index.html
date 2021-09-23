@@ -312,7 +312,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 13:49:39" itemprop="dateModified" datetime="2021-09-15T13:49:39+08:00">2021-09-15</time>
+                <time title="Modified: 2021-09-23 17:13:45" itemprop="dateModified" datetime="2021-09-23T17:13:45+08:00">2021-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -352,29 +352,15 @@
 <h2 id="另开一条路">3. 另开一条路</h2>
 <p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/multicore.jpg"></p>
 <p>比如A地到B地的公路很堵，恰巧政府有很有钱的话，那就很简单了：<strong>再铺一条公路</strong>。两条路是完全互不干涉的（independent），人们看着那条路比较空就往哪条路走就行了。</p>
-<p>最终你就得到了现在实际运行中的收费站模式</p>
-<h2 id="结合cpu">结合CPU</h2>
-<p>上面已经说的很明白了：</p>
-<p>方法1就是<code>multithreading</code>,方法2就是<code>superscalar</code>，方法3就是<code>multicore</code>。</p>
-<ol type="1">
-<li><p><code>multithreading</code>就是在一个CPU core上设立n条thread让多个程序同时进行。那么可能就有人问了：CPU一个core不是只能同时跑一个程序吗，为什么现在能同时跑多个了？其实这里要明白一个核心问题：<strong>CPU core很贵但是同时也非常快</strong>，拖累你运行速度的其实很多是与memory之间的交互。</p>
-<p>打个比方就是收费员算你要交多少钱很快，但是你拿钱和收费员找零就很慢了。那么对于cpu而言所谓的设立多个收费站其实就是在你拿钱的时候让收费员去算下一个人的钱--有可能下一个人拿etc卡很快就过去了，而这个时候正好可以等你拿钱。CPU core实际上就是在多个程序之间跳来跳去，如果有人需要与memory交互，让就交给memory去办，cpu先去跑别的程序。</p>
-<p><code>multithreading</code>本质上是对CPU core性能的高效利用，尽可能让CPU core始终满负荷运行。所以这种方法受限于cpu本身的性能。</p>
-<p>这里额外提一句<code>hyperthreading</code>，这个技术比较复杂而且实际表现也没有那么好（在intel顶级CPU上还在使用，追求极致效率），用比较模糊的话说就是把一个CPU核心掰成两半 (其实还是thread的优化)，模拟出多个 <code>logical units</code>，本质上是建立在multithreading中每个thread利用率不高的前提下进一步提高效率。</p></li>
-<li><p><code>superscalar</code>是risc的技术，需要硬件的支持是用空间换效率，在一个core上需要放多个<code>functional units（ALU, FPU, etc）</code>但是又共享一部分硬件，这样一个CPU core一次clock cycle里就能执行多个指令。其中当然还有很多细节问题，但是大体上逻辑如此。</p></li>
-<li><p><code>multi-core</code>这个就很简单了，堆CPU核心就完事儿了（实际上如何堆核心是很大的一个难题--如何把一个本来单线程的程序均匀地分布到多个核心上运算，最后还能合回来，很难），这也是现在的发展主流。相反过去疯狂提升频率的方法被逐渐抛弃，甚至有些cpu主动降频来获得更好的发热表现。</p></li>
-</ol>
-<h2 id="总结">总结</h2>
-<p>虽然基本的原理就是如此，但是上述三种提高性能的方法都需要程序员来协调如何分配车流（有些东西最底层的硬件已经完成）</p>
-<hr>
-<h2 id="更新--进程线程超线程">更新--进程、线程、超线程</h2>
-<ol type="1">
-<li><p>进程（process）是操作系统（OS）的调度单位，一个任务对于OS就是一个进程--比如QQ、微信。OS接收到任务之后会给每个进程单独开辟一块虚拟内存，让每个进程之间可以互相不影响。</p></li>
-<li><p>线程（thread）是CPU的调度单位，一般来说一个CPU核心只有一个线程，由于现在的额CPU往往是多核心的，所以是多线程。CPU在接收到OS发布的process之后会调动多个核心（也就是多个线程）去处理这个任务。在不同线程之间的资源相互共享（线程之间交互的速度远远大于进程之间交互的速度），可以将一个进程拆成多个部分在不同的CPU上进行--比如一个core被IO占用，那么另一个core就可以去处理ALU的部分。</p></li>
-<li><p>超线程（superthread）是Intel提出的，本质是欺骗CPU，让CPU内部的pipeline尽可能同时进行。Intel计划让一个core可以同时进行两个线程（比如8核心16线程的CPU）。在一个core处理IO时，欺骗core，让它另一部分处理ALU。比起多个core的多车道，超线程见缝插针，只有恰好有core的计算资源闲置同时thread之间不冲突时才会发生。那之所以一个core只分成两个thread就是因为管理这些thread之间的硬件面积会大幅增加，需要承担thread之间相互等待的开销，得不偿失了。</p>
-<p>但同时IBM也有8核32线程的核心，不过主要针对的是有高并发任务的服务器平台了。</p></li>
-</ol>
-
+<p>最终你就得到了现在实际运行中的收费站模式。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -424,7 +410,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 13:47:01" itemprop="dateModified" datetime="2021-09-15T13:47:01+08:00">2021-09-15</time>
+                <time title="Modified: 2021-09-23 17:12:02" itemprop="dateModified" datetime="2021-09-23T17:12:02+08:00">2021-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -460,174 +446,14 @@
 <li><code>x = torch.tensor([x1, x2, ...])</code> use square brackets to init the size/ values of a tensor</li>
 <li><code>y = torch.random_like(x, detype = torch.float)</code> , <code>_like</code>mesans using an existing tensor to init another one(in this case, we use the size of the old tensor to create a new tensor with type float)</li>
 </ol>
-<p>More functions to init</p>
-<table>
-<thead>
-<tr class="header">
-<th>函数</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Tensor(*sizes)</td>
-<td>基础构造函数</td>
-</tr>
-<tr class="even">
-<td>tensor(data,)</td>
-<td>类似np.array的构造函数</td>
-</tr>
-<tr class="odd">
-<td>ones(*sizes)</td>
-<td>全1Tensor</td>
-</tr>
-<tr class="even">
-<td>zeros(*sizes)</td>
-<td>全0Tensor</td>
-</tr>
-<tr class="odd">
-<td>eye(*sizes)</td>
-<td>对角线为1，其他为0</td>
-</tr>
-<tr class="even">
-<td>arange(s,e,step)</td>
-<td>从s到e，步长为step</td>
-</tr>
-<tr class="odd">
-<td>linspace(s,e,steps)</td>
-<td>从s到e，均匀切分成steps份</td>
-</tr>
-<tr class="even">
-<td>rand/randn(*sizes)</td>
-<td>均匀/标准分布</td>
-</tr>
-<tr class="odd">
-<td>normal(mean,std)/uniform(from,to)</td>
-<td>正态分布/均匀分布</td>
-</tr>
-<tr class="even">
-<td>randperm(m)</td>
-<td>随机排列</td>
-</tr>
-</tbody>
-</table>
-<h2 id="addition">1 Addition</h2>
-<p>The following 4 ways are same with same size tensors <code>x</code> <code>y</code> <code>z</code> 1. <code>z = x + y</code> 2. <code>z = torch.add(x, y)</code> 3. <code>torch.add(x, y, out = z)</code> 4. <code>y.add_(x)</code> note: this is an inplace function, each inplace function has a postfix<code>_</code></p>
-<h2 id="index">2 Index</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y  = x[0,: ] # y points to all of x</span><br><span class="line">y += 1 # all entries will plus 1</span><br></pre></td></tr></table></figure>
-<p>note: with this method, y will share memory with x, so you cannot only modify y without touching x</p>
-<p>More high level function to select index</p>
-<table>
-<thead>
-<tr class="header">
-<th>函数</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>index_select(input, dim, index)</td>
-<td>在指定维度dim上选取，比如选取某些行、某些列</td>
-</tr>
-<tr class="even">
-<td>masked_select(input, mask)</td>
-<td>如上，a[a&gt;0]，使用ByteTensor进行选取</td>
-</tr>
-<tr class="odd">
-<td>nonzero(input)</td>
-<td>非0元素的下标</td>
-</tr>
-<tr class="even">
-<td>gather(input, dim, index)</td>
-<td>根据index，在dim维度上选取数据，输出的size与index一样</td>
-</tr>
-</tbody>
-</table>
-<h2 id="shape-changing">3 Shape changing</h2>
-<ol type="1">
-<li><p>use <code>view()</code>function</p>
-<p><code>y = x.view(a*b)</code>change the shape of x to 1 row 1*b column</p>
-<p><code>x.size() = torch.size([a,b]), y.size() = torch.size([a*b])</code></p>
-<p>note: <code>view()</code> function still shares memory and does not change the number of entries</p>
-<p>if you want a copy just use <code>clone</code></p>
-<p>eg. <code>x_copy = x.clone().veiw(new_a, new_b)</code> ### more <code>item()</code> function:</p></li>
-</ol>
-<p>--change a tensor to a number</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = torch.tensor([x1])</span><br><span class="line">y = x.item() # y will be a number = x1 </span><br></pre></td></tr></table></figure>
-<p>Note: it only happenes when there is only one 1 entry in tensor x</p>
-<h3 id="some-linear-operation">some linear operation</h3>
-<table>
-<thead>
-<tr class="header">
-<th>函数</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>trace</td>
-<td>对角线元素之和(矩阵的迹)</td>
-</tr>
-<tr class="even">
-<td>diag</td>
-<td>对角线元素</td>
-</tr>
-<tr class="odd">
-<td>triu/tril</td>
-<td>矩阵的上三角/下三角，可指定偏移量</td>
-</tr>
-<tr class="even">
-<td>mm/bmm</td>
-<td>矩阵乘法，batch的矩阵乘法</td>
-</tr>
-<tr class="odd">
-<td>addmm/addbmm/addmv/addr/baddbmm..</td>
-<td>矩阵运算</td>
-</tr>
-<tr class="even">
-<td>t</td>
-<td>转置</td>
-</tr>
-<tr class="odd">
-<td>dot/cross</td>
-<td>内积/外积</td>
-</tr>
-<tr class="even">
-<td>inverse</td>
-<td>求逆矩阵</td>
-</tr>
-<tr class="odd">
-<td>svd</td>
-<td>奇异值分解</td>
-</tr>
-</tbody>
-</table>
-<h2 id="broadcasting">3 Broadcasting</h2>
-<p>Operations on two tensors with different shape generally, tensors will be broadcast to larger size that can fit the operation.</p>
-<p>--One tensor's dimension must be one</p>
-<h2 id="section"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">tensor x is 3*5, then y must be 1*5 or 3*1</span><br><span class="line">eg.</span><br><span class="line">x = torch.arange(0, 15).view(3, 5)</span><br><span class="line">y = torch.arange(0, 5).view(1, 5)</span><br><span class="line">#x + y = tensor([[ 0,  2,  4,  6,  8],</span><br><span class="line">                 [ 5,  7,  9, 11, 13],</span><br><span class="line">                 [10, 12, 14, 16, 18]])</span><br><span class="line">y = torch.arange(0,3).view(3,1)</span><br><span class="line">#x + y = tensor([[ 0,  1,  2,  3,  4],</span><br><span class="line">                 [ 6,  7,  8,  9, 10],</span><br><span class="line">                 [12, 13, 14, 15, 16]])</span><br><span class="line">more: </span><br><span class="line">x = torch.arange(0,5).view(1,5)</span><br><span class="line">y = torch.arange(0,3).view(3,1)</span><br><span class="line">#x + y = tensor([[0, 1, 2, 3, 4],</span><br><span class="line">                 [1, 2, 3, 4, 5],</span><br><span class="line">                 [2, 3, 4, 5, 6]])</span><br></pre></td></tr></table></figure></h2>
-<h1 id="memory-overhead">Memory Overhead</h1>
-<ol type="1">
-<li>there is <strong>no</strong> memory overhead using <strong>index</strong>, just copy the address instead of creatign a new memory space.</li>
-<li><strong>mathematical operations</strong> will create a <strong>new</strong> memory space.</li>
-<li><code>torch.add(x, y, out=y) &amp;&amp; y += x(y.add_(x))</code> also create <strong>new</strong> space</li>
-</ol>
-<h4 id="specaial-note-although-view-function-will-create-a-tensor-sharing-data-with-the-old-oneyou-can-modify-one-to-modify-both-but-new-tensor-has-a-new-memory-because-view-function-just-share-date-and-tensor-has-more-attributes.">! Specaial note: although <code>view()</code> function will create a tensor sharing data with the old one(you can modify one to modify both), but new tensor has a new memory, because <code>view()</code> function just share date and tensor has more attributes.</h4>
-<h1 id="exchange-between-tensor-and-numpy数组">Exchange between <code>tensor</code> and <code>numpy(数组)</code></h1>
-<p><code>import numpy as np</code> always remember to import</p>
-<p>Using functions:</p>
-<p><code>numpy() #chang tensor to numpy</code></p>
-<p><code>from_numpy() #change numpy to tensor</code></p>
-<p>Note:</p>
-<ol type="1">
-<li>created numpy/tensor also shares memory(modify one to modify both), so <strong>changing between tensor and numpy is really fast</strong></li>
-<li>only tensor(containing numbers) can be changed to numpy, chartensor(containing characters) cannot</li>
-</ol>
-<p>More: If you do not want to share memory, just use <code>torch.tensor(numpy)</code></p>
-<h1 id="tensor-on-gpu">Tensor on GPU</h1>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">device = torch.device(&quot;cuda&quot;) #specify device to GPU</span><br><span class="line">x = x.to(device) #transfer tensor to GPU</span><br><span class="line">#or just x.to(&quot;cuda&quot;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = torch.ones(a, b, device=device) #init a tensor in GPU</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/23/1-tensor/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -998,7 +824,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 13:49:13" itemprop="dateModified" datetime="2021-09-15T13:49:13+08:00">2021-09-15</time>
+                <time title="Modified: 2021-09-23 17:13:30" itemprop="dateModified" datetime="2021-09-23T17:13:30+08:00">2021-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1028,7 +854,7 @@
 </blockquote>
 <p>于是首先我尝试降级到1.5之前，事实上成功了。 然后我采取作者的说法，尝试修改.js文件，但是又不行了，vscode在1.3.7之后又有新的问题。 巧合的是我看到作者其实好像是个中国人，并且开发了一个vscode拓展。。。。 这TM就很尴尬，拓展一装就完事了，我其实定制化需求也不是很大</p>
 <p><a target="_blank" rel="noopener" href="https://eyhn.in/vscode-vibrancy/">vibrancy</a></p>
-<h2 id="section"></h2>
+<h2 id="note">Note</h2>
 <p>此插件在windows下同样适用，并且可以自行去作者git上看说明。</p>
 
       

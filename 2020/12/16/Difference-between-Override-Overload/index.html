@@ -28,7 +28,7 @@
 <meta property="og:description" content="Both of them only happen when difference function using same name.  Overloading: picking a method signature at compile time based on the number and type of the arguments specified Overload--在compile时抓">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-16T13:58:33.000Z">
-<meta property="article:modified_time" content="2021-09-15T05:56:42.732Z">
+<meta property="article:modified_time" content="2021-09-23T09:15:54.422Z">
 <meta property="article:author" content="Li Wuchen">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -239,7 +239,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 13:56:42" itemprop="dateModified" datetime="2021-09-15T13:56:42+08:00">2021-09-15</time>
+                <time title="Modified: 2021-09-23 17:15:54" itemprop="dateModified" datetime="2021-09-23T17:15:54+08:00">2021-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -269,6 +269,7 @@
 <li><p>Overriding: picking a method <strong>implementation</strong> at execution time based on the actual type of the target object (as opposed to the compile-time type of the expression)</p>
 <p>Override--在execution时选取不同的function来执行，注意这些function名称相同，参数列表相同。发生在类的继承中，子类function override夫类function，返回类型相同。</p></li>
 </ul>
+<span id="more"></span>
 <p>Example (with java):</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">// this function will overload the function above</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">double</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(double)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;		</span><br><span class="line">  	<span class="comment">// this function override the function in Base</span></span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Base b = <span class="keyword">new</span> Child();</span><br><span class="line">b.foo(<span class="number">10</span>); <span class="comment">// Prints Child.foo(int)</span></span><br><span class="line">b.foo(<span class="number">5.0</span>); <span class="comment">// Prints Base.foo(double)</span></span><br></pre></td></tr></table></figure>
 
@@ -277,6 +278,21 @@
     
     
     
+        <div class="reward-container">
+  <div>给阿姨倒一杯卡布奇诺</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/ali_pay.jpg" alt="Li Wuchen Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
 
       <footer class="post-footer">
           <div class="post-tags">

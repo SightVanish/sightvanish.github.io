@@ -234,7 +234,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 13:56:42" itemprop="dateModified" datetime="2021-09-15T13:56:42+08:00">2021-09-15</time>
+                <time title="Modified: 2021-09-23 17:15:54" itemprop="dateModified" datetime="2021-09-23T17:15:54+08:00">2021-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,9 +264,14 @@
 <li><p>Overriding: picking a method <strong>implementation</strong> at execution time based on the actual type of the target object (as opposed to the compile-time type of the expression)</p>
 <p>Override--在execution时选取不同的function来执行，注意这些function名称相同，参数列表相同。发生在类的继承中，子类function override夫类function，返回类型相同。</p></li>
 </ul>
-<p>Example (with java):</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">// this function will overload the function above</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">double</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(double)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;		</span><br><span class="line">  	<span class="comment">// this function override the function in Base</span></span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Base b = <span class="keyword">new</span> Child();</span><br><span class="line">b.foo(<span class="number">10</span>); <span class="comment">// Prints Child.foo(int)</span></span><br><span class="line">b.foo(<span class="number">5.0</span>); <span class="comment">// Prints Base.foo(double)</span></span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/16/Difference-between-Override-Overload/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -390,7 +395,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-19 20:59:52" itemprop="dateModified" datetime="2021-09-19T20:59:52+08:00">2021-09-19</time>
+                <time title="Modified: 2021-09-23 17:16:05" itemprop="dateModified" datetime="2021-09-23T17:16:05+08:00">2021-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -427,122 +432,14 @@ f(X) = \frac{1}{(2\pi)^{d/2}|\sum|^{1/2}}exp[-\frac 12(X-\mu)^T(\sum )^{-1}(X-\m
 <p>note: <span class="math inline">\(d\)</span> is the dimension of variable (<span class="math inline">\(x_1\)</span>); <span class="math inline">\(\mu\)</span> is a nx1 matrix, means of each variable.</p>
 <p><span class="math inline">\(\sum\)</span> is the covariance matrix of <span class="math inline">\(X\)</span>, degree to which <span class="math inline">\(x_i\)</span> vary together.</p>
 <p>For a 2-D Guassian model, <span class="math inline">\(\sum = \left[ \begin{matrix} \delta_{11} &amp; \delta_{12} \\ \delta_{21} &amp; \delta_{22} \end{matrix} \right]\)</span>. <span class="math inline">\(\sum\)</span> determines the shape of distribution.</p>
-<h1 id="guassian-mixture-model-gmm">Guassian Mixture Model, GMM</h1>
-<h3 id="why-gmm">Why GMM</h3>
-<ul>
-<li>Some cluster may be 'wider' than others</li>
-<li>Clusters may overlap</li>
-</ul>
-<p>If we use one Guassian model, it cannot handle tha data set generated by multi Guassian models, so we introduce GMM -- use multi Gussain models and mix them to one with certain weights.</p>
-<h3 id="gmm-formula">GMM formula</h3>
-<p>Assume GMM is mixed by <span class="math inline">\(\pmb K\)</span> Guassian models, the density fucntion of GMM is: <span class="math display">\[
-p(X) = \sum_ {k = 1}^K p(k)p(X|k) = \sum_ {k = 1}^K \Pi_ k N(X|\mu_k,\Sigma_ k)
-\]</span> note: $ p(X|k) = N(X|_ k,()_ k )$ is the density function of <span class="math inline">\(k^{th}\)</span> Gaussian model. <span class="math inline">\(\Pi_k\)</span> is the weight and <span class="math inline">\(\sum_ {k = 1}^{K} \Pi_ {k} = 1\)</span>.</p>
-<p>So basically GMM is the mixture of multi Gaussian models. In theory, with enough number of mixed Guassian models and proper weights, GMM can fit any distribution.</p>
-<h3 id="examples">Examples</h3>
-<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/1-DGaussian.png"></p>
-<center>
-Picture1: 1-D GMM
-</center>
-<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/2-DGaussian.png"></p>
-<center>
-Picture2: 2-D GMM
-</center>
-<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/3-DGaussian.png"></p>
-<center>
-Picture3: 3-D GMM
-</center>
-<h1 id="supervised-learning-for-gmm">Supervised Learning for GMM</h1>
-<h3 id="generating-data">Generating data</h3>
-<ol type="1">
-<li>Choose component (cluster, which Guassian model) <span class="math inline">\(\pmb i\)</span> with probability <span class="math inline">\(\pi_ i\)</span>.</li>
-<li>Generate data point from <span class="math inline">\(N(X|\mu_ i, \Sigma_ i)\)</span>.</li>
-</ol>
-<h3 id="how-to-estimate-parameters-of-gmm">How to estimate parameters of GMM</h3>
-<ul>
-<li><p>We observe the <strong>data points X</strong> and their <strong>labels y</strong> (generate from with Guassian component).</p></li>
-<li><p>Maximize the likelihood: <span class="math display">\[
-\prod_ j P(y_ i = i, X_ j) = \prod_j \pi_ i N(X_ j | \mu_ i, \Sigma_ i)
-\]</span></p>
-<p>Product of probability on all the data points ( j ). <span class="math inline">\(P(y_ i = i)\)</span> means the probabilty of this point is generated by <span class="math inline">\(i^{th}\)</span> Gaussian component.</p></li>
-<li><p><strong>Closed Form Solution</strong></p>
-<p>We have <span class="math inline">\(m\)</span> data points. For component <span class="math inline">\(i\)</span>, suppose we have <span class="math inline">\(n\)</span> data points labelled by <span class="math inline">\(i\)</span>. <span class="math display">\[
-\mu_ i = \frac 1 n \sum_ {j = 1} ^n X_ j
-\]</span></p>
-<p><span class="math inline">\(\mu_ i\)</span> is the mean of <span class="math inline">\(i_{th}\)</span> Guassian component, so it should be the mean/center of all data point. <span class="math display">\[
-\Sigma_ i = \frac 1 n \sum_ {j = 1}^n(X_ j-\mu_ i)(X_ j - \mu_ i)^T
-\]</span> <span class="math inline">\((\sum)_ i\)</span> is the covarivance matrix of <span class="math inline">\(i_ {th}\)</span> Guassian component.</p>
-<p><span class="math inline">\(\pi_ i\)</span> is weight, # of points belonging to <span class="math inline">\(i_ {th}\)</span> Guassian component / # of all points</p></li>
-</ul>
-<p><span class="math display">\[
-\pi_ i = \frac nm
-\]</span></p>
-<p>We have already solved such problem</p>
-<h1 id="unsupervised-learning-for-gmm">Unsupervised Learning for GMM</h1>
-<h3 id="in-clusterin-we-dont-know-the-labels-y">In clusterin, we don't know the labels Y !</h3>
-<ul>
-<li><p>Maximize marginal likelihood: <span class="math display">\[
-  \prod_ j P(X_ j) = \prod_ j\sum_ i P(y_ j = i, X_ j) = \prod_ j\sum_ i \pi_ i N(\mu_ i, \Sigma_ i)P(y_ i = i)
-  \]</span> It is to improve the P of all components</p></li>
-<li><p>Parameters to be learnt:</p>
-<p><span class="math inline">\(\pi\)</span>, <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\Sigma\)</span>, <span class="math inline">\(y\)</span></p></li>
-<li><p>How to optimize it? (No closed form solution)</p>
-<ul>
-<li>Expectation Maximization (EM)
-<ul>
-<li>pick k random Guassian models</li>
-<li>assign data proportionally to these k models</li>
-<li>revis model based on the distance between predicted points with real points (just like k-means)</li>
-</ul></li>
-</ul></li>
-</ul>
-<h3 id="examples-1">Examples</h3>
-<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex1_2.png"></p>
-<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex1_1.png"></p>
-<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex1_3.png"></p>
-<h1 id="expectation-maximization-em">Expectation Maximization (EM)</h1>
-<p><strong>Pretend</strong> we do know the parameter.</p>
-<ul>
-<li>Initialize randomly</li>
-<li>[E step] Compute probability of each instance having possible label (note: one point shares <strong>multiple probabilities</strong> corresponding to multiple Guassian models).</li>
-<li>[M step] Treating each instance as fractionally having these labels (one point is treated as having many labels with certain probability), compute the new parameter values.</li>
-<li>Repeat E-&gt;M steps</li>
-</ul>
-<h3 id="example">Example</h3>
-<ul>
-<li>We get data like this</li>
-</ul>
-<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_1.png"></p>
-<ul>
-<li>Randomly initialize</li>
-</ul>
-<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_2.png"></p>
-<ul>
-<li>Assign labels to point based on current Guassian models</li>
-</ul>
-<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_3.png"></p>
-<ul>
-<li>Recompute the parameters of Guassian models based on current label distribution</li>
-</ul>
-<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_4.png"></p>
-<ul>
-<li>Repeat--based on current Guassian models, reassign labels to points</li>
-</ul>
-<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/ex2_5.png"></p>
-<ul>
-<li>Stop when no changes</li>
-</ul>
-<h3 id="inclusion">Inclusion</h3>
-<p><img src="/2020/12/15/Gaussian-Mixture-Model-GMM/inclusion.png"></p>
-<p>K-means is a special case of GMM--all Gaussians are spherical and have identical weights and covariance (the only parameter is mean).</p>
-<h3 id="extension">Extension</h3>
-<p>In general, EM can be used to learn any model with hidden variables.</p>
-<p>EM for HMMs(hidden markov models)--aka. Baum-Welch algorithm</p>
-<ul>
-<li>[M step] compute the distribution of hidden states given each training instance</li>
-<li>[E step] update the parameters to maximize expected log likelihood based on distributions over hidden states.</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/15/Gaussian-Mixture-Model-GMM/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -835,7 +732,7 @@ Picture3: 3-D GMM
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 23:27:13" itemprop="dateModified" datetime="2021-09-15T23:27:13+08:00">2021-09-15</time>
+                <time title="Modified: 2021-09-23 17:16:44" itemprop="dateModified" datetime="2021-09-23T17:16:44+08:00">2021-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -864,14 +761,14 @@ Picture3: 3-D GMM
       
           <p>1.请叙述重视剑道礼仪的理由</p>
 <p>剑道常常说“以礼始以礼终”，事实上在剑道中礼仪确实无处不在--从进入道场对道场的行礼，到稽古时对对手的行礼，再到结束时集合后的行礼。可以说剑道中的礼仪非常细节而琐碎，几乎对所有的行为都进行了细节的指导，这种礼仪当然有古代剑术遗留下来的一些制度性要求，但是从当今的现代剑道中剑道礼仪也有非常特别的作用。我认为剑道礼仪主要体现了剑道对两方面的要求：其一是剑道技术层面，其二是剑道精神层面。 a. 就技术层面上说，剑道中的很多细节的利于本身就是现代剑道乃至古代剑术中的技术指导，而在现在被视为了剑道礼仪中的一部分。比如剑道向对手行礼时要求双眼不能离开对手事实上实在警惕对手随时可能发起的攻击；剑道要求竹刀不能刀尖指向地面放置，在真剑上则实在保护刀尖；剑道稽古前的蹲踞行礼可以视为是维持与对手合理的安全距离，并且激活脚踝和大腿肌肉。等等诸如此类的礼仪细节剑道中数不胜数，这其中有直接对剑道稽古、打击有帮助的内容，也有基于古代剑术的内容，体现了剑道视竹刀为真剑，视稽古为真实战斗的初心。 b. 从精神层面上说我认为礼仪最核心的部分则还可以细分为两点：一是剑道作为武力的一种体现，礼仪是对武力的限制，二是剑道在发展中收到的禅学影响。对于第一点上，中国人常说“武以止戈”，武力在出现后就频繁引起争斗，不受限制的武力不仅是危险的而且是无用的。武力本身并不错误，如何使用武力决定了武力的性质。剑道的礼仪就好像是刀的刀柄一般让武力有了被操纵的可能，用理性压制住内心的不安。最后从禅学上说。剑道最初的发展是一项非常注重实用性的技术，是禅宗赋予了其思想内核。铃木和尚在弘法的时候曾经就类比禅宗和剑道的修行（可能当时还没有现代严格意义上的剑道），他说剑道和禅学是一样的，都是通过迫使肉体在极端条件下去有机会来脱离外在世界来探求内心。在我看来剑道的礼仪也是如此，剑道的礼仪和禅宗的打坐诵经并无区别，都是形式罢了，具体的形式如何其实没有任何意义，有意义的是通过这种形式能够收敛内心，能尝试在专注中体会自我。事实上在形式上也有很多有趣的相似，有说法是“剑禅如一”，我们甚至能看到剑道的默想的手印和禅宗的佛印极为相似，礼仪上受到禅宗的影响不可谓不深。 由此可见，无论是从实用性的技术层面，还是从精神层面学会束缚武力、增强内心上，礼仪都是有实际价值的存在，是剑道修行中不可分割的一部分，值得所有剑道人牢记。 <br></p>
-<p>2.请说明残心。</p>
-<p>剑道残心很多时候被解释为打击后不放松对对对手的警惕，而有时残心也被广义地理解为是对对手无时无刻的警惕，哪怕还没有开始稽古也已经做好来随时应对的准备。单纯从体育的角度来看是十分匪夷所思的：就拿奥运会中类似的击剑而言，在裁判喊开始之前二者都是绝对安全的，而在击中的灯亮起后两者也是绝对安全的，很多运动员都会非常放松。剑道非常特殊，它不仅要求残心，甚至将残心作为比赛胜利的必要组件，强制要求残心。这实际上体现了剑道作为实用性技术的素质同样还体现了剑道在对内心塑造的要求。 a. 作为使用性技术，残心使得打击后能够仍保有最低限度的余力应对可能的反击、追击，在打击后不会因为放松而失败悔恨；同样广义上的残心要求人做到随时随地应对的准备--比如在蹲踞起来后应对对手马上发起的攻击，在近距离交锷时防范应对对手可能的退击，在远距离时不放松警惕，防范远距离的进攻。残心在剑道的实际练习和稽古中都是有着非常具体的落实和要求的，而在古代剑术中残心很大程度上更是自己生命安全的必不可少的保证。 b. 从精神训练上说，残心不仅仅是形式上表现出来的，更多是内心中的，是精神上的。残心要求精神上时刻保持专注，而不是单纯打击后高举竹刀脱离对手。有意义的残心并不一定要打击后一直向前冲出脱离，而是将专注力放在对手身上，打击后不忘警惕，转身时小心对手。残心在精神上是让剑道练习者在打击后保持游刃有余同时保持警惕心态的必要训练。</p>
-<hr>
-<p>下面是实际提交的版本，我认为修改得更明确了些：</p>
-<figure>
-<img src="/2020/11/13/kendo-2-nd-dan-exam/kendo-2nd-exam.png" alt="kendo-2-nd"><figcaption aria-hidden="true">kendo-2-nd</figcaption>
-</figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/13/kendo-2-nd-dan-exam/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
