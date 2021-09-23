@@ -20,17 +20,21 @@
     var CONFIG = {"hostname":"sightvanish.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="LR - Logistic Regression">
-<meta property="og:url" content="https://sightvanish.github.io/2021/09/23/LR-Logistic-Regression/index.html">
+  <meta name="description" content="Linear Regression Setup Data: \(D&#x3D;{(x _1,y _1),(x _2,y _2), \cdots ,(x _N,y _N) }\), \(x _i \in \pmb{R} ^p\) and \(y _i \in \pmb{R}\). In matrix form: Input: \(X&#x3D;(x _1, x _2, \cdots, x _N)^T \in \pmb{">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linear Regression">
+<meta property="og:url" content="https://sightvanish.github.io/2021/09/23/Linear%20Regression/index.html">
 <meta property="og:site_name" content="Wu Blog">
+<meta property="og:description" content="Linear Regression Setup Data: \(D&#x3D;{(x _1,y _1),(x _2,y _2), \cdots ,(x _N,y _N) }\), \(x _i \in \pmb{R} ^p\) and \(y _i \in \pmb{R}\). In matrix form: Input: \(X&#x3D;(x _1, x _2, \cdots, x _N)^T \in \pmb{">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sightvanish.github.io/2021/09/23/Linear%20Regression/1.png">
 <meta property="article:published_time" content="2021-09-23T10:01:28.000Z">
-<meta property="article:modified_time" content="2021-09-23T10:01:54.214Z">
+<meta property="article:modified_time" content="2021-09-23T12:25:43.246Z">
 <meta property="article:author" content="Li Wuchen">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sightvanish.github.io/2021/09/23/Linear%20Regression/1.png">
 
-<link rel="canonical" href="https://sightvanish.github.io/2021/09/23/LR-Logistic-Regression/">
+<link rel="canonical" href="https://sightvanish.github.io/2021/09/23/Linear%20Regression/">
 
 
 <script id="page-configurations">
@@ -43,7 +47,7 @@
   };
 </script>
 
-  <title>LR - Logistic Regression | Wu Blog</title>
+  <title>Linear Regression | Wu Blog</title>
   
 
 
@@ -206,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/23/LR-Logistic-Regression/">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/23/Linear%20Regression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -219,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LR - Logistic Regression
+          Linear Regression
         </h1>
 
         <div class="post-meta">
@@ -230,7 +234,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-09-23 18:01:28 / Modified: 18:01:54" itemprop="dateCreated datePublished" datetime="2021-09-23T18:01:28+08:00">2021-09-23</time>
+              <time title="Created: 2021-09-23 18:01:28 / Modified: 20:25:43" itemprop="dateCreated datePublished" datetime="2021-09-23T18:01:28+08:00">2021-09-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -253,7 +257,107 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h2 id="linear-regression">Linear Regression</h2>
+<h3 id="setup">Setup</h3>
+<p>Data: <span class="math inline">\(D={(x _1,y _1),(x _2,y _2), \cdots ,(x _N,y _N) }\)</span>, <span class="math inline">\(x _i \in \pmb{R} ^p\)</span> and <span class="math inline">\(y _i \in \pmb{R}\)</span>. In matrix form: Input: <span class="math inline">\(X=(x _1, x _2, \cdots, x _N)^T \in \pmb{R} _{N\times p}\)</span> is a matrix. <span class="math inline">\(x _1=(x _{11},x _{12},\cdots,x _{1p})\in \pmb{R} _p\)</span> is a vector. Output: <span class="math inline">\(Y=(y _1,y _2, \cdots, y _N) \in \pmb{R} _N\)</span> is a matrix. Weight: <span class="math inline">\(W=(w _1, w _2, \cdots, w _p) ^T\)</span> is a vector.</p>
+<span id="more"></span>
+<h3 id="the-basic-least-square-method">The basic <em>Least Square Method</em></h3>
+<p>Model: <span class="math display">\[
+y _i=W^Tx _i\\
+Y=XW
+\]</span> Loss: <span class="math display">\[
+\begin{equation}\begin{split}
+L(w)
+&amp;=\sum _{i=1} ^N ||W^Tx _i - y _i||^2\\
+&amp;=(XW-Y)^T(XW-T)\\
+&amp;=(X^TX^T-Y^T)(XW-Y)
+&amp;=W^TX^TXW-2W^TX^TY+Y^TY
+\end{split}\end{equation}
+\]</span> We can solve <span class="math inline">\(\hat W\)</span> directly: <span class="math display">\[
+\frac{\partial L(w)}{\partial w}=2X^TXW-2X^TY=0\\
+\hat W=(X^TX)^{-1}X^TY
+\]</span> Note: <span class="math inline">\((X^TX)^{-1}\)</span> may not exist.</p>
+<h3 id="actually-the-data-is-sampled-with-noise.-we-have-to-add-noise-to-our-model.">Actually the data is sampled with noise. We have to add noise to our model.</h3>
+<p>Model: <span class="math display">\[
+assume \ noise: \epsilon \sim N(0, \sigma ^2)\\
+Y=XW+\epsilon
+\]</span> So we have to handle this by MLE: <span class="math display">\[
+y|x,W \sim N(W^Tx,\sigma ^2)\\
+then \ we \ can \ get:\\
+P(Y|X,W)=\frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(Y-XW)^2}{2\sigma ^2})
+\]</span> MLE: <span class="math display">\[
+\begin{equation}\begin{split}
+L(W)
+&amp;=ln \ p(y|x,W)\\
+&amp;=ln \ \prod _{i=1}^Np(y|x,W)\\
+&amp;=\sum _{i=1}^N(ln \ \frac{1}{\sqrt{2\pi}\sigma}-\frac{(y-W^Tx)^2}{2\sigma ^2})
+\end{split}\end{equation}
+\]</span></p>
+<p><span class="math display">\[
+\begin{equation}\begin{split}
+\hat W
+&amp;=argmax_WL(W)\\
+&amp;=argmin_W\sum _{i=1}^N\frac{(y-W^Tx)^2}{2\sigma ^2}\\
+&amp;=argmin_W\sum _{i=1}^N(y-W^Tx)^2
+\end{split}\end{equation}
+\]</span></p>
+<p>The following part is same with Least Square Method. Their results are same.</p>
+<h3 id="but-remember-xtx-1-may-not-exist.">But remember: <span class="math inline">\((X^TX)^{-1}\)</span> may not exist.</h3>
+<p>Actually, we can solve it by adding <strong>penalty term</strong>. We call this method <strong>Regularization</strong>.</p>
+<h4 id="ridge">Ridge</h4>
+<p><span class="math display">\[
+\begin{equation}\begin{split}
+L^{ridge}(W)
+&amp;=\sum _{i=1}^N||W^Tx-y||+\lambda||W||^2\\
+&amp;=(XW-Y)^T(XW-Y)+\lambda W^TW
+\end{split}\end{equation}
+\]</span></p>
+<p><span class="math display">\[
+\begin{equation}\begin{split}
+\frac{\partial L^{ridge}(W)}{\partial W}
+&amp;=2(X^TX+\lambda I)-2X^TY
+\end{split}\end{equation}
+\]</span></p>
+<p>Since <span class="math inline">\((X^TX+\lambda I)\)</span> does exit. So we can solve <span class="math inline">\(\hat W^{ridge}\)</span> confidently. (<span class="math inline">\(W^{ls}\)</span> is the result derived by least square method.) <span class="math display">\[
+\hat W^{ridge}=(X^TX+\lambda I)^{-1}X^TY=\frac{1}{1+\lambda}W^{ls}
+\]</span></p>
+<h4 id="lasso">Lasso</h4>
+<p><span class="math display">\[
+\begin{equation}\begin{split}
+L^{lasso}(W)
+&amp;=\sum _{i=1}^N||W^Tx-y||+\lambda||W||\\
+\end{split}\end{equation}
+\]</span></p>
+<p>The result is totally different: <span class="math display">\[
+\hat w _i^{lasso}=sign(w _i^{ls})(w _i^{ls}-\lambda) _+
+\]</span> I draw a picture by hand to illustrate the difference.</p>
+<p><img src="/2021/09/23/Linear%20Regression/1.png"></p>
+<h3 id="what-if-we-have-a-prior-over-w-baysian-way">What if we have a prior over <span class="math inline">\(W\)</span> (Baysian way)</h3>
+<p>Model: <span class="math display">\[
+Y=XW+\epsilon \\
+\epsilon \sim N(0,\sigma ^2)\\
+W \sim Pr(W)\\
+in \ this \ case \ we \ assume: \ W\sim N(0,\sigma _0^2)
+\]</span></p>
+<p><span class="math display">\[
+\begin{equation}\begin{split}
+\hat W^{MAP} 
+&amp;=argmax_Wln \ p(W|Y)\\
+&amp;=argmax_Wln \ \frac{p(Y|W)p(W)}{p(Y)}\\
+&amp;=argmax_Wln \ p(Y|W)p(W)\\
+&amp;=argmax_Wln \ \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(y _i-W^Tx _i)^2}{2\sigma ^2})\frac{1}{\sqrt{2\pi}\sigma_0}exp(-\frac{||W||^2}{2\sigma _0^2})\\
+&amp;=argmin_W\sum _{i=1}^N\frac{(y _i-W^Tx _i)^2}{2\sigma ^2}+\frac{||W||^2}{2\sigma _0^2}\\
+&amp;=argmin_W\sum _{i=1}^N(y _i-W^Tx _i)^2+\frac{\sigma ^2}{\sigma _0^2}||W||^2
+\end{split}\end{equation}
+\]</span></p>
+<p>The next part is same with MLE with ridge regularization.</p>
+<h3 id="you-will-find">You Will Find:</h3>
+<p><span class="math display">\[
+Linear \ Square \ Method \\ \Leftrightarrow Maximum \ Likelihood \ Estimate \ (with \ guassian \ noise)
+\]</span></p>
+<p><span class="math display">\[
+Regularized \ Maximum \ Likelihood \ Estimate \\ \Leftrightarrow Maximum \ a \ posteriori \ estimation \ (with \ guassian \ prior \ over \ W)
+\]</span></p>
 
     </div>
 
@@ -346,6 +450,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linear-regression"><span class="nav-number">1.</span> <span class="nav-text">Linear Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#setup"><span class="nav-number">1.1.</span> <span class="nav-text">Setup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-basic-least-square-method"><span class="nav-number">1.2.</span> <span class="nav-text">The basic Least Square Method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#actually-the-data-is-sampled-with-noise.-we-have-to-add-noise-to-our-model."><span class="nav-number">1.3.</span> <span class="nav-text">Actually the data is sampled with noise. We have to add noise to our model.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#but-remember-xtx-1-may-not-exist."><span class="nav-number">1.4.</span> <span class="nav-text">But remember: \((X^TX)^{-1}\) may not exist.</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ridge"><span class="nav-number">1.4.1.</span> <span class="nav-text">Ridge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lasso"><span class="nav-number">1.4.2.</span> <span class="nav-text">Lasso</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-if-we-have-a-prior-over-w-baysian-way"><span class="nav-number">1.5.</span> <span class="nav-text">What if we have a prior over \(W\) (Baysian way)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#you-will-find"><span class="nav-number">1.6.</span> <span class="nav-text">You Will Find:</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
