@@ -20,20 +20,21 @@
     var CONFIG = {"hostname":"sightvanish.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="注意github对markdown更加严格，一定要在 _ 后加空格，如\(a_ 1\)应写为a_ 1">
+  <meta name="description" content="Precision \(Precision&#x3D;\frac{actually \ true \&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \ true}\) The percentage of true labels decided by the model are actually true. Recal">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown在github上公式显示错误">
-<meta property="og:url" content="https://sightvanish.github.io/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/index.html">
+<meta property="og:title" content="Benchmark of Neural Network--Precision,Recall,F1-Measure">
+<meta property="og:url" content="https://sightvanish.github.io/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/index.html">
 <meta property="og:site_name" content="Wu Times">
-<meta property="og:description" content="注意github对markdown更加严格，一定要在 _ 后加空格，如\(a_ 1\)应写为a_ 1">
+<meta property="og:description" content="Precision \(Precision&#x3D;\frac{actually \ true \&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \ true}\) The percentage of true labels decided by the model are actually true. Recal">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-12-15T14:16:35.000Z">
-<meta property="article:modified_time" content="2021-09-15T06:00:26.798Z">
+<meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png">
+<meta property="article:published_time" content="2021-09-29T06:58:29.000Z">
+<meta property="article:modified_time" content="2021-09-29T07:32:13.882Z">
 <meta property="article:author" content="Li Wuchen">
-<meta property="article:tag" content="markdown">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sightvanish.github.io/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png">
 
-<link rel="canonical" href="https://sightvanish.github.io/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/">
+<link rel="canonical" href="https://sightvanish.github.io/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/">
 
 
 <script id="page-configurations">
@@ -46,7 +47,7 @@
   };
 </script>
 
-  <title>Markdown在github上公式显示错误 | Wu Times</title>
+  <title>Benchmark of Neural Network--Precision,Recall,F1-Measure | Wu Times</title>
   
 
 
@@ -209,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -222,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Markdown在github上公式显示错误
+          Benchmark of Neural Network--Precision,Recall,F1-Measure
         </h1>
 
         <div class="post-meta">
@@ -231,23 +232,17 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-12-15 22:16:35" itemprop="dateCreated datePublished" datetime="2020-12-15T22:16:35+08:00">2020-12-15</time>
+              <time title="Created: 2021-09-29 14:58:29 / Modified: 15:32:13" itemprop="dateCreated datePublished" datetime="2021-09-29T14:58:29+08:00">2021-09-29</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 14:00:26" itemprop="dateModified" datetime="2021-09-15T14:00:26+08:00">2021-09-15</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
                 </span>
             </span>
 
@@ -262,7 +257,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
+        <h3 id="precision">Precision</h3>
+<p><span class="math inline">\(Precision=\frac{actually \ true \&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \ true}\)</span></p>
+<p>The percentage of true labels decided by the model are actually true.</p>
+<h3 id="recall">Recall</h3>
+<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \ true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
+<p>The percentage of true items are decided true by the model.</p>
+<p>If we want higher Precision, we should not take any risk--only take those with highest score.</p>
+<p>But if we want higher Recall, we should take all possible results. That is, we cannot get Precision and Recall improved at the same time.</p>
+<p>So we need a balance benchmark.</p>
+<h3 id="f1-measuref1-score">F1-Measure/F1-Score</h3>
+<p><span class="math display">\[
+F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
+\]</span></p>
+<p>We get F1-Measure when <span class="math inline">\(\alpha=1\)</span>.</p>
+<p>More on <a target="_blank" rel="noopener" href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic Mean</a>--it prevents models that are only good at either of P or R from doing good in F.</p>
+<p>x=50, y=0~100, here is the score (<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/47980482">ref</a>):</p>
+<p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
+<p>Harmonic mean tries to get a result that neither P nor R is not so bad even if both of them are not really good.</p>
 
     </div>
 
@@ -286,9 +298,6 @@
 
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/markdown/" rel="tag"># markdown</a>
-          </div>
 
         
 
@@ -296,13 +305,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/15/Gaussian-Mixture-Model-GMM/" rel="prev" title="Gaussian Mixture Model (GMM) & Expectation Maximization (EM)">
-      <i class="fa fa-chevron-left"></i> Gaussian Mixture Model (GMM) & Expectation Maximization (EM)
+    <a href="/2021/09/29/How-to-install-labelme-in-Macbook-M1/" rel="prev" title="How to install 'labelme' in Macbook M1">
+      <i class="fa fa-chevron-left"></i> How to install 'labelme' in Macbook M1
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/12/16/Difference-between-Override-Overload/" rel="next" title="Difference between Override & Overload">
-      Difference between Override & Overload <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -361,6 +367,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#precision"><span class="nav-number">1.</span> <span class="nav-text">Precision</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#recall"><span class="nav-number">2.</span> <span class="nav-text">Recall</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#f1-measuref1-score"><span class="nav-number">3.</span> <span class="nav-text">F1-Measure&#x2F;F1-Score</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -488,6 +495,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
