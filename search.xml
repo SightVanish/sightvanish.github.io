@@ -194,9 +194,9 @@
     <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
     <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
 <p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-orvoRLzEJcAjlGhU" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-orvoRLzEJcAjlGhU").style.height=document.getElementById("mmedia-orvoRLzEJcAjlGhU").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-BcVuiikZvbqxkRbt" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-BcVuiikZvbqxkRbt").style.height=document.getElementById("mmedia-BcVuiikZvbqxkRbt").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-orvoRLzEJcAjlGhU").style.height=document.getElementById("mmedia-orvoRLzEJcAjlGhU").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-BcVuiikZvbqxkRbt").style.height=document.getElementById("mmedia-BcVuiikZvbqxkRbt").scrollWidth*0.76+"px";
     }; </script>
 ]]></content>
       <categories>
@@ -241,32 +241,6 @@
 <li>AdaBoost不需要先验，同时不容易过拟合，同时不依赖弱分类器效果（可以自由分配权重）。</li>
 <li>AdaBoost错误样本权重指数上升--容易受噪音干扰</li>
 </ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Benchmark of Neural Network--Precision,Recall,F1-Measure</title>
-    <url>/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/</url>
-    <content><![CDATA[<h3 id="precision">Precision</h3>
-<p><span class="math inline">\(Precision=\frac{actually \ true \&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \ true}\)</span></p>
-<p>The percentage of true labels decided by the model are actually true.</p>
-<h3 id="recall">Recall</h3>
-<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \ true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
-<p>The percentage of true items are decided true by the model.</p>
-<p>If we want higher Precision, we should not take any risk--only take those with highest score.</p>
-<p>But if we want higher Recall, we should take all possible results. That is, we cannot get Precision and Recall improved at the same time.</p>
-<p>So we need a balance benchmark.</p>
-<h3 id="f1-measuref1-score">F1-Measure/F1-Score</h3>
-<p><span class="math display">\[
-F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
-\]</span></p>
-<p>We get F1-Measure when <span class="math inline">\(\alpha=1\)</span>.</p>
-<p>More on <a href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic Mean</a>--it prevents models that are only good at either of P or R from doing good in F.</p>
-<p>x=50, y=0~100, here is the score (<a href="https://www.zhihu.com/question/47980482">ref</a>):</p>
-<p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
-<p>Harmonic mean tries to get a result that neither P nor R is not so bad even if both of them are not really good.</p>
 ]]></content>
       <categories>
         <category>Machine Learning</category>
@@ -396,6 +370,93 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
+    <title>Benchmark of Neural Network--Precision,Recall,F1-Measure</title>
+    <url>/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/</url>
+    <content><![CDATA[<h3 id="precision">Precision</h3>
+<p><span class="math inline">\(Precision=\frac{actually \ true \&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \ true}\)</span></p>
+<p>The percentage of true labels decided by the model are actually true.</p>
+<h3 id="recall">Recall</h3>
+<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \ true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
+<p>The percentage of true items are decided true by the model.</p>
+<p>If we want higher Precision, we should not take any risk--only take those with highest score.</p>
+<p>But if we want higher Recall, we should take all possible results. That is, we cannot get Precision and Recall improved at the same time.</p>
+<p>So we need a balance benchmark.</p>
+<h3 id="f1-measuref1-score">F1-Measure/F1-Score</h3>
+<p><span class="math display">\[
+F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
+\]</span></p>
+<p>We get F1-Measure when <span class="math inline">\(\alpha=1\)</span>.</p>
+<p>More on <a href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic Mean</a>--it prevents models that are only good at either of P or R from doing good in F.</p>
+<p>x=50, y=0~100, here is the score (<a href="https://www.zhihu.com/question/47980482">ref</a>):</p>
+<p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
+<p>Harmonic mean tries to get a result that neither P nor R is not so bad even if both of them are not really good.</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Blender Cloth Rendering</title>
+    <url>/2021/09/14/Blender-Cloth-Rending/</url>
+    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
+<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
+<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
+<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
+<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
+<p><img src="/2021/09/14/Blender-Cloth-Rending/1.png" width="75%" height="75%"></p>
+]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Blender尝试NPR场景</title>
+    <url>/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/</url>
+    <content><![CDATA[<p>尝试了NPR的场景渲染，感觉不是特别成功，二次元渲染不仅需要技术，调参也很难，需要一些美学功底更重要的是对渲染节点的深入理解。</p>
+<p><img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/Grass.png"></p>
+]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>C/C++ openmp</title>
+    <url>/2020/05/30/C-C-openmp/</url>
+    <content><![CDATA[<p>Just a note for myself !</p>
+<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del> </strong> !!!</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>openmp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cannot get access to Github</title>
+    <url>/2021/03/04/Cannot-get-access-to-Github/</url>
+    <content><![CDATA[<p>MacOS 11.2</p>
+<ol type="1">
+<li><p><code>sudo vim /private/etc/hosts</code></p></li>
+<li><p>Delete all path about Github</p></li>
+<li><p>Search IP address of <code>github.com</code> and <code>github.global.ssl.fastly.net</code> in <code>https://github.com.ipaddress.com</code></p></li>
+<li><p>Add</p>
+<p><code>#github</code></p>
+<p><code>140.82.114.4 github.com</code></p>
+<p><code>199.232.69.194 github.global.ssl.fastly.net</code></p>
+<p>replace the IP address with the search result.</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+        <tag>MacOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++11 in Mac (VsCode)</title>
     <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
     <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of <code>gcc</code>. You can still use <code>clang++</code> or <code>g++</code> to run a <code>.cpp</code> file. But basically, <code>clang</code> will use <code>-std=c++98</code> as default.</p>
@@ -423,20 +484,6 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
-    <title>Blender Cloth Rendering</title>
-    <url>/2021/09/14/Blender-Cloth-Rending/</url>
-    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
-<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
-<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
-<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
-<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
-<p><img src="/2021/09/14/Blender-Cloth-Rending/1.png" width="75%" height="75%"></p>
-]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
     <title>C++: Difference between int* and int&amp; and int</title>
     <url>/2020/05/29/C-Difference-between-int-and-int-and-int/</url>
     <content><![CDATA[<p>Actually what I want to mention is the new type, reference, introduced via c++, but here I just use <code>int&amp;</code>as an example.</p>
@@ -459,65 +506,6 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
-    <title>C/C++ openmp</title>
-    <url>/2020/05/30/C-C-openmp/</url>
-    <content><![CDATA[<p>Just a note for myself !</p>
-<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del> </strong> !!!</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C/C++</tag>
-        <tag>openmp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Copy &amp; Deepcopy in Python</title>
-    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cannot get access to Github</title>
-    <url>/2021/03/04/Cannot-get-access-to-Github/</url>
-    <content><![CDATA[<p>MacOS 11.2</p>
-<ol type="1">
-<li><p><code>sudo vim /private/etc/hosts</code></p></li>
-<li><p>Delete all path about Github</p></li>
-<li><p>Search IP address of <code>github.com</code> and <code>github.global.ssl.fastly.net</code> in <code>https://github.com.ipaddress.com</code></p></li>
-<li><p>Add</p>
-<p><code>#github</code></p>
-<p><code>140.82.114.4 github.com</code></p>
-<p><code>199.232.69.194 github.global.ssl.fastly.net</code></p>
-<p>replace the IP address with the search result.</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-        <tag>MacOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Blender尝试NPR场景</title>
-    <url>/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/</url>
-    <content><![CDATA[<p>尝试了NPR的场景渲染，感觉不是特别成功，二次元渲染不仅需要技术，调参也很难，需要一些美学功底更重要的是对渲染节点的深入理解。</p>
-<p><img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/Grass.png"></p>
-]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
     <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
     <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
@@ -535,6 +523,52 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
         <tag>C++</tag>
         <tag>const</tag>
         <tag>pointer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Copy &amp; Deepcopy in Python</title>
+    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Difference between Override &amp; Overload</title>
+    <url>/2020/12/16/Difference-between-Override-Overload/</url>
+    <content><![CDATA[<p>Both of them only happen when difference function using same name.</p>
+<ul>
+<li><p>Overloading: picking a method <strong>signature</strong> at compile time based on the number and type of the arguments specified</p>
+<p>Overload--在compile时抓取function signature，每个function参数列表（参数数目和数量）不同，所以区别开来。</p></li>
+<li><p>Overriding: picking a method <strong>implementation</strong> at execution time based on the actual type of the target object (as opposed to the compile-time type of the expression)</p>
+<p>Override--在execution时选取不同的function来执行，注意这些function名称相同，参数列表相同。发生在类的继承中，子类function override夫类function，返回类型相同。</p></li>
+</ul>
+<span id="more"></span>
+<p>Example (with java):</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">// this function will overload the function above</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">double</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(double)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;		</span><br><span class="line">  	<span class="comment">// this function override the function in Base</span></span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Base b = <span class="keyword">new</span> Child();</span><br><span class="line">b.foo(<span class="number">10</span>); <span class="comment">// Prints Child.foo(int)</span></span><br><span class="line">b.foo(<span class="number">5.0</span>); <span class="comment">// Prints Base.foo(double)</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Experience of MacOS Big Sur</title>
+    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
+    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
+<p>(for test purpose--transfer Blog)</p>
+]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+      <tags>
+        <tag>MacOS</tag>
       </tags>
   </entry>
   <entry>
@@ -624,15 +658,6 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
-    <title>GIF test</title>
-    <url>/2021/09/16/GIF-test/</url>
-    <content><![CDATA[<p>You should see this. <iframe height="75%" width="75%" src="1.gif"></iframe></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Games101 Homework Summary</title>
     <url>/2021/09/29/Games101-Homework-Summary/</url>
     <content><![CDATA[<h3 id="assignment-1">Assignment 1</h3>
@@ -660,221 +685,9 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </categories>
   </entry>
   <entry>
-    <title>Experience of MacOS Big Sur</title>
-    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
-    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
-<p>(for test purpose--transfer Blog)</p>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-      <tags>
-        <tag>MacOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
-    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
-    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
-<p>Try <code>nvidia-settings</code> in terminal, then:</p>
-<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to install &#39;labelme&#39; in Macbook M1</title>
-    <url>/2021/09/29/How-to-install-labelme-in-Macbook-M1/</url>
-    <content><![CDATA[<h3 id="conda-environment">Conda Environment</h3>
-<ol type="1">
-<li>Because anaconda is not suitable for M1, we use miniforge3 instead.</li>
-<li>Create new conda environment with 'python=3.9'. (miniforge3 only support python3.9 on M1).</li>
-</ol>
-<h3 id="pyqt5">PyQt5</h3>
-<ol type="1">
-<li>install homebrew (remeber to add path).</li>
-<li><code>brew install pyqt5</code>. Homebrew supports pyqt now.</li>
-<li>add path: <code>echo 'export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code> and <code>echo 'export PATH="/opt/homebrew/opt/pyqt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code>. This path may be not suitbale for you. You should modify your path to <code>/qt5@/bin</code> and <code>/qypt@5/bin</code>, and modify your bash profile (<code>~/.zshrc</code> for most Macbook users).</li>
-<li>Duplicate the files in <code>/opt/homebrew/Cellar/pyqt@5/5.15.4_1/lib/python3.9/site-packages</code> and paste them to <code>/Users/&lt;username&gt;/miniforge3/envs/&lt;environmentname&gt;/lib/python3.9/site-packages</code>.</li>
-<li><code>source ~/.bashrc</code> (<code>.zshrc</code>)</li>
-</ol>
-<h3 id="labelme">labelme</h3>
-<ol type="1">
-<li>labelme can be installed directly via pip (in your conda environemnt)</li>
-<li><code>pip install labelme</code></li>
-<li>when everything is done, <code>labelme</code> to use it.</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Difference between Override &amp; Overload</title>
-    <url>/2020/12/16/Difference-between-Override-Overload/</url>
-    <content><![CDATA[<p>Both of them only happen when difference function using same name.</p>
-<ul>
-<li><p>Overloading: picking a method <strong>signature</strong> at compile time based on the number and type of the arguments specified</p>
-<p>Overload--在compile时抓取function signature，每个function参数列表（参数数目和数量）不同，所以区别开来。</p></li>
-<li><p>Overriding: picking a method <strong>implementation</strong> at execution time based on the actual type of the target object (as opposed to the compile-time type of the expression)</p>
-<p>Override--在execution时选取不同的function来执行，注意这些function名称相同，参数列表相同。发生在类的继承中，子类function override夫类function，返回类型相同。</p></li>
-</ul>
-<span id="more"></span>
-<p>Example (with java):</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">// this function will overload the function above</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">double</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(double)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;		</span><br><span class="line">  	<span class="comment">// this function override the function in Base</span></span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Base b = <span class="keyword">new</span> Child();</span><br><span class="line">b.foo(<span class="number">10</span>); <span class="comment">// Prints Child.foo(int)</span></span><br><span class="line">b.foo(<span class="number">5.0</span>); <span class="comment">// Prints Base.foo(double)</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linear Regression</title>
-    <url>/2021/09/23/Linear%20Regression/</url>
-    <content><![CDATA[<h2 id="linear-regression">Linear Regression</h2>
-<h3 id="setup">Setup</h3>
-<p>Data: <span class="math inline">\(D={(x _1,y _1),(x _2,y _2), \cdots ,(x _N,y _N) }\)</span>, <span class="math inline">\(x _i \in \pmb{R} ^p\)</span> and <span class="math inline">\(y _i \in \pmb{R}\)</span>.</p>
-<p>In matrix form:</p>
-<p>​ Input: <span class="math inline">\(X=(x _1, x _2, \cdots, x _N)^T \in \pmb{R} _{N\times p}\)</span> is a matrix. <span class="math inline">\(x _1=(x _{11},x _{12},\cdots,x _{1p})\in \pmb{R} _p\)</span> is a vector.</p>
-<p>​ Output: <span class="math inline">\(Y=(y _1,y _2, \cdots, y _N) \in \pmb{R} _N\)</span> is a matrix.</p>
-<p>​ Weight: <span class="math inline">\(W=(w _1, w _2, \cdots, w _p) ^T\)</span> is a vector.</p>
-<span id="more"></span>
-<h3 id="the-basic-least-square-method">The basic <em>Least Square Method</em></h3>
-<p>Model: <span class="math display">\[
-y _i=W^Tx _i\\
-Y=XW
-\]</span> Loss: <span class="math display">\[
-\begin{equation}\begin{split}
-L(w)
-&amp;=\sum _{i=1} ^N ||W^Tx _i - y _i||^2\\
-&amp;=(XW-Y)^T(XW-T)\\
-&amp;=(X^TX^T-Y^T)(XW-Y)
-&amp;=W^TX^TXW-2W^TX^TY+Y^TY
-\end{split}\end{equation}
-\]</span> We can solve <span class="math inline">\(\hat W\)</span> directly: <span class="math display">\[
-\frac{\partial L(w)}{\partial w}=2X^TXW-2X^TY=0\\
-\hat W=(X^TX)^{-1}X^TY
-\]</span> Note: <span class="math inline">\((X^TX)^{-1}\)</span> may not exist.</p>
-<h3 id="actually-the-data-is-sampled-with-noise.-we-have-to-add-noise-to-our-model.">Actually the data is sampled with noise. We have to add noise to our model.</h3>
-<p>Model: <span class="math display">\[
-assume \ noise: \epsilon \sim N(0, \sigma ^2)\\
-Y=XW+\epsilon
-\]</span> So we have to handle this by MLE: <span class="math display">\[
-y|x,W \sim N(W^Tx,\sigma ^2)\\
-then \ we \ can \ get:\\
-P(Y|X,W)=\frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(Y-XW)^2}{2\sigma ^2})
-\]</span> MLE: <span class="math display">\[
-\begin{equation}\begin{split}
-L(W)
-&amp;=ln \ p(y|x,W)\\
-&amp;=ln \ \prod _{i=1}^Np(y|x,W)\\
-&amp;=\sum _{i=1}^N(ln \ \frac{1}{\sqrt{2\pi}\sigma}-\frac{(y-W^Tx)^2}{2\sigma ^2})
-\end{split}\end{equation}
-\]</span></p>
-<p><span class="math display">\[
-\begin{equation}\begin{split}
-\hat W
-&amp;=argmax_WL(W)\\
-&amp;=argmin_W\sum _{i=1}^N\frac{(y-W^Tx)^2}{2\sigma ^2}\\
-&amp;=argmin_W\sum _{i=1}^N(y-W^Tx)^2
-\end{split}\end{equation}
-\]</span></p>
-<p>The following part is same with Least Square Method. Their results are same.</p>
-<h3 id="but-remember-xtx-1-may-not-exist.">But remember: <span class="math inline">\((X^TX)^{-1}\)</span> may not exist.</h3>
-<p>Actually, we can solve it by adding <strong>penalty term</strong>. We call this method <strong>Regularization</strong>.</p>
-<h4 id="ridge">Ridge</h4>
-<p><span class="math display">\[
-\begin{equation}\begin{split}
-L^{ridge}(W)
-&amp;=\sum _{i=1}^N||W^Tx-y||+\lambda||W||^2\\
-&amp;=(XW-Y)^T(XW-Y)+\lambda W^TW
-\end{split}\end{equation}
-\]</span></p>
-<p><span class="math display">\[
-\begin{equation}\begin{split}
-\frac{\partial L^{ridge}(W)}{\partial W}
-&amp;=2(X^TX+\lambda I)-2X^TY
-\end{split}\end{equation}
-\]</span></p>
-<p>Since <span class="math inline">\((X^TX+\lambda I)\)</span> does exit. So we can solve <span class="math inline">\(\hat W^{ridge}\)</span> confidently. (<span class="math inline">\(W^{ls}\)</span> is the result derived by least square method.) <span class="math display">\[
-\hat W^{ridge}=(X^TX+\lambda I)^{-1}X^TY=\frac{1}{1+\lambda}W^{ls}
-\]</span></p>
-<h4 id="lasso">Lasso</h4>
-<p><span class="math display">\[
-\begin{equation}\begin{split}
-L^{lasso}(W)
-&amp;=\sum _{i=1}^N||W^Tx-y||+\lambda||W||\\
-\end{split}\end{equation}
-\]</span></p>
-<p>The result is totally different: <span class="math display">\[
-\hat w _i^{lasso}=sign(w _i^{ls})(w _i^{ls}-\lambda) _+
-\]</span> I draw a picture by hand to illustrate the difference.</p>
-<p><img src="/2021/09/23/Linear%20Regression/1.png"></p>
-<h3 id="what-if-we-have-a-prior-over-w-baysian-way">What if we have a prior over <span class="math inline">\(W\)</span> (Baysian way)</h3>
-<p>Model: <span class="math display">\[
-Y=XW+\epsilon \\
-\epsilon \sim N(0,\sigma ^2)\\
-W \sim Pr(W)\\
-in \ this \ case \ we \ assume: \ W\sim N(0,\sigma _0^2)
-\]</span></p>
-<p><span class="math display">\[
-\begin{equation}\begin{split}
-\hat W^{MAP} 
-&amp;=argmax_Wln \ p(W|Y)\\
-&amp;=argmax_Wln \ \frac{p(Y|W)p(W)}{p(Y)}\\
-&amp;=argmax_Wln \ p(Y|W)p(W)\\
-&amp;=argmax_Wln \ \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(y _i-W^Tx _i)^2}{2\sigma ^2})\frac{1}{\sqrt{2\pi}\sigma_0}exp(-\frac{||W||^2}{2\sigma _0^2})\\
-&amp;=argmin_W\sum _{i=1}^N\frac{(y _i-W^Tx _i)^2}{2\sigma ^2}+\frac{||W||^2}{2\sigma _0^2}\\
-&amp;=argmin_W\sum _{i=1}^N(y _i-W^Tx _i)^2+\frac{\sigma ^2}{\sigma _0^2}||W||^2
-\end{split}\end{equation}
-\]</span></p>
-<p>The next part is same with MLE with ridge regularization.</p>
-<h3 id="you-will-find">You Will Find:</h3>
-<p><span class="math display">\[
-Linear \ Square \ Method\\ 
-\Leftrightarrow Maximum \ Likelihood \ Estimate \ (with \ guassian \ noise)
-\]</span></p>
-<p><span class="math display">\[
-Regularized \ Maximum \ Likelihood \ Estimate \\ 
-\Leftrightarrow Maximum \ a \ posteriori \ estimation \ (with \ guassian \ prior \ over \ W)
-\]</span></p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to get matrix transform in python</title>
-    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
-    <content><![CDATA[<p>Here is a special trick:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
-    <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
-    <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Image Test</title>
-    <url>/2021/09/15/Image-Test/</url>
-    <content><![CDATA[<p>You see the image? <img src="/2021/09/15/Image-Test/test.jpg" alt="image"></p>
+    <title>GIF test</title>
+    <url>/2021/09/16/GIF-test/</url>
+    <content><![CDATA[<p>You should see this. <iframe height="75%" width="75%" src="1.gif"></iframe></p>
 ]]></content>
       <categories>
         <category>Test</category>
@@ -1024,19 +837,17 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
-    <title>Mac上极好的Github使用教程(转载)</title>
-    <url>/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/Capgras/article/details/100540501">原文链接</a></p>
-<p>以下为截图</p>
-<figure>
-<img src="/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/Github(tutorial).jpg" alt="git"><figcaption aria-hidden="true">git</figcaption>
-</figure>
+    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
+    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
+    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
+<p>Try <code>nvidia-settings</code> in terminal, then:</p>
+<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
 ]]></content>
       <categories>
-        <category>Tutorial</category>
+        <category>Configuration</category>
       </categories>
       <tags>
-        <tag>Github</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -1053,6 +864,179 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
+    <title>How to get matrix transform in python</title>
+    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
+    <content><![CDATA[<p>Here is a special trick:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to install &#39;labelme&#39; in Macbook M1</title>
+    <url>/2021/09/29/How-to-install-labelme-in-Macbook-M1/</url>
+    <content><![CDATA[<h3 id="conda-environment">Conda Environment</h3>
+<ol type="1">
+<li>Because anaconda is not suitable for M1, we use miniforge3 instead.</li>
+<li>Create new conda environment with 'python=3.9'. (miniforge3 only support python3.9 on M1).</li>
+</ol>
+<h3 id="pyqt5">PyQt5</h3>
+<ol type="1">
+<li>install homebrew (remeber to add path).</li>
+<li><code>brew install pyqt5</code>. Homebrew supports pyqt now.</li>
+<li>add path: <code>echo 'export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code> and <code>echo 'export PATH="/opt/homebrew/opt/pyqt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code>. This path may be not suitbale for you. You should modify your path to <code>/qt5@/bin</code> and <code>/qypt@5/bin</code>, and modify your bash profile (<code>~/.zshrc</code> for most Macbook users).</li>
+<li>Duplicate the files in <code>/opt/homebrew/Cellar/pyqt@5/5.15.4_1/lib/python3.9/site-packages</code> and paste them to <code>/Users/&lt;username&gt;/miniforge3/envs/&lt;environmentname&gt;/lib/python3.9/site-packages</code>.</li>
+<li><code>source ~/.bashrc</code> (<code>.zshrc</code>)</li>
+</ol>
+<h3 id="labelme">labelme</h3>
+<ol type="1">
+<li>labelme can be installed directly via pip (in your conda environemnt)</li>
+<li><code>pip install labelme</code></li>
+<li>when everything is done, <code>labelme</code> to use it.</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Image Test</title>
+    <url>/2021/09/15/Image-Test/</url>
+    <content><![CDATA[<p>You see the image? <img src="/2021/09/15/Image-Test/test.jpg" alt="image"></p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Linear Regression</title>
+    <url>/2021/09/23/Linear%20Regression/</url>
+    <content><![CDATA[<h2 id="linear-regression">Linear Regression</h2>
+<h3 id="setup">Setup</h3>
+<p>Data: <span class="math inline">\(D={(x _1,y _1),(x _2,y _2), \cdots ,(x _N,y _N) }\)</span>, <span class="math inline">\(x _i \in \pmb{R} ^p\)</span> and <span class="math inline">\(y _i \in \pmb{R}\)</span>.</p>
+<p>In matrix form:</p>
+<p>​ Input: <span class="math inline">\(X=(x _1, x _2, \cdots, x _N)^T \in \pmb{R} _{N\times p}\)</span> is a matrix. <span class="math inline">\(x _1=(x _{11},x _{12},\cdots,x _{1p})\in \pmb{R} _p\)</span> is a vector.</p>
+<p>​ Output: <span class="math inline">\(Y=(y _1,y _2, \cdots, y _N) \in \pmb{R} _N\)</span> is a matrix.</p>
+<p>​ Weight: <span class="math inline">\(W=(w _1, w _2, \cdots, w _p) ^T\)</span> is a vector.</p>
+<span id="more"></span>
+<h3 id="the-basic-least-square-method">The basic <em>Least Square Method</em></h3>
+<p>Model: <span class="math display">\[
+y _i=W^Tx _i\\
+Y=XW
+\]</span> Loss: <span class="math display">\[
+\begin{equation}\begin{split}
+L(w)
+&amp;=\sum _{i=1} ^N ||W^Tx _i - y _i||^2\\
+&amp;=(XW-Y)^T(XW-T)\\
+&amp;=(X^TX^T-Y^T)(XW-Y)
+&amp;=W^TX^TXW-2W^TX^TY+Y^TY
+\end{split}\end{equation}
+\]</span> We can solve <span class="math inline">\(\hat W\)</span> directly: <span class="math display">\[
+\frac{\partial L(w)}{\partial w}=2X^TXW-2X^TY=0\\
+\hat W=(X^TX)^{-1}X^TY
+\]</span> Note: <span class="math inline">\((X^TX)^{-1}\)</span> may not exist.</p>
+<h3 id="actually-the-data-is-sampled-with-noise.-we-have-to-add-noise-to-our-model.">Actually the data is sampled with noise. We have to add noise to our model.</h3>
+<p>Model: <span class="math display">\[
+assume \ noise: \epsilon \sim N(0, \sigma ^2)\\
+Y=XW+\epsilon
+\]</span> So we have to handle this by MLE: <span class="math display">\[
+y|x,W \sim N(W^Tx,\sigma ^2)\\
+then \ we \ can \ get:\\
+P(Y|X,W)=\frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(Y-XW)^2}{2\sigma ^2})
+\]</span> MLE: <span class="math display">\[
+\begin{equation}\begin{split}
+L(W)
+&amp;=ln \ p(y|x,W)\\
+&amp;=ln \ \prod _{i=1}^Np(y|x,W)\\
+&amp;=\sum _{i=1}^N(ln \ \frac{1}{\sqrt{2\pi}\sigma}-\frac{(y-W^Tx)^2}{2\sigma ^2})
+\end{split}\end{equation}
+\]</span></p>
+<p><span class="math display">\[
+\begin{equation}\begin{split}
+\hat W
+&amp;=argmax_WL(W)\\
+&amp;=argmin_W\sum _{i=1}^N\frac{(y-W^Tx)^2}{2\sigma ^2}\\
+&amp;=argmin_W\sum _{i=1}^N(y-W^Tx)^2
+\end{split}\end{equation}
+\]</span></p>
+<p>The following part is same with Least Square Method. Their results are same.</p>
+<h3 id="but-remember-xtx-1-may-not-exist.">But remember: <span class="math inline">\((X^TX)^{-1}\)</span> may not exist.</h3>
+<p>Actually, we can solve it by adding <strong>penalty term</strong>. We call this method <strong>Regularization</strong>.</p>
+<h4 id="ridge">Ridge</h4>
+<p><span class="math display">\[
+\begin{equation}\begin{split}
+L^{ridge}(W)
+&amp;=\sum _{i=1}^N||W^Tx-y||+\lambda||W||^2\\
+&amp;=(XW-Y)^T(XW-Y)+\lambda W^TW
+\end{split}\end{equation}
+\]</span></p>
+<p><span class="math display">\[
+\begin{equation}\begin{split}
+\frac{\partial L^{ridge}(W)}{\partial W}
+&amp;=2(X^TX+\lambda I)-2X^TY
+\end{split}\end{equation}
+\]</span></p>
+<p>Since <span class="math inline">\((X^TX+\lambda I)\)</span> does exit. So we can solve <span class="math inline">\(\hat W^{ridge}\)</span> confidently. (<span class="math inline">\(W^{ls}\)</span> is the result derived by least square method.) <span class="math display">\[
+\hat W^{ridge}=(X^TX+\lambda I)^{-1}X^TY=\frac{1}{1+\lambda}W^{ls}
+\]</span></p>
+<h4 id="lasso">Lasso</h4>
+<p><span class="math display">\[
+\begin{equation}\begin{split}
+L^{lasso}(W)
+&amp;=\sum _{i=1}^N||W^Tx-y||+\lambda||W||\\
+\end{split}\end{equation}
+\]</span></p>
+<p>The result is totally different: <span class="math display">\[
+\hat w _i^{lasso}=sign(w _i^{ls})(w _i^{ls}-\lambda) _+
+\]</span> I draw a picture by hand to illustrate the difference.</p>
+<p><img src="/2021/09/23/Linear%20Regression/1.png"></p>
+<h3 id="what-if-we-have-a-prior-over-w-baysian-way">What if we have a prior over <span class="math inline">\(W\)</span> (Baysian way)</h3>
+<p>Model: <span class="math display">\[
+Y=XW+\epsilon \\
+\epsilon \sim N(0,\sigma ^2)\\
+W \sim Pr(W)\\
+in \ this \ case \ we \ assume: \ W\sim N(0,\sigma _0^2)
+\]</span></p>
+<p><span class="math display">\[
+\begin{equation}\begin{split}
+\hat W^{MAP} 
+&amp;=argmax_Wln \ p(W|Y)\\
+&amp;=argmax_Wln \ \frac{p(Y|W)p(W)}{p(Y)}\\
+&amp;=argmax_Wln \ p(Y|W)p(W)\\
+&amp;=argmax_Wln \ \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(y _i-W^Tx _i)^2}{2\sigma ^2})\frac{1}{\sqrt{2\pi}\sigma_0}exp(-\frac{||W||^2}{2\sigma _0^2})\\
+&amp;=argmin_W\sum _{i=1}^N\frac{(y _i-W^Tx _i)^2}{2\sigma ^2}+\frac{||W||^2}{2\sigma _0^2}\\
+&amp;=argmin_W\sum _{i=1}^N(y _i-W^Tx _i)^2+\frac{\sigma ^2}{\sigma _0^2}||W||^2
+\end{split}\end{equation}
+\]</span></p>
+<p>The next part is same with MLE with ridge regularization.</p>
+<h3 id="you-will-find">You Will Find:</h3>
+<p><span class="math display">\[
+Linear \ Square \ Method\\ 
+\Leftrightarrow Maximum \ Likelihood \ Estimate \ (with \ guassian \ noise)
+\]</span></p>
+<p><span class="math display">\[
+Regularized \ Maximum \ Likelihood \ Estimate \\ 
+\Leftrightarrow Maximum \ a \ posteriori \ estimation \ (with \ guassian \ prior \ over \ W)
+\]</span></p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
+    <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
+    <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Mac上vscode显示没有修改文件权限</title>
     <url>/2020/05/22/Mac%E4%B8%8Avscode%E6%98%BE%E7%A4%BA%E6%B2%A1%E6%9C%89%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/</url>
     <content><![CDATA[<h2 id="问题描述">问题描述</h2>
@@ -1066,6 +1050,34 @@ Picture3: 3-D GMM
       <categories>
         <category>Configuration</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Markdown在github上公式显示错误</title>
+    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac上极好的Github使用教程(转载)</title>
+    <url>/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/Capgras/article/details/100540501">原文链接</a></p>
+<p>以下为截图</p>
+<figure>
+<img src="/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/Github(tutorial).jpg" alt="git"><figcaption aria-hidden="true">git</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Tutorial</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
   </entry>
   <entry>
     <title>My Donut in Blender</title>
@@ -1095,18 +1107,6 @@ Picture3: 3-D GMM
       <categories>
         <category>Blender</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Markdown在github上公式显示错误</title>
-    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
   </entry>
   <entry>
     <title>NPR Cup--a taste to NPR</title>
@@ -1149,6 +1149,39 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
+    <title>Python set</title>
+    <url>/2020/09/24/Python-set/</url>
+    <content><![CDATA[<h3 id="basic-use-of-set">Basic use of set</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;x = <span class="built_in">set</span>(<span class="string">&#x27;runoob&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;y = <span class="built_in">set</span>(<span class="string">&#x27;google&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;x, y</span><br><span class="line">(<span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>]), <span class="built_in">set</span>([<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>]))   <span class="comment"># delete duplicated items</span></span><br><span class="line">&gt;&gt;&gt;x &amp; y         <span class="comment"># return the same items in both set</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;o&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x | y         <span class="comment"># return all the items</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x - y         <span class="comment"># like difference</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;n&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="practice">Practice</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;a = <span class="built_in">set</span>(<span class="string">&quot;Google&quot;</span>)</span><br><span class="line">a</span><br><span class="line">&#123;<span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;e&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;b = <span class="built_in">set</span>(<span class="string">&quot;Bob&quot;</span>)</span><br><span class="line">b</span><br><span class="line">&#123;<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;o&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;a.difference(b)</span><br><span class="line">&#123;<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># set A and set B</span></span><br><span class="line"><span class="comment"># deep copy set</span></span><br><span class="line">C = A.copy()</span><br><span class="line"><span class="comment"># add elements in B to A</span></span><br><span class="line">A.update(B)</span><br></pre></td></tr></table></figure>
+<h3 id="how-to-init">How to init</h3>
+<ol type="1">
+<li><code>s = set([1,2,3,4,5])</code></li>
+<li><code>s = &#123;1,2,3,4,5&#125; # it is a set</code></li>
+</ol>
+<h3 id="how-to-determine-an-empty-set">How to determine an empty set</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> s: <span class="comment"># if the set is empty</span></span><br><span class="line">	<span class="comment"># do sth</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
+    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
+    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
+<p>Literally, it is a <code>const iterator</code>, which means: iterator, as a pointer, can not be modified, but the value pointed by this iterator is permitted to be modified.</p>
+<h1 id="const_iterator">const_iterator</h1>
+<p><code>const_iterator</code>is a specially defined class. It is defined to go through a const container, which we are not intended to modify.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Principal Component Analysis</title>
     <url>/2021/05/27/Principal-Component-Analysis/</url>
     <content><![CDATA[<h1 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h1>
@@ -1169,55 +1202,6 @@ Picture3: 3-D GMM
       <tags>
         <tag>PCA</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Python technique</title>
-    <url>/2020/06/06/Python-technique/</url>
-    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking or dynamic programing:</p>
-<p>cause it will avoid reuse of data and reach good performance</p>
-<hr>
-<p>how to create a vector</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
-<p>Directly read/ wirte is quite different from <code>append()</code></p>
-<p><code>append()</code> will treat elements as data, which is more flexible</p>
-<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned vector</p>
-<span id="more"></span>
-<hr>
-<p>spilt part of string</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>init a vector:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
-<p>vector is a row*column size vector with all entries initialized by a.</p>
-<p>note <code>a</code> is just a value and can be anything you wang. <code>i</code> is just an iterator, even can use <code>_</code></p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python set</title>
-    <url>/2020/09/24/Python-set/</url>
-    <content><![CDATA[<h3 id="basic-use-of-set">Basic use of set</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;x = <span class="built_in">set</span>(<span class="string">&#x27;runoob&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;y = <span class="built_in">set</span>(<span class="string">&#x27;google&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;x, y</span><br><span class="line">(<span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>]), <span class="built_in">set</span>([<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>]))   <span class="comment"># delete duplicated items</span></span><br><span class="line">&gt;&gt;&gt;x &amp; y         <span class="comment"># return the same items in both set</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;o&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x | y         <span class="comment"># return all the items</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x - y         <span class="comment"># like difference</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;n&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h3 id="practice">Practice</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;a = <span class="built_in">set</span>(<span class="string">&quot;Google&quot;</span>)</span><br><span class="line">a</span><br><span class="line">&#123;<span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;e&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;b = <span class="built_in">set</span>(<span class="string">&quot;Bob&quot;</span>)</span><br><span class="line">b</span><br><span class="line">&#123;<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;o&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;a.difference(b)</span><br><span class="line">&#123;<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># set A and set B</span></span><br><span class="line"><span class="comment"># deep copy set</span></span><br><span class="line">C = A.copy()</span><br><span class="line"><span class="comment"># add elements in B to A</span></span><br><span class="line">A.update(B)</span><br></pre></td></tr></table></figure>
-<h3 id="how-to-init">How to init</h3>
-<ol type="1">
-<li><code>s = set([1,2,3,4,5])</code></li>
-<li><code>s = &#123;1,2,3,4,5&#125; # it is a set</code></li>
-</ol>
-<h3 id="how-to-determine-an-empty-set">How to determine an empty set</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> s: <span class="comment"># if the set is empty</span></span><br><span class="line">	<span class="comment"># do sth</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
   </entry>
   <entry>
     <title>SVM(Support Vector Machine)</title>
@@ -1262,73 +1246,32 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
-    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
-    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
-    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
-<p>Literally, it is a <code>const iterator</code>, which means: iterator, as a pointer, can not be modified, but the value pointed by this iterator is permitted to be modified.</p>
-<h1 id="const_iterator">const_iterator</h1>
-<p><code>const_iterator</code>is a specially defined class. It is defined to go through a const container, which we are not intended to modify.</p>
+    <title>Python technique</title>
+    <url>/2020/06/06/Python-technique/</url>
+    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking or dynamic programing:</p>
+<p>cause it will avoid reuse of data and reach good performance</p>
+<hr>
+<p>how to create a vector</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
+<p>Directly read/ wirte is quite different from <code>append()</code></p>
+<p><code>append()</code> will treat elements as data, which is more flexible</p>
+<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned vector</p>
+<span id="more"></span>
+<hr>
+<p>spilt part of string</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>init a vector:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
+<p>vector is a row*column size vector with all entries initialized by a.</p>
+<p>note <code>a</code> is just a value and can be anything you wang. <code>i</code> is just an iterator, even can use <code>_</code></p>
 ]]></content>
       <categories>
         <category>Learning</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Social LSTM</title>
-    <url>/2021/03/07/Social-LSTM/</url>
-    <content><![CDATA[<h2 id="rnn">RNN</h2>
-<p>Recurrent Neural Network，循环神经网络。</p>
-<p>RNN 是包含循环的网络，允许信息的持久化，可以充分利用先验的信息知识。</p>
-<p><img src="/2021/03/07/Social-LSTM/1.png" alt="3" style="zoom:20%;"></p>
-<p>本质上RNN就是在<span class="math inline">\(t\)</span>时刻，input=<span class="math inline">\(X _t + h _{t-1}\)</span>。</p>
-<p>LSTM就是一种特殊的RNN。</p>
-<p>对于RNN来说，在语言预测词汇中，对此要预测的词来说，相近的词贡献会很大，而时间间隔越远的词，贡献越少。但是往往存在Long-Term Dependency问题，一些重要信息可能会贯穿全文，如果很早出现但是被忘记，在后续的预测中将会很不利。理论上，RNN当然可以处理这种长期记忆问题，但是实践中却很难做到。为此LSTM出现了。</p>
-<span id="more"></span>
-<h2 id="lstm">LSTM</h2>
-<p>Long-Short Term Memory</p>
-<p>LSTM主要目的就是为了能够尽可能利用长期记忆。</p>
-<p>传统的RNN结构中只有一层神经网络。</p>
-<p><img src="/2021/03/07/Social-LSTM/2.png" alt="3" style="zoom:25%;"></p>
-<p>LSTM结构：</p>
-<p><img src="/2021/03/07/Social-LSTM/3.png" alt="3" style="zoom:25%;"></p>
-<p>每个时刻神经网络的状态（输出）为--cell state (<span class="math inline">\(C _t\)</span>)：</p>
-<p><img src="/2021/03/07/Social-LSTM/4.png" alt="3" style="zoom:25%;"></p>
-<h3 id="gate">Gate</h3>
-<p>LSTM引入了gate，使得信息能够选择性通过：</p>
-<p><img src="/2021/03/07/Social-LSTM/5.png" alt="3" style="zoom:25%;"></p>
-<p><strong>gate = a layer of Sigmoid + bitwise multiplier</strong></p>
-<p>LSTM有三个gate: forget gate, input gate(memory gate), output gate.</p>
-<p><img src="/2021/03/07/Social-LSTM/6.png" alt="3" style="zoom:40%;"></p>
-<h4 id="forget-gate">Forget gate</h4>
-<p><span class="math inline">\(input = [h _{t-1}, X _t]\)</span> <span class="math inline">\(ouput = f _t\)</span></p>
-<p>function: <span class="math inline">\(f _t = \sigma(W _f[h _{t-1}, x _t]+b _f)\)</span></p>
-<p>显然<span class="math inline">\(f _t\)</span>是一个[0, 1]之间的数，和<span class="math inline">\(C _{t-1}\)</span>相乘之后决定<span class="math inline">\(C _{t-1}\)</span>之中那些可以被保留，那些要忘记。</p>
-<p>eg. 假设<span class="math inline">\(C _{t-1} = [0.5,0.6,0.4]\)</span>，<span class="math inline">\(h _{t-1} = [0.3,0.8,0.69]\)</span>，<span class="math inline">\(x _t = [0.2,1.3,0.7]\)</span>，<span class="math inline">\(input = [h _{t-1}, X _t] = [0.3,0.8,0.69, 0.2,1.3,0.7]\)</span>，然后通过sigmoid输出每一个元素都处于<img src="https://www.zhihu.com/equation?tex=0" alt="[公式]">到<img src="https://www.zhihu.com/equation?tex=1" alt="[公式]">之间的向量<span class="math inline">\(f = [0.5,0.1,0.8]\)</span>，注意这里的sigmoid不是一个函数，而是sigmoid神经网络层，ouput大小==<span class="math inline">\(C _{t-1}\)</span>大小。</p>
-<h4 id="input-gate-memory-gate">Input gate (Memory gate)</h4>
-<p>记忆门包括两个支路：</p>
-<p><span class="math inline">\(i _t = \sigma(W _i[h _{t-1}, x _t] + b _i)\)</span></p>
-<p><span class="math inline">\(\widetilde C _t= tanh(W _C[h _{t-1}, x _t]+b _C)\)</span></p>
-<p>tanh层负责创造一个新的候选cell state (<span class="math inline">\(\widetilde C _t\)</span>)，sigmoid layer负责考虑哪些信息被保留，然后把结果加入之前的cell state。</p>
-<p>此时，cell state更新完成：<span class="math inline">\(C _t = C _{t-1}*f _t + i _t *\widetilde C _t\)</span></p>
-<h4 id="output-gate">Output gate</h4>
-<p>输出--作为下次输入的<span class="math inline">\(h _t\)</span></p>
-<p><span class="math inline">\(h _t = \sigma(W _o[h _{t-1}, x _t]+b _o) * tanh(C _t)\)</span>, note <span class="math inline">\(&#39;*’\)</span> denotes bit-wise multiplier.</p>
-<h3 id="why-lstm">Why LSTM</h3>
-<p>forget gate里面大多数位置都是0，1即是网络中保留的信息。gate有点类似于注意力机制，对于需要的信息，训练出高attention（1）。这样使得有价值的信息能够被过滤出来，长时间地保留下去。</p>
-<h2 id="social-lstm">Social LSTM</h2>
-<p>问题：</p>
-<p>第<span class="math inline">\(i\)</span>个人，在<span class="math inline">\(t\)</span>时刻，位置为<span class="math inline">\((x _i ^t, y _i ^t)\)</span> ，输入（观测）一段时间的行人位置：<span class="math inline">\(0 \rarr T _{obs}\)</span>来预测未来时间内行人位置：<span class="math inline">\(T _{obs + 1} \rarr T _{predict}\)</span>。</p>
-<p>social LSTM是指pooling based LSTM model</p>
-<p><img src="/2021/03/07/Social-LSTM/7.png" alt="3" style="zoom:40%;"></p>
-<h3 id="social-pooling">Social Pooling</h3>
-<p>LSTM对时间序列处理优秀，但是行人之间有复杂的相互影响关系，故引入Social Pooling（S-pooling）来让一定距离内的行人LSTM节点状态共享。</p>
-<p><span class="math inline">\(h _i ^t\)</span>为第<span class="math inline">\(i\)</span>个人在<span class="math inline">\(t\)</span>时刻时LSTM的hidden state。为了共享这一状态，作者引入了<span class="math inline">\(H _t ^i\)</span>。给定D（hidden state dimension）和临域大小<span class="math inline">\(N _o\)</span>，<span class="math inline">\(H _t ^i\)</span>为 <span class="math inline">\(N _o *N _o*D\)</span>大小。</p>
-<p><img src="/2021/03/07/Social-LSTM/8.png" alt="3" style="zoom:40%;"></p>
-<p><span class="math inline">\(1 _{mn}\)</span>表示<span class="math inline">\(j\)</span>节点点是否在m*n网格中，如果在即为1，否则为0。<span class="math inline">\(N _i\)</span>指<span class="math inline">\(i\)</span>节点所有邻居节点。<span class="math inline">\(H _t ^i\)</span>即为在<span class="math inline">\(i\)</span>节点一定距离内所有节点的<span class="math inline">\(h _{t-1} ^j\)</span>之和。</p>
-]]></content>
-      <categories>
-        <category>Computer Vision</category>
-      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>Sort Algorithms</title>
@@ -1570,22 +1513,71 @@ Picture3: 3-D GMM
       </categories>
   </entry>
   <entry>
-    <title>Test password</title>
-    <url>/2021/09/15/Test-password/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="d0f22fb8ec934b630357bfed8eddaebceee1d75a12c7b7f676982c457b1c24c3">165d50f05814027fb7fe5e4ae8a088d8aa2b5ed724ea7f4f8aea8267289667dd0de0240fdde409598408170417c80b66d2288279e5571a43ddc20d8f87d5d48034dddfe8e1d8a865ebee019b43336466</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Please Eneter Password!</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+    <title>Social LSTM</title>
+    <url>/2021/03/07/Social-LSTM/</url>
+    <content><![CDATA[<h2 id="rnn">RNN</h2>
+<p>Recurrent Neural Network，循环神经网络。</p>
+<p>RNN 是包含循环的网络，允许信息的持久化，可以充分利用先验的信息知识。</p>
+<p><img src="/2021/03/07/Social-LSTM/1.png" alt="3" style="zoom:20%;"></p>
+<p>本质上RNN就是在<span class="math inline">\(t\)</span>时刻，input=<span class="math inline">\(X _t + h _{t-1}\)</span>。</p>
+<p>LSTM就是一种特殊的RNN。</p>
+<p>对于RNN来说，在语言预测词汇中，对此要预测的词来说，相近的词贡献会很大，而时间间隔越远的词，贡献越少。但是往往存在Long-Term Dependency问题，一些重要信息可能会贯穿全文，如果很早出现但是被忘记，在后续的预测中将会很不利。理论上，RNN当然可以处理这种长期记忆问题，但是实践中却很难做到。为此LSTM出现了。</p>
+<span id="more"></span>
+<h2 id="lstm">LSTM</h2>
+<p>Long-Short Term Memory</p>
+<p>LSTM主要目的就是为了能够尽可能利用长期记忆。</p>
+<p>传统的RNN结构中只有一层神经网络。</p>
+<p><img src="/2021/03/07/Social-LSTM/2.png" alt="3" style="zoom:25%;"></p>
+<p>LSTM结构：</p>
+<p><img src="/2021/03/07/Social-LSTM/3.png" alt="3" style="zoom:25%;"></p>
+<p>每个时刻神经网络的状态（输出）为--cell state (<span class="math inline">\(C _t\)</span>)：</p>
+<p><img src="/2021/03/07/Social-LSTM/4.png" alt="3" style="zoom:25%;"></p>
+<h3 id="gate">Gate</h3>
+<p>LSTM引入了gate，使得信息能够选择性通过：</p>
+<p><img src="/2021/03/07/Social-LSTM/5.png" alt="3" style="zoom:25%;"></p>
+<p><strong>gate = a layer of Sigmoid + bitwise multiplier</strong></p>
+<p>LSTM有三个gate: forget gate, input gate(memory gate), output gate.</p>
+<p><img src="/2021/03/07/Social-LSTM/6.png" alt="3" style="zoom:40%;"></p>
+<h4 id="forget-gate">Forget gate</h4>
+<p><span class="math inline">\(input = [h _{t-1}, X _t]\)</span> <span class="math inline">\(ouput = f _t\)</span></p>
+<p>function: <span class="math inline">\(f _t = \sigma(W _f[h _{t-1}, x _t]+b _f)\)</span></p>
+<p>显然<span class="math inline">\(f _t\)</span>是一个[0, 1]之间的数，和<span class="math inline">\(C _{t-1}\)</span>相乘之后决定<span class="math inline">\(C _{t-1}\)</span>之中那些可以被保留，那些要忘记。</p>
+<p>eg. 假设<span class="math inline">\(C _{t-1} = [0.5,0.6,0.4]\)</span>，<span class="math inline">\(h _{t-1} = [0.3,0.8,0.69]\)</span>，<span class="math inline">\(x _t = [0.2,1.3,0.7]\)</span>，<span class="math inline">\(input = [h _{t-1}, X _t] = [0.3,0.8,0.69, 0.2,1.3,0.7]\)</span>，然后通过sigmoid输出每一个元素都处于<img src="https://www.zhihu.com/equation?tex=0" alt="[公式]">到<img src="https://www.zhihu.com/equation?tex=1" alt="[公式]">之间的向量<span class="math inline">\(f = [0.5,0.1,0.8]\)</span>，注意这里的sigmoid不是一个函数，而是sigmoid神经网络层，ouput大小==<span class="math inline">\(C _{t-1}\)</span>大小。</p>
+<h4 id="input-gate-memory-gate">Input gate (Memory gate)</h4>
+<p>记忆门包括两个支路：</p>
+<p><span class="math inline">\(i _t = \sigma(W _i[h _{t-1}, x _t] + b _i)\)</span></p>
+<p><span class="math inline">\(\widetilde C _t= tanh(W _C[h _{t-1}, x _t]+b _C)\)</span></p>
+<p>tanh层负责创造一个新的候选cell state (<span class="math inline">\(\widetilde C _t\)</span>)，sigmoid layer负责考虑哪些信息被保留，然后把结果加入之前的cell state。</p>
+<p>此时，cell state更新完成：<span class="math inline">\(C _t = C _{t-1}*f _t + i _t *\widetilde C _t\)</span></p>
+<h4 id="output-gate">Output gate</h4>
+<p>输出--作为下次输入的<span class="math inline">\(h _t\)</span></p>
+<p><span class="math inline">\(h _t = \sigma(W _o[h _{t-1}, x _t]+b _o) * tanh(C _t)\)</span>, note <span class="math inline">\(&#39;*’\)</span> denotes bit-wise multiplier.</p>
+<h3 id="why-lstm">Why LSTM</h3>
+<p>forget gate里面大多数位置都是0，1即是网络中保留的信息。gate有点类似于注意力机制，对于需要的信息，训练出高attention（1）。这样使得有价值的信息能够被过滤出来，长时间地保留下去。</p>
+<h2 id="social-lstm">Social LSTM</h2>
+<p>问题：</p>
+<p>第<span class="math inline">\(i\)</span>个人，在<span class="math inline">\(t\)</span>时刻，位置为<span class="math inline">\((x _i ^t, y _i ^t)\)</span> ，输入（观测）一段时间的行人位置：<span class="math inline">\(0 \rarr T _{obs}\)</span>来预测未来时间内行人位置：<span class="math inline">\(T _{obs + 1} \rarr T _{predict}\)</span>。</p>
+<p>social LSTM是指pooling based LSTM model</p>
+<p><img src="/2021/03/07/Social-LSTM/7.png" alt="3" style="zoom:40%;"></p>
+<h3 id="social-pooling">Social Pooling</h3>
+<p>LSTM对时间序列处理优秀，但是行人之间有复杂的相互影响关系，故引入Social Pooling（S-pooling）来让一定距离内的行人LSTM节点状态共享。</p>
+<p><span class="math inline">\(h _i ^t\)</span>为第<span class="math inline">\(i\)</span>个人在<span class="math inline">\(t\)</span>时刻时LSTM的hidden state。为了共享这一状态，作者引入了<span class="math inline">\(H _t ^i\)</span>。给定D（hidden state dimension）和临域大小<span class="math inline">\(N _o\)</span>，<span class="math inline">\(H _t ^i\)</span>为 <span class="math inline">\(N _o *N _o*D\)</span>大小。</p>
+<p><img src="/2021/03/07/Social-LSTM/8.png" alt="3" style="zoom:40%;"></p>
+<p><span class="math inline">\(1 _{mn}\)</span>表示<span class="math inline">\(j\)</span>节点点是否在m*n网格中，如果在即为1，否则为0。<span class="math inline">\(N _i\)</span>指<span class="math inline">\(i\)</span>节点所有邻居节点。<span class="math inline">\(H _t ^i\)</span>即为在<span class="math inline">\(i\)</span>节点一定距离内所有节点的<span class="math inline">\(h _{t-1} ^j\)</span>之和。</p>
+]]></content>
       <categories>
-        <category>Test</category>
+        <category>Computer Vision</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Use of Tuple in Python</title>
+    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>Tuple最特别在于<br></p>
+<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
       </categories>
   </entry>
   <entry>
@@ -1615,22 +1607,54 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>Use of Tuple in Python</title>
-    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<p>Tuple最特别在于<br></p>
-<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
+    <title>Use of &#39;numpy&#39; package in Python</title>
+    <url>/2020/09/27/Use-of-numpy-package-in-Python/</url>
+    <content><![CDATA[<h2 id="import">Import</h2>
+<p><code>import numpy</code> or <code>import numpy as np</code></p>
+<h2 id="feature">Feature</h2>
+<p>The key feature of numpy package is that it introduce a new data structure -- array</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">&gt;&gt;&gt;a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">a</span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">type</span>(a)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">numpy</span>.<span class="title">ndarray</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="propertities-of-array">Propertities of array</h4>
+<p>ndarray 的重要属性包括:</p>
+<ol type="1">
+<li>ndarray.ndim：数组的维数，也称为rank</li>
+<li>ndarray.shape：数组各维的大小，对一个n行m列的矩阵来说， shape 为 (n,m)</li>
+<li>ndarray.size：元素的总数。</li>
+<li>ndarray.dtype：每个元素的类型，可以是numpy.int32, numpy.int16, and numpy.float64等</li>
+<li>ndarray.itemsize：每个元素占用的字节数。</li>
+<li>ndarray.data：指向数据内存。</li>
+</ol>
+<h2 id="more-details-similar-with-tensor">More details similar with tensor</h2>
 ]]></content>
       <categories>
         <category>Learning</category>
       </categories>
   </entry>
   <entry>
+    <title>Test password</title>
+    <url>/2021/09/15/Test-password/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="d0f22fb8ec934b630357bfed8eddaebceee1d75a12c7b7f676982c457b1c24c3">165d50f05814027fb7fe5e4ae8a088d8aa2b5ed724ea7f4f8aea8267289667dd0de0240fdde409598408170417c80b66d2288279e5571a43ddc20d8f87d5d48034dddfe8e1d8a865ebee019b43336466</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Please Eneter Password!</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Video test</title>
     <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-rMOChXqLfMAjSmRV" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-rMOChXqLfMAjSmRV").style.height=document.getElementById("mmedia-rMOChXqLfMAjSmRV").scrollWidth*0.76+"px";
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-ENfeCsHHKItnUBXu" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-ENfeCsHHKItnUBXu").style.height=document.getElementById("mmedia-ENfeCsHHKItnUBXu").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-rMOChXqLfMAjSmRV").style.height=document.getElementById("mmedia-rMOChXqLfMAjSmRV").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-ENfeCsHHKItnUBXu").style.height=document.getElementById("mmedia-ENfeCsHHKItnUBXu").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <thead>
@@ -1700,30 +1724,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>Use of &#39;numpy&#39; package in Python</title>
-    <url>/2020/09/27/Use-of-numpy-package-in-Python/</url>
-    <content><![CDATA[<h2 id="import">Import</h2>
-<p><code>import numpy</code> or <code>import numpy as np</code></p>
-<h2 id="feature">Feature</h2>
-<p>The key feature of numpy package is that it introduce a new data structure -- array</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">&gt;&gt;&gt;a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">a</span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">type</span>(a)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">numpy</span>.<span class="title">ndarray</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="propertities-of-array">Propertities of array</h4>
-<p>ndarray 的重要属性包括:</p>
-<ol type="1">
-<li>ndarray.ndim：数组的维数，也称为rank</li>
-<li>ndarray.shape：数组各维的大小，对一个n行m列的矩阵来说， shape 为 (n,m)</li>
-<li>ndarray.size：元素的总数。</li>
-<li>ndarray.dtype：每个元素的类型，可以是numpy.int32, numpy.int16, and numpy.float64等</li>
-<li>ndarray.itemsize：每个元素占用的字节数。</li>
-<li>ndarray.data：指向数据内存。</li>
-</ol>
-<h2 id="more-details-similar-with-tensor">More details similar with tensor</h2>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>What is the use of activation function</title>
     <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
     <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
@@ -1778,14 +1778,33 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>hexo中使用markdown无法处理特殊字符</title>
-    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。 比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
-<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
+    <title>hexo图片在md文档中显示正常但是网页无法显示</title>
+    <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
+    <content><![CDATA[<h4 id="step-1">Step 1</h4>
+<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
+<p><br></p>
+<h4 id="step-2">Step 2</h4>
+<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
+<p><br></p>
+<h4 id="step-3">Step 3</h4>
+<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的 <code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
+  </entry>
+  <entry>
+    <title>how to change you local git name</title>
+    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
+<p>Your name will be shown on github each time you push to it.</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
   </entry>
   <entry>
     <title>kendo 2-nd dan exam</title>
@@ -1803,6 +1822,16 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 ]]></content>
       <categories>
         <category>Kendo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo中使用markdown无法处理特殊字符</title>
+    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。 比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
+<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -1827,17 +1856,48 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </tags>
   </entry>
   <entry>
-    <title>how to change you local git name</title>
-    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
-<p>Your name will be shown on github each time you push to it.</p>
+    <title>hexo部署到git出现不同步问题</title>
+    <url>/2020/05/20/hexo%E9%83%A8%E7%BD%B2%E5%88%B0git%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<ol type="1">
+<li><p>hexo到git上部署首先要检查自己的config里的repo地址对不对</p></li>
+<li><p>如果地址正确可以考虑在_config.yml的repo下面一行添加上</p></li>
+</ol>
+<p><code>branch: master</code></p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
       <tags>
-        <tag>Github</tag>
+        <tag>-部署</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
+    <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<p>在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用<code>easyBCD</code>也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。 ## 问题解决 本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。 我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的引导是<code>UEFI+LEGACY</code>，那应该bios也行啊。 但是我抱着试试的态度把它改成<code>UEFI</code>，可能有些主板要改这个比较麻烦，然后上网找了个UEFI引导的ubuntu安装教程。 然后就打开了，困扰了好几天的问题解决了。 --- ## more 注意在bios里面把第一启动项改为ubuntu，然后再打开。 因为ubuntu可以引导windows，但是要让windows引导ubuntu需要用<code>easyuefi</code>自行配置 --- 这个问题很细节，但是同时也很恶心，反正就是要注意教程的环境和自己到底一不一样，还有就是要每一个设置的意义都要明白。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>-ubuntu -install</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>剑指Offer(全)</title>
+    <url>/2021/09/29/%E5%89%91%E6%8C%87Offer-%E5%85%A8/</url>
+    <content><![CDATA[<h3 id="jz1">JZ1</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> target, vector&lt;vector&lt;<span class="keyword">int</span>&gt; &gt; array)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i=array.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span> &amp;&amp; j&lt;array[<span class="number">0</span>].<span class="built_in">size</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(array[i][j]&gt;target)    i--;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(array[i][j]&lt;target)    j++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(array[i][j]==target)   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="jz2">JZ2</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// using string.replace()</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">replaceSpace</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">size</span>();i++)    <span class="keyword">if</span> (s[i]==<span class="string">&#x27; &#x27;</span>)  s.<span class="built_in">replace</span>(i, <span class="number">1</span>, <span class="string">&quot;%20&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// implement it on your own</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">replaceSpace</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=s.<span class="built_in">length</span>();</span><br><span class="line">        string s_tmp[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)    s_tmp[i] = s[i]; <span class="comment">// put char to string</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (s_tmp[i] == <span class="string">&quot; &quot;</span>)    s_tmp[i] = <span class="string">&quot;%20&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        string ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)    ret+=s_tmp[i];</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="jz3">JZ3</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*  struct ListNode &#123;</span></span><br><span class="line"><span class="comment">*        int val;</span></span><br><span class="line"><span class="comment">*        struct ListNode *next;</span></span><br><span class="line"><span class="comment">*        ListNode(int x) :</span></span><br><span class="line"><span class="comment">*              val(x), next(NULL) &#123;</span></span><br><span class="line"><span class="comment">*        &#125;</span></span><br><span class="line"><span class="comment">*  &#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">printListFromTailToHead</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">auto</span> i = head;</span><br><span class="line">        <span class="keyword">while</span>(i!=<span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(i-&gt;val);</span><br><span class="line">            i=i-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// vector反转也可以通过vector&lt;int&gt;::reverse_iterator实现(.rbegin()  r.end())</span></span><br><span class="line">        <span class="built_in">reverse</span>(ans.<span class="built_in">begin</span>(), ans.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="jz4">JZ4</h3>
+]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
   </entry>
   <entry>
     <title>yilia主题的头像配置失败</title>
@@ -1857,75 +1917,29 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
-    <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
+    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<p>在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用<code>easyBCD</code>也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。 ## 问题解决 本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。 我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的引导是<code>UEFI+LEGACY</code>，那应该bios也行啊。 但是我抱着试试的态度把它改成<code>UEFI</code>，可能有些主板要改这个比较麻烦，然后上网找了个UEFI引导的ubuntu安装教程。 然后就打开了，困扰了好几天的问题解决了。 --- ## more 注意在bios里面把第一启动项改为ubuntu，然后再打开。 因为ubuntu可以引导windows，但是要让windows引导ubuntu需要用<code>easyuefi</code>自行配置 --- 这个问题很细节，但是同时也很恶心，反正就是要注意教程的环境和自己到底一不一样，还有就是要每一个设置的意义都要明白。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>-ubuntu -install</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo图片在md文档中显示正常但是网页无法显示</title>
-    <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
-    <content><![CDATA[<h4 id="step-1">Step 1</h4>
-<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
-<p><br></p>
-<h4 id="step-2">Step 2</h4>
-<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
-<p><br></p>
-<h4 id="step-3">Step 3</h4>
-<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的 <code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>hexo部署到git出现不同步问题</title>
-    <url>/2020/05/20/hexo%E9%83%A8%E7%BD%B2%E5%88%B0git%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<ol type="1">
-<li><p>hexo到git上部署首先要检查自己的config里的repo地址对不对</p></li>
-<li><p>如果地址正确可以考虑在_config.yml的repo下面一行添加上</p></li>
+<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
+<h2 id="问题原因">问题原因</h2>
+<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错 因此有一下三种解决办法：</p>
+<ol type="1">
+<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
+<li><p>手动打开preinterpreter</p></li>
 </ol>
-<p><code>branch: master</code></p>
+<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<ol start="3" type="1">
+<li>重新为mac安装</li>
+</ol>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
+<p>如果有了就更新一下</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
+<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
 ]]></content>
       <categories>
         <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>-部署</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用hexo theme Butterfly 报错</title>
-    <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
-    <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly 报错</h2>
-<p>直接用github上作者提供的代码</p>
-<p>git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/Butterfly</p>
-<p>结果是页面根本无法正常渲染，只有一行字：</p>
-<p><font color="#DC143C">extends includes/layout.pug block content include ./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include includes/pagination.pug</font></p>
-<h2 id="问题解决">问题解决</h2>
-<p>参照原作者提供的文章<a href="https://docs.jerryc.me/#/config/question">Butterfly</a></p>
-<p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
-<hr>
-<h2 id="丝滑进入">丝滑进入</h2>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>剑指Offer(全)</title>
-    <url>/2021/09/29/%E5%89%91%E6%8C%87Offer-%E5%85%A8/</url>
-    <content><![CDATA[<h3 id="jz1">JZ1</h3>
-]]></content>
-      <categories>
-        <category>Coding</category>
       </categories>
   </entry>
   <entry>
@@ -1937,23 +1951,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 ]]></content>
       <categories>
         <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>给你的Vscode加一个毛玻璃特效</title>
-    <url>/2020/05/22/%E7%BB%99%E4%BD%A0%E7%9A%84Vscode%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%AF%9B%E7%8E%BB%E7%92%83%E7%89%B9%E6%95%88/</url>
-    <content><![CDATA[<h2 id="环境">环境</h2>
-<p>macOS：10.15 VScode：1.4 --- ## 问题描述 在macos下想给vscode加一个酷炫的毛玻璃效果，参考了<a href="https://www.jianshu.com/p/25fecde188d4">炫酷的VS Code毛玻璃效果</a>,但是实际操作中css文件并没有生效。 --- ## 问题解决 起哦一开始以为是mac恶心的权限问题，然后尝试给vscode权限，但是没有用。 然后我去看了git上原作者的说明：https://github.com/Microsoft/vscode/issues/32257 &gt;Sorry. This method has failed after the vscode v1.36 update. The reason is that a black background color has been added to the window. And the Electron's setBackgroundColor() method has some bugs on the MacOS. I can't dynamically change the background color in the script. Now you can only modify the vscode source to enable the vibrant effect.</p>
-<blockquote>
-<p>hi guys. I have some good news. The old way has failed after the vscode v1.36 update. I changed the custom.js file: w = nodeRequire('electron') .remote .getCurrentWindow(); w.setBackgroundColor('#00000000'); w.setVibrancy('ultra-dark'); w.setFullScreen(true); Don't forget to execute the command "Reload Custom CSS and JS". with automatic full screen vscode, the problem has been fixed. You can turn off full screen manually.</p>
-</blockquote>
-<p>于是首先我尝试降级到1.5之前，事实上成功了。 然后我采取作者的说法，尝试修改.js文件，但是又不行了，vscode在1.3.7之后又有新的问题。 巧合的是我看到作者其实好像是个中国人，并且开发了一个vscode拓展。。。。 这TM就很尴尬，拓展一装就完事了，我其实定制化需求也不是很大</p>
-<p><a href="https://eyhn.in/vscode-vibrancy/">vibrancy</a></p>
-<h2 id="note">Note</h2>
-<p>此插件在windows下同样适用，并且可以自行去作者git上看说明。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -2005,31 +2002,20 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>遍历二叉树-前/中/后序-递归/非递归</title>
-    <url>/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/</url>
-    <content><![CDATA[<h3 id="递归方法">递归方法</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line"> 	path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h3 id="非递归方法">非递归方法</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>)); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Reference: https://blog.csdn.net/czy47/article/details/81254984</p>
+    <title>给你的Vscode加一个毛玻璃特效</title>
+    <url>/2020/05/22/%E7%BB%99%E4%BD%A0%E7%9A%84Vscode%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%AF%9B%E7%8E%BB%E7%92%83%E7%89%B9%E6%95%88/</url>
+    <content><![CDATA[<h2 id="环境">环境</h2>
+<p>macOS：10.15 VScode：1.4 --- ## 问题描述 在macos下想给vscode加一个酷炫的毛玻璃效果，参考了<a href="https://www.jianshu.com/p/25fecde188d4">炫酷的VS Code毛玻璃效果</a>,但是实际操作中css文件并没有生效。 --- ## 问题解决 起哦一开始以为是mac恶心的权限问题，然后尝试给vscode权限，但是没有用。 然后我去看了git上原作者的说明：https://github.com/Microsoft/vscode/issues/32257 &gt;Sorry. This method has failed after the vscode v1.36 update. The reason is that a black background color has been added to the window. And the Electron's setBackgroundColor() method has some bugs on the MacOS. I can't dynamically change the background color in the script. Now you can only modify the vscode source to enable the vibrant effect.</p>
+<blockquote>
+<p>hi guys. I have some good news. The old way has failed after the vscode v1.36 update. I changed the custom.js file: w = nodeRequire('electron') .remote .getCurrentWindow(); w.setBackgroundColor('#00000000'); w.setVibrancy('ultra-dark'); w.setFullScreen(true); Don't forget to execute the command "Reload Custom CSS and JS". with automatic full screen vscode, the problem has been fixed. You can turn off full screen manually.</p>
+</blockquote>
+<p>于是首先我尝试降级到1.5之前，事实上成功了。 然后我采取作者的说法，尝试修改.js文件，但是又不行了，vscode在1.3.7之后又有新的问题。 巧合的是我看到作者其实好像是个中国人，并且开发了一个vscode拓展。。。。 这TM就很尴尬，拓展一装就完事了，我其实定制化需求也不是很大</p>
+<p><a href="https://eyhn.in/vscode-vibrancy/">vibrancy</a></p>
+<h2 id="note">Note</h2>
+<p>此插件在windows下同样适用，并且可以自行去作者git上看说明。</p>
 ]]></content>
       <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Binary Tree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>钻石材质第一次测试Blender</title>
-    <url>/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/</url>
-    <content><![CDATA[<p>初次尝试了blender里钻石材质的生成，接下来会详细分析材质节点的组成并仔细调参。并且会更换钻石模型和适当的场景进行测试。</p>
-<p><img src="/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/Diamond.png"></p>
-]]></content>
-      <categories>
-        <category>Blender</category>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -2042,32 +2028,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 ]]></content>
       <categories>
         <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
-    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
-<h2 id="问题原因">问题原因</h2>
-<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错 因此有一下三种解决办法：</p>
-<ol type="1">
-<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
-<li><p>手动打开preinterpreter</p></li>
-</ol>
-<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<ol start="3" type="1">
-<li>重新为mac安装</li>
-</ol>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
-<p>如果有了就更新一下</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
-<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
-]]></content>
-      <categories>
-        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -2104,6 +2064,52 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 ]]></content>
       <categories>
         <category>essay</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>使用hexo theme Butterfly 报错</title>
+    <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
+    <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly 报错</h2>
+<p>直接用github上作者提供的代码</p>
+<p>git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/Butterfly</p>
+<p>结果是页面根本无法正常渲染，只有一行字：</p>
+<p><font color="#DC143C">extends includes/layout.pug block content include ./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include includes/pagination.pug</font></p>
+<h2 id="问题解决">问题解决</h2>
+<p>参照原作者提供的文章<a href="https://docs.jerryc.me/#/config/question">Butterfly</a></p>
+<p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
+<hr>
+<h2 id="丝滑进入">丝滑进入</h2>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>遍历二叉树-前/中/后序-递归/非递归</title>
+    <url>/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/</url>
+    <content><![CDATA[<h3 id="递归方法">递归方法</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line"> 	path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="非递归方法">非递归方法</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>)); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Reference: https://blog.csdn.net/czy47/article/details/81254984</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Binary Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>钻石材质第一次测试Blender</title>
+    <url>/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/</url>
+    <content><![CDATA[<p>初次尝试了blender里钻石材质的生成，接下来会详细分析材质节点的组成并仔细调参。并且会更换钻石模型和适当的场景进行测试。</p>
+<p><img src="/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/Diamond.png"></p>
+]]></content>
+      <categories>
+        <category>Blender</category>
       </categories>
   </entry>
   <entry>
