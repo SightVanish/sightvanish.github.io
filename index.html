@@ -432,10 +432,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-09-29 16:10:37 / Modified: 16:11:22" itemprop="dateCreated datePublished" datetime="2021-09-29T16:10:37+08:00">2021-09-29</time>
+              <time title="Created: 2021-09-29 16:10:37" itemprop="dateCreated datePublished" datetime="2021-09-29T16:10:37+08:00">2021-09-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-30 17:35:16" itemprop="dateModified" datetime="2021-09-30T17:35:16+08:00">2021-09-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -458,8 +464,24 @@
 
       
           <h3 id="assignment-1">Assignment 1</h3>
-<hr>
+<p>第一次作业就是简单的几何透视。课上分开讲，所以用分开的子矩阵相乘得到，或者直接计算到结果。</p>
+<p>注意这里先假定图像是中心对称摆好的</p>
+<p><img src="/2021/09/29/Games101-Homework-Summary/hw1.png"></p>
 <h3 id="assignment-2">Assignment 2</h3>
+<p>第二次作业是实现depth buffer。</p>
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw2.png" alt="直接的结果"><figcaption aria-hidden="true">直接的结果</figcaption>
+</figure>
+<p>注意MSAA的实现，需要将一个像素点打成四个进行分析，对最终颜色根据一个像素内有几个点在三角形内重新计算（color*=#三角形内点/4）</p>
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw2_MSAA_simple.png" alt="MSAA的简单结果"><figcaption aria-hidden="true">MSAA的简单结果</figcaption>
+</figure>
+<p>但是这样只是抑制了颜色的数值，实际上我们希望的是两种颜色之间的渐变过渡。</p>
+<p>因此采用原本数值和新数值的加权求和，但是这种方法首先于先后出现关系，因此不能完全解决问题。</p>
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw2_MSAA.png" alt="MSAA的尝试修正结果"><figcaption aria-hidden="true">MSAA的尝试修正结果</figcaption>
+</figure>
+<h3 id="assignment-3">Assignment 3</h3>
 
       
     </div>
