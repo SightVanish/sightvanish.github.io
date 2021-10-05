@@ -27,7 +27,7 @@
 <meta property="og:site_name" content="Wu Times">
 <meta property="og:description" content="Prefab Games101还是要强烈推荐给大家，把图形学一些基本的内容讲的十分透彻了。这里记录一下作业的成果，具体的代码实现就不展示了，如果有特别巧妙的会注明。封面将对当前最新进度结果进行展示。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw3_texture_interpolated.png">
+<meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw5.png">
 <meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw1.png">
 <meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw2.png">
 <meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw2_MSAA_simple.png">
@@ -38,11 +38,15 @@
 <meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw3_texture_interpolated.png">
 <meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw3_bump.png">
 <meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw3_displacement.png">
+<meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw4_naive.png">
+<meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw4_bezier.png">
+<meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw4_anti_alising.png">
+<meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw5.png">
 <meta property="article:published_time" content="2021-09-29T08:10:37.000Z">
-<meta property="article:modified_time" content="2021-10-01T17:31:57.350Z">
+<meta property="article:modified_time" content="2021-10-05T14:21:41.436Z">
 <meta property="article:author" content="Li Wuchen">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw3_texture_interpolated.png">
+<meta name="twitter:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw5.png">
 
 <link rel="canonical" href="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/">
 
@@ -250,7 +254,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-02 01:31:57" itemprop="dateModified" datetime="2021-10-02T01:31:57+08:00">2021-10-02</time>
+                <time title="Modified: 2021-10-05 22:21:41" itemprop="dateModified" datetime="2021-10-05T22:21:41+08:00">2021-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,7 +280,7 @@
         <h3 id="prefab">Prefab</h3>
 <p>Games101还是要强烈推荐给大家，把图形学一些基本的内容讲的十分透彻了。这里记录一下作业的成果，具体的代码实现就不展示了，如果有特别巧妙的会注明。封面将对当前最新进度结果进行展示。</p>
 <div align="center">
-<p><img src="/2021/09/29/Games101-Homework-Summary/hw3_texture_interpolated.png"></p>
+<p><img src="/2021/09/29/Games101-Homework-Summary/hw5.png"></p>
 <span id="more"></span>
 <h3 id="assignment-1">Assignment 1</h3>
 <p>第一次作业就是简单的几何透视。课上分开讲，所以用分开的子矩阵相乘得到，或者直接计算到结果。</p>
@@ -300,6 +304,7 @@
 <figure>
 <img src="/2021/09/29/Games101-Homework-Summary/hw2_MSAA.png" alt="MSAA的尝试修正结果"><figcaption aria-hidden="true">MSAA的尝试修正结果</figcaption>
 </figure>
+<p>似乎效果也不是很好。。。</p>
 <h3 id="assignment-3">Assignment 3</h3>
 <p>这次作业不仅东西多，而且很多细节课上没有明确，虽然作业根据指导还是比较清晰的，但是对其背后的原理很多都不甚清晰。</p>
 <div align="center">
@@ -326,7 +331,24 @@
 <figure>
 <img src="/2021/09/29/Games101-Homework-Summary/hw3_displacement.png" alt="凹凸贴图最终效果，注意这里的贴图对shading产生了实际的影响"><figcaption aria-hidden="true">凹凸贴图最终效果，注意这里的贴图对shading产生了实际的影响</figcaption>
 </figure>
-</div></div></div></div></div></div></div></div></div></div></div>
+<h3 id="assignment-4">Assignment 4</h3>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw4_naive.png" alt="给出的参考效果"><figcaption aria-hidden="true">给出的参考效果</figcaption>
+</figure>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw4_bezier.png" alt="简单实现--无抗锯齿"><figcaption aria-hidden="true">简单实现--无抗锯齿</figcaption>
+</figure>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw4_anti_alising.png" alt="有抗锯齿--最直观的感受就是变粗了，因为给附近的几个点也按比例上色了"><figcaption aria-hidden="true">有抗锯齿--最直观的感受就是变粗了，因为给附近的几个点也按比例上色了</figcaption>
+</figure>
+<h3 id="assignment-5">Assignment 5</h3>
+<p>光线追踪具体挺麻烦的，但是这里只需要实现简单的功能--由screen发射ray（其实就是将屏幕空间(0, width-1)x(0,vheight-1)映射到(-1, 1)x(-1, 1)的空间里去），还有判断光线是否能打到三角形内（有明确公式解）。</p>
+<div align="center">
+<p><img src="/2021/09/29/Games101-Homework-Summary/hw5.png"></p>
+</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
     </div>
 
     
@@ -421,7 +443,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#prefab"><span class="nav-number">1.</span> <span class="nav-text">Prefab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-1"><span class="nav-number">2.</span> <span class="nav-text">Assignment 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-2"><span class="nav-number">3.</span> <span class="nav-text">Assignment 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-3"><span class="nav-number">4.</span> <span class="nav-text">Assignment 3</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#prefab"><span class="nav-number">1.</span> <span class="nav-text">Prefab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-1"><span class="nav-number">2.</span> <span class="nav-text">Assignment 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-2"><span class="nav-number">3.</span> <span class="nav-text">Assignment 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-3"><span class="nav-number">4.</span> <span class="nav-text">Assignment 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-4"><span class="nav-number">5.</span> <span class="nav-text">Assignment 4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-5"><span class="nav-number">6.</span> <span class="nav-text">Assignment 5</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
