@@ -1,129 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Anchor Free (After Faster R-CNN)</title>
-    <url>/2021/03/04/Anchor-Free-After-Faster-R-CNN/</url>
-    <content><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>目标检测： 在RCNN之前--滑动窗口+图像金字塔 RCNN，SSD，YOLO之后--Proposal Region+Anchor based 在18年到现在，新出现了一系列方法，都是Anchor Free的，以<strong>直接检测点</strong>（矩形包围框的角点、中心点等）为思路来做目标检测。</p>
-<span id="more"></span>
-<h2 id="why-anchor-free">Why Anchor Free？</h2>
-<p>Anchor本质上还是在feature map上用不同大小的box遍历，开销很大，也有很多浪费。</p>
-<p>由于基于遍历，所以往往得到的box里面的“正样本”（即实际检测出foreground的anchor）很少，迫使训练时使用大量“负样本”。同时anchor box的大小怎么确定也很难说，针对不同的物体，大小往往是差异很大的。</p>
-<p>为此我们引入了CornerNet</p>
-<h2 id="cornernet-detecting-objects-as-paired-keypoints">CornerNet: Detecting Objects as Paired Keypoints</h2>
-<h3 id="inspiration">Inspiration</h3>
-<p>对于instance object detection，我们需要tag图片的每一个像素，但是对于图片检测而言，其实我们需要的只是一个简单的box用来框住foreground而已，因此为什么不直接回归box（即box的两个对角点）。</p>
-<h3 id="cornernet">CornerNet</h3>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/1.png" style="zoom:40%;"></p>
-<p>网络结构：</p>
-<p>Image-&gt;Hourglass Network提取特征-&gt;Prediction Module</p>
-<p>Prediction Module分成左上角/右下角两个点，同时对每个点的的提取先经过Corner Pooling，再处理成三个特征：Heatmaps，Embeddings和Offsets。</p>
-<p>Heatmaps和Offsets表示角点的位置，Embeddings用于进一步计算来合并同一个框的两个点。（原文解释同一个物体两个角点的Embedding vetor距离较小）</p>
-<p>文章使用了Hourglass网络（最早提出在姿态检测），呈<strong>沙漏状</strong>，包括downsampling+upsampling。</p>
-<h4 id="houglassnet">HouglassNet</h4>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/2.png" style="zoom:40%;"></p>
-<p>先经过Cov+maxpooling，再通过<strong>skip layer</strong>重新让网络恢复大小。</p>
-<p>这里恢复大小的操作非常简单：C7经过上采样得到C4'，此时C4'与C4的大小一致，通过<strong>elementwise</strong>的相加（即将C4和C4'相对应的每个元素相加）得到C4b。（note：C1a=C1，仅为其保留的副本）</p>
-<p>这样将feature map层层叠加后，得到最后一层的feature即保留了所有层的信息，又和输入原图大小一致，那么就可以通过1x1卷积生成代表关键点概率的heatmap。</p>
-<p>又因为单个hourglass的特征提取能力的特征提取能力有限，为此在本文中使用两个网络连续堆积。</p>
-<p>同时作者对hourglass做出了改进--不用maxpooling降维，而是用stride=2的卷积来实现降维。</p>
-<h4 id="residual-block">Residual Block</h4>
-<p>hourglass module之前，需要将image降维为1/4。本文采用了一个7x7卷积和一个<strong>残差单元</strong>。</p>
-<p>Residual Block本质是一个跳层网络</p>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/3.png" alt="3" style="zoom:50%;"></p>
-<p>残差连接使得信息前后向传播更加顺畅。</p>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/9.png" alt="3" style="zoom:50%;"></p>
-<p>在本文中预测结构的前半部分就有类似这种结构：</p>
-<p>Backbone FeatureMaps分为三路：上两路路经过3x3 Cov，Corner Pooling，合并为一路后Batch Normalization；下路只经过Batch Normalization，最后和上两路合并的结果再合并。</p>
-<h4 id="corner-pooling">Corner Pooling</h4>
-<p>为了使卷积网络更好地定位边界框的角点，作者引入了corner pooling。</p>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/4.png" alt="3" style="zoom:50%;"></p>
-<p>如何定位左上角点呢？人眼在看到左上角点时需要往右和往下看来确定这个点是不是一个物体的左上角点。</p>
-<p>当求解某一个点的<strong>top-left corner pooling</strong>时 ，就是以该点为起点，向<strong>右</strong>看遇到的最大值以及向<strong>下</strong>看最大的值之和。</p>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/5.png" alt="3" style="zoom:50%;"></p>
-<p>但是实际操作中却是从右往左，从下往上看。这样做有一个好处：我们先按照这个逻辑遍历整张图，之后我们想要填充某个点的top-left corner pooling时只需要直接对照之前得到的结构填充就可以了，而不用再次遍历。</p>
-<p>Corner Pooling引入了一定的人类先验知识，在实验中使得效果大大提升。</p>
-<p>Why corner pooling？</p>
-<p>在目标检测的任务中，object的corner往往在object之外，所以corner的检测不能根据局部的特征，而要对该点所在行的所有特征与列的所有特征进行扫描。</p>
-<h3 id="batch-normalization-bn">Batch Normalization (BN)</h3>
-<p>BN是神经网络中一种特殊的层，在原paper中，BN被建议插入在（每个）ReLU激活层前面。</p>
-<p>对于batch size=m，在前向传播过程中，网络中每个节点都有m个输出，BN希望对这m个结果归一化再输出：</p>
-<p>简单说是将输入的<span class="math inline">\(x\)</span>，先变化成 zero mean unit variance的分布<span class="math inline">\(\hat x\)</span>（Standardization），再变成<span class="math inline">\(y=\gamma * \hat x _i + \beta\)</span>（scale and shift），由此将<span class="math inline">\(x\)</span>变成均值<span class="math inline">\(\beta\)</span>方差<span class="math inline">\(\gamma\)</span>的<span class="math inline">\(y\)</span>（均值、方差待学习）。</p>
-<h2 id="bottom-up-object-detection-by-grouping-extreme-and-center-points">Bottom-up Object Detection by Grouping Extreme and Center Points</h2>
-<p>ExtremeNet与CornerNet不同在于</p>
-<ol type="1">
-<li><p><strong>关键点选取不同</strong>：ExtremeNet的关键点选取为Object的最顶点，最底点，最左点和最右点，而不是包围框的左上角点和右下角的点</p></li>
-<li><p><strong>Grouping方法不同</strong>：ExtremeNet不需要学习Embddings，直接把所有的候选点集合做暴力穷举，再结合几何规则和中心点Heatmap找出包围框（也可以是多边形）</p></li>
-<li><p><strong>ExtremeNet得到的信息更丰富</strong>：ExtremeNet可以得到目标不多边形包围框，比一般的矩形包围框可以提供更多的关于目标的信息。</p></li>
-</ol>
-<h3 id="inspiration-1">Inspiration</h3>
-<p>使用corner已经能达到比较好的效果，但是cornernet所能获得的只有box，而box的顶点（左上角、右下角）往往实际上距离物体本身已经很远了，因此box顶点的特征就会不明显。而且面对本身不重合的物体，box可能会重合，如此一来对物体之间的分割效果就会很差。</p>
-<h3 id="extremenet">ExtremeNet</h3>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/6.png" alt="3" style="zoom:40%;"></p>
-<p>本文作者需要找到5个heatmap，分别是4个物体边缘（extreme），和一个中心（center）。</p>
-<p>在如何Group point上，作者放弃了使用Embedding vector，而是先遍历所可能的extreme point的组合，然后仅保留与center point相吻合的组合。</p>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/7.png" alt="3" style="zoom:40%;"></p>
-<h3 id="heatmap">Heatmap</h3>
-<h2 id="centernet-objects-as-points">CenterNet: Objects as Points</h2>
-<h3 id="inspiration-2">Inspiration</h3>
-<p>构建模型时将目标作为一个点——即目标BBox的中心点。</p>
-<p>中心关键点一般都是落在了目标内部，其特征相较于之前两篇与物体本身相关性更好。</p>
-<p>由于之前的两篇是通过group point来实现box，因此需要NMS（非极大值抑制）来破除重复，和Embedding来确定哪些点属于同一个object。CenterNet则都不需要，效率更高。</p>
-<h3 id="centernet">CenterNet</h3>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/8.png" alt="3" style="zoom:40%;"></p>
-<p>Outputs of our network for different tasks:</p>
-<p><em>top</em> for object detection; <em>middle</em> for 3D object detection; <em>bottom:</em> for pose estimation. All modalities are produced from a common backbone, with a different 3 × 3 and 1 × 1 output convolutions separated by a ReLU.</p>
-<h1 id="centernetkeypoint-triplets-for-object-detection">CenterNet：Keypoint Triplets for Object Detection</h1>
-<h3 id="inspiration-3">Inspiration</h3>
-<p>对于cornernet来说，box的选择正确率很低，平均上每生成100个预测框，有37.8个和真值的IoU&lt;0.05。因此作者尝试使用Triplet keypoint--左上角、右下角+中心点。</p>
-<h3 id="centernet-1">CenterNet</h3>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/10.png" alt="3"></p>
-<p>每个box用一个中心点和一对对角点坐标来表示。</p>
-<p>如何得到top k boxes：</p>
-<ol type="1">
-<li>选择top k中心点</li>
-<li>根据offset，将中心点重新映射到input image</li>
-<li>为每个box定义一个中心区域（central region），检查中心区域是否包含上述得到的中心点（中心label应该与box label相同）</li>
-<li>若中心区域检测到中心点，保留box。box 分数改变为三个点的平均分。若无，则移除。</li>
-</ol>
-<h4 id="central-region">Central Region</h4>
-<p>中心区域的确定对于结果非常关键，为此central region大小需要与box大小相关。</p>
-<p>note：中心区域对于小的边界框倾向于产生一个相对较大的中心区域，而对于大的边界框倾向于产生一个相对较小的中心区域。</p>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/11.png" alt="3" style="zoom:40%;"></p>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/12.png" alt="3" style="zoom:40%;"></p>
-<p>bounding box尺寸小于150时，n=3，当大于等于150时，n=5。</p>
-<p>公式比较复杂，但其实只是为了满足大box小center region，小box大center region而已。</p>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/13.png" alt="3" style="zoom:40%;"></p>
-<h4 id="center-pooling">Center Pooling</h4>
-<p>对于一整个物体，物体的语义特征点和物体中心点很可能并不重合。为了充分学习语义信息，使用center pooling：</p>
-<p>对于feature map中的一个像素，找到其水平方向和垂直方向的最大值并相加，作为这个点的置信。</p>
-<h4 id="cascade-corner-pooling">Cascade corner pooling</h4>
-<p>corner pooling往往对边缘信息过于敏感，那么本文就使用cascade方式--类似两个corner一起用，来尽可能获取更多的物体中心信息</p>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/15.png" alt="3"></p>
-<p>比如对top-left点：找到右侧最大值点A，再在A点向下找最大值B点；找到下方最大值C点，再在C点向右找最大值D点。最后top-left点=A+B+C+D。</p>
-<p>两种pooling统一起来：</p>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/14.png" alt="3"></p>
-<h3 id="focal-loss">Focal Loss</h3>
-<p>Focal loss主要是为了解决one-stage目标检测中正负样本比例严重失衡的问题。</p>
-<h4 id="crossentropy-loss">CrossEntropy Loss</h4>
-<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/16.png" alt="3" style="zoom:40%;"></p>
-<p>对于二分类来说则为：</p>
-<p><span class="math inline">\(Loss = -(y*log(y&#39;)+(1-y)*log(1-y&#39;))\)</span>，其中<span class="math inline">\(y\)</span>为ground truth，如果为真则为1，否则为0，其中<span class="math inline">\(y&#39;\)</span>为经过激活函数后的输出，在<span class="math inline">\(0-1\)</span>之间。</p>
-<p>在大量样本中，大多数样本都能被轻易分出，而对于能轻易分出的样本（即正样本高<span class="math inline">\(y&#39;\)</span>，负样本低<span class="math inline">\(y&#39;\)</span>）都造成Loss过小，收敛太慢。</p>
-<p>Focal Loss即是对此进行了改进：</p>
-<p><span class="math inline">\(\begin{equation*}Focal Loss = \end{equation*} \begin{cases} -\alpha(1-y&#39;) ^\gamma logy&#39;  \quad y = 1\\  -(1-\alpha)y&#39; ^\gamma log(1-y&#39;)\quad y = 0 \end{cases}\)</span></p>
-<p>加入<span class="math inline">\(\gamma\)</span>使得对于正样本高概率时loss降低，对于负样本低概率时loss降低（即概率趋近于0.5，不确定时的loss权重增加）</p>
-<p>加入<span class="math inline">\(\alpha\)</span>来平衡正负样本之间的数量差距。</p>
-]]></content>
-      <categories>
-        <category>Computer Vision</category>
-      </categories>
-      <tags>
-        <tag>Object Detection</tag>
-        <tag>Anchor free</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>tensor</title>
     <url>/2020/05/23/1-tensor/</url>
     <content><![CDATA[<h1 id="definition">Definition</h1>
@@ -313,6 +190,143 @@
       </categories>
   </entry>
   <entry>
+    <title>九月剑道稽古</title>
+    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
+    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
+<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-ThxagxNubpsGBbOd" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-ThxagxNubpsGBbOd").style.height=document.getElementById("mmedia-ThxagxNubpsGBbOd").scrollWidth*0.76+"px";
+    window.onresize = function(){
+      document.getElementById("mmedia-ThxagxNubpsGBbOd").style.height=document.getElementById("mmedia-ThxagxNubpsGBbOd").scrollWidth*0.76+"px";
+    }; </script>
+]]></content>
+      <categories>
+        <category>Kendo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Anchor Free (After Faster R-CNN)</title>
+    <url>/2021/03/04/Anchor-Free-After-Faster-R-CNN/</url>
+    <content><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>目标检测： 在RCNN之前--滑动窗口+图像金字塔 RCNN，SSD，YOLO之后--Proposal Region+Anchor based 在18年到现在，新出现了一系列方法，都是Anchor Free的，以<strong>直接检测点</strong>（矩形包围框的角点、中心点等）为思路来做目标检测。</p>
+<span id="more"></span>
+<h2 id="why-anchor-free">Why Anchor Free？</h2>
+<p>Anchor本质上还是在feature map上用不同大小的box遍历，开销很大，也有很多浪费。</p>
+<p>由于基于遍历，所以往往得到的box里面的“正样本”（即实际检测出foreground的anchor）很少，迫使训练时使用大量“负样本”。同时anchor box的大小怎么确定也很难说，针对不同的物体，大小往往是差异很大的。</p>
+<p>为此我们引入了CornerNet</p>
+<h2 id="cornernet-detecting-objects-as-paired-keypoints">CornerNet: Detecting Objects as Paired Keypoints</h2>
+<h3 id="inspiration">Inspiration</h3>
+<p>对于instance object detection，我们需要tag图片的每一个像素，但是对于图片检测而言，其实我们需要的只是一个简单的box用来框住foreground而已，因此为什么不直接回归box（即box的两个对角点）。</p>
+<h3 id="cornernet">CornerNet</h3>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/1.png" style="zoom:40%;"></p>
+<p>网络结构：</p>
+<p>Image-&gt;Hourglass Network提取特征-&gt;Prediction Module</p>
+<p>Prediction Module分成左上角/右下角两个点，同时对每个点的的提取先经过Corner Pooling，再处理成三个特征：Heatmaps，Embeddings和Offsets。</p>
+<p>Heatmaps和Offsets表示角点的位置，Embeddings用于进一步计算来合并同一个框的两个点。（原文解释同一个物体两个角点的Embedding vetor距离较小）</p>
+<p>文章使用了Hourglass网络（最早提出在姿态检测），呈<strong>沙漏状</strong>，包括downsampling+upsampling。</p>
+<h4 id="houglassnet">HouglassNet</h4>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/2.png" style="zoom:40%;"></p>
+<p>先经过Cov+maxpooling，再通过<strong>skip layer</strong>重新让网络恢复大小。</p>
+<p>这里恢复大小的操作非常简单：C7经过上采样得到C4'，此时C4'与C4的大小一致，通过<strong>elementwise</strong>的相加（即将C4和C4'相对应的每个元素相加）得到C4b。（note：C1a=C1，仅为其保留的副本）</p>
+<p>这样将feature map层层叠加后，得到最后一层的feature即保留了所有层的信息，又和输入原图大小一致，那么就可以通过1x1卷积生成代表关键点概率的heatmap。</p>
+<p>又因为单个hourglass的特征提取能力的特征提取能力有限，为此在本文中使用两个网络连续堆积。</p>
+<p>同时作者对hourglass做出了改进--不用maxpooling降维，而是用stride=2的卷积来实现降维。</p>
+<h4 id="residual-block">Residual Block</h4>
+<p>hourglass module之前，需要将image降维为1/4。本文采用了一个7x7卷积和一个<strong>残差单元</strong>。</p>
+<p>Residual Block本质是一个跳层网络</p>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/3.png" alt="3" style="zoom:50%;"></p>
+<p>残差连接使得信息前后向传播更加顺畅。</p>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/9.png" alt="3" style="zoom:50%;"></p>
+<p>在本文中预测结构的前半部分就有类似这种结构：</p>
+<p>Backbone FeatureMaps分为三路：上两路路经过3x3 Cov，Corner Pooling，合并为一路后Batch Normalization；下路只经过Batch Normalization，最后和上两路合并的结果再合并。</p>
+<h4 id="corner-pooling">Corner Pooling</h4>
+<p>为了使卷积网络更好地定位边界框的角点，作者引入了corner pooling。</p>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/4.png" alt="3" style="zoom:50%;"></p>
+<p>如何定位左上角点呢？人眼在看到左上角点时需要往右和往下看来确定这个点是不是一个物体的左上角点。</p>
+<p>当求解某一个点的<strong>top-left corner pooling</strong>时 ，就是以该点为起点，向<strong>右</strong>看遇到的最大值以及向<strong>下</strong>看最大的值之和。</p>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/5.png" alt="3" style="zoom:50%;"></p>
+<p>但是实际操作中却是从右往左，从下往上看。这样做有一个好处：我们先按照这个逻辑遍历整张图，之后我们想要填充某个点的top-left corner pooling时只需要直接对照之前得到的结构填充就可以了，而不用再次遍历。</p>
+<p>Corner Pooling引入了一定的人类先验知识，在实验中使得效果大大提升。</p>
+<p>Why corner pooling？</p>
+<p>在目标检测的任务中，object的corner往往在object之外，所以corner的检测不能根据局部的特征，而要对该点所在行的所有特征与列的所有特征进行扫描。</p>
+<h3 id="batch-normalization-bn">Batch Normalization (BN)</h3>
+<p>BN是神经网络中一种特殊的层，在原paper中，BN被建议插入在（每个）ReLU激活层前面。</p>
+<p>对于batch size=m，在前向传播过程中，网络中每个节点都有m个输出，BN希望对这m个结果归一化再输出：</p>
+<p>简单说是将输入的<span class="math inline">\(x\)</span>，先变化成 zero mean unit variance的分布<span class="math inline">\(\hat x\)</span>（Standardization），再变成<span class="math inline">\(y=\gamma * \hat x _i + \beta\)</span>（scale and shift），由此将<span class="math inline">\(x\)</span>变成均值<span class="math inline">\(\beta\)</span>方差<span class="math inline">\(\gamma\)</span>的<span class="math inline">\(y\)</span>（均值、方差待学习）。</p>
+<h2 id="bottom-up-object-detection-by-grouping-extreme-and-center-points">Bottom-up Object Detection by Grouping Extreme and Center Points</h2>
+<p>ExtremeNet与CornerNet不同在于</p>
+<ol type="1">
+<li><p><strong>关键点选取不同</strong>：ExtremeNet的关键点选取为Object的最顶点，最底点，最左点和最右点，而不是包围框的左上角点和右下角的点</p></li>
+<li><p><strong>Grouping方法不同</strong>：ExtremeNet不需要学习Embddings，直接把所有的候选点集合做暴力穷举，再结合几何规则和中心点Heatmap找出包围框（也可以是多边形）</p></li>
+<li><p><strong>ExtremeNet得到的信息更丰富</strong>：ExtremeNet可以得到目标不多边形包围框，比一般的矩形包围框可以提供更多的关于目标的信息。</p></li>
+</ol>
+<h3 id="inspiration-1">Inspiration</h3>
+<p>使用corner已经能达到比较好的效果，但是cornernet所能获得的只有box，而box的顶点（左上角、右下角）往往实际上距离物体本身已经很远了，因此box顶点的特征就会不明显。而且面对本身不重合的物体，box可能会重合，如此一来对物体之间的分割效果就会很差。</p>
+<h3 id="extremenet">ExtremeNet</h3>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/6.png" alt="3" style="zoom:40%;"></p>
+<p>本文作者需要找到5个heatmap，分别是4个物体边缘（extreme），和一个中心（center）。</p>
+<p>在如何Group point上，作者放弃了使用Embedding vector，而是先遍历所可能的extreme point的组合，然后仅保留与center point相吻合的组合。</p>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/7.png" alt="3" style="zoom:40%;"></p>
+<h3 id="heatmap">Heatmap</h3>
+<h2 id="centernet-objects-as-points">CenterNet: Objects as Points</h2>
+<h3 id="inspiration-2">Inspiration</h3>
+<p>构建模型时将目标作为一个点——即目标BBox的中心点。</p>
+<p>中心关键点一般都是落在了目标内部，其特征相较于之前两篇与物体本身相关性更好。</p>
+<p>由于之前的两篇是通过group point来实现box，因此需要NMS（非极大值抑制）来破除重复，和Embedding来确定哪些点属于同一个object。CenterNet则都不需要，效率更高。</p>
+<h3 id="centernet">CenterNet</h3>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/8.png" alt="3" style="zoom:40%;"></p>
+<p>Outputs of our network for different tasks:</p>
+<p><em>top</em> for object detection; <em>middle</em> for 3D object detection; <em>bottom:</em> for pose estimation. All modalities are produced from a common backbone, with a different 3 × 3 and 1 × 1 output convolutions separated by a ReLU.</p>
+<h1 id="centernetkeypoint-triplets-for-object-detection">CenterNet：Keypoint Triplets for Object Detection</h1>
+<h3 id="inspiration-3">Inspiration</h3>
+<p>对于cornernet来说，box的选择正确率很低，平均上每生成100个预测框，有37.8个和真值的IoU&lt;0.05。因此作者尝试使用Triplet keypoint--左上角、右下角+中心点。</p>
+<h3 id="centernet-1">CenterNet</h3>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/10.png" alt="3"></p>
+<p>每个box用一个中心点和一对对角点坐标来表示。</p>
+<p>如何得到top k boxes：</p>
+<ol type="1">
+<li>选择top k中心点</li>
+<li>根据offset，将中心点重新映射到input image</li>
+<li>为每个box定义一个中心区域（central region），检查中心区域是否包含上述得到的中心点（中心label应该与box label相同）</li>
+<li>若中心区域检测到中心点，保留box。box 分数改变为三个点的平均分。若无，则移除。</li>
+</ol>
+<h4 id="central-region">Central Region</h4>
+<p>中心区域的确定对于结果非常关键，为此central region大小需要与box大小相关。</p>
+<p>note：中心区域对于小的边界框倾向于产生一个相对较大的中心区域，而对于大的边界框倾向于产生一个相对较小的中心区域。</p>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/11.png" alt="3" style="zoom:40%;"></p>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/12.png" alt="3" style="zoom:40%;"></p>
+<p>bounding box尺寸小于150时，n=3，当大于等于150时，n=5。</p>
+<p>公式比较复杂，但其实只是为了满足大box小center region，小box大center region而已。</p>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/13.png" alt="3" style="zoom:40%;"></p>
+<h4 id="center-pooling">Center Pooling</h4>
+<p>对于一整个物体，物体的语义特征点和物体中心点很可能并不重合。为了充分学习语义信息，使用center pooling：</p>
+<p>对于feature map中的一个像素，找到其水平方向和垂直方向的最大值并相加，作为这个点的置信。</p>
+<h4 id="cascade-corner-pooling">Cascade corner pooling</h4>
+<p>corner pooling往往对边缘信息过于敏感，那么本文就使用cascade方式--类似两个corner一起用，来尽可能获取更多的物体中心信息</p>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/15.png" alt="3"></p>
+<p>比如对top-left点：找到右侧最大值点A，再在A点向下找最大值B点；找到下方最大值C点，再在C点向右找最大值D点。最后top-left点=A+B+C+D。</p>
+<p>两种pooling统一起来：</p>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/14.png" alt="3"></p>
+<h3 id="focal-loss">Focal Loss</h3>
+<p>Focal loss主要是为了解决one-stage目标检测中正负样本比例严重失衡的问题。</p>
+<h4 id="crossentropy-loss">CrossEntropy Loss</h4>
+<p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/16.png" alt="3" style="zoom:40%;"></p>
+<p>对于二分类来说则为：</p>
+<p><span class="math inline">\(Loss = -(y*log(y&#39;)+(1-y)*log(1-y&#39;))\)</span>，其中<span class="math inline">\(y\)</span>为ground truth，如果为真则为1，否则为0，其中<span class="math inline">\(y&#39;\)</span>为经过激活函数后的输出，在<span class="math inline">\(0-1\)</span>之间。</p>
+<p>在大量样本中，大多数样本都能被轻易分出，而对于能轻易分出的样本（即正样本高<span class="math inline">\(y&#39;\)</span>，负样本低<span class="math inline">\(y&#39;\)</span>）都造成Loss过小，收敛太慢。</p>
+<p>Focal Loss即是对此进行了改进：</p>
+<p><span class="math inline">\(\begin{equation*}Focal Loss = \end{equation*} \begin{cases} -\alpha(1-y&#39;) ^\gamma logy&#39;  \quad y = 1\\  -(1-\alpha)y&#39; ^\gamma log(1-y&#39;)\quad y = 0 \end{cases}\)</span></p>
+<p>加入<span class="math inline">\(\gamma\)</span>使得对于正样本高概率时loss降低，对于负样本低概率时loss降低（即概率趋近于0.5，不确定时的loss权重增加）</p>
+<p>加入<span class="math inline">\(\alpha\)</span>来平衡正负样本之间的数量差距。</p>
+]]></content>
+      <categories>
+        <category>Computer Vision</category>
+      </categories>
+      <tags>
+        <tag>Object Detection</tag>
+        <tag>Anchor free</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AdaBoosting</title>
     <url>/2021/05/24/AdaBoosting/</url>
     <content><![CDATA[<h3 id="boosting-bagging">Boosting &amp; Bagging</h3>
@@ -382,61 +396,6 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </categories>
   </entry>
   <entry>
-    <title>Blender Cloth Rendering</title>
-    <url>/2021/09/14/Blender-Cloth-Rending/</url>
-    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
-<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
-<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
-<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
-<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
-<p><img src="/2021/09/14/Blender-Cloth-Rending/1.png" width="75%" height="75%"></p>
-]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>C/C++ openmp</title>
-    <url>/2020/05/30/C-C-openmp/</url>
-    <content><![CDATA[<p>Just a note for myself !</p>
-<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del> </strong> !!!</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C/C++</tag>
-        <tag>openmp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>九月剑道稽古</title>
-    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
-    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
-<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-XHPLEqFZexBRsEVn" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-XHPLEqFZexBRsEVn").style.height=document.getElementById("mmedia-XHPLEqFZexBRsEVn").scrollWidth*0.76+"px";
-    window.onresize = function(){
-      document.getElementById("mmedia-XHPLEqFZexBRsEVn").style.height=document.getElementById("mmedia-XHPLEqFZexBRsEVn").scrollWidth*0.76+"px";
-    }; </script>
-]]></content>
-      <categories>
-        <category>Kendo</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Blender尝试NPR场景</title>
-    <url>/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/</url>
-    <content><![CDATA[<p>尝试了NPR的场景渲染，感觉不是特别成功，二次元渲染不仅需要技术，调参也很难，需要一些美学功底更重要的是对渲染节点的深入理解。</p>
-<div align="center">
-<figure>
-<img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/Grass.png" alt="初步的效果"><figcaption aria-hidden="true">初步的效果</figcaption>
-</figure>
-</div>]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
     <title>C++11 in Mac (VsCode)</title>
     <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
     <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of <code>gcc</code>. You can still use <code>clang++</code> or <code>g++</code> to run a <code>.cpp</code> file. But basically, <code>clang</code> will use <code>-std=c++98</code> as default.</p>
@@ -464,6 +423,20 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
+    <title>Blender Cloth Rendering</title>
+    <url>/2021/09/14/Blender-Cloth-Rending/</url>
+    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
+<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
+<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
+<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
+<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
+<p><img src="/2021/09/14/Blender-Cloth-Rending/1.png" width="75%" height="75%"></p>
+]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Cannot get access to Github</title>
     <url>/2021/03/04/Cannot-get-access-to-Github/</url>
     <content><![CDATA[<p>MacOS 11.2</p>
@@ -485,6 +458,23 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
         <tag>Github</tag>
         <tag>MacOS</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Blender尝试NPR场景</title>
+    <url>/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/</url>
+    <content><![CDATA[<p>尝试了NPR的场景渲染，感觉不是特别成功，二次元渲染不仅需要技术，调参也很难，需要一些美学功底更重要的是对渲染节点的深入理解。</p>
+<div align="center">
+<figure>
+<img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/Grass.png" alt="初步的效果"><figcaption aria-hidden="true">初步的效果</figcaption>
+</figure>
+<div align="center">
+<figure>
+<img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/real.jpeg" alt="实际想要模仿的效果--图片为实际拍摄"><figcaption aria-hidden="true">实际想要模仿的效果--图片为实际拍摄</figcaption>
+</figure>
+</div></div>]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
   </entry>
   <entry>
     <title>C++: Difference between int* and int&amp; and int</title>
@@ -509,6 +499,52 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
+    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
+    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
+    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
+<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code> and <code>const a int</code> are totally same. Both of them tell the compiler that the value stored in <code>a</code> can not be modified. But when it is combined with pointer, things go complicated</p>
+<h2 id="const-int">const int *</h2>
+<p>For C++, <code>int*</code> is not viewed as a type. Only <code>*a</code> be viewed as a mark telling the complier <code>a</code> is a pointer. So as we have already known that <code>int const</code> is same with <code>const int</code>, <code>int const *a</code> is also same with <code>const int *a</code>. Both of them means <code>*a</code> is a const, which means the value poined by <code>a</code> can not be modified but <code>a</code>, as a pointer, can point to different places.</p>
+<h2 id="int-const">int* const</h2>
+<p>By contrast, the <code>const</code> in <code>int* const</code> is a mark for <code>a</code>, so <code>a</code>, as a pointer, can only point to one specific place(determined when it is initialized), but the value pointed by it can be changed.</p>
+<p>Besides, we can combine two usages of <code>const</code>together: <code>const int* const a</code>--<code>a</code>, as a pointer, can not be modified and the value pointed by <code>a</code> cannot be modified.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>const</tag>
+        <tag>pointer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C/C++ openmp</title>
+    <url>/2020/05/30/C-C-openmp/</url>
+    <content><![CDATA[<p>Just a note for myself !</p>
+<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del> </strong> !!!</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>openmp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Copy &amp; Deepcopy in Python</title>
+    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Difference between Override &amp; Overload</title>
     <url>/2020/12/16/Difference-between-Override-Overload/</url>
     <content><![CDATA[<p>Both of them only happen when difference function using same name.</p>
@@ -530,38 +566,6 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
-    <title>Copy &amp; Deepcopy in Python</title>
-    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
-    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
-    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
-<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code> and <code>const a int</code> are totally same. Both of them tell the compiler that the value stored in <code>a</code> can not be modified. But when it is combined with pointer, things go complicated</p>
-<h2 id="const-int">const int *</h2>
-<p>For C++, <code>int*</code> is not viewed as a type. Only <code>*a</code> be viewed as a mark telling the complier <code>a</code> is a pointer. So as we have already known that <code>int const</code> is same with <code>const int</code>, <code>int const *a</code> is also same with <code>const int *a</code>. Both of them means <code>*a</code> is a const, which means the value poined by <code>a</code> can not be modified but <code>a</code>, as a pointer, can point to different places.</p>
-<h2 id="int-const">int* const</h2>
-<p>By contrast, the <code>const</code> in <code>int* const</code> is a mark for <code>a</code>, so <code>a</code>, as a pointer, can only point to one specific place(determined when it is initialized), but the value pointed by it can be changed.</p>
-<p>Besides, we can combine two usages of <code>const</code>together: <code>const int* const a</code>--<code>a</code>, as a pointer, can not be modified and the value pointed by <code>a</code> cannot be modified.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>const</tag>
-        <tag>pointer</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Experience of MacOS Big Sur</title>
     <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
     <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
@@ -575,98 +579,92 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
-    <title>Difference between new and malloc</title>
-    <url>/2020/06/04/Difference-between-new-and-malloc/</url>
-    <content><![CDATA[<p>今天写作业的时候要求实现vector，很自然地用 <code>malloc</code>，但是告知不能使用<code>stdlib.h</code>，没有办法就只能使用<code>new</code>了。于是忽然想到<code>new</code>、<code>malloc</code>都是在<code>heap</code>上开辟动态空间，那么有什么异同呢？</p>
-<h2 id="malloc">malloc()</h2>
-<p>malloc只负责开辟一个指定大小的空间，类似的<code>calloc</code>则使得在开辟空间的同时初始化为0。 malloc的特点在于将内存空间视为链表，在内存上找到足够长的初始空间返回给目标空间的开头地址，如果失败就会返回<code>NULL</code>（因此使用malloc必须要检验返回指针）。</p>
-<p>由于malloc开辟的空间在<code>heap</code>上，这就使得可以在函数内定义的变量在函数被销毁会变量不会被同步销毁。因此释放heap的空间只能通过手动<code>free()</code>。</p>
-<p><code>malloc</code>在开辟新空间时往往会多开辟一些空间用于存储空间长度，前后空间指针的信息，由<code>free</code>源码可见，实际上free是将<code>heap</code>上的可用空间定义为指针传入的指针位置减去malloc所要求的大小--所以free本质上是定义了一个指针告诉OS：一个指针到另一个指针之间的空间是可用的<code>free-&gt;is_available = 1;</code>。由此<code>free</code>函数对传入的指针要求非常严格，必须是malloc空间的起始指针。</p>
-<h2 id="new">new()</h2>
-<p>intuitive的区别： 首先<code>new</code>有个好处可以简单地进行初始化，即使用new时会调用该类型的默认构造函数。并且<code>new</code>开辟的空间需要用<code>delete</code>函数删除。</p>
-<p>更重要的区别是：</p>
-<p><code>new</code>函数调用的空间在C++被抽象为<code>free store</code>（反向定义--new的空间才被视为free store，由OS特别管理）上。<code>free store</code>一般都是在heap上，但是取决于<code>new</code>自身的实现，也可以在<code>static</code>区域。</p>
-<p><code>new</code>有多种变体，如定位new--直接使用传入的地址而不考虑是否该地址为空可以使用<code>new (address) int[10]</code></p>
-<p><code>new</code>函数返回的指针类型与开辟空间的数据类型相符合，这就意味着不需要像malloc一样在cast后才能使用，在数据上更加安全。</p>
-<p><code>new</code>如果分配失败，不会返回错误会直接丢出异常，如果想要确认需要使用catch <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">    int *a = new int();</span><br><span class="line">&#125;</span><br><span class="line">catch (bad_alloc)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>summary：</p>
-<table>
-<thead>
-<tr class="header">
-<th>特征</th>
-<th>new/delete</th>
-<th>malloc/free</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>分配内存的位置</td>
-<td>自由存储区</td>
-<td>堆</td>
-</tr>
-<tr class="even">
-<td>内存分配失败返回值</td>
-<td>完整类型指针</td>
-<td>void*</td>
-</tr>
-<tr class="odd">
-<td>内存分配失败返回值</td>
-<td>默认抛出异常</td>
-<td>返回NULL</td>
-</tr>
-<tr class="even">
-<td>分配内存的大小</td>
-<td>由编译器根据类型计算得出</td>
-<td>必须显式指定字节数</td>
-</tr>
-<tr class="odd">
-<td>处理数组</td>
-<td>有处理数组的new版本new[]</td>
-<td>需要用户计算数组的大小后进行内存分配</td>
-</tr>
-<tr class="even">
-<td>已分配内存的扩充</td>
-<td>无法直观地处理</td>
-<td>使用realloc简单完成</td>
-</tr>
-<tr class="odd">
-<td>是否相互调用</td>
-<td>可以，看具体的operator new/delete实现</td>
-<td>不可调用new</td>
-</tr>
-<tr class="even">
-<td>分配内存时内存不足</td>
-<td>客户能够指定处理函数或重新制定分配器</td>
-<td>无法通过用户代码进行处理</td>
-</tr>
-<tr class="odd">
-<td>函数重载</td>
-<td>允许</td>
-<td>不允许</td>
-</tr>
-<tr class="even">
-<td>构造函数与析构函数</td>
-<td>调用</td>
-<td>不调用</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>new</tag>
-        <tag>malloc</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>GIF test</title>
     <url>/2021/09/16/GIF-test/</url>
     <content><![CDATA[<p>You should see this. <iframe height="75%" width="75%" src="1.gif"></iframe></p>
 ]]></content>
       <categories>
         <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Games101 Homeworks Summary</title>
+    <url>/2021/09/29/Games101-Homework-Summary/</url>
+    <content><![CDATA[<h3 id="prefab">Prefab</h3>
+<p>Games101还是要强烈推荐给大家，把图形学一些基本的内容讲的十分透彻了。这里记录一下作业的成果，具体的代码实现就不展示了，如果有特别巧妙的会注明。封面将对当前最新进度结果进行展示。</p>
+<p>更新到Assignment5.</p>
+<div align="center">
+<p><img src="/2021/09/29/Games101-Homework-Summary/hw5.png"></p>
+<span id="more"></span>
+<h3 id="assignment-1">Assignment 1</h3>
+<p>第一次作业就是简单的几何透视。课上分开讲，所以用分开的子矩阵相乘得到，或者直接计算到结果。</p>
+<p>注意这里先假定图像是中心对称摆好的</p>
+<div align="center">
+<p><img src="/2021/09/29/Games101-Homework-Summary/hw1.png"></p>
+<h3 id="assignment-2">Assignment 2</h3>
+<p>第二次作业是实现depth buffer。</p>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw2.png" alt="直接的结果"><figcaption aria-hidden="true">直接的结果</figcaption>
+</figure>
+<p>注意MSAA的实现，需要将一个像素点打成四个进行分析，对最终颜色根据一个像素内有几个点在三角形内重新计算（color*=#三角形内点/4）</p>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw2_MSAA_simple.png" alt="MSAA的简单结果"><figcaption aria-hidden="true">MSAA的简单结果</figcaption>
+</figure>
+<p>但是这样只是抑制了颜色的数值，实际上我们希望的是两种颜色之间的渐变过渡。</p>
+<p>因此采用原本数值和新数值的加权求和，但是这种方法首先于先后出现关系，因此不能完全解决问题。</p>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw2_MSAA.png" alt="MSAA的尝试修正结果"><figcaption aria-hidden="true">MSAA的尝试修正结果</figcaption>
+</figure>
+<p>似乎效果也不是很好。。。</p>
+<h3 id="assignment-3">Assignment 3</h3>
+<p>这次作业不仅东西多，而且很多细节课上没有明确，虽然作业根据指导还是比较清晰的，但是对其背后的原理很多都不甚清晰。</p>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw3_norm.png" alt="对模型求法线"><figcaption aria-hidden="true">对模型求法线</figcaption>
+</figure>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw3_phong.png" alt="使用phong着色模型对模型上高光"><figcaption aria-hidden="true">使用phong着色模型对模型上高光</figcaption>
+</figure>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw3_texture.png" alt="加入材质"><figcaption aria-hidden="true">加入材质</figcaption>
+</figure>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw3_texture_interpolated.png" alt="对材质进行二次插值，但是似乎效果不明显？"><figcaption aria-hidden="true">对材质进行二次插值，但是似乎效果不明显？</figcaption>
+</figure>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw3_bump.png" alt="加入凹凸贴图，展示凹凸贴图法线"><figcaption aria-hidden="true">加入凹凸贴图，展示凹凸贴图法线</figcaption>
+</figure>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw3_displacement.png" alt="凹凸贴图最终效果，注意这里的贴图对shading产生了实际的影响"><figcaption aria-hidden="true">凹凸贴图最终效果，注意这里的贴图对shading产生了实际的影响</figcaption>
+</figure>
+<h3 id="assignment-4">Assignment 4</h3>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw4_naive.png" alt="给出的参考效果"><figcaption aria-hidden="true">给出的参考效果</figcaption>
+</figure>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw4_bezier.png" alt="简单实现--无抗锯齿"><figcaption aria-hidden="true">简单实现--无抗锯齿</figcaption>
+</figure>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw4_anti_alising.png" alt="有抗锯齿--最直观的感受就是变粗了，因为给附近的几个点也按比例上色了"><figcaption aria-hidden="true">有抗锯齿--最直观的感受就是变粗了，因为给附近的几个点也按比例上色了</figcaption>
+</figure>
+<h3 id="assignment-5">Assignment 5</h3>
+<p>光线追踪具体挺麻烦的，但是这里只需要实现简单的功能--由screen发射ray（其实就是将屏幕空间(0, width-1)x(0,vheight-1)映射到(-1, 1)x(-1, 1)的空间里去），还有判断光线是否能打到三角形内（有明确公式解）。</p>
+<div align="center">
+<p><img src="/2021/09/29/Games101-Homework-Summary/hw5.png"></p>
+</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>]]></content>
+      <categories>
+        <category>Computer Graphics</category>
       </categories>
   </entry>
   <entry>
@@ -813,30 +811,89 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
-    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
-    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
-    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
-<p>Try <code>nvidia-settings</code> in terminal, then:</p>
-<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to generate random number via C++ (srand version)</title>
-    <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
-    <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>Difference between new and malloc</title>
+    <url>/2020/06/04/Difference-between-new-and-malloc/</url>
+    <content><![CDATA[<p>今天写作业的时候要求实现vector，很自然地用 <code>malloc</code>，但是告知不能使用<code>stdlib.h</code>，没有办法就只能使用<code>new</code>了。于是忽然想到<code>new</code>、<code>malloc</code>都是在<code>heap</code>上开辟动态空间，那么有什么异同呢？</p>
+<h2 id="malloc">malloc()</h2>
+<p>malloc只负责开辟一个指定大小的空间，类似的<code>calloc</code>则使得在开辟空间的同时初始化为0。 malloc的特点在于将内存空间视为链表，在内存上找到足够长的初始空间返回给目标空间的开头地址，如果失败就会返回<code>NULL</code>（因此使用malloc必须要检验返回指针）。</p>
+<p>由于malloc开辟的空间在<code>heap</code>上，这就使得可以在函数内定义的变量在函数被销毁会变量不会被同步销毁。因此释放heap的空间只能通过手动<code>free()</code>。</p>
+<p><code>malloc</code>在开辟新空间时往往会多开辟一些空间用于存储空间长度，前后空间指针的信息，由<code>free</code>源码可见，实际上free是将<code>heap</code>上的可用空间定义为指针传入的指针位置减去malloc所要求的大小--所以free本质上是定义了一个指针告诉OS：一个指针到另一个指针之间的空间是可用的<code>free-&gt;is_available = 1;</code>。由此<code>free</code>函数对传入的指针要求非常严格，必须是malloc空间的起始指针。</p>
+<h2 id="new">new()</h2>
+<p>intuitive的区别： 首先<code>new</code>有个好处可以简单地进行初始化，即使用new时会调用该类型的默认构造函数。并且<code>new</code>开辟的空间需要用<code>delete</code>函数删除。</p>
+<p>更重要的区别是：</p>
+<p><code>new</code>函数调用的空间在C++被抽象为<code>free store</code>（反向定义--new的空间才被视为free store，由OS特别管理）上。<code>free store</code>一般都是在heap上，但是取决于<code>new</code>自身的实现，也可以在<code>static</code>区域。</p>
+<p><code>new</code>有多种变体，如定位new--直接使用传入的地址而不考虑是否该地址为空可以使用<code>new (address) int[10]</code></p>
+<p><code>new</code>函数返回的指针类型与开辟空间的数据类型相符合，这就意味着不需要像malloc一样在cast后才能使用，在数据上更加安全。</p>
+<p><code>new</code>如果分配失败，不会返回错误会直接丢出异常，如果想要确认需要使用catch <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">    int *a = new int();</span><br><span class="line">&#125;</span><br><span class="line">catch (bad_alloc)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>summary：</p>
+<table>
+<thead>
+<tr class="header">
+<th>特征</th>
+<th>new/delete</th>
+<th>malloc/free</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>分配内存的位置</td>
+<td>自由存储区</td>
+<td>堆</td>
+</tr>
+<tr class="even">
+<td>内存分配失败返回值</td>
+<td>完整类型指针</td>
+<td>void*</td>
+</tr>
+<tr class="odd">
+<td>内存分配失败返回值</td>
+<td>默认抛出异常</td>
+<td>返回NULL</td>
+</tr>
+<tr class="even">
+<td>分配内存的大小</td>
+<td>由编译器根据类型计算得出</td>
+<td>必须显式指定字节数</td>
+</tr>
+<tr class="odd">
+<td>处理数组</td>
+<td>有处理数组的new版本new[]</td>
+<td>需要用户计算数组的大小后进行内存分配</td>
+</tr>
+<tr class="even">
+<td>已分配内存的扩充</td>
+<td>无法直观地处理</td>
+<td>使用realloc简单完成</td>
+</tr>
+<tr class="odd">
+<td>是否相互调用</td>
+<td>可以，看具体的operator new/delete实现</td>
+<td>不可调用new</td>
+</tr>
+<tr class="even">
+<td>分配内存时内存不足</td>
+<td>客户能够指定处理函数或重新制定分配器</td>
+<td>无法通过用户代码进行处理</td>
+</tr>
+<tr class="odd">
+<td>函数重载</td>
+<td>允许</td>
+<td>不允许</td>
+</tr>
+<tr class="even">
+<td>构造函数与析构函数</td>
+<td>调用</td>
+<td>不调用</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
       <categories>
         <category>Learning</category>
       </categories>
       <tags>
-        <tag>C++</tag>
-        <tag>Srand</tag>
+        <tag>new</tag>
+        <tag>malloc</tag>
       </tags>
   </entry>
   <entry>
@@ -853,6 +910,19 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
+    <title>How to generate random number via C++ (srand version)</title>
+    <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
+    <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Srand</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Image Test</title>
     <url>/2021/09/15/Image-Test/</url>
     <content><![CDATA[<p>You see the image? <img src="/2021/09/15/Image-Test/test.jpg" alt="image"></p>
@@ -862,83 +932,30 @@ Picture3: 3-D GMM
       </categories>
   </entry>
   <entry>
-    <title>Games101 Homeworks Summary</title>
-    <url>/2021/09/29/Games101-Homework-Summary/</url>
-    <content><![CDATA[<h3 id="prefab">Prefab</h3>
-<p>Games101还是要强烈推荐给大家，把图形学一些基本的内容讲的十分透彻了。这里记录一下作业的成果，具体的代码实现就不展示了，如果有特别巧妙的会注明。封面将对当前最新进度结果进行展示。</p>
-<p>更新到Assignment5.</p>
-<div align="center">
-<p><img src="/2021/09/29/Games101-Homework-Summary/hw5.png"></p>
-<span id="more"></span>
-<h3 id="assignment-1">Assignment 1</h3>
-<p>第一次作业就是简单的几何透视。课上分开讲，所以用分开的子矩阵相乘得到，或者直接计算到结果。</p>
-<p>注意这里先假定图像是中心对称摆好的</p>
-<div align="center">
-<p><img src="/2021/09/29/Games101-Homework-Summary/hw1.png"></p>
-<h3 id="assignment-2">Assignment 2</h3>
-<p>第二次作业是实现depth buffer。</p>
-<div align="center">
-<figure>
-<img src="/2021/09/29/Games101-Homework-Summary/hw2.png" alt="直接的结果"><figcaption aria-hidden="true">直接的结果</figcaption>
-</figure>
-<p>注意MSAA的实现，需要将一个像素点打成四个进行分析，对最终颜色根据一个像素内有几个点在三角形内重新计算（color*=#三角形内点/4）</p>
-<div align="center">
-<figure>
-<img src="/2021/09/29/Games101-Homework-Summary/hw2_MSAA_simple.png" alt="MSAA的简单结果"><figcaption aria-hidden="true">MSAA的简单结果</figcaption>
-</figure>
-<p>但是这样只是抑制了颜色的数值，实际上我们希望的是两种颜色之间的渐变过渡。</p>
-<p>因此采用原本数值和新数值的加权求和，但是这种方法首先于先后出现关系，因此不能完全解决问题。</p>
-<div align="center">
-<figure>
-<img src="/2021/09/29/Games101-Homework-Summary/hw2_MSAA.png" alt="MSAA的尝试修正结果"><figcaption aria-hidden="true">MSAA的尝试修正结果</figcaption>
-</figure>
-<p>似乎效果也不是很好。。。</p>
-<h3 id="assignment-3">Assignment 3</h3>
-<p>这次作业不仅东西多，而且很多细节课上没有明确，虽然作业根据指导还是比较清晰的，但是对其背后的原理很多都不甚清晰。</p>
-<div align="center">
-<figure>
-<img src="/2021/09/29/Games101-Homework-Summary/hw3_norm.png" alt="对模型求法线"><figcaption aria-hidden="true">对模型求法线</figcaption>
-</figure>
-<div align="center">
-<figure>
-<img src="/2021/09/29/Games101-Homework-Summary/hw3_phong.png" alt="使用phong着色模型对模型上高光"><figcaption aria-hidden="true">使用phong着色模型对模型上高光</figcaption>
-</figure>
-<div align="center">
-<figure>
-<img src="/2021/09/29/Games101-Homework-Summary/hw3_texture.png" alt="加入材质"><figcaption aria-hidden="true">加入材质</figcaption>
-</figure>
-<div align="center">
-<figure>
-<img src="/2021/09/29/Games101-Homework-Summary/hw3_texture_interpolated.png" alt="对材质进行二次插值，但是似乎效果不明显？"><figcaption aria-hidden="true">对材质进行二次插值，但是似乎效果不明显？</figcaption>
-</figure>
-<div align="center">
-<figure>
-<img src="/2021/09/29/Games101-Homework-Summary/hw3_bump.png" alt="加入凹凸贴图，展示凹凸贴图法线"><figcaption aria-hidden="true">加入凹凸贴图，展示凹凸贴图法线</figcaption>
-</figure>
-<div align="center">
-<figure>
-<img src="/2021/09/29/Games101-Homework-Summary/hw3_displacement.png" alt="凹凸贴图最终效果，注意这里的贴图对shading产生了实际的影响"><figcaption aria-hidden="true">凹凸贴图最终效果，注意这里的贴图对shading产生了实际的影响</figcaption>
-</figure>
-<h3 id="assignment-4">Assignment 4</h3>
-<div align="center">
-<figure>
-<img src="/2021/09/29/Games101-Homework-Summary/hw4_naive.png" alt="给出的参考效果"><figcaption aria-hidden="true">给出的参考效果</figcaption>
-</figure>
-<div align="center">
-<figure>
-<img src="/2021/09/29/Games101-Homework-Summary/hw4_bezier.png" alt="简单实现--无抗锯齿"><figcaption aria-hidden="true">简单实现--无抗锯齿</figcaption>
-</figure>
-<div align="center">
-<figure>
-<img src="/2021/09/29/Games101-Homework-Summary/hw4_anti_alising.png" alt="有抗锯齿--最直观的感受就是变粗了，因为给附近的几个点也按比例上色了"><figcaption aria-hidden="true">有抗锯齿--最直观的感受就是变粗了，因为给附近的几个点也按比例上色了</figcaption>
-</figure>
-<h3 id="assignment-5">Assignment 5</h3>
-<p>光线追踪具体挺麻烦的，但是这里只需要实现简单的功能--由screen发射ray（其实就是将屏幕空间(0, width-1)x(0,vheight-1)映射到(-1, 1)x(-1, 1)的空间里去），还有判断光线是否能打到三角形内（有明确公式解）。</p>
-<div align="center">
-<p><img src="/2021/09/29/Games101-Homework-Summary/hw5.png"></p>
-</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>]]></content>
+    <title>How to install &#39;labelme&#39; in Macbook M1</title>
+    <url>/2021/09/29/How-to-install-labelme-in-Macbook-M1/</url>
+    <content><![CDATA[<h3 id="conda-environment">Conda Environment</h3>
+<ol type="1">
+<li>Because anaconda is not suitable for M1, we use miniforge3 instead.</li>
+<li>Create new conda environment with 'python=3.9'. (miniforge3 only support python3.9 on M1).</li>
+</ol>
+<h3 id="pyqt5">PyQt5</h3>
+<ol type="1">
+<li>install homebrew (remeber to add path).</li>
+<li><code>brew install pyqt5</code>. Homebrew supports pyqt now.</li>
+<li>add path: <code>echo 'export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code> and <code>echo 'export PATH="/opt/homebrew/opt/pyqt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code>. This path may be not suitbale for you. You should modify your path to <code>/qt5@/bin</code> and <code>/qypt@5/bin</code>, and modify your bash profile (<code>~/.zshrc</code> for most Macbook users).</li>
+<li>Duplicate the files in <code>/opt/homebrew/Cellar/pyqt@5/5.15.4_1/lib/python3.9/site-packages</code> and paste them to <code>/Users/&lt;username&gt;/miniforge3/envs/&lt;environmentname&gt;/lib/python3.9/site-packages</code>.</li>
+<li><code>source ~/.bashrc</code> (<code>.zshrc</code>)</li>
+</ol>
+<h3 id="labelme">labelme</h3>
+<ol type="1">
+<li>labelme can be installed directly via pip (in your conda environemnt)</li>
+<li><code>pip install labelme</code></li>
+<li>when everything is done, <code>labelme</code> to use it.</li>
+</ol>
+]]></content>
       <categories>
-        <category>Computer Graphics</category>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -1057,49 +1074,6 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
-    <title>How to install &#39;labelme&#39; in Macbook M1</title>
-    <url>/2021/09/29/How-to-install-labelme-in-Macbook-M1/</url>
-    <content><![CDATA[<h3 id="conda-environment">Conda Environment</h3>
-<ol type="1">
-<li>Because anaconda is not suitable for M1, we use miniforge3 instead.</li>
-<li>Create new conda environment with 'python=3.9'. (miniforge3 only support python3.9 on M1).</li>
-</ol>
-<h3 id="pyqt5">PyQt5</h3>
-<ol type="1">
-<li>install homebrew (remeber to add path).</li>
-<li><code>brew install pyqt5</code>. Homebrew supports pyqt now.</li>
-<li>add path: <code>echo 'export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code> and <code>echo 'export PATH="/opt/homebrew/opt/pyqt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code>. This path may be not suitbale for you. You should modify your path to <code>/qt5@/bin</code> and <code>/qypt@5/bin</code>, and modify your bash profile (<code>~/.zshrc</code> for most Macbook users).</li>
-<li>Duplicate the files in <code>/opt/homebrew/Cellar/pyqt@5/5.15.4_1/lib/python3.9/site-packages</code> and paste them to <code>/Users/&lt;username&gt;/miniforge3/envs/&lt;environmentname&gt;/lib/python3.9/site-packages</code>.</li>
-<li><code>source ~/.bashrc</code> (<code>.zshrc</code>)</li>
-</ol>
-<h3 id="labelme">labelme</h3>
-<ol type="1">
-<li>labelme can be installed directly via pip (in your conda environemnt)</li>
-<li><code>pip install labelme</code></li>
-<li>when everything is done, <code>labelme</code> to use it.</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Mac上极好的Github使用教程(转载)</title>
-    <url>/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/Capgras/article/details/100540501">原文链接</a></p>
-<p>以下为截图</p>
-<figure>
-<img src="/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/Github(tutorial).jpg" alt="git"><figcaption aria-hidden="true">git</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Tutorial</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
     <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
     <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
@@ -1107,6 +1081,30 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       <categories>
         <category>Configuration</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Overwatch yes</title>
+    <url>/2021/06/10/Overwatch-yes/</url>
+    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
+<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
+]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
+    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
+    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
+<p>Try <code>nvidia-settings</code> in terminal, then:</p>
+<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
   </entry>
   <entry>
     <title>Mac上vscode显示没有修改文件权限</title>
@@ -1121,58 +1119,6 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
 ]]></content>
       <categories>
         <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Markdown在github上公式显示错误</title>
-    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NPR Cup--a taste to NPR</title>
-    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
-    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果"><figcaption aria-hidden="true">简单的一个效果</figcaption>
-</figure>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了"><figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Rendering</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>PDF &amp; CDF</title>
-    <url>/2021/02/24/PDF_CDF/</url>
-    <content><![CDATA[<p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。 为此引入了PDF（Probability Density Function），直观地理解可以近似理解为概率本身--也就是说如果我们不关心纯粹的概率值，而只要求相对的概率大小，那么就可以使用某个点的PDF值进行计算（比如最大似然估计）。但是要认识到某个点的具体概率值实际为<span class="math inline">\(PDF(x)*dx = 0\)</span>，一个点的概率本身没有意义。</p>
-<p>为此需要引入CDF，即为PDF在一定区间上的积分，这使得CDF具有了实际的概率意义。</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Probability Density Function</tag>
-        <tag>Cumulative Distribution Function</tag>
-        <tag>Norm Distribution</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Overwatch yes</title>
-    <url>/2021/06/10/Overwatch-yes/</url>
-    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
-<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
-]]></content>
-      <categories>
-        <category>Chat</category>
       </categories>
   </entry>
   <entry>
@@ -1205,25 +1151,30 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
-    <title>Principal Component Analysis</title>
-    <url>/2021/05/27/Principal-Component-Analysis/</url>
-    <content><![CDATA[<h1 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h1>
-<h2 id="why-pca">WHY PCA</h2>
-<p>实践中比如我们看到一个人的信息，他可能有很多很多的feature--身高、体重、血小板数量等等，但是对我们所关心的话题（他长得帅不帅）所有实际意义的feature可能很少。因此我们尝试用PCA找出哪些feature对我们所关系的问题有实际的意义，从而实现对数据的降维（有损）。</p>
-<span id="more"></span>
-<h2 id="how-to-find-principal-component">How to find Principal Component？</h2>
-<p>在数据的层面上什么是PC呢？</p>
-<p>举个例子--如何把二维的数据降维到一维：</p>
-<p>原本 <span class="math inline">\(x \in R^2\)</span> ，现在是 <span class="math inline">\(x \in R\)</span> 。降维的方式是任意的，但是我们如何评价这个降维是合理的？--降维后的数据的方差尽可能大，这样可以很直观地保证数据内部的信息尽可能地被保留。</p>
-<p>在二维平面上的一系列点降维到一维上，从过程上看是将平面上的点投影到一条直线上去。</p>
-<p>一般情况下我们会对数据进行中心化处理（数据均值变为原点），由此使得我们找的直线也能经过原点。</p>
-<p>投影过后，投影的值假设为 <span class="math inline">\(b1,b2,b3,b4,b5,b6\)</span> 。它们的均值也为0（原数据经过均值化）。那么方差即为 <span class="math inline">\((b1^2+b2^2+b3^2+b4^2+b5^2+b6^2)/6\)</span> 。所以我们要做的就是让<strong>投影后的norm2之和最大化</strong>。同样这也等价于<strong>让原数据点到直线的距离的平方和最小</strong>。（注意这是两种视角）</p>
+    <title>Markdown在github上公式显示错误</title>
+    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
 ]]></content>
       <categories>
-        <category>Machine Learning</category>
+        <category>Configuration</category>
       </categories>
       <tags>
-        <tag>PCA</tag>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PDF &amp; CDF</title>
+    <url>/2021/02/24/PDF_CDF/</url>
+    <content><![CDATA[<p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。 为此引入了PDF（Probability Density Function），直观地理解可以近似理解为概率本身--也就是说如果我们不关心纯粹的概率值，而只要求相对的概率大小，那么就可以使用某个点的PDF值进行计算（比如最大似然估计）。但是要认识到某个点的具体概率值实际为<span class="math inline">\(PDF(x)*dx = 0\)</span>，一个点的概率本身没有意义。</p>
+<p>为此需要引入CDF，即为PDF在一定区间上的积分，这使得CDF具有了实际的概率意义。</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Probability Density Function</tag>
+        <tag>Cumulative Distribution Function</tag>
+        <tag>Norm Distribution</tag>
       </tags>
   </entry>
   <entry>
@@ -1246,6 +1197,71 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       <categories>
         <category>Learning</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Mac上极好的Github使用教程(转载)</title>
+    <url>/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/Capgras/article/details/100540501">原文链接</a></p>
+<p>以下为截图</p>
+<figure>
+<img src="/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/Github(tutorial).jpg" alt="git"><figcaption aria-hidden="true">git</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Tutorial</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NPR Cup--a taste to NPR</title>
+    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
+    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果"><figcaption aria-hidden="true">简单的一个效果</figcaption>
+</figure>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了"><figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Rendering</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
+    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
+    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
+<p>Literally, it is a <code>const iterator</code>, which means: iterator, as a pointer, can not be modified, but the value pointed by this iterator is permitted to be modified.</p>
+<h1 id="const_iterator">const_iterator</h1>
+<p><code>const_iterator</code>is a specially defined class. It is defined to go through a const container, which we are not intended to modify.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Principal Component Analysis</title>
+    <url>/2021/05/27/Principal-Component-Analysis/</url>
+    <content><![CDATA[<h1 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h1>
+<h2 id="why-pca">WHY PCA</h2>
+<p>实践中比如我们看到一个人的信息，他可能有很多很多的feature--身高、体重、血小板数量等等，但是对我们所关心的话题（他长得帅不帅）所有实际意义的feature可能很少。因此我们尝试用PCA找出哪些feature对我们所关系的问题有实际的意义，从而实现对数据的降维（有损）。</p>
+<span id="more"></span>
+<h2 id="how-to-find-principal-component">How to find Principal Component？</h2>
+<p>在数据的层面上什么是PC呢？</p>
+<p>举个例子--如何把二维的数据降维到一维：</p>
+<p>原本 <span class="math inline">\(x \in R^2\)</span> ，现在是 <span class="math inline">\(x \in R\)</span> 。降维的方式是任意的，但是我们如何评价这个降维是合理的？--降维后的数据的方差尽可能大，这样可以很直观地保证数据内部的信息尽可能地被保留。</p>
+<p>在二维平面上的一系列点降维到一维上，从过程上看是将平面上的点投影到一条直线上去。</p>
+<p>一般情况下我们会对数据进行中心化处理（数据均值变为原点），由此使得我们找的直线也能经过原点。</p>
+<p>投影过后，投影的值假设为 <span class="math inline">\(b1,b2,b3,b4,b5,b6\)</span> 。它们的均值也为0（原数据经过均值化）。那么方差即为 <span class="math inline">\((b1^2+b2^2+b3^2+b4^2+b5^2+b6^2)/6\)</span> 。所以我们要做的就是让<strong>投影后的norm2之和最大化</strong>。同样这也等价于<strong>让原数据点到直线的距离的平方和最小</strong>。（注意这是两种视角）</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>PCA</tag>
+      </tags>
   </entry>
   <entry>
     <title>SVM(Support Vector Machine)</title>
@@ -1290,6 +1306,135 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </tags>
   </entry>
   <entry>
+    <title>TOEFL Notes (based on TPO)</title>
+    <url>/2021/10/07/TOEFL-Notes-based-on-TPO/</url>
+    <content><![CDATA[<h3 id="tpo1-reading">TPO1 Reading</h3>
+<ol type="1">
+<li>Groundwater(地下水) is the word used to describe water that saturates(渗透、浸透) the ground.</li>
+<li>By far(到目前为止) the most <strong>abundant</strong>(<strong>大量的</strong>、充足的) type of groundwater is meteoric(<strong>大气的</strong>；流星的) water.</li>
+<li>circulate(v. <strong>循环</strong>；流通；流传)</li>
+<li>precipitation(化学沉淀；<strong>降水</strong>；冰雹；坠落)</li>
+<li>sand grains(沙粒)--grain(谷物；颗粒)</li>
+<li>The commonest spaces are those among the particles sand grains and tiny pebbles(卵石) of loose, unconsolidated(松散的) sand and gravel(沙砾).</li>
+<li>bed(床；<strong>河床</strong>)</li>
+<li>They are found wherever(adv. 任何地方) fast rivers carrying loads of(大量的) coarse(粗糙的) sediment(沉淀物) once flowed(流动、涌动).</li>
+<li>ice sheet(冰盖)--sheet(纸张；薄片；板)</li>
+<li>melt away(vi. 融化、消失)</li>
+<li>lade(装载)-laded-laden-&gt;be laden with...</li>
+<li>glacial outwash(冰水沉积)--outwash(术语，专指冰水沉积)</li>
+<li>sandbar(沙洲)</li>
+<li>cement(水泥；粘合剂)--cemented(粘合的；<strong>压实的</strong>)</li>
+<li>minute(n. 分钟；备忘录；一会 adj. <strong>微小的</strong>)</li>
+<li>So much for... 到此为止是关于...</li>
+<li>pore(毛孔；<strong>气孔</strong>)--porous(多孔的)</li>
+<li>percolate(<strong>渗透</strong>；过滤)--percolating water(渗透水)</li>
+<li>Most crystalline(结晶的、晶体的) rocks are much more solid; a common exception is basalt(玄武岩), a form of solidified(凝固的) volcanic(<strong>火山的</strong>；火山岩) lava(岩浆), which is sometimes full of tiny bubbles that make it very porous. <span id="more"></span></li>
+<li>cling to...(附着在...；坚持...；紧抓着...)</li>
+<li>be thought of as... (被视为...)</li>
+<li>film(电影；胶卷；<strong>薄膜</strong>)--thin film(薄膜)</li>
+<li>champion(n. 冠军；拥护者 vt. <strong>支持</strong>、拥护)</li>
+<li>anthropologist(人类学家)</li>
+<li>envision(vt. 想象、假想)</li>
+<li>emerge out of...(从...中出现)</li>
+<li>ritual(n. <strong>仪式</strong>；礼节 adj. 礼仪的)</li>
+<li>attribute...to...(把...归结于...)</li>
+<li>Complaints seemed to be an everyday occurrence(事件).</li>
+<li>Perceiving(意识到) an apparent connection between certain actions performed by the group and the result it desires, the group repeats, refines(精细化), and formalizes(使...形式化) those actions into fixed ceremonies(礼节), or rituals(宗教仪式).</li>
+<li>representative(adj. 典型的 n. 代表；<strong>典型</strong>；众议员)</li>
+<li>costume(服饰；戏服)--custom(n. 习惯；风俗 adj. 定制的)</li>
+<li>mythical(神话中的；虚构的)</li>
+<li>As a people becomes more sophisticated(<strong>见多识广的</strong>；复杂精巧的；先进的), its conceptions of supernatural forces and causal relationships may change.</li>
+<li>act out...(表演...)</li>
+<li>autonomous activity(自发行动)</li>
+<li>efficacious(灵验的--常用于宗教相关)</li>
+<li>Thus, the recalling of an event (a hunt, battle, or other feat(伟绩--可数)) is <strong>elaborated</strong>(详细表达) through the narrator's pantomime(<strong>手势</strong>；哑剧) and <strong>impersonation</strong>(n. 模仿) and eventually through each role being assumed(承担) by a different person.</li>
+<li>pantomimic(哑剧的) rhythmical(有节奏的) gymnastic(体育的)</li>
+<li>virtuosity(精湛技艺)</li>
+<li>antecedent(先祖；前因；<strong>起源</strong>)</li>
+<li>set forth(提出；出发)--He sets forth his objections.</li>
+<li>Thus, fantasy or fiction (of which drama is one form) permits people to <strong>objectify</strong>(具像化) their anxieties and fears.</li>
+<li>penchant(嗜好、倾向)--penchant for...</li>
+<li>One necessary condition(条件) seems to be a somewhat(有点) detached(<strong>脱离的</strong>；客观的) view of human problems.</li>
+<li>detachment(n. 超然)--a sort of lofty detachment</li>
+<li>deviation(背离) from social norms</li>
+<li>vegetation(植被；植物)</li>
+<li>deciduous trees(落叶树、阔叶树)</li>
+<li>deform(扭曲、畸形)</li>
+<li>prone(<strong>易于...</strong>；<strong>俯卧的</strong>)--be prone to dry out</li>
+<li>prevalent(普遍的、常见的)</li>
+</ol>
+]]></content>
+      <categories>
+        <category>-TOEFL</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Test discription</title>
+    <url>/2021/09/15/Test-discription/</url>
+    <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Social LSTM</title>
+    <url>/2021/03/07/Social-LSTM/</url>
+    <content><![CDATA[<h2 id="rnn">RNN</h2>
+<p>Recurrent Neural Network，循环神经网络。</p>
+<p>RNN 是包含循环的网络，允许信息的持久化，可以充分利用先验的信息知识。</p>
+<p><img src="/2021/03/07/Social-LSTM/1.png" alt="3" style="zoom:20%;"></p>
+<p>本质上RNN就是在<span class="math inline">\(t\)</span>时刻，input=<span class="math inline">\(X _t + h _{t-1}\)</span>。</p>
+<p>LSTM就是一种特殊的RNN。</p>
+<p>对于RNN来说，在语言预测词汇中，对此要预测的词来说，相近的词贡献会很大，而时间间隔越远的词，贡献越少。但是往往存在Long-Term Dependency问题，一些重要信息可能会贯穿全文，如果很早出现但是被忘记，在后续的预测中将会很不利。理论上，RNN当然可以处理这种长期记忆问题，但是实践中却很难做到。为此LSTM出现了。</p>
+<span id="more"></span>
+<h2 id="lstm">LSTM</h2>
+<p>Long-Short Term Memory</p>
+<p>LSTM主要目的就是为了能够尽可能利用长期记忆。</p>
+<p>传统的RNN结构中只有一层神经网络。</p>
+<p><img src="/2021/03/07/Social-LSTM/2.png" alt="3" style="zoom:25%;"></p>
+<p>LSTM结构：</p>
+<p><img src="/2021/03/07/Social-LSTM/3.png" alt="3" style="zoom:25%;"></p>
+<p>每个时刻神经网络的状态（输出）为--cell state (<span class="math inline">\(C _t\)</span>)：</p>
+<p><img src="/2021/03/07/Social-LSTM/4.png" alt="3" style="zoom:25%;"></p>
+<h3 id="gate">Gate</h3>
+<p>LSTM引入了gate，使得信息能够选择性通过：</p>
+<p><img src="/2021/03/07/Social-LSTM/5.png" alt="3" style="zoom:25%;"></p>
+<p><strong>gate = a layer of Sigmoid + bitwise multiplier</strong></p>
+<p>LSTM有三个gate: forget gate, input gate(memory gate), output gate.</p>
+<p><img src="/2021/03/07/Social-LSTM/6.png" alt="3" style="zoom:40%;"></p>
+<h4 id="forget-gate">Forget gate</h4>
+<p><span class="math inline">\(input = [h _{t-1}, X _t]\)</span> <span class="math inline">\(ouput = f _t\)</span></p>
+<p>function: <span class="math inline">\(f _t = \sigma(W _f[h _{t-1}, x _t]+b _f)\)</span></p>
+<p>显然<span class="math inline">\(f _t\)</span>是一个[0, 1]之间的数，和<span class="math inline">\(C _{t-1}\)</span>相乘之后决定<span class="math inline">\(C _{t-1}\)</span>之中那些可以被保留，那些要忘记。</p>
+<p>eg. 假设<span class="math inline">\(C _{t-1} = [0.5,0.6,0.4]\)</span>，<span class="math inline">\(h _{t-1} = [0.3,0.8,0.69]\)</span>，<span class="math inline">\(x _t = [0.2,1.3,0.7]\)</span>，<span class="math inline">\(input = [h _{t-1}, X _t] = [0.3,0.8,0.69, 0.2,1.3,0.7]\)</span>，然后通过sigmoid输出每一个元素都处于<img src="https://www.zhihu.com/equation?tex=0" alt="[公式]">到<img src="https://www.zhihu.com/equation?tex=1" alt="[公式]">之间的向量<span class="math inline">\(f = [0.5,0.1,0.8]\)</span>，注意这里的sigmoid不是一个函数，而是sigmoid神经网络层，ouput大小==<span class="math inline">\(C _{t-1}\)</span>大小。</p>
+<h4 id="input-gate-memory-gate">Input gate (Memory gate)</h4>
+<p>记忆门包括两个支路：</p>
+<p><span class="math inline">\(i _t = \sigma(W _i[h _{t-1}, x _t] + b _i)\)</span></p>
+<p><span class="math inline">\(\widetilde C _t= tanh(W _C[h _{t-1}, x _t]+b _C)\)</span></p>
+<p>tanh层负责创造一个新的候选cell state (<span class="math inline">\(\widetilde C _t\)</span>)，sigmoid layer负责考虑哪些信息被保留，然后把结果加入之前的cell state。</p>
+<p>此时，cell state更新完成：<span class="math inline">\(C _t = C _{t-1}*f _t + i _t *\widetilde C _t\)</span></p>
+<h4 id="output-gate">Output gate</h4>
+<p>输出--作为下次输入的<span class="math inline">\(h _t\)</span></p>
+<p><span class="math inline">\(h _t = \sigma(W _o[h _{t-1}, x _t]+b _o) * tanh(C _t)\)</span>, note <span class="math inline">\(&#39;*’\)</span> denotes bit-wise multiplier.</p>
+<h3 id="why-lstm">Why LSTM</h3>
+<p>forget gate里面大多数位置都是0，1即是网络中保留的信息。gate有点类似于注意力机制，对于需要的信息，训练出高attention（1）。这样使得有价值的信息能够被过滤出来，长时间地保留下去。</p>
+<h2 id="social-lstm">Social LSTM</h2>
+<p>问题：</p>
+<p>第<span class="math inline">\(i\)</span>个人，在<span class="math inline">\(t\)</span>时刻，位置为<span class="math inline">\((x _i ^t, y _i ^t)\)</span> ，输入（观测）一段时间的行人位置：<span class="math inline">\(0 \rarr T _{obs}\)</span>来预测未来时间内行人位置：<span class="math inline">\(T _{obs + 1} \rarr T _{predict}\)</span>。</p>
+<p>social LSTM是指pooling based LSTM model</p>
+<p><img src="/2021/03/07/Social-LSTM/7.png" alt="3" style="zoom:40%;"></p>
+<h3 id="social-pooling">Social Pooling</h3>
+<p>LSTM对时间序列处理优秀，但是行人之间有复杂的相互影响关系，故引入Social Pooling（S-pooling）来让一定距离内的行人LSTM节点状态共享。</p>
+<p><span class="math inline">\(h _i ^t\)</span>为第<span class="math inline">\(i\)</span>个人在<span class="math inline">\(t\)</span>时刻时LSTM的hidden state。为了共享这一状态，作者引入了<span class="math inline">\(H _t ^i\)</span>。给定D（hidden state dimension）和临域大小<span class="math inline">\(N _o\)</span>，<span class="math inline">\(H _t ^i\)</span>为 <span class="math inline">\(N _o *N _o*D\)</span>大小。</p>
+<p><img src="/2021/03/07/Social-LSTM/8.png" alt="3" style="zoom:40%;"></p>
+<p><span class="math inline">\(1 _{mn}\)</span>表示<span class="math inline">\(j\)</span>节点点是否在m*n网格中，如果在即为1，否则为0。<span class="math inline">\(N _i\)</span>指<span class="math inline">\(i\)</span>节点所有邻居节点。<span class="math inline">\(H _t ^i\)</span>即为在<span class="math inline">\(i\)</span>节点一定距离内所有节点的<span class="math inline">\(h _{t-1} ^j\)</span>之和。</p>
+]]></content>
+      <categories>
+        <category>Computer Vision</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Python technique</title>
     <url>/2020/06/06/Python-technique/</url>
     <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking or dynamic programing:</p>
@@ -1316,6 +1461,25 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       <tags>
         <tag>Python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Test password</title>
+    <url>/2021/09/15/Test-password/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="d0f22fb8ec934b630357bfed8eddaebceee1d75a12c7b7f676982c457b1c24c3">165d50f05814027fb7fe5e4ae8a088d8aa2b5ed724ea7f4f8aea8267289667dd0de0240fdde409598408170417c80b66d2288279e5571a43ddc20d8f87d5d48034dddfe8e1d8a865ebee019b43336466</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Please Eneter Password!</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
   </entry>
   <entry>
     <title>Sort Algorithms</title>
@@ -1557,126 +1721,6 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
-    <title>Social LSTM</title>
-    <url>/2021/03/07/Social-LSTM/</url>
-    <content><![CDATA[<h2 id="rnn">RNN</h2>
-<p>Recurrent Neural Network，循环神经网络。</p>
-<p>RNN 是包含循环的网络，允许信息的持久化，可以充分利用先验的信息知识。</p>
-<p><img src="/2021/03/07/Social-LSTM/1.png" alt="3" style="zoom:20%;"></p>
-<p>本质上RNN就是在<span class="math inline">\(t\)</span>时刻，input=<span class="math inline">\(X _t + h _{t-1}\)</span>。</p>
-<p>LSTM就是一种特殊的RNN。</p>
-<p>对于RNN来说，在语言预测词汇中，对此要预测的词来说，相近的词贡献会很大，而时间间隔越远的词，贡献越少。但是往往存在Long-Term Dependency问题，一些重要信息可能会贯穿全文，如果很早出现但是被忘记，在后续的预测中将会很不利。理论上，RNN当然可以处理这种长期记忆问题，但是实践中却很难做到。为此LSTM出现了。</p>
-<span id="more"></span>
-<h2 id="lstm">LSTM</h2>
-<p>Long-Short Term Memory</p>
-<p>LSTM主要目的就是为了能够尽可能利用长期记忆。</p>
-<p>传统的RNN结构中只有一层神经网络。</p>
-<p><img src="/2021/03/07/Social-LSTM/2.png" alt="3" style="zoom:25%;"></p>
-<p>LSTM结构：</p>
-<p><img src="/2021/03/07/Social-LSTM/3.png" alt="3" style="zoom:25%;"></p>
-<p>每个时刻神经网络的状态（输出）为--cell state (<span class="math inline">\(C _t\)</span>)：</p>
-<p><img src="/2021/03/07/Social-LSTM/4.png" alt="3" style="zoom:25%;"></p>
-<h3 id="gate">Gate</h3>
-<p>LSTM引入了gate，使得信息能够选择性通过：</p>
-<p><img src="/2021/03/07/Social-LSTM/5.png" alt="3" style="zoom:25%;"></p>
-<p><strong>gate = a layer of Sigmoid + bitwise multiplier</strong></p>
-<p>LSTM有三个gate: forget gate, input gate(memory gate), output gate.</p>
-<p><img src="/2021/03/07/Social-LSTM/6.png" alt="3" style="zoom:40%;"></p>
-<h4 id="forget-gate">Forget gate</h4>
-<p><span class="math inline">\(input = [h _{t-1}, X _t]\)</span> <span class="math inline">\(ouput = f _t\)</span></p>
-<p>function: <span class="math inline">\(f _t = \sigma(W _f[h _{t-1}, x _t]+b _f)\)</span></p>
-<p>显然<span class="math inline">\(f _t\)</span>是一个[0, 1]之间的数，和<span class="math inline">\(C _{t-1}\)</span>相乘之后决定<span class="math inline">\(C _{t-1}\)</span>之中那些可以被保留，那些要忘记。</p>
-<p>eg. 假设<span class="math inline">\(C _{t-1} = [0.5,0.6,0.4]\)</span>，<span class="math inline">\(h _{t-1} = [0.3,0.8,0.69]\)</span>，<span class="math inline">\(x _t = [0.2,1.3,0.7]\)</span>，<span class="math inline">\(input = [h _{t-1}, X _t] = [0.3,0.8,0.69, 0.2,1.3,0.7]\)</span>，然后通过sigmoid输出每一个元素都处于<img src="https://www.zhihu.com/equation?tex=0" alt="[公式]">到<img src="https://www.zhihu.com/equation?tex=1" alt="[公式]">之间的向量<span class="math inline">\(f = [0.5,0.1,0.8]\)</span>，注意这里的sigmoid不是一个函数，而是sigmoid神经网络层，ouput大小==<span class="math inline">\(C _{t-1}\)</span>大小。</p>
-<h4 id="input-gate-memory-gate">Input gate (Memory gate)</h4>
-<p>记忆门包括两个支路：</p>
-<p><span class="math inline">\(i _t = \sigma(W _i[h _{t-1}, x _t] + b _i)\)</span></p>
-<p><span class="math inline">\(\widetilde C _t= tanh(W _C[h _{t-1}, x _t]+b _C)\)</span></p>
-<p>tanh层负责创造一个新的候选cell state (<span class="math inline">\(\widetilde C _t\)</span>)，sigmoid layer负责考虑哪些信息被保留，然后把结果加入之前的cell state。</p>
-<p>此时，cell state更新完成：<span class="math inline">\(C _t = C _{t-1}*f _t + i _t *\widetilde C _t\)</span></p>
-<h4 id="output-gate">Output gate</h4>
-<p>输出--作为下次输入的<span class="math inline">\(h _t\)</span></p>
-<p><span class="math inline">\(h _t = \sigma(W _o[h _{t-1}, x _t]+b _o) * tanh(C _t)\)</span>, note <span class="math inline">\(&#39;*’\)</span> denotes bit-wise multiplier.</p>
-<h3 id="why-lstm">Why LSTM</h3>
-<p>forget gate里面大多数位置都是0，1即是网络中保留的信息。gate有点类似于注意力机制，对于需要的信息，训练出高attention（1）。这样使得有价值的信息能够被过滤出来，长时间地保留下去。</p>
-<h2 id="social-lstm">Social LSTM</h2>
-<p>问题：</p>
-<p>第<span class="math inline">\(i\)</span>个人，在<span class="math inline">\(t\)</span>时刻，位置为<span class="math inline">\((x _i ^t, y _i ^t)\)</span> ，输入（观测）一段时间的行人位置：<span class="math inline">\(0 \rarr T _{obs}\)</span>来预测未来时间内行人位置：<span class="math inline">\(T _{obs + 1} \rarr T _{predict}\)</span>。</p>
-<p>social LSTM是指pooling based LSTM model</p>
-<p><img src="/2021/03/07/Social-LSTM/7.png" alt="3" style="zoom:40%;"></p>
-<h3 id="social-pooling">Social Pooling</h3>
-<p>LSTM对时间序列处理优秀，但是行人之间有复杂的相互影响关系，故引入Social Pooling（S-pooling）来让一定距离内的行人LSTM节点状态共享。</p>
-<p><span class="math inline">\(h _i ^t\)</span>为第<span class="math inline">\(i\)</span>个人在<span class="math inline">\(t\)</span>时刻时LSTM的hidden state。为了共享这一状态，作者引入了<span class="math inline">\(H _t ^i\)</span>。给定D（hidden state dimension）和临域大小<span class="math inline">\(N _o\)</span>，<span class="math inline">\(H _t ^i\)</span>为 <span class="math inline">\(N _o *N _o*D\)</span>大小。</p>
-<p><img src="/2021/03/07/Social-LSTM/8.png" alt="3" style="zoom:40%;"></p>
-<p><span class="math inline">\(1 _{mn}\)</span>表示<span class="math inline">\(j\)</span>节点点是否在m*n网格中，如果在即为1，否则为0。<span class="math inline">\(N _i\)</span>指<span class="math inline">\(i\)</span>节点所有邻居节点。<span class="math inline">\(H _t ^i\)</span>即为在<span class="math inline">\(i\)</span>节点一定距离内所有节点的<span class="math inline">\(h _{t-1} ^j\)</span>之和。</p>
-]]></content>
-      <categories>
-        <category>Computer Vision</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>TOEFL Notes (based on TPO)</title>
-    <url>/2021/10/07/TOEFL-Notes-based-on-TPO/</url>
-    <content><![CDATA[<h3 id="tpo1-reading">TPO1 Reading</h3>
-<ol type="1">
-<li>Groundwater(地下水) is the word used to describe water that saturates(渗透、浸透) the ground.</li>
-<li>By far(到目前为止) the most <strong>abundant</strong>(<strong>大量的</strong>、充足的) type of groundwater is meteoric(<strong>大气的</strong>；流星的) water.</li>
-<li>circulate(v. <strong>循环</strong>；流通；流传)</li>
-<li>precipitation(化学沉淀；<strong>降水</strong>；冰雹；坠落)</li>
-<li>sand grains(沙粒)--grain(谷物；颗粒)</li>
-<li>The commonest spaces are those among the particles sand grains and tiny pebbles(卵石) of loose, unconsolidated(松散的) sand and gravel(沙砾).</li>
-<li>bed(床；<strong>河床</strong>)</li>
-<li>They are found wherever(adv. 任何地方) fast rivers carrying loads of(大量的) coarse(粗糙的) sediment(沉淀物) once flowed(流动、涌动).</li>
-<li>ice sheet(冰盖)--sheet(纸张；薄片；板)</li>
-<li>melt away(vi. 融化、消失)</li>
-<li>lade(装载)-laded-laden-&gt;be laden with...</li>
-<li>glacial outwash(冰水沉积)--outwash(术语，专指冰水沉积)</li>
-<li>sandbar(沙洲)</li>
-<li>cement(水泥；粘合剂)--cemented(粘合的；<strong>压实的</strong>)</li>
-<li>minute(n. 分钟；备忘录；一会 adj. <strong>微小的</strong>)</li>
-<li>So much for... 到此为止是关于...</li>
-<li>pore(毛孔；<strong>气孔</strong>)--porous(多孔的)</li>
-<li>percolate(<strong>渗透</strong>；过滤)--percolating water(渗透水)</li>
-<li>Most crystalline(结晶的、晶体的) rocks are much more solid; a common exception is basalt(玄武岩), a form of solidified(凝固的) volcanic(<strong>火山的</strong>；火山岩) lava(岩浆), which is sometimes full of tiny bubbles that make it very porous. <span id="more"></span></li>
-<li>cling to...(附着在...；坚持...；紧抓着...)</li>
-<li>be thought of as... (被视为...)</li>
-<li>film(电影；胶卷；<strong>薄膜</strong>)--thin film(薄膜)</li>
-<li>champion(n. 冠军；拥护者 vt. <strong>支持</strong>、拥护)</li>
-<li>anthropologist(人类学家)</li>
-<li>envision(vt. 想象、假想)</li>
-<li>emerge out of...(从...中出现)</li>
-<li>ritual(n. <strong>仪式</strong>；礼节 adj. 礼仪的)</li>
-<li>attribute...to...(把...归结于...)</li>
-<li>Complaints seemed to be an everyday occurrence(事件).</li>
-<li>Perceiving(意识到) an apparent connection between certain actions performed by the group and the result it desires, the group repeats, refines(精细化), and formalizes(使...形式化) those actions into fixed ceremonies(礼节), or rituals(宗教仪式).</li>
-<li>representative(adj. 典型的 n. 代表；<strong>典型</strong>；众议员)</li>
-<li>costume(服饰；戏服)--custom(n. 习惯；风俗 adj. 定制的)</li>
-<li>mythical(神话中的；虚构的)</li>
-<li>As a people becomes more sophisticated(<strong>见多识广的</strong>；复杂精巧的；先进的), its conceptions of supernatural forces and causal relationships may change.</li>
-<li>act out...(表演...)</li>
-<li>autonomous activity(自发行动)</li>
-<li>efficacious(灵验的--常用于宗教相关)</li>
-<li>Thus, the recalling of an event (a hunt, battle, or other feat(伟绩--可数)) is <strong>elaborated</strong>(详细表达) through the narrator's pantomime(<strong>手势</strong>；哑剧) and <strong>impersonation</strong>(n. 模仿) and eventually through each role being assumed(承担) by a different person.</li>
-<li>pantomimic(哑剧的) rhythmical(有节奏的) gymnastic(体育的)</li>
-<li>virtuosity(精湛技艺)</li>
-<li>antecedent(先祖；前因；<strong>起源</strong>)</li>
-<li>set forth(提出；出发)--He sets forth his objections.</li>
-<li>Thus, fantasy or fiction (of which drama is one form) permits people to <strong>objectify</strong>(具像化) their anxieties and fears.</li>
-<li>penchant(嗜好、倾向)--penchant for...</li>
-<li>One necessary condition(条件) seems to be a somewhat(有点) detached(<strong>脱离的</strong>；客观的) view of human problems.</li>
-<li>detachment(n. 超然)--a sort of lofty detachment</li>
-<li>deviation(背离) from social norms</li>
-<li>vegetation(植被；植物)</li>
-<li>deciduous trees(落叶树、阔叶树)</li>
-<li>deform(扭曲、畸形)</li>
-<li>prone(<strong>易于...</strong>；<strong>俯卧的</strong>)--be prone to dry out</li>
-<li>prevalent(普遍的、常见的)</li>
-</ol>
-]]></content>
-      <categories>
-        <category>-TOEFL</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Test Latex Formula</title>
     <url>/2021/09/15/Test-Latex-Formula/</url>
     <content><![CDATA[<p>This is an inline formula: <span class="math inline">\(x=7\)</span>. This is a simple equation: <span class="math display">\[
@@ -1694,12 +1738,11 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
-    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
-    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
-<p>Literally, it is a <code>const iterator</code>, which means: iterator, as a pointer, can not be modified, but the value pointed by this iterator is permitted to be modified.</p>
-<h1 id="const_iterator">const_iterator</h1>
-<p><code>const_iterator</code>is a specially defined class. It is defined to go through a const container, which we are not intended to modify.</p>
+    <title>Use of Tuple in Python</title>
+    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>Tuple最特别在于<br></p>
+<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
 ]]></content>
       <categories>
         <category>Learning</category>
@@ -1730,39 +1773,60 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>Test discription</title>
-    <url>/2021/09/15/Test-discription/</url>
-    <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
-]]></content>
+    <title>What is the use of activation function</title>
+    <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
+    <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
+<p>The following picture illustrates the basic structure of neural network.</p>
+<figure>
+<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn"><figcaption aria-hidden="true">nn</figcaption>
+</figure>
+<p>Extracted featrures are passed into the net as input.</p>
+<p># of input node = # of extracted feature types</p>
+<span id="more"></span>
+<h1 id="why-we-need-activation">Why we need activation</h1>
+<p>For a classifiying issue:</p>
+<h3 id="without-activation">Without activation</h3>
+<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
+<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input} input+loss_1)+loss_2\)</span></p>
+<p>So bascically, we can derive that no matter how many layers you add into the net, without activation, the net can only produce a <strong>linear classifier</strong>.</p>
+<h3 id="with-activation">With activation</h3>
+<p>The aim of activation is to transfer a linear classifer to a non-linear classifer.</p>
+<p>The basic actication we use is: <span class="math display">\[
+\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0 \\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
+\]</span> It is same as nerve cell--if the cell is activated it produce a signal, otherwise, it does nothing.</p>
+<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
+\sigma(y) = \frac 1 {1+e^{-y}}
+\]</span> (we prefer to ues <span class="math inline">\(y\)</span>, because actication is added inside the net which means the input of activation is the output of prior layer)</p>
+<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
+<center>
+<p>NN structure with activation</p>
+<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
+<center>
+<p>Output of NN with activation</p>
+</center></center>]]></content>
       <categories>
-        <category>Test</category>
+        <category>Machine Learning</category>
       </categories>
+      <tags>
+        <tag>Relu</tag>
+      </tags>
   </entry>
   <entry>
-    <title>Test password</title>
-    <url>/2021/09/15/Test-password/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="d0f22fb8ec934b630357bfed8eddaebceee1d75a12c7b7f676982c457b1c24c3">165d50f05814027fb7fe5e4ae8a088d8aa2b5ed724ea7f4f8aea8267289667dd0de0240fdde409598408170417c80b66d2288279e5571a43ddc20d8f87d5d48034dddfe8e1d8a865ebee019b43336466</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Please Eneter Password!</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+    <title>hexo中使用markdown无法处理特殊字符</title>
+    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。 比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
+<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
+]]></content>
       <categories>
-        <category>Test</category>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
     <title>Video test</title>
     <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-uVWmaBTCbXiSNsnK" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-uVWmaBTCbXiSNsnK").style.height=document.getElementById("mmedia-uVWmaBTCbXiSNsnK").scrollWidth*0.76+"px";
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-GsxtCKjEIuInXyRz" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-GsxtCKjEIuInXyRz").style.height=document.getElementById("mmedia-GsxtCKjEIuInXyRz").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-uVWmaBTCbXiSNsnK").style.height=document.getElementById("mmedia-uVWmaBTCbXiSNsnK").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-GsxtCKjEIuInXyRz").style.height=document.getElementById("mmedia-GsxtCKjEIuInXyRz").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <thead>
@@ -1832,17 +1896,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>Use of Tuple in Python</title>
-    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<p>Tuple最特别在于<br></p>
-<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>assert expression in Python</title>
     <url>/2020/09/24/assert-expression-in-Python/</url>
     <content><![CDATA[<h2 id="tags">tags:</h2>
@@ -1858,82 +1911,37 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>What is the use of activation function</title>
-    <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
-    <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
-<p>The following picture illustrates the basic structure of neural network.</p>
-<figure>
-<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn"><figcaption aria-hidden="true">nn</figcaption>
-</figure>
-<p>Extracted featrures are passed into the net as input.</p>
-<p># of input node = # of extracted feature types</p>
-<span id="more"></span>
-<h1 id="why-we-need-activation">Why we need activation</h1>
-<p>For a classifiying issue:</p>
-<h3 id="without-activation">Without activation</h3>
-<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
-<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input} input+loss_1)+loss_2\)</span></p>
-<p>So bascically, we can derive that no matter how many layers you add into the net, without activation, the net can only produce a <strong>linear classifier</strong>.</p>
-<h3 id="with-activation">With activation</h3>
-<p>The aim of activation is to transfer a linear classifer to a non-linear classifer.</p>
-<p>The basic actication we use is: <span class="math display">\[
-\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0 \\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
-\]</span> It is same as nerve cell--if the cell is activated it produce a signal, otherwise, it does nothing.</p>
-<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
-\sigma(y) = \frac 1 {1+e^{-y}}
-\]</span> (we prefer to ues <span class="math inline">\(y\)</span>, because actication is added inside the net which means the input of activation is the output of prior layer)</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
-<center>
-<p>NN structure with activation</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
-<center>
-<p>Output of NN with activation</p>
-</center></center>]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Relu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo中使用markdown无法处理特殊字符</title>
-    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。 比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
-<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
+    <title>yilia主题的头像配置失败</title>
+    <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<ol type="1">
+<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
+<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code> 但是打开之后依然无法显示，甚至还有一个问号</li>
+</ol>
+<hr>
+<h2 id="问题解决">问题解决</h2>
+<p>这里有一个很tricky的地方搞了我很久 在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code> 比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
+<p><strong>注意</strong> 麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
   </entry>
   <entry>
-    <title>how to change you local git name</title>
-    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
-<p>Your name will be shown on github each time you push to it.</p>
+    <title>hexo部署到git出现不同步问题</title>
+    <url>/2020/05/20/hexo%E9%83%A8%E7%BD%B2%E5%88%B0git%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<ol type="1">
+<li><p>hexo到git上部署首先要检查自己的config里的repo地址对不对</p></li>
+<li><p>如果地址正确可以考虑在_config.yml的repo下面一行添加上</p></li>
+</ol>
+<p><code>branch: master</code></p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
       <tags>
-        <tag>Github</tag>
+        <tag>-部署</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>hexo图片在md文档中显示正常但是网页无法显示</title>
-    <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
-    <content><![CDATA[<h4 id="step-1">Step 1</h4>
-<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
-<p><br></p>
-<h4 id="step-2">Step 2</h4>
-<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
-<p><br></p>
-<h4 id="step-3">Step 3</h4>
-<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的 <code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
   </entry>
   <entry>
     <title>kendo 2-nd dan exam</title>
@@ -1952,22 +1960,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       <categories>
         <category>Kendo</category>
       </categories>
-  </entry>
-  <entry>
-    <title>hexo部署到git出现不同步问题</title>
-    <url>/2020/05/20/hexo%E9%83%A8%E7%BD%B2%E5%88%B0git%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<ol type="1">
-<li><p>hexo到git上部署首先要检查自己的config里的repo地址对不对</p></li>
-<li><p>如果地址正确可以考虑在_config.yml的repo下面一行添加上</p></li>
-</ol>
-<p><code>branch: master</code></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>-部署</tag>
-      </tags>
   </entry>
   <entry>
     <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
@@ -1995,23 +1987,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 <p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
 <hr>
 <h2 id="丝滑进入">丝滑进入</h2>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>yilia主题的头像配置失败</title>
-    <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<ol type="1">
-<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
-<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code> 但是打开之后依然无法显示，甚至还有一个问号</li>
-</ol>
-<hr>
-<h2 id="问题解决">问题解决</h2>
-<p>这里有一个很tricky的地方搞了我很久 在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code> 比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
-<p><strong>注意</strong> 麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -2081,6 +2056,61 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       <categories>
         <category>Coding</category>
       </categories>
+  </entry>
+  <entry>
+    <title>hexo图片在md文档中显示正常但是网页无法显示</title>
+    <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
+    <content><![CDATA[<h4 id="step-1">Step 1</h4>
+<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
+<p><br></p>
+<h4 id="step-2">Step 2</h4>
+<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
+<p><br></p>
+<h4 id="step-3">Step 3</h4>
+<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的 <code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
+    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
+<h2 id="问题原因">问题原因</h2>
+<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错 因此有一下三种解决办法：</p>
+<ol type="1">
+<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
+<li><p>手动打开preinterpreter</p></li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<ol start="3" type="1">
+<li>重新为mac安装</li>
+</ol>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
+<p>如果有了就更新一下</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
+<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>how to change you local git name</title>
+    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
+<p>Your name will be shown on github each time you push to it.</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
   </entry>
   <entry>
     <title>solution to git@github.com出现Permission denied (publickey)</title>
@@ -2169,6 +2199,60 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
+    <title>感谢好太阳哥哥们</title>
+    <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
+    <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
+<div align="center">
+<figure>
+<img src="/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/1.png" alt="Long May the Sun Shine!"><figcaption aria-hidden="true">Long May the Sun Shine!</figcaption>
+</figure>
+</div>]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>还是大GT优雅</title>
+    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
+    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
+<div align="center">
+<figure>
+<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT"><figcaption aria-hidden="true">宾利欧陆GT</figcaption>
+</figure>
+</div>]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>遍历二叉树-前/中/后序-递归/非递归</title>
+    <url>/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/</url>
+    <content><![CDATA[<h3 id="递归方法">递归方法</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line"> 	path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="非递归方法">非递归方法</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>)); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Reference: https://blog.csdn.net/czy47/article/details/81254984</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Binary Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>钻石材质第一次测试Blender</title>
+    <url>/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/</url>
+    <content><![CDATA[<p>初次尝试了blender里钻石材质的生成，接下来会详细分析材质节点的组成并仔细调参。并且会更换钻石模型和适当的场景进行测试。</p>
+<p><img src="/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/Diamond.png"></p>
+]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
+  </entry>
+  <entry>
     <title>禅诗解读</title>
     <url>/2020/11/28/%E7%A6%85%E8%AF%97%E8%A7%A3%E8%AF%BB/</url>
     <content><![CDATA[<h1 id="僧璨禅师信心铭">僧璨禅师《信心铭》</h1>
@@ -2202,86 +2286,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 ]]></content>
       <categories>
         <category>essay</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
-    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
-<h2 id="问题原因">问题原因</h2>
-<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错 因此有一下三种解决办法：</p>
-<ol type="1">
-<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
-<li><p>手动打开preinterpreter</p></li>
-</ol>
-<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<ol start="3" type="1">
-<li>重新为mac安装</li>
-</ol>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
-<p>如果有了就更新一下</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
-<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>感谢好太阳哥哥们</title>
-    <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
-    <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
-<div align="center">
-<figure>
-<img src="/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/1.png" alt="Long May the Sun Shine!"><figcaption aria-hidden="true">Long May the Sun Shine!</figcaption>
-</figure>
-</div>]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>遍历二叉树-前/中/后序-递归/非递归</title>
-    <url>/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/</url>
-    <content><![CDATA[<h3 id="递归方法">递归方法</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line"> 	path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h3 id="非递归方法">非递归方法</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>)); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Reference: https://blog.csdn.net/czy47/article/details/81254984</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Binary Tree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>还是大GT优雅</title>
-    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
-    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
-<div align="center">
-<figure>
-<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT"><figcaption aria-hidden="true">宾利欧陆GT</figcaption>
-</figure>
-</div>]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>钻石材质第一次测试Blender</title>
-    <url>/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/</url>
-    <content><![CDATA[<p>初次尝试了blender里钻石材质的生成，接下来会详细分析材质节点的组成并仔细调参。并且会更换钻石模型和适当的场景进行测试。</p>
-<p><img src="/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/Diamond.png"></p>
-]]></content>
-      <categories>
-        <category>Blender</category>
       </categories>
   </entry>
   <entry>
