@@ -194,13 +194,82 @@
     <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
     <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
 <p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-ThxagxNubpsGBbOd" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-ThxagxNubpsGBbOd").style.height=document.getElementById("mmedia-ThxagxNubpsGBbOd").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-BRvPscIJfvuvBvUY" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-BRvPscIJfvuvBvUY").style.height=document.getElementById("mmedia-BRvPscIJfvuvBvUY").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-ThxagxNubpsGBbOd").style.height=document.getElementById("mmedia-ThxagxNubpsGBbOd").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-BRvPscIJfvuvBvUY").style.height=document.getElementById("mmedia-BRvPscIJfvuvBvUY").scrollWidth*0.76+"px";
     }; </script>
 ]]></content>
       <categories>
         <category>Kendo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Benchmark of Neural Network--Precision,Recall,F1-Measure</title>
+    <url>/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/</url>
+    <content><![CDATA[<h3 id="precision">Precision</h3>
+<p><span class="math inline">\(Precision=\frac{actually \ true \&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \ true}\)</span></p>
+<p>The percentage of true labels decided by the model are actually true.</p>
+<h3 id="recall">Recall</h3>
+<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \ true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
+<p>The percentage of true items are decided true by the model.</p>
+<p>If we want higher Precision, we should not take any risk--only take those with highest score.</p>
+<p>But if we want higher Recall, we should take all possible results. That is, we cannot get Precision and Recall improved at the same time.</p>
+<p>So we need a balance benchmark.</p>
+<h3 id="f1-measuref1-score">F1-Measure/F1-Score</h3>
+<p><span class="math display">\[
+F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
+\]</span></p>
+<p>We get F1-Measure when <span class="math inline">\(\alpha=1\)</span>.</p>
+<p>More on <a href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic Mean</a>--it prevents models that are only good at either of P or R from doing good in F.</p>
+<p>x=50, y=0~100, here is the score (<a href="https://www.zhihu.com/question/47980482">ref</a>):</p>
+<p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
+<p>Harmonic mean tries to get a result that neither P nor R is not so bad even if both of them are not really good.</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>AdaBoosting</title>
+    <url>/2021/05/24/AdaBoosting/</url>
+    <content><![CDATA[<h3 id="boosting-bagging">Boosting &amp; Bagging</h3>
+<p>Bagging是传统算法常常采用的方法：</p>
+<ol type="1">
+<li>从原始sample中用Bootstraping（类似cross-validation）选出n个样本，进行k次。</li>
+<li>分别对k个训练集训练得到k个模型</li>
+<li>加权得到最终模型</li>
+</ol>
+<ul>
+<li>当算法结果不稳定时使用（训练集、测试集对结果影响大）</li>
+</ul>
+<p>-&gt;Bagging可能出现多个模型对同一样的sample都分类错误</p>
+<p>-&gt;不能并行所有model的训练而要串行（每次关注之前训练不当的地方）</p>
+<p>AdaBoosting</p>
+<ol type="1">
+<li>在整个数据集上训练model（h1）</li>
+<li>对h1表现好的sample降低权重，对h2表现不好的sample增加权重，训练model（h2）</li>
+<li>repeat</li>
+</ol>
+<span id="more"></span>
+<h3 id="adaboost">AdaBoost</h3>
+<p>如何实现AdaBoosting呢？</p>
+<h4 id="加权误差">加权误差</h4>
+<p>一般 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} 1/n\)</span>，但是在对样本进行加权后 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} w _i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分类失败）的sample。</p>
+<p>如何找弱分类器呢？</p>
+<h4 id="决策树桩">决策树桩</h4>
+<p><img src="/2021/05/24/AdaBoosting/1.png" alt="1" style="zoom:50%;"></p>
+<p>上图中简单的情况，有12种树桩组合。</p>
+<blockquote>
+<p>我们可以对上面的情况做 12 种可能的「测试」。每条分割线边上的数字「2」简单地表示了这样一个事实：位于分割线某一侧的所有点都可能属于 0 类或 1 类。因此，每条分割线嵌入了 2 个「测试」。</p>
+</blockquote>
+<p>针对不同的问题首先要选好弱分类器h，在迭代的过程中每次选择对当前（加权后）sample分类最优的弱分类器作为基本分类器进行融合。</p>
+<ul>
+<li>AdaBoost不需要先验，同时不容易过拟合，同时不依赖弱分类器效果（可以自由分配权重）。</li>
+<li>AdaBoost错误样本权重指数上升--容易受噪音干扰</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
       </categories>
   </entry>
   <entry>
@@ -327,75 +396,6 @@
       </tags>
   </entry>
   <entry>
-    <title>AdaBoosting</title>
-    <url>/2021/05/24/AdaBoosting/</url>
-    <content><![CDATA[<h3 id="boosting-bagging">Boosting &amp; Bagging</h3>
-<p>Bagging是传统算法常常采用的方法：</p>
-<ol type="1">
-<li>从原始sample中用Bootstraping（类似cross-validation）选出n个样本，进行k次。</li>
-<li>分别对k个训练集训练得到k个模型</li>
-<li>加权得到最终模型</li>
-</ol>
-<ul>
-<li>当算法结果不稳定时使用（训练集、测试集对结果影响大）</li>
-</ul>
-<p>-&gt;Bagging可能出现多个模型对同一样的sample都分类错误</p>
-<p>-&gt;不能并行所有model的训练而要串行（每次关注之前训练不当的地方）</p>
-<p>AdaBoosting</p>
-<ol type="1">
-<li>在整个数据集上训练model（h1）</li>
-<li>对h1表现好的sample降低权重，对h2表现不好的sample增加权重，训练model（h2）</li>
-<li>repeat</li>
-</ol>
-<span id="more"></span>
-<h3 id="adaboost">AdaBoost</h3>
-<p>如何实现AdaBoosting呢？</p>
-<h4 id="加权误差">加权误差</h4>
-<p>一般 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} 1/n\)</span>，但是在对样本进行加权后 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} w _i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分类失败）的sample。</p>
-<p>如何找弱分类器呢？</p>
-<h4 id="决策树桩">决策树桩</h4>
-<p><img src="/2021/05/24/AdaBoosting/1.png" alt="1" style="zoom:50%;"></p>
-<p>上图中简单的情况，有12种树桩组合。</p>
-<blockquote>
-<p>我们可以对上面的情况做 12 种可能的「测试」。每条分割线边上的数字「2」简单地表示了这样一个事实：位于分割线某一侧的所有点都可能属于 0 类或 1 类。因此，每条分割线嵌入了 2 个「测试」。</p>
-</blockquote>
-<p>针对不同的问题首先要选好弱分类器h，在迭代的过程中每次选择对当前（加权后）sample分类最优的弱分类器作为基本分类器进行融合。</p>
-<ul>
-<li>AdaBoost不需要先验，同时不容易过拟合，同时不依赖弱分类器效果（可以自由分配权重）。</li>
-<li>AdaBoost错误样本权重指数上升--容易受噪音干扰</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Benchmark of Neural Network--Precision,Recall,F1-Measure</title>
-    <url>/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/</url>
-    <content><![CDATA[<h3 id="precision">Precision</h3>
-<p><span class="math inline">\(Precision=\frac{actually \ true \&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \ true}\)</span></p>
-<p>The percentage of true labels decided by the model are actually true.</p>
-<h3 id="recall">Recall</h3>
-<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \ true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
-<p>The percentage of true items are decided true by the model.</p>
-<p>If we want higher Precision, we should not take any risk--only take those with highest score.</p>
-<p>But if we want higher Recall, we should take all possible results. That is, we cannot get Precision and Recall improved at the same time.</p>
-<p>So we need a balance benchmark.</p>
-<h3 id="f1-measuref1-score">F1-Measure/F1-Score</h3>
-<p><span class="math display">\[
-F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
-\]</span></p>
-<p>We get F1-Measure when <span class="math inline">\(\alpha=1\)</span>.</p>
-<p>More on <a href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic Mean</a>--it prevents models that are only good at either of P or R from doing good in F.</p>
-<p>x=50, y=0~100, here is the score (<a href="https://www.zhihu.com/question/47980482">ref</a>):</p>
-<p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
-<p>Harmonic mean tries to get a result that neither P nor R is not so bad even if both of them are not really good.</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>C++11 in Mac (VsCode)</title>
     <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
     <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of <code>gcc</code>. You can still use <code>clang++</code> or <code>g++</code> to run a <code>.cpp</code> file. But basically, <code>clang</code> will use <code>-std=c++98</code> as default.</p>
@@ -437,29 +437,6 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </categories>
   </entry>
   <entry>
-    <title>Cannot get access to Github</title>
-    <url>/2021/03/04/Cannot-get-access-to-Github/</url>
-    <content><![CDATA[<p>MacOS 11.2</p>
-<ol type="1">
-<li><p><code>sudo vim /private/etc/hosts</code></p></li>
-<li><p>Delete all path about Github</p></li>
-<li><p>Search IP address of <code>github.com</code> and <code>github.global.ssl.fastly.net</code> in <code>https://github.com.ipaddress.com</code></p></li>
-<li><p>Add</p>
-<p><code>#github</code></p>
-<p><code>140.82.114.4 github.com</code></p>
-<p><code>199.232.69.194 github.global.ssl.fastly.net</code></p>
-<p>replace the IP address with the search result.</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-        <tag>MacOS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Blender尝试NPR场景</title>
     <url>/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/</url>
     <content><![CDATA[<p>尝试了NPR的场景渲染，感觉不是特别成功，二次元渲染不仅需要技术，调参也很难，需要一些美学功底更重要的是对渲染节点的深入理解。</p>
@@ -475,6 +452,20 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       <categories>
         <category>Blender</category>
       </categories>
+  </entry>
+  <entry>
+    <title>C/C++ openmp</title>
+    <url>/2020/05/30/C-C-openmp/</url>
+    <content><![CDATA[<p>Just a note for myself !</p>
+<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del> </strong> !!!</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>openmp</tag>
+      </tags>
   </entry>
   <entry>
     <title>C++: Difference between int* and int&amp; and int</title>
@@ -499,52 +490,6 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
-    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
-    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
-    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
-<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code> and <code>const a int</code> are totally same. Both of them tell the compiler that the value stored in <code>a</code> can not be modified. But when it is combined with pointer, things go complicated</p>
-<h2 id="const-int">const int *</h2>
-<p>For C++, <code>int*</code> is not viewed as a type. Only <code>*a</code> be viewed as a mark telling the complier <code>a</code> is a pointer. So as we have already known that <code>int const</code> is same with <code>const int</code>, <code>int const *a</code> is also same with <code>const int *a</code>. Both of them means <code>*a</code> is a const, which means the value poined by <code>a</code> can not be modified but <code>a</code>, as a pointer, can point to different places.</p>
-<h2 id="int-const">int* const</h2>
-<p>By contrast, the <code>const</code> in <code>int* const</code> is a mark for <code>a</code>, so <code>a</code>, as a pointer, can only point to one specific place(determined when it is initialized), but the value pointed by it can be changed.</p>
-<p>Besides, we can combine two usages of <code>const</code>together: <code>const int* const a</code>--<code>a</code>, as a pointer, can not be modified and the value pointed by <code>a</code> cannot be modified.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>const</tag>
-        <tag>pointer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C/C++ openmp</title>
-    <url>/2020/05/30/C-C-openmp/</url>
-    <content><![CDATA[<p>Just a note for myself !</p>
-<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del> </strong> !!!</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C/C++</tag>
-        <tag>openmp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Copy &amp; Deepcopy in Python</title>
-    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Difference between Override &amp; Overload</title>
     <url>/2020/12/16/Difference-between-Override-Overload/</url>
     <content><![CDATA[<p>Both of them only happen when difference function using same name.</p>
@@ -566,6 +511,29 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
+    <title>Cannot get access to Github</title>
+    <url>/2021/03/04/Cannot-get-access-to-Github/</url>
+    <content><![CDATA[<p>MacOS 11.2</p>
+<ol type="1">
+<li><p><code>sudo vim /private/etc/hosts</code></p></li>
+<li><p>Delete all path about Github</p></li>
+<li><p>Search IP address of <code>github.com</code> and <code>github.global.ssl.fastly.net</code> in <code>https://github.com.ipaddress.com</code></p></li>
+<li><p>Add</p>
+<p><code>#github</code></p>
+<p><code>140.82.114.4 github.com</code></p>
+<p><code>199.232.69.194 github.global.ssl.fastly.net</code></p>
+<p>replace the IP address with the search result.</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+        <tag>MacOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Experience of MacOS Big Sur</title>
     <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
     <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
@@ -579,12 +547,183 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
+    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
+    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
+    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
+<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code> and <code>const a int</code> are totally same. Both of them tell the compiler that the value stored in <code>a</code> can not be modified. But when it is combined with pointer, things go complicated</p>
+<h2 id="const-int">const int *</h2>
+<p>For C++, <code>int*</code> is not viewed as a type. Only <code>*a</code> be viewed as a mark telling the complier <code>a</code> is a pointer. So as we have already known that <code>int const</code> is same with <code>const int</code>, <code>int const *a</code> is also same with <code>const int *a</code>. Both of them means <code>*a</code> is a const, which means the value poined by <code>a</code> can not be modified but <code>a</code>, as a pointer, can point to different places.</p>
+<h2 id="int-const">int* const</h2>
+<p>By contrast, the <code>const</code> in <code>int* const</code> is a mark for <code>a</code>, so <code>a</code>, as a pointer, can only point to one specific place(determined when it is initialized), but the value pointed by it can be changed.</p>
+<p>Besides, we can combine two usages of <code>const</code>together: <code>const int* const a</code>--<code>a</code>, as a pointer, can not be modified and the value pointed by <code>a</code> cannot be modified.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>const</tag>
+        <tag>pointer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>GIF test</title>
     <url>/2021/09/16/GIF-test/</url>
     <content><![CDATA[<p>You should see this. <iframe height="75%" width="75%" src="1.gif"></iframe></p>
 ]]></content>
       <categories>
         <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Copy &amp; Deepcopy in Python</title>
+    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Difference between new and malloc</title>
+    <url>/2020/06/04/Difference-between-new-and-malloc/</url>
+    <content><![CDATA[<p>今天写作业的时候要求实现vector，很自然地用 <code>malloc</code>，但是告知不能使用<code>stdlib.h</code>，没有办法就只能使用<code>new</code>了。于是忽然想到<code>new</code>、<code>malloc</code>都是在<code>heap</code>上开辟动态空间，那么有什么异同呢？</p>
+<h2 id="malloc">malloc()</h2>
+<p>malloc只负责开辟一个指定大小的空间，类似的<code>calloc</code>则使得在开辟空间的同时初始化为0。 malloc的特点在于将内存空间视为链表，在内存上找到足够长的初始空间返回给目标空间的开头地址，如果失败就会返回<code>NULL</code>（因此使用malloc必须要检验返回指针）。</p>
+<p>由于malloc开辟的空间在<code>heap</code>上，这就使得可以在函数内定义的变量在函数被销毁会变量不会被同步销毁。因此释放heap的空间只能通过手动<code>free()</code>。</p>
+<p><code>malloc</code>在开辟新空间时往往会多开辟一些空间用于存储空间长度，前后空间指针的信息，由<code>free</code>源码可见，实际上free是将<code>heap</code>上的可用空间定义为指针传入的指针位置减去malloc所要求的大小--所以free本质上是定义了一个指针告诉OS：一个指针到另一个指针之间的空间是可用的<code>free-&gt;is_available = 1;</code>。由此<code>free</code>函数对传入的指针要求非常严格，必须是malloc空间的起始指针。</p>
+<h2 id="new">new()</h2>
+<p>intuitive的区别： 首先<code>new</code>有个好处可以简单地进行初始化，即使用new时会调用该类型的默认构造函数。并且<code>new</code>开辟的空间需要用<code>delete</code>函数删除。</p>
+<p>更重要的区别是：</p>
+<p><code>new</code>函数调用的空间在C++被抽象为<code>free store</code>（反向定义--new的空间才被视为free store，由OS特别管理）上。<code>free store</code>一般都是在heap上，但是取决于<code>new</code>自身的实现，也可以在<code>static</code>区域。</p>
+<p><code>new</code>有多种变体，如定位new--直接使用传入的地址而不考虑是否该地址为空可以使用<code>new (address) int[10]</code></p>
+<p><code>new</code>函数返回的指针类型与开辟空间的数据类型相符合，这就意味着不需要像malloc一样在cast后才能使用，在数据上更加安全。</p>
+<p><code>new</code>如果分配失败，不会返回错误会直接丢出异常，如果想要确认需要使用catch <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">    int *a = new int();</span><br><span class="line">&#125;</span><br><span class="line">catch (bad_alloc)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>summary：</p>
+<table>
+<thead>
+<tr class="header">
+<th>特征</th>
+<th>new/delete</th>
+<th>malloc/free</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>分配内存的位置</td>
+<td>自由存储区</td>
+<td>堆</td>
+</tr>
+<tr class="even">
+<td>内存分配失败返回值</td>
+<td>完整类型指针</td>
+<td>void*</td>
+</tr>
+<tr class="odd">
+<td>内存分配失败返回值</td>
+<td>默认抛出异常</td>
+<td>返回NULL</td>
+</tr>
+<tr class="even">
+<td>分配内存的大小</td>
+<td>由编译器根据类型计算得出</td>
+<td>必须显式指定字节数</td>
+</tr>
+<tr class="odd">
+<td>处理数组</td>
+<td>有处理数组的new版本new[]</td>
+<td>需要用户计算数组的大小后进行内存分配</td>
+</tr>
+<tr class="even">
+<td>已分配内存的扩充</td>
+<td>无法直观地处理</td>
+<td>使用realloc简单完成</td>
+</tr>
+<tr class="odd">
+<td>是否相互调用</td>
+<td>可以，看具体的operator new/delete实现</td>
+<td>不可调用new</td>
+</tr>
+<tr class="even">
+<td>分配内存时内存不足</td>
+<td>客户能够指定处理函数或重新制定分配器</td>
+<td>无法通过用户代码进行处理</td>
+</tr>
+<tr class="odd">
+<td>函数重载</td>
+<td>允许</td>
+<td>不允许</td>
+</tr>
+<tr class="even">
+<td>构造函数与析构函数</td>
+<td>调用</td>
+<td>不调用</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>new</tag>
+        <tag>malloc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to generate random number via C++ (srand version)</title>
+    <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
+    <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Srand</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to get matrix transform in python</title>
+    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
+    <content><![CDATA[<p>Here is a special trick:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to install &#39;labelme&#39; in Macbook M1</title>
+    <url>/2021/09/29/How-to-install-labelme-in-Macbook-M1/</url>
+    <content><![CDATA[<h3 id="conda-environment">Conda Environment</h3>
+<ol type="1">
+<li>Because anaconda is not suitable for M1, we use miniforge3 instead.</li>
+<li>Create new conda environment with 'python=3.9'. (miniforge3 only support python3.9 on M1).</li>
+</ol>
+<h3 id="pyqt5">PyQt5</h3>
+<ol type="1">
+<li>install homebrew (remeber to add path).</li>
+<li><code>brew install pyqt5</code>. Homebrew supports pyqt now.</li>
+<li>add path: <code>echo 'export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code> and <code>echo 'export PATH="/opt/homebrew/opt/pyqt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code>. This path may be not suitbale for you. You should modify your path to <code>/qt5@/bin</code> and <code>/qypt@5/bin</code>, and modify your bash profile (<code>~/.zshrc</code> for most Macbook users).</li>
+<li>Duplicate the files in <code>/opt/homebrew/Cellar/pyqt@5/5.15.4_1/lib/python3.9/site-packages</code> and paste them to <code>/Users/&lt;username&gt;/miniforge3/envs/&lt;environmentname&gt;/lib/python3.9/site-packages</code>.</li>
+<li><code>source ~/.bashrc</code> (<code>.zshrc</code>)</li>
+</ol>
+<h3 id="labelme">labelme</h3>
+<ol type="1">
+<li>labelme can be installed directly via pip (in your conda environemnt)</li>
+<li><code>pip install labelme</code></li>
+<li>when everything is done, <code>labelme</code> to use it.</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -665,6 +804,29 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
 </div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>]]></content>
       <categories>
         <category>Computer Graphics</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
+    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
+    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
+<p>Try <code>nvidia-settings</code> in terminal, then:</p>
+<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Image Test</title>
+    <url>/2021/09/15/Image-Test/</url>
+    <content><![CDATA[<p>You see the image? <img src="/2021/09/15/Image-Test/test.jpg" alt="image"></p>
+]]></content>
+      <categories>
+        <category>Test</category>
       </categories>
   </entry>
   <entry>
@@ -811,152 +973,62 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
-    <title>Difference between new and malloc</title>
-    <url>/2020/06/04/Difference-between-new-and-malloc/</url>
-    <content><![CDATA[<p>今天写作业的时候要求实现vector，很自然地用 <code>malloc</code>，但是告知不能使用<code>stdlib.h</code>，没有办法就只能使用<code>new</code>了。于是忽然想到<code>new</code>、<code>malloc</code>都是在<code>heap</code>上开辟动态空间，那么有什么异同呢？</p>
-<h2 id="malloc">malloc()</h2>
-<p>malloc只负责开辟一个指定大小的空间，类似的<code>calloc</code>则使得在开辟空间的同时初始化为0。 malloc的特点在于将内存空间视为链表，在内存上找到足够长的初始空间返回给目标空间的开头地址，如果失败就会返回<code>NULL</code>（因此使用malloc必须要检验返回指针）。</p>
-<p>由于malloc开辟的空间在<code>heap</code>上，这就使得可以在函数内定义的变量在函数被销毁会变量不会被同步销毁。因此释放heap的空间只能通过手动<code>free()</code>。</p>
-<p><code>malloc</code>在开辟新空间时往往会多开辟一些空间用于存储空间长度，前后空间指针的信息，由<code>free</code>源码可见，实际上free是将<code>heap</code>上的可用空间定义为指针传入的指针位置减去malloc所要求的大小--所以free本质上是定义了一个指针告诉OS：一个指针到另一个指针之间的空间是可用的<code>free-&gt;is_available = 1;</code>。由此<code>free</code>函数对传入的指针要求非常严格，必须是malloc空间的起始指针。</p>
-<h2 id="new">new()</h2>
-<p>intuitive的区别： 首先<code>new</code>有个好处可以简单地进行初始化，即使用new时会调用该类型的默认构造函数。并且<code>new</code>开辟的空间需要用<code>delete</code>函数删除。</p>
-<p>更重要的区别是：</p>
-<p><code>new</code>函数调用的空间在C++被抽象为<code>free store</code>（反向定义--new的空间才被视为free store，由OS特别管理）上。<code>free store</code>一般都是在heap上，但是取决于<code>new</code>自身的实现，也可以在<code>static</code>区域。</p>
-<p><code>new</code>有多种变体，如定位new--直接使用传入的地址而不考虑是否该地址为空可以使用<code>new (address) int[10]</code></p>
-<p><code>new</code>函数返回的指针类型与开辟空间的数据类型相符合，这就意味着不需要像malloc一样在cast后才能使用，在数据上更加安全。</p>
-<p><code>new</code>如果分配失败，不会返回错误会直接丢出异常，如果想要确认需要使用catch <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">    int *a = new int();</span><br><span class="line">&#125;</span><br><span class="line">catch (bad_alloc)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>summary：</p>
-<table>
-<thead>
-<tr class="header">
-<th>特征</th>
-<th>new/delete</th>
-<th>malloc/free</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>分配内存的位置</td>
-<td>自由存储区</td>
-<td>堆</td>
-</tr>
-<tr class="even">
-<td>内存分配失败返回值</td>
-<td>完整类型指针</td>
-<td>void*</td>
-</tr>
-<tr class="odd">
-<td>内存分配失败返回值</td>
-<td>默认抛出异常</td>
-<td>返回NULL</td>
-</tr>
-<tr class="even">
-<td>分配内存的大小</td>
-<td>由编译器根据类型计算得出</td>
-<td>必须显式指定字节数</td>
-</tr>
-<tr class="odd">
-<td>处理数组</td>
-<td>有处理数组的new版本new[]</td>
-<td>需要用户计算数组的大小后进行内存分配</td>
-</tr>
-<tr class="even">
-<td>已分配内存的扩充</td>
-<td>无法直观地处理</td>
-<td>使用realloc简单完成</td>
-</tr>
-<tr class="odd">
-<td>是否相互调用</td>
-<td>可以，看具体的operator new/delete实现</td>
-<td>不可调用new</td>
-</tr>
-<tr class="even">
-<td>分配内存时内存不足</td>
-<td>客户能够指定处理函数或重新制定分配器</td>
-<td>无法通过用户代码进行处理</td>
-</tr>
-<tr class="odd">
-<td>函数重载</td>
-<td>允许</td>
-<td>不允许</td>
-</tr>
-<tr class="even">
-<td>构造函数与析构函数</td>
-<td>调用</td>
-<td>不调用</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>new</tag>
-        <tag>malloc</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to get matrix transform in python</title>
-    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
-    <content><![CDATA[<p>Here is a special trick:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to generate random number via C++ (srand version)</title>
-    <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
-    <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Srand</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Image Test</title>
-    <url>/2021/09/15/Image-Test/</url>
-    <content><![CDATA[<p>You see the image? <img src="/2021/09/15/Image-Test/test.jpg" alt="image"></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to install &#39;labelme&#39; in Macbook M1</title>
-    <url>/2021/09/29/How-to-install-labelme-in-Macbook-M1/</url>
-    <content><![CDATA[<h3 id="conda-environment">Conda Environment</h3>
-<ol type="1">
-<li>Because anaconda is not suitable for M1, we use miniforge3 instead.</li>
-<li>Create new conda environment with 'python=3.9'. (miniforge3 only support python3.9 on M1).</li>
-</ol>
-<h3 id="pyqt5">PyQt5</h3>
-<ol type="1">
-<li>install homebrew (remeber to add path).</li>
-<li><code>brew install pyqt5</code>. Homebrew supports pyqt now.</li>
-<li>add path: <code>echo 'export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code> and <code>echo 'export PATH="/opt/homebrew/opt/pyqt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code>. This path may be not suitbale for you. You should modify your path to <code>/qt5@/bin</code> and <code>/qypt@5/bin</code>, and modify your bash profile (<code>~/.zshrc</code> for most Macbook users).</li>
-<li>Duplicate the files in <code>/opt/homebrew/Cellar/pyqt@5/5.15.4_1/lib/python3.9/site-packages</code> and paste them to <code>/Users/&lt;username&gt;/miniforge3/envs/&lt;environmentname&gt;/lib/python3.9/site-packages</code>.</li>
-<li><code>source ~/.bashrc</code> (<code>.zshrc</code>)</li>
-</ol>
-<h3 id="labelme">labelme</h3>
-<ol type="1">
-<li>labelme can be installed directly via pip (in your conda environemnt)</li>
-<li><code>pip install labelme</code></li>
-<li>when everything is done, <code>labelme</code> to use it.</li>
-</ol>
+    <title>How to use docker in Mac M1</title>
+    <url>/2021/10/09/How-to-use-docker-in-Mac-M1/</url>
+    <content><![CDATA[<h3 id="install-docker">Install docker</h3>
+<p>Download docker here: https://docs.docker.com/docker-for-mac/apple-m1/</p>
+<p>Note:</p>
+<p>This is just a preview version, which means you may encounter various bugs.</p>
+<p>This version is based on <strong>Rosetta2</strong>, so remember to install it via <code>$ softwareupdate --install-rosetta</code>.</p>
+<h3 id="check-your-docker">Check your docker</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker -v</span><br><span class="line">$ docker info // it may take a few minutes to start docker</span><br></pre></td></tr></table></figure>
+<h3 id="use-docker-image-mit-6.s081">Use docker image <a href="https://zhuanlan.zhihu.com/p/417668697">MIT 6.S081</a></h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker pull calvinhaynes412/mit6.s081:v1 // pull docker image</span><br><span class="line">$ git clone git@github.com:CalvinHaynes/MIT6.S081-2020Fall.git // pull git repository</span><br></pre></td></tr></table></figure>
+<p>Open the docker image-&gt;set repository to the local git repository-&gt;open docker in browser.</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
+  </entry>
+  <entry>
+    <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
+    <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
+    <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Mac上vscode显示没有修改文件权限</title>
+    <url>/2020/05/22/Mac%E4%B8%8Avscode%E6%98%BE%E7%A4%BA%E6%B2%A1%E6%9C%89%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<p>mac上vscode显示<code>fail to save</code>要求<code>try as sudo</code></p>
+<h2 id="问题解决">问题解决</h2>
+<p>当然你可以每次都手动输入一遍密码，但是太麻烦，而且也有可能失败 所以最好就是直接给vscode对当前文件夹的完全权限</p>
+<p><code>sudo chown -R &lt;usrname&gt; &lt;/address&gt;</code></p>
+<h2 id="more">more</h2>
+<p><code>chown</code>表示权限 <code>-R</code>表示对子文件递推 但是要注意，每次在该文件下以vscode以外的终端新增的文件依然没有权限，重新进行一下命令就好了。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Mac上极好的Github使用教程(转载)</title>
+    <url>/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/Capgras/article/details/100540501">原文链接</a></p>
+<p>以下为截图</p>
+<figure>
+<img src="/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/Github(tutorial).jpg" alt="git"><figcaption aria-hidden="true">git</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Tutorial</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
   </entry>
   <entry>
     <title>Linear Regression</title>
@@ -1074,52 +1146,16 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
-    <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
-    <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
-    <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Overwatch yes</title>
-    <url>/2021/06/10/Overwatch-yes/</url>
-    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
-<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
-    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
-    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
-<p>Try <code>nvidia-settings</code> in terminal, then:</p>
-<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
+    <title>Markdown在github上公式显示错误</title>
+    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
+        <tag>markdown</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Mac上vscode显示没有修改文件权限</title>
-    <url>/2020/05/22/Mac%E4%B8%8Avscode%E6%98%BE%E7%A4%BA%E6%B2%A1%E6%9C%89%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<p>mac上vscode显示<code>fail to save</code>要求<code>try as sudo</code></p>
-<h2 id="问题解决">问题解决</h2>
-<p>当然你可以每次都手动输入一遍密码，但是太麻烦，而且也有可能失败 所以最好就是直接给vscode对当前文件夹的完全权限</p>
-<p><code>sudo chown -R &lt;usrname&gt; &lt;/address&gt;</code></p>
-<h2 id="more">more</h2>
-<p><code>chown</code>表示权限 <code>-R</code>表示对子文件递推 但是要注意，每次在该文件下以vscode以外的终端新增的文件依然没有权限，重新进行一下命令就好了。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
   </entry>
   <entry>
     <title>My Donut in Blender</title>
@@ -1151,16 +1187,29 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
-    <title>Markdown在github上公式显示错误</title>
-    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
+    <title>Overwatch yes</title>
+    <url>/2021/06/10/Overwatch-yes/</url>
+    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
+<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
 ]]></content>
       <categories>
-        <category>Configuration</category>
+        <category>Chat</category>
       </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>NPR Cup--a taste to NPR</title>
+    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
+    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果"><figcaption aria-hidden="true">简单的一个效果</figcaption>
+</figure>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了"><figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Rendering</category>
+      </categories>
   </entry>
   <entry>
     <title>PDF &amp; CDF</title>
@@ -1199,35 +1248,32 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
-    <title>Mac上极好的Github使用教程(转载)</title>
-    <url>/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/Capgras/article/details/100540501">原文链接</a></p>
-<p>以下为截图</p>
-<figure>
-<img src="/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/Github(tutorial).jpg" alt="git"><figcaption aria-hidden="true">git</figcaption>
-</figure>
+    <title>Python technique</title>
+    <url>/2020/06/06/Python-technique/</url>
+    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking or dynamic programing:</p>
+<p>cause it will avoid reuse of data and reach good performance</p>
+<hr>
+<p>how to create a vector</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
+<p>Directly read/ wirte is quite different from <code>append()</code></p>
+<p><code>append()</code> will treat elements as data, which is more flexible</p>
+<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned vector</p>
+<span id="more"></span>
+<hr>
+<p>spilt part of string</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>init a vector:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
+<p>vector is a row*column size vector with all entries initialized by a.</p>
+<p>note <code>a</code> is just a value and can be anything you wang. <code>i</code> is just an iterator, even can use <code>_</code></p>
 ]]></content>
       <categories>
-        <category>Tutorial</category>
+        <category>Learning</category>
       </categories>
       <tags>
-        <tag>Github</tag>
+        <tag>Python</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>NPR Cup--a taste to NPR</title>
-    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
-    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果"><figcaption aria-hidden="true">简单的一个效果</figcaption>
-</figure>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了"><figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Rendering</category>
-      </categories>
   </entry>
   <entry>
     <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
@@ -1306,6 +1352,63 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </tags>
   </entry>
   <entry>
+    <title>Social LSTM</title>
+    <url>/2021/03/07/Social-LSTM/</url>
+    <content><![CDATA[<h2 id="rnn">RNN</h2>
+<p>Recurrent Neural Network，循环神经网络。</p>
+<p>RNN 是包含循环的网络，允许信息的持久化，可以充分利用先验的信息知识。</p>
+<p><img src="/2021/03/07/Social-LSTM/1.png" alt="3" style="zoom:20%;"></p>
+<p>本质上RNN就是在<span class="math inline">\(t\)</span>时刻，input=<span class="math inline">\(X _t + h _{t-1}\)</span>。</p>
+<p>LSTM就是一种特殊的RNN。</p>
+<p>对于RNN来说，在语言预测词汇中，对此要预测的词来说，相近的词贡献会很大，而时间间隔越远的词，贡献越少。但是往往存在Long-Term Dependency问题，一些重要信息可能会贯穿全文，如果很早出现但是被忘记，在后续的预测中将会很不利。理论上，RNN当然可以处理这种长期记忆问题，但是实践中却很难做到。为此LSTM出现了。</p>
+<span id="more"></span>
+<h2 id="lstm">LSTM</h2>
+<p>Long-Short Term Memory</p>
+<p>LSTM主要目的就是为了能够尽可能利用长期记忆。</p>
+<p>传统的RNN结构中只有一层神经网络。</p>
+<p><img src="/2021/03/07/Social-LSTM/2.png" alt="3" style="zoom:25%;"></p>
+<p>LSTM结构：</p>
+<p><img src="/2021/03/07/Social-LSTM/3.png" alt="3" style="zoom:25%;"></p>
+<p>每个时刻神经网络的状态（输出）为--cell state (<span class="math inline">\(C _t\)</span>)：</p>
+<p><img src="/2021/03/07/Social-LSTM/4.png" alt="3" style="zoom:25%;"></p>
+<h3 id="gate">Gate</h3>
+<p>LSTM引入了gate，使得信息能够选择性通过：</p>
+<p><img src="/2021/03/07/Social-LSTM/5.png" alt="3" style="zoom:25%;"></p>
+<p><strong>gate = a layer of Sigmoid + bitwise multiplier</strong></p>
+<p>LSTM有三个gate: forget gate, input gate(memory gate), output gate.</p>
+<p><img src="/2021/03/07/Social-LSTM/6.png" alt="3" style="zoom:40%;"></p>
+<h4 id="forget-gate">Forget gate</h4>
+<p><span class="math inline">\(input = [h _{t-1}, X _t]\)</span> <span class="math inline">\(ouput = f _t\)</span></p>
+<p>function: <span class="math inline">\(f _t = \sigma(W _f[h _{t-1}, x _t]+b _f)\)</span></p>
+<p>显然<span class="math inline">\(f _t\)</span>是一个[0, 1]之间的数，和<span class="math inline">\(C _{t-1}\)</span>相乘之后决定<span class="math inline">\(C _{t-1}\)</span>之中那些可以被保留，那些要忘记。</p>
+<p>eg. 假设<span class="math inline">\(C _{t-1} = [0.5,0.6,0.4]\)</span>，<span class="math inline">\(h _{t-1} = [0.3,0.8,0.69]\)</span>，<span class="math inline">\(x _t = [0.2,1.3,0.7]\)</span>，<span class="math inline">\(input = [h _{t-1}, X _t] = [0.3,0.8,0.69, 0.2,1.3,0.7]\)</span>，然后通过sigmoid输出每一个元素都处于<img src="https://www.zhihu.com/equation?tex=0" alt="[公式]">到<img src="https://www.zhihu.com/equation?tex=1" alt="[公式]">之间的向量<span class="math inline">\(f = [0.5,0.1,0.8]\)</span>，注意这里的sigmoid不是一个函数，而是sigmoid神经网络层，ouput大小==<span class="math inline">\(C _{t-1}\)</span>大小。</p>
+<h4 id="input-gate-memory-gate">Input gate (Memory gate)</h4>
+<p>记忆门包括两个支路：</p>
+<p><span class="math inline">\(i _t = \sigma(W _i[h _{t-1}, x _t] + b _i)\)</span></p>
+<p><span class="math inline">\(\widetilde C _t= tanh(W _C[h _{t-1}, x _t]+b _C)\)</span></p>
+<p>tanh层负责创造一个新的候选cell state (<span class="math inline">\(\widetilde C _t\)</span>)，sigmoid layer负责考虑哪些信息被保留，然后把结果加入之前的cell state。</p>
+<p>此时，cell state更新完成：<span class="math inline">\(C _t = C _{t-1}*f _t + i _t *\widetilde C _t\)</span></p>
+<h4 id="output-gate">Output gate</h4>
+<p>输出--作为下次输入的<span class="math inline">\(h _t\)</span></p>
+<p><span class="math inline">\(h _t = \sigma(W _o[h _{t-1}, x _t]+b _o) * tanh(C _t)\)</span>, note <span class="math inline">\(&#39;*’\)</span> denotes bit-wise multiplier.</p>
+<h3 id="why-lstm">Why LSTM</h3>
+<p>forget gate里面大多数位置都是0，1即是网络中保留的信息。gate有点类似于注意力机制，对于需要的信息，训练出高attention（1）。这样使得有价值的信息能够被过滤出来，长时间地保留下去。</p>
+<h2 id="social-lstm">Social LSTM</h2>
+<p>问题：</p>
+<p>第<span class="math inline">\(i\)</span>个人，在<span class="math inline">\(t\)</span>时刻，位置为<span class="math inline">\((x _i ^t, y _i ^t)\)</span> ，输入（观测）一段时间的行人位置：<span class="math inline">\(0 \rarr T _{obs}\)</span>来预测未来时间内行人位置：<span class="math inline">\(T _{obs + 1} \rarr T _{predict}\)</span>。</p>
+<p>social LSTM是指pooling based LSTM model</p>
+<p><img src="/2021/03/07/Social-LSTM/7.png" alt="3" style="zoom:40%;"></p>
+<h3 id="social-pooling">Social Pooling</h3>
+<p>LSTM对时间序列处理优秀，但是行人之间有复杂的相互影响关系，故引入Social Pooling（S-pooling）来让一定距离内的行人LSTM节点状态共享。</p>
+<p><span class="math inline">\(h _i ^t\)</span>为第<span class="math inline">\(i\)</span>个人在<span class="math inline">\(t\)</span>时刻时LSTM的hidden state。为了共享这一状态，作者引入了<span class="math inline">\(H _t ^i\)</span>。给定D（hidden state dimension）和临域大小<span class="math inline">\(N _o\)</span>，<span class="math inline">\(H _t ^i\)</span>为 <span class="math inline">\(N _o *N _o*D\)</span>大小。</p>
+<p><img src="/2021/03/07/Social-LSTM/8.png" alt="3" style="zoom:40%;"></p>
+<p><span class="math inline">\(1 _{mn}\)</span>表示<span class="math inline">\(j\)</span>节点点是否在m*n网格中，如果在即为1，否则为0。<span class="math inline">\(N _i\)</span>指<span class="math inline">\(i\)</span>节点所有邻居节点。<span class="math inline">\(H _t ^i\)</span>即为在<span class="math inline">\(i\)</span>节点一定距离内所有节点的<span class="math inline">\(h _{t-1} ^j\)</span>之和。</p>
+]]></content>
+      <categories>
+        <category>Computer Vision</category>
+      </categories>
+  </entry>
+  <entry>
     <title>TOEFL Notes (based on TPO)</title>
     <url>/2021/10/07/TOEFL-Notes-based-on-TPO/</url>
     <content><![CDATA[<h3 id="tpo1-reading">TPO1 Reading</h3>
@@ -1366,119 +1469,6 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
 ]]></content>
       <categories>
         <category>-TOEFL</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Test discription</title>
-    <url>/2021/09/15/Test-discription/</url>
-    <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Social LSTM</title>
-    <url>/2021/03/07/Social-LSTM/</url>
-    <content><![CDATA[<h2 id="rnn">RNN</h2>
-<p>Recurrent Neural Network，循环神经网络。</p>
-<p>RNN 是包含循环的网络，允许信息的持久化，可以充分利用先验的信息知识。</p>
-<p><img src="/2021/03/07/Social-LSTM/1.png" alt="3" style="zoom:20%;"></p>
-<p>本质上RNN就是在<span class="math inline">\(t\)</span>时刻，input=<span class="math inline">\(X _t + h _{t-1}\)</span>。</p>
-<p>LSTM就是一种特殊的RNN。</p>
-<p>对于RNN来说，在语言预测词汇中，对此要预测的词来说，相近的词贡献会很大，而时间间隔越远的词，贡献越少。但是往往存在Long-Term Dependency问题，一些重要信息可能会贯穿全文，如果很早出现但是被忘记，在后续的预测中将会很不利。理论上，RNN当然可以处理这种长期记忆问题，但是实践中却很难做到。为此LSTM出现了。</p>
-<span id="more"></span>
-<h2 id="lstm">LSTM</h2>
-<p>Long-Short Term Memory</p>
-<p>LSTM主要目的就是为了能够尽可能利用长期记忆。</p>
-<p>传统的RNN结构中只有一层神经网络。</p>
-<p><img src="/2021/03/07/Social-LSTM/2.png" alt="3" style="zoom:25%;"></p>
-<p>LSTM结构：</p>
-<p><img src="/2021/03/07/Social-LSTM/3.png" alt="3" style="zoom:25%;"></p>
-<p>每个时刻神经网络的状态（输出）为--cell state (<span class="math inline">\(C _t\)</span>)：</p>
-<p><img src="/2021/03/07/Social-LSTM/4.png" alt="3" style="zoom:25%;"></p>
-<h3 id="gate">Gate</h3>
-<p>LSTM引入了gate，使得信息能够选择性通过：</p>
-<p><img src="/2021/03/07/Social-LSTM/5.png" alt="3" style="zoom:25%;"></p>
-<p><strong>gate = a layer of Sigmoid + bitwise multiplier</strong></p>
-<p>LSTM有三个gate: forget gate, input gate(memory gate), output gate.</p>
-<p><img src="/2021/03/07/Social-LSTM/6.png" alt="3" style="zoom:40%;"></p>
-<h4 id="forget-gate">Forget gate</h4>
-<p><span class="math inline">\(input = [h _{t-1}, X _t]\)</span> <span class="math inline">\(ouput = f _t\)</span></p>
-<p>function: <span class="math inline">\(f _t = \sigma(W _f[h _{t-1}, x _t]+b _f)\)</span></p>
-<p>显然<span class="math inline">\(f _t\)</span>是一个[0, 1]之间的数，和<span class="math inline">\(C _{t-1}\)</span>相乘之后决定<span class="math inline">\(C _{t-1}\)</span>之中那些可以被保留，那些要忘记。</p>
-<p>eg. 假设<span class="math inline">\(C _{t-1} = [0.5,0.6,0.4]\)</span>，<span class="math inline">\(h _{t-1} = [0.3,0.8,0.69]\)</span>，<span class="math inline">\(x _t = [0.2,1.3,0.7]\)</span>，<span class="math inline">\(input = [h _{t-1}, X _t] = [0.3,0.8,0.69, 0.2,1.3,0.7]\)</span>，然后通过sigmoid输出每一个元素都处于<img src="https://www.zhihu.com/equation?tex=0" alt="[公式]">到<img src="https://www.zhihu.com/equation?tex=1" alt="[公式]">之间的向量<span class="math inline">\(f = [0.5,0.1,0.8]\)</span>，注意这里的sigmoid不是一个函数，而是sigmoid神经网络层，ouput大小==<span class="math inline">\(C _{t-1}\)</span>大小。</p>
-<h4 id="input-gate-memory-gate">Input gate (Memory gate)</h4>
-<p>记忆门包括两个支路：</p>
-<p><span class="math inline">\(i _t = \sigma(W _i[h _{t-1}, x _t] + b _i)\)</span></p>
-<p><span class="math inline">\(\widetilde C _t= tanh(W _C[h _{t-1}, x _t]+b _C)\)</span></p>
-<p>tanh层负责创造一个新的候选cell state (<span class="math inline">\(\widetilde C _t\)</span>)，sigmoid layer负责考虑哪些信息被保留，然后把结果加入之前的cell state。</p>
-<p>此时，cell state更新完成：<span class="math inline">\(C _t = C _{t-1}*f _t + i _t *\widetilde C _t\)</span></p>
-<h4 id="output-gate">Output gate</h4>
-<p>输出--作为下次输入的<span class="math inline">\(h _t\)</span></p>
-<p><span class="math inline">\(h _t = \sigma(W _o[h _{t-1}, x _t]+b _o) * tanh(C _t)\)</span>, note <span class="math inline">\(&#39;*’\)</span> denotes bit-wise multiplier.</p>
-<h3 id="why-lstm">Why LSTM</h3>
-<p>forget gate里面大多数位置都是0，1即是网络中保留的信息。gate有点类似于注意力机制，对于需要的信息，训练出高attention（1）。这样使得有价值的信息能够被过滤出来，长时间地保留下去。</p>
-<h2 id="social-lstm">Social LSTM</h2>
-<p>问题：</p>
-<p>第<span class="math inline">\(i\)</span>个人，在<span class="math inline">\(t\)</span>时刻，位置为<span class="math inline">\((x _i ^t, y _i ^t)\)</span> ，输入（观测）一段时间的行人位置：<span class="math inline">\(0 \rarr T _{obs}\)</span>来预测未来时间内行人位置：<span class="math inline">\(T _{obs + 1} \rarr T _{predict}\)</span>。</p>
-<p>social LSTM是指pooling based LSTM model</p>
-<p><img src="/2021/03/07/Social-LSTM/7.png" alt="3" style="zoom:40%;"></p>
-<h3 id="social-pooling">Social Pooling</h3>
-<p>LSTM对时间序列处理优秀，但是行人之间有复杂的相互影响关系，故引入Social Pooling（S-pooling）来让一定距离内的行人LSTM节点状态共享。</p>
-<p><span class="math inline">\(h _i ^t\)</span>为第<span class="math inline">\(i\)</span>个人在<span class="math inline">\(t\)</span>时刻时LSTM的hidden state。为了共享这一状态，作者引入了<span class="math inline">\(H _t ^i\)</span>。给定D（hidden state dimension）和临域大小<span class="math inline">\(N _o\)</span>，<span class="math inline">\(H _t ^i\)</span>为 <span class="math inline">\(N _o *N _o*D\)</span>大小。</p>
-<p><img src="/2021/03/07/Social-LSTM/8.png" alt="3" style="zoom:40%;"></p>
-<p><span class="math inline">\(1 _{mn}\)</span>表示<span class="math inline">\(j\)</span>节点点是否在m*n网格中，如果在即为1，否则为0。<span class="math inline">\(N _i\)</span>指<span class="math inline">\(i\)</span>节点所有邻居节点。<span class="math inline">\(H _t ^i\)</span>即为在<span class="math inline">\(i\)</span>节点一定距离内所有节点的<span class="math inline">\(h _{t-1} ^j\)</span>之和。</p>
-]]></content>
-      <categories>
-        <category>Computer Vision</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Python technique</title>
-    <url>/2020/06/06/Python-technique/</url>
-    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking or dynamic programing:</p>
-<p>cause it will avoid reuse of data and reach good performance</p>
-<hr>
-<p>how to create a vector</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
-<p>Directly read/ wirte is quite different from <code>append()</code></p>
-<p><code>append()</code> will treat elements as data, which is more flexible</p>
-<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned vector</p>
-<span id="more"></span>
-<hr>
-<p>spilt part of string</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>init a vector:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
-<p>vector is a row*column size vector with all entries initialized by a.</p>
-<p>note <code>a</code> is just a value and can be anything you wang. <code>i</code> is just an iterator, even can use <code>_</code></p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Test password</title>
-    <url>/2021/09/15/Test-password/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="d0f22fb8ec934b630357bfed8eddaebceee1d75a12c7b7f676982c457b1c24c3">165d50f05814027fb7fe5e4ae8a088d8aa2b5ed724ea7f4f8aea8267289667dd0de0240fdde409598408170417c80b66d2288279e5571a43ddc20d8f87d5d48034dddfe8e1d8a865ebee019b43336466</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Please Eneter Password!</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>Test</category>
       </categories>
   </entry>
   <entry>
@@ -1721,6 +1711,34 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
+    <title>Test discription</title>
+    <url>/2021/09/15/Test-discription/</url>
+    <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Test password</title>
+    <url>/2021/09/15/Test-password/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="d0f22fb8ec934b630357bfed8eddaebceee1d75a12c7b7f676982c457b1c24c3">165d50f05814027fb7fe5e4ae8a088d8aa2b5ed724ea7f4f8aea8267289667dd0de0240fdde409598408170417c80b66d2288279e5571a43ddc20d8f87d5d48034dddfe8e1d8a865ebee019b43336466</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Please Eneter Password!</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Test Latex Formula</title>
     <url>/2021/09/15/Test-Latex-Formula/</url>
     <content><![CDATA[<p>This is an inline formula: <span class="math inline">\(x=7\)</span>. This is a simple equation: <span class="math display">\[
@@ -1735,17 +1753,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 ]]></content>
       <categories>
         <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Use of Tuple in Python</title>
-    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<p>Tuple最特别在于<br></p>
-<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
       </categories>
   </entry>
   <entry>
@@ -1773,60 +1780,11 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>What is the use of activation function</title>
-    <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
-    <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
-<p>The following picture illustrates the basic structure of neural network.</p>
-<figure>
-<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn"><figcaption aria-hidden="true">nn</figcaption>
-</figure>
-<p>Extracted featrures are passed into the net as input.</p>
-<p># of input node = # of extracted feature types</p>
-<span id="more"></span>
-<h1 id="why-we-need-activation">Why we need activation</h1>
-<p>For a classifiying issue:</p>
-<h3 id="without-activation">Without activation</h3>
-<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
-<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input} input+loss_1)+loss_2\)</span></p>
-<p>So bascically, we can derive that no matter how many layers you add into the net, without activation, the net can only produce a <strong>linear classifier</strong>.</p>
-<h3 id="with-activation">With activation</h3>
-<p>The aim of activation is to transfer a linear classifer to a non-linear classifer.</p>
-<p>The basic actication we use is: <span class="math display">\[
-\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0 \\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
-\]</span> It is same as nerve cell--if the cell is activated it produce a signal, otherwise, it does nothing.</p>
-<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
-\sigma(y) = \frac 1 {1+e^{-y}}
-\]</span> (we prefer to ues <span class="math inline">\(y\)</span>, because actication is added inside the net which means the input of activation is the output of prior layer)</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
-<center>
-<p>NN structure with activation</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
-<center>
-<p>Output of NN with activation</p>
-</center></center>]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Relu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo中使用markdown无法处理特殊字符</title>
-    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。 比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
-<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Video test</title>
     <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-GsxtCKjEIuInXyRz" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-GsxtCKjEIuInXyRz").style.height=document.getElementById("mmedia-GsxtCKjEIuInXyRz").scrollWidth*0.76+"px";
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-VQltluEYCjoQTQPR" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-VQltluEYCjoQTQPR").style.height=document.getElementById("mmedia-VQltluEYCjoQTQPR").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-GsxtCKjEIuInXyRz").style.height=document.getElementById("mmedia-GsxtCKjEIuInXyRz").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-VQltluEYCjoQTQPR").style.height=document.getElementById("mmedia-VQltluEYCjoQTQPR").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <thead>
@@ -1896,6 +1854,17 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
+    <title>Use of Tuple in Python</title>
+    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>Tuple最特别在于<br></p>
+<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>assert expression in Python</title>
     <url>/2020/09/24/assert-expression-in-Python/</url>
     <content><![CDATA[<h2 id="tags">tags:</h2>
@@ -1911,17 +1880,26 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>yilia主题的头像配置失败</title>
-    <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<ol type="1">
-<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
-<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code> 但是打开之后依然无法显示，甚至还有一个问号</li>
-</ol>
-<hr>
-<h2 id="问题解决">问题解决</h2>
-<p>这里有一个很tricky的地方搞了我很久 在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code> 比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
-<p><strong>注意</strong> 麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
+    <title>hexo中使用markdown无法处理特殊字符</title>
+    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。 比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
+<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo图片在md文档中显示正常但是网页无法显示</title>
+    <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
+    <content><![CDATA[<h4 id="step-1">Step 1</h4>
+<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
+<p><br></p>
+<h4 id="step-2">Step 2</h4>
+<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
+<p><br></p>
+<h4 id="step-3">Step 3</h4>
+<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的 <code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -1962,6 +1940,40 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
+    <title>how to change you local git name</title>
+    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
+<p>Your name will be shown on github each time you push to it.</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>solution to git@github.com出现Permission denied (publickey)</title>
+    <url>/2020/12/21/solution-to-git-github-com%E5%87%BA%E7%8E%B0Permission-denied-publickey/</url>
+    <content><![CDATA[<ol type="1">
+<li><p>Create SSH key</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># change your path to .ssh file</span></span><br><span class="line">cd ~/.ssh</span><br><span class="line"><span class="section"># create new SSH key</span></span><br><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your git email&quot;</span><br><span class="line"><span class="section"># note that name of the file to save key should be &quot;id<span class="emphasis">_rsa&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, it will reprot &quot;Permission denied (publickey).&quot; when &quot;ssh -T git@github.com&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"></span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, remember to add it </span></span></span><br><span class="line"><span class="emphasis"><span class="section">ssh-add ~/.ssh/your_</span>name </span></span><br></pre></td></tr></table></figure></li>
+<li><p>Add SSH key to git</p>
+<p>You are supposed to find <code>id_rsa</code> and <code>id_rsa.pub</code>. The former is you SSH key.</p>
+<p>Create a new SSH key in your github and copy everything in <code>id_rsa.pub</code> to it.</p></li>
+<li><p>Test your connection with git</p>
+<p><code>ssh -T git@github.com</code></p>
+<p>If there is no bug report, you key is acceptable.</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
     <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="问题描述">问题描述</h2>
@@ -1973,6 +1985,62 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       <tags>
         <tag>-ubuntu -install</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>What is the use of activation function</title>
+    <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
+    <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
+<p>The following picture illustrates the basic structure of neural network.</p>
+<figure>
+<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn"><figcaption aria-hidden="true">nn</figcaption>
+</figure>
+<p>Extracted featrures are passed into the net as input.</p>
+<p># of input node = # of extracted feature types</p>
+<span id="more"></span>
+<h1 id="why-we-need-activation">Why we need activation</h1>
+<p>For a classifiying issue:</p>
+<h3 id="without-activation">Without activation</h3>
+<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
+<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input} input+loss_1)+loss_2\)</span></p>
+<p>So bascically, we can derive that no matter how many layers you add into the net, without activation, the net can only produce a <strong>linear classifier</strong>.</p>
+<h3 id="with-activation">With activation</h3>
+<p>The aim of activation is to transfer a linear classifer to a non-linear classifer.</p>
+<p>The basic actication we use is: <span class="math display">\[
+\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0 \\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
+\]</span> It is same as nerve cell--if the cell is activated it produce a signal, otherwise, it does nothing.</p>
+<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
+\sigma(y) = \frac 1 {1+e^{-y}}
+\]</span> (we prefer to ues <span class="math inline">\(y\)</span>, because actication is added inside the net which means the input of activation is the output of prior layer)</p>
+<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
+<center>
+<p>NN structure with activation</p>
+<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
+<center>
+<p>Output of NN with activation</p>
+</center></center>]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Relu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>yilia主题的头像配置失败</title>
+    <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<ol type="1">
+<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
+<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code> 但是打开之后依然无法显示，甚至还有一个问号</li>
+</ol>
+<hr>
+<h2 id="问题解决">问题解决</h2>
+<p>这里有一个很tricky的地方搞了我很久 在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code> 比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
+<p><strong>注意</strong> 麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
   </entry>
   <entry>
     <title>使用hexo theme Butterfly 报错</title>
@@ -1987,6 +2055,62 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 <p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
 <hr>
 <h2 id="丝滑进入">丝滑进入</h2>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
+    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
+<h2 id="问题原因">问题原因</h2>
+<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错 因此有一下三种解决办法：</p>
+<ol type="1">
+<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
+<li><p>手动打开preinterpreter</p></li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<ol start="3" type="1">
+<li>重新为mac安装</li>
+</ol>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
+<p>如果有了就更新一下</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
+<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>感谢好太阳哥哥们</title>
+    <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
+    <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
+<div align="center">
+<figure>
+<img src="/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/1.png" alt="Long May the Sun Shine!"><figcaption aria-hidden="true">Long May the Sun Shine!</figcaption>
+</figure>
+</div>]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>给你的Vscode加一个毛玻璃特效</title>
+    <url>/2020/05/22/%E7%BB%99%E4%BD%A0%E7%9A%84Vscode%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%AF%9B%E7%8E%BB%E7%92%83%E7%89%B9%E6%95%88/</url>
+    <content><![CDATA[<h2 id="环境">环境</h2>
+<p>macOS：10.15 VScode：1.4 --- ## 问题描述 在macos下想给vscode加一个酷炫的毛玻璃效果，参考了<a href="https://www.jianshu.com/p/25fecde188d4">炫酷的VS Code毛玻璃效果</a>,但是实际操作中css文件并没有生效。 --- ## 问题解决 起哦一开始以为是mac恶心的权限问题，然后尝试给vscode权限，但是没有用。 然后我去看了git上原作者的说明：https://github.com/Microsoft/vscode/issues/32257 &gt;Sorry. This method has failed after the vscode v1.36 update. The reason is that a black background color has been added to the window. And the Electron's setBackgroundColor() method has some bugs on the MacOS. I can't dynamically change the background color in the script. Now you can only modify the vscode source to enable the vibrant effect.</p>
+<blockquote>
+<p>hi guys. I have some good news. The old way has failed after the vscode v1.36 update. I changed the custom.js file: w = nodeRequire('electron') .remote .getCurrentWindow(); w.setBackgroundColor('#00000000'); w.setVibrancy('ultra-dark'); w.setFullScreen(true); Don't forget to execute the command "Reload Custom CSS and JS". with automatic full screen vscode, the problem has been fixed. You can turn off full screen manually.</p>
+</blockquote>
+<p>于是首先我尝试降级到1.5之前，事实上成功了。 然后我采取作者的说法，尝试修改.js文件，但是又不行了，vscode在1.3.7之后又有新的问题。 巧合的是我看到作者其实好像是个中国人，并且开发了一个vscode拓展。。。。 这TM就很尴尬，拓展一装就完事了，我其实定制化需求也不是很大</p>
+<p><a href="https://eyhn.in/vscode-vibrancy/">vibrancy</a></p>
+<h2 id="note">Note</h2>
+<p>此插件在windows下同样适用，并且可以自行去作者git上看说明。</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -2058,82 +2182,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>hexo图片在md文档中显示正常但是网页无法显示</title>
-    <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
-    <content><![CDATA[<h4 id="step-1">Step 1</h4>
-<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
-<p><br></p>
-<h4 id="step-2">Step 2</h4>
-<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
-<p><br></p>
-<h4 id="step-3">Step 3</h4>
-<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的 <code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
-    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
-<h2 id="问题原因">问题原因</h2>
-<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错 因此有一下三种解决办法：</p>
-<ol type="1">
-<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
-<li><p>手动打开preinterpreter</p></li>
-</ol>
-<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<ol start="3" type="1">
-<li>重新为mac安装</li>
-</ol>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
-<p>如果有了就更新一下</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
-<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>how to change you local git name</title>
-    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
-<p>Your name will be shown on github each time you push to it.</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>solution to git@github.com出现Permission denied (publickey)</title>
-    <url>/2020/12/21/solution-to-git-github-com%E5%87%BA%E7%8E%B0Permission-denied-publickey/</url>
-    <content><![CDATA[<ol type="1">
-<li><p>Create SSH key</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># change your path to .ssh file</span></span><br><span class="line">cd ~/.ssh</span><br><span class="line"><span class="section"># create new SSH key</span></span><br><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your git email&quot;</span><br><span class="line"><span class="section"># note that name of the file to save key should be &quot;id<span class="emphasis">_rsa&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, it will reprot &quot;Permission denied (publickey).&quot; when &quot;ssh -T git@github.com&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"></span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, remember to add it </span></span></span><br><span class="line"><span class="emphasis"><span class="section">ssh-add ~/.ssh/your_</span>name </span></span><br></pre></td></tr></table></figure></li>
-<li><p>Add SSH key to git</p>
-<p>You are supposed to find <code>id_rsa</code> and <code>id_rsa.pub</code>. The former is you SSH key.</p>
-<p>Create a new SSH key in your github and copy everything in <code>id_rsa.pub</code> to it.</p></li>
-<li><p>Test your connection with git</p>
-<p><code>ssh -T git@github.com</code></p>
-<p>If there is no bug report, you key is acceptable.</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>理解superscalar和multithreading(简单提及hyperthreading)和multi-core区别</title>
     <url>/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<p>看到网上有一篇文章用汽车收费站来解释这三个概念，想法很好，但是感觉没说那么清楚，于是我自己来说一遍</p>
@@ -2179,36 +2227,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 ]]></content>
       <categories>
         <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>给你的Vscode加一个毛玻璃特效</title>
-    <url>/2020/05/22/%E7%BB%99%E4%BD%A0%E7%9A%84Vscode%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%AF%9B%E7%8E%BB%E7%92%83%E7%89%B9%E6%95%88/</url>
-    <content><![CDATA[<h2 id="环境">环境</h2>
-<p>macOS：10.15 VScode：1.4 --- ## 问题描述 在macos下想给vscode加一个酷炫的毛玻璃效果，参考了<a href="https://www.jianshu.com/p/25fecde188d4">炫酷的VS Code毛玻璃效果</a>,但是实际操作中css文件并没有生效。 --- ## 问题解决 起哦一开始以为是mac恶心的权限问题，然后尝试给vscode权限，但是没有用。 然后我去看了git上原作者的说明：https://github.com/Microsoft/vscode/issues/32257 &gt;Sorry. This method has failed after the vscode v1.36 update. The reason is that a black background color has been added to the window. And the Electron's setBackgroundColor() method has some bugs on the MacOS. I can't dynamically change the background color in the script. Now you can only modify the vscode source to enable the vibrant effect.</p>
-<blockquote>
-<p>hi guys. I have some good news. The old way has failed after the vscode v1.36 update. I changed the custom.js file: w = nodeRequire('electron') .remote .getCurrentWindow(); w.setBackgroundColor('#00000000'); w.setVibrancy('ultra-dark'); w.setFullScreen(true); Don't forget to execute the command "Reload Custom CSS and JS". with automatic full screen vscode, the problem has been fixed. You can turn off full screen manually.</p>
-</blockquote>
-<p>于是首先我尝试降级到1.5之前，事实上成功了。 然后我采取作者的说法，尝试修改.js文件，但是又不行了，vscode在1.3.7之后又有新的问题。 巧合的是我看到作者其实好像是个中国人，并且开发了一个vscode拓展。。。。 这TM就很尴尬，拓展一装就完事了，我其实定制化需求也不是很大</p>
-<p><a href="https://eyhn.in/vscode-vibrancy/">vibrancy</a></p>
-<h2 id="note">Note</h2>
-<p>此插件在windows下同样适用，并且可以自行去作者git上看说明。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>感谢好太阳哥哥们</title>
-    <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
-    <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
-<div align="center">
-<figure>
-<img src="/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/1.png" alt="Long May the Sun Shine!"><figcaption aria-hidden="true">Long May the Sun Shine!</figcaption>
-</figure>
-</div>]]></content>
-      <categories>
-        <category>Chat</category>
       </categories>
   </entry>
   <entry>
@@ -2460,132 +2478,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
         <tag>Image detection</tag>
         <tag>Faster R-CNN</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>《不动智神妙录》笔记</title>
-    <url>/2021/01/04/%E3%80%8A%E4%B8%8D%E5%8A%A8%E6%99%BA%E7%A5%9E%E5%A6%99%E5%BD%95%E3%80%8B%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<center>
-《不动智神妙录》笔记
-<center>
-<p>--恰巧与剑道相关，故而记录一下 1、无明烦恼住地</p>
-<p>​ 无明者，晦暗不明，智慧为闇所述。住地者，迟滞之境。</p>
-<p>​ 佛法修行可分五十二阶位，若于任一阶位，心为尘所滞，即称住地。住，止之意；止，心为尘所取。就兵法而言，于眼剑来之剎那，若心有以剑攻防之意，则心为彼剑所滞，身心失念，即被斩杀，此称心有所住。</p>
-<p>​ 若眼观剑来，不分别思维，见剑则否，心无所住，亦无欲抢先机而反击之意，无有少法，是心所住，入彼剑所及之距，状若败势，逆取彼刃而溃敌手，恰如禅宗所云：“还把枪头倒刺人。”此与无刀流之旨，有同工之妙。</p>
-<p>​ <u>这里可能是说柳生古流里的无刀取，剑道里称之为“活人剑”，是在近距离无刀夺刀制服对手的技巧。</u></p>
-<p>​ 主客交锋，此方彼方，己剑彼剑，拍子节奏，若于是中，心有所住，则行动缓顿，为彼所斩。若临敌时有自身想，心则有住，故不应执着自身。</p>
-<p>​ 修行初始，心易受身形而紧绷，若心住于剑，则为剑所滞；若心欲抢先机，则为欲抢先机所滞，以要言之，若心有住，则失其念，佛法称此迟滞之心为无明住地烦恼。</p>
-<p>​ <u>剑道里有说法叫“望远山”，就是说交剑的时候，注意力不在对手身上，而在对手背后的“远山”。实践中有一点很巧妙—往往人的注意不专注在对手身上，反而能够清晰察觉到对手的攻击意图，这种感觉很微妙，人确实能从非常细节的方面来抓住攻击间隙，但是回想起来却又不明白。</u></p>
-<p>​ <u>而在心态上，剑道称之为“无念”，讲究交剑后心中无所想，不过在我的实际体会中，这种无所想与其说是放下这种打击执念，不如说是千锤百炼之后的稳健心态。我也去问过八段的香田俊秀老师（在苏州），他的意思大致是剑道可以输剑，不能输心，先在内心胜过对手，自己就能保持这种平常心，身体才能不受心所连累。</u></p>
-<span id="more"></span>
-<p>2、诸佛不动智</p>
-<p>​ 诸佛不动智，虽云不动，非同草木，心遍十方，无有所住，是名不动。</p>
-<p>佛法有不动明王尊者，右手持剑左持绳，利齿暴出目怒视，现愤怒相护持法，妨佛法者悉降服，自坐盘石妙不动，普遍十方一切剎，愤怒为相智为体，示现一切诸众生。</p>
-<p>​ 一般凡夫于是中作恐布想，不敢碍佛，离悟近者，则知此为不动智之体现。去一切迷闇，不动智即明，身现明王心不动。故不动明王者，一心不动，无有住处，但住众生心想。</p>
-<p>​ <u>剑道里很推崇“不动明王身”，从很多高段位老师身上就能勉强窥见—远距离的气和，坚实的中段，通过自身“构”的稳定，来实现心理上的seme（这个词很难翻译，直译是进攻，但是意义广泛），引出对手的“惊、惧、疑、怒”来找到打击机会。</u></p>
-<p>​ 若心有住，生种种分别，于分别中，心生黏滞，虽形能动，不能自在。</p>
-<p>​ <u>往往“无心”时更能轻易地打出应击技，越是高段越是强调这种能随心所欲应对的境界，不过对我来说太遥远了。</u></p>
-<p>​ 譬如临敌十人，以一剑应之，心无所住，即舍即取，以寡敌众，无有不足。若心有住，于第一人或能取胜，于余诸敌，则心形黏滞。</p>
-<p>​ <u>这里一定是说应击技随心所欲的使用。观察对手然后做出动作，而不是自己想打什么打什么。这种是不是就是“无心”中把“自我”抛却掉呢？</u></p>
-<p>​ 观千手观音尊者，虽云千手持千宝，若于一手心有住，则余九百九十九手，不能妙用妙自在。因心无有所住故，千手能随顺自在，以是具妙智不动，能示一身具千手，随顺自在无有碍。如人于林中，心若住一叶，则不见余叶，行者悟此道，则了千手尊。</p>
-<p>​ 无知凡夫者，于身具千手，终难生信解，而起诸诽谤。今得闻少分，不应诽谤亦不执着，以法为本真实观。</p>
-<p>​ 若仅观外相，而无有心法，犹不应轻率，以慢心攻击。是故千手道，普门普示现，法门有种种，果位则不异。</p>
-<p>​ <u>这句不懂。</u></p>
-<p>​ 自初学至不动智者，即回归本心，兵法亦如是。</p>
-<p>​ 行者初习剑时，无招无势，心亦无所住，若见剑来，亦不分别，心无所住，随机而应。习剑日久，得种种知见，或持剑之法，或心之置所，于临敌手时，惊觉不自由。 渐学渐参访，积聚见地心要，于身形剑法，皆回向初学无有知见时，概因地果位本一如故。譬如算数，自一至十，于进位时，一十相邻。复观音乐，十二调：一壱 越，二断金，三平调，四胜绝，五下无，六双调，七凫钟，八黄钟，九蛮，十盘涉，十一神仙，十二上无。</p>
-<p>​ <u>深有此感，开始是不会打，之后是会打一些动作但是打不出来（就是说练习时能打，但稽古的时候就做不出），后来随着稍微懂了些剑理，开始逐渐能够打得随心所欲，尤其挂稽古，看起来有时像乱打一样。</u></p>
-<p>​ <u>新西兰一位六段的老师也解释过这个问题，不过他说的是：练习和稽古存在间隙—古人练习是为了砍人，但是今人练习几乎不是为了这个，所以练习出来的构有些“学术派”的味道，不是以目的为导向的，而是以动作为导向的。实际中韩国人的打击方式就往往是目的为导向的，很多时候能打到，却被认为不合“剑理”的，关于所谓“剑理”方面我一直搞不明白。</u></p>
-<p>​ <u>个人我对于这种“不动”的理解倾向于是：丰富的经验+娴熟的技巧=&gt;心态上不对任何对手=&gt;心中没有剑法，只有剑理和打击目标。</u></p>
-<p>​ 最低壱越，最高上无，初音终音，紧密相邻，故至高至低，至实至空，大智若愚，无华巧之饰。以是义故，无明住地，不动妙智，本来一如，无心无念，动静自在，不为烦恼所缚。</p>
-<p>​ <u>真是说起来简单，做起来难啊，所有人刚开始时都是“无心无念”，但是随着seme（进攻）+tame（压迫），烦恼是逐渐滋生的，特别在面对强大的对手和性命之忧时，内心的动摇甚至察觉不到，自己已经被本能完全压制了。</u></p>
-<p>​ 譬如田中稻草人形，其相离持弓箭，本无守护作物之心，而鸟兽见之径自逃散。世间众道究竟，亦复如是。相虽种种，无住为要，无心无念，如稻草人形。</p>
-<p>​ <u>这个例子我反而觉得不好，“不动心”强大是强大在“不动”所带来“势”上。不动意味着稳定，随时可能发起攻击，是最危险的时候。但是稻草人哪怕不动也不具备这种“势”，鸟兽一两次被吓跑后，以后就能逐渐认识到真实，不过黔之驴罢了。</u></p>
-<p>​ 痴愚无智者，以无智慧故，不能显锋；具甚深智者，不露锋芒；一知半解者，有聪无智，示其小慧，甚为可笑，今出家众，状似有道而作佛事，应以为耻。</p>
-<p>​ 后论理事修行，理者为尊，其究竟则不取万物，唯舍一心。然若无事之修行，纵得其理，身形不得自在。有事无理之修行，亦复如是。故理事修行，如车两轮，不可缺一。</p>
-<p>​ <u>这里阐释佛法—要理事相结合修行，个人理解是既要能懂，还要能实践。</u></p>
-<p>3、间不容发</p>
-<p>​ 间不容发者，两掌相击至有音声，无一发可容之隙。掌击之声鸣，非经思量而后有。于交锋时，心住彼剑，便显间隙；若彼剑与自形间，无一发可容，则彼剑己剑，本无差别。此理与禅宗公案同，佛法以无住为要，呵迟滞之心，称其为无明烦恼。</p>
-<p>​ <u>“若彼剑与自形间，无一发可容，则彼剑己剑，本无差别。”确实精妙，“不动”的境界所追求的就是自己剑与对手剑融为一体，所谓中段技巧千千万，也无外乎是让对手的剑始终不脱离自己的剑，如“浮木”一般紧贴对手，才能压制对手的威胁，随时应对。</u></p>
-<p>4、石火之机</p>
-<p>​ 此意与间不容发同，非关快慢，以无住为要。心若有住，则为人所伺；心欲速疾，则为欲速疾之念所滞。江口游女，有咏歌云：「浮生若梦，为求心止。」此实兵法之要。</p>
-<p>​ <u>“欲速不达”，不过在实践中，我倾向于认为是“欲速”，心就会乱，往往会不受控制地表达自己的攻击意图，很容易被引出下意识的被动反应；反而心不乱，才能仔细观察对手，找到时机。</u></p>
-<p>​ 若问：「如何是佛？」「佛法心要？」于彼声将绝未绝之隆，或举拳，或答之以「一枝梅花」、「庭前柏子树」。此答非关善恶，无思量处，贵心无住故。若心无住，则不为六尘所滞，此不动心，若经思量，寓于文字，则美言藻饰，亦是烦恼分别。</p>
-<p>​ <u>完全不懂。</u></p>
-<p>​ 石火之机，迅如闪电。譬如有人，呼彼名字，彼不经思量，诺应之，此非经思维之心，即不动智。若闻名字，思维分别，则心为尘所动，是为凡夫。法门虽三万六千，以明心为要。未明心之人，心随业转。世或有缘觉，自明其心，是事甚难。欲以文字，以明其心，是事亦难。如人饮水，冷暖自知。世间学问，亦论是心，然理事有碍，不能一如。参佛悟道者，恰如兔角，行未深故。不经一番寒彻骨，焉得梅花扑鼻香？</p>
-<p>​ <u>内心通明，技巧纯熟才能做到如此，这或许就是“理事一如”。</u></p>
-<p>5、心之置所</p>
-<p>​ 心若置彼身，则为彼身所取；若置彼剑，则为彼剑所取；若置我剑，则为我剑所取，若置戒备，则戒备所取。</p>
-<p>​ 或曰：「心若置余所，则为余所取，故心置丹田，以应敌之机。」以此为极意，然于佛法，此非究竟。心置丹田，为次第法，同孟子所云「求放心」之阶。若心置丹田 而弃绝余事，则心为弃绝余事所取，不能自在。或问：「若心置丹田，不能得自在，心应置何处？」答曰：「心不应有住，若心住于此，则心失于彼。若心无有住，舍分别思，身心皆脱落，则全体在用，能遍于十方。」故无有一处，是心所住，此为修行之要。</p>
-<p>​ <u>这里写得更加玄而又玄了。孟子的“放心”很多人解读为“失落的心”，所以孟子的主张是将心安定下来，专注做事。一般的剑理我也是这么理解的—“心”专注之后“心”自然会“溶解”掉；因为人高度专注以后，人内心的自省机制就被关闭了，意识统一为一个，不能认知到自己的思绪，由此达到“无心”。</u></p>
-<p>​ <u>但是这里直接被否定了，指出“心不应有住”，但是心是什么呢？心不就是人的思维吗？或者说是人对自我的认识？如果心没有住的话，那么不就没有自我了吗？由此看来似乎之忧机器人才能满足这个境界—完全的无心而又能随心所欲不逾矩地地应对敌人。但是剑道砍人的目的来看，也似乎是这样的机器人更有效率一些。</u></p>
-<p>6、本心妄心</p>
-<p>​ 本心者，无住之心，全体在用。妄心者，有住之心。本心若有所住，即是妄心。若失本心，不能全用，故不失本心，是事为大。本心如水，妄心如冰，水洗万物，冰则不能。冰水非异，若冰溶解，则具妙用。心若有住，如水结冰，不能自在，去有住心，即为自由。</p>
-<p>​ <u>冰水的比喻确实精妙，核心之处在于—水无常形，灵动自如，恰如剑道中稳定如“山”的中段，蓄势待发；冰坚硬强大，反而有所定型，恰如打击出刀之后，是最危险的时刻，同时也是剑道必打的时刻（指后之先，对手出刀之后暴露出的打击时机）。但由此来喻指“心”，理解起来就很困难了：“妄心”好理解，有所定型，有所目的，但是“本心”的理解我觉得要更加复杂一点，不知道该怎么表述。</u></p>
-<p>7、有心无心</p>
-<p>​ 有心者，心有所住，此为妄心。无心者，虽云不动，非同草木，无有所住，不为尘所动，不即一事，不离一事，全体在用。心若有住，则不自由。譬如车轮。若为固定，则不能转，心亦如是。心住一处，则见不遍余色，闻不及余声，心有一物故。若心无住，则能随应，然若有除事之想，则心尚存一物。故不思维，尘自离心，是为无心。行者修习渐久，火侯渐深，自得个中三昧。若心汲汲，反不能至。</p>
-<p>​ <u>“虽云不动，非同草木”，那这稻草人的比喻不就不攻自破了。</u></p>
-<p>​ <u>“见不遍余色，闻不及余声，心有一物故。”这不就是绝对的专注吗？或许是他想强调专注的某种境界？与之前否定孟子的“放心”一句，感觉有所冲突。</u></p>
-<p>8、水上葫芦</p>
-<p>​ 若捺水上葫芦，一碰即转，无有所滞故。行者之心，应如捺水上葫芦，片刻不留。</p>
-<p>​ <u>这不就是剑道说的“浮木”吗？为此我还专门去拿木头去感受。</u></p>
-<p>​ <u>“浮木”很有意思的是它始终保持在相对稳定的状态，在（不用太大力）去按它的时候，无论何时它都会紧贴你的手，而且你用的力越大，它回馈的力也越大，哪怕你猛的一按（剑道里杀剑），它也会很快返回。</u></p>
-<p>​ <u>剑道用“浮木”来解释好的中段是什么样子。现在新学了一个“水上葫芦”来解释“心”，这种“浮”我觉得就是之前提到的“自在”。</u></p>
-<p>9、应无所住而生其心</p>
-<p>​ 行一事时，若心有事相，即为斯事所滞。故应无所住而生其心。于种种道艺，若心无住而行之，则堪称达人。因心有执，而有轮回，生死相伴。譬如赏花，心生赞叹之时，应无所住。故古歌云：「花不迷人人自迷。」</p>
-<p>​ <u>“心有事相”真的很巧妙，如何隐藏攻击意图一直是剑道进阶后学习的核心之一。</u></p>
-<p>​ 敬者，主一无适（专一不去往别的地方）。持剑挥剑，心住一所，不及旁务。儒家事君，以敬为重，然于佛法，则非究竟，为次第法。主一无适，不及旁务，戒慎恐惧，若以此境为常，日久反 不自由。譬如为绳所缚之猫，捕雀不得自在。若捕不捕，善调练之而去诸缚，则趋应无所住而生其心之趣。行者之心，亦复如是。善以调练，去心散乱，能收能放， 心无所住，自由无碍，方为究竟。以剑而言，心不住彼，不住己，人空、我空、剑空，亦不住空。</p>
-<p>​ <u>这里倒是提醒我了，想要避免“惊、惧、疑、怒”的最好办法不是压制它—越是压制，越是不自由；最好的办法是让它们根本不存在，犹如“明镜本清净”。但是要如何做到呢？说着容易，实践中光是压制就已经很困难了，完全放弃不仅仅是智慧，还需要勇气（生死之间根本没有时间去调整来放弃“心”所住）。具体如何做到完全没有头绪。</u></p>
-<p>​ 昔镰仓无学禅师于中国时，为元兵所捕，于斩首之际，作「电光影里斩春风」偈。无心之境，则电光迅雷之瞬，心无一念，人空我空一切空。心无所住，能斩初春之风。于斩春风时，亦无剑、手之想。如是忘却心事，方堪称高人。譬如彩女妙舞蹈，扇羽蝶形步莲花，若彼心欲妙扇、步，则心有住有罣碍，如是有心之作为，不堪极意为下乘。</p>
-<p>​ <u>这不是纯粹的唯心主义吗？我一直不认同这一点。剑道作为在生死之间发展起来的技术，一定是极其实用的，但是考虑到生死之间人往往容易质疑自我和世界，将救赎诉诸在唯心上，也可以理解。</u></p>
-<p>​ <u>而且之前批评儒家刻意，这里又说别人“下乘”，明明自己才是最刻意的。若是真正的“不动心”，那应该对外界完全无所谓才对，完全没有道德判断，只有世界的事实。</u></p>
-<p>10、 求放心</p>
-<p>​ 孟子云：「求其放心而已。」意为求散乱放逸之心回自身。譬如鸡犬逃散而寻回舍。心为身主，故莫放逸。然邵康节云：「心要放。」意为心若有缚，则不自由。心若 放逸，则摄心回身，如莲花出于淤泥，此为初学之阶。其上者，如水精于淤泥中，不以为意，不为泥染，来去随意。故孟子之求放心至究竟时，则为邵康节之心要放。中峰和尚亦云：「具放心」、「具不退转」，即精进而行，无疲惫想。身心性命，若不趋于上乘，则终于下乘。</p>
-<p>​ <u>我还是不认同“上者，如水精于淤泥中”。我认为真正的“上者”一定是对外界环境无所谓的，修行已经全部转移到了内心，身处闹市，依然心静。</u></p>
-<p>11、 急水上打毯子，念念不留</p>
-<p>​ 置毯于激流之上，潮来浪去，毯不滞一处，心之作用，亦复如是。</p>
-<p>​ <u>这里“心之作用”是什么？“心”是水吗？是“心”将思绪（毯子）推来推去的吗？这里感觉很突兀，不理解。</u></p>
-<p>12、 前后际断</p>
-<p>​ 前心不舍，今心残留，则心有住，舍前心今心之隙，无有一处心停留，是为前后际断。</p>
-<p>​ <u>这里我学随机过程的时候反而有所感悟。</u></p>
-<p>​ <u>举例说在多个随机事件中前一个事件结果不对后一个事件提供任何先验信息，所以从任何时刻截断观察都是完全一致的。人的心态如果能如此，我一度以为是超脱了时间的象征，佛教中也说“一念不生，前后际断”。但是回想过来这不就是不思进取吗？不吸取教训，前面的“念”如果完全割舍，那么“念”的意义何在？或许佛教的目的就是为了割舍“念”。</u></p>
-<p>​ <u>“舍前心今心之隙，无有一处心停留”这里我不是确定理解正不正确：佛教认为“念”是离散存在，有生有灭；但从生物角度说普遍认为思维是连续的，甚至表现上都不是线性的，那么这个“隙”本就不存在，“心”不可能停留，看似还在前一个“念”，事实上已经不同了。这里我只能简单理解到是大概是强调专注的意思。</u></p>
-<p>13、 水焦上，火洒云</p>
-<p>​ 都云：「唯愿武藏野，今莫火燎原。以此蔽天草，护隐夫与我。」</p>
-<p>​ 谁解：「明日朝阳东方起，便是紫花淍零时。」</p>
-<p>​ 世间无常，生死如电，行者自重。</p>
-<p>​ <u>这两句没有查到出处，意思也不是很明确。感觉有几分朝生暮死的意味，但是不明白具体什么意思。</u></p>
-<p>​ 盖兵法者，不争胜负，不拘强弱，不出一步，不退一步。</p>
-<p>​ <u>剑道又叫“小兵法”，几人成阵。这里应该是强调剑道的终极追求--不争胜负，不拘强弱，为了内心的强大而不是胜负。</u></p>
-<p>​ 敌不见我，我不见敌，撤天地未分阴阳不到处直须得功。</p>
-<p>​ <u>有几分剑道的玄学意味了。剑道一直强调：不是我比赛胜 了所以我胜了，而是我先胜了，所以比赛胜了。这里“先胜”不仅仅是心态上胜了，还有更加深入的意味，但是我自己没搞清楚，说也说不出来。</u></p>
-<p>​ 通达人者，不用刀杀人，用刀活人，要杀即杀，要活即活，杀杀三昧，活活三昧也。</p>
-<p>​ <u>柳生兵法最核心的论点就是“活人”，这里是说制服对手而不是单纯杀死他，这里说的“要杀即杀，要活即活”或许也是这个意思。</u></p>
-<p>​ 不见是非而能见是非。不作分别，而能作分别。</p>
-<p>​ <u>不主动去理解就能理解，有两种可能：一是自己完全不理解，二是自己完全理解。似乎全文还是更倾向于第一种：不判断而来的判断（放弃道德判断），得到真实判断（事实判断）。</u></p>
-<p>踏水如地，踏地如水。若得此自由，尽大地不奈他，悉绝同侣。 <u>“水”与“地”没有区分，这难道不是说佛教的终极追求是绝对的内心世界，而对外界不所谓？这与前文一直强调“上乘”难道不矛盾吗？</u></p>
-<p><u>不过这种“自由”概念倒是在很多宗教中屡见不鲜。但不管怎么样至少它承认了现实不是最优的，所以才有“自由”这个钙奶呢。若是真的佛，我觉得它的“自由”是一种更加广泛的定义—水是水，地是地，世界本身就很自由。</u></p>
-<p>​ 遇得这个么，行住坐卧，语里默里，茶里饭里，功夫不息，急着眼穷去穷来，直须见。</p>
-<p>​ 月积年久而如，自然暗里得灯相似。得无师智发妙作用。</p>
-<p>​ <u>这句没理解。</u></p>
-<p>​ 正与么时，只不出寻常之中，而超乎寻常之外，名之曰太阿。</p>
-<p>​ <u>“太阿”不是剑名吗？楚国名剑，往往用以指权柄。这里完全不明白了。</u></p>
-<p>​ 此太阿利剑人人具足，个个圆成，明之者，天魔怕之，昧之者，外道欺之。</p>
-<p>​ 或上手与上手，锋芒相交，不决胜负者，释尊拈花，迦叶微笑。</p>
-<p>​ 如又举一明三，目机铢两，是寻常之灵利也。</p>
-<p>​ 若夫事了毕人，于一未举三未明以前，早截三段，况颜颜相对乎。</p>
-<p>​ <u>不懂，不懂，完全不懂，没有足够的佛教背景知识。</u></p>
-<p>​ 如是人终不露锋芒，其疾也，电光无通；其短也，急岚无及。</p>
-<p>​ <u>这里我觉得一方面是由于“不动”带来的“势”，一方面是“不动”对外界变化的自如。</u></p>
-<p>​ 无这般手段，终拈却着拟却着，更伤锋犯手，不足为好手，莫以情势卜度，无言语所可传，无法度样可习。教外别传是也。</p>
-<p>​ <u>是我了。</u></p>
-<p>​ 大用现前不存规则，顺行逆行，天下无测，是什么道理。</p>
-<p>​ <u>规则始终在，改变万有引力是不现实的，所以应当不是无规则而是“随心所欲，不逾矩”</u></p>
-<p>​ 古人云：家无白泽图，无如是妖怪。</p>
-<p>​ <u>白泽是神兽啊，我能理解“无知”是妖怪，但是用白泽举例有些奇怪吧。</u></p>
-<p>​ 若人练得至这个道理，一剑平天下，学之者莫轻忽。</p>
-</center></center>]]></content>
-      <categories>
-        <category>Essay</category>
-      </categories>
   </entry>
   <entry>
     <title>德意志导读</title>
@@ -2855,6 +2747,132 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 ]]></content>
       <categories>
         <category>essay</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>《不动智神妙录》笔记</title>
+    <url>/2021/01/04/%E3%80%8A%E4%B8%8D%E5%8A%A8%E6%99%BA%E7%A5%9E%E5%A6%99%E5%BD%95%E3%80%8B%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<center>
+《不动智神妙录》笔记
+<center>
+<p>--恰巧与剑道相关，故而记录一下 1、无明烦恼住地</p>
+<p>​ 无明者，晦暗不明，智慧为闇所述。住地者，迟滞之境。</p>
+<p>​ 佛法修行可分五十二阶位，若于任一阶位，心为尘所滞，即称住地。住，止之意；止，心为尘所取。就兵法而言，于眼剑来之剎那，若心有以剑攻防之意，则心为彼剑所滞，身心失念，即被斩杀，此称心有所住。</p>
+<p>​ 若眼观剑来，不分别思维，见剑则否，心无所住，亦无欲抢先机而反击之意，无有少法，是心所住，入彼剑所及之距，状若败势，逆取彼刃而溃敌手，恰如禅宗所云：“还把枪头倒刺人。”此与无刀流之旨，有同工之妙。</p>
+<p>​ <u>这里可能是说柳生古流里的无刀取，剑道里称之为“活人剑”，是在近距离无刀夺刀制服对手的技巧。</u></p>
+<p>​ 主客交锋，此方彼方，己剑彼剑，拍子节奏，若于是中，心有所住，则行动缓顿，为彼所斩。若临敌时有自身想，心则有住，故不应执着自身。</p>
+<p>​ 修行初始，心易受身形而紧绷，若心住于剑，则为剑所滞；若心欲抢先机，则为欲抢先机所滞，以要言之，若心有住，则失其念，佛法称此迟滞之心为无明住地烦恼。</p>
+<p>​ <u>剑道里有说法叫“望远山”，就是说交剑的时候，注意力不在对手身上，而在对手背后的“远山”。实践中有一点很巧妙—往往人的注意不专注在对手身上，反而能够清晰察觉到对手的攻击意图，这种感觉很微妙，人确实能从非常细节的方面来抓住攻击间隙，但是回想起来却又不明白。</u></p>
+<p>​ <u>而在心态上，剑道称之为“无念”，讲究交剑后心中无所想，不过在我的实际体会中，这种无所想与其说是放下这种打击执念，不如说是千锤百炼之后的稳健心态。我也去问过八段的香田俊秀老师（在苏州），他的意思大致是剑道可以输剑，不能输心，先在内心胜过对手，自己就能保持这种平常心，身体才能不受心所连累。</u></p>
+<span id="more"></span>
+<p>2、诸佛不动智</p>
+<p>​ 诸佛不动智，虽云不动，非同草木，心遍十方，无有所住，是名不动。</p>
+<p>佛法有不动明王尊者，右手持剑左持绳，利齿暴出目怒视，现愤怒相护持法，妨佛法者悉降服，自坐盘石妙不动，普遍十方一切剎，愤怒为相智为体，示现一切诸众生。</p>
+<p>​ 一般凡夫于是中作恐布想，不敢碍佛，离悟近者，则知此为不动智之体现。去一切迷闇，不动智即明，身现明王心不动。故不动明王者，一心不动，无有住处，但住众生心想。</p>
+<p>​ <u>剑道里很推崇“不动明王身”，从很多高段位老师身上就能勉强窥见—远距离的气和，坚实的中段，通过自身“构”的稳定，来实现心理上的seme（这个词很难翻译，直译是进攻，但是意义广泛），引出对手的“惊、惧、疑、怒”来找到打击机会。</u></p>
+<p>​ 若心有住，生种种分别，于分别中，心生黏滞，虽形能动，不能自在。</p>
+<p>​ <u>往往“无心”时更能轻易地打出应击技，越是高段越是强调这种能随心所欲应对的境界，不过对我来说太遥远了。</u></p>
+<p>​ 譬如临敌十人，以一剑应之，心无所住，即舍即取，以寡敌众，无有不足。若心有住，于第一人或能取胜，于余诸敌，则心形黏滞。</p>
+<p>​ <u>这里一定是说应击技随心所欲的使用。观察对手然后做出动作，而不是自己想打什么打什么。这种是不是就是“无心”中把“自我”抛却掉呢？</u></p>
+<p>​ 观千手观音尊者，虽云千手持千宝，若于一手心有住，则余九百九十九手，不能妙用妙自在。因心无有所住故，千手能随顺自在，以是具妙智不动，能示一身具千手，随顺自在无有碍。如人于林中，心若住一叶，则不见余叶，行者悟此道，则了千手尊。</p>
+<p>​ 无知凡夫者，于身具千手，终难生信解，而起诸诽谤。今得闻少分，不应诽谤亦不执着，以法为本真实观。</p>
+<p>​ 若仅观外相，而无有心法，犹不应轻率，以慢心攻击。是故千手道，普门普示现，法门有种种，果位则不异。</p>
+<p>​ <u>这句不懂。</u></p>
+<p>​ 自初学至不动智者，即回归本心，兵法亦如是。</p>
+<p>​ 行者初习剑时，无招无势，心亦无所住，若见剑来，亦不分别，心无所住，随机而应。习剑日久，得种种知见，或持剑之法，或心之置所，于临敌手时，惊觉不自由。 渐学渐参访，积聚见地心要，于身形剑法，皆回向初学无有知见时，概因地果位本一如故。譬如算数，自一至十，于进位时，一十相邻。复观音乐，十二调：一壱 越，二断金，三平调，四胜绝，五下无，六双调，七凫钟，八黄钟，九蛮，十盘涉，十一神仙，十二上无。</p>
+<p>​ <u>深有此感，开始是不会打，之后是会打一些动作但是打不出来（就是说练习时能打，但稽古的时候就做不出），后来随着稍微懂了些剑理，开始逐渐能够打得随心所欲，尤其挂稽古，看起来有时像乱打一样。</u></p>
+<p>​ <u>新西兰一位六段的老师也解释过这个问题，不过他说的是：练习和稽古存在间隙—古人练习是为了砍人，但是今人练习几乎不是为了这个，所以练习出来的构有些“学术派”的味道，不是以目的为导向的，而是以动作为导向的。实际中韩国人的打击方式就往往是目的为导向的，很多时候能打到，却被认为不合“剑理”的，关于所谓“剑理”方面我一直搞不明白。</u></p>
+<p>​ <u>个人我对于这种“不动”的理解倾向于是：丰富的经验+娴熟的技巧=&gt;心态上不对任何对手=&gt;心中没有剑法，只有剑理和打击目标。</u></p>
+<p>​ 最低壱越，最高上无，初音终音，紧密相邻，故至高至低，至实至空，大智若愚，无华巧之饰。以是义故，无明住地，不动妙智，本来一如，无心无念，动静自在，不为烦恼所缚。</p>
+<p>​ <u>真是说起来简单，做起来难啊，所有人刚开始时都是“无心无念”，但是随着seme（进攻）+tame（压迫），烦恼是逐渐滋生的，特别在面对强大的对手和性命之忧时，内心的动摇甚至察觉不到，自己已经被本能完全压制了。</u></p>
+<p>​ 譬如田中稻草人形，其相离持弓箭，本无守护作物之心，而鸟兽见之径自逃散。世间众道究竟，亦复如是。相虽种种，无住为要，无心无念，如稻草人形。</p>
+<p>​ <u>这个例子我反而觉得不好，“不动心”强大是强大在“不动”所带来“势”上。不动意味着稳定，随时可能发起攻击，是最危险的时候。但是稻草人哪怕不动也不具备这种“势”，鸟兽一两次被吓跑后，以后就能逐渐认识到真实，不过黔之驴罢了。</u></p>
+<p>​ 痴愚无智者，以无智慧故，不能显锋；具甚深智者，不露锋芒；一知半解者，有聪无智，示其小慧，甚为可笑，今出家众，状似有道而作佛事，应以为耻。</p>
+<p>​ 后论理事修行，理者为尊，其究竟则不取万物，唯舍一心。然若无事之修行，纵得其理，身形不得自在。有事无理之修行，亦复如是。故理事修行，如车两轮，不可缺一。</p>
+<p>​ <u>这里阐释佛法—要理事相结合修行，个人理解是既要能懂，还要能实践。</u></p>
+<p>3、间不容发</p>
+<p>​ 间不容发者，两掌相击至有音声，无一发可容之隙。掌击之声鸣，非经思量而后有。于交锋时，心住彼剑，便显间隙；若彼剑与自形间，无一发可容，则彼剑己剑，本无差别。此理与禅宗公案同，佛法以无住为要，呵迟滞之心，称其为无明烦恼。</p>
+<p>​ <u>“若彼剑与自形间，无一发可容，则彼剑己剑，本无差别。”确实精妙，“不动”的境界所追求的就是自己剑与对手剑融为一体，所谓中段技巧千千万，也无外乎是让对手的剑始终不脱离自己的剑，如“浮木”一般紧贴对手，才能压制对手的威胁，随时应对。</u></p>
+<p>4、石火之机</p>
+<p>​ 此意与间不容发同，非关快慢，以无住为要。心若有住，则为人所伺；心欲速疾，则为欲速疾之念所滞。江口游女，有咏歌云：「浮生若梦，为求心止。」此实兵法之要。</p>
+<p>​ <u>“欲速不达”，不过在实践中，我倾向于认为是“欲速”，心就会乱，往往会不受控制地表达自己的攻击意图，很容易被引出下意识的被动反应；反而心不乱，才能仔细观察对手，找到时机。</u></p>
+<p>​ 若问：「如何是佛？」「佛法心要？」于彼声将绝未绝之隆，或举拳，或答之以「一枝梅花」、「庭前柏子树」。此答非关善恶，无思量处，贵心无住故。若心无住，则不为六尘所滞，此不动心，若经思量，寓于文字，则美言藻饰，亦是烦恼分别。</p>
+<p>​ <u>完全不懂。</u></p>
+<p>​ 石火之机，迅如闪电。譬如有人，呼彼名字，彼不经思量，诺应之，此非经思维之心，即不动智。若闻名字，思维分别，则心为尘所动，是为凡夫。法门虽三万六千，以明心为要。未明心之人，心随业转。世或有缘觉，自明其心，是事甚难。欲以文字，以明其心，是事亦难。如人饮水，冷暖自知。世间学问，亦论是心，然理事有碍，不能一如。参佛悟道者，恰如兔角，行未深故。不经一番寒彻骨，焉得梅花扑鼻香？</p>
+<p>​ <u>内心通明，技巧纯熟才能做到如此，这或许就是“理事一如”。</u></p>
+<p>5、心之置所</p>
+<p>​ 心若置彼身，则为彼身所取；若置彼剑，则为彼剑所取；若置我剑，则为我剑所取，若置戒备，则戒备所取。</p>
+<p>​ 或曰：「心若置余所，则为余所取，故心置丹田，以应敌之机。」以此为极意，然于佛法，此非究竟。心置丹田，为次第法，同孟子所云「求放心」之阶。若心置丹田 而弃绝余事，则心为弃绝余事所取，不能自在。或问：「若心置丹田，不能得自在，心应置何处？」答曰：「心不应有住，若心住于此，则心失于彼。若心无有住，舍分别思，身心皆脱落，则全体在用，能遍于十方。」故无有一处，是心所住，此为修行之要。</p>
+<p>​ <u>这里写得更加玄而又玄了。孟子的“放心”很多人解读为“失落的心”，所以孟子的主张是将心安定下来，专注做事。一般的剑理我也是这么理解的—“心”专注之后“心”自然会“溶解”掉；因为人高度专注以后，人内心的自省机制就被关闭了，意识统一为一个，不能认知到自己的思绪，由此达到“无心”。</u></p>
+<p>​ <u>但是这里直接被否定了，指出“心不应有住”，但是心是什么呢？心不就是人的思维吗？或者说是人对自我的认识？如果心没有住的话，那么不就没有自我了吗？由此看来似乎之忧机器人才能满足这个境界—完全的无心而又能随心所欲不逾矩地地应对敌人。但是剑道砍人的目的来看，也似乎是这样的机器人更有效率一些。</u></p>
+<p>6、本心妄心</p>
+<p>​ 本心者，无住之心，全体在用。妄心者，有住之心。本心若有所住，即是妄心。若失本心，不能全用，故不失本心，是事为大。本心如水，妄心如冰，水洗万物，冰则不能。冰水非异，若冰溶解，则具妙用。心若有住，如水结冰，不能自在，去有住心，即为自由。</p>
+<p>​ <u>冰水的比喻确实精妙，核心之处在于—水无常形，灵动自如，恰如剑道中稳定如“山”的中段，蓄势待发；冰坚硬强大，反而有所定型，恰如打击出刀之后，是最危险的时刻，同时也是剑道必打的时刻（指后之先，对手出刀之后暴露出的打击时机）。但由此来喻指“心”，理解起来就很困难了：“妄心”好理解，有所定型，有所目的，但是“本心”的理解我觉得要更加复杂一点，不知道该怎么表述。</u></p>
+<p>7、有心无心</p>
+<p>​ 有心者，心有所住，此为妄心。无心者，虽云不动，非同草木，无有所住，不为尘所动，不即一事，不离一事，全体在用。心若有住，则不自由。譬如车轮。若为固定，则不能转，心亦如是。心住一处，则见不遍余色，闻不及余声，心有一物故。若心无住，则能随应，然若有除事之想，则心尚存一物。故不思维，尘自离心，是为无心。行者修习渐久，火侯渐深，自得个中三昧。若心汲汲，反不能至。</p>
+<p>​ <u>“虽云不动，非同草木”，那这稻草人的比喻不就不攻自破了。</u></p>
+<p>​ <u>“见不遍余色，闻不及余声，心有一物故。”这不就是绝对的专注吗？或许是他想强调专注的某种境界？与之前否定孟子的“放心”一句，感觉有所冲突。</u></p>
+<p>8、水上葫芦</p>
+<p>​ 若捺水上葫芦，一碰即转，无有所滞故。行者之心，应如捺水上葫芦，片刻不留。</p>
+<p>​ <u>这不就是剑道说的“浮木”吗？为此我还专门去拿木头去感受。</u></p>
+<p>​ <u>“浮木”很有意思的是它始终保持在相对稳定的状态，在（不用太大力）去按它的时候，无论何时它都会紧贴你的手，而且你用的力越大，它回馈的力也越大，哪怕你猛的一按（剑道里杀剑），它也会很快返回。</u></p>
+<p>​ <u>剑道用“浮木”来解释好的中段是什么样子。现在新学了一个“水上葫芦”来解释“心”，这种“浮”我觉得就是之前提到的“自在”。</u></p>
+<p>9、应无所住而生其心</p>
+<p>​ 行一事时，若心有事相，即为斯事所滞。故应无所住而生其心。于种种道艺，若心无住而行之，则堪称达人。因心有执，而有轮回，生死相伴。譬如赏花，心生赞叹之时，应无所住。故古歌云：「花不迷人人自迷。」</p>
+<p>​ <u>“心有事相”真的很巧妙，如何隐藏攻击意图一直是剑道进阶后学习的核心之一。</u></p>
+<p>​ 敬者，主一无适（专一不去往别的地方）。持剑挥剑，心住一所，不及旁务。儒家事君，以敬为重，然于佛法，则非究竟，为次第法。主一无适，不及旁务，戒慎恐惧，若以此境为常，日久反 不自由。譬如为绳所缚之猫，捕雀不得自在。若捕不捕，善调练之而去诸缚，则趋应无所住而生其心之趣。行者之心，亦复如是。善以调练，去心散乱，能收能放， 心无所住，自由无碍，方为究竟。以剑而言，心不住彼，不住己，人空、我空、剑空，亦不住空。</p>
+<p>​ <u>这里倒是提醒我了，想要避免“惊、惧、疑、怒”的最好办法不是压制它—越是压制，越是不自由；最好的办法是让它们根本不存在，犹如“明镜本清净”。但是要如何做到呢？说着容易，实践中光是压制就已经很困难了，完全放弃不仅仅是智慧，还需要勇气（生死之间根本没有时间去调整来放弃“心”所住）。具体如何做到完全没有头绪。</u></p>
+<p>​ 昔镰仓无学禅师于中国时，为元兵所捕，于斩首之际，作「电光影里斩春风」偈。无心之境，则电光迅雷之瞬，心无一念，人空我空一切空。心无所住，能斩初春之风。于斩春风时，亦无剑、手之想。如是忘却心事，方堪称高人。譬如彩女妙舞蹈，扇羽蝶形步莲花，若彼心欲妙扇、步，则心有住有罣碍，如是有心之作为，不堪极意为下乘。</p>
+<p>​ <u>这不是纯粹的唯心主义吗？我一直不认同这一点。剑道作为在生死之间发展起来的技术，一定是极其实用的，但是考虑到生死之间人往往容易质疑自我和世界，将救赎诉诸在唯心上，也可以理解。</u></p>
+<p>​ <u>而且之前批评儒家刻意，这里又说别人“下乘”，明明自己才是最刻意的。若是真正的“不动心”，那应该对外界完全无所谓才对，完全没有道德判断，只有世界的事实。</u></p>
+<p>10、 求放心</p>
+<p>​ 孟子云：「求其放心而已。」意为求散乱放逸之心回自身。譬如鸡犬逃散而寻回舍。心为身主，故莫放逸。然邵康节云：「心要放。」意为心若有缚，则不自由。心若 放逸，则摄心回身，如莲花出于淤泥，此为初学之阶。其上者，如水精于淤泥中，不以为意，不为泥染，来去随意。故孟子之求放心至究竟时，则为邵康节之心要放。中峰和尚亦云：「具放心」、「具不退转」，即精进而行，无疲惫想。身心性命，若不趋于上乘，则终于下乘。</p>
+<p>​ <u>我还是不认同“上者，如水精于淤泥中”。我认为真正的“上者”一定是对外界环境无所谓的，修行已经全部转移到了内心，身处闹市，依然心静。</u></p>
+<p>11、 急水上打毯子，念念不留</p>
+<p>​ 置毯于激流之上，潮来浪去，毯不滞一处，心之作用，亦复如是。</p>
+<p>​ <u>这里“心之作用”是什么？“心”是水吗？是“心”将思绪（毯子）推来推去的吗？这里感觉很突兀，不理解。</u></p>
+<p>12、 前后际断</p>
+<p>​ 前心不舍，今心残留，则心有住，舍前心今心之隙，无有一处心停留，是为前后际断。</p>
+<p>​ <u>这里我学随机过程的时候反而有所感悟。</u></p>
+<p>​ <u>举例说在多个随机事件中前一个事件结果不对后一个事件提供任何先验信息，所以从任何时刻截断观察都是完全一致的。人的心态如果能如此，我一度以为是超脱了时间的象征，佛教中也说“一念不生，前后际断”。但是回想过来这不就是不思进取吗？不吸取教训，前面的“念”如果完全割舍，那么“念”的意义何在？或许佛教的目的就是为了割舍“念”。</u></p>
+<p>​ <u>“舍前心今心之隙，无有一处心停留”这里我不是确定理解正不正确：佛教认为“念”是离散存在，有生有灭；但从生物角度说普遍认为思维是连续的，甚至表现上都不是线性的，那么这个“隙”本就不存在，“心”不可能停留，看似还在前一个“念”，事实上已经不同了。这里我只能简单理解到是大概是强调专注的意思。</u></p>
+<p>13、 水焦上，火洒云</p>
+<p>​ 都云：「唯愿武藏野，今莫火燎原。以此蔽天草，护隐夫与我。」</p>
+<p>​ 谁解：「明日朝阳东方起，便是紫花淍零时。」</p>
+<p>​ 世间无常，生死如电，行者自重。</p>
+<p>​ <u>这两句没有查到出处，意思也不是很明确。感觉有几分朝生暮死的意味，但是不明白具体什么意思。</u></p>
+<p>​ 盖兵法者，不争胜负，不拘强弱，不出一步，不退一步。</p>
+<p>​ <u>剑道又叫“小兵法”，几人成阵。这里应该是强调剑道的终极追求--不争胜负，不拘强弱，为了内心的强大而不是胜负。</u></p>
+<p>​ 敌不见我，我不见敌，撤天地未分阴阳不到处直须得功。</p>
+<p>​ <u>有几分剑道的玄学意味了。剑道一直强调：不是我比赛胜 了所以我胜了，而是我先胜了，所以比赛胜了。这里“先胜”不仅仅是心态上胜了，还有更加深入的意味，但是我自己没搞清楚，说也说不出来。</u></p>
+<p>​ 通达人者，不用刀杀人，用刀活人，要杀即杀，要活即活，杀杀三昧，活活三昧也。</p>
+<p>​ <u>柳生兵法最核心的论点就是“活人”，这里是说制服对手而不是单纯杀死他，这里说的“要杀即杀，要活即活”或许也是这个意思。</u></p>
+<p>​ 不见是非而能见是非。不作分别，而能作分别。</p>
+<p>​ <u>不主动去理解就能理解，有两种可能：一是自己完全不理解，二是自己完全理解。似乎全文还是更倾向于第一种：不判断而来的判断（放弃道德判断），得到真实判断（事实判断）。</u></p>
+<p>踏水如地，踏地如水。若得此自由，尽大地不奈他，悉绝同侣。 <u>“水”与“地”没有区分，这难道不是说佛教的终极追求是绝对的内心世界，而对外界不所谓？这与前文一直强调“上乘”难道不矛盾吗？</u></p>
+<p><u>不过这种“自由”概念倒是在很多宗教中屡见不鲜。但不管怎么样至少它承认了现实不是最优的，所以才有“自由”这个钙奶呢。若是真的佛，我觉得它的“自由”是一种更加广泛的定义—水是水，地是地，世界本身就很自由。</u></p>
+<p>​ 遇得这个么，行住坐卧，语里默里，茶里饭里，功夫不息，急着眼穷去穷来，直须见。</p>
+<p>​ 月积年久而如，自然暗里得灯相似。得无师智发妙作用。</p>
+<p>​ <u>这句没理解。</u></p>
+<p>​ 正与么时，只不出寻常之中，而超乎寻常之外，名之曰太阿。</p>
+<p>​ <u>“太阿”不是剑名吗？楚国名剑，往往用以指权柄。这里完全不明白了。</u></p>
+<p>​ 此太阿利剑人人具足，个个圆成，明之者，天魔怕之，昧之者，外道欺之。</p>
+<p>​ 或上手与上手，锋芒相交，不决胜负者，释尊拈花，迦叶微笑。</p>
+<p>​ 如又举一明三，目机铢两，是寻常之灵利也。</p>
+<p>​ 若夫事了毕人，于一未举三未明以前，早截三段，况颜颜相对乎。</p>
+<p>​ <u>不懂，不懂，完全不懂，没有足够的佛教背景知识。</u></p>
+<p>​ 如是人终不露锋芒，其疾也，电光无通；其短也，急岚无及。</p>
+<p>​ <u>这里我觉得一方面是由于“不动”带来的“势”，一方面是“不动”对外界变化的自如。</u></p>
+<p>​ 无这般手段，终拈却着拟却着，更伤锋犯手，不足为好手，莫以情势卜度，无言语所可传，无法度样可习。教外别传是也。</p>
+<p>​ <u>是我了。</u></p>
+<p>​ 大用现前不存规则，顺行逆行，天下无测，是什么道理。</p>
+<p>​ <u>规则始终在，改变万有引力是不现实的，所以应当不是无规则而是“随心所欲，不逾矩”</u></p>
+<p>​ 古人云：家无白泽图，无如是妖怪。</p>
+<p>​ <u>白泽是神兽啊，我能理解“无知”是妖怪，但是用白泽举例有些奇怪吧。</u></p>
+<p>​ 若人练得至这个道理，一剑平天下，学之者莫轻忽。</p>
+</center></center>]]></content>
+      <categories>
+        <category>Essay</category>
       </categories>
   </entry>
 </search>

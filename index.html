@@ -203,6 +203,83 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/09/How-to-use-docker-in-Mac-M1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/09/How-to-use-docker-in-Mac-M1/" class="post-title-link" itemprop="url">How to use docker in Mac M1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-10-09 14:31:03 / Modified: 15:13:52" itemprop="dateCreated datePublished" datetime="2021-10-09T14:31:03+08:00">2021-10-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="install-docker">Install docker</h3>
+<p>Download docker here: https://docs.docker.com/docker-for-mac/apple-m1/</p>
+<p>Note:</p>
+<p>This is just a preview version, which means you may encounter various bugs.</p>
+<p>This version is based on <strong>Rosetta2</strong>, so remember to install it via <code>$ softwareupdate --install-rosetta</code>.</p>
+<h3 id="check-your-docker">Check your docker</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker -v</span><br><span class="line">$ docker info // it may take a few minutes to start docker</span><br></pre></td></tr></table></figure>
+<h3 id="use-docker-image-mit-6.s081">Use docker image <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/417668697">MIT 6.S081</a></h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull calvinhaynes412/mit6.s081:v1 // pull docker image</span><br><span class="line">$ git clone git@github.com:CalvinHaynes/MIT6.S081-2020Fall.git // pull git repository</span><br></pre></td></tr></table></figure>
+<p>Open the docker image-&gt;set repository to the local git repository-&gt;open docker in browser.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/07/TOEFL-Notes-based-on-TPO/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -941,117 +1018,10 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/17/Sorting-Algorithms/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/17/Sorting-Algorithms/" class="post-title-link" itemprop="url">Sort Algorithms</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-17 14:48:50" itemprop="dateCreated datePublished" datetime="2021-09-17T14:48:50+08:00">2021-09-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-23 18:44:33" itemprop="dateModified" datetime="2021-09-23T18:44:33+08:00">2021-09-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="preface">Preface</h2>
-<p>关于排序有很多人整理了，但是基本是东抄一点，西抄一点，非常混乱，并没有统一的逻辑，而且往往写的非常复杂。本文希望能够实现统一的代码风格，保持命名、实现方式上的统一，以体现出不同算法之间的改进和区别，同时尽可能使用简洁的代码来实现（因此可能会存在一些不常规的技巧），减少代码工作量（毕竟平时都是直接sort，哪关心怎么实现）。本文代码经过本地测试全部为从小打大排序，但是testcase并不全面，可能后续还会进行修正。</p>
-<p><br></p>
-<hr>
-<h2 id="sort-algorithms">Sort Algorithms</h2>
-<h3 id="bubble-sort">1. Bubble Sort</h3>
-<h4 id="principle">1.1 Principle</h4>
-<p>Compare the adjacent two elements and put the larger one the the right then move to the next pair.</p>
-<h4 id="implement">1.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length<span class="number">-1</span>; i++) <span class="comment">// note: it should be length-1</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;length<span class="number">-1</span>-i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>]) <span class="built_in">swap</span>(arr[j],arr[j+<span class="number">1</span>]); <span class="comment">// note: swap is also suitable for array</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="performance">1.3 Performance</h4>
-<table>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(1)</strong></td>
-<td><strong>stable</strong> <br>(no change in relative position for same elements)</td>
-</tr>
-</tbody>
-</table>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/09/17/Sorting-Algorithms/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1119,7 +1089,7 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

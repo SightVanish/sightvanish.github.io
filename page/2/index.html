@@ -203,6 +203,113 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/17/Sorting-Algorithms/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/17/Sorting-Algorithms/" class="post-title-link" itemprop="url">Sort Algorithms</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-17 14:48:50" itemprop="dateCreated datePublished" datetime="2021-09-17T14:48:50+08:00">2021-09-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-23 18:44:33" itemprop="dateModified" datetime="2021-09-23T18:44:33+08:00">2021-09-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="preface">Preface</h2>
+<p>关于排序有很多人整理了，但是基本是东抄一点，西抄一点，非常混乱，并没有统一的逻辑，而且往往写的非常复杂。本文希望能够实现统一的代码风格，保持命名、实现方式上的统一，以体现出不同算法之间的改进和区别，同时尽可能使用简洁的代码来实现（因此可能会存在一些不常规的技巧），减少代码工作量（毕竟平时都是直接sort，哪关心怎么实现）。本文代码经过本地测试全部为从小打大排序，但是testcase并不全面，可能后续还会进行修正。</p>
+<p><br></p>
+<hr>
+<h2 id="sort-algorithms">Sort Algorithms</h2>
+<h3 id="bubble-sort">1. Bubble Sort</h3>
+<h4 id="principle">1.1 Principle</h4>
+<p>Compare the adjacent two elements and put the larger one the the right then move to the next pair.</p>
+<h4 id="implement">1.2 Implement</h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length<span class="number">-1</span>; i++) <span class="comment">// note: it should be length-1</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;length<span class="number">-1</span>-i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>]) <span class="built_in">swap</span>(arr[j],arr[j+<span class="number">1</span>]); <span class="comment">// note: swap is also suitable for array</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="performance">1.3 Performance</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Time Complexity (Best/Worst/Average)</th>
+<th>Space Complexity</th>
+<th>Stability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(n<sup>2</sup>)</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>stable</strong> <br>(no change in relative position for same elements)</td>
+</tr>
+</tbody>
+</table>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/17/Sorting-Algorithms/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -489,9 +596,9 @@
       
           <p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
 <p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-ThxagxNubpsGBbOd" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-ThxagxNubpsGBbOd").style.height=document.getElementById("mmedia-ThxagxNubpsGBbOd").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-BRvPscIJfvuvBvUY" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-BRvPscIJfvuvBvUY").style.height=document.getElementById("mmedia-BRvPscIJfvuvBvUY").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-ThxagxNubpsGBbOd").style.height=document.getElementById("mmedia-ThxagxNubpsGBbOd").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-BRvPscIJfvuvBvUY").style.height=document.getElementById("mmedia-BRvPscIJfvuvBvUY").scrollWidth*0.76+"px";
     }; </script>
 
       
@@ -791,9 +898,9 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
     <div class="post-body" itemprop="articleBody">
 
       
-          <style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-GsxtCKjEIuInXyRz" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-GsxtCKjEIuInXyRz").style.height=document.getElementById("mmedia-GsxtCKjEIuInXyRz").scrollWidth*0.76+"px";
+          <style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-VQltluEYCjoQTQPR" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-VQltluEYCjoQTQPR").style.height=document.getElementById("mmedia-VQltluEYCjoQTQPR").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-GsxtCKjEIuInXyRz").style.height=document.getElementById("mmedia-GsxtCKjEIuInXyRz").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-VQltluEYCjoQTQPR").style.height=document.getElementById("mmedia-VQltluEYCjoQTQPR").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <thead>
@@ -947,89 +1054,10 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/14/Blender-Cloth-Rending/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/14/Blender-Cloth-Rending/" class="post-title-link" itemprop="url">Blender Cloth Rendering</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-14 23:40:28" itemprop="dateCreated datePublished" datetime="2021-09-14T23:40:28+08:00">2021-09-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-30 16:01:22" itemprop="dateModified" datetime="2021-09-30T16:01:22+08:00">2021-09-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Blender/" itemprop="url" rel="index"><span itemprop="name">Blender</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>总结一下实践Blender布料系统的感想:</p>
-<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
-<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
-<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
-<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
-<p><img src="/2021/09/14/Blender-Cloth-Rending/1.png" width="75%" height="75%"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1097,7 +1125,7 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
