@@ -203,6 +203,173 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/29/How-to-install-labelme-in-Macbook-M1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/29/How-to-install-labelme-in-Macbook-M1/" class="post-title-link" itemprop="url">How to install 'labelme' in Macbook M1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-09-29 09:52:38 / Modified: 10:06:17" itemprop="dateCreated datePublished" datetime="2021-09-29T09:52:38+08:00">2021-09-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="conda-environment">Conda Environment</h3>
+<ol type="1">
+<li>Because anaconda is not suitable for M1, we use miniforge3 instead.</li>
+<li>Create new conda environment with 'python=3.9'. (miniforge3 only support python3.9 on M1).</li>
+</ol>
+<h3 id="pyqt5">PyQt5</h3>
+<ol type="1">
+<li>install homebrew (remeber to add path).</li>
+<li><code>brew install pyqt5</code>. Homebrew supports pyqt now.</li>
+<li>add path: <code>echo 'export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code> and <code>echo 'export PATH="/opt/homebrew/opt/pyqt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code>. This path may be not suitbale for you. You should modify your path to <code>/qt5@/bin</code> and <code>/qypt@5/bin</code>, and modify your bash profile (<code>~/.zshrc</code> for most Macbook users).</li>
+<li>Duplicate the files in <code>/opt/homebrew/Cellar/pyqt@5/5.15.4_1/lib/python3.9/site-packages</code> and paste them to <code>/Users/&lt;username&gt;/miniforge3/envs/&lt;environmentname&gt;/lib/python3.9/site-packages</code>.</li>
+<li><code>source ~/.bashrc</code> (<code>.zshrc</code>)</li>
+</ol>
+<h3 id="labelme">labelme</h3>
+<ol type="1">
+<li>labelme can be installed directly via pip (in your conda environemnt)</li>
+<li><code>pip install labelme</code></li>
+<li>when everything is done, <code>labelme</code> to use it.</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/23/Linear%20Regression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/23/Linear%20Regression/" class="post-title-link" itemprop="url">Linear Regression</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-09-23 18:01:28 / Modified: 20:30:32" itemprop="dateCreated datePublished" datetime="2021-09-23T18:01:28+08:00">2021-09-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="linear-regression">Linear Regression</h2>
+<h3 id="setup">Setup</h3>
+<p>Data: <span class="math inline">\(D={(x _1,y _1),(x _2,y _2), \cdots ,(x _N,y _N) }\)</span>, <span class="math inline">\(x _i \in \pmb{R} ^p\)</span> and <span class="math inline">\(y _i \in \pmb{R}\)</span>.</p>
+<p>In matrix form:</p>
+<p>​ Input: <span class="math inline">\(X=(x _1, x _2, \cdots, x _N)^T \in \pmb{R} _{N\times p}\)</span> is a matrix. <span class="math inline">\(x _1=(x _{11},x _{12},\cdots,x _{1p})\in \pmb{R} _p\)</span> is a vector.</p>
+<p>​ Output: <span class="math inline">\(Y=(y _1,y _2, \cdots, y _N) \in \pmb{R} _N\)</span> is a matrix.</p>
+<p>​ Weight: <span class="math inline">\(W=(w _1, w _2, \cdots, w _p) ^T\)</span> is a vector.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/23/Linear%20Regression/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -665,9 +832,9 @@
       
           <p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
 <p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-aBtKaXwWgKSNpBye" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-aBtKaXwWgKSNpBye").style.height=document.getElementById("mmedia-aBtKaXwWgKSNpBye").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-RtqjXFFmYkCEgsQa" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-RtqjXFFmYkCEgsQa").style.height=document.getElementById("mmedia-RtqjXFFmYkCEgsQa").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-aBtKaXwWgKSNpBye").style.height=document.getElementById("mmedia-aBtKaXwWgKSNpBye").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-RtqjXFFmYkCEgsQa").style.height=document.getElementById("mmedia-RtqjXFFmYkCEgsQa").scrollWidth*0.76+"px";
     }; </script>
 
       
@@ -841,213 +1008,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/15/Image-Test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/15/Image-Test/" class="post-title-link" itemprop="url">Image Test</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-09-15 14:07:07 / Modified: 14:16:38" itemprop="dateCreated datePublished" datetime="2021-09-15T14:07:07+08:00">2021-09-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Test/" itemprop="url" rel="index"><span itemprop="name">Test</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>You see the image? <img src="/2021/09/15/Image-Test/test.jpg" alt="image"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/15/Video-test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/15/Video-test/" class="post-title-link" itemprop="url">Video test</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-15 13:05:15" itemprop="dateCreated datePublished" datetime="2021-09-15T13:05:15+08:00">2021-09-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-19 20:44:18" itemprop="dateModified" datetime="2021-09-19T20:44:18+08:00">2021-09-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Test/" itemprop="url" rel="index"><span itemprop="name">Test</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-QcvyjMXXEdRFbiQx" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-QcvyjMXXEdRFbiQx").style.height=document.getElementById("mmedia-QcvyjMXXEdRFbiQx").scrollWidth*0.76+"px";
-    window.onresize = function(){
-      document.getElementById("mmedia-QcvyjMXXEdRFbiQx").style.height=document.getElementById("mmedia-QcvyjMXXEdRFbiQx").scrollWidth*0.76+"px";
-    }; </script>
-<table>
-<thead>
-<tr class="header">
-<th>配置项</th>
-<th>默认</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>bvid</td>
-<td></td>
-<td>视频 bv 号，bvid、aid 和 av 必填一项，推荐使用 bvid</td>
-</tr>
-<tr class="even">
-<td>aid</td>
-<td></td>
-<td>视频 av 号</td>
-</tr>
-<tr class="odd">
-<td>av</td>
-<td></td>
-<td>视频链接地址，不要带分 P 信息，与 aid 同时填写会被覆盖，不推荐使用</td>
-</tr>
-<tr class="even">
-<td>page</td>
-<td>1</td>
-<td>分 P，填写 av 时才会生效</td>
-</tr>
-<tr class="odd">
-<td>quality</td>
-<td>low</td>
-<td>视频质量，可选 high low</td>
-</tr>
-<tr class="even">
-<td>danmaku</td>
-<td>false</td>
-<td>开启弹幕，带有此参数表示 true，不带表示 false</td>
-</tr>
-<tr class="odd">
-<td>allowfullscreen</td>
-<td>true</td>
-<td>是否允许全屏</td>
-</tr>
-<tr class="even">
-<td>width</td>
-<td>100%</td>
-<td>宽度</td>
-</tr>
-<tr class="odd">
-<td>height</td>
-<td>500px</td>
-<td>高度</td>
-</tr>
-<tr class="even">
-<td>margin</td>
-<td>auto</td>
-<td>位置，css 属性，例： "margin:auto" "margin:0 0 0 auto"</td>
-</tr>
-</tbody>
-</table>
-<p><a target="_blank" rel="noopener" href="https://easyhexo.com/3-Plugins-use-and-config/3-5-hexo-tag-mmedia/#bilibili">Reference&amp;Docuement</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1119,7 +1079,7 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

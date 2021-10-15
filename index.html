@@ -203,6 +203,156 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/15/mAP-in-object-detection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/15/mAP-in-object-detection/" class="post-title-link" itemprop="url">mAP in object detection</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-10-15 13:51:53 / Modified: 13:53:20" itemprop="dateCreated datePublished" datetime="2021-10-15T13:51:53+08:00">2021-10-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="definition">Definition</h3>
+<p><strong>IoU</strong>(Intersection over union): 两个bounding box( ground truth + proposed)之间重合部分的比例. <span class="math inline">\(IoU=\frac{A \cap B}{A \cup B}\)</span></p>
+<p><strong>TP</strong>(True positive): 对于所有ground truth检测IoU&gt;=IoU<sub>threshold</sub>(IoU<sub>threshold</sub>一般取0.5)--有多少真实的bounding box被detect到(一个ground truth只考虑一次)</p>
+<p><strong>FP</strong>(False positive): 对于所有ground truth检测IoU&lt;IoU<sub>threshold</sub>(IoU<sub>threshold</sub>一般取0.5)--每个ground truth有多少无效(IoU过低)/多余(多次检测同一个)的检测框</p>
+<p><strong>FN</strong>(False negative): 有多少真实的bounding box没有被detect到(一个ground truth只考虑一次)</p>
+<p><strong>Precision</strong> = <span class="math inline">\(\frac{TP}{TP+FP}\)</span>--在检测为真的bounding box中有多少是有效的: <span class="math inline">\(Precision=\frac{TrueSamplesDetected}{AllDetecion}\)</span></p>
+<p><strong>Recall</strong> = <span class="math inline">\(\frac{TP}{TP+FN}\)</span>--ground truth的bounding box有多少能被检测到: <span class="math inline">\(Recall=\frac{TrueSamplesDetected}{AllTrueSamples}\)</span></p>
+<p><strong>PR Curve</strong>: recall(x)-precision(y) curve</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/11/Brief-introduction-to-Unet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/11/Brief-introduction-to-Unet/" class="post-title-link" itemprop="url">Brief introduction to Unet</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-10-11 09:45:59 / Modified: 11:26:39" itemprop="dateCreated datePublished" datetime="2021-10-11T09:45:59+08:00">2021-10-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="structure">Structure</h3>
+<p><img src="/2021/10/11/Brief-introduction-to-Unet/1.png"></p>
+<p>The structure of Unet is symmetric, like a shape of 'U'.</p>
+<p>On the right side the blue box is feature map derived by convolution-deconvolution. And the white box is the just the same as the blue box on the left side. The grey arrow shows <strong>skip-connection</strong>-- putting the two parts together.</p>
+<p>The encoder part is quite simple--3x3 convolutional kernel + maxpooling.</p>
+<p>The decoder part is designed to restore the original shape of the image using <strong>upsampling</strong>. In Unet, upsampling is implmented in <strong>bilinear interpolation</strong><code>torch.nn.Upsample(mode=bilinear)</code>. Since upsampling will lose the detailed information of orginal image, Unet try to use skip-connection to fix this problem <code>torch.cat([low_layer_features, deep_layer_features], dim=1)</code>. (Note: In FCN, two parts are added in pixel level, however, in Unet, two part are concatenated together.--concatenating remains more details with more time consumed).</p>
+<h3 id="code-keras">Code (keras)</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Unet</span>():</span></span><br><span class="line">    inputs = Input((img_rows, img_cols, <span class="number">3</span>)) <span class="comment"># RGB net</span></span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(inputs)</span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv1)</span><br><span class="line">    pool1 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv1)</span><br><span class="line">    <span class="comment"># pool1 = Dropout(0.25)(pool1)</span></span><br><span class="line">    <span class="comment"># pool1 = BatchNormalization()(pool1)</span></span><br><span class="line"></span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool1)</span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv2)</span><br><span class="line">    pool2 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv2)</span><br><span class="line">    <span class="comment"># pool2 = Dropout(0.5)(pool2)</span></span><br><span class="line">    <span class="comment"># pool2 = BatchNormalization()(pool2)</span></span><br><span class="line"></span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool2)</span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv3)</span><br><span class="line">    pool3 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv3)</span><br><span class="line">    <span class="comment"># pool3 = Dropout(0.5)(pool3)</span></span><br><span class="line">    <span class="comment"># pool3 = BatchNormalization()(pool3)</span></span><br><span class="line"></span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool3)</span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv4)</span><br><span class="line">    pool4 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv4)</span><br><span class="line">    <span class="comment"># pool4 = Dropout(0.5)(pool4)</span></span><br><span class="line">    <span class="comment"># pool4 = BatchNormalization()(pool4)</span></span><br><span class="line"></span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool4)</span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv5)</span><br><span class="line"></span><br><span class="line">    up6 = concatenate([Conv2DTranspose(<span class="number">256</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv5), conv4], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up6 = Dropout(0.5)(up6)</span></span><br><span class="line">    <span class="comment"># up6 = BatchNormalization()(up6)</span></span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up6)</span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv6)</span><br><span class="line"></span><br><span class="line">    up7 = concatenate([Conv2DTranspose(<span class="number">128</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv6), conv3], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up7 = Dropout(0.5)(up7)</span></span><br><span class="line">    <span class="comment"># up7 = BatchNormalization()(up7)</span></span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up7)</span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv7)</span><br><span class="line"></span><br><span class="line">    up8 = concatenate([Conv2DTranspose(<span class="number">64</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv7), conv2], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up8 = Dropout(0.5)(up8)</span></span><br><span class="line">    <span class="comment"># up8 = BatchNormalization()(up8)</span></span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up8)</span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv8)</span><br><span class="line"></span><br><span class="line">    up9 = concatenate([Conv2DTranspose(<span class="number">32</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv8), conv1], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up9 = Dropout(0.5)(up9)</span></span><br><span class="line">    <span class="comment"># up9 = BatchNormalization()(up9)</span></span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up9)</span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># conv9 = Dropout(0.5)(conv9)</span></span><br><span class="line"></span><br><span class="line">    conv10 = Conv2D(<span class="number">1</span>, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">&#x27;sigmoid&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    model = Model(inputs=[inputs], outputs=[conv10])</span><br><span class="line"></span><br><span class="line">    model.<span class="built_in">compile</span>(optimizer=Adam(lr=<span class="number">1e-5</span>),</span><br><span class="line">                  loss=dice_coef_loss, metrics=[dice_coef])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/09/Jupyter-Notebook-Installtion/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -228,7 +378,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-10-09 18:20:38 / Modified: 18:28:33" itemprop="dateCreated datePublished" datetime="2021-10-09T18:20:38+08:00">2021-10-09</time>
+              <time title="Created: 2021-10-09 18:20:38 / Modified: 18:35:47" itemprop="dateCreated datePublished" datetime="2021-10-09T18:20:38+08:00">2021-10-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -254,9 +404,8 @@
           <ol type="1">
 <li><p><code>conda create -n &lt;env_name&gt; &lt;python=3.9&gt;</code></p></li>
 <li><p><code>conda install jupyter notebook</code></p></li>
-<li><p><code>pip install jupyter_contrib_nbextensions</code>, <code>jupyter contrib nbextension install --user</code>, <code>pip install jupyter_nbextensions_configurator</code>, <code>jupyter nbextensions_configurator enable --user</code></p></li>
-<li><p>open <code>jupyter notebook</code>-&gt;Nbextension-&gt;Hinterland (enable this button)</p></li>
-<li><p><code>conda install nb_conda_kernels</code></p>
+<li><p>```shell pip install jupyter_contrib_nbextensions jupyter contrib nbextension install --user</p>
+<p>pip install jupyter_nbextensions_configurator jupyter nbextensions_configurator enable --user <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. open ```jupyter notebook```-&gt;Nbextension-&gt;Hinterland (enable this button)</span><br><span class="line"></span><br><span class="line">5. ```</span><br><span class="line">    conda install nb_conda_kernels</span><br></pre></td></tr></table></figure></p>
 <p>with this package, you are able to select your own conda environment in notebook.</p></li>
 </ol>
 
@@ -857,173 +1006,6 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/29/How-to-install-labelme-in-Macbook-M1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/29/How-to-install-labelme-in-Macbook-M1/" class="post-title-link" itemprop="url">How to install 'labelme' in Macbook M1</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-09-29 09:52:38 / Modified: 10:06:17" itemprop="dateCreated datePublished" datetime="2021-09-29T09:52:38+08:00">2021-09-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="conda-environment">Conda Environment</h3>
-<ol type="1">
-<li>Because anaconda is not suitable for M1, we use miniforge3 instead.</li>
-<li>Create new conda environment with 'python=3.9'. (miniforge3 only support python3.9 on M1).</li>
-</ol>
-<h3 id="pyqt5">PyQt5</h3>
-<ol type="1">
-<li>install homebrew (remeber to add path).</li>
-<li><code>brew install pyqt5</code>. Homebrew supports pyqt now.</li>
-<li>add path: <code>echo 'export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code> and <code>echo 'export PATH="/opt/homebrew/opt/pyqt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code>. This path may be not suitbale for you. You should modify your path to <code>/qt5@/bin</code> and <code>/qypt@5/bin</code>, and modify your bash profile (<code>~/.zshrc</code> for most Macbook users).</li>
-<li>Duplicate the files in <code>/opt/homebrew/Cellar/pyqt@5/5.15.4_1/lib/python3.9/site-packages</code> and paste them to <code>/Users/&lt;username&gt;/miniforge3/envs/&lt;environmentname&gt;/lib/python3.9/site-packages</code>.</li>
-<li><code>source ~/.bashrc</code> (<code>.zshrc</code>)</li>
-</ol>
-<h3 id="labelme">labelme</h3>
-<ol type="1">
-<li>labelme can be installed directly via pip (in your conda environemnt)</li>
-<li><code>pip install labelme</code></li>
-<li>when everything is done, <code>labelme</code> to use it.</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/23/Linear%20Regression/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/23/Linear%20Regression/" class="post-title-link" itemprop="url">Linear Regression</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-09-23 18:01:28 / Modified: 20:30:32" itemprop="dateCreated datePublished" datetime="2021-09-23T18:01:28+08:00">2021-09-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="linear-regression">Linear Regression</h2>
-<h3 id="setup">Setup</h3>
-<p>Data: <span class="math inline">\(D={(x _1,y _1),(x _2,y _2), \cdots ,(x _N,y _N) }\)</span>, <span class="math inline">\(x _i \in \pmb{R} ^p\)</span> and <span class="math inline">\(y _i \in \pmb{R}\)</span>.</p>
-<p>In matrix form:</p>
-<p>​ Input: <span class="math inline">\(X=(x _1, x _2, \cdots, x _N)^T \in \pmb{R} _{N\times p}\)</span> is a matrix. <span class="math inline">\(x _1=(x _{11},x _{12},\cdots,x _{1p})\in \pmb{R} _p\)</span> is a vector.</p>
-<p>​ Output: <span class="math inline">\(Y=(y _1,y _2, \cdots, y _N) \in \pmb{R} _N\)</span> is a matrix.</p>
-<p>​ Weight: <span class="math inline">\(W=(w _1, w _2, \cdots, w _p) ^T\)</span> is a vector.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/09/23/Linear%20Regression/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1095,7 +1077,7 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
