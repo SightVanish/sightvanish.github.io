@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"sightvanish.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Prefab Games101还是要强烈推荐给大家，把图形学一些基本的内容讲的十分透彻了。这里记录一下作业的成果，具体的代码实现就不展示了，如果有特别巧妙的会注明。封面将对当前最新进度结果进行展示。 更新到Assignment5.">
+  <meta name="description" content="Prefab Games101还是要强烈推荐给大家，把图形学一些基本的内容讲的十分透彻了。这里记录一下作业的成果，具体的代码实现就不展示了，如果有特别巧妙的会注明。封面将对当前最新进度结果进行展示。 已完结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Games101 Homeworks Summary">
 <meta property="og:url" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/index.html">
 <meta property="og:site_name" content="Wu Times">
-<meta property="og:description" content="Prefab Games101还是要强烈推荐给大家，把图形学一些基本的内容讲的十分透彻了。这里记录一下作业的成果，具体的代码实现就不展示了，如果有特别巧妙的会注明。封面将对当前最新进度结果进行展示。 更新到Assignment5.">
+<meta property="og:description" content="Prefab Games101还是要强烈推荐给大家，把图形学一些基本的内容讲的十分透彻了。这里记录一下作业的成果，具体的代码实现就不展示了，如果有特别巧妙的会注明。封面将对当前最新进度结果进行展示。 已完结">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw5.png">
 <meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw1.png">
@@ -42,8 +42,12 @@
 <meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw4_bezier.png">
 <meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw4_anti_alising.png">
 <meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw5.png">
+<meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw6.png">
+<meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw7_low.png">
+<meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw8_low.png">
+<meta property="og:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw8_high.png">
 <meta property="article:published_time" content="2021-09-29T08:10:37.000Z">
-<meta property="article:modified_time" content="2021-10-07T16:03:16.618Z">
+<meta property="article:modified_time" content="2021-10-17T12:41:13.215Z">
 <meta property="article:author" content="Li Wuchen">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/hw5.png">
@@ -254,7 +258,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-08 00:03:16" itemprop="dateModified" datetime="2021-10-08T00:03:16+08:00">2021-10-08</time>
+                <time title="Modified: 2021-10-17 20:41:13" itemprop="dateModified" datetime="2021-10-17T20:41:13+08:00">2021-10-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -279,7 +283,7 @@
       
         <h3 id="prefab">Prefab</h3>
 <p>Games101还是要强烈推荐给大家，把图形学一些基本的内容讲的十分透彻了。这里记录一下作业的成果，具体的代码实现就不展示了，如果有特别巧妙的会注明。封面将对当前最新进度结果进行展示。</p>
-<p>更新到Assignment5.</p>
+<p>已完结</p>
 <div align="center">
 <p><img src="/2021/09/29/Games101-Homework-Summary/hw5.png"></p>
 <span id="more"></span>
@@ -349,7 +353,27 @@
 <p>光线追踪具体挺麻烦的，但是这里只需要实现简单的功能--由screen发射ray（其实就是将屏幕空间(0, width-1)x(0,vheight-1)映射到(-1, 1)x(-1, 1)的空间里去），还有判断光线是否能打到三角形内（有明确公式解）。</p>
 <div align="center">
 <p><img src="/2021/09/29/Games101-Homework-Summary/hw5.png"></p>
-</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+<h3 id="assignment-6">Assignment 6</h3>
+<p>这里其实就是对作业5进行加速--使用BVH，简单说就是建立包围盒子，然后类似树状地对空间进行分割，判断子空间内光线是否与物体相交，算法也以递归方法实现。</p>
+<div align="center">
+<p><img src="/2021/09/29/Games101-Homework-Summary/hw6.png"></p>
+<h3 id="assignment-7">Assignment 7</h3>
+<p>这次是基于渲染方程的光线追踪，非常麻烦而且细节很多，但是理论上可以达到完全真实的效果。</p>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw7_low.png" alt="太烧资源了，先放个demo"><figcaption aria-hidden="true">太烧资源了，先放个demo</figcaption>
+</figure>
+<h3 id="assignment-8">Assignment 8</h3>
+<p>这次很简单了，就是模拟一根绳子，简单说就是假设每个节点都是质点，然后模拟弹簧计算力-&gt;质点加速度-&gt;质点速度-&gt;每一帧质点位置。</p>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw8_low.png" alt="节点较少+Euler方法"><figcaption aria-hidden="true">节点较少+Euler方法</figcaption>
+</figure>
+<div align="center">
+<figure>
+<img src="/2021/09/29/Games101-Homework-Summary/hw8_high.png" alt="节点较多+Verlet方法"><figcaption aria-hidden="true">节点较多+Verlet方法</figcaption>
+</figure>
+</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
     </div>
 
     
@@ -444,7 +468,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#prefab"><span class="nav-number">1.</span> <span class="nav-text">Prefab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-1"><span class="nav-number">2.</span> <span class="nav-text">Assignment 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-2"><span class="nav-number">3.</span> <span class="nav-text">Assignment 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-3"><span class="nav-number">4.</span> <span class="nav-text">Assignment 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-4"><span class="nav-number">5.</span> <span class="nav-text">Assignment 4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-5"><span class="nav-number">6.</span> <span class="nav-text">Assignment 5</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#prefab"><span class="nav-number">1.</span> <span class="nav-text">Prefab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-1"><span class="nav-number">2.</span> <span class="nav-text">Assignment 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-2"><span class="nav-number">3.</span> <span class="nav-text">Assignment 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-3"><span class="nav-number">4.</span> <span class="nav-text">Assignment 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-4"><span class="nav-number">5.</span> <span class="nav-text">Assignment 4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-5"><span class="nav-number">6.</span> <span class="nav-text">Assignment 5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-6"><span class="nav-number">7.</span> <span class="nav-text">Assignment 6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-7"><span class="nav-number">8.</span> <span class="nav-text">Assignment 7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment-8"><span class="nav-number">9.</span> <span class="nav-text">Assignment 8</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
