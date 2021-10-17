@@ -234,7 +234,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 20:29:32" itemprop="dateModified" datetime="2021-10-16T20:29:32+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-17 23:07:28" itemprop="dateModified" datetime="2021-10-17T23:07:28+08:00">2021-10-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,24 +262,27 @@
 <p>1.1.1 Derivative</p>
 <p>针对一元函数 <span class="math inline">\(y=f(x)\)</span>，导数 <span class="math inline">\(f&#39;(x_0)\)</span> 表示了该函数在<span class="math inline">\(x_0\)</span>处的函数斜率/增加速率。</p>
 <p>1.1.2 Partial Derivative--偏导数，部分的导数</p>
-<p>针对多元函数（此处考虑二元函数<span class="math inline">\(z=f(x,y)\)</span>），导数 <span class="math inline">\(f&#39;(x_0, y_0)\)</span> 就有些模糊不清了，为此我们先简化到一元的情况：固定 <span class="math inline">\(y=y_0\)</span>，<span class="math inline">\(z=f(x,y)\)</span>，二元函数便降纬为<span class="math inline">\(z=f(x, y_0)\)</span> ，此时我们可以定义在 <span class="math inline">\(x\)</span> 方向上的偏导数<span class="math inline">\(f&#39;_x(x_0, y_0)\)</span>，其表示该函数在<span class="math inline">\((x_0, y_0)\)</span>点处沿 <span class="math inline">\(x\)</span> 方向函数斜率/增加速率。类似的我们可以得到在 <span class="math inline">\(y\)</span> 方向的偏导数。</p>
+<p>针对多元函数（此处考虑二元函数<span class="math inline">\(z=f(x,y)\)</span>），导数 <span class="math inline">\(f&#39;(x_0, y_0)\)</span> 就有些模糊不清了，为此我们先简化到一元的情况：固定 <span class="math inline">\(y=y_0\)</span>，<span class="math inline">\(z=f(x,y)\)</span>，二元函数便降纬为<span class="math inline">\(z=f(x, y_0)\)</span> ，此时我们可以定义在 <span class="math inline">\(x\)</span> 方向上的偏导数 <span class="math inline">\(f&#39;_x(x_0, y_0)\)</span>，其表示该函数在<span class="math inline">\((x_0, y_0)\)</span>点处沿 <span class="math inline">\(x\)</span> 方向函数斜率/增加速率。类似的我们可以得到在 <span class="math inline">\(y\)</span> 方向的偏导数。</p>
 <p>1.1.3 Directional Derivative</p>
-<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(x=x_0\)</span>或<span class="math inline">\(y=y_0\)</span> 方向上的函数速率变化了。</p>
-<p>现在基于这两个偏导数我们已经可以求出<span class="math inline">\(x-y\)</span>平面任何方向的导数了：假设求 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向的导数（其中<span class="math inline">\(\theta\)</span>表示该向量方向与<span class="math inline">\(x\)</span>轴正方向的夹角，<span class="math inline">\(\vec{i}\)</span>表示<span class="math inline">\(x\)</span>轴正方向，<span class="math inline">\(\vec{j}\)</span>表示<span class="math inline">\(y\)</span>轴正方向） <span class="math display">\[
+<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(x=x_0\)</span> 或 <span class="math inline">\(y=y_0\)</span> 方向上的函数速率变化了。</p>
+<p>现在基于这两个偏导数我们已经可以求出 <span class="math inline">\(x-y\)</span> 平面任何方向的导数了：假设求 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向的导数（其中<span class="math inline">\(\theta\)</span>表示该向量方向与<span class="math inline">\(x\)</span>轴正方向的夹角，<span class="math inline">\(\vec{i}\)</span>表示<span class="math inline">\(x\)</span>轴正方向，<span class="math inline">\(\vec{j}\)</span>表示<span class="math inline">\(y\)</span>轴正方向） <span class="math display">\[
 D_uf(x,y)=\lim_{x\to\infin}\frac{f(x_0+tcos\theta,y_0+tsin\theta)}{t}
 \]</span> 本质上方向导数是偏导数的一种推广，通过调整方向导数中 <span class="math inline">\(\theta\)</span> 的值也能够简化为偏导数形式。</p>
 <p>但是如果我们观察 <span class="math inline">\(u\)</span> 本身，在 <span class="math inline">\(u\)</span> 方向求导，其实相当于在 <span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span> 方向分别求偏导之后的线性组合： <span class="math display">\[
 D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
 \]</span> 1.1.4 Gradient</p>
-<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在<span class="math inline">\((x_0, y_0)\)</span>点上在方向 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向上的函数变化速率了。</p>
-<p>那么梯度是什么呢？梯度就是 <span class="math inline">\(z\)</span> 在<span class="math inline">\((x_0, y_0)\)</span>点上函数变化速度最快的方向，也就是方向向量最大的方向。</p>
-<p>什么时候方向向量能取到最大呢？<span class="math inline">\(D_uf(x,y)=\begin{bmatrix}f&#39;_x(x,y)&amp;f&#39;_y(x,y)\end{bmatrix}\begin{bmatrix}cos\theta \\ sin\theta\end{bmatrix}=\pmb A*\pmb I\)</span>，当<span class="math inline">\((cos\theta, sin\theta) // (f&#39;_x(x,y), f&#39;_y(x,y))\)</span>时能够取到最大值，此时在<span class="math inline">\((x_0,y_0)\)</span>的梯度<span class="math inline">\(\pmb I=\begin{bmatrix}\frac{\partial f}{\partial x_0} \\ \frac{\partial f}{\partial y_0}\end{bmatrix}\)</span></p>
+<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\((x_0, y_0)\)</span> 点上在方向 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向上的函数变化速率了。</p>
+<p>那么梯度是什么呢？梯度就是 <span class="math inline">\(z\)</span> 在 <span class="math inline">\((x_0, y_0)\)</span> 点上函数变化速度最快的方向，也就是方向向量最大的方向。</p>
+<p>什么时候方向向量能取到最大呢？<span class="math inline">\(D_uf(x,y)=\begin{bmatrix}f&#39;_x(x,y)&amp;f&#39;_y(x,y)\end{bmatrix}\begin{bmatrix}cos\theta \\ sin\theta\end{bmatrix}=\pmb A*\pmb I\)</span>，当 <span class="math inline">\((cos\theta, sin\theta) // (f&#39;_x(x,y), f&#39;_y(x,y))\)</span> 时能够取到最大值，此时在 <span class="math inline">\((x_0,y_0)\)</span> 的梯度 <span class="math inline">\(\pmb I=\begin{bmatrix}\frac{\partial f}{\partial x_0} \\ \frac{\partial f}{\partial y_0}\end{bmatrix}\)</span></p>
 <p>梯度本质是<strong>矢量</strong>，在其方向上该点的方向向量最大。</p>
-<p>1.2 Gradient Descent</p>
-<p>1.2.1 Local optimum</p>
-<p>由于机器学习应用梯度下降一般是为了最小化loss，因此实际上我们想要找到的是一个多元函数的最小值。从一个点出发，如果我们<strong>连续地</strong>在这个函数表面移动，一直往当前梯度最大的负方向（梯度本身定义指向函数值增加方向），这样我们最终一定会停留在函数谷底，也就是得到局部最优解。</p>
-<p>1.2.2 Algorithm</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

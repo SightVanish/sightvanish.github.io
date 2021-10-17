@@ -28,7 +28,7 @@
 <meta property="og:description" content="1. Gradient Descent 1.1 Gradient 1.1.1 Derivative 针对一元函数 \(y&#x3D;f(x)\)，导数 \(f&#39;(x_0)\) 表示了该函数在\(x_0\)处的函数斜率&#x2F;增加速率。 1.1.2 Partial Derivative--偏导数，部分的导数 针对多元函数（此处考虑二元函数\(z&#x3D;f(x,y)\)），导数 \(f&#39;(x_0, y_0)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-15T09:45:52.000Z">
-<meta property="article:modified_time" content="2021-10-16T12:29:32.872Z">
+<meta property="article:modified_time" content="2021-10-17T15:07:28.661Z">
 <meta property="article:author" content="Li Wuchen">
 <meta name="twitter:card" content="summary">
 
@@ -238,7 +238,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 20:29:32" itemprop="dateModified" datetime="2021-10-16T20:29:32+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-17 23:07:28" itemprop="dateModified" datetime="2021-10-17T23:07:28+08:00">2021-10-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,23 +266,41 @@
 <p>1.1.1 Derivative</p>
 <p>针对一元函数 <span class="math inline">\(y=f(x)\)</span>，导数 <span class="math inline">\(f&#39;(x_0)\)</span> 表示了该函数在<span class="math inline">\(x_0\)</span>处的函数斜率/增加速率。</p>
 <p>1.1.2 Partial Derivative--偏导数，部分的导数</p>
-<p>针对多元函数（此处考虑二元函数<span class="math inline">\(z=f(x,y)\)</span>），导数 <span class="math inline">\(f&#39;(x_0, y_0)\)</span> 就有些模糊不清了，为此我们先简化到一元的情况：固定 <span class="math inline">\(y=y_0\)</span>，<span class="math inline">\(z=f(x,y)\)</span>，二元函数便降纬为<span class="math inline">\(z=f(x, y_0)\)</span> ，此时我们可以定义在 <span class="math inline">\(x\)</span> 方向上的偏导数<span class="math inline">\(f&#39;_x(x_0, y_0)\)</span>，其表示该函数在<span class="math inline">\((x_0, y_0)\)</span>点处沿 <span class="math inline">\(x\)</span> 方向函数斜率/增加速率。类似的我们可以得到在 <span class="math inline">\(y\)</span> 方向的偏导数。</p>
+<p>针对多元函数（此处考虑二元函数<span class="math inline">\(z=f(x,y)\)</span>），导数 <span class="math inline">\(f&#39;(x_0, y_0)\)</span> 就有些模糊不清了，为此我们先简化到一元的情况：固定 <span class="math inline">\(y=y_0\)</span>，<span class="math inline">\(z=f(x,y)\)</span>，二元函数便降纬为<span class="math inline">\(z=f(x, y_0)\)</span> ，此时我们可以定义在 <span class="math inline">\(x\)</span> 方向上的偏导数 <span class="math inline">\(f&#39;_x(x_0, y_0)\)</span>，其表示该函数在<span class="math inline">\((x_0, y_0)\)</span>点处沿 <span class="math inline">\(x\)</span> 方向函数斜率/增加速率。类似的我们可以得到在 <span class="math inline">\(y\)</span> 方向的偏导数。</p>
 <p>1.1.3 Directional Derivative</p>
-<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(x=x_0\)</span>或<span class="math inline">\(y=y_0\)</span> 方向上的函数速率变化了。</p>
-<p>现在基于这两个偏导数我们已经可以求出<span class="math inline">\(x-y\)</span>平面任何方向的导数了：假设求 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向的导数（其中<span class="math inline">\(\theta\)</span>表示该向量方向与<span class="math inline">\(x\)</span>轴正方向的夹角，<span class="math inline">\(\vec{i}\)</span>表示<span class="math inline">\(x\)</span>轴正方向，<span class="math inline">\(\vec{j}\)</span>表示<span class="math inline">\(y\)</span>轴正方向） <span class="math display">\[
+<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(x=x_0\)</span> 或 <span class="math inline">\(y=y_0\)</span> 方向上的函数速率变化了。</p>
+<p>现在基于这两个偏导数我们已经可以求出 <span class="math inline">\(x-y\)</span> 平面任何方向的导数了：假设求 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向的导数（其中<span class="math inline">\(\theta\)</span>表示该向量方向与<span class="math inline">\(x\)</span>轴正方向的夹角，<span class="math inline">\(\vec{i}\)</span>表示<span class="math inline">\(x\)</span>轴正方向，<span class="math inline">\(\vec{j}\)</span>表示<span class="math inline">\(y\)</span>轴正方向） <span class="math display">\[
 D_uf(x,y)=\lim_{x\to\infin}\frac{f(x_0+tcos\theta,y_0+tsin\theta)}{t}
 \]</span> 本质上方向导数是偏导数的一种推广，通过调整方向导数中 <span class="math inline">\(\theta\)</span> 的值也能够简化为偏导数形式。</p>
 <p>但是如果我们观察 <span class="math inline">\(u\)</span> 本身，在 <span class="math inline">\(u\)</span> 方向求导，其实相当于在 <span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span> 方向分别求偏导之后的线性组合： <span class="math display">\[
 D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
 \]</span> 1.1.4 Gradient</p>
-<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在<span class="math inline">\((x_0, y_0)\)</span>点上在方向 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向上的函数变化速率了。</p>
-<p>那么梯度是什么呢？梯度就是 <span class="math inline">\(z\)</span> 在<span class="math inline">\((x_0, y_0)\)</span>点上函数变化速度最快的方向，也就是方向向量最大的方向。</p>
-<p>什么时候方向向量能取到最大呢？<span class="math inline">\(D_uf(x,y)=\begin{bmatrix}f&#39;_x(x,y)&amp;f&#39;_y(x,y)\end{bmatrix}\begin{bmatrix}cos\theta \\ sin\theta\end{bmatrix}=\pmb A*\pmb I\)</span>，当<span class="math inline">\((cos\theta, sin\theta) // (f&#39;_x(x,y), f&#39;_y(x,y))\)</span>时能够取到最大值，此时在<span class="math inline">\((x_0,y_0)\)</span>的梯度<span class="math inline">\(\pmb I=\begin{bmatrix}\frac{\partial f}{\partial x_0} \\ \frac{\partial f}{\partial y_0}\end{bmatrix}\)</span></p>
+<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\((x_0, y_0)\)</span> 点上在方向 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向上的函数变化速率了。</p>
+<p>那么梯度是什么呢？梯度就是 <span class="math inline">\(z\)</span> 在 <span class="math inline">\((x_0, y_0)\)</span> 点上函数变化速度最快的方向，也就是方向向量最大的方向。</p>
+<p>什么时候方向向量能取到最大呢？<span class="math inline">\(D_uf(x,y)=\begin{bmatrix}f&#39;_x(x,y)&amp;f&#39;_y(x,y)\end{bmatrix}\begin{bmatrix}cos\theta \\ sin\theta\end{bmatrix}=\pmb A*\pmb I\)</span>，当 <span class="math inline">\((cos\theta, sin\theta) // (f&#39;_x(x,y), f&#39;_y(x,y))\)</span> 时能够取到最大值，此时在 <span class="math inline">\((x_0,y_0)\)</span> 的梯度 <span class="math inline">\(\pmb I=\begin{bmatrix}\frac{\partial f}{\partial x_0} \\ \frac{\partial f}{\partial y_0}\end{bmatrix}\)</span></p>
 <p>梯度本质是<strong>矢量</strong>，在其方向上该点的方向向量最大。</p>
+<span id="more"></span>
 <p>1.2 Gradient Descent</p>
 <p>1.2.1 Local optimum</p>
 <p>由于机器学习应用梯度下降一般是为了最小化loss，因此实际上我们想要找到的是一个多元函数的最小值。从一个点出发，如果我们<strong>连续地</strong>在这个函数表面移动，一直往当前梯度最大的负方向（梯度本身定义指向函数值增加方向），这样我们最终一定会停留在函数谷底，也就是得到局部最优解。</p>
 <p>1.2.2 Algorithm</p>
+<p>首先我们先定义一下问题：</p>
+<blockquote>
+<p>函数 <span class="math inline">\(f(x)\)</span> 为在 <span class="math inline">\(R^n\)</span> 上具有一阶连续偏导数的函数（note：这里 <span class="math inline">\(x\)</span> 其实是 <span class="math inline">\(n\)</span> 维向量 <span class="math inline">\(x=(x_1,x_2,\cdots,x_n)\)</span>）</p>
+<p>在无约束的情况下我们希望得到目标函数 <span class="math inline">\(f(x)\)</span> 的极小值。</p>
+</blockquote>
+<p>具体实现算法：</p>
+<blockquote>
+<p>初始化 <span class="math inline">\(x\)</span> 数值，记作 <span class="math inline">\(x^0\)</span></p>
+<p>第k+1轮迭代：<span class="math inline">\(x^{k+1} = x^k+\lambda_kp_k\)</span> 其中 <span class="math inline">\(p_k\)</span> 为函数更新方向，取第k轮函数的负梯度（函数值下降最快的方向）：<span class="math inline">\(p_k=-\nabla f(x^k)\)</span> 其中 <span class="math inline">\(\lambda_k\)</span> 为函数更新的步长，由一维搜索得到：<span class="math inline">\(\lambda_k=\underset{\lambda}{\operatorname{argmin}}f(x^k+\lambda p_k)=\underset{\lambda}{\operatorname{argmin}}f(x^k-\lambda\nabla f(x^k))\)</span> 具体实现：预先定义多个值进行计算，需要多次尝试。</p>
+<p>当 <span class="math inline">\(\nabla f(x^k)&lt;\epsilon\)</span> 时（即梯度下降缓慢时）停止迭代 注意此算法本身只能保证达到local optimum，不能保证全局最优，因此需要多次重新初始化尝试。</p>
+</blockquote>
+<p>1.2.3 BGD--Batch Gradient Descent</p>
+<p>为了加速参数的更新，往往不会对每一个样本都计算梯度进行更新，事实上是一次性传入一个batch的数据，在更新参数时使用整个batch的数据结果进行更新。BGD收敛效果最好</p>
+<p>1.2.4 SGD--Stochastic Gradient Descent</p>
+<p>在数据量相当大的时候，BGD的开销也过于庞大了，为此数学家们考虑每次更新随机采样一个样本来控制梯度方向--这样做梯度的变化可能会出现较大的波动，但是数据量足够，数学上期望与BGD相同。SGD训练速度最快。</p>
+<p>此外由于SGD本身受离群样本影响大，因此可能会难以收敛，实际应用中往往采用中折--即每次更新采用样本的部分数据进行训练--MBGD--Mini-batch Gradient Descent。</p>
+<h3 id="newton-method">2. Newton Method</h3>
 
     </div>
 
@@ -375,7 +393,7 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#gradient-descent"><span class="nav-number">1.</span> <span class="nav-text">1. Gradient Descent</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#gradient-descent"><span class="nav-number">1.</span> <span class="nav-text">1. Gradient Descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#newton-method"><span class="nav-number">2.</span> <span class="nav-text">2. Newton Method</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
