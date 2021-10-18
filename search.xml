@@ -194,56 +194,13 @@
     <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
     <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
 <p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-ZGLkDJRodNZpAVJK" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-ZGLkDJRodNZpAVJK").style.height=document.getElementById("mmedia-ZGLkDJRodNZpAVJK").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-gUAprmCHmnaSTUAp" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-gUAprmCHmnaSTUAp").style.height=document.getElementById("mmedia-gUAprmCHmnaSTUAp").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-ZGLkDJRodNZpAVJK").style.height=document.getElementById("mmedia-ZGLkDJRodNZpAVJK").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-gUAprmCHmnaSTUAp").style.height=document.getElementById("mmedia-gUAprmCHmnaSTUAp").scrollWidth*0.76+"px";
     }; </script>
 ]]></content>
       <categories>
         <category>Kendo</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AdaBoosting</title>
-    <url>/2021/05/24/AdaBoosting/</url>
-    <content><![CDATA[<h3 id="boosting-bagging">Boosting &amp; Bagging</h3>
-<p>Bagging是传统算法常常采用的方法：</p>
-<ol type="1">
-<li>从原始sample中用Bootstraping（类似cross-validation）选出n个样本，进行k次。</li>
-<li>分别对k个训练集训练得到k个模型</li>
-<li>加权得到最终模型</li>
-</ol>
-<ul>
-<li>当算法结果不稳定时使用（训练集、测试集对结果影响大）</li>
-</ul>
-<p>-&gt;Bagging可能出现多个模型对同一样的sample都分类错误</p>
-<p>-&gt;不能并行所有model的训练而要串行（每次关注之前训练不当的地方）</p>
-<p>AdaBoosting</p>
-<ol type="1">
-<li>在整个数据集上训练model（h1）</li>
-<li>对h1表现好的sample降低权重，对h2表现不好的sample增加权重，训练model（h2）</li>
-<li>repeat</li>
-</ol>
-<span id="more"></span>
-<h3 id="adaboost">AdaBoost</h3>
-<p>如何实现AdaBoosting呢？</p>
-<h4 id="加权误差">加权误差</h4>
-<p>一般 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} 1/n\)</span>，但是在对样本进行加权后 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} w _i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分类失败）的sample。</p>
-<p>如何找弱分类器呢？</p>
-<h4 id="决策树桩">决策树桩</h4>
-<p><img src="/2021/05/24/AdaBoosting/1.png" alt="1" style="zoom:50%;"></p>
-<p>上图中简单的情况，有12种树桩组合。</p>
-<blockquote>
-<p>我们可以对上面的情况做 12 种可能的「测试」。每条分割线边上的数字「2」简单地表示了这样一个事实：位于分割线某一侧的所有点都可能属于 0 类或 1 类。因此，每条分割线嵌入了 2 个「测试」。</p>
-</blockquote>
-<p>针对不同的问题首先要选好弱分类器h，在迭代的过程中每次选择对当前（加权后）sample分类最优的弱分类器作为基本分类器进行融合。</p>
-<ul>
-<li>AdaBoost不需要先验，同时不容易过拟合，同时不依赖弱分类器效果（可以自由分配权重）。</li>
-<li>AdaBoost错误样本权重指数上升--容易受噪音干扰</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
       </categories>
   </entry>
   <entry>
@@ -370,6 +327,49 @@
       </tags>
   </entry>
   <entry>
+    <title>AdaBoosting</title>
+    <url>/2021/05/24/AdaBoosting/</url>
+    <content><![CDATA[<h3 id="boosting-bagging">Boosting &amp; Bagging</h3>
+<p>Bagging是传统算法常常采用的方法：</p>
+<ol type="1">
+<li>从原始sample中用Bootstraping（类似cross-validation）选出n个样本，进行k次。</li>
+<li>分别对k个训练集训练得到k个模型</li>
+<li>加权得到最终模型</li>
+</ol>
+<ul>
+<li>当算法结果不稳定时使用（训练集、测试集对结果影响大）</li>
+</ul>
+<p>-&gt;Bagging可能出现多个模型对同一样的sample都分类错误</p>
+<p>-&gt;不能并行所有model的训练而要串行（每次关注之前训练不当的地方）</p>
+<p>AdaBoosting</p>
+<ol type="1">
+<li>在整个数据集上训练model（h1）</li>
+<li>对h1表现好的sample降低权重，对h2表现不好的sample增加权重，训练model（h2）</li>
+<li>repeat</li>
+</ol>
+<span id="more"></span>
+<h3 id="adaboost">AdaBoost</h3>
+<p>如何实现AdaBoosting呢？</p>
+<h4 id="加权误差">加权误差</h4>
+<p>一般 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} 1/n\)</span>，但是在对样本进行加权后 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} w _i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分类失败）的sample。</p>
+<p>如何找弱分类器呢？</p>
+<h4 id="决策树桩">决策树桩</h4>
+<p><img src="/2021/05/24/AdaBoosting/1.png" alt="1" style="zoom:50%;"></p>
+<p>上图中简单的情况，有12种树桩组合。</p>
+<blockquote>
+<p>我们可以对上面的情况做 12 种可能的「测试」。每条分割线边上的数字「2」简单地表示了这样一个事实：位于分割线某一侧的所有点都可能属于 0 类或 1 类。因此，每条分割线嵌入了 2 个「测试」。</p>
+</blockquote>
+<p>针对不同的问题首先要选好弱分类器h，在迭代的过程中每次选择对当前（加权后）sample分类最优的弱分类器作为基本分类器进行融合。</p>
+<ul>
+<li>AdaBoost不需要先验，同时不容易过拟合，同时不依赖弱分类器效果（可以自由分配权重）。</li>
+<li>AdaBoost错误样本权重指数上升--容易受噪音干扰</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Blender尝试NPR场景</title>
     <url>/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/</url>
     <content><![CDATA[<p>尝试了NPR的场景渲染，感觉不是特别成功，二次元渲染不仅需要技术，调参也很难，需要一些美学功底更重要的是对渲染节点的深入理解。</p>
@@ -384,28 +384,6 @@
 </div></div>]]></content>
       <categories>
         <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Brief introduction to Unet</title>
-    <url>/2021/10/11/Brief-introduction-to-Unet/</url>
-    <content><![CDATA[<h3 id="structure">Structure</h3>
-<p><img src="/2021/10/11/Brief-introduction-to-Unet/1.png"></p>
-<p>The structure of Unet is symmetric, like a shape of 'U'.</p>
-<p>On the right side the blue box is feature map derived by convolution-deconvolution. And the white box is the just the same as the blue box on the left side. The grey arrow shows <strong>skip-connection</strong>-- putting the two parts together.</p>
-<p>The encoder part is quite simple--3x3 convolutional kernel + maxpooling.</p>
-<p>The decoder part is designed to restore the original shape of the image using <strong>upsampling</strong>.</p>
-<p>In Unet, upsampling is implmented in <strong>bilinear interpolation</strong>.</p>
-<p><code>torch.nn.Upsample(mode=bilinear)</code></p>
-<p>Since upsampling will lose the detailed information of orginal image, Unet try to use skip-connection to fix this problem.</p>
-<p><code>torch.cat([low_layer_features, deep_layer_features], dim=1)</code></p>
-<p>(Note: In FCN, two parts are added in pixel level, however, in Unet, two part are concatenated together.--concatenating remains more details with more time consumed).</p>
-<span id="more"></span>
-<h3 id="code-keras">Code (keras)</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Unet</span>():</span></span><br><span class="line">    inputs = Input((img_rows, img_cols, <span class="number">3</span>)) <span class="comment"># RGB net</span></span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(inputs)</span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv1)</span><br><span class="line">    pool1 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv1)</span><br><span class="line">    <span class="comment"># pool1 = Dropout(0.25)(pool1)</span></span><br><span class="line">    <span class="comment"># pool1 = BatchNormalization()(pool1)</span></span><br><span class="line"></span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool1)</span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv2)</span><br><span class="line">    pool2 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv2)</span><br><span class="line">    <span class="comment"># pool2 = Dropout(0.5)(pool2)</span></span><br><span class="line">    <span class="comment"># pool2 = BatchNormalization()(pool2)</span></span><br><span class="line"></span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool2)</span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv3)</span><br><span class="line">    pool3 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv3)</span><br><span class="line">    <span class="comment"># pool3 = Dropout(0.5)(pool3)</span></span><br><span class="line">    <span class="comment"># pool3 = BatchNormalization()(pool3)</span></span><br><span class="line"></span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool3)</span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv4)</span><br><span class="line">    pool4 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv4)</span><br><span class="line">    <span class="comment"># pool4 = Dropout(0.5)(pool4)</span></span><br><span class="line">    <span class="comment"># pool4 = BatchNormalization()(pool4)</span></span><br><span class="line"></span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool4)</span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv5)</span><br><span class="line"></span><br><span class="line">    up6 = concatenate([Conv2DTranspose(<span class="number">256</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv5), conv4], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up6 = Dropout(0.5)(up6)</span></span><br><span class="line">    <span class="comment"># up6 = BatchNormalization()(up6)</span></span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up6)</span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv6)</span><br><span class="line"></span><br><span class="line">    up7 = concatenate([Conv2DTranspose(<span class="number">128</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv6), conv3], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up7 = Dropout(0.5)(up7)</span></span><br><span class="line">    <span class="comment"># up7 = BatchNormalization()(up7)</span></span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up7)</span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv7)</span><br><span class="line"></span><br><span class="line">    up8 = concatenate([Conv2DTranspose(<span class="number">64</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv7), conv2], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up8 = Dropout(0.5)(up8)</span></span><br><span class="line">    <span class="comment"># up8 = BatchNormalization()(up8)</span></span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up8)</span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv8)</span><br><span class="line"></span><br><span class="line">    up9 = concatenate([Conv2DTranspose(<span class="number">32</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv8), conv1], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up9 = Dropout(0.5)(up9)</span></span><br><span class="line">    <span class="comment"># up9 = BatchNormalization()(up9)</span></span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up9)</span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># conv9 = Dropout(0.5)(conv9)</span></span><br><span class="line"></span><br><span class="line">    conv10 = Conv2D(<span class="number">1</span>, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">&#x27;sigmoid&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    model = Model(inputs=[inputs], outputs=[conv10])</span><br><span class="line"></span><br><span class="line">    model.<span class="built_in">compile</span>(optimizer=Adam(lr=<span class="number">1e-5</span>),</span><br><span class="line">                  loss=dice_coef_loss, metrics=[dice_coef])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
       </categories>
   </entry>
   <entry>
@@ -429,6 +407,28 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
 <p>x=50, y=0~100, here is the score (<a href="https://www.zhihu.com/question/47980482">ref</a>):</p>
 <p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
 <p>Harmonic mean tries to get a result that neither P nor R is not so bad even if both of them are not really good.</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Brief introduction to Unet</title>
+    <url>/2021/10/11/Brief-introduction-to-Unet/</url>
+    <content><![CDATA[<h3 id="structure">Structure</h3>
+<p><img src="/2021/10/11/Brief-introduction-to-Unet/1.png"></p>
+<p>The structure of Unet is symmetric, like a shape of 'U'.</p>
+<p>On the right side the blue box is feature map derived by convolution-deconvolution. And the white box is the just the same as the blue box on the left side. The grey arrow shows <strong>skip-connection</strong>-- putting the two parts together.</p>
+<p>The encoder part is quite simple--3x3 convolutional kernel + maxpooling.</p>
+<p>The decoder part is designed to restore the original shape of the image using <strong>upsampling</strong>.</p>
+<p>In Unet, upsampling is implmented in <strong>bilinear interpolation</strong>.</p>
+<p><code>torch.nn.Upsample(mode=bilinear)</code></p>
+<p>Since upsampling will lose the detailed information of orginal image, Unet try to use skip-connection to fix this problem.</p>
+<p><code>torch.cat([low_layer_features, deep_layer_features], dim=1)</code></p>
+<p>(Note: In FCN, two parts are added in pixel level, however, in Unet, two part are concatenated together.--concatenating remains more details with more time consumed).</p>
+<span id="more"></span>
+<h3 id="code-keras">Code (keras)</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Unet</span>():</span></span><br><span class="line">    inputs = Input((img_rows, img_cols, <span class="number">3</span>)) <span class="comment"># RGB net</span></span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(inputs)</span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv1)</span><br><span class="line">    pool1 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv1)</span><br><span class="line">    <span class="comment"># pool1 = Dropout(0.25)(pool1)</span></span><br><span class="line">    <span class="comment"># pool1 = BatchNormalization()(pool1)</span></span><br><span class="line"></span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool1)</span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv2)</span><br><span class="line">    pool2 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv2)</span><br><span class="line">    <span class="comment"># pool2 = Dropout(0.5)(pool2)</span></span><br><span class="line">    <span class="comment"># pool2 = BatchNormalization()(pool2)</span></span><br><span class="line"></span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool2)</span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv3)</span><br><span class="line">    pool3 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv3)</span><br><span class="line">    <span class="comment"># pool3 = Dropout(0.5)(pool3)</span></span><br><span class="line">    <span class="comment"># pool3 = BatchNormalization()(pool3)</span></span><br><span class="line"></span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool3)</span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv4)</span><br><span class="line">    pool4 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv4)</span><br><span class="line">    <span class="comment"># pool4 = Dropout(0.5)(pool4)</span></span><br><span class="line">    <span class="comment"># pool4 = BatchNormalization()(pool4)</span></span><br><span class="line"></span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool4)</span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv5)</span><br><span class="line"></span><br><span class="line">    up6 = concatenate([Conv2DTranspose(<span class="number">256</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv5), conv4], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up6 = Dropout(0.5)(up6)</span></span><br><span class="line">    <span class="comment"># up6 = BatchNormalization()(up6)</span></span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up6)</span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv6)</span><br><span class="line"></span><br><span class="line">    up7 = concatenate([Conv2DTranspose(<span class="number">128</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv6), conv3], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up7 = Dropout(0.5)(up7)</span></span><br><span class="line">    <span class="comment"># up7 = BatchNormalization()(up7)</span></span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up7)</span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv7)</span><br><span class="line"></span><br><span class="line">    up8 = concatenate([Conv2DTranspose(<span class="number">64</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv7), conv2], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up8 = Dropout(0.5)(up8)</span></span><br><span class="line">    <span class="comment"># up8 = BatchNormalization()(up8)</span></span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up8)</span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv8)</span><br><span class="line"></span><br><span class="line">    up9 = concatenate([Conv2DTranspose(<span class="number">32</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv8), conv1], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up9 = Dropout(0.5)(up9)</span></span><br><span class="line">    <span class="comment"># up9 = BatchNormalization()(up9)</span></span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up9)</span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># conv9 = Dropout(0.5)(conv9)</span></span><br><span class="line"></span><br><span class="line">    conv10 = Conv2D(<span class="number">1</span>, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">&#x27;sigmoid&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    model = Model(inputs=[inputs], outputs=[conv10])</span><br><span class="line"></span><br><span class="line">    model.<span class="built_in">compile</span>(optimizer=Adam(lr=<span class="number">1e-5</span>),</span><br><span class="line">                  loss=dice_coef_loss, metrics=[dice_coef])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Machine Learning</category>
@@ -476,41 +476,6 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
-    <title>Copy &amp; Deepcopy in Python</title>
-    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cannot get access to Github</title>
-    <url>/2021/03/04/Cannot-get-access-to-Github/</url>
-    <content><![CDATA[<p>MacOS 11.2</p>
-<ol type="1">
-<li><p><code>sudo vim /private/etc/hosts</code></p></li>
-<li><p>Delete all path about Github</p></li>
-<li><p>Search IP address of <code>github.com</code> and <code>github.global.ssl.fastly.net</code> in <code>https://github.com.ipaddress.com</code></p></li>
-<li><p>Add</p>
-<p><code>#github</code></p>
-<p><code>140.82.114.4 github.com</code></p>
-<p><code>199.232.69.194 github.global.ssl.fastly.net</code></p>
-<p>replace the IP address with the search result.</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-        <tag>MacOS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C/C++ openmp</title>
     <url>/2020/05/30/C-C-openmp/</url>
     <content><![CDATA[<p>Just a note for myself !</p>
@@ -547,27 +512,6 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
-    <title>Difference between Override &amp; Overload</title>
-    <url>/2020/12/16/Difference-between-Override-Overload/</url>
-    <content><![CDATA[<p>Both of them only happen when difference function using same name.</p>
-<ul>
-<li><p>Overloading: picking a method <strong>signature</strong> at compile time based on the number and type of the arguments specified</p>
-<p>Overload--在compile时抓取function signature，每个function参数列表（参数数目和数量）不同，所以区别开来。</p></li>
-<li><p>Overriding: picking a method <strong>implementation</strong> at execution time based on the actual type of the target object (as opposed to the compile-time type of the expression)</p>
-<p>Override--在execution时选取不同的function来执行，注意这些function名称相同，参数列表相同。发生在类的继承中，子类function override夫类function，返回类型相同。</p></li>
-</ul>
-<span id="more"></span>
-<p>Example (with java):</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">// this function will overload the function above</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">double</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(double)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;		</span><br><span class="line">  	<span class="comment">// this function override the function in Base</span></span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Base b = <span class="keyword">new</span> Child();</span><br><span class="line">b.foo(<span class="number">10</span>); <span class="comment">// Prints Child.foo(int)</span></span><br><span class="line">b.foo(<span class="number">5.0</span>); <span class="comment">// Prints Base.foo(double)</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
     <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
     <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
@@ -585,6 +529,54 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
         <tag>C++</tag>
         <tag>const</tag>
         <tag>pointer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cannot get access to Github</title>
+    <url>/2021/03/04/Cannot-get-access-to-Github/</url>
+    <content><![CDATA[<p>MacOS 11.2</p>
+<ol type="1">
+<li><p><code>sudo vim /private/etc/hosts</code></p></li>
+<li><p>Delete all path about Github</p></li>
+<li><p>Search IP address of <code>github.com</code> and <code>github.global.ssl.fastly.net</code> in <code>https://github.com.ipaddress.com</code></p></li>
+<li><p>Add</p>
+<p><code>#github</code></p>
+<p><code>140.82.114.4 github.com</code></p>
+<p><code>199.232.69.194 github.global.ssl.fastly.net</code></p>
+<p>replace the IP address with the search result.</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+        <tag>MacOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Copy &amp; Deepcopy in Python</title>
+    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Experience of MacOS Big Sur</title>
+    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
+    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
+<p>(for test purpose--transfer Blog)</p>
+]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+      <tags>
+        <tag>MacOS</tag>
       </tags>
   </entry>
   <entry>
@@ -674,6 +666,27 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
+    <title>Difference between Override &amp; Overload</title>
+    <url>/2020/12/16/Difference-between-Override-Overload/</url>
+    <content><![CDATA[<p>Both of them only happen when difference function using same name.</p>
+<ul>
+<li><p>Overloading: picking a method <strong>signature</strong> at compile time based on the number and type of the arguments specified</p>
+<p>Overload--在compile时抓取function signature，每个function参数列表（参数数目和数量）不同，所以区别开来。</p></li>
+<li><p>Overriding: picking a method <strong>implementation</strong> at execution time based on the actual type of the target object (as opposed to the compile-time type of the expression)</p>
+<p>Override--在execution时选取不同的function来执行，注意这些function名称相同，参数列表相同。发生在类的继承中，子类function override夫类function，返回类型相同。</p></li>
+</ul>
+<span id="more"></span>
+<p>Example (with java):</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">// this function will overload the function above</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">double</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(double)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;		</span><br><span class="line">  	<span class="comment">// this function override the function in Base</span></span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Base b = <span class="keyword">new</span> Child();</span><br><span class="line">b.foo(<span class="number">10</span>); <span class="comment">// Prints Child.foo(int)</span></span><br><span class="line">b.foo(<span class="number">5.0</span>); <span class="comment">// Prints Base.foo(double)</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>GIF test</title>
     <url>/2021/09/16/GIF-test/</url>
     <content><![CDATA[<p>You should see this. <iframe height="75%" width="75%" src="1.gif"></iframe></p>
@@ -681,32 +694,6 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       <categories>
         <category>Test</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Experience of MacOS Big Sur</title>
-    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
-    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
-<p>(for test purpose--transfer Blog)</p>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-      <tags>
-        <tag>MacOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to generate random number via C++ (srand version)</title>
-    <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
-    <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Srand</tag>
-      </tags>
   </entry>
   <entry>
     <title>Gaussian Mixture Model (GMM) &amp; Expectation Maximization (EM)</title>
@@ -852,61 +839,13 @@ Picture3: 3-D GMM
       </tags>
   </entry>
   <entry>
-    <title>Gradient Descent, Newton Method and Quasi-Newton Method</title>
-    <url>/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/</url>
-    <content><![CDATA[<h3 id="gradient-descent">1. Gradient Descent</h3>
-<p>1.1 Gradient</p>
-<p>1.1.1 Derivative</p>
-<p>针对一元函数 <span class="math inline">\(y=f(x)\)</span>，导数 <span class="math inline">\(f&#39;(x_0)\)</span> 表示了该函数在<span class="math inline">\(x_0\)</span>处的函数斜率/增加速率。</p>
-<p>1.1.2 Partial Derivative--偏导数，部分的导数</p>
-<p>针对多元函数（此处考虑二元函数<span class="math inline">\(z=f(x,y)\)</span>），导数 <span class="math inline">\(f&#39;(x_0, y_0)\)</span> 就有些模糊不清了，为此我们先简化到一元的情况：固定 <span class="math inline">\(y=y_0\)</span>，<span class="math inline">\(z=f(x,y)\)</span>，二元函数便降纬为<span class="math inline">\(z=f(x, y_0)\)</span> ，此时我们可以定义在 <span class="math inline">\(x\)</span> 方向上的偏导数 <span class="math inline">\(f&#39;_x(x_0, y_0)\)</span>，其表示该函数在<span class="math inline">\((x_0, y_0)\)</span>点处沿 <span class="math inline">\(x\)</span> 方向函数斜率/增加速率。类似的我们可以得到在 <span class="math inline">\(y\)</span> 方向的偏导数。</p>
-<p>1.1.3 Directional Derivative</p>
-<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(x=x_0\)</span> 或 <span class="math inline">\(y=y_0\)</span> 方向上的函数速率变化了。</p>
-<p>现在基于这两个偏导数我们已经可以求出 <span class="math inline">\(x-y\)</span> 平面任何方向的导数了：假设求 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向的导数（其中<span class="math inline">\(\theta\)</span>表示该向量方向与<span class="math inline">\(x\)</span>轴正方向的夹角，<span class="math inline">\(\vec{i}\)</span>表示<span class="math inline">\(x\)</span>轴正方向，<span class="math inline">\(\vec{j}\)</span>表示<span class="math inline">\(y\)</span>轴正方向） <span class="math display">\[
-D_uf(x,y)=\lim_{x\to\infin}\frac{f(x_0+tcos\theta,y_0+tsin\theta)}{t}
-\]</span> 本质上方向导数是偏导数的一种推广，通过调整方向导数中 <span class="math inline">\(\theta\)</span> 的值也能够简化为偏导数形式。</p>
-<p>但是如果我们观察 <span class="math inline">\(u\)</span> 本身，在 <span class="math inline">\(u\)</span> 方向求导，其实相当于在 <span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span> 方向分别求偏导之后的线性组合： <span class="math display">\[
-D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
-\]</span> 1.1.4 Gradient</p>
-<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\((x_0, y_0)\)</span> 点上在方向 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向上的函数变化速率了。</p>
-<p>那么梯度是什么呢？梯度就是 <span class="math inline">\(z\)</span> 在 <span class="math inline">\((x_0, y_0)\)</span> 点上函数变化速度最快的方向，也就是方向向量最大的方向。</p>
-<p>什么时候方向向量能取到最大呢？<span class="math inline">\(D_uf(x,y)=\begin{bmatrix}f&#39;_x(x,y)&amp;f&#39;_y(x,y)\end{bmatrix}\begin{bmatrix}cos\theta \\ sin\theta\end{bmatrix}=\pmb A*\pmb I\)</span>，当 <span class="math inline">\((cos\theta, sin\theta) // (f&#39;_x(x,y), f&#39;_y(x,y))\)</span> 时能够取到最大值，此时在 <span class="math inline">\((x_0,y_0)\)</span> 的梯度 <span class="math inline">\(\pmb I=\begin{bmatrix}\frac{\partial f}{\partial x_0} \\ \frac{\partial f}{\partial y_0}\end{bmatrix}\)</span></p>
-<p>梯度本质是<strong>矢量</strong>，在其方向上该点的方向向量最大。</p>
-<span id="more"></span>
-<p>1.2 Gradient Descent</p>
-<p>1.2.1 Local optimum</p>
-<p>由于机器学习应用梯度下降一般是为了最小化loss，因此实际上我们想要找到的是一个多元函数的最小值。从一个点出发，如果我们<strong>连续地</strong>在这个函数表面移动，一直往当前梯度最大的负方向（梯度本身定义指向函数值增加方向），这样我们最终一定会停留在函数谷底，也就是得到局部最优解。</p>
-<p>1.2.2 Algorithm</p>
-<p>首先我们先定义一下问题：</p>
-<blockquote>
-<p>函数 <span class="math inline">\(f(x)\)</span> 为在 <span class="math inline">\(R^n\)</span> 上具有一阶连续偏导数的函数（note：这里 <span class="math inline">\(x\)</span> 其实是 <span class="math inline">\(n\)</span> 维向量 <span class="math inline">\(x=(x_1,x_2,\cdots,x_n)\)</span>）</p>
-<p>在无约束的情况下我们希望得到目标函数 <span class="math inline">\(f(x)\)</span> 的极小值。</p>
-</blockquote>
-<p>具体实现算法：</p>
-<blockquote>
-<p>初始化 <span class="math inline">\(x\)</span> 数值，记作 <span class="math inline">\(x^0\)</span></p>
-<p>第k+1轮迭代：<span class="math inline">\(x^{k+1} = x^k+\lambda_kp_k\)</span> 其中 <span class="math inline">\(p_k\)</span> 为函数更新方向，取第k轮函数的负梯度（函数值下降最快的方向）：<span class="math inline">\(p_k=-\nabla f(x^k)\)</span> 其中 <span class="math inline">\(\lambda_k\)</span> 为函数更新的步长，由一维搜索得到：<span class="math inline">\(\lambda_k=\underset{\lambda}{\operatorname{argmin}}f(x^k+\lambda p_k)=\underset{\lambda}{\operatorname{argmin}}f(x^k-\lambda\nabla f(x^k))\)</span> 具体实现：预先定义多个值进行计算，需要多次尝试。</p>
-<p>当 <span class="math inline">\(\nabla f(x^k)&lt;\epsilon\)</span> 时（即梯度下降缓慢时）停止迭代 注意此算法本身只能保证达到local optimum，不能保证全局最优，因此需要多次重新初始化尝试。</p>
-</blockquote>
-<p>1.2.3 BGD--Batch Gradient Descent</p>
-<p>为了加速参数的更新，往往不会对每一个样本都计算梯度进行更新，事实上是一次性传入一个batch的数据，在更新参数时使用整个batch的数据结果进行更新。BGD收敛效果最好</p>
-<p>1.2.4 SGD--Stochastic Gradient Descent</p>
-<p>在数据量相当大的时候，BGD的开销也过于庞大了，为此数学家们考虑每次更新随机采样一个样本来控制梯度方向--这样做梯度的变化可能会出现较大的波动，但是数据量足够，数学上期望与BGD相同。SGD训练速度最快。</p>
-<p>此外由于SGD本身受离群样本影响大，因此可能会难以收敛，实际应用中往往采用中折--即每次更新采用样本的部分数据进行训练--MBGD--Mini-batch Gradient Descent。</p>
-<h3 id="newton-method">2. Newton Method</h3>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Games101 Homeworks Summary</title>
     <url>/2021/09/29/Games101-Homework-Summary/</url>
     <content><![CDATA[<h3 id="prefab">Prefab</h3>
 <p>Games101还是要强烈推荐给大家，把图形学一些基本的内容讲的十分透彻了。这里记录一下作业的成果，具体的代码实现就不展示了，如果有特别巧妙的会注明。封面将对当前最新进度结果进行展示。</p>
 <p>已完结</p>
 <div align="center">
-<p><img src="/2021/09/29/Games101-Homework-Summary/hw5.png"></p>
+<p><img src="/2021/09/29/Games101-Homework-Summary/hw7_heigh.png"></p>
 <span id="more"></span>
 <h3 id="assignment-1">Assignment 1</h3>
 <p>第一次作业就是简单的几何透视。课上分开讲，所以用分开的子矩阵相乘得到，或者直接计算到结果。</p>
@@ -981,8 +920,10 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
 <h3 id="assignment-7">Assignment 7</h3>
 <p>这次是基于渲染方程的光线追踪，非常麻烦而且细节很多，但是理论上可以达到完全真实的效果。</p>
 <div align="center">
+<img src="/2021/09/29/Games101-Homework-Summary/hw7_low.png" title="fig:" alt="太烧资源了，先放个demo">
+<div align="center">
 <figure>
-<img src="/2021/09/29/Games101-Homework-Summary/hw7_low.png" alt="太烧资源了，先放个demo"><figcaption aria-hidden="true">太烧资源了，先放个demo</figcaption>
+<img src="/2021/09/29/Games101-Homework-Summary/hw7_heigh.png" alt="跑了快8h才做到，C++多线程不会确实吃亏"><figcaption aria-hidden="true">跑了快8h才做到，C++多线程不会确实吃亏</figcaption>
 </figure>
 <h3 id="assignment-8">Assignment 8</h3>
 <p>这次很简单了，就是模拟一根绳子，简单说就是假设每个节点都是质点，然后模拟弹簧计算力-&gt;质点加速度-&gt;质点速度-&gt;每一帧质点位置。</p>
@@ -994,10 +935,71 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
 <figure>
 <img src="/2021/09/29/Games101-Homework-Summary/hw8_high.png" alt="节点较多+Verlet方法"><figcaption aria-hidden="true">节点较多+Verlet方法</figcaption>
 </figure>
-</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>]]></content>
+</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>]]></content>
       <categories>
         <category>Computer Graphics</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Gradient Descent, Newton Method and Quasi-Newton Method</title>
+    <url>/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/</url>
+    <content><![CDATA[<h3 id="gradient-descent">1. Gradient Descent</h3>
+<p>1.1 Gradient</p>
+<p>1.1.1 Derivative</p>
+<p>针对一元函数 <span class="math inline">\(y=f(x)\)</span>，导数 <span class="math inline">\(f&#39;(x_0)\)</span> 表示了该函数在<span class="math inline">\(x_0\)</span>处的函数斜率/增加速率。</p>
+<p>1.1.2 Partial Derivative--偏导数，部分的导数</p>
+<p>针对多元函数（此处考虑二元函数<span class="math inline">\(z=f(x,y)\)</span>），导数 <span class="math inline">\(f&#39;(x_0, y_0)\)</span> 就有些模糊不清了，为此我们先简化到一元的情况：固定 <span class="math inline">\(y=y_0\)</span>，<span class="math inline">\(z=f(x,y)\)</span>，二元函数便降纬为<span class="math inline">\(z=f(x, y_0)\)</span> ，此时我们可以定义在 <span class="math inline">\(x\)</span> 方向上的偏导数 <span class="math inline">\(f&#39;_x(x_0, y_0)\)</span>，其表示该函数在<span class="math inline">\((x_0, y_0)\)</span>点处沿 <span class="math inline">\(x\)</span> 方向函数斜率/增加速率。类似的我们可以得到在 <span class="math inline">\(y\)</span> 方向的偏导数。</p>
+<p>1.1.3 Directional Derivative</p>
+<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(x=x_0\)</span> 或 <span class="math inline">\(y=y_0\)</span> 方向上的函数速率变化了。</p>
+<p>现在基于这两个偏导数我们已经可以求出 <span class="math inline">\(x-y\)</span> 平面任何方向的导数了：假设求 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向的导数（其中<span class="math inline">\(\theta\)</span>表示该向量方向与<span class="math inline">\(x\)</span>轴正方向的夹角，<span class="math inline">\(\vec{i}\)</span>表示<span class="math inline">\(x\)</span>轴正方向，<span class="math inline">\(\vec{j}\)</span>表示<span class="math inline">\(y\)</span>轴正方向） <span class="math display">\[
+D_uf(x,y)=\lim_{x\to\infin}\frac{f(x_0+tcos\theta,y_0+tsin\theta)}{t}
+\]</span> 本质上方向导数是偏导数的一种推广，通过调整方向导数中 <span class="math inline">\(\theta\)</span> 的值也能够简化为偏导数形式。</p>
+<p>但是如果我们观察 <span class="math inline">\(u\)</span> 本身，在 <span class="math inline">\(u\)</span> 方向求导，其实相当于在 <span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span> 方向分别求偏导之后的线性组合： <span class="math display">\[
+D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
+\]</span> 1.1.4 Gradient</p>
+<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\((x_0, y_0)\)</span> 点上在方向 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向上的函数变化速率了。</p>
+<p>那么梯度是什么呢？梯度就是 <span class="math inline">\(z\)</span> 在 <span class="math inline">\((x_0, y_0)\)</span> 点上函数变化速度最快的方向，也就是方向向量最大的方向。</p>
+<p>什么时候方向向量能取到最大呢？<span class="math inline">\(D_uf(x,y)=\begin{bmatrix}f&#39;_x(x,y)&amp;f&#39;_y(x,y)\end{bmatrix}\begin{bmatrix}cos\theta \\ sin\theta\end{bmatrix}=\pmb A*\pmb I\)</span>，当 <span class="math inline">\((cos\theta, sin\theta) // (f&#39;_x(x,y), f&#39;_y(x,y))\)</span> 时能够取到最大值，此时在 <span class="math inline">\((x_0,y_0)\)</span> 的梯度 <span class="math inline">\(\pmb I=\begin{bmatrix}\frac{\partial f}{\partial x_0} \\ \frac{\partial f}{\partial y_0}\end{bmatrix}\)</span></p>
+<p>梯度本质是<strong>矢量</strong>，在其方向上该点的方向向量最大。</p>
+<span id="more"></span>
+<p>1.2 Gradient Descent</p>
+<p>1.2.1 Local optimum</p>
+<p>由于机器学习应用梯度下降一般是为了最小化loss，因此实际上我们想要找到的是一个多元函数的最小值。从一个点出发，如果我们<strong>连续地</strong>在这个函数表面移动，一直往当前梯度最大的负方向（梯度本身定义指向函数值增加方向），这样我们最终一定会停留在函数谷底，也就是得到局部最优解。</p>
+<p>1.2.2 Algorithm</p>
+<p>首先我们先定义一下问题：</p>
+<blockquote>
+<p>函数 <span class="math inline">\(f(x)\)</span> 为在 <span class="math inline">\(R^n\)</span> 上具有一阶连续偏导数的函数（note：这里 <span class="math inline">\(x\)</span> 其实是 <span class="math inline">\(n\)</span> 维向量 <span class="math inline">\(x=(x_1,x_2,\cdots,x_n)\)</span>）</p>
+<p>在无约束的情况下我们希望得到目标函数 <span class="math inline">\(f(x)\)</span> 的极小值。</p>
+</blockquote>
+<p>具体实现算法：</p>
+<blockquote>
+<p>初始化 <span class="math inline">\(x\)</span> 数值，记作 <span class="math inline">\(x^0\)</span></p>
+<p>第k+1轮迭代：<span class="math inline">\(x^{k+1} = x^k+\lambda_kp_k\)</span> 其中 <span class="math inline">\(p_k\)</span> 为函数更新方向，取第k轮函数的负梯度（函数值下降最快的方向）：<span class="math inline">\(p_k=-\nabla f(x^k)\)</span> 其中 <span class="math inline">\(\lambda_k\)</span> 为函数更新的步长，由一维搜索得到：<span class="math inline">\(\lambda_k=\underset{\lambda}{\operatorname{argmin}}f(x^k+\lambda p_k)=\underset{\lambda}{\operatorname{argmin}}f(x^k-\lambda\nabla f(x^k))\)</span> 具体实现：预先定义多个值进行计算，需要多次尝试。</p>
+<p>当 <span class="math inline">\(\nabla f(x^k)&lt;\epsilon\)</span> 时（即梯度下降缓慢时）停止迭代 注意此算法本身只能保证达到local optimum，不能保证全局最优，因此需要多次重新初始化尝试。</p>
+</blockquote>
+<p>1.2.3 BGD--Batch Gradient Descent</p>
+<p>为了加速参数的更新，往往不会对每一个样本都计算梯度进行更新，事实上是一次性传入一个batch的数据，在更新参数时使用整个batch的数据结果进行更新。BGD收敛效果最好</p>
+<p>1.2.4 SGD--Stochastic Gradient Descent</p>
+<p>在数据量相当大的时候，BGD的开销也过于庞大了，为此数学家们考虑每次更新随机采样一个样本来控制梯度方向--这样做梯度的变化可能会出现较大的波动，但是数据量足够，数学上期望与BGD相同。SGD训练速度最快。</p>
+<p>此外由于SGD本身受离群样本影响大，因此可能会难以收敛，实际应用中往往采用中折--即每次更新采用样本的部分数据进行训练--MBGD--Mini-batch Gradient Descent。</p>
+<h3 id="newton-method">2. Newton Method</h3>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to generate random number via C++ (srand version)</title>
+    <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
+    <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Srand</tag>
+      </tags>
   </entry>
   <entry>
     <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
@@ -1012,6 +1014,37 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
       <tags>
         <tag>Ubuntu</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>How to get matrix transform in python</title>
+    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
+    <content><![CDATA[<p>Here is a special trick:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to use docker in Mac M1</title>
+    <url>/2021/10/09/How-to-use-docker-in-Mac-M1/</url>
+    <content><![CDATA[<h3 id="install-docker">Install docker</h3>
+<p>Download docker here: https://docs.docker.com/docker-for-mac/apple-m1/</p>
+<p>Note:</p>
+<p>This is just a preview version, which means you may encounter various bugs.</p>
+<p>This version is based on <strong>Rosetta2</strong>, so remember to install it via <code>$ softwareupdate --install-rosetta</code>.</p>
+<h3 id="check-your-docker">Check your docker</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker -v</span><br><span class="line">$ docker info // it may take a few minutes to start docker</span><br></pre></td></tr></table></figure>
+<h3 id="use-docker-image-mit-6.s081">Use docker image <a href="https://zhuanlan.zhihu.com/p/417668697">MIT 6.S081</a></h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker pull calvinhaynes412/mit6.s081:v1 // pull docker image</span><br><span class="line">$ git clone git@github.com:CalvinHaynes/MIT6.S081-2020Fall.git // pull git repository</span><br></pre></td></tr></table></figure>
+<p>Open the docker image-&gt;set repository to the local git repository-&gt;open docker in browser.</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
   </entry>
   <entry>
     <title>How to install &#39;labelme&#39; in Macbook M1</title>
@@ -1041,31 +1074,40 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
       </categories>
   </entry>
   <entry>
-    <title>How to get matrix transform in python</title>
-    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
-    <content><![CDATA[<p>Here is a special trick:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
+    <title>Image Test</title>
+    <url>/2021/09/15/Image-Test/</url>
+    <content><![CDATA[<p>You see the image? <img src="/2021/09/15/Image-Test/test.jpg" alt="image"></p>
 ]]></content>
       <categories>
-        <category>Learning</category>
+        <category>Test</category>
       </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
   </entry>
   <entry>
-    <title>How to use docker in Mac M1</title>
-    <url>/2021/10/09/How-to-use-docker-in-Mac-M1/</url>
-    <content><![CDATA[<h3 id="install-docker">Install docker</h3>
-<p>Download docker here: https://docs.docker.com/docker-for-mac/apple-m1/</p>
-<p>Note:</p>
-<p>This is just a preview version, which means you may encounter various bugs.</p>
-<p>This version is based on <strong>Rosetta2</strong>, so remember to install it via <code>$ softwareupdate --install-rosetta</code>.</p>
-<h3 id="check-your-docker">Check your docker</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker -v</span><br><span class="line">$ docker info // it may take a few minutes to start docker</span><br></pre></td></tr></table></figure>
-<h3 id="use-docker-image-mit-6.s081">Use docker image <a href="https://zhuanlan.zhihu.com/p/417668697">MIT 6.S081</a></h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker pull calvinhaynes412/mit6.s081:v1 // pull docker image</span><br><span class="line">$ git clone git@github.com:CalvinHaynes/MIT6.S081-2020Fall.git // pull git repository</span><br></pre></td></tr></table></figure>
-<p>Open the docker image-&gt;set repository to the local git repository-&gt;open docker in browser.</p>
+    <title>Jupyter Notebook Installtion</title>
+    <url>/2021/10/09/Jupyter-Notebook-Installtion/</url>
+    <content><![CDATA[<ol type="1">
+<li><p><code>conda create -n &lt;env_name&gt; &lt;python=3.9&gt;</code></p></li>
+<li><p><code>conda install jupyter notebook</code></p></li>
+<li><p><code>pip install jupyter_contrib_nbextensions</code>, <code>jupyter contrib nbextension install --user</code>, <code>pip install jupyter_nbextensions_configurator</code>, <code>jupyter nbextensions_configurator enable --user</code></p></li>
+<li><p>open <code>jupyter notebook</code>-&gt;Nbextension-&gt;Hinterland (enable this button)</p></li>
+<li><p><code>conda install nb_conda_kernels</code></p>
+<p>with this package, you are able to select your own conda environment in notebook.</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Mac上vscode显示没有修改文件权限</title>
+    <url>/2020/05/22/Mac%E4%B8%8Avscode%E6%98%BE%E7%A4%BA%E6%B2%A1%E6%9C%89%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<p>mac上vscode显示<code>fail to save</code>要求<code>try as sudo</code></p>
+<h2 id="问题解决">问题解决</h2>
+<p>当然你可以每次都手动输入一遍密码，但是太麻烦，而且也有可能失败 所以最好就是直接给vscode对当前文件夹的完全权限</p>
+<p><code>sudo chown -R &lt;usrname&gt; &lt;/address&gt;</code></p>
+<h2 id="more">more</h2>
+<p><code>chown</code>表示权限 <code>-R</code>表示对子文件递推 但是要注意，每次在该文件下以vscode以外的终端新增的文件依然没有权限，重新进行一下命令就好了。</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -1187,40 +1229,9 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
-    <title>Image Test</title>
-    <url>/2021/09/15/Image-Test/</url>
-    <content><![CDATA[<p>You see the image? <img src="/2021/09/15/Image-Test/test.jpg" alt="image"></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Mac上vscode显示没有修改文件权限</title>
-    <url>/2020/05/22/Mac%E4%B8%8Avscode%E6%98%BE%E7%A4%BA%E6%B2%A1%E6%9C%89%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<p>mac上vscode显示<code>fail to save</code>要求<code>try as sudo</code></p>
-<h2 id="问题解决">问题解决</h2>
-<p>当然你可以每次都手动输入一遍密码，但是太麻烦，而且也有可能失败 所以最好就是直接给vscode对当前文件夹的完全权限</p>
-<p><code>sudo chown -R &lt;usrname&gt; &lt;/address&gt;</code></p>
-<h2 id="more">more</h2>
-<p><code>chown</code>表示权限 <code>-R</code>表示对子文件递推 但是要注意，每次在该文件下以vscode以外的终端新增的文件依然没有权限，重新进行一下命令就好了。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Jupyter Notebook Installtion</title>
-    <url>/2021/10/09/Jupyter-Notebook-Installtion/</url>
-    <content><![CDATA[<ol type="1">
-<li><p><code>conda create -n &lt;env_name&gt; &lt;python=3.9&gt;</code></p></li>
-<li><p><code>conda install jupyter notebook</code></p></li>
-<li><p><code>pip install jupyter_contrib_nbextensions</code>, <code>jupyter contrib nbextension install --user</code>, <code>pip install jupyter_nbextensions_configurator</code>, <code>jupyter nbextensions_configurator enable --user</code></p></li>
-<li><p>open <code>jupyter notebook</code>-&gt;Nbextension-&gt;Hinterland (enable this button)</p></li>
-<li><p><code>conda install nb_conda_kernels</code></p>
-<p>with this package, you are able to select your own conda environment in notebook.</p></li>
-</ol>
+    <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
+    <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
+    <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -1243,15 +1254,6 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </tags>
   </entry>
   <entry>
-    <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
-    <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
-    <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Markdown在github上公式显示错误</title>
     <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
     <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
@@ -1262,6 +1264,16 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       <tags>
         <tag>markdown</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Overwatch yes</title>
+    <url>/2021/06/10/Overwatch-yes/</url>
+    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
+<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
+]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
   </entry>
   <entry>
     <title>My Donut in Blender</title>
@@ -1293,14 +1305,47 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
-    <title>Overwatch yes</title>
-    <url>/2021/06/10/Overwatch-yes/</url>
-    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
-<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
+    <title>NPR Cup--a taste to NPR</title>
+    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
+    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果"><figcaption aria-hidden="true">简单的一个效果</figcaption>
+</figure>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了"><figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
+</figure>
 ]]></content>
       <categories>
-        <category>Chat</category>
+        <category>Rendering</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Python technique</title>
+    <url>/2020/06/06/Python-technique/</url>
+    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking or dynamic programing:</p>
+<p>cause it will avoid reuse of data and reach good performance</p>
+<hr>
+<p>how to create a vector</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
+<p>Directly read/ wirte is quite different from <code>append()</code></p>
+<p><code>append()</code> will treat elements as data, which is more flexible</p>
+<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned vector</p>
+<span id="more"></span>
+<hr>
+<p>spilt part of string</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>init a vector:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
+<p>vector is a row*column size vector with all entries initialized by a.</p>
+<p>note <code>a</code> is just a value and can be anything you wang. <code>i</code> is just an iterator, even can use <code>_</code></p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>PDF &amp; CDF</title>
@@ -1318,18 +1363,15 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </tags>
   </entry>
   <entry>
-    <title>NPR Cup--a taste to NPR</title>
-    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
-    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果"><figcaption aria-hidden="true">简单的一个效果</figcaption>
-</figure>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了"><figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
-</figure>
+    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
+    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
+    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
+<p>Literally, it is a <code>const iterator</code>, which means: iterator, as a pointer, can not be modified, but the value pointed by this iterator is permitted to be modified.</p>
+<h1 id="const_iterator">const_iterator</h1>
+<p><code>const_iterator</code>is a specially defined class. It is defined to go through a const container, which we are not intended to modify.</p>
 ]]></content>
       <categories>
-        <category>Rendering</category>
+        <category>Learning</category>
       </categories>
   </entry>
   <entry>
@@ -1376,43 +1418,45 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </tags>
   </entry>
   <entry>
-    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
-    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
-    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
-<p>Literally, it is a <code>const iterator</code>, which means: iterator, as a pointer, can not be modified, but the value pointed by this iterator is permitted to be modified.</p>
-<h1 id="const_iterator">const_iterator</h1>
-<p><code>const_iterator</code>is a specially defined class. It is defined to go through a const container, which we are not intended to modify.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Python technique</title>
-    <url>/2020/06/06/Python-technique/</url>
-    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking or dynamic programing:</p>
-<p>cause it will avoid reuse of data and reach good performance</p>
-<hr>
-<p>how to create a vector</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
-<p>Directly read/ wirte is quite different from <code>append()</code></p>
-<p><code>append()</code> will treat elements as data, which is more flexible</p>
-<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned vector</p>
+    <title>SVM(Support Vector Machine)</title>
+    <url>/2021/05/25/SVM-Support-Vector-Machine/</url>
+    <content><![CDATA[<h2 id="margin">Margin</h2>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/1.png" alt="1" style="zoom:50%;"></p>
+<p>从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。</p>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/2.png" alt="2" style="zoom:50%;"></p>
+<p>上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。</p>
 <span id="more"></span>
-<hr>
-<p>spilt part of string</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>init a vector:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
-<p>vector is a row*column size vector with all entries initialized by a.</p>
-<p>note <code>a</code> is just a value and can be anything you wang. <code>i</code> is just an iterator, even can use <code>_</code></p>
+<h2 id="linear-seperatable-svm">Linear Seperatable SVM</h2>
+<p>首先考虑所有sample本身线性可分。</p>
+<h3 id="problem-definition">Problem Definition</h3>
+<p>对于线性分类器的超平面为：<span class="math inline">\(X^TW+b=0\)</span>。We define those with <span class="math inline">\(X^TW+b&gt;1\)</span> is labeled +1, which means geometrically the <em>left-top</em> part of the line is labeled positive.</p>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/3.png" alt="2" style="zoom:50%;"></p>
+<p>So we can see that <span class="math inline">\(margin = \frac{2}{||W||}\)</span>. We want to maximum margin which is same with <span class="math inline">\(min||W||^2\)</span>.</p>
+<p>[primal problem]</p>
+<p>The whole problem can be written as :</p>
+<p><span class="math inline">\(min||W||^2, \  st. y_i(X_i^TW+b)&gt;=1\)</span>.</p>
+<h3 id="how-to-find-w-b">How to find W, b</h3>
+<p>If all the data is linear seperatable, those points that determine margin are called support vectors. For support vectors we have: <span class="math inline">\(y_i(X_i^TW+b)=1\)</span>. For other points, they have no influence on this algorithm so that this algorithm is called SVM.</p>
+<h2 id="nonlinear-seperatable-svm">NonLinear Seperatable SVM</h2>
+<p>Since the data is not linear speratable itself, we allow SVM has some mistakes--<em>soft margin</em>.</p>
+<h3 id="hinge-loss">hinge loss</h3>
+<p>We will modify our objective function by adding hinge loss</p>
+<p>(<span class="math inline">\(l_{hinge}=max(0,1-z), z=y_i(X_i^TW+b)\)</span>).</p>
+<p>Objective function: <span class="math inline">\(min \ ||W||^2+C\Sigma l_{hinge}\)</span>. C is hyper-parameter. If C-&gt;0, the model allows any mistakes--easily undercutting; if C-&gt;∞, the model is same with Linear Speratable SVM--easily overfitting.</p>
+<p>[primal problem]</p>
+<p>The whole problem can be written as:</p>
+<p><span class="math inline">\(min||W||^2+C\Sigma_i\xi_i, \ st.y_i(X_i^TW+b)&gt;=1-\xi_i,\xi&gt;=0\)</span>.</p>
+<h2 id="what-if-the-sample-is-totally-nonlinear-seperatable">What if the sample is totally nonlinear seperatable?</h2>
+<h3 id="kernel">Kernel</h3>
+<p>Introduce Lagranginan function and we get dual form of primal problem:</p>
+<p><span class="math inline">\(min_{\alpha}\Sigma_i^n\Sigma_j^n\alpha_i\alpha_jy_iy_j(X_i\cdot X_j)-\Sigma_i^n\alpha_i. \ st. \Sigma_i^n\alpha_iy_i=0, \ 0\leq\alpha_i&lt;C\)</span>.</p>
+<p>We can choose proper kernel <span class="math inline">\(K\)</span> to replace <span class="math inline">\((X_i\cdot X_j)\)</span>.</p>
 ]]></content>
       <categories>
-        <category>Learning</category>
+        <category>Machine Learning</category>
       </categories>
       <tags>
-        <tag>Python</tag>
+        <tag>SVM</tag>
       </tags>
   </entry>
   <entry>
@@ -1470,172 +1514,6 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
 ]]></content>
       <categories>
         <category>Computer Vision</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>SVM(Support Vector Machine)</title>
-    <url>/2021/05/25/SVM-Support-Vector-Machine/</url>
-    <content><![CDATA[<h2 id="margin">Margin</h2>
-<p><img src="/2021/05/25/SVM-Support-Vector-Machine/1.png" alt="1" style="zoom:50%;"></p>
-<p>从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。</p>
-<p><img src="/2021/05/25/SVM-Support-Vector-Machine/2.png" alt="2" style="zoom:50%;"></p>
-<p>上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。</p>
-<span id="more"></span>
-<h2 id="linear-seperatable-svm">Linear Seperatable SVM</h2>
-<p>首先考虑所有sample本身线性可分。</p>
-<h3 id="problem-definition">Problem Definition</h3>
-<p>对于线性分类器的超平面为：<span class="math inline">\(X^TW+b=0\)</span>。We define those with <span class="math inline">\(X^TW+b&gt;1\)</span> is labeled +1, which means geometrically the <em>left-top</em> part of the line is labeled positive.</p>
-<p><img src="/2021/05/25/SVM-Support-Vector-Machine/3.png" alt="2" style="zoom:50%;"></p>
-<p>So we can see that <span class="math inline">\(margin = \frac{2}{||W||}\)</span>. We want to maximum margin which is same with <span class="math inline">\(min||W||^2\)</span>.</p>
-<p>[primal problem]</p>
-<p>The whole problem can be written as :</p>
-<p><span class="math inline">\(min||W||^2, \  st. y_i(X_i^TW+b)&gt;=1\)</span>.</p>
-<h3 id="how-to-find-w-b">How to find W, b</h3>
-<p>If all the data is linear seperatable, those points that determine margin are called support vectors. For support vectors we have: <span class="math inline">\(y_i(X_i^TW+b)=1\)</span>. For other points, they have no influence on this algorithm so that this algorithm is called SVM.</p>
-<h2 id="nonlinear-seperatable-svm">NonLinear Seperatable SVM</h2>
-<p>Since the data is not linear speratable itself, we allow SVM has some mistakes--<em>soft margin</em>.</p>
-<h3 id="hinge-loss">hinge loss</h3>
-<p>We will modify our objective function by adding hinge loss</p>
-<p>(<span class="math inline">\(l_{hinge}=max(0,1-z), z=y_i(X_i^TW+b)\)</span>).</p>
-<p>Objective function: <span class="math inline">\(min \ ||W||^2+C\Sigma l_{hinge}\)</span>. C is hyper-parameter. If C-&gt;0, the model allows any mistakes--easily undercutting; if C-&gt;∞, the model is same with Linear Speratable SVM--easily overfitting.</p>
-<p>[primal problem]</p>
-<p>The whole problem can be written as:</p>
-<p><span class="math inline">\(min||W||^2+C\Sigma_i\xi_i, \ st.y_i(X_i^TW+b)&gt;=1-\xi_i,\xi&gt;=0\)</span>.</p>
-<h2 id="what-if-the-sample-is-totally-nonlinear-seperatable">What if the sample is totally nonlinear seperatable?</h2>
-<h3 id="kernel">Kernel</h3>
-<p>Introduce Lagranginan function and we get dual form of primal problem:</p>
-<p><span class="math inline">\(min_{\alpha}\Sigma_i^n\Sigma_j^n\alpha_i\alpha_jy_iy_j(X_i\cdot X_j)-\Sigma_i^n\alpha_i. \ st. \Sigma_i^n\alpha_iy_i=0, \ 0\leq\alpha_i&lt;C\)</span>.</p>
-<p>We can choose proper kernel <span class="math inline">\(K\)</span> to replace <span class="math inline">\((X_i\cdot X_j)\)</span>.</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>SVM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Test discription</title>
-    <url>/2021/09/15/Test-discription/</url>
-    <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>TOEFL Notes (based on TPO)</title>
-    <url>/2021/10/07/TOEFL-Notes-based-on-TPO/</url>
-    <content><![CDATA[<h3 id="tpo1-reading">TPO1 Reading</h3>
-<ol type="1">
-<li>Groundwater(地下水) is the word used to describe water that saturates(渗透、浸透) the ground.</li>
-<li>By far(到目前为止) the most <strong>abundant</strong>(<strong>大量的</strong>、充足的) type of groundwater is meteoric(<strong>大气的</strong>；流星的) water.</li>
-<li>circulate(v. <strong>循环</strong>；流通；流传)</li>
-<li>precipitation(化学沉淀；<strong>降水</strong>；冰雹；坠落)</li>
-<li>sand grains(沙粒)--grain(谷物；颗粒)</li>
-<li>The commonest spaces are those among the particles sand grains and tiny pebbles(卵石) of loose, unconsolidated(松散的) sand and gravel(沙砾).</li>
-<li>bed(床；<strong>河床</strong>)</li>
-<li>They are found wherever(adv. 任何地方) fast rivers carrying loads of(大量的) coarse(粗糙的) sediment(沉淀物) once flowed(流动、涌动).</li>
-<li>ice sheet(冰盖)--sheet(纸张；薄片；板)</li>
-<li>melt away(vi. 融化、消失)</li>
-<li>lade(装载)-laded-laden-&gt;be laden with...</li>
-<li>glacial outwash(冰水沉积)--outwash(术语，专指冰水沉积)</li>
-<li>sandbar(沙洲)</li>
-<li>cement(水泥；粘合剂)--cemented(粘合的；<strong>压实的</strong>)</li>
-<li>minute(n. 分钟；备忘录；一会 adj. <strong>微小的</strong>)</li>
-<li>So much for... 到此为止是关于...</li>
-<li>pore(毛孔；<strong>气孔</strong>)--porous(多孔的)</li>
-<li>percolate(<strong>渗透</strong>；过滤)--percolating water(渗透水)</li>
-<li>Most crystalline(结晶的、晶体的) rocks are much more solid; a common exception is basalt(玄武岩), a form of solidified(凝固的) volcanic(<strong>火山的</strong>；火山岩) lava(岩浆), which is sometimes full of tiny bubbles that make it very porous. <span id="more"></span></li>
-<li>cling to...(附着在...；坚持...；紧抓着...)</li>
-<li>be thought of as... (被视为...)</li>
-<li>film(电影；胶卷；<strong>薄膜</strong>)--thin film(薄膜)</li>
-<li>champion(n. 冠军；拥护者 vt. <strong>支持</strong>、拥护)</li>
-<li>anthropologist(人类学家)</li>
-<li>envision(vt. 想象、假想)</li>
-<li>emerge out of...(从...中出现)</li>
-<li>ritual(n. <strong>仪式</strong>；礼节 adj. 礼仪的)</li>
-<li>attribute...to...(把...归结于...)</li>
-<li>Complaints seemed to be an everyday occurrence(事件).</li>
-<li>Perceiving(意识到) an apparent connection between certain actions performed by the group and the result it desires, the group repeats, refines(精细化), and formalizes(使...形式化) those actions into fixed ceremonies(礼节), or rituals(宗教仪式).</li>
-<li>representative(adj. 典型的 n. 代表；<strong>典型</strong>；众议员)</li>
-<li>costume(服饰；戏服)--custom(n. 习惯；风俗 adj. 定制的)</li>
-<li>mythical(神话中的；虚构的)</li>
-<li>As a people becomes more sophisticated(<strong>见多识广的</strong>；复杂精巧的；先进的), its conceptions of supernatural forces and causal relationships may change.</li>
-<li>act out...(表演...)</li>
-<li>autonomous activity(自发行动)</li>
-<li>efficacious(灵验的--常用于宗教相关)</li>
-<li>Thus, the recalling of an event (a hunt, battle, or other feat(伟绩--可数)) is <strong>elaborated</strong>(详细表达) through the narrator's pantomime(<strong>手势</strong>；哑剧) and <strong>impersonation</strong>(n. 模仿) and eventually through each role being assumed(承担) by a different person.</li>
-<li>pantomimic(哑剧的) rhythmical(有节奏的) gymnastic(体育的)</li>
-<li>virtuosity(精湛技艺)</li>
-<li>antecedent(先祖；前因；<strong>起源</strong>)</li>
-<li>set forth(提出；出发)--He sets forth his objections.</li>
-<li>Thus, fantasy or fiction (of which drama is one form) permits people to <strong>objectify</strong>(具像化) their anxieties and fears.</li>
-<li>penchant(嗜好、倾向)--penchant for...</li>
-<li>One necessary condition(条件) seems to be a somewhat(有点) detached(<strong>脱离的</strong>；客观的) view of human problems.</li>
-<li>detachment(n. 超然)--a sort of lofty detachment</li>
-<li>deviation(背离) from social norms</li>
-<li>vegetation(植被；植物)</li>
-<li>deciduous trees(落叶树、阔叶树)</li>
-<li>deform(扭曲、畸形)</li>
-<li>prone(<strong>易于...</strong>；<strong>俯卧的</strong>)--be prone to dry out</li>
-<li>prevalent(普遍的、常见的)</li>
-</ol>
-<h3 id="tpo50-reading">TPO50 Reading</h3>
-<ol type="1">
-<li>spearhead(n.带头；先锋部队 vt.带...的头)</li>
-<li></li>
-</ol>
-]]></content>
-      <categories>
-        <category>-TOEFL</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Test Latex Formula</title>
-    <url>/2021/09/15/Test-Latex-Formula/</url>
-    <content><![CDATA[<p>This is an inline formula: <span class="math inline">\(x=7\)</span>. This is a simple equation: <span class="math display">\[
-e=mc^2
-\]</span></p>
-<p><span class="math display">\[
-a=\frac{1}{2}
-\]</span></p>
-<p><span class="math display">\[
-f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
-\]</span></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Test password</title>
-    <url>/2021/09/15/Test-password/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="d0f22fb8ec934b630357bfed8eddaebceee1d75a12c7b7f676982c457b1c24c3">165d50f05814027fb7fe5e4ae8a088d8aa2b5ed724ea7f4f8aea8267289667dd0de0240fdde409598408170417c80b66d2288279e5571a43ddc20d8f87d5d48034dddfe8e1d8a865ebee019b43336466</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Please Eneter Password!</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Use of Tuple in Python</title>
-    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<p>Tuple最特别在于<br></p>
-<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
       </categories>
   </entry>
   <entry>
@@ -1878,6 +1756,130 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
+    <title>TOEFL Notes (based on TPO)</title>
+    <url>/2021/10/07/TOEFL-Notes-based-on-TPO/</url>
+    <content><![CDATA[<h3 id="tpo1-reading">TPO1 Reading</h3>
+<ol type="1">
+<li>Groundwater(地下水) is the word used to describe water that saturates(渗透、浸透) the ground.</li>
+<li>By far(到目前为止) the most <strong>abundant</strong>(<strong>大量的</strong>、充足的) type of groundwater is meteoric(<strong>大气的</strong>；流星的) water.</li>
+<li>circulate(v. <strong>循环</strong>；流通；流传)</li>
+<li>precipitation(化学沉淀；<strong>降水</strong>；冰雹；坠落)</li>
+<li>sand grains(沙粒)--grain(谷物；颗粒)</li>
+<li>The commonest spaces are those among the particles sand grains and tiny pebbles(卵石) of loose, unconsolidated(松散的) sand and gravel(沙砾).</li>
+<li>bed(床；<strong>河床</strong>)</li>
+<li>They are found wherever(adv. 任何地方) fast rivers carrying loads of(大量的) coarse(粗糙的) sediment(沉淀物) once flowed(流动、涌动).</li>
+<li>ice sheet(冰盖)--sheet(纸张；薄片；板)</li>
+<li>melt away(vi. 融化、消失)</li>
+<li>lade(装载)-laded-laden-&gt;be laden with...</li>
+<li>glacial outwash(冰水沉积)--outwash(术语，专指冰水沉积)</li>
+<li>sandbar(沙洲)</li>
+<li>cement(水泥；粘合剂)--cemented(粘合的；<strong>压实的</strong>)</li>
+<li>minute(n. 分钟；备忘录；一会 adj. <strong>微小的</strong>)</li>
+<li>So much for... 到此为止是关于...</li>
+<li>pore(毛孔；<strong>气孔</strong>)--porous(多孔的)</li>
+<li>percolate(<strong>渗透</strong>；过滤)--percolating water(渗透水)</li>
+<li>Most crystalline(结晶的、晶体的) rocks are much more solid; a common exception is basalt(玄武岩), a form of solidified(凝固的) volcanic(<strong>火山的</strong>；火山岩) lava(岩浆), which is sometimes full of tiny bubbles that make it very porous. <span id="more"></span></li>
+<li>cling to...(附着在...；坚持...；紧抓着...)</li>
+<li>be thought of as... (被视为...)</li>
+<li>film(电影；胶卷；<strong>薄膜</strong>)--thin film(薄膜)</li>
+<li>champion(n. 冠军；拥护者 vt. <strong>支持</strong>、拥护)</li>
+<li>anthropologist(人类学家)</li>
+<li>envision(vt. 想象、假想)</li>
+<li>emerge out of...(从...中出现)</li>
+<li>ritual(n. <strong>仪式</strong>；礼节 adj. 礼仪的)</li>
+<li>attribute...to...(把...归结于...)</li>
+<li>Complaints seemed to be an everyday occurrence(事件).</li>
+<li>Perceiving(意识到) an apparent connection between certain actions performed by the group and the result it desires, the group repeats, refines(精细化), and formalizes(使...形式化) those actions into fixed ceremonies(礼节), or rituals(宗教仪式).</li>
+<li>representative(adj. 典型的 n. 代表；<strong>典型</strong>；众议员)</li>
+<li>costume(服饰；戏服)--custom(n. 习惯；风俗 adj. 定制的)</li>
+<li>mythical(神话中的；虚构的)</li>
+<li>As a people becomes more sophisticated(<strong>见多识广的</strong>；复杂精巧的；先进的), its conceptions of supernatural forces and causal relationships may change.</li>
+<li>act out...(表演...)</li>
+<li>autonomous activity(自发行动)</li>
+<li>efficacious(灵验的--常用于宗教相关)</li>
+<li>Thus, the recalling of an event (a hunt, battle, or other feat(伟绩--可数)) is <strong>elaborated</strong>(详细表达) through the narrator's pantomime(<strong>手势</strong>；哑剧) and <strong>impersonation</strong>(n. 模仿) and eventually through each role being assumed(承担) by a different person.</li>
+<li>pantomimic(哑剧的) rhythmical(有节奏的) gymnastic(体育的)</li>
+<li>virtuosity(精湛技艺)</li>
+<li>antecedent(先祖；前因；<strong>起源</strong>)</li>
+<li>set forth(提出；出发)--He sets forth his objections.</li>
+<li>Thus, fantasy or fiction (of which drama is one form) permits people to <strong>objectify</strong>(具像化) their anxieties and fears.</li>
+<li>penchant(嗜好、倾向)--penchant for...</li>
+<li>One necessary condition(条件) seems to be a somewhat(有点) detached(<strong>脱离的</strong>；客观的) view of human problems.</li>
+<li>detachment(n. 超然)--a sort of lofty detachment</li>
+<li>deviation(背离) from social norms</li>
+<li>vegetation(植被；植物)</li>
+<li>deciduous trees(落叶树、阔叶树)</li>
+<li>deform(扭曲、畸形)</li>
+<li>prone(<strong>易于...</strong>；<strong>俯卧的</strong>)--be prone to dry out</li>
+<li>prevalent(普遍的、常见的)</li>
+</ol>
+<h3 id="tpo50-reading">TPO50 Reading</h3>
+<ol type="1">
+<li>spearhead(n.带头；先锋部队 vt.带...的头)</li>
+<li></li>
+</ol>
+]]></content>
+      <categories>
+        <category>-TOEFL</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Test discription</title>
+    <url>/2021/09/15/Test-discription/</url>
+    <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Use of Tuple in Python</title>
+    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>Tuple最特别在于<br></p>
+<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Test Latex Formula</title>
+    <url>/2021/09/15/Test-Latex-Formula/</url>
+    <content><![CDATA[<p>This is an inline formula: <span class="math inline">\(x=7\)</span>. This is a simple equation: <span class="math display">\[
+e=mc^2
+\]</span></p>
+<p><span class="math display">\[
+a=\frac{1}{2}
+\]</span></p>
+<p><span class="math display">\[
+f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
+\]</span></p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Test password</title>
+    <url>/2021/09/15/Test-password/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="d0f22fb8ec934b630357bfed8eddaebceee1d75a12c7b7f676982c457b1c24c3">165d50f05814027fb7fe5e4ae8a088d8aa2b5ed724ea7f4f8aea8267289667dd0de0240fdde409598408170417c80b66d2288279e5571a43ddc20d8f87d5d48034dddfe8e1d8a865ebee019b43336466</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Please Eneter Password!</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Use of &#39;numpy&#39; package in Python</title>
     <url>/2020/09/27/Use-of-numpy-package-in-Python/</url>
     <content><![CDATA[<h2 id="import">Import</h2>
@@ -1902,91 +1904,11 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>assert expression in Python</title>
-    <url>/2020/09/24/assert-expression-in-Python/</url>
-    <content><![CDATA[<h2 id="tags">tags:</h2>
-<h3 id="synatx">1. synatx</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert [expression]</span><br><span class="line"># it is same with</span><br><span class="line">if not [expression]:</span><br><span class="line">    raise AssertionError</span><br></pre></td></tr></table></figure>
-<h3 id="with-parameters">2. with parameters</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert expression [, arguments]</span><br><span class="line"># same with</span><br><span class="line">if not expression:</span><br><span class="line">    raise AssertionError(arguments)</span><br></pre></td></tr></table></figure>
-<h3 id="conclusion">conclusion</h3>
-<p>if an assert is not satisfied, throw exception. easy to detect the errors in code.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>What is the use of activation function</title>
-    <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
-    <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
-<p>The following picture illustrates the basic structure of neural network.</p>
-<figure>
-<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn"><figcaption aria-hidden="true">nn</figcaption>
-</figure>
-<p>Extracted featrures are passed into the net as input.</p>
-<p># of input node = # of extracted feature types</p>
-<span id="more"></span>
-<h1 id="why-we-need-activation">Why we need activation</h1>
-<p>For a classifiying issue:</p>
-<h3 id="without-activation">Without activation</h3>
-<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
-<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input} input+loss_1)+loss_2\)</span></p>
-<p>So bascically, we can derive that no matter how many layers you add into the net, without activation, the net can only produce a <strong>linear classifier</strong>.</p>
-<h3 id="with-activation">With activation</h3>
-<p>The aim of activation is to transfer a linear classifer to a non-linear classifer.</p>
-<p>The basic actication we use is: <span class="math display">\[
-\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0 \\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
-\]</span> It is same as nerve cell--if the cell is activated it produce a signal, otherwise, it does nothing.</p>
-<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
-\sigma(y) = \frac 1 {1+e^{-y}}
-\]</span> (we prefer to ues <span class="math inline">\(y\)</span>, because actication is added inside the net which means the input of activation is the output of prior layer)</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
-<center>
-<p>NN structure with activation</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
-<center>
-<p>Output of NN with activation</p>
-</center></center>]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Relu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo部署到git出现不同步问题</title>
-    <url>/2020/05/20/hexo%E9%83%A8%E7%BD%B2%E5%88%B0git%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<ol type="1">
-<li><p>hexo到git上部署首先要检查自己的config里的repo地址对不对</p></li>
-<li><p>如果地址正确可以考虑在_config.yml的repo下面一行添加上</p></li>
-</ol>
-<p><code>branch: master</code></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>-部署</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo中使用markdown无法处理特殊字符</title>
-    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。 比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
-<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Video test</title>
     <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-mHPAhfzDnFRAUOzm" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-mHPAhfzDnFRAUOzm").style.height=document.getElementById("mmedia-mHPAhfzDnFRAUOzm").scrollWidth*0.76+"px";
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-vwaxdRmIiylllwvf" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-vwaxdRmIiylllwvf").style.height=document.getElementById("mmedia-vwaxdRmIiylllwvf").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-mHPAhfzDnFRAUOzm").style.height=document.getElementById("mmedia-mHPAhfzDnFRAUOzm").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-vwaxdRmIiylllwvf").style.height=document.getElementById("mmedia-vwaxdRmIiylllwvf").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <thead>
@@ -2056,6 +1978,60 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
+    <title>assert expression in Python</title>
+    <url>/2020/09/24/assert-expression-in-Python/</url>
+    <content><![CDATA[<h2 id="tags">tags:</h2>
+<h3 id="synatx">1. synatx</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert [expression]</span><br><span class="line"># it is same with</span><br><span class="line">if not [expression]:</span><br><span class="line">    raise AssertionError</span><br></pre></td></tr></table></figure>
+<h3 id="with-parameters">2. with parameters</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert expression [, arguments]</span><br><span class="line"># same with</span><br><span class="line">if not expression:</span><br><span class="line">    raise AssertionError(arguments)</span><br></pre></td></tr></table></figure>
+<h3 id="conclusion">conclusion</h3>
+<p>if an assert is not satisfied, throw exception. easy to detect the errors in code.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>What is the use of activation function</title>
+    <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
+    <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
+<p>The following picture illustrates the basic structure of neural network.</p>
+<figure>
+<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn"><figcaption aria-hidden="true">nn</figcaption>
+</figure>
+<p>Extracted featrures are passed into the net as input.</p>
+<p># of input node = # of extracted feature types</p>
+<span id="more"></span>
+<h1 id="why-we-need-activation">Why we need activation</h1>
+<p>For a classifiying issue:</p>
+<h3 id="without-activation">Without activation</h3>
+<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
+<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input} input+loss_1)+loss_2\)</span></p>
+<p>So bascically, we can derive that no matter how many layers you add into the net, without activation, the net can only produce a <strong>linear classifier</strong>.</p>
+<h3 id="with-activation">With activation</h3>
+<p>The aim of activation is to transfer a linear classifer to a non-linear classifer.</p>
+<p>The basic actication we use is: <span class="math display">\[
+\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0 \\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
+\]</span> It is same as nerve cell--if the cell is activated it produce a signal, otherwise, it does nothing.</p>
+<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
+\sigma(y) = \frac 1 {1+e^{-y}}
+\]</span> (we prefer to ues <span class="math inline">\(y\)</span>, because actication is added inside the net which means the input of activation is the output of prior layer)</p>
+<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
+<center>
+<p>NN structure with activation</p>
+<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
+<center>
+<p>Output of NN with activation</p>
+</center></center>]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Relu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo图片在md文档中显示正常但是网页无法显示</title>
     <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
     <content><![CDATA[<h4 id="step-1">Step 1</h4>
@@ -2066,6 +2042,45 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 <p><br></p>
 <h4 id="step-3">Step 3</h4>
 <p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的 <code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo部署到git出现不同步问题</title>
+    <url>/2020/05/20/hexo%E9%83%A8%E7%BD%B2%E5%88%B0git%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<ol type="1">
+<li><p>hexo到git上部署首先要检查自己的config里的repo地址对不对</p></li>
+<li><p>如果地址正确可以考虑在_config.yml的repo下面一行添加上</p></li>
+</ol>
+<p><code>branch: master</code></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>-部署</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>how to change you local git name</title>
+    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
+<p>Your name will be shown on github each time you push to it.</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo中使用markdown无法处理特殊字符</title>
+    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。 比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
+<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -2088,19 +2103,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       <categories>
         <category>Kendo</category>
       </categories>
-  </entry>
-  <entry>
-    <title>how to change you local git name</title>
-    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
-<p>Your name will be shown on github each time you push to it.</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
   </entry>
   <entry>
     <title>mAP in object detection</title>
@@ -2154,17 +2156,21 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </tags>
   </entry>
   <entry>
-    <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
-    <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <title>yilia主题的头像配置失败</title>
+    <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
     <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<p>在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用<code>easyBCD</code>也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。 ## 问题解决 本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。 我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的引导是<code>UEFI+LEGACY</code>，那应该bios也行啊。 但是我抱着试试的态度把它改成<code>UEFI</code>，可能有些主板要改这个比较麻烦，然后上网找了个UEFI引导的ubuntu安装教程。 然后就打开了，困扰了好几天的问题解决了。 --- ## more 注意在bios里面把第一启动项改为ubuntu，然后再打开。 因为ubuntu可以引导windows，但是要让windows引导ubuntu需要用<code>easyuefi</code>自行配置 --- 这个问题很细节，但是同时也很恶心，反正就是要注意教程的环境和自己到底一不一样，还有就是要每一个设置的意义都要明白。</p>
+<ol type="1">
+<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
+<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code> 但是打开之后依然无法显示，甚至还有一个问号</li>
+</ol>
+<hr>
+<h2 id="问题解决">问题解决</h2>
+<p>这里有一个很tricky的地方搞了我很久 在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code> 比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
+<p><strong>注意</strong> 麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
-      <tags>
-        <tag>-ubuntu -install</tag>
-      </tags>
   </entry>
   <entry>
     <title>使用hexo theme Butterfly 报错</title>
@@ -2185,60 +2191,17 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>yilia主题的头像配置失败</title>
-    <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
+    <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
+    <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<ol type="1">
-<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
-<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code> 但是打开之后依然无法显示，甚至还有一个问号</li>
-</ol>
-<hr>
-<h2 id="问题解决">问题解决</h2>
-<p>这里有一个很tricky的地方搞了我很久 在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code> 比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
-<p><strong>注意</strong> 麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
+<p>在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用<code>easyBCD</code>也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。 ## 问题解决 本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。 我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的引导是<code>UEFI+LEGACY</code>，那应该bios也行啊。 但是我抱着试试的态度把它改成<code>UEFI</code>，可能有些主板要改这个比较麻烦，然后上网找了个UEFI引导的ubuntu安装教程。 然后就打开了，困扰了好几天的问题解决了。 --- ## more 注意在bios里面把第一启动项改为ubuntu，然后再打开。 因为ubuntu可以引导windows，但是要让windows引导ubuntu需要用<code>easyuefi</code>自行配置 --- 这个问题很细节，但是同时也很恶心，反正就是要注意教程的环境和自己到底一不一样，还有就是要每一个设置的意义都要明白。</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
-  </entry>
-  <entry>
-    <title>感谢好太阳哥哥们</title>
-    <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
-    <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
-<div align="center">
-<figure>
-<img src="/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/1.png" alt="Long May the Sun Shine!"><figcaption aria-hidden="true">Long May the Sun Shine!</figcaption>
-</figure>
-</div>]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
-    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
-<h2 id="问题原因">问题原因</h2>
-<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错 因此有一下三种解决办法：</p>
-<ol type="1">
-<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
-<li><p>手动打开preinterpreter</p></li>
-</ol>
-<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<ol start="3" type="1">
-<li>重新为mac安装</li>
-</ol>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
-<p>如果有了就更新一下</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
-<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
+      <tags>
+        <tag>-ubuntu -install</tag>
+      </tags>
   </entry>
   <entry>
     <title>剑指Offer(全)</title>
@@ -2306,51 +2269,42 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>理解superscalar和multithreading(简单提及hyperthreading)和multi-core区别</title>
-    <url>/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<p>看到网上有一篇文章用汽车收费站来解释这三个概念，想法很好，但是感觉没说那么清楚，于是我自己来说一遍</p>
-<h2 id="一般情况">0. 一般情况</h2>
-<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/normal.jpg"></p>
-<p>想象一下你是公路的设计者，现在要对车子进行收费，你怎么办？</p>
-<p>最一般的情况就很简单了：<strong>让所有车子排一排，依次通过一个收费站</strong>，结束。</p>
-<hr>
-<h5 id="如果车流很少的话当然没有问题但是高速公路cpu很贵为了不浪费我们会让尽可能多的车上高速这样所有的车都会堵在收费站那么怎么加速呢">如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？</h5>
-<hr>
-<h2 id="多收费站">1. 多收费站</h2>
-<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/hyperthreading.jpg"></p>
-<p>很多地方采取的解决办法就是<strong>多加几个收费站</strong>（当然可以不止两个）。这样一次就能进来两辆车，两个收费站无论哪个空了就会有新的车子不补上去，理论上如果有n个收费站速度就加快了n倍（实际上当然做不到）。</p>
-<h2 id="多开几条车道">2. 多开几条车道</h2>
-<p>如果你真正在高速上开过车你就会发现：实际上一条路上有多个车道（快车道、慢车道），而在临近收费站的时候甚至会被突然<strong>扩展成更多的车道</strong>，让车子能够分流。</p>
-<p>车子到达收费站的时候，实际上你就能看到有多个车道，那个空去那里，理论上设立n条车道也能提高n倍效率。</p>
-<h2 id="另开一条路">3. 另开一条路</h2>
-<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/multicore.jpg"></p>
-<p>比如A地到B地的公路很堵，恰巧政府有很有钱的话，那就很简单了：<strong>再铺一条公路</strong>。两条路是完全互不干涉的（independent），人们看着那条路比较空就往哪条路走就行了。</p>
-<p>最终你就得到了现在实际运行中的收费站模式。</p>
-<span id="more"></span>
-<h2 id="结合cpu">结合CPU</h2>
-<p>上面已经说的很明白了：</p>
-<p>方法1就是<code>multithreading</code>,方法2就是<code>superscalar</code>，方法3就是<code>multicore</code>。</p>
+    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
+    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
+<h2 id="问题原因">问题原因</h2>
+<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错 因此有一下三种解决办法：</p>
 <ol type="1">
-<li><p><code>multithreading</code>就是在一个CPU core上设立n条thread让多个程序同时进行。那么可能就有人问了：CPU一个core不是只能同时跑一个程序吗，为什么现在能同时跑多个了？其实这里要明白一个核心问题：<strong>CPU core很贵但是同时也非常快</strong>，拖累你运行速度的其实很多是与memory之间的交互。</p>
-<p>打个比方就是收费员算你要交多少钱很快，但是你拿钱和收费员找零就很慢了。那么对于cpu而言所谓的设立多个收费站其实就是在你拿钱的时候让收费员去算下一个人的钱--有可能下一个人拿etc卡很快就过去了，而这个时候正好可以等你拿钱。CPU core实际上就是在多个程序之间跳来跳去，如果有人需要与memory交互，让就交给memory去办，cpu先去跑别的程序。</p>
-<p><code>multithreading</code>本质上是对CPU core性能的高效利用，尽可能让CPU core始终满负荷运行。所以这种方法受限于cpu本身的性能。</p>
-<p>这里额外提一句<code>hyperthreading</code>，这个技术比较复杂而且实际表现也没有那么好（在intel顶级CPU上还在使用，追求极致效率），用比较模糊的话说就是把一个CPU核心掰成两半 (其实还是thread的优化)，模拟出多个 <code>logical units</code>，本质上是建立在multithreading中每个thread利用率不高的前提下进一步提高效率。</p></li>
-<li><p><code>superscalar</code>是risc的技术，需要硬件的支持是用空间换效率，在一个core上需要放多个<code>functional units（ALU, FPU, etc）</code>但是又共享一部分硬件，这样一个CPU core一次clock cycle里就能执行多个指令。其中当然还有很多细节问题，但是大体上逻辑如此。</p></li>
-<li><p><code>multi-core</code>这个就很简单了，堆CPU核心就完事儿了（实际上如何堆核心是很大的一个难题--如何把一个本来单线程的程序均匀地分布到多个核心上运算，最后还能合回来，很难），这也是现在的发展主流。相反过去疯狂提升频率的方法被逐渐抛弃，甚至有些cpu主动降频来获得更好的发热表现。</p></li>
+<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
+<li><p>手动打开preinterpreter</p></li>
 </ol>
-<h2 id="总结">总结</h2>
-<p>虽然基本的原理就是如此，但是上述三种提高性能的方法都需要程序员来协调如何分配车流（有些东西最底层的硬件已经完成）</p>
-<hr>
-<h2 id="更新--进程线程超线程">更新--进程、线程、超线程</h2>
-<ol type="1">
-<li><p>进程（process）是操作系统（OS）的调度单位，一个任务对于OS就是一个进程--比如QQ、微信。OS接收到任务之后会给每个进程单独开辟一块虚拟内存，让每个进程之间可以互相不影响。</p></li>
-<li><p>线程（thread）是CPU的调度单位，一般来说一个CPU核心只有一个线程，由于现在的额CPU往往是多核心的，所以是多线程。CPU在接收到OS发布的process之后会调动多个核心（也就是多个线程）去处理这个任务。在不同线程之间的资源相互共享（线程之间交互的速度远远大于进程之间交互的速度），可以将一个进程拆成多个部分在不同的CPU上进行--比如一个core被IO占用，那么另一个core就可以去处理ALU的部分。</p></li>
-<li><p>超线程（superthread）是Intel提出的，本质是欺骗CPU，让CPU内部的pipeline尽可能同时进行。Intel计划让一个core可以同时进行两个线程（比如8核心16线程的CPU）。在一个core处理IO时，欺骗core，让它另一部分处理ALU。比起多个core的多车道，超线程见缝插针，只有恰好有core的计算资源闲置同时thread之间不冲突时才会发生。那之所以一个core只分成两个thread就是因为管理这些thread之间的硬件面积会大幅增加，需要承担thread之间相互等待的开销，得不偿失了。</p>
-<p>但同时IBM也有8核32线程的核心，不过主要针对的是有高并发任务的服务器平台了。</p></li>
+<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<ol start="3" type="1">
+<li>重新为mac安装</li>
 </ol>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
+<p>如果有了就更新一下</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
+<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
 ]]></content>
       <categories>
-        <category>Learning</category>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>感谢好太阳哥哥们</title>
+    <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
+    <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
+<div align="center">
+<figure>
+<img src="/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/1.png" alt="Long May the Sun Shine!"><figcaption aria-hidden="true">Long May the Sun Shine!</figcaption>
+</figure>
+</div>]]></content>
+      <categories>
+        <category>Chat</category>
       </categories>
   </entry>
   <entry>
@@ -2407,19 +2361,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>还是大GT优雅</title>
-    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
-    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
-<div align="center">
-<figure>
-<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT"><figcaption aria-hidden="true">宾利欧陆GT</figcaption>
-</figure>
-</div>]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
     <title>遍历二叉树-前/中/后序-递归/非递归</title>
     <url>/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/</url>
     <content><![CDATA[<h3 id="递归方法">递归方法</h3>
@@ -2436,6 +2377,67 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
         <tag>C++</tag>
         <tag>Binary Tree</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>理解superscalar和multithreading(简单提及hyperthreading)和multi-core区别</title>
+    <url>/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p>看到网上有一篇文章用汽车收费站来解释这三个概念，想法很好，但是感觉没说那么清楚，于是我自己来说一遍</p>
+<h2 id="一般情况">0. 一般情况</h2>
+<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/normal.jpg"></p>
+<p>想象一下你是公路的设计者，现在要对车子进行收费，你怎么办？</p>
+<p>最一般的情况就很简单了：<strong>让所有车子排一排，依次通过一个收费站</strong>，结束。</p>
+<hr>
+<h5 id="如果车流很少的话当然没有问题但是高速公路cpu很贵为了不浪费我们会让尽可能多的车上高速这样所有的车都会堵在收费站那么怎么加速呢">如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？</h5>
+<hr>
+<h2 id="多收费站">1. 多收费站</h2>
+<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/hyperthreading.jpg"></p>
+<p>很多地方采取的解决办法就是<strong>多加几个收费站</strong>（当然可以不止两个）。这样一次就能进来两辆车，两个收费站无论哪个空了就会有新的车子不补上去，理论上如果有n个收费站速度就加快了n倍（实际上当然做不到）。</p>
+<h2 id="多开几条车道">2. 多开几条车道</h2>
+<p>如果你真正在高速上开过车你就会发现：实际上一条路上有多个车道（快车道、慢车道），而在临近收费站的时候甚至会被突然<strong>扩展成更多的车道</strong>，让车子能够分流。</p>
+<p>车子到达收费站的时候，实际上你就能看到有多个车道，那个空去那里，理论上设立n条车道也能提高n倍效率。</p>
+<h2 id="另开一条路">3. 另开一条路</h2>
+<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/multicore.jpg"></p>
+<p>比如A地到B地的公路很堵，恰巧政府有很有钱的话，那就很简单了：<strong>再铺一条公路</strong>。两条路是完全互不干涉的（independent），人们看着那条路比较空就往哪条路走就行了。</p>
+<p>最终你就得到了现在实际运行中的收费站模式。</p>
+<span id="more"></span>
+<h2 id="结合cpu">结合CPU</h2>
+<p>上面已经说的很明白了：</p>
+<p>方法1就是<code>multithreading</code>,方法2就是<code>superscalar</code>，方法3就是<code>multicore</code>。</p>
+<ol type="1">
+<li><p><code>multithreading</code>就是在一个CPU core上设立n条thread让多个程序同时进行。那么可能就有人问了：CPU一个core不是只能同时跑一个程序吗，为什么现在能同时跑多个了？其实这里要明白一个核心问题：<strong>CPU core很贵但是同时也非常快</strong>，拖累你运行速度的其实很多是与memory之间的交互。</p>
+<p>打个比方就是收费员算你要交多少钱很快，但是你拿钱和收费员找零就很慢了。那么对于cpu而言所谓的设立多个收费站其实就是在你拿钱的时候让收费员去算下一个人的钱--有可能下一个人拿etc卡很快就过去了，而这个时候正好可以等你拿钱。CPU core实际上就是在多个程序之间跳来跳去，如果有人需要与memory交互，让就交给memory去办，cpu先去跑别的程序。</p>
+<p><code>multithreading</code>本质上是对CPU core性能的高效利用，尽可能让CPU core始终满负荷运行。所以这种方法受限于cpu本身的性能。</p>
+<p>这里额外提一句<code>hyperthreading</code>，这个技术比较复杂而且实际表现也没有那么好（在intel顶级CPU上还在使用，追求极致效率），用比较模糊的话说就是把一个CPU核心掰成两半 (其实还是thread的优化)，模拟出多个 <code>logical units</code>，本质上是建立在multithreading中每个thread利用率不高的前提下进一步提高效率。</p></li>
+<li><p><code>superscalar</code>是risc的技术，需要硬件的支持是用空间换效率，在一个core上需要放多个<code>functional units（ALU, FPU, etc）</code>但是又共享一部分硬件，这样一个CPU core一次clock cycle里就能执行多个指令。其中当然还有很多细节问题，但是大体上逻辑如此。</p></li>
+<li><p><code>multi-core</code>这个就很简单了，堆CPU核心就完事儿了（实际上如何堆核心是很大的一个难题--如何把一个本来单线程的程序均匀地分布到多个核心上运算，最后还能合回来，很难），这也是现在的发展主流。相反过去疯狂提升频率的方法被逐渐抛弃，甚至有些cpu主动降频来获得更好的发热表现。</p></li>
+</ol>
+<h2 id="总结">总结</h2>
+<p>虽然基本的原理就是如此，但是上述三种提高性能的方法都需要程序员来协调如何分配车流（有些东西最底层的硬件已经完成）</p>
+<hr>
+<h2 id="更新--进程线程超线程">更新--进程、线程、超线程</h2>
+<ol type="1">
+<li><p>进程（process）是操作系统（OS）的调度单位，一个任务对于OS就是一个进程--比如QQ、微信。OS接收到任务之后会给每个进程单独开辟一块虚拟内存，让每个进程之间可以互相不影响。</p></li>
+<li><p>线程（thread）是CPU的调度单位，一般来说一个CPU核心只有一个线程，由于现在的额CPU往往是多核心的，所以是多线程。CPU在接收到OS发布的process之后会调动多个核心（也就是多个线程）去处理这个任务。在不同线程之间的资源相互共享（线程之间交互的速度远远大于进程之间交互的速度），可以将一个进程拆成多个部分在不同的CPU上进行--比如一个core被IO占用，那么另一个core就可以去处理ALU的部分。</p></li>
+<li><p>超线程（superthread）是Intel提出的，本质是欺骗CPU，让CPU内部的pipeline尽可能同时进行。Intel计划让一个core可以同时进行两个线程（比如8核心16线程的CPU）。在一个core处理IO时，欺骗core，让它另一部分处理ALU。比起多个core的多车道，超线程见缝插针，只有恰好有core的计算资源闲置同时thread之间不冲突时才会发生。那之所以一个core只分成两个thread就是因为管理这些thread之间的硬件面积会大幅增加，需要承担thread之间相互等待的开销，得不偿失了。</p>
+<p>但同时IBM也有8核32线程的核心，不过主要针对的是有高并发任务的服务器平台了。</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>还是大GT优雅</title>
+    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
+    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
+<div align="center">
+<figure>
+<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT"><figcaption aria-hidden="true">宾利欧陆GT</figcaption>
+</figure>
+</div>]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
   </entry>
   <entry>
     <title>钻石材质第一次测试Blender</title>
