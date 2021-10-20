@@ -28,7 +28,7 @@
 <meta property="og:description" content="1. Gradient Descent 1.1 Gradient 1.1.1 Derivative 针对一元函数 \(y&#x3D;f(x)\)，导数 \(f&#39;(x_0)\) 表示了该函数在\(x_0\)处的函数斜率&#x2F;增加速率。 1.1.2 Partial Derivative--偏导数，部分的导数 针对多元函数（此处考虑二元函数\(z&#x3D;f(x,y)\)），导数 \(f&#39;(x_0, y_0)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-15T09:45:52.000Z">
-<meta property="article:modified_time" content="2021-10-17T15:07:28.661Z">
+<meta property="article:modified_time" content="2021-10-20T02:14:31.404Z">
 <meta property="article:author" content="Li Wuchen">
 <meta name="twitter:card" content="summary">
 
@@ -238,7 +238,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-17 23:07:28" itemprop="dateModified" datetime="2021-10-17T23:07:28+08:00">2021-10-17</time>
+                <time title="Modified: 2021-10-20 10:14:31" itemprop="dateModified" datetime="2021-10-20T10:14:31+08:00">2021-10-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -270,7 +270,7 @@
 <p>1.1.3 Directional Derivative</p>
 <p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(x=x_0\)</span> 或 <span class="math inline">\(y=y_0\)</span> 方向上的函数速率变化了。</p>
 <p>现在基于这两个偏导数我们已经可以求出 <span class="math inline">\(x-y\)</span> 平面任何方向的导数了：假设求 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向的导数（其中<span class="math inline">\(\theta\)</span>表示该向量方向与<span class="math inline">\(x\)</span>轴正方向的夹角，<span class="math inline">\(\vec{i}\)</span>表示<span class="math inline">\(x\)</span>轴正方向，<span class="math inline">\(\vec{j}\)</span>表示<span class="math inline">\(y\)</span>轴正方向） <span class="math display">\[
-D_uf(x,y)=\lim_{x\to\infin}\frac{f(x_0+tcos\theta,y_0+tsin\theta)}{t}
+D_uf(x,y)=\lim_{x \to \infty}\frac{f(x_0+tcos\theta,y_0+tsin\theta)}{t}
 \]</span> 本质上方向导数是偏导数的一种推广，通过调整方向导数中 <span class="math inline">\(\theta\)</span> 的值也能够简化为偏导数形式。</p>
 <p>但是如果我们观察 <span class="math inline">\(u\)</span> 本身，在 <span class="math inline">\(u\)</span> 方向求导，其实相当于在 <span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span> 方向分别求偏导之后的线性组合： <span class="math display">\[
 D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
@@ -295,8 +295,18 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
 <p>第k+1轮迭代：<span class="math inline">\(x^{k+1} = x^k+\lambda_kp_k\)</span> 其中 <span class="math inline">\(p_k\)</span> 为函数更新方向，取第k轮函数的负梯度（函数值下降最快的方向）：<span class="math inline">\(p_k=-\nabla f(x^k)\)</span> 其中 <span class="math inline">\(\lambda_k\)</span> 为函数更新的步长，由一维搜索得到：<span class="math inline">\(\lambda_k=\underset{\lambda}{\operatorname{argmin}}f(x^k+\lambda p_k)=\underset{\lambda}{\operatorname{argmin}}f(x^k-\lambda\nabla f(x^k))\)</span> 具体实现：预先定义多个值进行计算，需要多次尝试。</p>
 <p>当 <span class="math inline">\(\nabla f(x^k)&lt;\epsilon\)</span> 时（即梯度下降缓慢时）停止迭代 注意此算法本身只能保证达到local optimum，不能保证全局最优，因此需要多次重新初始化尝试。</p>
 </blockquote>
+<p>对于上述的梯度更新规则可以写成 <span class="math inline">\(x^{k+1} = x^k-\lambda_k\nabla f(x^k)\)</span>，这里的 <span class="math inline">\(f(x)\)</span> 只是一个一般性的简写，对于机器学习的问题而言一般是loss function，对于一般的线性回归问题，其业已写成 <span class="math inline">\(Loss=f(w)=(\sum _{j=0}^pw_jx_j-y)^2\)</span>其中 <span class="math inline">\(w=(w_1, w_2, \cdots, w_p)\)</span> 是我们希望更新的参数，它和输出/feature <span class="math inline">\(x=(x_1, x_2, \cdots, x_p)\)</span> 一样是p纬度的向量，<span class="math inline">\(y\)</span> 为该feature的实际label。（注意上述都是仅针对单个样本点的操作）</p>
+<p>那么具体的梯度求解如下： <span class="math display">\[
+\begin{aligned}
+\frac{\partial Loss}{w_i}
+&amp;=\frac{\partial(\sum _{j=0}^pw_jx_j-y)^2}{\partial w_i}\\
+&amp;=2(\sum _{j=0}^pw_jx_j-y)\frac{\partial(\sum _{j=0}^pw_jx_j-y)}{\partial w_i}\\
+&amp;=2(\sum _{j=0}^pw_jx_j-y)x_i
+\end{aligned}
+\]</span> 假设我们用单个样本 <span class="math inline">\(x\)</span> 计算梯度下降，求出的Loss导数为 <span class="math inline">\(\begin{bmatrix}\frac{\partial Loss(x)}{\partial w_1} \\ \vdots \\ \frac{\partial Loss(x)}{\partial w_p}\end{bmatrix}\)</span></p>
 <p>1.2.3 BGD--Batch Gradient Descent</p>
-<p>为了加速参数的更新，往往不会对每一个样本都计算梯度进行更新，事实上是一次性传入一个batch的数据，在更新参数时使用整个batch的数据结果进行更新。BGD收敛效果最好</p>
+<p>为了加速参数的更新，往往不会对每一个样本都计算梯度进行更新，事实上是一次性传入一个batch的数据，在更新参数时使用整个batch的数据结果进行更新。</p>
+<p>假设我们用 <span class="math inline">\((x^1,\cdots,x^i,\dots,x^n)\)</span> 一起计算梯度下降，求出的Loss导数为 <span class="math inline">\(\frac{1}{n}\begin{bmatrix}\sum_{i=1}^n\frac{\partial Loss(x^i)}{\partial w_1} \\ \vdots \\ \sum_{i=1}^n\frac{\partial Loss(x^i)}{\partial w_p}\end{bmatrix}\)</span>。</p>
 <p>1.2.4 SGD--Stochastic Gradient Descent</p>
 <p>在数据量相当大的时候，BGD的开销也过于庞大了，为此数学家们考虑每次更新随机采样一个样本来控制梯度方向--这样做梯度的变化可能会出现较大的波动，但是数据量足够，数学上期望与BGD相同。SGD训练速度最快。</p>
 <p>此外由于SGD本身受离群样本影响大，因此可能会难以收敛，实际应用中往往采用中折--即每次更新采用样本的部分数据进行训练--MBGD--Mini-batch Gradient Descent。</p>
@@ -412,7 +422,7 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-count">78</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
