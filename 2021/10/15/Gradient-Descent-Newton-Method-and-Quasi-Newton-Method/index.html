@@ -28,7 +28,7 @@
 <meta property="og:description" content="1. Gradient Descent 1.1 Gradient 1.1.1 Derivative 针对一元函数 \(y&#x3D;f(x)\)，导数 \(f&#39;(x_0)\) 表示了该函数在\(x_0\)处的函数斜率&#x2F;增加速率。 1.1.2 Partial Derivative--偏导数，部分的导数 针对多元函数（此处考虑二元函数\(z&#x3D;f(x,y)\)），导数 \(f&#39;(x_0, y_0)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-15T09:45:52.000Z">
-<meta property="article:modified_time" content="2021-10-20T02:14:31.404Z">
+<meta property="article:modified_time" content="2021-10-24T09:26:49.826Z">
 <meta property="article:author" content="Li Wuchen">
 <meta name="twitter:card" content="summary">
 
@@ -238,7 +238,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 10:14:31" itemprop="dateModified" datetime="2021-10-20T10:14:31+08:00">2021-10-20</time>
+                <time title="Modified: 2021-10-24 17:26:49" itemprop="dateModified" datetime="2021-10-24T17:26:49+08:00">2021-10-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -311,6 +311,39 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
 <p>在数据量相当大的时候，BGD的开销也过于庞大了，为此数学家们考虑每次更新随机采样一个样本来控制梯度方向--这样做梯度的变化可能会出现较大的波动，但是数据量足够，数学上期望与BGD相同。SGD训练速度最快。</p>
 <p>此外由于SGD本身受离群样本影响大，因此可能会难以收敛，实际应用中往往采用中折--即每次更新采用样本的部分数据进行训练--MBGD--Mini-batch Gradient Descent。</p>
 <h3 id="newton-method">2. Newton Method</h3>
+<p>2.1 Solve Equation</p>
+<p>牛顿法最早使用来求解方程实数根的。问题很简单：求方程 <span class="math inline">\(f(x)\)</span> 的实数根。</p>
+<blockquote>
+<p>我们将 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x_0\)</span> 处Taylor一阶展开：<span class="math inline">\(f(x)=f(x_0)+f&#39;(x_0)(x-x_0)\)</span></p>
+<p>令 <span class="math inline">\(f(x)=0\)</span>，则 <span class="math inline">\(f(x_0)+f&#39;(x_0)(x-x_0)=0\)</span>，<span class="math inline">\(x_1=x_0-f(x_0)/f&#39;(x_0)\)</span></p>
+<p>再将 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x_1\)</span> 处Taylor一阶展开，迭代直到 <span class="math inline">\(||f(x)||&lt;\epsilon\)</span>。</p>
+</blockquote>
+<p>简单解释一下：如果一个方程连续且有正值有负值，那么就一定有根，牛顿法可以从任意起点开始，每次迭代都是沿点的斜率方向向 <span class="math inline">\(x\)</span> 轴做直线，相交得到下一个迭代点，由此理论上必能收敛到根。</p>
+<p>2.2 Optimization Problem</p>
+<p>回顾一下问题</p>
+<blockquote>
+<p>我们所面对的是无约束的优化问题，希望得到 <span class="math inline">\(minf(x)\)</span>，注意这里对于机器学习问题而言 <span class="math inline">\(x\)</span> 很有可能是多维的，<span class="math inline">\(x\in R^{p*1}\)</span></p>
+<p>梯度下降法里面我们需要假设 <span class="math inline">\(f(x)\)</span> 一阶可导，在牛顿法中需要加强为<strong>二阶可导</strong>。</p>
+</blockquote>
+<blockquote>
+<p>我们将 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x_k\)</span> （此处假设已经迭代了 <span class="math inline">\(k\)</span> 轮）处进行二阶Taylor展开： <span class="math display">\[
+f(x)=f(x^k)+g_k^T(x-x^k)+\frac{1}{2}(x-x^k)^TH(x^k)(x-x^k)
+\]</span> 其中 <span class="math inline">\(g_k=\nabla f(x^k) \in R^{p*1}\)</span> 是 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^k\)</span> 处的梯度；<span class="math inline">\(H(x^k)=\begin{bmatrix}\frac{\partial ^2f(x^k)}{\partial x_i \partial y_i}\end{bmatrix} \in R^{p*p}\)</span> 为 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^k\)</span> 处的Hessian矩阵/二阶导数。</p>
+</blockquote>
+<p>求解 <span class="math inline">\(f(x)\)</span> 极值的必要条件是什么呢？<span class="math inline">\(f(x)\)</span> 的一阶导数，也就是 <span class="math inline">\(g_k=\nabla f(x^k)=0\)</span>；并且 <span class="math inline">\(H(x^k)\)</span> 为正定矩阵时，得到最小值（可以理解为此点所有方向的二次导数均大于0 <a target="_blank" rel="noopener" href="https://blog.csdn.net/quicmous/article/details/53317512">FYI</a>）</p>
+<p>那么这个问题就再次转化为了对 <span class="math inline">\(g_k=0\)</span> 的牛顿法求根：</p>
+<blockquote>
+<p>求 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x_0\)</span> 处的梯度 <span class="math inline">\(g_k=\nabla f(x^k)\)</span>，进行一阶Taylor展开：<span class="math inline">\(\nabla f(x)=\nabla f(x^0)+H(x^0)(x-x^0)=0\)</span></p>
+<p>则 <span class="math inline">\(x_1=x^0-H^{-1}(x^0)\nabla f(x)\)</span>，令 <span class="math inline">\(p(x^k)=-H^{-1}(x^k)\nabla f(x)\)</span>，可以简化写为 <span class="math inline">\(x_1=x_0+p(x^0)\)</span></p>
+<p>不断迭代直到 <span class="math inline">\(||\nabla f(x)||&lt;\epsilon\)</span></p>
+</blockquote>
+<p>2.3 Comparation with Gradient Descent</p>
+<p>梯度下降时一阶收敛，而牛顿法是二阶收敛，总的说牛顿法收敛速度更快，但是因为需要计算Hessian矩阵的逆，所以每次迭代速度更慢。</p>
+<p>由于梯度下降法是求梯度，在wiki上解释为用一个平面拟合当前点（所在局部）；但是牛顿法相当于是对梯度进行一阶Taylor展开，所以可以理解为是用一个曲面拟合当前点。</p>
+<p>或者从每次迭代的角度看：梯度下降只考虑了当前点哪个方向梯度最小（函数值下降最快），而牛顿法加入了Hessian矩阵，相当于还考虑了每次迭代后的梯度的变化（而不单单是函数值变化）。</p>
+<p>但是要意识到牛顿法本质是对函数值进行了二阶Taylor展开，所以如果初始值距离极值点太远，那么Taylor近似效果就会很差，所以可以考虑先用梯度下降再用牛顿法。</p>
+<p>对于梯度下降法往往在最后极值点处会出现反复震荡（这也是会什么梯度下降中往往会让步长逐渐缩短），因此会增加拟合难度，而牛顿法不会有震荡现象，因此可能会收敛更快。</p>
+<h3 id="quasi-newton-method">Quasi-Newton Method</h3>
 
     </div>
 
@@ -406,7 +439,7 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#gradient-descent"><span class="nav-number">1.</span> <span class="nav-text">1. Gradient Descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#newton-method"><span class="nav-number">2.</span> <span class="nav-text">2. Newton Method</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#gradient-descent"><span class="nav-number">1.</span> <span class="nav-text">1. Gradient Descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#newton-method"><span class="nav-number">2.</span> <span class="nav-text">2. Newton Method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quasi-newton-method"><span class="nav-number">3.</span> <span class="nav-text">Quasi-Newton Method</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -422,7 +455,7 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
