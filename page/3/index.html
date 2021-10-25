@@ -203,88 +203,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/" class="post-title-link" itemprop="url">遍历二叉树-前/中/后序-递归/非递归</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-16 19:52:34" itemprop="dateCreated datePublished" datetime="2021-09-16T19:52:34+08:00">2021-09-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-23 17:12:14" itemprop="dateModified" datetime="2021-09-23T17:12:14+08:00">2021-09-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="递归方法">递归方法</h3>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line"> 	path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/16/GIF-test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -489,9 +407,9 @@
       
           <p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
 <p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-InVjveqeGNqqGkmK" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-InVjveqeGNqqGkmK").style.height=document.getElementById("mmedia-InVjveqeGNqqGkmK").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-ZvwHDwLIbwiItzlH" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-ZvwHDwLIbwiItzlH").style.height=document.getElementById("mmedia-ZvwHDwLIbwiItzlH").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-InVjveqeGNqqGkmK").style.height=document.getElementById("mmedia-InVjveqeGNqqGkmK").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-ZvwHDwLIbwiItzlH").style.height=document.getElementById("mmedia-ZvwHDwLIbwiItzlH").scrollWidth*0.76+"px";
     }; </script>
 
       
@@ -791,9 +709,9 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
     <div class="post-body" itemprop="articleBody">
 
       
-          <style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-FHNMIeAuUJRSASoy" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-FHNMIeAuUJRSASoy").style.height=document.getElementById("mmedia-FHNMIeAuUJRSASoy").scrollWidth*0.76+"px";
+          <style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-YqYhbsYflInWZtiQ" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-YqYhbsYflInWZtiQ").style.height=document.getElementById("mmedia-YqYhbsYflInWZtiQ").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-FHNMIeAuUJRSASoy").style.height=document.getElementById("mmedia-FHNMIeAuUJRSASoy").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-YqYhbsYflInWZtiQ").style.height=document.getElementById("mmedia-YqYhbsYflInWZtiQ").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <thead>
@@ -1026,6 +944,84 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/" class="post-title-link" itemprop="url">还是大GT优雅</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-12 21:13:45" itemprop="dateCreated datePublished" datetime="2021-07-12T21:13:45+08:00">2021-07-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-02 01:33:08" itemprop="dateModified" datetime="2021-10-02T01:33:08+08:00">2021-10-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Chat/" itemprop="url" rel="index"><span itemprop="name">Chat</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
+<div align="center">
+<figure>
+<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT"><figcaption aria-hidden="true">宾利欧陆GT</figcaption>
+</figure>
+</div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1097,7 +1093,7 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
