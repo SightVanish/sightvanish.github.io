@@ -28,7 +28,7 @@
 <meta property="og:description" content="Preface 关于排序有很多人整理了，但是基本是东抄一点，西抄一点，非常混乱，并没有统一的逻辑，而且往往写的非常复杂。本文希望能够实现统一的代码风格，保持命名、实现方式上的统一，以体现出不同算法之间的改进和区别，同时尽可能使用简洁的代码来实现（因此可能会存在一些不常规的技巧），减少代码工作量（毕竟平时都是直接sort，哪关心怎么实现）。本文代码经过本地测试全部为从小打大排序，但是testcase">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-09-17T06:48:50.000Z">
-<meta property="article:modified_time" content="2021-10-25T07:01:04.538Z">
+<meta property="article:modified_time" content="2021-10-26T12:28:10.161Z">
 <meta property="article:author" content="Li Wuchen">
 <meta name="twitter:card" content="summary">
 
@@ -238,7 +238,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-25 15:01:04" itemprop="dateModified" datetime="2021-10-25T15:01:04+08:00">2021-10-25</time>
+                <time title="Modified: 2021-10-26 20:28:10" itemprop="dateModified" datetime="2021-10-26T20:28:10+08:00">2021-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -491,6 +491,73 @@
 </tr>
 </tbody>
 </table>
+<h2 id="summary-on-performance">Summary on Performance</h2>
+<table>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Algorithm</th>
+<th>Time Complexity (Best/Worst/Average)</th>
+<th>Space Complexity</th>
+<th>Stability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bubble</td>
+<td><strong>O(n<sup>2</sup>)</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>stable</strong> <br>(no change in relative position for same elements)</td>
+</tr>
+<tr class="even">
+<td>Selection</td>
+<td><strong>O(n<sup>2</sup>)</strong></td>
+<td><strong>O(1)</strong> <br>(one more element for swapping)</td>
+<td><strong>unstable</strong> <br>(the swap will let the same element change their relative position)</td>
+</tr>
+<tr class="odd">
+<td>Insertion</td>
+<td><strong>O(n)</strong>/<strong>O(n<sup>2</sup>)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
+<td><strong>O(1)</strong> <br>(one more element for swapping)</td>
+<td><strong>stable</strong> <br>(no change in relative position for same elements)</td>
+</tr>
+<tr class="even">
+<td>Shell</td>
+<td>The worst case is better than <strong>O(n<sup>2</sup>)</strong>.<br> With certian increment, the worst case can be <strong>O(n<sup>1.3</sup>)</strong></td>
+<td><strong>O(1)</strong> <br>(one more element for swapping)</td>
+<td><strong>unstable</strong> <br>(the insertion sort will be performed with different gaps)</td>
+</tr>
+<tr class="odd">
+<td>Merge</td>
+<td><strong>O(nlogn)</strong><br>with improvement, the best can be O(n)</td>
+<td><strong>O(n)</strong> <br></td>
+<td><strong>stable</strong> <br>the stability is ensured in Merge</td>
+</tr>
+<tr class="even">
+<td>Quick</td>
+<td><strong>O(nlogn)</strong>/<strong>O(nlogn)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
+<td><strong>O(logn)</strong><br>(on average, the space complexity it the depth of recursion; for the worst case, it can be O(n))</td>
+<td><strong>unstable</strong> <br>(the swap of pivot makes it unstable)</td>
+</tr>
+<tr class="odd">
+<td>Bucket</td>
+<td><strong>O(nd)</strong><br>(d is the number of digits)</td>
+<td><strong>O(n+d)</strong></td>
+<td><strong>stable</strong></td>
+</tr>
+<tr class="even">
+<td>Heap</td>
+<td><strong>O(n+nlogn)</strong><br>(n for creating the heap; rebalance the tree(logn) for n times)</td>
+<td><strong>O(1)</strong><br>(one more element for swapping)</td>
+<td><strong>unstable</strong> <br>(eg. 64, 27, 16, 27. After 64, the second 27 will be ouput.)</td>
+</tr>
+</tbody>
+</table>
 
     </div>
 
@@ -586,7 +653,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort-algorithms"><span class="nav-number">2.</span> <span class="nav-text">Sort Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bubble-sort"><span class="nav-number">2.1.</span> <span class="nav-text">1. Bubble Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance"><span class="nav-number">2.1.3.</span> <span class="nav-text">1.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selection-sort-improvement-of-bubble"><span class="nav-number">2.2.</span> <span class="nav-text">2. Selection Sort (Improvement of Bubble)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insertion-sort"><span class="nav-number">2.3.</span> <span class="nav-text">3. Insertion Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-2"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-2"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shells-sort-improvement-of-insertion"><span class="nav-number">2.4.</span> <span class="nav-text">4. Shell&#39;s Sort (Improvement of Insertion)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-3"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-3"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-3"><span class="nav-number">2.4.3.</span> <span class="nav-text">4.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#merge-sort"><span class="nav-number">2.5.</span> <span class="nav-text">5. Merge Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-4"><span class="nav-number">2.5.1.</span> <span class="nav-text">5.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-4"><span class="nav-number">2.5.2.</span> <span class="nav-text">5.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-4"><span class="nav-number">2.5.3.</span> <span class="nav-text">5.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quicksort-important"><span class="nav-number">2.6.</span> <span class="nav-text">6. QuickSort (Important)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-5"><span class="nav-number">2.6.1.</span> <span class="nav-text">6.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-5"><span class="nav-number">2.6.2.</span> <span class="nav-text">6.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-5"><span class="nav-number">2.6.3.</span> <span class="nav-text">6.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#radixbucket-sort"><span class="nav-number">2.7.</span> <span class="nav-text">7. Radix&#x2F;Bucket Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-6"><span class="nav-number">2.7.1.</span> <span class="nav-text">7.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-6"><span class="nav-number">2.7.2.</span> <span class="nav-text">7.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-6"><span class="nav-number">2.7.3.</span> <span class="nav-text">7.2 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#heap-sort"><span class="nav-number">2.8.</span> <span class="nav-text">8. Heap Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-7"><span class="nav-number">2.8.1.</span> <span class="nav-text">8.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-7"><span class="nav-number">2.8.2.</span> <span class="nav-text">8.3 Performance</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort-algorithms"><span class="nav-number">2.</span> <span class="nav-text">Sort Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bubble-sort"><span class="nav-number">2.1.</span> <span class="nav-text">1. Bubble Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance"><span class="nav-number">2.1.3.</span> <span class="nav-text">1.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selection-sort-improvement-of-bubble"><span class="nav-number">2.2.</span> <span class="nav-text">2. Selection Sort (Improvement of Bubble)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insertion-sort"><span class="nav-number">2.3.</span> <span class="nav-text">3. Insertion Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-2"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-2"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shells-sort-improvement-of-insertion"><span class="nav-number">2.4.</span> <span class="nav-text">4. Shell&#39;s Sort (Improvement of Insertion)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-3"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-3"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-3"><span class="nav-number">2.4.3.</span> <span class="nav-text">4.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#merge-sort"><span class="nav-number">2.5.</span> <span class="nav-text">5. Merge Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-4"><span class="nav-number">2.5.1.</span> <span class="nav-text">5.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-4"><span class="nav-number">2.5.2.</span> <span class="nav-text">5.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-4"><span class="nav-number">2.5.3.</span> <span class="nav-text">5.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quicksort-important"><span class="nav-number">2.6.</span> <span class="nav-text">6. QuickSort (Important)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-5"><span class="nav-number">2.6.1.</span> <span class="nav-text">6.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-5"><span class="nav-number">2.6.2.</span> <span class="nav-text">6.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-5"><span class="nav-number">2.6.3.</span> <span class="nav-text">6.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#radixbucket-sort"><span class="nav-number">2.7.</span> <span class="nav-text">7. Radix&#x2F;Bucket Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-6"><span class="nav-number">2.7.1.</span> <span class="nav-text">7.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-6"><span class="nav-number">2.7.2.</span> <span class="nav-text">7.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-6"><span class="nav-number">2.7.3.</span> <span class="nav-text">7.2 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#heap-sort"><span class="nav-number">2.8.</span> <span class="nav-text">8. Heap Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-7"><span class="nav-number">2.8.1.</span> <span class="nav-text">8.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-7"><span class="nav-number">2.8.2.</span> <span class="nav-text">8.3 Performance</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary-on-performance"><span class="nav-number">3.</span> <span class="nav-text">Summary on Performance</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
