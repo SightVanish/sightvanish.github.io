@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"sightvanish.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Preface This article in written in 2021.10.27, and current version is 0.1a3. In the future, Apple may provide a better machine learning structure on TensorFlow, so please always remember to check here">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Install tensorflow_macos on Macbook M1 (Apple silicon)">
+<meta property="og:url" content="https://sightvanish.github.io/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/index.html">
+<meta property="og:site_name" content="Wu Times">
+<meta property="og:description" content="Preface This article in written in 2021.10.27, and current version is 0.1a3. In the future, Apple may provide a better machine learning structure on TensorFlow, so please always remember to check here">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-27T03:39:15.000Z">
+<meta property="article:modified_time" content="2021-10-27T12:50:25.642Z">
+<meta property="article:author" content="Li Wuchen">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://sightvanish.github.io/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Install tensorflow_macos on Macbook M1 (Apple silicon) | Wu Times</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Wu Times</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-photos">
+
+    <a href="/photos/" rel="section"><i class="fa fa-fw fa-image"></i>Photos</a>
+
+  </li>
+        <li class="menu-item menu-item-maintenance">
+
+    <a href="/maintenance/" rel="section"><i class="fa fa-fw fa-book"></i>Maintenance</a>
+
+  </li>
+        <li class="menu-item menu-item-outheaven">
+
+    <a href="/outheaven/" rel="section"><i class="fa fa-fw fa-lock"></i>OutHeaven</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Install tensorflow_macos on Macbook M1 (Apple silicon)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-10-27 11:39:15 / Modified: 20:50:25" itemprop="dateCreated datePublished" datetime="2021-10-27T11:39:15+08:00">2021-10-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="preface">Preface</h1>
+<p>This article in written in 2021.10.27, and current version is <code>0.1a3</code>. In the future, Apple may provide a better machine learning structure on TensorFlow, so please always remember to check <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos">here</a>.</p>
+<p>My feeling: 🐂🍺 but lots of bugs</p>
+<p>Article <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos/issues/153">reference</a>.</p>
+<h2 id="x-code">X-code</h2>
+<ol type="1">
+<li>Install: <code>xcode-select --install</code></li>
+<li>Check: <code>which xcrun</code>, you should get the path to <code>xcrun</code></li>
+</ol>
+<h2 id="miniforge">Miniforge</h2>
+<p>Miniforge is just a substitude of Anaconda.</p>
+<p>Follow the instruction <a target="_blank" rel="noopener" href="https://github.com/conda-forge/miniforge#miniforge3">here</a>.</p>
+<h2 id="create-virtual-environment">Create virtual environment</h2>
+<ol type="1">
+<li><p>Create <code>environment.yaml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">apple_tensorflow</span></span><br><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">conda-forge</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">nodefaults</span></span><br><span class="line"><span class="attr">dependencies:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">absl-py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">astunparse</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">gast</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">google-pasta</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">grpcio</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">h5py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ipython</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">keras-preprocessing</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">numpy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">opt_einsum</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">pip=20.2.4</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">protobuf</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python-flatbuffers</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python=3.8</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">scipy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorboard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorflow-estimator</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">termcolor</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typeguard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typing_extensions</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wheel</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wrapt</span></span><br><span class="line">  </span><br></pre></td></tr></table></figure></li>
+<li><p>Create new environment:</p>
+<p><code>conda env create --file &lt;PATH_TO_ENVIRONMENT.yaml&gt; --name=&lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
+<li><p>Activate environment:</p>
+<p><code>conda activate &lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
+</ol>
+<h2 id="install-tensorflow">Install Tensorflow</h2>
+<ol type="1">
+<li><p>Directly install whl</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade --force --no-dependencies https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_addons_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl</span><br></pre></td></tr></table></figure>
+<p>check <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos/releases">here</a> for the latest released version</p></li>
+<li><p>Check:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python</span><br><span class="line">&gt;&gt;&gt; import tensorflow as tf</span><br></pre></td></tr></table></figure>
+<p>If there is no error, you have already install tensorflow.</p></li>
+<li><p>Here is a demo for TensorFlow.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line"></span><br><span class="line">(x_train, y_train),(x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span></span><br><span class="line"></span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">  tf.keras.layers.Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>)),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">  tf.keras.layers.Dropout(<span class="number">0.2</span>),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">              loss=<span class="string">&#x27;sparse_categorical_crossentropy&#x27;</span>,</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line"></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">end = time.time()</span><br><span class="line"></span><br><span class="line">model.evaluate(x_test, y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;time consumed: &quot;</span>, end - start)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>Congratulations! You have done everything. Now it is time to enjoy (be tortured) tensorflow!</p>
+<h1 id="something-more-you-should-note">Something more you should note</h1>
+<h2 id="why-not-gpu">Why not GPU</h2>
+<p>If you check your activity monitor, you will find out that GPU is not used by tensorflow.</p>
+<p>Apple implemented machine learning acceleration on their own, and the eager version of machine learning acceleration is currently only available on CPU.</p>
+<p>However, you can still ask tensorflow to use GPU via:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Import mlcompute module to use the optional set_mlc_device API for device selection with ML Compute.</span></span><br><span class="line"><span class="keyword">from</span> tensorflow.python.compiler.mlcompute <span class="keyword">import</span> mlcompute</span><br><span class="line"><span class="comment"># Select CPU device.</span></span><br><span class="line">mlcompute.set_mlc_device(device_name=<span class="string">&#x27;gpu&#x27;</span>) </span><br></pre></td></tr></table></figure>
+<p>If you set <code>mlcompute.set_mlc_device(device_name='any')</code>, it will automatically select the best -- generally CPU.</p>
+<p>With GPU, M1 will report <code>WARNING:tensorflow:Eager mode uses the CPU. Switching to the CPU.</code></p>
+<p>You can test GPU on your will, but GPU is not recomended (it is much less powerful).</p>
+<h2 id="debug">Debug</h2>
+<ol type="1">
+<li><p>If you encounter something like this <code>AutoGraph could not transform</code>, it may be caused by <code>gast</code>.</p>
+<p><code>pip install gast==0.3.3</code> will help.</p></li>
+<li><p>I also found an error <code>Failed to get CPU frequency: 0 Hz</code>. However I still cannot solved it. And the repo of tensorflow_macos is archived, so I cannot report this issue to Apple. But it seems several people have this problem too. May be this is not a big issue <strong>just for learning</strong>. Let's wait the beta version of tensorflow_macos!</p></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>给阿姨倒一杯卡布奇诺</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/ali_pay.jpg" alt="Li Wuchen Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/10/24/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/" rel="prev" title="面试问题整理">
+      <i class="fa fa-chevron-left"></i> 面试问题整理
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#x-code"><span class="nav-number">1.1.</span> <span class="nav-text">X-code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#miniforge"><span class="nav-number">1.2.</span> <span class="nav-text">Miniforge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#create-virtual-environment"><span class="nav-number">1.3.</span> <span class="nav-text">Create virtual environment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#install-tensorflow"><span class="nav-number">1.4.</span> <span class="nav-text">Install Tensorflow</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#something-more-you-should-note"><span class="nav-number">2.</span> <span class="nav-text">Something more you should note</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#why-not-gpu"><span class="nav-number">2.1.</span> <span class="nav-text">Why not GPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug"><span class="nav-number">2.2.</span> <span class="nav-text">Debug</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Li Wuchen"
+      src="/images/avatar.JPG">
+  <p class="site-author-name" itemprop="name">Li Wuchen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sightvanish" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sightvanish" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/1105416184@qq.com" title="E-Mail → 1105416184@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/7541448" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;7541448" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube-play"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Wuchen</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '32px',
+  right: '32px',
+  left: 'unset',
+  time: '0.3s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>

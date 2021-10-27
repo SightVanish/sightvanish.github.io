@@ -203,6 +203,121 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/" class="post-title-link" itemprop="url">Install tensorflow_macos on Macbook M1 (Apple silicon)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-10-27 11:39:15 / Modified: 20:50:25" itemprop="dateCreated datePublished" datetime="2021-10-27T11:39:15+08:00">2021-10-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="preface">Preface</h1>
+<p>This article in written in 2021.10.27, and current version is <code>0.1a3</code>. In the future, Apple may provide a better machine learning structure on TensorFlow, so please always remember to check <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos">here</a>.</p>
+<p>My feeling: 🐂🍺 but lots of bugs</p>
+<p>Article <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos/issues/153">reference</a>.</p>
+<h2 id="x-code">X-code</h2>
+<ol type="1">
+<li>Install: <code>xcode-select --install</code></li>
+<li>Check: <code>which xcrun</code>, you should get the path to <code>xcrun</code></li>
+</ol>
+<h2 id="miniforge">Miniforge</h2>
+<p>Miniforge is just a substitude of Anaconda.</p>
+<p>Follow the instruction <a target="_blank" rel="noopener" href="https://github.com/conda-forge/miniforge#miniforge3">here</a>.</p>
+<h2 id="create-virtual-environment">Create virtual environment</h2>
+<ol type="1">
+<li><p>Create <code>environment.yaml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">apple_tensorflow</span></span><br><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">conda-forge</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">nodefaults</span></span><br><span class="line"><span class="attr">dependencies:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">absl-py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">astunparse</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">gast</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">google-pasta</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">grpcio</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">h5py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ipython</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">keras-preprocessing</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">numpy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">opt_einsum</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">pip=20.2.4</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">protobuf</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python-flatbuffers</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python=3.8</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">scipy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorboard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorflow-estimator</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">termcolor</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typeguard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typing_extensions</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wheel</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wrapt</span></span><br><span class="line">  </span><br></pre></td></tr></table></figure></li>
+<li><p>Create new environment:</p>
+<p><code>conda env create --file &lt;PATH_TO_ENVIRONMENT.yaml&gt; --name=&lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
+<li><p>Activate environment:</p>
+<p><code>conda activate &lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
+</ol>
+<h2 id="install-tensorflow">Install Tensorflow</h2>
+<ol type="1">
+<li><p>Directly install whl</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade --force --no-dependencies https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_addons_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl</span><br></pre></td></tr></table></figure>
+<p>check <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos/releases">here</a> for the latest released version</p></li>
+<li><p>Check:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python</span><br><span class="line">&gt;&gt;&gt; import tensorflow as tf</span><br></pre></td></tr></table></figure>
+<p>If there is no error, you have already install tensorflow.</p></li>
+<li><p>Here is a demo for TensorFlow.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line"></span><br><span class="line">(x_train, y_train),(x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span></span><br><span class="line"></span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">  tf.keras.layers.Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>)),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">  tf.keras.layers.Dropout(<span class="number">0.2</span>),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">              loss=<span class="string">&#x27;sparse_categorical_crossentropy&#x27;</span>,</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line"></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">end = time.time()</span><br><span class="line"></span><br><span class="line">model.evaluate(x_test, y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;time consumed: &quot;</span>, end - start)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>Congratulations! You have done everything. Now it is time to enjoy (be tortured) tensorflow!</p>
+<h1 id="something-more-you-should-note">Something more you should note</h1>
+<h2 id="why-not-gpu">Why not GPU</h2>
+<p>If you check your activity monitor, you will find out that GPU is not used by tensorflow.</p>
+<p>Apple implemented machine learning acceleration on their own, and the eager version of machine learning acceleration is currently only available on CPU.</p>
+<p>However, you can still ask tensorflow to use GPU via:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Import mlcompute module to use the optional set_mlc_device API for device selection with ML Compute.</span></span><br><span class="line"><span class="keyword">from</span> tensorflow.python.compiler.mlcompute <span class="keyword">import</span> mlcompute</span><br><span class="line"><span class="comment"># Select CPU device.</span></span><br><span class="line">mlcompute.set_mlc_device(device_name=<span class="string">&#x27;gpu&#x27;</span>) </span><br></pre></td></tr></table></figure>
+<p>If you set <code>mlcompute.set_mlc_device(device_name='any')</code>, it will automatically select the best -- generally CPU.</p>
+<p>With GPU, M1 will report <code>WARNING:tensorflow:Eager mode uses the CPU. Switching to the CPU.</code></p>
+<p>You can test GPU on your will, but GPU is not recomended (it is much less powerful).</p>
+<h2 id="debug">Debug</h2>
+<ol type="1">
+<li><p>If you encounter something like this <code>AutoGraph could not transform</code>, it may be caused by <code>gast</code>.</p>
+<p><code>pip install gast==0.3.3</code> will help.</p></li>
+<li><p>I also found an error <code>Failed to get CPU frequency: 0 Hz</code>. However I still cannot solved it. And the repo of tensorflow_macos is archived, so I cannot report this issue to Apple. But it seems several people have this problem too. May be this is not a big issue <strong>just for learning</strong>. Let's wait the beta version of tensorflow_macos!</p></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/24/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -930,107 +1045,6 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/07/TOEFL-Notes-based-on-TPO/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/07/TOEFL-Notes-based-on-TPO/" class="post-title-link" itemprop="url">TOEFL Notes (based on TPO)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-07 20:49:30" itemprop="dateCreated datePublished" datetime="2021-10-07T20:49:30+08:00">2021-10-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-18 23:50:07" itemprop="dateModified" datetime="2021-10-18T23:50:07+08:00">2021-10-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TOEFL/" itemprop="url" rel="index"><span itemprop="name">TOEFL</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="tpo1-reading">TPO1 Reading</h3>
-<ol type="1">
-<li>Groundwater(地下水) is the word used to describe water that saturates(渗透、浸透) the ground.</li>
-<li>By far(到目前为止) the most <strong>abundant</strong>(<strong>大量的</strong>、充足的) type of groundwater is meteoric(<strong>大气的</strong>；流星的) water.</li>
-<li>circulate(v. <strong>循环</strong>；流通；流传)</li>
-<li>precipitation(化学沉淀；<strong>降水</strong>；冰雹；坠落)</li>
-<li>sand grains(沙粒)--grain(谷物；颗粒)</li>
-<li>The commonest spaces are those among the particles sand grains and tiny pebbles(卵石) of loose, unconsolidated(松散的) sand and gravel(沙砾).</li>
-<li>bed(床；<strong>河床</strong>)</li>
-<li>They are found wherever(adv. 任何地方) fast rivers carrying loads of(大量的) coarse(粗糙的) sediment(沉淀物) once flowed(流动、涌动).</li>
-<li>ice sheet(冰盖)--sheet(纸张；薄片；板)</li>
-<li>melt away(vi. 融化、消失)</li>
-<li>lade(装载)-laded-laden-&gt;be laden with...</li>
-<li>glacial outwash(冰水沉积)--outwash(术语，专指冰水沉积)</li>
-<li>sandbar(沙洲)</li>
-<li>cement(水泥；粘合剂)--cemented(粘合的；<strong>压实的</strong>)</li>
-<li>minute(n. 分钟；备忘录；一会 adj. <strong>微小的</strong>)</li>
-<li>So much for... 到此为止是关于...</li>
-<li>pore(毛孔；<strong>气孔</strong>)--porous(多孔的)</li>
-<li>percolate(<strong>渗透</strong>；过滤)--percolating water(渗透水)</li>
-<li>Most crystalline(结晶的、晶体的) rocks are much more solid; a common exception is basalt(玄武岩), a form of solidified(凝固的) volcanic(<strong>火山的</strong>；火山岩) lava(岩浆), which is sometimes full of tiny bubbles that make it very porous.</li></ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/10/07/TOEFL-Notes-based-on-TPO/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1102,7 +1116,7 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">80</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
