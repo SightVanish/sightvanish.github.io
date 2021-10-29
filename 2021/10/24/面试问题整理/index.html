@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"sightvanish.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="如何实现shuffle 1234567&#x2F;&#x2F; pseudocodelist&#x3D;[1,2,3,4,5]for(int i&#x3D;list.size()-1; i&gt;&#x3D;0; i--)&amp;#123;    int x&#x3D;random(0,i);    swap(list[i], list[x]);&amp;#125; 手写排序算法（quicksort为什么最快） unordered_map&#x2F;map底层实现（hashta">
+  <meta name="description" content="如何实现shuffle 1234567&#x2F;&#x2F; pseudocodelist&#x3D;[1,2,3,4,5]for(int i&#x3D;list.size()-1; i&gt;&#x3D;0; i--)&amp;#123;    int x&#x3D;random(0,i);    swap(list[i], list[x]);&amp;#125; 手写排序算法（quicksort为什么最快） 123456789101112131415void Qu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试问题整理">
 <meta property="og:url" content="https://sightvanish.github.io/2021/10/24/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/index.html">
 <meta property="og:site_name" content="Wu Times">
-<meta property="og:description" content="如何实现shuffle 1234567&#x2F;&#x2F; pseudocodelist&#x3D;[1,2,3,4,5]for(int i&#x3D;list.size()-1; i&gt;&#x3D;0; i--)&amp;#123;    int x&#x3D;random(0,i);    swap(list[i], list[x]);&amp;#125; 手写排序算法（quicksort为什么最快） unordered_map&#x2F;map底层实现（hashta">
+<meta property="og:description" content="如何实现shuffle 1234567&#x2F;&#x2F; pseudocodelist&#x3D;[1,2,3,4,5]for(int i&#x3D;list.size()-1; i&gt;&#x3D;0; i--)&amp;#123;    int x&#x3D;random(0,i);    swap(list[i], list[x]);&amp;#125; 手写排序算法（quicksort为什么最快） 123456789101112131415void Qu">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-24T13:58:05.000Z">
-<meta property="article:modified_time" content="2021-10-26T12:27:57.029Z">
+<meta property="article:modified_time" content="2021-10-29T08:38:23.726Z">
 <meta property="article:author" content="Li Wuchen">
 <meta name="twitter:card" content="summary">
 
@@ -238,7 +238,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-26 20:27:57" itemprop="dateModified" datetime="2021-10-26T20:27:57+08:00">2021-10-26</time>
+                <time title="Modified: 2021-10-29 16:38:23" itemprop="dateModified" datetime="2021-10-29T16:38:23+08:00">2021-10-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,12 +264,31 @@
         <ol type="1">
 <li><p>如何实现shuffle</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pseudocode</span></span><br><span class="line">list=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=list.<span class="built_in">size</span>()<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> x=<span class="built_in">random</span>(<span class="number">0</span>,i);</span><br><span class="line">    <span class="built_in">swap</span>(list[i], list[x]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>手写排序算法（quicksort为什么最快）</p></li>
+<li><p>手写排序算法（quicksort为什么最快）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Quick_Sort</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; vec, <span class="keyword">int</span> start_index, <span class="keyword">int</span> end_index)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(end_index&lt;=start_index)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> p1 = start_index, p2 = end_index+<span class="number">1</span>, pivot = vec[start_index];</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(vec[++p1]&lt;pivot &amp;&amp; p1&lt;=end_index);</span><br><span class="line">        <span class="keyword">while</span>(vec[--p2]&gt;pivot &amp;&amp; p2&gt;=start_index);</span><br><span class="line">        <span class="keyword">if</span>(p1&gt;=p2)	<span class="keyword">break</span>;</span><br><span class="line">        <span class="built_in">swap</span>(vec[p1], vec[p2]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">swap</span>(vec[start_index], vec[p2]);</span><br><span class="line">    <span class="built_in">Quick_Sort</span>(vec, start_index, p2<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">Quick_Sort</span>(vec, p2+<span class="number">1</span>, end_index);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>QuickSort为什么最快？</p>
+<ul>
+<li>复杂度系数：roughly no difference</li>
+<li>cache locality：quicksort每次会尝试读取一段连续的内存，而heapsort为了维护heap需要跳跃地读取内存</li>
+<li>In-place：quicksort实现不需要额外空间，而mergesort需要额外的空间，在数据量足够大时差异会很明显</li>
+</ul>
+<p>QuickSort为什么不够快？</p>
+<ul>
+<li><p>worst situation：quicksort对pivot选择要求很高，最坏情况会退化成bubble，所以对pivot选择要求很高，而STL中也对quicksort进行了优化--使用introspective sort</p></li>
+<li><p>stable：quicksort总体上stable，但不能保证stable</p></li>
+<li><p>在特殊情况下使用bucket sort还会更快</p></li>
+<li><p>对于处理linked list，cache locality就不复存在，quicksort没有优势，常使用merge sort，此时也不需要额外空间。数据库中sort也常使用disk mergesort</p>
+<span id="more"></span></li>
+</ul></li>
+<li><p>STL sort</p></li>
 <li><p>unordered_map/map底层实现（hashtable如何处理非数字）</p></li>
 <li><p>hashtable处理冲突--线性探查/平方探查</p></li>
 <li><p>virtual function</p></li>
 <li><p>哈夫曼编码</p></li>
-<li><p>max heap如何建立</p></li>
+<li><p>max heap如何建立</p>
+<p>参照heapsort的建方式</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MaxHeapify</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; vec, <span class="keyword">int</span> start_index, <span class="keyword">int</span> end_index)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> parent = start_index, child = start_index*<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(child&lt;=end_index)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// select the max child node</span></span><br><span class="line">        <span class="keyword">if</span>(child+<span class="number">1</span>&lt;=end_index &amp;&amp; vec[child]&lt;vec[child+<span class="number">1</span>])	child++;</span><br><span class="line">        <span class="keyword">if</span>(vec[child]&gt;vec[parent])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">swap</span>(vec[child], vec[parent]);</span><br><span class="line">            parent = child;</span><br><span class="line">            child = parent*<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>	<span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildMaxHeap</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; vec)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=vec.<span class="built_in">length</span>()/<span class="number">2</span><span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">MaxHeapify</span>(vec, i, vec.<span class="built_in">length</span>()<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>more</p></li>
 </ol>
 
     </div>
@@ -381,7 +400,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
