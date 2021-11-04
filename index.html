@@ -296,10 +296,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-11-02 21:41:08 / Modified: 21:48:00" itemprop="dateCreated datePublished" datetime="2021-11-02T21:41:08+08:00">2021-11-02</time>
+              <time title="Created: 2021-11-02 21:41:08" itemprop="dateCreated datePublished" datetime="2021-11-02T21:41:08+08:00">2021-11-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-04 23:46:36" itemprop="dateModified" datetime="2021-11-04T23:46:36+08:00">2021-11-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -323,8 +329,43 @@
       
           <h2 id="regularization">Regularization</h2>
 <p>本来想自己写的，但是<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/29360425">这篇文章</a>写得太好了，几乎没有死角，所以就在以下简单写写补充的内容好了。</p>
+<h2 id="what-is-l1-l2-regularization">What is L1, L2 regularization</h2>
+<h3 id="overfitting">Overfitting</h3>
+<p><strong>VC dimension</strong> is a measurement of <strong>model complexity</strong>. VC dimension <span class="math inline">\(\alpha\)</span> # of model parameters.</p>
+<p>Depress overfitting =&gt; Limit model complexity =&gt; Limit VC dimension =&gt; Limit number of model parameters =&gt; Dropout/Regularization (Dropout can also been seen as a special regularization)</p>
+<p>L0 norm = number of non-zero parameters.</p>
+<p>It would be a good idea to add L0 norm to the Loss function.</p>
+<h3 id="lagrange-function">Lagrange function</h3>
+<p>The target function is: <span class="math inline">\(min_{w}Loss(w, X, y) \ st.||w||_0&lt;=C\)</span>.</p>
+<p>It is a optimization problem =&gt; <strong>Lagrange function</strong>: <span class="math inline">\(argmin_wLoss(w,X,y)+\lambda(||w||_0-C)\)</span></p>
+<p>New target function is: <span class="math inline">\(min_wLoss(w,X,y)+\lambda||w||_0\)</span></p>
+<p>And L1 norm and L2 norm can be seen as a kind of approximation of L0 norm. It also transform a non convex problem to a convex problem.</p>
+<h3 id="map--limit-model-complexity-by-adding-prior-on-w">MAP--limit model complexity by adding prior on w</h3>
+<p>Here is the log maximum function of a linear model <span class="math inline">\(y=Xw\)</span> <span class="math display">\[
+MLE:L(w) = logP(y|w,X) = log[\prod_i^NP(y_i|w,X_i)]
+\]</span> If the model is biased: <span class="math inline">\(y=Xw+\epsilon, \epsilon \in N(0,\sigma^2)\)</span>, <span class="math inline">\(maxMLE &lt;=&gt; minMSELoss\)</span></p>
+<p>Let's review MAP <span class="math display">\[
+MAP = P(w|X,y) = \frac{P(w,X,y)}{P(X,y)} =&gt; P(X,y|w)P(w)=&gt;P(y|X,w)P(w)
+\]</span> notice that the last step is a little bit tricky, so here is my understanding: <span class="math display">\[
+P(X,y|w)P(w)=P(y|X,w)P(w,X)=P(y|X,w)P(X)P(w)=&gt;P(y|X,w)P(w)
+\]</span> <span class="math inline">\(w\)</span> is independent from <span class="math inline">\(y\)</span> but <span class="math inline">\(w\)</span> is dependent from <span class="math inline">\(x\)</span>.</p>
+<p>Then <span class="math inline">\(maxMAP=&gt;max(logMAP)=max(logP(y|X,w)+logP(w))\)</span>.</p>
+<p>The former part is same with MLE, next part will be discussed below.</p>
+<h4 id="l2-norm">L2 norm</h4>
+<p>Suppose <span class="math inline">\(P(w) = N(0,\sigma^2) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{w^2}{2\sigma^2}}\)</span>, <span class="math inline">\(logP(w) =&gt; -||w||_2^2\)</span></p>
+<p>Assume weights are in Guassian distribution &lt;=&gt; L2 regularization</p>
+<h4 id="l1-norm">L1 norm</h4>
+<p>Suppose <span class="math inline">\(P(w) = Laplace(0,\lambda) = \frac{1}{2\lambda}e^{-\frac{|w|}{\lambda}}\)</span>, <span class="math inline">\(logP(w) =&gt; -||w||_1\)</span></p>
+<p>Assume weights are in Laplace distribution &lt;=&gt; L1 regularization</p>
+<figure>
+<img src="/2021/11/02/Regularization-in-Deep-Learning/1.png" alt="Laplace"><figcaption aria-hidden="true">Laplace</figcaption>
+</figure>
+<h3 id="weight-decay">Weight decay</h3>
+<p>L2 norm can also been seen as a method of weight decay--when updating parameters, shrink parameters then update.</p>
 <h2 id="l1-norm-vs.-l2-norm">L1-norm vs. L2-norm</h2>
 <p>在深度学习网络中，该怎么选择Regularization呢?</p>
+<p>L1 norm if capable of producing a sparse result, which is really important for large network. (but a sparse results means L1 norm throw away some features)</p>
+<p>L2 norm assumes <span class="math inline">\(w\)</span> in Gaussian distribution. According to <em>Law of large number</em>, it should be more robust than L1 norm.</p>
 <h2 id="why-not-l0-norm">Why not L0-norm</h2>
 <p>事实上L0并不是严格意义上的norm，但是L0可以很好地体现出参数的稀疏性，因此来限制模型复杂度非常合适。那么有什么问题呢？</p>
 <ul>

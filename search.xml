@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>九月剑道稽古</title>
+    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
+    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
+<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-nLwDcOYrAxGekQkp" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-nLwDcOYrAxGekQkp").style.height=document.getElementById("mmedia-nLwDcOYrAxGekQkp").scrollWidth*0.76+"px";
+    window.onresize = function(){
+      document.getElementById("mmedia-nLwDcOYrAxGekQkp").style.height=document.getElementById("mmedia-nLwDcOYrAxGekQkp").scrollWidth*0.76+"px";
+    }; </script>
+]]></content>
+      <categories>
+        <category>Kendo</category>
+      </categories>
+  </entry>
+  <entry>
     <title>tensor</title>
     <url>/2020/05/23/1-tensor/</url>
     <content><![CDATA[<h1 id="definition">Definition</h1>
@@ -190,20 +204,6 @@
       </categories>
   </entry>
   <entry>
-    <title>九月剑道稽古</title>
-    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
-    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
-<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-oSascjOEWLuxBSzD" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-oSascjOEWLuxBSzD").style.height=document.getElementById("mmedia-oSascjOEWLuxBSzD").scrollWidth*0.76+"px";
-    window.onresize = function(){
-      document.getElementById("mmedia-oSascjOEWLuxBSzD").style.height=document.getElementById("mmedia-oSascjOEWLuxBSzD").scrollWidth*0.76+"px";
-    }; </script>
-]]></content>
-      <categories>
-        <category>Kendo</category>
-      </categories>
-  </entry>
-  <entry>
     <title>AdaBoosting</title>
     <url>/2021/05/24/AdaBoosting/</url>
     <content><![CDATA[<h3 id="boosting-bagging">Boosting &amp; Bagging</h3>
@@ -241,42 +241,6 @@
 <li>AdaBoost不需要先验，同时不容易过拟合，同时不依赖弱分类器效果（可以自由分配权重）。</li>
 <li>AdaBoost错误样本权重指数上升--容易受噪音干扰</li>
 </ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Blender Cloth Rendering</title>
-    <url>/2021/09/14/Blender-Cloth-Rending/</url>
-    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
-<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
-<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
-<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
-<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
-<p><img src="/2021/09/14/Blender-Cloth-Rending/1.png" width="75%" height="75%"></p>
-]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Brief introduction to Unet</title>
-    <url>/2021/10/11/Brief-introduction-to-Unet/</url>
-    <content><![CDATA[<h3 id="structure">Structure</h3>
-<p><img src="/2021/10/11/Brief-introduction-to-Unet/1.png"></p>
-<p>The structure of Unet is symmetric, like a shape of 'U'.</p>
-<p>On the right side the blue box is feature map derived by convolution-deconvolution. And the white box is the just the same as the blue box on the left side. The grey arrow shows <strong>skip-connection</strong>-- putting the two parts together.</p>
-<p>The encoder part is quite simple--3x3 convolutional kernel + maxpooling.</p>
-<p>The decoder part is designed to restore the original shape of the image using <strong>upsampling</strong>.</p>
-<p>In Unet, upsampling is implmented in <strong>bilinear interpolation</strong>.</p>
-<p><code>torch.nn.Upsample(mode=bilinear)</code></p>
-<p>Since upsampling will lose the detailed information of orginal image, Unet try to use skip-connection to fix this problem.</p>
-<p><code>torch.cat([low_layer_features, deep_layer_features], dim=1)</code></p>
-<p>(Note: In FCN, two parts are added in pixel level, however, in Unet, two part are concatenated together.--concatenating remains more details with more time consumed).</p>
-<span id="more"></span>
-<h3 id="code-keras">Code (keras)</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Unet</span>():</span></span><br><span class="line">    inputs = Input((img_rows, img_cols, <span class="number">3</span>)) <span class="comment"># RGB net</span></span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(inputs)</span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv1)</span><br><span class="line">    pool1 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv1)</span><br><span class="line">    <span class="comment"># pool1 = Dropout(0.25)(pool1)</span></span><br><span class="line">    <span class="comment"># pool1 = BatchNormalization()(pool1)</span></span><br><span class="line"></span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool1)</span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv2)</span><br><span class="line">    pool2 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv2)</span><br><span class="line">    <span class="comment"># pool2 = Dropout(0.5)(pool2)</span></span><br><span class="line">    <span class="comment"># pool2 = BatchNormalization()(pool2)</span></span><br><span class="line"></span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool2)</span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv3)</span><br><span class="line">    pool3 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv3)</span><br><span class="line">    <span class="comment"># pool3 = Dropout(0.5)(pool3)</span></span><br><span class="line">    <span class="comment"># pool3 = BatchNormalization()(pool3)</span></span><br><span class="line"></span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool3)</span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv4)</span><br><span class="line">    pool4 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv4)</span><br><span class="line">    <span class="comment"># pool4 = Dropout(0.5)(pool4)</span></span><br><span class="line">    <span class="comment"># pool4 = BatchNormalization()(pool4)</span></span><br><span class="line"></span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool4)</span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv5)</span><br><span class="line"></span><br><span class="line">    up6 = concatenate([Conv2DTranspose(<span class="number">256</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv5), conv4], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up6 = Dropout(0.5)(up6)</span></span><br><span class="line">    <span class="comment"># up6 = BatchNormalization()(up6)</span></span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up6)</span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv6)</span><br><span class="line"></span><br><span class="line">    up7 = concatenate([Conv2DTranspose(<span class="number">128</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv6), conv3], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up7 = Dropout(0.5)(up7)</span></span><br><span class="line">    <span class="comment"># up7 = BatchNormalization()(up7)</span></span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up7)</span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv7)</span><br><span class="line"></span><br><span class="line">    up8 = concatenate([Conv2DTranspose(<span class="number">64</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv7), conv2], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up8 = Dropout(0.5)(up8)</span></span><br><span class="line">    <span class="comment"># up8 = BatchNormalization()(up8)</span></span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up8)</span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv8)</span><br><span class="line"></span><br><span class="line">    up9 = concatenate([Conv2DTranspose(<span class="number">32</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv8), conv1], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up9 = Dropout(0.5)(up9)</span></span><br><span class="line">    <span class="comment"># up9 = BatchNormalization()(up9)</span></span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up9)</span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># conv9 = Dropout(0.5)(conv9)</span></span><br><span class="line"></span><br><span class="line">    conv10 = Conv2D(<span class="number">1</span>, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">&#x27;sigmoid&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    model = Model(inputs=[inputs], outputs=[conv10])</span><br><span class="line"></span><br><span class="line">    model.<span class="built_in">compile</span>(optimizer=Adam(lr=<span class="number">1e-5</span>),</span><br><span class="line">                  loss=dice_coef_loss, metrics=[dice_coef])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Machine Learning</category>
@@ -406,31 +370,83 @@
       </tags>
   </entry>
   <entry>
-    <title>C++11 in Mac (VsCode)</title>
-    <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
-    <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of <code>gcc</code>. You can still use <code>clang++</code> or <code>g++</code> to run a <code>.cpp</code> file. But basically, <code>clang</code> will use <code>-std=c++98</code> as default.</p>
-<p>So if you want to switch to new c++ standard in VsCode (Mac), do as follows:</p>
+    <title>Blender尝试NPR场景</title>
+    <url>/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/</url>
+    <content><![CDATA[<p>尝试了NPR的场景渲染，感觉不是特别成功，二次元渲染不仅需要技术，调参也很难，需要一些美学功底更重要的是对渲染节点的深入理解。</p>
+<div align="center">
+<figure>
+<img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/Grass.png" alt="初步的效果"><figcaption aria-hidden="true">初步的效果</figcaption>
+</figure>
+<div align="center">
+<figure>
+<img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/real.jpeg" alt="实际想要模仿的效果--图片为实际拍摄"><figcaption aria-hidden="true">实际想要模仿的效果--图片为实际拍摄</figcaption>
+</figure>
+</div></div>]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Brief introduction to Unet</title>
+    <url>/2021/10/11/Brief-introduction-to-Unet/</url>
+    <content><![CDATA[<h3 id="structure">Structure</h3>
+<p><img src="/2021/10/11/Brief-introduction-to-Unet/1.png"></p>
+<p>The structure of Unet is symmetric, like a shape of 'U'.</p>
+<p>On the right side the blue box is feature map derived by convolution-deconvolution. And the white box is the just the same as the blue box on the left side. The grey arrow shows <strong>skip-connection</strong>-- putting the two parts together.</p>
+<p>The encoder part is quite simple--3x3 convolutional kernel + maxpooling.</p>
+<p>The decoder part is designed to restore the original shape of the image using <strong>upsampling</strong>.</p>
+<p>In Unet, upsampling is implmented in <strong>bilinear interpolation</strong>.</p>
+<p><code>torch.nn.Upsample(mode=bilinear)</code></p>
+<p>Since upsampling will lose the detailed information of orginal image, Unet try to use skip-connection to fix this problem.</p>
+<p><code>torch.cat([low_layer_features, deep_layer_features], dim=1)</code></p>
+<p>(Note: In FCN, two parts are added in pixel level, however, in Unet, two part are concatenated together.--concatenating remains more details with more time consumed).</p>
 <span id="more"></span>
-<ol type="1">
-<li><p>Edit you c++ settings of VsCode:</p>
-<ol type="1">
-<li><p>create <code>.vscode/c_cpp_properties.json</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Mac&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [],</span><br><span class="line">            &quot;macFrameworkPath&quot;: [</span><br><span class="line">                &quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;/usr/bin/clang&quot;,</span><br><span class="line">            &quot;cStandard&quot;: &quot;c11&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;c++11&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;macos-clang-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>In terminal:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;alias g++=&#x27;g++ -std=c++11&#x27;&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source    ~/.bashrc</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-</ol>
-<p>Run your <code>.cpp</code> files in terminals:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">g++ filename.cpp -o objectname</span><br><span class="line">./objectname</span><br></pre></td></tr></table></figure>
-<p>Note: you can use <code>g++</code> in std11, but <code>clang++</code> is still in std98. (<code>clang/gcc</code> is for <code>.c</code> file)</p>
+<h3 id="code-keras">Code (keras)</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Unet</span>():</span></span><br><span class="line">    inputs = Input((img_rows, img_cols, <span class="number">3</span>)) <span class="comment"># RGB net</span></span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(inputs)</span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv1)</span><br><span class="line">    pool1 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv1)</span><br><span class="line">    <span class="comment"># pool1 = Dropout(0.25)(pool1)</span></span><br><span class="line">    <span class="comment"># pool1 = BatchNormalization()(pool1)</span></span><br><span class="line"></span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool1)</span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv2)</span><br><span class="line">    pool2 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv2)</span><br><span class="line">    <span class="comment"># pool2 = Dropout(0.5)(pool2)</span></span><br><span class="line">    <span class="comment"># pool2 = BatchNormalization()(pool2)</span></span><br><span class="line"></span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool2)</span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv3)</span><br><span class="line">    pool3 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv3)</span><br><span class="line">    <span class="comment"># pool3 = Dropout(0.5)(pool3)</span></span><br><span class="line">    <span class="comment"># pool3 = BatchNormalization()(pool3)</span></span><br><span class="line"></span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool3)</span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv4)</span><br><span class="line">    pool4 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv4)</span><br><span class="line">    <span class="comment"># pool4 = Dropout(0.5)(pool4)</span></span><br><span class="line">    <span class="comment"># pool4 = BatchNormalization()(pool4)</span></span><br><span class="line"></span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool4)</span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv5)</span><br><span class="line"></span><br><span class="line">    up6 = concatenate([Conv2DTranspose(<span class="number">256</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv5), conv4], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up6 = Dropout(0.5)(up6)</span></span><br><span class="line">    <span class="comment"># up6 = BatchNormalization()(up6)</span></span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up6)</span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv6)</span><br><span class="line"></span><br><span class="line">    up7 = concatenate([Conv2DTranspose(<span class="number">128</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv6), conv3], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up7 = Dropout(0.5)(up7)</span></span><br><span class="line">    <span class="comment"># up7 = BatchNormalization()(up7)</span></span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up7)</span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv7)</span><br><span class="line"></span><br><span class="line">    up8 = concatenate([Conv2DTranspose(<span class="number">64</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv7), conv2], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up8 = Dropout(0.5)(up8)</span></span><br><span class="line">    <span class="comment"># up8 = BatchNormalization()(up8)</span></span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up8)</span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv8)</span><br><span class="line"></span><br><span class="line">    up9 = concatenate([Conv2DTranspose(<span class="number">32</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv8), conv1], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up9 = Dropout(0.5)(up9)</span></span><br><span class="line">    <span class="comment"># up9 = BatchNormalization()(up9)</span></span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up9)</span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># conv9 = Dropout(0.5)(conv9)</span></span><br><span class="line"></span><br><span class="line">    conv10 = Conv2D(<span class="number">1</span>, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">&#x27;sigmoid&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    model = Model(inputs=[inputs], outputs=[conv10])</span><br><span class="line"></span><br><span class="line">    model.<span class="built_in">compile</span>(optimizer=Adam(lr=<span class="number">1e-5</span>),</span><br><span class="line">                  loss=dice_coef_loss, metrics=[dice_coef])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Learning</category>
+        <category>Machine Learning</category>
       </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Mac</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>Blender Cloth Rendering</title>
+    <url>/2021/09/14/Blender-Cloth-Rending/</url>
+    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
+<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
+<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
+<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
+<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
+<p><img src="/2021/09/14/Blender-Cloth-Rending/1.png" width="75%" height="75%"></p>
+]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Benchmark of Neural Network--Precision,Recall,F1-Measure</title>
+    <url>/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/</url>
+    <content><![CDATA[<h3 id="precision">Precision</h3>
+<p><span class="math inline">\(Precision=\frac{actually \ true \&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \ true}\)</span></p>
+<p>The percentage of true labels decided by the model are actually true.</p>
+<h3 id="recall">Recall</h3>
+<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \ true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
+<p>The percentage of true items are decided true by the model.</p>
+<p>If we want higher Precision, we should not take any risk--only take those with highest score.</p>
+<p>But if we want higher Recall, we should take all possible results. That is, we cannot get Precision and Recall improved at the same time.</p>
+<p>So we need a balance benchmark.</p>
+<h3 id="f1-measuref1-score">F1-Measure/F1-Score</h3>
+<p><span class="math display">\[
+F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
+\]</span></p>
+<p>We get F1-Measure when <span class="math inline">\(\alpha=1\)</span>.</p>
+<p>More on <a href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic Mean</a>--it prevents models that are only good at either of P or R from doing good in F.</p>
+<p>x=50, y=0~100, here is the score (<a href="https://www.zhihu.com/question/47980482">ref</a>):</p>
+<p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
+<p>Harmonic mean tries to get a result that neither P nor R is not so bad even if both of them are not really good.</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
   </entry>
   <entry>
     <title>C/C++ openmp</title>
@@ -469,50 +485,30 @@
       </tags>
   </entry>
   <entry>
-    <title>Benchmark of Neural Network--Precision,Recall,F1-Measure</title>
-    <url>/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/</url>
-    <content><![CDATA[<h3 id="precision">Precision</h3>
-<p><span class="math inline">\(Precision=\frac{actually \ true \&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \ true}\)</span></p>
-<p>The percentage of true labels decided by the model are actually true.</p>
-<h3 id="recall">Recall</h3>
-<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \ true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
-<p>The percentage of true items are decided true by the model.</p>
-<p>If we want higher Precision, we should not take any risk--only take those with highest score.</p>
-<p>But if we want higher Recall, we should take all possible results. That is, we cannot get Precision and Recall improved at the same time.</p>
-<p>So we need a balance benchmark.</p>
-<h3 id="f1-measuref1-score">F1-Measure/F1-Score</h3>
-<p><span class="math display">\[
-F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
-\]</span></p>
-<p>We get F1-Measure when <span class="math inline">\(\alpha=1\)</span>.</p>
-<p>More on <a href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic Mean</a>--it prevents models that are only good at either of P or R from doing good in F.</p>
-<p>x=50, y=0~100, here is the score (<a href="https://www.zhihu.com/question/47980482">ref</a>):</p>
-<p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
-<p>Harmonic mean tries to get a result that neither P nor R is not so bad even if both of them are not really good.</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Difference between Override &amp; Overload</title>
-    <url>/2020/12/16/Difference-between-Override-Overload/</url>
-    <content><![CDATA[<p>Both of them only happen when difference function using same name.</p>
-<ul>
-<li><p>Overloading: picking a method <strong>signature</strong> at compile time based on the number and type of the arguments specified</p>
-<p>Overload--在compile时抓取function signature，每个function参数列表（参数数目和数量）不同，所以区别开来。</p></li>
-<li><p>Overriding: picking a method <strong>implementation</strong> at execution time based on the actual type of the target object (as opposed to the compile-time type of the expression)</p>
-<p>Override--在execution时选取不同的function来执行，注意这些function名称相同，参数列表相同。发生在类的继承中，子类function override夫类function，返回类型相同。</p></li>
-</ul>
+    <title>C++11 in Mac (VsCode)</title>
+    <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
+    <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of <code>gcc</code>. You can still use <code>clang++</code> or <code>g++</code> to run a <code>.cpp</code> file. But basically, <code>clang</code> will use <code>-std=c++98</code> as default.</p>
+<p>So if you want to switch to new c++ standard in VsCode (Mac), do as follows:</p>
 <span id="more"></span>
-<p>Example (with java):</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">// this function will overload the function above</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">double</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(double)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;		</span><br><span class="line">  	<span class="comment">// this function override the function in Base</span></span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Base b = <span class="keyword">new</span> Child();</span><br><span class="line">b.foo(<span class="number">10</span>); <span class="comment">// Prints Child.foo(int)</span></span><br><span class="line">b.foo(<span class="number">5.0</span>); <span class="comment">// Prints Base.foo(double)</span></span><br></pre></td></tr></table></figure>
+<ol type="1">
+<li><p>Edit you c++ settings of VsCode:</p>
+<ol type="1">
+<li><p>create <code>.vscode/c_cpp_properties.json</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Mac&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [],</span><br><span class="line">            &quot;macFrameworkPath&quot;: [</span><br><span class="line">                &quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;/usr/bin/clang&quot;,</span><br><span class="line">            &quot;cStandard&quot;: &quot;c11&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;c++11&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;macos-clang-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>In terminal:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;alias g++=&#x27;g++ -std=c++11&#x27;&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source    ~/.bashrc</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+</ol>
+<p>Run your <code>.cpp</code> files in terminals:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">g++ filename.cpp -o objectname</span><br><span class="line">./objectname</span><br></pre></td></tr></table></figure>
+<p>Note: you can use <code>g++</code> in std11, but <code>clang++</code> is still in std98. (<code>clang/gcc</code> is for <code>.c</code> file)</p>
 ]]></content>
       <categories>
         <category>Learning</category>
       </categories>
       <tags>
         <tag>C++</tag>
+        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
@@ -539,21 +535,25 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </tags>
   </entry>
   <entry>
-    <title>Blender尝试NPR场景</title>
-    <url>/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/</url>
-    <content><![CDATA[<p>尝试了NPR的场景渲染，感觉不是特别成功，二次元渲染不仅需要技术，调参也很难，需要一些美学功底更重要的是对渲染节点的深入理解。</p>
-<div align="center">
-<figure>
-<img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/Grass.png" alt="初步的效果"><figcaption aria-hidden="true">初步的效果</figcaption>
-</figure>
-<div align="center">
-<figure>
-<img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/real.jpeg" alt="实际想要模仿的效果--图片为实际拍摄"><figcaption aria-hidden="true">实际想要模仿的效果--图片为实际拍摄</figcaption>
-</figure>
-</div></div>]]></content>
+    <title>Difference between Override &amp; Overload</title>
+    <url>/2020/12/16/Difference-between-Override-Overload/</url>
+    <content><![CDATA[<p>Both of them only happen when difference function using same name.</p>
+<ul>
+<li><p>Overloading: picking a method <strong>signature</strong> at compile time based on the number and type of the arguments specified</p>
+<p>Overload--在compile时抓取function signature，每个function参数列表（参数数目和数量）不同，所以区别开来。</p></li>
+<li><p>Overriding: picking a method <strong>implementation</strong> at execution time based on the actual type of the target object (as opposed to the compile-time type of the expression)</p>
+<p>Override--在execution时选取不同的function来执行，注意这些function名称相同，参数列表相同。发生在类的继承中，子类function override夫类function，返回类型相同。</p></li>
+</ul>
+<span id="more"></span>
+<p>Example (with java):</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">// this function will overload the function above</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">double</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(double)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;		</span><br><span class="line">  	<span class="comment">// this function override the function in Base</span></span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Base b = <span class="keyword">new</span> Child();</span><br><span class="line">b.foo(<span class="number">10</span>); <span class="comment">// Prints Child.foo(int)</span></span><br><span class="line">b.foo(<span class="number">5.0</span>); <span class="comment">// Prints Base.foo(double)</span></span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
-        <category>Blender</category>
+        <category>Learning</category>
       </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
   </entry>
   <entry>
     <title>Copy &amp; Deepcopy in Python</title>
@@ -565,6 +565,19 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Experience of MacOS Big Sur</title>
+    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
+    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
+<p>(for test purpose--transfer Blog)</p>
+]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+      <tags>
+        <tag>MacOS</tag>
       </tags>
   </entry>
   <entry>
@@ -585,28 +598,6 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
         <tag>C++</tag>
         <tag>const</tag>
         <tag>pointer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GIF test</title>
-    <url>/2021/09/16/GIF-test/</url>
-    <content><![CDATA[<p>You should see this. <iframe height="75%" width="75%" src="1.gif"></iframe></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Experience of MacOS Big Sur</title>
-    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
-    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named with this place, is published recently. The first impression to me is that the apparance seems to be exactly same with iPadOS or iOS. Smoother--faster finger scanner to unlock machine. The whole machine is seemed to be renewed with much more better performance.</p>
-<p>(for test purpose--transfer Blog)</p>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-      <tags>
-        <tag>MacOS</tag>
       </tags>
   </entry>
   <entry>
@@ -694,6 +685,15 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
         <tag>new</tag>
         <tag>malloc</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>GIF test</title>
+    <url>/2021/09/16/GIF-test/</url>
+    <content><![CDATA[<p>You should see this. <iframe height="75%" width="75%" src="1.gif"></iframe></p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
   </entry>
   <entry>
     <title>Games101 Homeworks Summary</title>
@@ -1040,15 +1040,6 @@ f(x)=f(x^k)+g_k^T(x-x^k)+\frac{1}{2}(x-x^k)^TH(x^k)(x-x^k)
       </categories>
   </entry>
   <entry>
-    <title>Hash--HashCode &amp; HashMap</title>
-    <url>/2021/10/29/Hash-HashCode-HashMap/</url>
-    <content><![CDATA[
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
     <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
     <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
@@ -1100,6 +1091,15 @@ f(x)=f(x^k)+g_k^T(x-x^k)+\frac{1}{2}(x-x^k)^TH(x^k)(x-x^k)
       </categories>
   </entry>
   <entry>
+    <title>Hash--HashCode &amp; HashMap</title>
+    <url>/2021/10/29/Hash-HashCode-HashMap/</url>
+    <content><![CDATA[
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>How to install &#39;labelme&#39; in Macbook M1</title>
     <url>/2021/09/29/How-to-install-labelme-in-Macbook-M1/</url>
     <content><![CDATA[<h3 id="conda-environment">Conda Environment</h3>
@@ -1133,6 +1133,96 @@ f(x)=f(x^k)+g_k^T(x-x^k)+\frac{1}{2}(x-x^k)^TH(x^k)(x-x^k)
 ]]></content>
       <categories>
         <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to use docker in Mac M1</title>
+    <url>/2021/10/09/How-to-use-docker-in-Mac-M1/</url>
+    <content><![CDATA[<h3 id="install-docker">Install docker</h3>
+<p>Download docker here: https://docs.docker.com/docker-for-mac/apple-m1/</p>
+<p>Note:</p>
+<p>This is just a preview version, which means you may encounter various bugs.</p>
+<p>This version is based on <strong>Rosetta2</strong>, so remember to install it via <code>$ softwareupdate --install-rosetta</code>.</p>
+<h3 id="check-your-docker">Check your docker</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker -v</span><br><span class="line">$ docker info // it may take a few minutes to start docker</span><br></pre></td></tr></table></figure>
+<h3 id="use-docker-image-mit-6.s081">Use docker image <a href="https://zhuanlan.zhihu.com/p/417668697">MIT 6.S081</a></h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker pull calvinhaynes412/mit6.s081:v1 // pull docker image</span><br><span class="line">$ git clone git@github.com:CalvinHaynes/MIT6.S081-2020Fall.git // pull git repository</span><br></pre></td></tr></table></figure>
+<p>Open the docker image-&gt;set repository to the local git repository-&gt;open docker in browser.</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Install tensorflow_macos on Macbook M1 (Apple silicon)</title>
+    <url>/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/</url>
+    <content><![CDATA[<h1 id="preface">Preface</h1>
+<p>This article in written in 2021.10.27, and current version is <code>0.1a3</code>. In the future, Apple may provide a better machine learning structure on TensorFlow, so please always remember to check <a href="https://github.com/apple/tensorflow_macos">here</a>.</p>
+<p>My feeling: 🐂🍺 but lots of bugs</p>
+<p>Article <a href="https://github.com/apple/tensorflow_macos/issues/153">reference</a>.</p>
+<h2 id="x-code">X-code</h2>
+<ol type="1">
+<li>Install: <code>xcode-select --install</code></li>
+<li>Check: <code>which xcrun</code>, you should get the path to <code>xcrun</code></li>
+</ol>
+<h2 id="miniforge">Miniforge</h2>
+<p>Miniforge is just a substitude of Anaconda.</p>
+<p>Follow the instruction <a href="https://github.com/conda-forge/miniforge#miniforge3">here</a>.</p>
+<h2 id="create-virtual-environment">Create virtual environment</h2>
+<ol type="1">
+<li><p>Create <code>environment.yaml</code></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">apple_tensorflow</span></span><br><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">conda-forge</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">nodefaults</span></span><br><span class="line"><span class="attr">dependencies:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">absl-py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">astunparse</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">gast</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">google-pasta</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">grpcio</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">h5py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ipython</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">keras-preprocessing</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">numpy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">opt_einsum</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">pip=20.2.4</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">protobuf</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python-flatbuffers</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python=3.8</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">scipy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorboard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorflow-estimator</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">termcolor</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typeguard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typing_extensions</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wheel</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wrapt</span></span><br><span class="line">  </span><br></pre></td></tr></table></figure></li>
+<li><p>Create new environment:</p>
+<p><code>conda env create --file &lt;PATH_TO_ENVIRONMENT.yaml&gt; --name=&lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
+<li><p>Activate environment:</p>
+<p><code>conda activate &lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
+</ol>
+<h2 id="install-tensorflow">Install Tensorflow</h2>
+<ol type="1">
+<li><p>Directly install whl</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install --upgrade --force --no-dependencies https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_addons_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl</span><br></pre></td></tr></table></figure>
+<p>check <a href="https://github.com/apple/tensorflow_macos/releases">here</a> for the latest released version</p></li>
+<li><p>Check:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ python</span><br><span class="line">&gt;&gt;&gt; import tensorflow as tf</span><br></pre></td></tr></table></figure>
+<p>If there is no error, you have already install tensorflow.</p></li>
+<li><p>Here is a demo for TensorFlow.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line"></span><br><span class="line">(x_train, y_train),(x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span></span><br><span class="line"></span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">  tf.keras.layers.Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>)),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">  tf.keras.layers.Dropout(<span class="number">0.2</span>),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">              loss=<span class="string">&#x27;sparse_categorical_crossentropy&#x27;</span>,</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line"></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">end = time.time()</span><br><span class="line"></span><br><span class="line">model.evaluate(x_test, y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;time consumed: &quot;</span>, end - start)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>Congratulations! You have done everything. Now it is time to enjoy (be tortured) tensorflow!</p>
+<h1 id="something-more-you-should-note">Something more you should note</h1>
+<h2 id="why-not-gpu">Why not GPU</h2>
+<p>If you check your activity monitor, you will find out that GPU is not used by tensorflow.</p>
+<p>Apple implemented machine learning acceleration on their own, and the eager version of machine learning acceleration is currently only available on CPU.</p>
+<p>However, you can still ask tensorflow to use GPU via:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Import mlcompute module to use the optional set_mlc_device API for device selection with ML Compute.</span></span><br><span class="line"><span class="keyword">from</span> tensorflow.python.compiler.mlcompute <span class="keyword">import</span> mlcompute</span><br><span class="line"><span class="comment"># Select CPU device.</span></span><br><span class="line">mlcompute.set_mlc_device(device_name=<span class="string">&#x27;gpu&#x27;</span>) </span><br></pre></td></tr></table></figure>
+<p>If you set <code>mlcompute.set_mlc_device(device_name='any')</code>, it will automatically select the best -- generally CPU.</p>
+<p>With GPU, M1 will report <code>WARNING:tensorflow:Eager mode uses the CPU. Switching to the CPU.</code></p>
+<p>You can test GPU on your will, but GPU is not recomended (it is much less powerful).</p>
+<h2 id="debug">Debug</h2>
+<ol type="1">
+<li><p>If you encounter something like this <code>AutoGraph could not transform</code>, it may be caused by <code>gast</code>.</p>
+<p><code>pip install gast==0.3.3</code> will help.</p></li>
+<li><p>I also found an error <code>Failed to get CPU frequency: 0 Hz</code>. However I still cannot solved it. And the repo of tensorflow_macos is archived, so I cannot report this issue to Apple. But it seems several people have this problem too. May be this is not a big issue <strong>just for learning</strong>. Let's wait the beta version of tensorflow_macos!</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Jupyter Notebook Installtion</title>
+    <url>/2021/10/09/Jupyter-Notebook-Installtion/</url>
+    <content><![CDATA[<ol type="1">
+<li><p><code>conda create -n &lt;env_name&gt; &lt;python=3.9&gt;</code></p></li>
+<li><p><code>conda install jupyter notebook</code></p></li>
+<li><p><code>pip install jupyter_contrib_nbextensions</code>, <code>jupyter contrib nbextension install --user</code>, <code>pip install jupyter_nbextensions_configurator</code>, <code>jupyter nbextensions_configurator enable --user</code></p></li>
+<li><p>open <code>jupyter notebook</code>-&gt;Nbextension-&gt;Hinterland (enable this button)</p></li>
+<li><p><code>conda install nb_conda_kernels</code></p>
+<p>with this package, you are able to select your own conda environment in notebook.</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -1251,109 +1341,10 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
-    <title>How to use docker in Mac M1</title>
-    <url>/2021/10/09/How-to-use-docker-in-Mac-M1/</url>
-    <content><![CDATA[<h3 id="install-docker">Install docker</h3>
-<p>Download docker here: https://docs.docker.com/docker-for-mac/apple-m1/</p>
-<p>Note:</p>
-<p>This is just a preview version, which means you may encounter various bugs.</p>
-<p>This version is based on <strong>Rosetta2</strong>, so remember to install it via <code>$ softwareupdate --install-rosetta</code>.</p>
-<h3 id="check-your-docker">Check your docker</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker -v</span><br><span class="line">$ docker info // it may take a few minutes to start docker</span><br></pre></td></tr></table></figure>
-<h3 id="use-docker-image-mit-6.s081">Use docker image <a href="https://zhuanlan.zhihu.com/p/417668697">MIT 6.S081</a></h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker pull calvinhaynes412/mit6.s081:v1 // pull docker image</span><br><span class="line">$ git clone git@github.com:CalvinHaynes/MIT6.S081-2020Fall.git // pull git repository</span><br></pre></td></tr></table></figure>
-<p>Open the docker image-&gt;set repository to the local git repository-&gt;open docker in browser.</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Jupyter Notebook Installtion</title>
-    <url>/2021/10/09/Jupyter-Notebook-Installtion/</url>
-    <content><![CDATA[<ol type="1">
-<li><p><code>conda create -n &lt;env_name&gt; &lt;python=3.9&gt;</code></p></li>
-<li><p><code>conda install jupyter notebook</code></p></li>
-<li><p><code>pip install jupyter_contrib_nbextensions</code>, <code>jupyter contrib nbextension install --user</code>, <code>pip install jupyter_nbextensions_configurator</code>, <code>jupyter nbextensions_configurator enable --user</code></p></li>
-<li><p>open <code>jupyter notebook</code>-&gt;Nbextension-&gt;Hinterland (enable this button)</p></li>
-<li><p><code>conda install nb_conda_kernels</code></p>
-<p>with this package, you are able to select your own conda environment in notebook.</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Install tensorflow_macos on Macbook M1 (Apple silicon)</title>
-    <url>/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/</url>
-    <content><![CDATA[<h1 id="preface">Preface</h1>
-<p>This article in written in 2021.10.27, and current version is <code>0.1a3</code>. In the future, Apple may provide a better machine learning structure on TensorFlow, so please always remember to check <a href="https://github.com/apple/tensorflow_macos">here</a>.</p>
-<p>My feeling: 🐂🍺 but lots of bugs</p>
-<p>Article <a href="https://github.com/apple/tensorflow_macos/issues/153">reference</a>.</p>
-<h2 id="x-code">X-code</h2>
-<ol type="1">
-<li>Install: <code>xcode-select --install</code></li>
-<li>Check: <code>which xcrun</code>, you should get the path to <code>xcrun</code></li>
-</ol>
-<h2 id="miniforge">Miniforge</h2>
-<p>Miniforge is just a substitude of Anaconda.</p>
-<p>Follow the instruction <a href="https://github.com/conda-forge/miniforge#miniforge3">here</a>.</p>
-<h2 id="create-virtual-environment">Create virtual environment</h2>
-<ol type="1">
-<li><p>Create <code>environment.yaml</code></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">apple_tensorflow</span></span><br><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">conda-forge</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">nodefaults</span></span><br><span class="line"><span class="attr">dependencies:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">absl-py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">astunparse</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">gast</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">google-pasta</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">grpcio</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">h5py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ipython</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">keras-preprocessing</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">numpy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">opt_einsum</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">pip=20.2.4</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">protobuf</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python-flatbuffers</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python=3.8</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">scipy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorboard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorflow-estimator</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">termcolor</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typeguard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typing_extensions</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wheel</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wrapt</span></span><br><span class="line">  </span><br></pre></td></tr></table></figure></li>
-<li><p>Create new environment:</p>
-<p><code>conda env create --file &lt;PATH_TO_ENVIRONMENT.yaml&gt; --name=&lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
-<li><p>Activate environment:</p>
-<p><code>conda activate &lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
-</ol>
-<h2 id="install-tensorflow">Install Tensorflow</h2>
-<ol type="1">
-<li><p>Directly install whl</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install --upgrade --force --no-dependencies https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_addons_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl</span><br></pre></td></tr></table></figure>
-<p>check <a href="https://github.com/apple/tensorflow_macos/releases">here</a> for the latest released version</p></li>
-<li><p>Check:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ python</span><br><span class="line">&gt;&gt;&gt; import tensorflow as tf</span><br></pre></td></tr></table></figure>
-<p>If there is no error, you have already install tensorflow.</p></li>
-<li><p>Here is a demo for TensorFlow.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line"></span><br><span class="line">(x_train, y_train),(x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span></span><br><span class="line"></span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">  tf.keras.layers.Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>)),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">  tf.keras.layers.Dropout(<span class="number">0.2</span>),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">              loss=<span class="string">&#x27;sparse_categorical_crossentropy&#x27;</span>,</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line"></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">end = time.time()</span><br><span class="line"></span><br><span class="line">model.evaluate(x_test, y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;time consumed: &quot;</span>, end - start)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>Congratulations! You have done everything. Now it is time to enjoy (be tortured) tensorflow!</p>
-<h1 id="something-more-you-should-note">Something more you should note</h1>
-<h2 id="why-not-gpu">Why not GPU</h2>
-<p>If you check your activity monitor, you will find out that GPU is not used by tensorflow.</p>
-<p>Apple implemented machine learning acceleration on their own, and the eager version of machine learning acceleration is currently only available on CPU.</p>
-<p>However, you can still ask tensorflow to use GPU via:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Import mlcompute module to use the optional set_mlc_device API for device selection with ML Compute.</span></span><br><span class="line"><span class="keyword">from</span> tensorflow.python.compiler.mlcompute <span class="keyword">import</span> mlcompute</span><br><span class="line"><span class="comment"># Select CPU device.</span></span><br><span class="line">mlcompute.set_mlc_device(device_name=<span class="string">&#x27;gpu&#x27;</span>) </span><br></pre></td></tr></table></figure>
-<p>If you set <code>mlcompute.set_mlc_device(device_name='any')</code>, it will automatically select the best -- generally CPU.</p>
-<p>With GPU, M1 will report <code>WARNING:tensorflow:Eager mode uses the CPU. Switching to the CPU.</code></p>
-<p>You can test GPU on your will, but GPU is not recomended (it is much less powerful).</p>
-<h2 id="debug">Debug</h2>
-<ol type="1">
-<li><p>If you encounter something like this <code>AutoGraph could not transform</code>, it may be caused by <code>gast</code>.</p>
-<p><code>pip install gast==0.3.3</code> will help.</p></li>
-<li><p>I also found an error <code>Failed to get CPU frequency: 0 Hz</code>. However I still cannot solved it. And the repo of tensorflow_macos is archived, so I cannot report this issue to Apple. But it seems several people have this problem too. May be this is not a big issue <strong>just for learning</strong>. Let's wait the beta version of tensorflow_macos!</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Logistic Regression</title>
     <url>/2021/11/02/Logistic-Regression/</url>
     <content><![CDATA[
 ]]></content>
-  </entry>
-  <entry>
-    <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
-    <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
-    <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
   </entry>
   <entry>
     <title>Mac上vscode显示没有修改文件权限</title>
@@ -1387,16 +1378,13 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </tags>
   </entry>
   <entry>
-    <title>Markdown在github上公式显示错误</title>
-    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
+    <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
+    <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
+    <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
   </entry>
   <entry>
     <title>My Donut in Blender</title>
@@ -1428,6 +1416,33 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
+    <title>Markdown在github上公式显示错误</title>
+    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _ 后加空格，如<span class="math inline">\(a_ 1\)</span>应写为<code>a_ 1</code></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NPR Cup--a taste to NPR</title>
+    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
+    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果"><figcaption aria-hidden="true">简单的一个效果</figcaption>
+</figure>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了"><figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Rendering</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Overwatch yes</title>
     <url>/2021/06/10/Overwatch-yes/</url>
     <content><![CDATA[<p>猩猩真快乐666666666666666</p>
@@ -1436,21 +1451,6 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       <categories>
         <category>Chat</category>
       </categories>
-  </entry>
-  <entry>
-    <title>PDF &amp; CDF</title>
-    <url>/2021/02/24/PDF_CDF/</url>
-    <content><![CDATA[<p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。 为此引入了PDF（Probability Density Function），直观地理解可以近似理解为概率本身--也就是说如果我们不关心纯粹的概率值，而只要求相对的概率大小，那么就可以使用某个点的PDF值进行计算（比如最大似然估计）。但是要认识到某个点的具体概率值实际为<span class="math inline">\(PDF(x)*dx = 0\)</span>，一个点的概率本身没有意义。</p>
-<p>为此需要引入CDF，即为PDF在一定区间上的积分，这使得CDF具有了实际的概率意义。</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Probability Density Function</tag>
-        <tag>Cumulative Distribution Function</tag>
-        <tag>Norm Distribution</tag>
-      </tags>
   </entry>
   <entry>
     <title>Python set</title>
@@ -1496,12 +1496,90 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </tags>
   </entry>
   <entry>
+    <title>PDF &amp; CDF</title>
+    <url>/2021/02/24/PDF_CDF/</url>
+    <content><![CDATA[<p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。 为此引入了PDF（Probability Density Function），直观地理解可以近似理解为概率本身--也就是说如果我们不关心纯粹的概率值，而只要求相对的概率大小，那么就可以使用某个点的PDF值进行计算（比如最大似然估计）。但是要认识到某个点的具体概率值实际为<span class="math inline">\(PDF(x)*dx = 0\)</span>，一个点的概率本身没有意义。</p>
+<p>为此需要引入CDF，即为PDF在一定区间上的积分，这使得CDF具有了实际的概率意义。</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Probability Density Function</tag>
+        <tag>Cumulative Distribution Function</tag>
+        <tag>Norm Distribution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python technique</title>
+    <url>/2020/06/06/Python-technique/</url>
+    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking or dynamic programing:</p>
+<p>cause it will avoid reuse of data and reach good performance</p>
+<hr>
+<p>how to create a vector</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
+<p>Directly read/ wirte is quite different from <code>append()</code></p>
+<p><code>append()</code> will treat elements as data, which is more flexible</p>
+<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned vector</p>
+<span id="more"></span>
+<hr>
+<p>spilt part of string</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>init a vector:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
+<p>vector is a row*column size vector with all entries initialized by a.</p>
+<p>note <code>a</code> is just a value and can be anything you wang. <code>i</code> is just an iterator, even can use <code>_</code></p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Regularization in Deep Learning</title>
     <url>/2021/11/02/Regularization-in-Deep-Learning/</url>
     <content><![CDATA[<h2 id="regularization">Regularization</h2>
 <p>本来想自己写的，但是<a href="https://zhuanlan.zhihu.com/p/29360425">这篇文章</a>写得太好了，几乎没有死角，所以就在以下简单写写补充的内容好了。</p>
+<h2 id="what-is-l1-l2-regularization">What is L1, L2 regularization</h2>
+<h3 id="overfitting">Overfitting</h3>
+<p><strong>VC dimension</strong> is a measurement of <strong>model complexity</strong>. VC dimension <span class="math inline">\(\alpha\)</span> # of model parameters.</p>
+<p>Depress overfitting =&gt; Limit model complexity =&gt; Limit VC dimension =&gt; Limit number of model parameters =&gt; Dropout/Regularization (Dropout can also been seen as a special regularization)</p>
+<p>L0 norm = number of non-zero parameters.</p>
+<p>It would be a good idea to add L0 norm to the Loss function.</p>
+<h3 id="lagrange-function">Lagrange function</h3>
+<p>The target function is: <span class="math inline">\(min_{w}Loss(w, X, y) \ st.||w||_0&lt;=C\)</span>.</p>
+<p>It is a optimization problem =&gt; <strong>Lagrange function</strong>: <span class="math inline">\(argmin_wLoss(w,X,y)+\lambda(||w||_0-C)\)</span></p>
+<p>New target function is: <span class="math inline">\(min_wLoss(w,X,y)+\lambda||w||_0\)</span></p>
+<p>And L1 norm and L2 norm can be seen as a kind of approximation of L0 norm. It also transform a non convex problem to a convex problem.</p>
+<h3 id="map--limit-model-complexity-by-adding-prior-on-w">MAP--limit model complexity by adding prior on w</h3>
+<p>Here is the log maximum function of a linear model <span class="math inline">\(y=Xw\)</span> <span class="math display">\[
+MLE:L(w) = logP(y|w,X) = log[\prod_i^NP(y_i|w,X_i)]
+\]</span> If the model is biased: <span class="math inline">\(y=Xw+\epsilon, \epsilon \in N(0,\sigma^2)\)</span>, <span class="math inline">\(maxMLE &lt;=&gt; minMSELoss\)</span></p>
+<p>Let's review MAP <span class="math display">\[
+MAP = P(w|X,y) = \frac{P(w,X,y)}{P(X,y)} =&gt; P(X,y|w)P(w)=&gt;P(y|X,w)P(w)
+\]</span> notice that the last step is a little bit tricky, so here is my understanding: <span class="math display">\[
+P(X,y|w)P(w)=P(y|X,w)P(w,X)=P(y|X,w)P(X)P(w)=&gt;P(y|X,w)P(w)
+\]</span> <span class="math inline">\(w\)</span> is independent from <span class="math inline">\(y\)</span> but <span class="math inline">\(w\)</span> is dependent from <span class="math inline">\(x\)</span>.</p>
+<p>Then <span class="math inline">\(maxMAP=&gt;max(logMAP)=max(logP(y|X,w)+logP(w))\)</span>.</p>
+<p>The former part is same with MLE, next part will be discussed below.</p>
+<h4 id="l2-norm">L2 norm</h4>
+<p>Suppose <span class="math inline">\(P(w) = N(0,\sigma^2) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{w^2}{2\sigma^2}}\)</span>, <span class="math inline">\(logP(w) =&gt; -||w||_2^2\)</span></p>
+<p>Assume weights are in Guassian distribution &lt;=&gt; L2 regularization</p>
+<h4 id="l1-norm">L1 norm</h4>
+<p>Suppose <span class="math inline">\(P(w) = Laplace(0,\lambda) = \frac{1}{2\lambda}e^{-\frac{|w|}{\lambda}}\)</span>, <span class="math inline">\(logP(w) =&gt; -||w||_1\)</span></p>
+<p>Assume weights are in Laplace distribution &lt;=&gt; L1 regularization</p>
+<figure>
+<img src="/2021/11/02/Regularization-in-Deep-Learning/1.png" alt="Laplace"><figcaption aria-hidden="true">Laplace</figcaption>
+</figure>
+<h3 id="weight-decay">Weight decay</h3>
+<p>L2 norm can also been seen as a method of weight decay--when updating parameters, shrink parameters then update.</p>
 <h2 id="l1-norm-vs.-l2-norm">L1-norm vs. L2-norm</h2>
 <p>在深度学习网络中，该怎么选择Regularization呢?</p>
+<p>L1 norm if capable of producing a sparse result, which is really important for large network. (but a sparse results means L1 norm throw away some features)</p>
+<p>L2 norm assumes <span class="math inline">\(w\)</span> in Gaussian distribution. According to <em>Law of large number</em>, it should be more robust than L1 norm.</p>
 <h2 id="why-not-l0-norm">Why not L0-norm</h2>
 <p>事实上L0并不是严格意义上的norm，但是L0可以很好地体现出参数的稀疏性，因此来限制模型复杂度非常合适。那么有什么问题呢？</p>
 <ul>
@@ -1568,49 +1646,6 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </tags>
   </entry>
   <entry>
-    <title>NPR Cup--a taste to NPR</title>
-    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
-    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果"><figcaption aria-hidden="true">简单的一个效果</figcaption>
-</figure>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了"><figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Rendering</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Python technique</title>
-    <url>/2020/06/06/Python-technique/</url>
-    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking or dynamic programing:</p>
-<p>cause it will avoid reuse of data and reach good performance</p>
-<hr>
-<p>how to create a vector</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
-<p>Directly read/ wirte is quite different from <code>append()</code></p>
-<p><code>append()</code> will treat elements as data, which is more flexible</p>
-<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned vector</p>
-<span id="more"></span>
-<hr>
-<p>spilt part of string</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>init a vector:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
-<p>vector is a row*column size vector with all entries initialized by a.</p>
-<p>note <code>a</code> is just a value and can be anything you wang. <code>i</code> is just an iterator, even can use <code>_</code></p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Social LSTM</title>
     <url>/2021/03/07/Social-LSTM/</url>
     <content><![CDATA[<h2 id="rnn">RNN</h2>
@@ -1665,6 +1700,31 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
 ]]></content>
       <categories>
         <category>Computer Vision</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>TOEFL Listening</title>
+    <url>/2021/10/18/TOEFL-Listening/</url>
+    <content><![CDATA[<h3 id="tpo20">TPO20</h3>
+<h4 id="set1">Set1</h4>
+<p>Listen to a conversation between a student and a library employee. Excuse me, I received a letter that I am supposed to return the book that I checked out back in September. It is called Modern social problems. But I am writing my senior thesis. So I thought I was allowed to keep the book for the whole academic year. So you signed up for ‘extended borrowing <strong>privileges</strong>’. And we are still asking you to bring this book back? You can keep it all year as long as no one else request it. But some one else has, it looks like one of the professors in sociology department, so you have to bring it back. You can check it out again when it is returned in a couple of weeks. So what if the person renews it and I really need it right now. Is there a certain section or chapter you are working with? There is one chapter I am particular working with. Because of the circumstances, we can photocopy up to one chapter of the book for you. Why do not you do that for the one you are working with right now. By the time you need the rest of the book, maybe it will have been returned. Is it okay if I bring that by in a couple of days? Actually the due day is tomorrow. After that, there will be a two-dollar per day fine. But you need to return it today if you want to check out any books today. That’s out policy. No a lot of people realize that. In fact, every semester we get a few students who have had their borrowing privileges suspended completed because they haven’t return books. They are allowed to use books only in the library. They are not allowed to check anything out because of unreturned books. That is not good. I guess I should head back down to the dorm room right now. Before you go what you should do is fill out a form requesting the book back in two weeks. Then the person who requested it won’t be able to renew it, and you will get it back quickly.</p>
+<span id="more"></span>
+<h4 id="set2">Set2</h4>
+<p>Listen to part of the lecture in a linguistic class. Okay the conventions or assumptions that govern the conversation. These may vary from one culture to another. But basically for people who communicate, they have to follow certain rules. If I am talking with you and I start saying things that are not true. If you cannot tell when I am lying and when I am telling the truth. We are not going to have a very satisfactory conversation, aren’t we. Why, because it violates one of the ‘Gricean maxims’. That is a set of rules or maxims a philosopher named P.H Grice <strong>came up with</strong>(提出) in the 1970s. One of thes Gricean maxims is ... I've already given you a hint. You just can't go around telling lies. Or <strong>as Grice put it</strong>, do not say what you believe to be false. That is one of Grice's maxims of quality, as he called it. So that is pretty obvious, but there are others that are just as important. Supposed you were to ask me what time it was and I replied, 'My sister just got married'. No I am not, am I. There is no connection at all which feels wrong because you generally expect to find one. So one important maxim is simply 'be relevant'. And using this so-call maxim of relevance we can infer things as well or rather the speaker can imply things an speakers can make inferences. For instance, suppose you said you'd really love to have a cup of coffee right now. And I said, there a shop around the corner. Well that shop sells coffee <strong>for one thing</strong>(一来，首先是). Right, and I believe it is open now. Because if I am not implying those things my answer would not be relevant. It'd have no connection with what you said before. But according to the maxim my response should be relevant to your statement meaning 'We should assume some connection between the statement and the response'. And this maxim of relevance is quite efficient to use, even if I do not <strong>spell out</strong>(拼写，讲清楚) all the details details you can still make some useful logical inferences <strong>namely</strong>(也就是，即) ‘the shop is open’ and 'it sells coffee'. If we actually had to explain all these details, conversations would move along pretty slowly, wouldn't they? Then there is the maxims of manner including things like 'be clear' and 'avoid ambiguity'. And another, more interesting maxim is one of the so-call maxim of quantity, quantity of the information, that is. It says to give as much information as is required in the situation. So suppoes if you ask me what I did yesterday and I said, 'I went to the art museum'. You would likely to infer that I saw some works of art. Suppose though that I didnot go inside the museum, I just <strong>walked up to</strong>(走进) it and left. Then I've violated the quantity maxim by not giving enough information. So you can see how important implications are to our ability to <strong>carry on</strong>(继续、坚持) a concersation. But there are times that people will violate these maxims on purpose. Let's say a boss is asked to write a letter of recommendation for a former employee seeking engineering job. The letter he writes is quite brief, something like Mr.X is polite always dressed neatly. So what does this really mean? By not mentioning any important qualities related to the job. The boss is implying that this is the best that can be said about Mr. X that he is really not qualified. It is a written letter not a conversation. But the principle is the same. The boss is conveying a negative impression about Mr. X without actually saying anything negative about him. So by violating the maxim, it can be a way to be <strong>subtle</strong>(不易察觉的), or polite or to convey humor through <strong>sarcasm</strong>(讽刺) or irony. Somtimes though, people will violate maxims for another purpose--to deceive. Now can you imagine who might do such a thing. Some politicians? Or advertisers? Anyone who may see an advantage in implying certain things that are untrue without explicitly saying something untrue. They think, do not blame us if our audiance happens to draw inferences that are simply not true. So next time, you see adertisement saying some product could be up to 20% more effective, think of these maxims of quantity and relevance and ask yourself what inferences you are being led to draw. Think 'more effective' than what exactly and why did they use these little phrases 'could be' and 'up to'. These claims give us a lot less information than they seem to.</p>
+<h4 id="set3">Set3</h4>
+<p>Let's take you back about 11 thousand years ago when earth entered the latest interglacial period. Interglacial periods are typically periods of time between ice ages when the climate warms and glical ice <strong>retreats</strong>(撤退、收缩) for a time before things cool off again and other ice age begins. And for over the past several million year, earth sort of default climate has actually been ice age. But we have experienced periodic, regular <strong>thaws</strong>(解冻时期) and the last one, the one we are in now, started about 11,000 years ago. Now the typically pattern for an interglacial period, and we have studied several, is that the concentration of carbon dioxid and <strong>methane</strong>(甲烷) gas actually reaches its peak that is there is the most carbon dioxid and methane gas, greenhouse gas, in the atmosphere just after the beginning of the interglacial period. And then for reasons which are not entirely clear, the concentration of greenhouse gases gradually goes down. Now the climate continues to warm for a while because there is a lag effect, but gradually as the concentration of greenhouse gases goes down earth starts to cool again and eventually you slip back to an ice age. However for the latest interglacial period, the one we are in now, this pattern did not hold. That is the concentration of carbon dioxide <strong>dipped</strong>(蘸；下降) a little bit after <strong>peaking</strong>(vi. 达到最高值) at the beginning near the beginning of interglacial period but then it began to rise again.</p>
+]]></content>
+      <categories>
+        <category>TOEFL</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>TOEFL Writing</title>
+    <url>/2021/10/18/TOEFL-Writing/</url>
+    <content><![CDATA[
+]]></content>
+      <categories>
+        <category>TOEFL</category>
       </categories>
   </entry>
   <entry>
@@ -1731,31 +1791,6 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
-    <title>TOEFL Writing</title>
-    <url>/2021/10/18/TOEFL-Writing/</url>
-    <content><![CDATA[
-]]></content>
-      <categories>
-        <category>TOEFL</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>TOEFL Listening</title>
-    <url>/2021/10/18/TOEFL-Listening/</url>
-    <content><![CDATA[<h3 id="tpo20">TPO20</h3>
-<h4 id="set1">Set1</h4>
-<p>Listen to a conversation between a student and a library employee. Excuse me, I received a letter that I am supposed to return the book that I checked out back in September. It is called Modern social problems. But I am writing my senior thesis. So I thought I was allowed to keep the book for the whole academic year. So you signed up for ‘extended borrowing <strong>privileges</strong>’. And we are still asking you to bring this book back? You can keep it all year as long as no one else request it. But some one else has, it looks like one of the professors in sociology department, so you have to bring it back. You can check it out again when it is returned in a couple of weeks. So what if the person renews it and I really need it right now. Is there a certain section or chapter you are working with? There is one chapter I am particular working with. Because of the circumstances, we can photocopy up to one chapter of the book for you. Why do not you do that for the one you are working with right now. By the time you need the rest of the book, maybe it will have been returned. Is it okay if I bring that by in a couple of days? Actually the due day is tomorrow. After that, there will be a two-dollar per day fine. But you need to return it today if you want to check out any books today. That’s out policy. No a lot of people realize that. In fact, every semester we get a few students who have had their borrowing privileges suspended completed because they haven’t return books. They are allowed to use books only in the library. They are not allowed to check anything out because of unreturned books. That is not good. I guess I should head back down to the dorm room right now. Before you go what you should do is fill out a form requesting the book back in two weeks. Then the person who requested it won’t be able to renew it, and you will get it back quickly.</p>
-<span id="more"></span>
-<h4 id="set2">Set2</h4>
-<p>Listen to part of the lecture in a linguistic class. Okay the conventions or assumptions that govern the conversation. These may vary from one culture to another. But basically for people who communicate, they have to follow certain rules. If I am talking with you and I start saying things that are not true. If you cannot tell when I am lying and when I am telling the truth. We are not going to have a very satisfactory conversation, aren’t we. Why, because it violates one of the ‘Gricean maxims’. That is a set of rules or maxims a philosopher named P.H Grice <strong>came up with</strong>(提出) in the 1970s. One of thes Gricean maxims is ... I've already given you a hint. You just can't go around telling lies. Or <strong>as Grice put it</strong>, do not say what you believe to be false. That is one of Grice's maxims of quality, as he called it. So that is pretty obvious, but there are others that are just as important. Supposed you were to ask me what time it was and I replied, 'My sister just got married'. No I am not, am I. There is no connection at all which feels wrong because you generally expect to find one. So one important maxim is simply 'be relevant'. And using this so-call maxim of relevance we can infer things as well or rather the speaker can imply things an speakers can make inferences. For instance, suppose you said you'd really love to have a cup of coffee right now. And I said, there a shop around the corner. Well that shop sells coffee <strong>for one thing</strong>(一来，首先是). Right, and I believe it is open now. Because if I am not implying those things my answer would not be relevant. It'd have no connection with what you said before. But according to the maxim my response should be relevant to your statement meaning 'We should assume some connection between the statement and the response'. And this maxim of relevance is quite efficient to use, even if I do not <strong>spell out</strong>(拼写，讲清楚) all the details details you can still make some useful logical inferences <strong>namely</strong>(也就是，即) ‘the shop is open’ and 'it sells coffee'. If we actually had to explain all these details, conversations would move along pretty slowly, wouldn't they? Then there is the maxims of manner including things like 'be clear' and 'avoid ambiguity'. And another, more interesting maxim is one of the so-call maxim of quantity, quantity of the information, that is. It says to give as much information as is required in the situation. So suppoes if you ask me what I did yesterday and I said, 'I went to the art museum'. You would likely to infer that I saw some works of art. Suppose though that I didnot go inside the museum, I just <strong>walked up to</strong>(走进) it and left. Then I've violated the quantity maxim by not giving enough information. So you can see how important implications are to our ability to <strong>carry on</strong>(继续、坚持) a concersation. But there are times that people will violate these maxims on purpose. Let's say a boss is asked to write a letter of recommendation for a former employee seeking engineering job. The letter he writes is quite brief, something like Mr.X is polite always dressed neatly. So what does this really mean? By not mentioning any important qualities related to the job. The boss is implying that this is the best that can be said about Mr. X that he is really not qualified. It is a written letter not a conversation. But the principle is the same. The boss is conveying a negative impression about Mr. X without actually saying anything negative about him. So by violating the maxim, it can be a way to be <strong>subtle</strong>(不易察觉的), or polite or to convey humor through <strong>sarcasm</strong>(讽刺) or irony. Somtimes though, people will violate maxims for another purpose--to deceive. Now can you imagine who might do such a thing. Some politicians? Or advertisers? Anyone who may see an advantage in implying certain things that are untrue without explicitly saying something untrue. They think, do not blame us if our audiance happens to draw inferences that are simply not true. So next time, you see adertisement saying some product could be up to 20% more effective, think of these maxims of quantity and relevance and ask yourself what inferences you are being led to draw. Think 'more effective' than what exactly and why did they use these little phrases 'could be' and 'up to'. These claims give us a lot less information than they seem to.</p>
-<h4 id="set3">Set3</h4>
-<p>Let's take you back about 11 thousand years ago when earth entered the latest interglacial period. Interglacial periods are typically periods of time between ice ages when the climate warms and glical ice <strong>retreats</strong>(撤退、收缩) for a time before things cool off again and other ice age begins. And for over the past several million year, earth sort of default climate has actually been ice age. But we have experienced periodic, regular <strong>thaws</strong>(解冻时期) and the last one, the one we are in now, started about 11,000 years ago. Now the typically pattern for an interglacial period, and we have studied several, is that the concentration of carbon dioxid and <strong>methane</strong>(甲烷) gas actually reaches its peak that is there is the most carbon dioxid and methane gas, greenhouse gas, in the atmosphere just after the beginning of the interglacial period. And then for reasons which are not entirely clear, the concentration of greenhouse gases gradually goes down. Now the climate continues to warm for a while because there is a lag effect, but gradually as the concentration of greenhouse gases goes down earth starts to cool again and eventually you slip back to an ice age. However for the latest interglacial period, the one we are in now, this pattern did not hold. That is the concentration of carbon dioxide <strong>dipped</strong>(蘸；下降) a little bit after <strong>peaking</strong>(vi. 达到最高值) at the beginning near the beginning of interglacial period but then it began to rise again.</p>
-]]></content>
-      <categories>
-        <category>TOEFL</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Test Latex Formula</title>
     <url>/2021/09/15/Test-Latex-Formula/</url>
     <content><![CDATA[<p>This is an inline formula: <span class="math inline">\(x=7\)</span>. This is a simple equation: <span class="math display">\[
@@ -1773,10 +1808,20 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>Test discription</title>
-    <url>/2021/09/15/Test-discription/</url>
-    <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
-]]></content>
+    <title>Test password</title>
+    <url>/2021/09/15/Test-password/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="d0f22fb8ec934b630357bfed8eddaebceee1d75a12c7b7f676982c457b1c24c3">165d50f05814027fb7fe5e4ae8a088d8aa2b5ed724ea7f4f8aea8267289667dd0de0240fdde409598408170417c80b66d2288279e5571a43ddc20d8f87d5d48034dddfe8e1d8a865ebee019b43336466</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Please Eneter Password!</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>Test</category>
       </categories>
@@ -1793,11 +1838,44 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
+    <title>Use of &#39;numpy&#39; package in Python</title>
+    <url>/2020/09/27/Use-of-numpy-package-in-Python/</url>
+    <content><![CDATA[<h2 id="import">Import</h2>
+<p><code>import numpy</code> or <code>import numpy as np</code></p>
+<h2 id="feature">Feature</h2>
+<p>The key feature of numpy package is that it introduce a new data structure -- array</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">&gt;&gt;&gt;a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">a</span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">type</span>(a)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">numpy</span>.<span class="title">ndarray</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="propertities-of-array">Propertities of array</h4>
+<p>ndarray 的重要属性包括:</p>
+<ol type="1">
+<li>ndarray.ndim：数组的维数，也称为rank</li>
+<li>ndarray.shape：数组各维的大小，对一个n行m列的矩阵来说， shape 为 (n,m)</li>
+<li>ndarray.size：元素的总数。</li>
+<li>ndarray.dtype：每个元素的类型，可以是numpy.int32, numpy.int16, and numpy.float64等</li>
+<li>ndarray.itemsize：每个元素占用的字节数。</li>
+<li>ndarray.data：指向数据内存。</li>
+</ol>
+<h2 id="more-details-similar-with-tensor">More details similar with tensor</h2>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Test discription</title>
+    <url>/2021/09/15/Test-discription/</url>
+    <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Video test</title>
     <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-TkDlaizIkFtvEOgp" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-TkDlaizIkFtvEOgp").style.height=document.getElementById("mmedia-TkDlaizIkFtvEOgp").scrollWidth*0.76+"px";
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-zMYBjTuYZThReIAA" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-zMYBjTuYZThReIAA").style.height=document.getElementById("mmedia-zMYBjTuYZThReIAA").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-TkDlaizIkFtvEOgp").style.height=document.getElementById("mmedia-TkDlaizIkFtvEOgp").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-zMYBjTuYZThReIAA").style.height=document.getElementById("mmedia-zMYBjTuYZThReIAA").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <thead>
@@ -1867,30 +1945,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>Use of &#39;numpy&#39; package in Python</title>
-    <url>/2020/09/27/Use-of-numpy-package-in-Python/</url>
-    <content><![CDATA[<h2 id="import">Import</h2>
-<p><code>import numpy</code> or <code>import numpy as np</code></p>
-<h2 id="feature">Feature</h2>
-<p>The key feature of numpy package is that it introduce a new data structure -- array</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">&gt;&gt;&gt;a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">a</span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">type</span>(a)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">numpy</span>.<span class="title">ndarray</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="propertities-of-array">Propertities of array</h4>
-<p>ndarray 的重要属性包括:</p>
-<ol type="1">
-<li>ndarray.ndim：数组的维数，也称为rank</li>
-<li>ndarray.shape：数组各维的大小，对一个n行m列的矩阵来说， shape 为 (n,m)</li>
-<li>ndarray.size：元素的总数。</li>
-<li>ndarray.dtype：每个元素的类型，可以是numpy.int32, numpy.int16, and numpy.float64等</li>
-<li>ndarray.itemsize：每个元素占用的字节数。</li>
-<li>ndarray.data：指向数据内存。</li>
-</ol>
-<h2 id="more-details-similar-with-tensor">More details similar with tensor</h2>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>What is the use of activation function</title>
     <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
     <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural Network</h1>
@@ -1928,40 +1982,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       <tags>
         <tag>Relu</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Test password</title>
-    <url>/2021/09/15/Test-password/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="d0f22fb8ec934b630357bfed8eddaebceee1d75a12c7b7f676982c457b1c24c3">165d50f05814027fb7fe5e4ae8a088d8aa2b5ed724ea7f4f8aea8267289667dd0de0240fdde409598408170417c80b66d2288279e5571a43ddc20d8f87d5d48034dddfe8e1d8a865ebee019b43336466</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Please Eneter Password!</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>assert expression in Python</title>
-    <url>/2020/09/24/assert-expression-in-Python/</url>
-    <content><![CDATA[<h2 id="tags">tags:</h2>
-<h3 id="synatx">1. synatx</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert [expression]</span><br><span class="line"># it is same with</span><br><span class="line">if not [expression]:</span><br><span class="line">    raise AssertionError</span><br></pre></td></tr></table></figure>
-<h3 id="with-parameters">2. with parameters</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert expression [, arguments]</span><br><span class="line"># same with</span><br><span class="line">if not expression:</span><br><span class="line">    raise AssertionError(arguments)</span><br></pre></td></tr></table></figure>
-<h3 id="conclusion">conclusion</h3>
-<p>if an assert is not satisfied, throw exception. easy to detect the errors in code.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
   </entry>
   <entry>
     <title>hexo中使用markdown无法处理特殊字符</title>
@@ -2017,6 +2037,21 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       <tags>
         <tag>Github</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>assert expression in Python</title>
+    <url>/2020/09/24/assert-expression-in-Python/</url>
+    <content><![CDATA[<h2 id="tags">tags:</h2>
+<h3 id="synatx">1. synatx</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert [expression]</span><br><span class="line"># it is same with</span><br><span class="line">if not [expression]:</span><br><span class="line">    raise AssertionError</span><br></pre></td></tr></table></figure>
+<h3 id="with-parameters">2. with parameters</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert expression [, arguments]</span><br><span class="line"># same with</span><br><span class="line">if not expression:</span><br><span class="line">    raise AssertionError(arguments)</span><br></pre></td></tr></table></figure>
+<h3 id="conclusion">conclusion</h3>
+<p>if an assert is not satisfied, throw exception. easy to detect the errors in code.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
   </entry>
   <entry>
     <title>kendo 2-nd dan exam</title>
@@ -2118,24 +2153,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>使用hexo theme Butterfly 报错</title>
-    <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
-    <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly 报错</h2>
-<p>直接用github上作者提供的代码</p>
-<p>git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/Butterfly</p>
-<p>结果是页面根本无法正常渲染，只有一行字：</p>
-<p><font color="#DC143C">extends includes/layout.pug block content include ./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include includes/pagination.pug</font></p>
-<h2 id="问题解决">问题解决</h2>
-<p>参照原作者提供的文章<a href="https://docs.jerryc.me/#/config/question">Butterfly</a></p>
-<p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
-<hr>
-<h2 id="丝滑进入">丝滑进入</h2>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
     <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="问题描述">问题描述</h2>
@@ -2172,6 +2189,73 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 </div>]]></content>
       <categories>
         <category>Chat</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>使用hexo theme Butterfly 报错</title>
+    <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
+    <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly 报错</h2>
+<p>直接用github上作者提供的代码</p>
+<p>git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/Butterfly</p>
+<p>结果是页面根本无法正常渲染，只有一行字：</p>
+<p><font color="#DC143C">extends includes/layout.pug block content include ./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include includes/pagination.pug</font></p>
+<h2 id="问题解决">问题解决</h2>
+<p>参照原作者提供的文章<a href="https://docs.jerryc.me/#/config/question">Butterfly</a></p>
+<p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
+<hr>
+<h2 id="丝滑进入">丝滑进入</h2>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>理解superscalar和multithreading(简单提及hyperthreading)和multi-core区别</title>
+    <url>/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p>看到网上有一篇文章用汽车收费站来解释这三个概念，想法很好，但是感觉没说那么清楚，于是我自己来说一遍</p>
+<h2 id="一般情况">0. 一般情况</h2>
+<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/normal.jpg"></p>
+<p>想象一下你是公路的设计者，现在要对车子进行收费，你怎么办？</p>
+<p>最一般的情况就很简单了：<strong>让所有车子排一排，依次通过一个收费站</strong>，结束。</p>
+<hr>
+<h5 id="如果车流很少的话当然没有问题但是高速公路cpu很贵为了不浪费我们会让尽可能多的车上高速这样所有的车都会堵在收费站那么怎么加速呢">如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？</h5>
+<hr>
+<h2 id="多收费站">1. 多收费站</h2>
+<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/hyperthreading.jpg"></p>
+<p>很多地方采取的解决办法就是<strong>多加几个收费站</strong>（当然可以不止两个）。这样一次就能进来两辆车，两个收费站无论哪个空了就会有新的车子不补上去，理论上如果有n个收费站速度就加快了n倍（实际上当然做不到）。</p>
+<h2 id="多开几条车道">2. 多开几条车道</h2>
+<p>如果你真正在高速上开过车你就会发现：实际上一条路上有多个车道（快车道、慢车道），而在临近收费站的时候甚至会被突然<strong>扩展成更多的车道</strong>，让车子能够分流。</p>
+<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/superscalar.jpg"></p>
+<p>车子到达收费站的时候，实际上你就能看到有多个车道，那个空去那里，理论上设立n条车道也能提高n倍效率。</p>
+<h2 id="另开一条路">3. 另开一条路</h2>
+<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/multicore.jpg"></p>
+<p>比如A地到B地的公路很堵，恰巧政府有很有钱的话，那就很简单了：<strong>再铺一条公路</strong>。两条路是完全互不干涉的（independent），人们看着那条路比较空就往哪条路走就行了。</p>
+<p>最终你就得到了现在实际运行中的收费站模式。</p>
+<span id="more"></span>
+<h2 id="结合cpu">结合CPU</h2>
+<p>上面已经说的很明白了：</p>
+<p>方法1就是<code>multithreading</code>,方法2就是<code>superscalar</code>，方法3就是<code>multicore</code>。</p>
+<ol type="1">
+<li><p><code>multithreading</code>就是在一个CPU core上设立n条thread让多个程序同时进行。那么可能就有人问了：CPU一个core不是只能同时跑一个程序吗，为什么现在能同时跑多个了？其实这里要明白一个核心问题：<strong>CPU core很贵但是同时也非常快</strong>，拖累你运行速度的其实很多是与memory之间的交互。</p>
+<p>打个比方就是收费员算你要交多少钱很快，但是你拿钱和收费员找零就很慢了。那么对于cpu而言所谓的设立多个收费站其实就是在你拿钱的时候让收费员去算下一个人的钱--有可能下一个人拿etc卡很快就过去了，而这个时候正好可以等你拿钱。CPU core实际上就是在多个程序之间跳来跳去，如果有人需要与memory交互，让就交给memory去办，cpu先去跑别的程序。</p>
+<p><code>multithreading</code>本质上是对CPU core性能的高效利用，尽可能让CPU core始终满负荷运行。所以这种方法受限于cpu本身的性能。</p>
+<p>这里额外提一句<code>hyperthreading</code>，这个技术比较复杂而且实际表现也没有那么好（在intel顶级CPU上还在使用，追求极致效率），用比较模糊的话说就是把一个CPU核心掰成两半 (其实还是thread的优化)，模拟出多个 <code>logical units</code>，本质上是建立在multithreading中每个thread利用率不高的前提下进一步提高效率。</p></li>
+<li><p><code>superscalar</code>是risc的技术，需要硬件的支持是用空间换效率，在一个core上需要放多个<code>functional units（ALU, FPU, etc）</code>但是又共享一部分硬件，这样一个CPU core一次clock cycle里就能执行多个指令。其中当然还有很多细节问题，但是大体上逻辑如此。</p></li>
+<li><p><code>multi-core</code>这个就很简单了，堆CPU核心就完事儿了（实际上如何堆核心是很大的一个难题--如何把一个本来单线程的程序均匀地分布到多个核心上运算，最后还能合回来，很难），这也是现在的发展主流。相反过去疯狂提升频率的方法被逐渐抛弃，甚至有些cpu主动降频来获得更好的发热表现。</p></li>
+</ol>
+<h2 id="总结">总结</h2>
+<p>虽然基本的原理就是如此，但是上述三种提高性能的方法都需要程序员来协调如何分配车流（有些东西最底层的硬件已经完成）</p>
+<hr>
+<h2 id="更新--进程线程超线程">更新--进程、线程、超线程</h2>
+<ol type="1">
+<li><p>进程（process）是操作系统（OS）的调度单位，一个任务对于OS就是一个进程--比如QQ、微信。OS接收到任务之后会给每个进程单独开辟一块虚拟内存，让每个进程之间可以互相不影响。</p></li>
+<li><p>线程（thread）是CPU的调度单位，一般来说一个CPU核心只有一个线程，由于现在的额CPU往往是多核心的，所以是多线程。CPU在接收到OS发布的process之后会调动多个核心（也就是多个线程）去处理这个任务。在不同线程之间的资源相互共享（线程之间交互的速度远远大于进程之间交互的速度），可以将一个进程拆成多个部分在不同的CPU上进行--比如一个core被IO占用，那么另一个core就可以去处理ALU的部分。</p></li>
+<li><p>超线程（superthread）是Intel提出的，本质是欺骗CPU，让CPU内部的pipeline尽可能同时进行。Intel计划让一个core可以同时进行两个线程（比如8核心16线程的CPU）。在一个core处理IO时，欺骗core，让它另一部分处理ALU。比起多个core的多车道，超线程见缝插针，只有恰好有core的计算资源闲置同时thread之间不冲突时才会发生。那之所以一个core只分成两个thread就是因为管理这些thread之间的硬件面积会大幅增加，需要承担thread之间相互等待的开销，得不偿失了。</p>
+<p>但同时IBM也有8核32线程的核心，不过主要针对的是有高并发任务的服务器平台了。</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Learning</category>
       </categories>
   </entry>
   <entry>
@@ -2241,52 +2325,13 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>理解superscalar和multithreading(简单提及hyperthreading)和multi-core区别</title>
-    <url>/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<p>看到网上有一篇文章用汽车收费站来解释这三个概念，想法很好，但是感觉没说那么清楚，于是我自己来说一遍</p>
-<h2 id="一般情况">0. 一般情况</h2>
-<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/normal.jpg"></p>
-<p>想象一下你是公路的设计者，现在要对车子进行收费，你怎么办？</p>
-<p>最一般的情况就很简单了：<strong>让所有车子排一排，依次通过一个收费站</strong>，结束。</p>
-<hr>
-<h5 id="如果车流很少的话当然没有问题但是高速公路cpu很贵为了不浪费我们会让尽可能多的车上高速这样所有的车都会堵在收费站那么怎么加速呢">如果车流很少的话当然没有问题，但是高速公路（CPU）很贵，为了不浪费我们会让尽可能多的车上高速，这样所有的车都会堵在收费站。那么怎么加速呢？</h5>
-<hr>
-<h2 id="多收费站">1. 多收费站</h2>
-<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/hyperthreading.jpg"></p>
-<p>很多地方采取的解决办法就是<strong>多加几个收费站</strong>（当然可以不止两个）。这样一次就能进来两辆车，两个收费站无论哪个空了就会有新的车子不补上去，理论上如果有n个收费站速度就加快了n倍（实际上当然做不到）。</p>
-<h2 id="多开几条车道">2. 多开几条车道</h2>
-<p>如果你真正在高速上开过车你就会发现：实际上一条路上有多个车道（快车道、慢车道），而在临近收费站的时候甚至会被突然<strong>扩展成更多的车道</strong>，让车子能够分流。</p>
-<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/superscalar.jpg"></p>
-<p>车子到达收费站的时候，实际上你就能看到有多个车道，那个空去那里，理论上设立n条车道也能提高n倍效率。</p>
-<h2 id="另开一条路">3. 另开一条路</h2>
-<p><img src="/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/multicore.jpg"></p>
-<p>比如A地到B地的公路很堵，恰巧政府有很有钱的话，那就很简单了：<strong>再铺一条公路</strong>。两条路是完全互不干涉的（independent），人们看着那条路比较空就往哪条路走就行了。</p>
-<p>最终你就得到了现在实际运行中的收费站模式。</p>
-<span id="more"></span>
-<h2 id="结合cpu">结合CPU</h2>
-<p>上面已经说的很明白了：</p>
-<p>方法1就是<code>multithreading</code>,方法2就是<code>superscalar</code>，方法3就是<code>multicore</code>。</p>
-<ol type="1">
-<li><p><code>multithreading</code>就是在一个CPU core上设立n条thread让多个程序同时进行。那么可能就有人问了：CPU一个core不是只能同时跑一个程序吗，为什么现在能同时跑多个了？其实这里要明白一个核心问题：<strong>CPU core很贵但是同时也非常快</strong>，拖累你运行速度的其实很多是与memory之间的交互。</p>
-<p>打个比方就是收费员算你要交多少钱很快，但是你拿钱和收费员找零就很慢了。那么对于cpu而言所谓的设立多个收费站其实就是在你拿钱的时候让收费员去算下一个人的钱--有可能下一个人拿etc卡很快就过去了，而这个时候正好可以等你拿钱。CPU core实际上就是在多个程序之间跳来跳去，如果有人需要与memory交互，让就交给memory去办，cpu先去跑别的程序。</p>
-<p><code>multithreading</code>本质上是对CPU core性能的高效利用，尽可能让CPU core始终满负荷运行。所以这种方法受限于cpu本身的性能。</p>
-<p>这里额外提一句<code>hyperthreading</code>，这个技术比较复杂而且实际表现也没有那么好（在intel顶级CPU上还在使用，追求极致效率），用比较模糊的话说就是把一个CPU核心掰成两半 (其实还是thread的优化)，模拟出多个 <code>logical units</code>，本质上是建立在multithreading中每个thread利用率不高的前提下进一步提高效率。</p></li>
-<li><p><code>superscalar</code>是risc的技术，需要硬件的支持是用空间换效率，在一个core上需要放多个<code>functional units（ALU, FPU, etc）</code>但是又共享一部分硬件，这样一个CPU core一次clock cycle里就能执行多个指令。其中当然还有很多细节问题，但是大体上逻辑如此。</p></li>
-<li><p><code>multi-core</code>这个就很简单了，堆CPU核心就完事儿了（实际上如何堆核心是很大的一个难题--如何把一个本来单线程的程序均匀地分布到多个核心上运算，最后还能合回来，很难），这也是现在的发展主流。相反过去疯狂提升频率的方法被逐渐抛弃，甚至有些cpu主动降频来获得更好的发热表现。</p></li>
-</ol>
-<h2 id="总结">总结</h2>
-<p>虽然基本的原理就是如此，但是上述三种提高性能的方法都需要程序员来协调如何分配车流（有些东西最底层的硬件已经完成）</p>
-<hr>
-<h2 id="更新--进程线程超线程">更新--进程、线程、超线程</h2>
-<ol type="1">
-<li><p>进程（process）是操作系统（OS）的调度单位，一个任务对于OS就是一个进程--比如QQ、微信。OS接收到任务之后会给每个进程单独开辟一块虚拟内存，让每个进程之间可以互相不影响。</p></li>
-<li><p>线程（thread）是CPU的调度单位，一般来说一个CPU核心只有一个线程，由于现在的额CPU往往是多核心的，所以是多线程。CPU在接收到OS发布的process之后会调动多个核心（也就是多个线程）去处理这个任务。在不同线程之间的资源相互共享（线程之间交互的速度远远大于进程之间交互的速度），可以将一个进程拆成多个部分在不同的CPU上进行--比如一个core被IO占用，那么另一个core就可以去处理ALU的部分。</p></li>
-<li><p>超线程（superthread）是Intel提出的，本质是欺骗CPU，让CPU内部的pipeline尽可能同时进行。Intel计划让一个core可以同时进行两个线程（比如8核心16线程的CPU）。在一个core处理IO时，欺骗core，让它另一部分处理ALU。比起多个core的多车道，超线程见缝插针，只有恰好有core的计算资源闲置同时thread之间不冲突时才会发生。那之所以一个core只分成两个thread就是因为管理这些thread之间的硬件面积会大幅增加，需要承担thread之间相互等待的开销，得不偿失了。</p>
-<p>但同时IBM也有8核32线程的核心，不过主要针对的是有高并发任务的服务器平台了。</p></li>
-</ol>
+    <title>钻石材质第一次测试Blender</title>
+    <url>/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/</url>
+    <content><![CDATA[<p>初次尝试了blender里钻石材质的生成，接下来会详细分析材质节点的组成并仔细调参。并且会更换钻石模型和适当的场景进行测试。</p>
+<p><img src="/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/Diamond.png"></p>
 ]]></content>
       <categories>
-        <category>Learning</category>
+        <category>Blender</category>
       </categories>
   </entry>
   <entry>
@@ -2306,16 +2351,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
         <tag>C++</tag>
         <tag>Binary Tree</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>钻石材质第一次测试Blender</title>
-    <url>/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/</url>
-    <content><![CDATA[<p>初次尝试了blender里钻石材质的生成，接下来会详细分析材质节点的组成并仔细调参。并且会更换钻石模型和适当的场景进行测试。</p>
-<p><img src="/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/Diamond.png"></p>
-]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
   </entry>
   <entry>
     <title>面试问题整理</title>
