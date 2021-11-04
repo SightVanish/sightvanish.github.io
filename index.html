@@ -228,7 +228,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-11-04 15:09:45 / Modified: 15:10:47" itemprop="dateCreated datePublished" datetime="2021-11-04T15:09:45+08:00">2021-11-04</time>
+              <time title="Created: 2021-11-04 15:09:45 / Modified: 23:48:24" itemprop="dateCreated datePublished" datetime="2021-11-04T15:09:45+08:00">2021-11-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,7 +252,7 @@
 
       
           <p>The simplest way is</p>
-<p><code>pip install --pre -i https://pypi.anaconda.org/scipy-wheels-nightly/simple scipy</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --pre -i https://pypi.anaconda.org/scipy-wheels-nightly/simple scipy</span><br></pre></td></tr></table></figure>
 <p>However it is just a preview version of spicy, remember to updata it afterwrds.</p>
 
       
@@ -304,7 +304,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-04 23:46:36" itemprop="dateModified" datetime="2021-11-04T23:46:36+08:00">2021-11-04</time>
+                <time title="Modified: 2021-11-04 23:54:33" itemprop="dateModified" datetime="2021-11-04T23:54:33+08:00">2021-11-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -337,9 +337,10 @@
 <p>It would be a good idea to add L0 norm to the Loss function.</p>
 <h3 id="lagrange-function">Lagrange function</h3>
 <p>The target function is: <span class="math inline">\(min_{w}Loss(w, X, y) \ st.||w||_0&lt;=C\)</span>.</p>
-<p>It is a optimization problem =&gt; <strong>Lagrange function</strong>: <span class="math inline">\(argmin_wLoss(w,X,y)+\lambda(||w||_0-C)\)</span></p>
-<p>New target function is: <span class="math inline">\(min_wLoss(w,X,y)+\lambda||w||_0\)</span></p>
+<p>It is a optimization problem =&gt; <u><strong>Lagrange function</strong></u>: <span class="math inline">\(argmin_wLoss(w,X,y)+\lambda(||w||_0-C)\)</span></p>
+<p><u>New target function is: <span class="math inline">\(min_wLoss(w,X,y)+\lambda||w||_0\)</span></u></p>
 <p>And L1 norm and L2 norm can be seen as a kind of approximation of L0 norm. It also transform a non convex problem to a convex problem.</p>
+<p>From another point of view, L1 L2 norm limits the range of parameters (but not just the number of parameters)</p>
 <h3 id="map--limit-model-complexity-by-adding-prior-on-w">MAP--limit model complexity by adding prior on w</h3>
 <p>Here is the log maximum function of a linear model <span class="math inline">\(y=Xw\)</span> <span class="math display">\[
 MLE:L(w) = logP(y|w,X) = log[\prod_i^NP(y_i|w,X_i)]
@@ -353,24 +354,24 @@ P(X,y|w)P(w)=P(y|X,w)P(w,X)=P(y|X,w)P(X)P(w)=&gt;P(y|X,w)P(w)
 <p>The former part is same with MLE, next part will be discussed below.</p>
 <h4 id="l2-norm">L2 norm</h4>
 <p>Suppose <span class="math inline">\(P(w) = N(0,\sigma^2) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{w^2}{2\sigma^2}}\)</span>, <span class="math inline">\(logP(w) =&gt; -||w||_2^2\)</span></p>
-<p>Assume weights are in Guassian distribution &lt;=&gt; L2 regularization</p>
+<p><u><strong>Assume weights are in Guassian distribution &lt;=&gt; L2 regularization</strong></u></p>
 <h4 id="l1-norm">L1 norm</h4>
 <p>Suppose <span class="math inline">\(P(w) = Laplace(0,\lambda) = \frac{1}{2\lambda}e^{-\frac{|w|}{\lambda}}\)</span>, <span class="math inline">\(logP(w) =&gt; -||w||_1\)</span></p>
-<p>Assume weights are in Laplace distribution &lt;=&gt; L1 regularization</p>
-<figure>
-<img src="/2021/11/02/Regularization-in-Deep-Learning/1.png" alt="Laplace"><figcaption aria-hidden="true">Laplace</figcaption>
-</figure>
+<p><strong><u>Assume weights are in Laplace distribution &lt;=&gt; L1 regularization</u></strong></p>
+<div data-align="center">
+<img src="/2021/11/02/Regularization-in-Deep-Learning/1.png" title="fig:" alt="Laplace Distribution">
+</div>
 <h3 id="weight-decay">Weight decay</h3>
 <p>L2 norm can also been seen as a method of weight decay--when updating parameters, shrink parameters then update.</p>
 <h2 id="l1-norm-vs.-l2-norm">L1-norm vs. L2-norm</h2>
 <p>在深度学习网络中，该怎么选择Regularization呢?</p>
-<p>L1 norm if capable of producing a sparse result, which is really important for large network. (but a sparse results means L1 norm throw away some features)</p>
-<p>L2 norm assumes <span class="math inline">\(w\)</span> in Gaussian distribution. According to <em>Law of large number</em>, it should be more robust than L1 norm.</p>
+<p>L1 norm if capable of producing a <strong><u>sparse result</u></strong>, which is really important for large network. (but a sparse results means L1 norm throw away some features)</p>
+<p>L2 norm assumes <span class="math inline">\(w\)</span> in Gaussian distribution. According to <em>Law of large number</em>, it should be more <strong><u>robust</u></strong> than L1 norm.</p>
 <h2 id="why-not-l0-norm">Why not L0-norm</h2>
 <p>事实上L0并不是严格意义上的norm，但是L0可以很好地体现出参数的稀疏性，因此来限制模型复杂度非常合适。那么有什么问题呢？</p>
 <ul>
 <li><p>L0 penalty不是凸优化问题--非凸优化问题会带来什么问题呢？此问题的深入理解仍需后续。</p></li>
-<li><p>L0 norm的计算为NP-hard问题。这一点上我没有找到严格意义的证明，但是就我个人的简单理解--神经网络参数往往使用float32，而float本身是有精度误差的，想要判断数值比较float==0本身就是一件很困难的事情，还不如直接进行数值运算。</p></li>
+<li><p>L0 norm的计算为<strong><u>NP-hard</u></strong>问题。这一点上我没有找到严格意义的证明，但是就我个人的简单理解--神经网络参数往往使用float32，而float本身是有精度误差的，想要判断数值比较float==0本身就是一件很困难的事情，还不如直接进行数值运算。</p></li>
 </ul>
 
       
@@ -540,10 +541,16 @@ P(X,y|w)P(w)=P(y|X,w)P(w,X)=P(y|X,w)P(X)P(w)=&gt;P(y|X,w)P(w)
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-10-27 11:39:15 / Modified: 20:50:25" itemprop="dateCreated datePublished" datetime="2021-10-27T11:39:15+08:00">2021-10-27</time>
+              <time title="Created: 2021-10-27 11:39:15" itemprop="dateCreated datePublished" datetime="2021-10-27T11:39:15+08:00">2021-10-27</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-04 23:49:09" itemprop="dateModified" datetime="2021-11-04T23:49:09+08:00">2021-11-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -577,43 +584,14 @@ P(X,y|w)P(w)=P(y|X,w)P(w,X)=P(y|X,w)P(X)P(w)=&gt;P(y|X,w)P(w)
 <h2 id="miniforge">Miniforge</h2>
 <p>Miniforge is just a substitude of Anaconda.</p>
 <p>Follow the instruction <a target="_blank" rel="noopener" href="https://github.com/conda-forge/miniforge#miniforge3">here</a>.</p>
-<h2 id="create-virtual-environment">Create virtual environment</h2>
-<ol type="1">
-<li><p>Create <code>environment.yaml</code></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">apple_tensorflow</span></span><br><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">conda-forge</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">nodefaults</span></span><br><span class="line"><span class="attr">dependencies:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">absl-py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">astunparse</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">gast</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">google-pasta</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">grpcio</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">h5py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ipython</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">keras-preprocessing</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">numpy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">opt_einsum</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">pip=20.2.4</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">protobuf</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python-flatbuffers</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python=3.8</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">scipy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorboard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorflow-estimator</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">termcolor</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typeguard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typing_extensions</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wheel</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wrapt</span></span><br><span class="line">  </span><br></pre></td></tr></table></figure></li>
-<li><p>Create new environment:</p>
-<p><code>conda env create --file &lt;PATH_TO_ENVIRONMENT.yaml&gt; --name=&lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
-<li><p>Activate environment:</p>
-<p><code>conda activate &lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
-</ol>
-<h2 id="install-tensorflow">Install Tensorflow</h2>
-<ol type="1">
-<li><p>Directly install whl</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade --force --no-dependencies https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_addons_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl</span><br></pre></td></tr></table></figure>
-<p>check <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos/releases">here</a> for the latest released version</p></li>
-<li><p>Check:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python</span><br><span class="line">&gt;&gt;&gt; import tensorflow as tf</span><br></pre></td></tr></table></figure>
-<p>If there is no error, you have already install tensorflow.</p></li>
-<li><p>Here is a demo for TensorFlow.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line"></span><br><span class="line">(x_train, y_train),(x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span></span><br><span class="line"></span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">  tf.keras.layers.Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>)),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">  tf.keras.layers.Dropout(<span class="number">0.2</span>),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">              loss=<span class="string">&#x27;sparse_categorical_crossentropy&#x27;</span>,</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line"></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">end = time.time()</span><br><span class="line"></span><br><span class="line">model.evaluate(x_test, y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;time consumed: &quot;</span>, end - start)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>Congratulations! You have done everything. Now it is time to enjoy (be tortured) tensorflow!</p>
-<h1 id="something-more-you-should-note">Something more you should note</h1>
-<h2 id="why-not-gpu">Why not GPU</h2>
-<p>If you check your activity monitor, you will find out that GPU is not used by tensorflow.</p>
-<p>Apple implemented machine learning acceleration on their own, and the eager version of machine learning acceleration is currently only available on CPU.</p>
-<p>However, you can still ask tensorflow to use GPU via:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Import mlcompute module to use the optional set_mlc_device API for device selection with ML Compute.</span></span><br><span class="line"><span class="keyword">from</span> tensorflow.python.compiler.mlcompute <span class="keyword">import</span> mlcompute</span><br><span class="line"><span class="comment"># Select CPU device.</span></span><br><span class="line">mlcompute.set_mlc_device(device_name=<span class="string">&#x27;gpu&#x27;</span>) </span><br></pre></td></tr></table></figure>
-<p>If you set <code>mlcompute.set_mlc_device(device_name='any')</code>, it will automatically select the best -- generally CPU.</p>
-<p>With GPU, M1 will report <code>WARNING:tensorflow:Eager mode uses the CPU. Switching to the CPU.</code></p>
-<p>You can test GPU on your will, but GPU is not recomended (it is much less powerful).</p>
-<h2 id="debug">Debug</h2>
-<ol type="1">
-<li><p>If you encounter something like this <code>AutoGraph could not transform</code>, it may be caused by <code>gast</code>.</p>
-<p><code>pip install gast==0.3.3</code> will help.</p></li>
-<li><p>I also found an error <code>Failed to get CPU frequency: 0 Hz</code>. However I still cannot solved it. And the repo of tensorflow_macos is archived, so I cannot report this issue to Apple. But it seems several people have this problem too. May be this is not a big issue <strong>just for learning</strong>. Let's wait the beta version of tensorflow_macos!</p></li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
