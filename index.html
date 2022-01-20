@@ -203,6 +203,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/01/20/PySpark-Install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/20/PySpark-Install/" class="post-title-link" itemprop="url">PySpark Install</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-01-20 15:43:41 / Modified: 15:44:11" itemprop="dateCreated datePublished" datetime="2022-01-20T15:43:41+08:00">2022-01-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="pyspark">PySpark</h1>
+<h2 id="install">Install</h2>
+<p>Environement: WSL ubuntu 18</p>
+<h4 id="conda">Conda</h4>
+<p>install anaconda and create a new environment with python=3.6</p>
+<h4 id="java8">Java8</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br><span class="line"><span class="meta">#</span><span class="bash"> java -version</span></span><br></pre></td></tr></table></figure>
+<h4 id="scala">Scala</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.deb # wget may be timeout, try again</span><br><span class="line">sudo dpkg -i scala-2.12.8.deb</span><br><span class="line"><span class="meta">#</span><span class="bash"> scala -version</span></span><br></pre></td></tr></table></figure>
+<h4 id="py4j">py4j</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install py4j</span><br><span class="line"><span class="meta">#</span><span class="bash"> or try `conda install py4j`</span></span><br></pre></td></tr></table></figure>
+<h4 id="spark">Spark</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> this <span class="built_in">command</span> may fail</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> check the current version <span class="keyword">in</span> http://mirrors.tuna.tsinghua.edu.cn/apache/spark</span></span><br><span class="line">wget http://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz </span><br><span class="line">tar xvf  spark-2.4.0-bin-hadoop2.7.tgz</span><br></pre></td></tr></table></figure>
+<h4 id="environment">Environment</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line">export SPARK_HOME=&lt;path to spark-2.4.0-bin-hadoop2.7&gt;</span><br><span class="line">export PATH=$&#123;SPARK_HOME&#125;/bin:$PATH</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br><span class="line">cd &lt;path to spark-2.4.0-bin-hadoop2.7&gt;</span><br><span class="line">cp conf/log4j.properties.template conf/log4j.properties</span><br><span class="line">vim conf/log4j.properties</span><br><span class="line"><span class="meta">#</span><span class="bash"> replace `log4j.rootCategory=INFO, console` with</span></span><br><span class="line">log4j.rootCategory=ERROR, console</span><br></pre></td></tr></table></figure>
+<p>if you want to use pyspark in jupyter notebook,</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> find your own path to the zip file starting with <span class="string">&#x27;py4j&#x27;</span></span></span><br><span class="line">export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH</span><br><span class="line">export PATH=$SPARK_HOME/python:$PATH</span><br><span class="line">export PYSPARK_PYTHON=python3</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br><span class="line">pip install findspark</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>Enter jupyter notebook, import <code>findspark</code> before <code>pyspark</code></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> findspark</span><br><span class="line">findspark.init()</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/11/04/How-to-install-Scipy-in-Apple-silicon-2021-11-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -386,6 +472,22 @@
               <span class="post-meta-item-text">Posted on</span>
 
               <time title="Created: 2021-11-02 20:05:29" itemprop="dateCreated datePublished" datetime="2021-11-02T20:05:29+08:00">2021-11-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-07 17:20:41" itemprop="dateModified" datetime="2021-11-07T17:20:41+08:00">2021-11-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
             </span>
 
           
@@ -610,7 +712,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-29 16:38:23" itemprop="dateModified" datetime="2021-10-29T16:38:23+08:00">2021-10-29</time>
+                <time title="Modified: 2021-11-12 11:06:21" itemprop="dateModified" datetime="2021-11-12T11:06:21+08:00">2021-11-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -921,88 +1023,6 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/15/mAP-in-object-detection/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/15/mAP-in-object-detection/" class="post-title-link" itemprop="url">mAP in object detection</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-10-15 13:51:53 / Modified: 14:53:35" itemprop="dateCreated datePublished" datetime="2021-10-15T13:51:53+08:00">2021-10-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="pr-curve">PR Curve</h3>
-<p><strong>IoU</strong>(Intersection over union): 两个bounding box( ground truth + proposed)之间重合部分的比例. <span class="math inline">\(IoU=\frac{A \cap B}{A \cup B}\)</span></p>
-<p><strong>TP</strong>(True positive): 对于所有ground truth检测IoU&gt;=IoU<sub>threshold</sub>(IoU<sub>threshold</sub>一般取0.5)--有多少真实的bounding box被detect到(一个ground truth只考虑一次)</p>
-<p><strong>FP</strong>(False positive): 对于所有ground truth检测IoU&lt;IoU<sub>threshold</sub>(IoU<sub>threshold</sub>一般取0.5)--每个ground truth有多少无效(IoU过低)/多余(多次检测同一个)的检测框</p>
-<p><strong>FN</strong>(False negative): 有多少真实的bounding box没有被detect到(一个ground truth只考虑一次)</p>
-<p><strong>Precision</strong> = <span class="math inline">\(\frac{TP}{TP+FP}\)</span>--在检测为真的bounding box中有多少是有效的: <span class="math inline">\(Precision=\frac{TrueSamplesDetected}{AllDetecion}\)</span></p>
-<p><strong>Recall</strong> = <span class="math inline">\(\frac{TP}{TP+FN}\)</span>--ground truth的bounding box有多少能被检测到: <span class="math inline">\(Recall=\frac{TrueSamplesDetected}{AllTrueSamples}\)</span></p>
-<p><strong>PR Curve</strong>: recall(x)-precision(y) curve</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/10/15/mAP-in-object-detection/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1074,7 +1094,7 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">84</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1123,7 +1143,7 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
