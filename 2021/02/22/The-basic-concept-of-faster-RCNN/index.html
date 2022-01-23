@@ -284,101 +284,166 @@
 
       
         <h2 id="发展顺序">发展顺序</h2>
-<p>本文仅关注从R-CNN、SPP-Net（2014）至Fast R-CNN、Faster R-CNN（2015）的图像分割技术。</p>
+<p>本文仅关注从R-CNN、SPP-Net（2014）至Fast R-CNN、Faster
+R-CNN（2015）的图像分割技术。</p>
 <h2 id="r-cnn">R-CNN</h2>
 <p>Region-CNN</p>
-<h3 id="efficient-graph-based-image-segmentation">Efficient Graph-Based Image Segmentation</h3>
+<h3 id="efficient-graph-based-image-segmentation">Efficient Graph-Based
+Image Segmentation</h3>
 <p>主要目的也就是将图像（image）分割成若干个特定的、具有独特性质的区域（region），然后从中提取出感兴趣的目标（object）。</p>
 <p>为了找到有意义的图像区域，我们很容易想到根据灰度gradient变化，但是会产生下图问题：</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image1.png" width="50%" height="50%"></p>
 <p>左侧图像灰度变化均匀，右侧图像仅有部分区域有灰度变化。上图的例子告诉我们不能使用<strong>灰度的变化</strong>作为分割依据，也不能使用<strong>单一的灰度阈值</strong>来作为分割的评判标准。</p>
 <span id="more"></span>
-<h4 id="graph-based-image-minimal-spanning-tree">Graph-based image &amp; minimal spanning tree</h4>
+<h4 id="graph-based-image-minimal-spanning-tree">Graph-based image &amp;
+minimal spanning tree</h4>
 <p>首先我们要将图片以graph图论的形式表示，graph的vertex为image的每个像素点，graph的edge一般定义为像素点的相邻关系，权重为灰度差或者距离等。</p>
 <p>如何分割这个tree，也就是合并像素点呢？这里用到的是最小生成树，简单说就是尝试找出一个tree结构使得所有的点都能被联通，并且使tree的edge权重和最低。直观地看就是尽可能使相似的像素点结合在一个subtree上。最终结果可以大大减少图的edge数量。</p>
 <p>具体举个例子：</p>
-<p>图像（image）的图（graph）表示为G=(V,E)，每个像素点代表图的一个顶点vi ∈ V ，相邻（相邻的像素点，可以是像素的4邻域也可以是8邻域）的两个像素点构成一条边(vi, vj) ∈ E。图每条边的权值是像素与相邻像素的关系(<strong>灰度图的话是灰度值差的绝对值，RGB图像为3个通道值差平方和开根号</strong>)，表达了相邻像素之间的相似度。权值越小，表示像素点之间的相似度就越高，反之，相似度就越低。</p>
+<p>图像（image）的图（graph）表示为G=(V,E)，每个像素点代表图的一个顶点vi
+∈ V
+，相邻（相邻的像素点，可以是像素的4邻域也可以是8邻域）的两个像素点构成一条边(vi,
+vj) ∈
+E。图每条边的权值是像素与相邻像素的关系(<strong>灰度图的话是灰度值差的绝对值，RGB图像为3个通道值差平方和开根号</strong>)，表达了相邻像素之间的相似度。权值越小，表示像素点之间的相似度就越高，反之，相似度就越低。</p>
 <h4 id="graph-cut">Graph Cut</h4>
-<p>将每个节点（像素点）看成单一的区域，然后进行合并。 (1) 对所有边根据权值从小到大排序，权值越小，两像素的相似度越大。 (2) S[0]是一个原始分割，相当于每个顶点当做是一个分割区域。 (3) 从小到大遍历所有边，如果这条边(vi,vj)的两个顶点属于不同的分割区域，并且权值不大于两个区域的内部差(区域内eege最大权值)，那么合并这两个区域。更新合并区域的参数和内部差。</p>
+<p>将每个节点（像素点）看成单一的区域，然后进行合并。 (1)
+对所有边根据权值从小到大排序，权值越小，两像素的相似度越大。 (2)
+S[0]是一个原始分割，相当于每个顶点当做是一个分割区域。 (3)
+从小到大遍历所有边，如果这条边(vi,vj)的两个顶点属于不同的分割区域，并且权值不大于两个区域的内部差(区域内eege最大权值)，那么合并这两个区域。更新合并区域的参数和内部差。</p>
 <p>最后对所有区域中，像素数都小于min_size的两个相邻区域，进行合并得到最后的分割。</p>
 <h3 id="selective-search">Selective Search</h3>
-<p>有了上述的基于图的图像分割技术，接下来我们可以讨论如何生成region proposal。</p>
-<p>最简单的方法当然是用不同大小的框去遍历图像，然后把所有框出来的图像都让分类器处理，但是这样明显性能开销太大，那么就可以模仿上述的image segmentation技术，以合并类似图像块的方式得到region proposal。</p>
+<p>有了上述的基于图的图像分割技术，接下来我们可以讨论如何生成region
+proposal。</p>
+<p>最简单的方法当然是用不同大小的框去遍历图像，然后把所有框出来的图像都让分类器处理，但是这样明显性能开销太大，那么就可以模仿上述的image
+segmentation技术，以合并类似图像块的方式得到region proposal。</p>
 <h4 id="implementation">Implementation</h4>
-<p>step0：生成区域集R，基于<a target="_blank" rel="noopener" href="http://cs.brown.edu/people/pfelzens/segment/">《Efficient Graph-Based Image Segmentation》</a> step1：计算区域集R里每个相邻区域的相似度S={s1,s2,…} step2：找出相似度最高的两个区域，将其合并为新集，添加进R step3：从S中移除所有与step2中有关的子集 step4：计算新集与所有子集的相似度 step5：跳至step2，直至S为空</p>
+<p>step0：生成区域集R，基于<a target="_blank" rel="noopener" href="http://cs.brown.edu/people/pfelzens/segment/">《Efficient
+Graph-Based Image Segmentation》</a>
+step1：计算区域集R里每个相邻区域的相似度S={s1,s2,…}
+step2：找出相似度最高的两个区域，将其合并为新集，添加进R
+step3：从S中移除所有与step2中有关的子集
+step4：计算新集与所有子集的相似度 step5：跳至step2，直至S为空</p>
 <h3 id="r-cnn实现">R-CNN实现</h3>
-<p>R-CNN全称为Regions with CNN features，基本思想就是由基础的AlexNet直接处理特征滑窗进化为先选取出proposal region，然后再直接处理proposal region（proposal region的数量由人为控制）来判断到底是背景还是前景。</p>
+<p>R-CNN全称为Regions with CNN
+features，基本思想就是由基础的AlexNet直接处理特征滑窗进化为先选取出proposal
+region，然后再直接处理proposal region（proposal
+region的数量由人为控制）来判断到底是背景还是前景。</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image2.png" width="100%"></p>
-<p>RCNN的输入为完整图片，首先通过区域建议算法产生一系列的候选目标区域，其中使用的区域建议算法为Selective Search。然后对于这些目标区域候选提取其CNN特征，并训练SVM分类这些特征。最后为了提高定位的准确性在SVM分类后区域基础上进行BoundingBox回归。</p>
+<p>RCNN的输入为完整图片，首先通过区域建议算法产生一系列的候选目标区域，其中使用的区域建议算法为Selective
+Search。然后对于这些目标区域候选提取其CNN特征，并训练SVM分类这些特征。最后为了提高定位的准确性在SVM分类后区域基础上进行BoundingBox回归。</p>
 <h4 id="alexnet-细节">AlexNet 细节</h4>
-<p>R-CNN使用的AlexNet为了加速训练使用了fine tune。AlexNet的参数并不是完全随机初始化的，而是先用AlexNet+Classifier训练了一个单一物体分类的神经网络，然后直接把这个网络的参数作为初始值使用。这样可以使网络的参数在初始化时就能具有一定的分类意义，大大加快训练速度。</p>
-<p>同时还要注意AlexNet只能处理224x224的图像大小，为了能够使region proposal能够适应这个大小，论文使用原图像类填充这个范围（在原图像填充、原图像均值填充、直接拉伸，三种方法中为最优）。</p>
+<p>R-CNN使用的AlexNet为了加速训练使用了fine
+tune。AlexNet的参数并不是完全随机初始化的，而是先用AlexNet+Classifier训练了一个单一物体分类的神经网络，然后直接把这个网络的参数作为初始值使用。这样可以使网络的参数在初始化时就能具有一定的分类意义，大大加快训练速度。</p>
+<p>同时还要注意AlexNet只能处理224x224的图像大小，为了能够使region
+proposal能够适应这个大小，论文使用原图像类填充这个范围（在原图像填充、原图像均值填充、直接拉伸，三种方法中为最优）。</p>
 <h4 id="如何训练分类器svms">如何训练分类器SVMs</h4>
 <p>CNN已经能很好地提取出特征了，经过实验，使用FC层作为最后的特征输出。</p>
 <h5 id="hard-mining">Hard mining</h5>
-<p>在tag region proposal时，R-CNN将IOU（重合度）&gt;50%的都作为<strong>正样本</strong>（标注对应tag），但是实际上正样本实在太少，于是又将IOU&lt;30%的设置为<strong>负样本</strong>（标注为background），这种做法称之为<strong>Hard Mining</strong></p>
+<p>在tag region
+proposal时，R-CNN将IOU（重合度）&gt;50%的都作为<strong>正样本</strong>（标注对应tag），但是实际上正样本实在太少，于是又将IOU&lt;30%的设置为<strong>负样本</strong>（标注为background），这种做法称之为<strong>Hard
+Mining</strong></p>
 <h5 id="非极大值抑制">非极大值抑制</h5>
-<p>region proposal有将近2k个区域，有很多重合。首先把IOU超过某个阈值的几个区域取出来，然后比较他们由SVM得到的置信概率，仅取最大置信。</p>
+<p>region
+proposal有将近2k个区域，有很多重合。首先把IOU超过某个阈值的几个区域取出来，然后比较他们由SVM得到的置信概率，仅取最大置信。</p>
 <h5 id="bounding-box">Bounding Box</h5>
-<p>bounding box回归，目标是使得预测的region proposal向groundtruth窗口相接近。</p>
-<p>窗口一般使用四维向量(x,y,w,h)表示，x y表示框的中心位置，w h表示框的weight height。</p>
-<p>Bouding box目标是寻找一种关系使得输入原始的窗口 P 经过映射得到一个跟真实窗口 G 更接近的回归窗口Ĝ，即：给定(P<sub>x</sub>, P<sub>y</sub>, P<sub>w</sub>, P<sub>h</sub>)寻找一种映射f，使得f(P<sub>x</sub>, P<sub>y</sub>, P<sub>w</sub>, P<sub>h</sub>)=(Ĝ<sub>x</sub>, Ĝ<sub>y</sub>, Ĝ<sub>w</sub>, Ĝ<sub>h</sub>) 并且(Ĝ<sub>x</sub>, Ĝ<sub>y</sub>, Ĝ<sub>w</sub>, Ĝ<sub>h</sub>)≈(Gx,Gy,Gw,Gh)。</p>
+<p>bounding box回归，目标是使得预测的region
+proposal向groundtruth窗口相接近。</p>
+<p>窗口一般使用四维向量(x,y,w,h)表示，x y表示框的中心位置，w
+h表示框的weight height。</p>
+<p>Bouding box目标是寻找一种关系使得输入原始的窗口 P
+经过映射得到一个跟真实窗口 G 更接近的回归窗口Ĝ，即：给定(P<sub>x</sub>,
+P<sub>y</sub>, P<sub>w</sub>,
+P<sub>h</sub>)寻找一种映射f，使得f(P<sub>x</sub>, P<sub>y</sub>,
+P<sub>w</sub>, P<sub>h</sub>)=(Ĝ<sub>x</sub>, Ĝ<sub>y</sub>,
+Ĝ<sub>w</sub>, Ĝ<sub>h</sub>) 并且(Ĝ<sub>x</sub>, Ĝ<sub>y</sub>,
+Ĝ<sub>w</sub>, Ĝ<sub>h</sub>)≈(Gx,Gy,Gw,Gh)。</p>
 <p>很直观的一个想法是先平移然后缩放：</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image3.png"></p>
 <p>为了能够得到Ĝ，我们需要四个参数：</p>
-<p><span class="math inline">\(d _x(P), d _y(P), d _w(P), d _h(P)\)</span>**，这四个对应的ground truth定义为：</p>
+<p><span class="math inline">\(d _x(P), d _y(P), d _w(P), d
+_h(P)\)</span>**，这四个对应的ground truth定义为：</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image4.png" width="75%" height="75%"></p>
-<p>由于这个线性回归网络是建立在AlexNet之后的，所以input实际为一个4096维的特征向量（记为<span class="math inline">\(Φ _5(P)\)</span>），那么目标函数（预测值）就可以写作：<span class="math inline">\(d _∗(P)=w ^T∗Φ _5(P)\)</span>，其中<span class="math inline">\(*\)</span>意为(x,y,w,h)参数。</p>
+<p>由于这个线性回归网络是建立在AlexNet之后的，所以input实际为一个4096维的特征向量（记为<span class="math inline">\(Φ
+_5(P)\)</span>），那么目标函数（预测值）就可以写作：<span class="math inline">\(d _∗(P)=w ^T∗Φ _5(P)\)</span>，其中<span class="math inline">\(*\)</span>意为(x,y,w,h)参数。</p>
 <p>Loss function可以直观地定义：</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image6.png" width="75%" height="75%"></p>
-<p>加入<span class="math inline">\(\lambda ||w _*|| ^2\)</span>抑制过拟合：</p>
+<p>加入<span class="math inline">\(\lambda ||w _*||
+^2\)</span>抑制过拟合：</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image5.png" width="75%" height="75%"></p>
 <p>那么上述公式为什么要设置的这么复杂？</p>
 <ol type="1">
-<li><span class="math inline">\(\Delta x/\Delta y\)</span>：这里不能将<span class="math inline">\(t _x\)</span>简单设为<span class="math inline">\(G _x - P _x\)</span>是为了满足CNN的尺度不变性：同样的图经过缩放后理论上特征不会变，如果不用<span class="math inline">\(/P _w\)</span>那么显示图片的大小就会有影响。</li>
-<li><span class="math inline">\(S _w/S _h\)</span>：这里一定要用<span class="math inline">\(exp\)</span>的原因是因为学习的结构是不受控的<span class="math inline">\(d _w(P)\)</span>可能为负数，所以很直观地想到用<span class="math inline">\(exp\)</span>保证参数不为负。</li>
+<li><span class="math inline">\(\Delta x/\Delta
+y\)</span>：这里不能将<span class="math inline">\(t
+_x\)</span>简单设为<span class="math inline">\(G _x - P
+_x\)</span>是为了满足CNN的尺度不变性：同样的图经过缩放后理论上特征不会变，如果不用<span class="math inline">\(/P _w\)</span>那么显示图片的大小就会有影响。</li>
+<li><span class="math inline">\(S _w/S _h\)</span>：这里一定要用<span class="math inline">\(exp\)</span>的原因是因为学习的结构是不受控的<span class="math inline">\(d
+_w(P)\)</span>可能为负数，所以很直观地想到用<span class="math inline">\(exp\)</span>保证参数不为负。</li>
 </ol>
 <p>还有一个很关键的问题：为什么可以用线性拟合？</p>
-<p>这里是有一个限制的--region proposal 与 ground truth 相差较小时(R-CNN设置为IOU&gt;0.6)才能认为是线性变化。</p>
-<p>很直观地去理解：首先要明确线性拟合的是什么？是input特征向量和ouput最后的<span class="math inline">\(d _*(P)\)</span>（即对box的修正）。那么在region proposal和ground truth接近时，可以假定为region proposal约接近ground truth，input的特征向量也越接近，导致最后output也越趋近于0（无修正），在足够小的范围内用线性来理解是可行的。</p>
+<p>这里是有一个限制的--region proposal 与 ground truth
+相差较小时(R-CNN设置为IOU&gt;0.6)才能认为是线性变化。</p>
+<p>很直观地去理解：首先要明确线性拟合的是什么？是input特征向量和ouput最后的<span class="math inline">\(d _*(P)\)</span>（即对box的修正）。那么在region
+proposal和ground truth接近时，可以假定为region proposal约接近ground
+truth，input的特征向量也越接近，导致最后output也越趋近于0（无修正），在足够小的范围内用线性来理解是可行的。</p>
 <h4 id="note">Note</h4>
 <p>为什么不直接先用AlexNet分好类而是要用SVM呢？</p>
-<p>R-CNN尝试过，但是精度下降了，可能是由于在tag region proposal时IOU&gt;50%的限制过于宽松，但是如果考虑放开限制，数据量却会大大下降，远远不能满足需求</p>
+<p>R-CNN尝试过，但是精度下降了，可能是由于在tag region
+proposal时IOU&gt;50%的限制过于宽松，但是如果考虑放开限制，数据量却会大大下降，远远不能满足需求</p>
 <h2 id="sppnet">SPPNet</h2>
-<p>Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition</p>
+<p>Spatial Pyramid Pooling in Deep Convolutional Networks for Visual
+Recognition</p>
 <h3 id="r-cnn-sppnet">R-CNN-&gt;SPPNet</h3>
 <p>R-CNN的问题：</p>
 <ul>
-<li>Selective Search对于每幅图片产生2K左右个region proposal，也就是意味着一幅图片需要经过2K次的完整的CNN计算得到最终的结果。</li>
+<li>Selective Search对于每幅图片产生2K左右个region
+proposal，也就是意味着一幅图片需要经过2K次的完整的CNN计算得到最终的结果。</li>
 <li>对于所有的region proposal放缩到224*224会导致几何形变。</li>
 </ul>
-<p>其实CNN的卷积核可以适应不同大小的输入，但是最终的FC层却要求固定大小，从而使得CNN的输入为恒定大小。为了解决这个问题，很直接的一个思路就是在FC之前加一层pooling，保证输入到FC的feature数稳定。进一步为了解决对一幅图片过多次提取feature，SPPNet提出<strong>SPP(Spatial Pyramid Pooling)</strong>。</p>
+<p>其实CNN的卷积核可以适应不同大小的输入，但是最终的FC层却要求固定大小，从而使得CNN的输入为恒定大小。为了解决这个问题，很直接的一个思路就是在FC之前加一层pooling，保证输入到FC的feature数稳定。进一步为了解决对一幅图片过多次提取feature，SPPNet提出<strong>SPP(Spatial
+Pyramid Pooling)</strong>。</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image7.png" width="75%" height="75%"></p>
 <p>Input image -&gt; Conv -&gt; <strong>SPP</strong> -&gt; FC</p>
 <h3 id="spp">SPP</h3>
 <p>输入到SPP的feature大小为H*W*255（Conv最后一层有255个filter）。</p>
-<p>SPP将一层feature map按照不同的大小多次划分处理：先划分为1、4、16块，然后进行MaxPooling，最后拼接在一起（得到(16+4+1)*256大小的feature vector）。</p>
+<p>SPP将一层feature
+map按照不同的大小多次划分处理：先划分为1、4、16块，然后进行MaxPooling，最后拼接在一起（得到(16+4+1)*256大小的feature
+vector）。</p>
 <h4 id="training">Training</h4>
 <p>由于当时的学习框架都固定input大小，所以SPPNet先固定一个inputsize（对输入缩放得到），训练一个epoch后固定参数，改变inputsize训练。</p>
 <p>SPPNet的网络特性使得训练时的inputsize改变非常容易实现（多尺度训练），同时针对同一个尺度，SPP也保证了训练特征有多尺度的特性。</p>
 <h4 id="testing">Testing</h4>
-<p>在测试时，由于SPP可以接受任意大小的输入，因此接受到region proposal时，想办法将其映射到feature map上，然后仅对这一块feature map进行空间金字塔池化就可以得到固定维度的特征用以训练CNN了。这样子我们就可以定位每一个region proposal的feature在整个图片feature map的位置，从而只需要对图片特征提取一次。 映射方法：</p>
+<p>在测试时，由于SPP可以接受任意大小的输入，因此接受到region
+proposal时，想办法将其映射到feature map上，然后仅对这一块feature
+map进行空间金字塔池化就可以得到固定维度的特征用以训练CNN了。这样子我们就可以定位每一个region
+proposal的feature在整个图片feature
+map的位置，从而只需要对图片特征提取一次。 映射方法：</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image8.png" width="75%" height="75%"></p>
 <p>比起R-CNN，SPPNet的精度有所下降，但是速度得到了极大的提升，特别是在多尺度图片处理中，而且SPP的思想也可以在几乎所有CNN上推广。</p>
 <h2 id="fast-r-cnn">Fast R-CNN</h2>
 <h3 id="sppnet-fast-r-cnn">SPPNet-&gt;Fast R-CNN</h3>
-<p>与R-CNN一样，SPPNet同样需要多阶段训练：预训练CNN网络-&gt;Fine Tune-&gt;SVM-&gt;Bounding Box</p>
+<p>与R-CNN一样，SPPNet同样需要多阶段训练：预训练CNN网络-&gt;Fine
+Tune-&gt;SVM-&gt;Bounding Box</p>
 <p>Fast R-CNN希望能简化这一流程。</p>
 <h3 id="网络结构">网络结构</h3>
-<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image9.png" width="75%" height="75%">Fast R-CNN吸取了SPPNet的优点： 先对整张图片经过ConvNet提取特征得到Conv feature map，然后根据不同的RoI（region of interest，即为由selective search得到的region proposal）经过RoI projection找到Conv feature map中RoI对应的feature map。为了使网络能够应对不同大小的RoI，feature map需要经过RoI pooling得到固定大小的feature map作为FC输入（Fast R-CNN中FC输入为512*7*7）。</p>
+<p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image9.png" width="75%" height="75%">Fast
+R-CNN吸取了SPPNet的优点： 先对整张图片经过ConvNet提取特征得到Conv
+feature map，然后根据不同的RoI（region of interest，即为由selective
+search得到的region proposal）经过RoI projection找到Conv feature
+map中RoI对应的feature map。为了使网络能够应对不同大小的RoI，feature
+map需要经过RoI pooling得到固定大小的feature map作为FC输入（Fast
+R-CNN中FC输入为512*7*7）。</p>
 <p>注意SPP能提取多尺寸特征，RoI Pooling是单一尺度的。</p>
 <h3 id="softmax">Softmax</h3>
 <h4 id="二元分类-logistic-regression">二元分类-Logistic Regression</h4>
 <p>简单来说softmax是logistic regression的一种推广。</p>
-<p>用logistic regression和linear regression一起对比可以更直观地看出来核心区别：</p>
+<p>用logistic regression和linear
+regression一起对比可以更直观地看出来核心区别：</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image10.png" width="75%" height="75%"></p>
-<p>关键核心在于logistic使用了cross entropy（两个分布的近似情况）来作为衡量net好坏的依据。</p>
-<p>比起Generative model（假定某个概率分布，去求最大似然估计），Logistic Regression作为Discriminative model的先验信息更少，因此效率更高，但是不能应对隐变量的存在。</p>
+<p>关键核心在于logistic使用了cross
+entropy（两个分布的近似情况）来作为衡量net好坏的依据。</p>
+<p>比起Generative model（假定某个概率分布，去求最大似然估计），Logistic
+Regression作为Discriminative
+model的先验信息更少，因此效率更高，但是不能应对隐变量的存在。</p>
 <h4 id="多元分类-softmax-regression">多元分类-Softmax Regression</h4>
 <p>输入x后如何得到y：</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image11.png" width="75%" height="75%"></p>
@@ -388,58 +453,98 @@
 <h4 id="继续faster-r-cnn">继续Faster R-CNN</h4>
 <p>Fast RCNN主要有3个改进：</p>
 <ol type="1">
-<li>卷积不再是对每个region proposal进行，而是直接对整张图像，这样减少了很多重复计算。（原来RCNN是对每个region proposal分别做卷积，因为一张图像中有2000左右的region proposal，肯定相互之间的重叠率很高。）</li>
-<li>用ROI pooling进行特征的尺寸变换，因为全连接层的输入要求尺寸大小一样，因此不能直接把region proposal作为输入。</li>
+<li>卷积不再是对每个region
+proposal进行，而是直接对整张图像，这样减少了很多重复计算。（原来RCNN是对每个region
+proposal分别做卷积，因为一张图像中有2000左右的region
+proposal，肯定相互之间的重叠率很高。）</li>
+<li>用ROI
+pooling进行特征的尺寸变换，因为全连接层的输入要求尺寸大小一样，因此不能直接把region
+proposal作为输入。</li>
 <li>将regressor放进网络一起训练，每个类别对应一个regressor，同时用softmax代替原来的SVM分类器。仅一层网络，比训练多个SVM分类器效率更高。</li>
 </ol>
-<p>note：对于一般的训练器，最后的FC层往往占比很小（FC大小为最后分的类的个数），但是对于Fast R-CNN，FC的开销很大。为例解决这一问题，作者使用了<strong>SVD分解</strong>（奇异值分解）。</p>
+<p>note：对于一般的训练器，最后的FC层往往占比很小（FC大小为最后分的类的个数），但是对于Fast
+R-CNN，FC的开销很大。为例解决这一问题，作者使用了<strong>SVD分解</strong>（奇异值分解）。</p>
 <h3 id="training-1">Training</h3>
 <p>由于一个网络内有多个任务，Loss Function也因此做出了改变：</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image13.png"></p>
-<p>Loss Function实际上为Loss of classification + Loss of location(Bbox)</p>
+<p>Loss Function实际上为Loss of classification + Loss of
+location(Bbox)</p>
 <h2 id="faster-r-cnn">Faster R-CNN</h2>
-<p>卷积神经网络部分运行在GPU上，而selective search运行在CPU上，因此在使用中selective search成为了巨大的阻碍。为此提出了Region Proposal Network(RPN)，用GPU实现快速的区域建议，让测试近乎实时。</p>
-<p>在之前的算法中<strong>region proposal</strong>与后续的<strong>detection</strong>往往是分开进行的。region proposal一般分为两类：基于超像素（一系列位置相邻且颜色、亮度、纹理等特征相似的像素点组成的小区域）合并；基于滑窗。</p>
-<p>那么为了让两个任务融合在一起，Faster R-CNN用了更加直白的想法--既然在原image上用滑窗开销太大，那么在feature map上用滑窗不就节省计算了吗？这也就是RPN。但是因为feature map上的滑窗相对于原image上的滑窗精度更低，RPN给每一个滑窗都加上了回归（Bbox）来使窗口更加精准。</p>
+<p>卷积神经网络部分运行在GPU上，而selective
+search运行在CPU上，因此在使用中selective
+search成为了巨大的阻碍。为此提出了Region Proposal
+Network(RPN)，用GPU实现快速的区域建议，让测试近乎实时。</p>
+<p>在之前的算法中<strong>region
+proposal</strong>与后续的<strong>detection</strong>往往是分开进行的。region
+proposal一般分为两类：基于超像素（一系列位置相邻且颜色、亮度、纹理等特征相似的像素点组成的小区域）合并；基于滑窗。</p>
+<p>那么为了让两个任务融合在一起，Faster
+R-CNN用了更加直白的想法--既然在原image上用滑窗开销太大，那么在feature
+map上用滑窗不就节省计算了吗？这也就是RPN。但是因为feature
+map上的滑窗相对于原image上的滑窗精度更低，RPN给每一个滑窗都加上了回归（Bbox）来使窗口更加精准。</p>
 <h3 id="net-structure">Net Structure</h3>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image14.png" width="75%" height="75%"></p>
-<p>输入P*Q大小图片--缩放为M*N大小--经过Conv--<strong>Feature Map</strong></p>
-<p>Feature Map--经过RPN输出Region Proposal--找出Feature Map对应区域（即为ROI）--同Fast R-CNN</p>
+<p>输入P*Q大小图片--缩放为M*N大小--经过Conv--<strong>Feature
+Map</strong></p>
+<p>Feature Map--经过RPN输出Region Proposal--找出Feature
+Map对应区域（即为ROI）--同Fast R-CNN</p>
 <h3 id="region-proposal-networksrpn">Region Proposal Networks(RPN)</h3>
 <h4 id="anchors">Anchors</h4>
 <p>要解释RPN，先要解释Anchors。</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image16.png" width="50%" height="50%"></p>
-<p>原文中的anchors即为大小不同的9个矩形框，每个矩形框用4个数据表示（对角两个点坐标）。假设CNN得到的feature map大小为w*h，那总的anchors个数为9*w*h，9为上述的9种anchors。说白了就是用这些anchor把feature map全部遍历一边，根据对应的anchor矩形框的区域可以计算出原图像上对应的区域（也就是在原图像上间隔地用更大的尺度遍历一遍）。</p>
+<p>原文中的anchors即为大小不同的9个矩形框，每个矩形框用4个数据表示（对角两个点坐标）。假设CNN得到的feature
+map大小为w*h，那总的anchors个数为9*w*h，9为上述的9种anchors。说白了就是用这些anchor把feature
+map全部遍历一边，根据对应的anchor矩形框的区域可以计算出原图像上对应的区域（也就是在原图像上间隔地用更大的尺度遍历一遍）。</p>
 <h4 id="rpn">RPN</h4>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image17.png" width="75%" height="75%"></p>
-<p>CNN的最后输出为265层（即265张feature map），首先经过3*3卷积最后输出还是265层（265-d）。</p>
-<p>对于分类层（cls layer）中，在conv5 feature map中每个点上有k个anchor（原文如上k=9），而每个anhcor要分foreground和background，所以每个点由256-d feature转化为cls=2k scores。</p>
-<p>对于框位置的回归层（reg layer），每个anchor都有4个偏移量，所以reg=4k coordinates。</p>
+<p>CNN的最后输出为265层（即265张feature
+map），首先经过3*3卷积最后输出还是265层（265-d）。</p>
+<p>对于分类层（cls layer）中，在conv5 feature
+map中每个点上有k个anchor（原文如上k=9），而每个anhcor要分foreground和background，所以每个点由256-d
+feature转化为cls=2k scores。</p>
+<p>对于框位置的回归层（reg layer），每个anchor都有4个偏移量，所以reg=4k
+coordinates。</p>
 <p>RPN的最终输出scores和coordinates。</p>
-<p>全部anchors拿去训练太多了，训练程序会在合适的anchors中随机选取128个postive anchors+128个negative anchors进行训练。</p>
+<p>全部anchors拿去训练太多了，训练程序会在合适的anchors中随机选取128个postive
+anchors+128个negative anchors进行训练。</p>
 <p><strong>RPN其实是在原图尺度上，设置了候选Anchor。然后用cnn去判断哪些Anchor是前景，哪些是背景。本质上是二分类器。</strong></p>
-<p>在此之后网络有两条路径，先说上面一条(-&gt;1x1 conv-&gt;reshape-&gt;softmax-&gt;reshape)</p>
+<p>在此之后网络有两条路径，先说上面一条(-&gt;1x1
+conv-&gt;reshape-&gt;softmax-&gt;reshape)</p>
 <h4 id="softmax找出前景anchor">Softmax找出前景anchor</h4>
-<p>经过1x1 conv之后的输出为2k层（图中为18，对于k=9）。reshape层是为了应对caffe特殊的数据存储方式。之后通过softmax进行二分类，找出前景（positive anchor）和背景（negative anchor）</p>
-<p>Proposal Layer forward（caffe layer的前传函数）按照以下顺序依次处理：</p>
+<p>经过1x1
+conv之后的输出为2k层（图中为18，对于k=9）。reshape层是为了应对caffe特殊的数据存储方式。之后通过softmax进行二分类，找出前景（positive
+anchor）和背景（negative anchor）</p>
+<p>Proposal Layer forward（caffe
+layer的前传函数）按照以下顺序依次处理：</p>
 <ol type="1">
 <li>生成anchors，利用Bbox输出的结果修正anchors。</li>
-<li>按照输入的foreground softmax scores由大到小排序anchors，提取前N个。</li>
+<li>按照输入的foreground softmax
+scores由大到小排序anchors，提取前N个。</li>
 <li>限定超出图像边界的foreground anchors为图像边界。</li>
 <li>剔除非常小的foreground anchors。</li>
-<li>进行nonmaximum suppression（即相交超过一定程度的anchors之间保留softmax score最高的一个）。</li>
-<li>再次按照foreground softmax scores由大到小排序，提取前N个结果作为proposal输出。</li>
+<li>进行nonmaximum
+suppression（即相交超过一定程度的anchors之间保留softmax
+score最高的一个）。</li>
+<li>再次按照foreground softmax
+scores由大到小排序，提取前N个结果作为proposal输出。</li>
 <li>之后输出proposal=[x1, y1, x2, y2]（对角坐标）。</li>
 </ol>
 <h3 id="train">Train</h3>
 <h4 id="loss-function">Loss Function</h4>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image18.png"></p>
 <p><span class="math inline">\(i\)</span>表示anchors index</p>
-<p><span class="math inline">\(p _i\)</span>表示foreground softmax probability</p>
-<p><span class="math inline">\(p _i ^*\)</span>代表对应的ground truth predict概率（即当第i个anchor与ground true间IoU&gt;0.7，认为是该anchor是foreground，此时<span class="math inline">\(p _i ^* = 1\)</span>；反之IoU&lt;0.3时，认为是该anchor是background，此时<span class="math inline">\(p _i ^* = 0\)</span>；至于那些0.3&lt;IoU&lt;0.7的anchor则不参与训练)</p>
-<p><span class="math inline">\(t\)</span>代表predict bounding box，<span class="math inline">\(t ^*\)</span>代表对应foreground anchor对应的ground truth box。</p>
-<p><span class="math inline">\(\lambda\)</span>的引入是因为<span class="math inline">\(N _{cls}\)</span>和<span class="math inline">\(N _{reg}\)</span>之间有一个数量级的差距，所以需要参数来平衡使两者对Loss的贡献类似。</p>
-<p>L分为两部分 = cls loss（即rpn_cls_loss层计算的softmax loss） + reg loss（即rpn_loss_bbox层计算的soomth L1 loss，该loss中<span class="math inline">\(*p _i ^*\)</span>，因此只关心前景的loss）</p>
+<p><span class="math inline">\(p _i\)</span>表示foreground softmax
+probability</p>
+<p><span class="math inline">\(p _i ^*\)</span>代表对应的ground truth
+predict概率（即当第i个anchor与ground
+true间IoU&gt;0.7，认为是该anchor是foreground，此时<span class="math inline">\(p _i ^* =
+1\)</span>；反之IoU&lt;0.3时，认为是该anchor是background，此时<span class="math inline">\(p _i ^* =
+0\)</span>；至于那些0.3&lt;IoU&lt;0.7的anchor则不参与训练)</p>
+<p><span class="math inline">\(t\)</span>代表predict bounding box，<span class="math inline">\(t ^*\)</span>代表对应foreground anchor对应的ground
+truth box。</p>
+<p><span class="math inline">\(\lambda\)</span>的引入是因为<span class="math inline">\(N _{cls}\)</span>和<span class="math inline">\(N
+_{reg}\)</span>之间有一个数量级的差距，所以需要参数来平衡使两者对Loss的贡献类似。</p>
+<p>L分为两部分 = cls loss（即rpn_cls_loss层计算的softmax loss） + reg
+loss（即rpn_loss_bbox层计算的soomth L1 loss，该loss中<span class="math inline">\(*p _i ^*\)</span>，因此只关心前景的loss）</p>
 <p>其中</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image19.png" width="75%" height="75%"></p>
 <p>使用smooth L1 loss可以避免L2 loss造成的梯度爆炸。</p>
@@ -543,7 +648,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B1%95%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">发展顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#r-cnn"><span class="nav-number">2.</span> <span class="nav-text">R-CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#efficient-graph-based-image-segmentation"><span class="nav-number">2.1.</span> <span class="nav-text">Efficient Graph-Based Image Segmentation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#graph-based-image-minimal-spanning-tree"><span class="nav-number">2.1.1.</span> <span class="nav-text">Graph-based image &amp; minimal spanning tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#graph-cut"><span class="nav-number">2.1.2.</span> <span class="nav-text">Graph Cut</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selective-search"><span class="nav-number">2.2.</span> <span class="nav-text">Selective Search</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#implementation"><span class="nav-number">2.2.1.</span> <span class="nav-text">Implementation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#r-cnn%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.3.</span> <span class="nav-text">R-CNN实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#alexnet-%E7%BB%86%E8%8A%82"><span class="nav-number">2.3.1.</span> <span class="nav-text">AlexNet 细节</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%AE%AD%E7%BB%83%E5%88%86%E7%B1%BB%E5%99%A8svms"><span class="nav-number">2.3.2.</span> <span class="nav-text">如何训练分类器SVMs</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#hard-mining"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">Hard mining</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%9E%E6%9E%81%E5%A4%A7%E5%80%BC%E6%8A%91%E5%88%B6"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">非极大值抑制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bounding-box"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">Bounding Box</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#note"><span class="nav-number">2.3.3.</span> <span class="nav-text">Note</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sppnet"><span class="nav-number">3.</span> <span class="nav-text">SPPNet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#r-cnn-sppnet"><span class="nav-number">3.1.</span> <span class="nav-text">R-CNN-&gt;SPPNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spp"><span class="nav-number">3.2.</span> <span class="nav-text">SPP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#training"><span class="nav-number">3.2.1.</span> <span class="nav-text">Training</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#testing"><span class="nav-number">3.2.2.</span> <span class="nav-text">Testing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fast-r-cnn"><span class="nav-number">4.</span> <span class="nav-text">Fast R-CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sppnet-fast-r-cnn"><span class="nav-number">4.1.</span> <span class="nav-text">SPPNet-&gt;Fast R-CNN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="nav-number">4.2.</span> <span class="nav-text">网络结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax"><span class="nav-number">4.3.</span> <span class="nav-text">Softmax</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E5%85%83%E5%88%86%E7%B1%BB-logistic-regression"><span class="nav-number">4.3.1.</span> <span class="nav-text">二元分类-Logistic Regression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E5%85%83%E5%88%86%E7%B1%BB-softmax-regression"><span class="nav-number">4.3.2.</span> <span class="nav-text">多元分类-Softmax Regression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E7%BB%ADfaster-r-cnn"><span class="nav-number">4.3.3.</span> <span class="nav-text">继续Faster R-CNN</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training-1"><span class="nav-number">4.4.</span> <span class="nav-text">Training</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#faster-r-cnn"><span class="nav-number">5.</span> <span class="nav-text">Faster R-CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#net-structure"><span class="nav-number">5.1.</span> <span class="nav-text">Net Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#region-proposal-networksrpn"><span class="nav-number">5.2.</span> <span class="nav-text">Region Proposal Networks(RPN)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#anchors"><span class="nav-number">5.2.1.</span> <span class="nav-text">Anchors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rpn"><span class="nav-number">5.2.2.</span> <span class="nav-text">RPN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#softmax%E6%89%BE%E5%87%BA%E5%89%8D%E6%99%AFanchor"><span class="nav-number">5.2.3.</span> <span class="nav-text">Softmax找出前景anchor</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#train"><span class="nav-number">5.3.</span> <span class="nav-text">Train</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#loss-function"><span class="nav-number">5.3.1.</span> <span class="nav-text">Loss Function</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B1%95%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">发展顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#r-cnn"><span class="nav-number">2.</span> <span class="nav-text">R-CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#efficient-graph-based-image-segmentation"><span class="nav-number">2.1.</span> <span class="nav-text">Efficient Graph-Based
+Image Segmentation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#graph-based-image-minimal-spanning-tree"><span class="nav-number">2.1.1.</span> <span class="nav-text">Graph-based image &amp;
+minimal spanning tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#graph-cut"><span class="nav-number">2.1.2.</span> <span class="nav-text">Graph Cut</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selective-search"><span class="nav-number">2.2.</span> <span class="nav-text">Selective Search</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#implementation"><span class="nav-number">2.2.1.</span> <span class="nav-text">Implementation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#r-cnn%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.3.</span> <span class="nav-text">R-CNN实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#alexnet-%E7%BB%86%E8%8A%82"><span class="nav-number">2.3.1.</span> <span class="nav-text">AlexNet 细节</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%AE%AD%E7%BB%83%E5%88%86%E7%B1%BB%E5%99%A8svms"><span class="nav-number">2.3.2.</span> <span class="nav-text">如何训练分类器SVMs</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#hard-mining"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">Hard mining</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%9E%E6%9E%81%E5%A4%A7%E5%80%BC%E6%8A%91%E5%88%B6"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">非极大值抑制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bounding-box"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">Bounding Box</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#note"><span class="nav-number">2.3.3.</span> <span class="nav-text">Note</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sppnet"><span class="nav-number">3.</span> <span class="nav-text">SPPNet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#r-cnn-sppnet"><span class="nav-number">3.1.</span> <span class="nav-text">R-CNN-&gt;SPPNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spp"><span class="nav-number">3.2.</span> <span class="nav-text">SPP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#training"><span class="nav-number">3.2.1.</span> <span class="nav-text">Training</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#testing"><span class="nav-number">3.2.2.</span> <span class="nav-text">Testing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fast-r-cnn"><span class="nav-number">4.</span> <span class="nav-text">Fast R-CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sppnet-fast-r-cnn"><span class="nav-number">4.1.</span> <span class="nav-text">SPPNet-&gt;Fast R-CNN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="nav-number">4.2.</span> <span class="nav-text">网络结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax"><span class="nav-number">4.3.</span> <span class="nav-text">Softmax</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E5%85%83%E5%88%86%E7%B1%BB-logistic-regression"><span class="nav-number">4.3.1.</span> <span class="nav-text">二元分类-Logistic Regression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E5%85%83%E5%88%86%E7%B1%BB-softmax-regression"><span class="nav-number">4.3.2.</span> <span class="nav-text">多元分类-Softmax Regression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E7%BB%ADfaster-r-cnn"><span class="nav-number">4.3.3.</span> <span class="nav-text">继续Faster R-CNN</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training-1"><span class="nav-number">4.4.</span> <span class="nav-text">Training</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#faster-r-cnn"><span class="nav-number">5.</span> <span class="nav-text">Faster R-CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#net-structure"><span class="nav-number">5.1.</span> <span class="nav-text">Net Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#region-proposal-networksrpn"><span class="nav-number">5.2.</span> <span class="nav-text">Region Proposal Networks(RPN)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#anchors"><span class="nav-number">5.2.1.</span> <span class="nav-text">Anchors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rpn"><span class="nav-number">5.2.2.</span> <span class="nav-text">RPN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#softmax%E6%89%BE%E5%87%BA%E5%89%8D%E6%99%AFanchor"><span class="nav-number">5.2.3.</span> <span class="nav-text">Softmax找出前景anchor</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#train"><span class="nav-number">5.3.</span> <span class="nav-text">Train</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#loss-function"><span class="nav-number">5.3.1.</span> <span class="nav-text">Loss Function</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -559,7 +666,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

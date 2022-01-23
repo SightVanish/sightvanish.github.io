@@ -203,6 +203,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/29/Games101-Homework-Summary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/29/Games101-Homework-Summary/" class="post-title-link" itemprop="url">Games101 Homeworks Summary</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-29 16:10:37" itemprop="dateCreated datePublished" datetime="2021-09-29T16:10:37+08:00">2021-09-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-04 23:53:34" itemprop="dateModified" datetime="2021-11-04T23:53:34+08:00">2021-11-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-Graphics/" itemprop="url" rel="index"><span itemprop="name">Computer Graphics</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="prefab">Prefab</h3>
+<p>Games101还是要强烈推荐给大家，把图形学一些基本的内容讲的十分透彻了。这里记录一下作业的成果，具体的代码实现就不展示了，如果有特别巧妙的会注明。封面将对当前最新进度结果进行展示。</p>
+<p>已完结，<a target="_blank" rel="noopener" href="https://github.com/SightVanish/ComputerGraphics-Games101">代码库</a></p>
+<div data-align="center">
+<img src="/2021/09/29/Games101-Homework-Summary/hw7_heigh.png">
+</div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/29/Games101-Homework-Summary/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -258,23 +344,33 @@
 
       
           <h3 id="precision">Precision</h3>
-<p><span class="math inline">\(Precision=\frac{actually \ true \&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \ true}\)</span></p>
-<p>The percentage of true labels decided by the model are actually true.</p>
+<p><span class="math inline">\(Precision=\frac{actually \ true
+\&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \
+true}\)</span></p>
+<p>The percentage of true labels decided by the model are actually
+true.</p>
 <h3 id="recall">Recall</h3>
-<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \ true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
+<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \
+true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
 <p>The percentage of true items are decided true by the model.</p>
-<p>If we want higher Precision, we should not take any risk--only take those with highest score.</p>
-<p>But if we want higher Recall, we should take all possible results. That is, we cannot get Precision and Recall improved at the same time.</p>
+<p>If we want higher Precision, we should not take any risk--only take
+those with highest score.</p>
+<p>But if we want higher Recall, we should take all possible results.
+That is, we cannot get Precision and Recall improved at the same
+time.</p>
 <p>So we need a balance benchmark.</p>
 <h3 id="f1-measuref1-score">F1-Measure/F1-Score</h3>
 <p><span class="math display">\[
 F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
 \]</span></p>
 <p>We get F1-Measure when <span class="math inline">\(\alpha=1\)</span>.</p>
-<p>More on <a target="_blank" rel="noopener" href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic Mean</a>--it prevents models that are only good at either of P or R from doing good in F.</p>
+<p>More on <a target="_blank" rel="noopener" href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic
+Mean</a>--it prevents models that are only good at either of P or R from
+doing good in F.</p>
 <p>x=50, y=0~100, here is the score (<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/47980482">ref</a>):</p>
 <p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
-<p>Harmonic mean tries to get a result that neither P nor R is not so bad even if both of them are not really good.</p>
+<p>Harmonic mean tries to get a result that neither P nor R is not so
+bad even if both of them are not really good.</p>
 
       
     </div>
@@ -344,20 +440,32 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       
           <h3 id="conda-environment">Conda Environment</h3>
 <ol type="1">
-<li>Because anaconda is not suitable for M1, we use miniforge3 instead.</li>
-<li>Create new conda environment with 'python=3.9'. (miniforge3 only support python3.9 on M1).</li>
+<li>Because anaconda is not suitable for M1, we use miniforge3
+instead.</li>
+<li>Create new conda environment with 'python=3.9'. (miniforge3 only
+support python3.9 on M1).</li>
 </ol>
 <h3 id="pyqt5">PyQt5</h3>
 <ol type="1">
 <li>install homebrew (remeber to add path).</li>
 <li><code>brew install pyqt5</code>. Homebrew supports pyqt now.</li>
-<li>add path: <code>echo 'export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code> and <code>echo 'export PATH="/opt/homebrew/opt/pyqt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code>. This path may be not suitbale for you. You should modify your path to <code>/qt5@/bin</code> and <code>/qypt@5/bin</code>, and modify your bash profile (<code>~/.zshrc</code> for most Macbook users).</li>
-<li>Duplicate the files in <code>/opt/homebrew/Cellar/pyqt@5/5.15.4_1/lib/python3.9/site-packages</code> and paste them to <code>/Users/&lt;username&gt;/miniforge3/envs/&lt;environmentname&gt;/lib/python3.9/site-packages</code>.</li>
+<li>add path: <code>echo 'export
+PATH="/opt/homebrew/opt/qt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code> and
+<code>echo 'export PATH="/opt/homebrew/opt/pyqt@5/bin:$PATH"' &gt;&gt;
+~/.bashrc</code>. This path may be not suitbale for you. You should
+modify your path to <code>/qt5@/bin</code> and <code>/qypt@5/bin</code>,
+and modify your bash profile (<code>~/.zshrc</code> for most Macbook
+users).</li>
+<li>Duplicate the files in
+<code>/opt/homebrew/Cellar/pyqt@5/5.15.4_1/lib/python3.9/site-packages</code>
+and paste them to
+<code>/Users/&lt;username&gt;/miniforge3/envs/&lt;environmentname&gt;/lib/python3.9/site-packages</code>.</li>
 <li><code>source ~/.bashrc</code> (<code>.zshrc</code>)</li>
 </ol>
 <h3 id="labelme">labelme</h3>
 <ol type="1">
-<li>labelme can be installed directly via pip (in your conda environemnt)</li>
+<li>labelme can be installed directly via pip (in your conda
+environemnt)</li>
 <li><code>pip install labelme</code></li>
 <li>when everything is done, <code>labelme</code> to use it.</li>
 </ol>
@@ -430,11 +538,18 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       
           <h2 id="linear-regression">Linear Regression</h2>
 <h3 id="setup">Setup</h3>
-<p>Data: <span class="math inline">\(D={(x _1,y _1),(x _2,y _2), \cdots ,(x _N,y _N) }\)</span>, <span class="math inline">\(x _i \in \pmb{R} ^p\)</span> and <span class="math inline">\(y _i \in \pmb{R}\)</span>.</p>
+<p>Data: <span class="math inline">\(D={(x _1,y _1),(x _2,y _2), \cdots
+,(x _N,y _N) }\)</span>, <span class="math inline">\(x _i \in \pmb{R}
+^p\)</span> and <span class="math inline">\(y _i \in
+\pmb{R}\)</span>.</p>
 <p>In matrix form:</p>
-<p>​ Input: <span class="math inline">\(X=(x _1, x _2, \cdots, x _N)^T \in \pmb{R} _{N\times p}\)</span> is a matrix. <span class="math inline">\(x _1=(x _{11},x _{12},\cdots,x _{1p})\in \pmb{R} _p\)</span> is a vector.</p>
-<p>​ Output: <span class="math inline">\(Y=(y _1,y _2, \cdots, y _N) \in \pmb{R} _N\)</span> is a matrix.</p>
-<p>​ Weight: <span class="math inline">\(W=(w _1, w _2, \cdots, w _p) ^T\)</span> is a vector.</p>
+<p>​ Input: <span class="math inline">\(X=(x _1, x _2, \cdots, x _N)^T
+\in \pmb{R} _{N\times p}\)</span> is a matrix. <span class="math inline">\(x _1=(x _{11},x _{12},\cdots,x _{1p})\in \pmb{R}
+_p\)</span> is a vector.</p>
+<p>​ Output: <span class="math inline">\(Y=(y _1,y _2, \cdots, y _N) \in
+\pmb{R} _N\)</span> is a matrix.</p>
+<p>​ Weight: <span class="math inline">\(W=(w _1, w _2, \cdots, w _p)
+^T\)</span> is a vector.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/09/23/Linear%20Regression/#more" rel="contents">
@@ -509,7 +624,8 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。 比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
+          <p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。
+比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
 <p>以下为<a target="_blank" rel="noopener" href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
 
       
@@ -585,17 +701,25 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
 
       
           <h2 id="preface">Preface</h2>
-<p>关于排序有很多人整理了，但是基本是东抄一点西抄一点，并没有统一的逻辑，而且往往写的非常复杂。本文希望能够痛殴统一的代码风格、统一的命名规范、统一的实现风格，以体现出不同算法之间的改进和区别，同时尽可能使用简洁的代码（因此可能会存在一些不常规的技巧）（毕竟平时都是直接sort，哪关心怎么实现）。本文代码经过本地测试，且均为从小到大排序。 下文中使用<code>array</code>举例，在文章末尾会放出测试代码，在测试代码中使用<code>vector</code>简化实现。</p>
-<p>更新：2021.11.29 测试代码完成。 更优雅的实现；更完整的测试；只考虑int排序；只实现主要算法；使用<code>vector</code>；</p>
+<p>关于排序有很多人整理了，但是基本是东抄一点西抄一点，并没有统一的逻辑，而且往往写的非常复杂。本文希望能够痛殴统一的代码风格、统一的命名规范、统一的实现风格，以体现出不同算法之间的改进和区别，同时尽可能使用简洁的代码（因此可能会存在一些不常规的技巧）（毕竟平时都是直接sort，哪关心怎么实现）。本文代码经过本地测试，且均为从小到大排序。
+下文中使用<code>array</code>举例，在文章末尾会放出测试代码，在测试代码中使用<code>vector</code>简化实现。</p>
+<p>更新：2021.11.29 测试代码完成。
+更优雅的实现；更完整的测试；只考虑int排序；只实现主要算法；使用<code>vector</code>；</p>
 <p><br></p>
 <h2 id="sort-algorithms">Sort Algorithms</h2>
 <h3 id="bubble-sort">1. Bubble Sort</h3>
 <h4 id="principle">1.1 Principle</h4>
-<p>Compare the adjacent two elements and put the larger one the the right then move to the next pair.</p>
+<p>Compare the adjacent two elements and put the larger one the the
+right then move to the next pair.</p>
 <h4 id="implement">1.2 Implement</h4>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length<span class="number">-1</span>; i++) <span class="comment">// note: it should be length-1</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;length<span class="number">-1</span>-i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>]) <span class="built_in">swap</span>(arr[j],arr[j+<span class="number">1</span>]); <span class="comment">// note: swap is also suitable for array</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="performance">1.3 Performance</h4>
 <table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Time Complexity (Best/Worst/Average)</th>
@@ -607,7 +731,8 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
 <tr class="odd">
 <td><strong>O(n<sup>2</sup>)</strong></td>
 <td><strong>O(1)</strong></td>
-<td><strong>stable</strong> <br>(no change in relative position for same elements)</td>
+<td><strong>stable</strong> <br>(no change in relative position for same
+elements)</td>
 </tr>
 </tbody>
 </table>
@@ -773,7 +898,8 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>You should see this. <iframe height="75%" width="75%" src="1.gif"></iframe></p>
+          <p>You should see this.
+<iframe height="75%" width="75%" src="1.gif"></iframe></p>
 
       
     </div>
@@ -843,10 +969,12 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       
           <p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
 <figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果"><figcaption aria-hidden="true">简单的一个效果</figcaption>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果">
+<figcaption aria-hidden="true">简单的一个效果</figcaption>
 </figure>
 <figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了"><figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了">
+<figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
 </figure>
 
       
@@ -923,92 +1051,10 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       
           <p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
 <p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-ENDSFhncWEtkmIAa" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-ENDSFhncWEtkmIAa").style.height=document.getElementById("mmedia-ENDSFhncWEtkmIAa").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-CcPynzWAQgmxkHOE" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-CcPynzWAQgmxkHOE").style.height=document.getElementById("mmedia-CcPynzWAQgmxkHOE").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-ENDSFhncWEtkmIAa").style.height=document.getElementById("mmedia-ENDSFhncWEtkmIAa").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-CcPynzWAQgmxkHOE").style.height=document.getElementById("mmedia-CcPynzWAQgmxkHOE").scrollWidth*0.76+"px";
     }; </script>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/15/Test-Latex-Formula/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/15/Test-Latex-Formula/" class="post-title-link" itemprop="url">Test Latex Formula</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-15 19:36:17" itemprop="dateCreated datePublished" datetime="2021-09-15T19:36:17+08:00">2021-09-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-19 20:53:17" itemprop="dateModified" datetime="2021-09-19T20:53:17+08:00">2021-09-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Test/" itemprop="url" rel="index"><span itemprop="name">Test</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>This is an inline formula: <span class="math inline">\(x=7\)</span>. This is a simple equation: <span class="math display">\[
-e=mc^2
-\]</span></p>
-<p><span class="math display">\[
-a=\frac{1}{2}
-\]</span></p>
-<p><span class="math display">\[
-f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
-\]</span></p>
 
       
     </div>
@@ -1095,7 +1141,7 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

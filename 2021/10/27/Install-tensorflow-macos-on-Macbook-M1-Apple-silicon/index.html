@@ -262,13 +262,16 @@
 
       
         <h1 id="preface">Preface</h1>
-<p>This article in written in 2021.10.27, and current version is <code>0.1a3</code>. In the future, Apple may provide a better machine learning structure on TensorFlow, so please always remember to check <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos">here</a>.</p>
+<p>This article in written in 2021.10.27, and current version is
+<code>0.1a3</code>. In the future, Apple may provide a better machine
+learning structure on TensorFlow, so please always remember to check <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos">here</a>.</p>
 <p>My feeling: 🐂🍺 but lots of bugs</p>
 <p>Article <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos/issues/153">reference</a>.</p>
 <h2 id="x-code">X-code</h2>
 <ol type="1">
 <li>Install: <code>xcode-select --install</code></li>
-<li>Check: <code>which xcrun</code>, you should get the path to <code>xcrun</code></li>
+<li>Check: <code>which xcrun</code>, you should get the path to
+<code>xcrun</code></li>
 </ol>
 <h2 id="miniforge">Miniforge</h2>
 <p>Miniforge is just a substitude of Anaconda.</p>
@@ -279,7 +282,8 @@
 <li><p>Create <code>environment.yaml</code></p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">apple_tensorflow</span></span><br><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">conda-forge</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">nodefaults</span></span><br><span class="line"><span class="attr">dependencies:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">absl-py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">astunparse</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">gast</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">google-pasta</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">grpcio</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">h5py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ipython</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">keras-preprocessing</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">numpy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">opt_einsum</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">pip=20.2.4</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">protobuf</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python-flatbuffers</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python=3.8</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">scipy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorboard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorflow-estimator</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">termcolor</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typeguard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typing_extensions</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wheel</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wrapt</span></span><br><span class="line">  </span><br></pre></td></tr></table></figure></li>
 <li><p>Create new environment:</p>
-<p><code>conda env create --file &lt;PATH_TO_ENVIRONMENT.yaml&gt; --name=&lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
+<p><code>conda env create --file &lt;PATH_TO_ENVIRONMENT.yaml&gt;
+--name=&lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
 <li><p>Activate environment:</p>
 <p><code>conda activate &lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
 </ol>
@@ -287,28 +291,43 @@
 <ol type="1">
 <li><p>Directly install whl</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade --force --no-dependencies https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_addons_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl</span><br></pre></td></tr></table></figure>
-<p>check <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos/releases">here</a> for the latest released version</p></li>
+<p>check <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos/releases">here</a> for
+the latest released version</p></li>
 <li><p>Check:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python</span><br><span class="line">&gt;&gt;&gt; import tensorflow as tf</span><br></pre></td></tr></table></figure>
 <p>If there is no error, you have already install tensorflow.</p></li>
 <li><p>Here is a demo for TensorFlow.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line"></span><br><span class="line">(x_train, y_train),(x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span></span><br><span class="line"></span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">  tf.keras.layers.Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>)),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">  tf.keras.layers.Dropout(<span class="number">0.2</span>),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">              loss=<span class="string">&#x27;sparse_categorical_crossentropy&#x27;</span>,</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line"></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">end = time.time()</span><br><span class="line"></span><br><span class="line">model.evaluate(x_test, y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;time consumed: &quot;</span>, end - start)</span><br></pre></td></tr></table></figure></li>
 </ol>
-<p>Congratulations! You have done everything. Now it is time to enjoy (be tortured) tensorflow!</p>
-<h1 id="something-more-you-should-note">Something more you should note</h1>
+<p>Congratulations! You have done everything. Now it is time to enjoy
+(be tortured) tensorflow!</p>
+<h1 id="something-more-you-should-note">Something more you should
+note</h1>
 <h2 id="why-not-gpu">Why not GPU</h2>
-<p>If you check your activity monitor, you will find out that GPU is not used by tensorflow.</p>
-<p>Apple implemented machine learning acceleration on their own, and the eager version of machine learning acceleration is currently only available on CPU.</p>
+<p>If you check your activity monitor, you will find out that GPU is not
+used by tensorflow.</p>
+<p>Apple implemented machine learning acceleration on their own, and the
+eager version of machine learning acceleration is currently only
+available on CPU.</p>
 <p>However, you can still ask tensorflow to use GPU via:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Import mlcompute module to use the optional set_mlc_device API for device selection with ML Compute.</span></span><br><span class="line"><span class="keyword">from</span> tensorflow.python.compiler.mlcompute <span class="keyword">import</span> mlcompute</span><br><span class="line"><span class="comment"># Select CPU device.</span></span><br><span class="line">mlcompute.set_mlc_device(device_name=<span class="string">&#x27;gpu&#x27;</span>) </span><br></pre></td></tr></table></figure>
-<p>If you set <code>mlcompute.set_mlc_device(device_name='any')</code>, it will automatically select the best -- generally CPU.</p>
-<p>With GPU, M1 will report <code>WARNING:tensorflow:Eager mode uses the CPU. Switching to the CPU.</code></p>
-<p>You can test GPU on your will, but GPU is not recomended (it is much less powerful).</p>
+<p>If you set <code>mlcompute.set_mlc_device(device_name='any')</code>,
+it will automatically select the best -- generally CPU.</p>
+<p>With GPU, M1 will report <code>WARNING:tensorflow:Eager mode uses the
+CPU. Switching to the CPU.</code></p>
+<p>You can test GPU on your will, but GPU is not recomended (it is much
+less powerful).</p>
 <h2 id="debug">Debug</h2>
 <ol type="1">
-<li><p>If you encounter something like this <code>AutoGraph could not transform</code>, it may be caused by <code>gast</code>.</p>
+<li><p>If you encounter something like this <code>AutoGraph could not
+transform</code>, it may be caused by <code>gast</code>.</p>
 <p><code>pip install gast==0.3.3</code> will help.</p></li>
-<li><p>I also found an error <code>Failed to get CPU frequency: 0 Hz</code>. However I still cannot solved it. And the repo of tensorflow_macos is archived, so I cannot report this issue to Apple. But it seems several people have this problem too. May be this is not a big issue <strong>just for learning</strong>. Let's wait the beta version of tensorflow_macos!</p></li>
+<li><p>I also found an error <code>Failed to get CPU frequency: 0
+Hz</code>. However I still cannot solved it. And the repo of
+tensorflow_macos is archived, so I cannot report this issue to Apple.
+But it seems several people have this problem too. May be this is not a
+big issue <strong>just for learning</strong>. Let's wait the beta
+version of tensorflow_macos!</p></li>
 </ol>
 
     </div>
@@ -405,7 +424,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#x-code"><span class="nav-number">1.1.</span> <span class="nav-text">X-code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#miniforge"><span class="nav-number">1.2.</span> <span class="nav-text">Miniforge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#create-virtual-environment"><span class="nav-number">1.3.</span> <span class="nav-text">Create virtual environment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#install-tensorflow"><span class="nav-number">1.4.</span> <span class="nav-text">Install Tensorflow</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#something-more-you-should-note"><span class="nav-number">2.</span> <span class="nav-text">Something more you should note</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#why-not-gpu"><span class="nav-number">2.1.</span> <span class="nav-text">Why not GPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug"><span class="nav-number">2.2.</span> <span class="nav-text">Debug</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#x-code"><span class="nav-number">1.1.</span> <span class="nav-text">X-code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#miniforge"><span class="nav-number">1.2.</span> <span class="nav-text">Miniforge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#create-virtual-environment"><span class="nav-number">1.3.</span> <span class="nav-text">Create virtual environment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#install-tensorflow"><span class="nav-number">1.4.</span> <span class="nav-text">Install Tensorflow</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#something-more-you-should-note"><span class="nav-number">2.</span> <span class="nav-text">Something more you should
+note</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#why-not-gpu"><span class="nav-number">2.1.</span> <span class="nav-text">Why not GPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug"><span class="nav-number">2.2.</span> <span class="nav-text">Debug</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -421,7 +441,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

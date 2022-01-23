@@ -257,20 +257,32 @@
       
         <h3 id="conda-environment">Conda Environment</h3>
 <ol type="1">
-<li>Because anaconda is not suitable for M1, we use miniforge3 instead.</li>
-<li>Create new conda environment with 'python=3.9'. (miniforge3 only support python3.9 on M1).</li>
+<li>Because anaconda is not suitable for M1, we use miniforge3
+instead.</li>
+<li>Create new conda environment with 'python=3.9'. (miniforge3 only
+support python3.9 on M1).</li>
 </ol>
 <h3 id="pyqt5">PyQt5</h3>
 <ol type="1">
 <li>install homebrew (remeber to add path).</li>
 <li><code>brew install pyqt5</code>. Homebrew supports pyqt now.</li>
-<li>add path: <code>echo 'export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code> and <code>echo 'export PATH="/opt/homebrew/opt/pyqt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code>. This path may be not suitbale for you. You should modify your path to <code>/qt5@/bin</code> and <code>/qypt@5/bin</code>, and modify your bash profile (<code>~/.zshrc</code> for most Macbook users).</li>
-<li>Duplicate the files in <code>/opt/homebrew/Cellar/pyqt@5/5.15.4_1/lib/python3.9/site-packages</code> and paste them to <code>/Users/&lt;username&gt;/miniforge3/envs/&lt;environmentname&gt;/lib/python3.9/site-packages</code>.</li>
+<li>add path: <code>echo 'export
+PATH="/opt/homebrew/opt/qt@5/bin:$PATH"' &gt;&gt; ~/.bashrc</code> and
+<code>echo 'export PATH="/opt/homebrew/opt/pyqt@5/bin:$PATH"' &gt;&gt;
+~/.bashrc</code>. This path may be not suitbale for you. You should
+modify your path to <code>/qt5@/bin</code> and <code>/qypt@5/bin</code>,
+and modify your bash profile (<code>~/.zshrc</code> for most Macbook
+users).</li>
+<li>Duplicate the files in
+<code>/opt/homebrew/Cellar/pyqt@5/5.15.4_1/lib/python3.9/site-packages</code>
+and paste them to
+<code>/Users/&lt;username&gt;/miniforge3/envs/&lt;environmentname&gt;/lib/python3.9/site-packages</code>.</li>
 <li><code>source ~/.bashrc</code> (<code>.zshrc</code>)</li>
 </ol>
 <h3 id="labelme">labelme</h3>
 <ol type="1">
-<li>labelme can be installed directly via pip (in your conda environemnt)</li>
+<li>labelme can be installed directly via pip (in your conda
+environemnt)</li>
 <li><code>pip install labelme</code></li>
 <li>when everything is done, <code>labelme</code> to use it.</li>
 </ol>
@@ -385,7 +397,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

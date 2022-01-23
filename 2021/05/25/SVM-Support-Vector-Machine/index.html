@@ -275,28 +275,47 @@
 <h2 id="linear-seperatable-svm">Linear Seperatable SVM</h2>
 <p>首先考虑所有sample本身线性可分。</p>
 <h3 id="problem-definition">Problem Definition</h3>
-<p>对于线性分类器的超平面为：<span class="math inline">\(X^TW+b=0\)</span>。We define those with <span class="math inline">\(X^TW+b&gt;1\)</span> is labeled +1, which means geometrically the <em>left-top</em> part of the line is labeled positive.</p>
+<p>对于线性分类器的超平面为：<span class="math inline">\(X^TW+b=0\)</span>。We define those with <span class="math inline">\(X^TW+b&gt;1\)</span> is labeled +1, which means
+geometrically the <em>left-top</em> part of the line is labeled
+positive.</p>
 <p><img src="/2021/05/25/SVM-Support-Vector-Machine/3.png" alt="2" style="zoom:50%;"></p>
-<p>So we can see that <span class="math inline">\(margin = \frac{2}{||W||}\)</span>. We want to maximum margin which is same with <span class="math inline">\(min||W||^2\)</span>.</p>
+<p>So we can see that <span class="math inline">\(margin =
+\frac{2}{||W||}\)</span>. We want to maximum margin which is same with
+<span class="math inline">\(min||W||^2\)</span>.</p>
 <p>[primal problem]</p>
 <p>The whole problem can be written as :</p>
-<p><span class="math inline">\(min||W||^2, \  st. y_i(X_i^TW+b)&gt;=1\)</span>.</p>
+<p><span class="math inline">\(min||W||^2, \  st.
+y_i(X_i^TW+b)&gt;=1\)</span>.</p>
 <h3 id="how-to-find-w-b">How to find W, b</h3>
-<p>If all the data is linear seperatable, those points that determine margin are called support vectors. For support vectors we have: <span class="math inline">\(y_i(X_i^TW+b)=1\)</span>. For other points, they have no influence on this algorithm so that this algorithm is called SVM.</p>
+<p>If all the data is linear seperatable, those points that determine
+margin are called support vectors. For support vectors we have: <span class="math inline">\(y_i(X_i^TW+b)=1\)</span>. For other points, they
+have no influence on this algorithm so that this algorithm is called
+SVM.</p>
 <h2 id="nonlinear-seperatable-svm">NonLinear Seperatable SVM</h2>
-<p>Since the data is not linear speratable itself, we allow SVM has some mistakes--<em>soft margin</em>.</p>
+<p>Since the data is not linear speratable itself, we allow SVM has some
+mistakes--<em>soft margin</em>.</p>
 <h3 id="hinge-loss">hinge loss</h3>
 <p>We will modify our objective function by adding hinge loss</p>
-<p>(<span class="math inline">\(l_{hinge}=max(0,1-z), z=y_i(X_i^TW+b)\)</span>).</p>
-<p>Objective function: <span class="math inline">\(min \ ||W||^2+C\Sigma l_{hinge}\)</span>. C is hyper-parameter. If C-&gt;0, the model allows any mistakes--easily undercutting; if C-&gt;∞, the model is same with Linear Speratable SVM--easily overfitting.</p>
+<p>(<span class="math inline">\(l_{hinge}=max(0,1-z),
+z=y_i(X_i^TW+b)\)</span>).</p>
+<p>Objective function: <span class="math inline">\(min \ ||W||^2+C\Sigma
+l_{hinge}\)</span>. C is hyper-parameter. If C-&gt;0, the model allows
+any mistakes--easily undercutting; if C-&gt;∞, the model is same with
+Linear Speratable SVM--easily overfitting.</p>
 <p>[primal problem]</p>
 <p>The whole problem can be written as:</p>
-<p><span class="math inline">\(min||W||^2+C\Sigma_i\xi_i, \ st.y_i(X_i^TW+b)&gt;=1-\xi_i,\xi&gt;=0\)</span>.</p>
-<h2 id="what-if-the-sample-is-totally-nonlinear-seperatable">What if the sample is totally nonlinear seperatable?</h2>
+<p><span class="math inline">\(min||W||^2+C\Sigma_i\xi_i, \
+st.y_i(X_i^TW+b)&gt;=1-\xi_i,\xi&gt;=0\)</span>.</p>
+<h2 id="what-if-the-sample-is-totally-nonlinear-seperatable">What if the
+sample is totally nonlinear seperatable?</h2>
 <h3 id="kernel">Kernel</h3>
-<p>Introduce Lagranginan function and we get dual form of primal problem:</p>
-<p><span class="math inline">\(min_{\alpha}\Sigma_i^n\Sigma_j^n\alpha_i\alpha_jy_iy_j(X_i\cdot X_j)-\Sigma_i^n\alpha_i. \ st. \Sigma_i^n\alpha_iy_i=0, \ 0\leq\alpha_i&lt;C\)</span>.</p>
-<p>We can choose proper kernel <span class="math inline">\(K\)</span> to replace <span class="math inline">\((X_i\cdot X_j)\)</span>.</p>
+<p>Introduce Lagranginan function and we get dual form of primal
+problem:</p>
+<p><span class="math inline">\(min_{\alpha}\Sigma_i^n\Sigma_j^n\alpha_i\alpha_jy_iy_j(X_i\cdot
+X_j)-\Sigma_i^n\alpha_i. \ st. \Sigma_i^n\alpha_iy_i=0, \
+0\leq\alpha_i&lt;C\)</span>.</p>
+<p>We can choose proper kernel <span class="math inline">\(K\)</span> to
+replace <span class="math inline">\((X_i\cdot X_j)\)</span>.</p>
 
     </div>
 
@@ -395,7 +414,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#margin"><span class="nav-number">1.</span> <span class="nav-text">Margin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linear-seperatable-svm"><span class="nav-number">2.</span> <span class="nav-text">Linear Seperatable SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-definition"><span class="nav-number">2.1.</span> <span class="nav-text">Problem Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#how-to-find-w-b"><span class="nav-number">2.2.</span> <span class="nav-text">How to find W, b</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nonlinear-seperatable-svm"><span class="nav-number">3.</span> <span class="nav-text">NonLinear Seperatable SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hinge-loss"><span class="nav-number">3.1.</span> <span class="nav-text">hinge loss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#what-if-the-sample-is-totally-nonlinear-seperatable"><span class="nav-number">4.</span> <span class="nav-text">What if the sample is totally nonlinear seperatable?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kernel"><span class="nav-number">4.1.</span> <span class="nav-text">Kernel</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#margin"><span class="nav-number">1.</span> <span class="nav-text">Margin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linear-seperatable-svm"><span class="nav-number">2.</span> <span class="nav-text">Linear Seperatable SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-definition"><span class="nav-number">2.1.</span> <span class="nav-text">Problem Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#how-to-find-w-b"><span class="nav-number">2.2.</span> <span class="nav-text">How to find W, b</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nonlinear-seperatable-svm"><span class="nav-number">3.</span> <span class="nav-text">NonLinear Seperatable SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hinge-loss"><span class="nav-number">3.1.</span> <span class="nav-text">hinge loss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#what-if-the-sample-is-totally-nonlinear-seperatable"><span class="nav-number">4.</span> <span class="nav-text">What if the
+sample is totally nonlinear seperatable?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kernel"><span class="nav-number">4.1.</span> <span class="nav-text">Kernel</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -411,7 +431,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

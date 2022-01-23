@@ -265,12 +265,29 @@
 
       
         <p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
-<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code> and <code>const a int</code> are totally same. Both of them tell the compiler that the value stored in <code>a</code> can not be modified. But when it is combined with pointer, things go complicated</p>
+<p><code>const</code>这个东西对于一般变量很简单，<code>const int
+a</code> and <code>const a int</code> are totally same. Both of them
+tell the compiler that the value stored in <code>a</code> can not be
+modified. But when it is combined with pointer, things go
+complicated</p>
 <h2 id="const-int">const int *</h2>
-<p>For C++, <code>int*</code> is not viewed as a type. Only <code>*a</code> be viewed as a mark telling the complier <code>a</code> is a pointer. So as we have already known that <code>int const</code> is same with <code>const int</code>, <code>int const *a</code> is also same with <code>const int *a</code>. Both of them means <code>*a</code> is a const, which means the value poined by <code>a</code> can not be modified but <code>a</code>, as a pointer, can point to different places.</p>
+<p>For C++, <code>int*</code> is not viewed as a type. Only
+<code>*a</code> be viewed as a mark telling the complier <code>a</code>
+is a pointer. So as we have already known that <code>int const</code> is
+same with <code>const int</code>, <code>int const *a</code> is also same
+with <code>const int *a</code>. Both of them means <code>*a</code> is a
+const, which means the value poined by <code>a</code> can not be
+modified but <code>a</code>, as a pointer, can point to different
+places.</p>
 <h2 id="int-const">int* const</h2>
-<p>By contrast, the <code>const</code> in <code>int* const</code> is a mark for <code>a</code>, so <code>a</code>, as a pointer, can only point to one specific place(determined when it is initialized), but the value pointed by it can be changed.</p>
-<p>Besides, we can combine two usages of <code>const</code>together: <code>const int* const a</code>--<code>a</code>, as a pointer, can not be modified and the value pointed by <code>a</code> cannot be modified.</p>
+<p>By contrast, the <code>const</code> in <code>int* const</code> is a
+mark for <code>a</code>, so <code>a</code>, as a pointer, can only point
+to one specific place(determined when it is initialized), but the value
+pointed by it can be changed.</p>
+<p>Besides, we can combine two usages of <code>const</code>together:
+<code>const int* const a</code>--<code>a</code>, as a pointer, can not
+be modified and the value pointed by <code>a</code> cannot be
+modified.</p>
 
     </div>
 
@@ -387,7 +404,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

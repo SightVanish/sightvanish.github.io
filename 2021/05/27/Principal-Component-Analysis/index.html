@@ -262,17 +262,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h1>
+        <h1 id="principal-component-analysis-pca">Principal Component Analysis
+(PCA)</h1>
 <h2 id="why-pca">WHY PCA</h2>
 <p>实践中比如我们看到一个人的信息，他可能有很多很多的feature--身高、体重、血小板数量等等，但是对我们所关心的话题（他长得帅不帅）所有实际意义的feature可能很少。因此我们尝试用PCA找出哪些feature对我们所关系的问题有实际的意义，从而实现对数据的降维（有损）。</p>
 <span id="more"></span>
-<h2 id="how-to-find-principal-component">How to find Principal Component？</h2>
+<h2 id="how-to-find-principal-component">How to find Principal
+Component？</h2>
 <p>在数据的层面上什么是PC呢？</p>
 <p>举个例子--如何把二维的数据降维到一维：</p>
-<p>原本 <span class="math inline">\(x \in R^2\)</span> ，现在是 <span class="math inline">\(x \in R\)</span> 。降维的方式是任意的，但是我们如何评价这个降维是合理的？--降维后的数据的方差尽可能大，这样可以很直观地保证数据内部的信息尽可能地被保留。</p>
+<p>原本 <span class="math inline">\(x \in R^2\)</span> ，现在是 <span class="math inline">\(x \in R\)</span>
+。降维的方式是任意的，但是我们如何评价这个降维是合理的？--降维后的数据的方差尽可能大，这样可以很直观地保证数据内部的信息尽可能地被保留。</p>
 <p>在二维平面上的一系列点降维到一维上，从过程上看是将平面上的点投影到一条直线上去。</p>
 <p>一般情况下我们会对数据进行中心化处理（数据均值变为原点），由此使得我们找的直线也能经过原点。</p>
-<p>投影过后，投影的值假设为 <span class="math inline">\(b1,b2,b3,b4,b5,b6\)</span> 。它们的均值也为0（原数据经过均值化）。那么方差即为 <span class="math inline">\((b1^2+b2^2+b3^2+b4^2+b5^2+b6^2)/6\)</span> 。所以我们要做的就是让<strong>投影后的norm2之和最大化</strong>。同样这也等价于<strong>让原数据点到直线的距离的平方和最小</strong>。（注意这是两种视角）</p>
+<p>投影过后，投影的值假设为 <span class="math inline">\(b1,b2,b3,b4,b5,b6\)</span>
+。它们的均值也为0（原数据经过均值化）。那么方差即为 <span class="math inline">\((b1^2+b2^2+b3^2+b4^2+b5^2+b6^2)/6\)</span>
+。所以我们要做的就是让<strong>投影后的norm2之和最大化</strong>。同样这也等价于<strong>让原数据点到直线的距离的平方和最小</strong>。（注意这是两种视角）</p>
 
     </div>
 
@@ -371,7 +376,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#principal-component-analysis-pca"><span class="nav-number">1.</span> <span class="nav-text">Principal Component Analysis (PCA)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#why-pca"><span class="nav-number">1.1.</span> <span class="nav-text">WHY PCA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#how-to-find-principal-component"><span class="nav-number">1.2.</span> <span class="nav-text">How to find Principal Component？</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#principal-component-analysis-pca"><span class="nav-number">1.</span> <span class="nav-text">Principal Component Analysis
+(PCA)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#why-pca"><span class="nav-number">1.1.</span> <span class="nav-text">WHY PCA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#how-to-find-principal-component"><span class="nav-number">1.2.</span> <span class="nav-text">How to find Principal
+Component？</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -387,7 +394,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

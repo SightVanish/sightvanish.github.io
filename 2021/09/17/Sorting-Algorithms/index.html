@@ -262,17 +262,25 @@
 
       
         <h2 id="preface">Preface</h2>
-<p>关于排序有很多人整理了，但是基本是东抄一点西抄一点，并没有统一的逻辑，而且往往写的非常复杂。本文希望能够痛殴统一的代码风格、统一的命名规范、统一的实现风格，以体现出不同算法之间的改进和区别，同时尽可能使用简洁的代码（因此可能会存在一些不常规的技巧）（毕竟平时都是直接sort，哪关心怎么实现）。本文代码经过本地测试，且均为从小到大排序。 下文中使用<code>array</code>举例，在文章末尾会放出测试代码，在测试代码中使用<code>vector</code>简化实现。</p>
-<p>更新：2021.11.29 测试代码完成。 更优雅的实现；更完整的测试；只考虑int排序；只实现主要算法；使用<code>vector</code>；</p>
+<p>关于排序有很多人整理了，但是基本是东抄一点西抄一点，并没有统一的逻辑，而且往往写的非常复杂。本文希望能够痛殴统一的代码风格、统一的命名规范、统一的实现风格，以体现出不同算法之间的改进和区别，同时尽可能使用简洁的代码（因此可能会存在一些不常规的技巧）（毕竟平时都是直接sort，哪关心怎么实现）。本文代码经过本地测试，且均为从小到大排序。
+下文中使用<code>array</code>举例，在文章末尾会放出测试代码，在测试代码中使用<code>vector</code>简化实现。</p>
+<p>更新：2021.11.29 测试代码完成。
+更优雅的实现；更完整的测试；只考虑int排序；只实现主要算法；使用<code>vector</code>；</p>
 <p><br></p>
 <h2 id="sort-algorithms">Sort Algorithms</h2>
 <h3 id="bubble-sort">1. Bubble Sort</h3>
 <h4 id="principle">1.1 Principle</h4>
-<p>Compare the adjacent two elements and put the larger one the the right then move to the next pair.</p>
+<p>Compare the adjacent two elements and put the larger one the the
+right then move to the next pair.</p>
 <h4 id="implement">1.2 Implement</h4>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length<span class="number">-1</span>; i++) <span class="comment">// note: it should be length-1</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;length<span class="number">-1</span>-i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>]) <span class="built_in">swap</span>(arr[j],arr[j+<span class="number">1</span>]); <span class="comment">// note: swap is also suitable for array</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="performance">1.3 Performance</h4>
 <table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Time Complexity (Best/Worst/Average)</th>
@@ -284,15 +292,18 @@
 <tr class="odd">
 <td><strong>O(n<sup>2</sup>)</strong></td>
 <td><strong>O(1)</strong></td>
-<td><strong>stable</strong> <br>(no change in relative position for same elements)</td>
+<td><strong>stable</strong> <br>(no change in relative position for same
+elements)</td>
 </tr>
 </tbody>
 </table>
 <span id="more"></span>
 <p><br></p>
-<h3 id="selection-sort-improvement-of-bubble">2. Selection Sort (Improvement of Bubble)</h3>
+<h3 id="selection-sort-improvement-of-bubble">2. Selection Sort
+(Improvement of Bubble)</h3>
 <h4 id="principle-1">2.1 Principle</h4>
-<p>Always try to find the smallest element from thoes have not be sorted.</p>
+<p>Always try to find the smallest element from thoes have not be
+sorted.</p>
 <h4 id="implement-1">2.2 Implement</h4>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectionSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length<span class="number">-1</span>;i++) <span class="comment">// note: you do not to sort the last element</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> min=i; <span class="comment">// the index of the smallest element</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;length; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j]&lt;arr[min]) min=j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">swap</span>(arr[i], arr[min]); <span class="comment">// put the min element to the head of array</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="performance-1">2.3 Performance</h4>
@@ -313,14 +324,16 @@
 <tr class="odd">
 <td><strong>O(n<sup>2</sup>)</strong></td>
 <td><strong>O(1)</strong> <br>(one more element for swapping)</td>
-<td><strong>unstable</strong> <br>(the swap will let the same element change their relative position)</td>
+<td><strong>unstable</strong> <br>(the swap will let the same element
+change their relative position)</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
 <h3 id="insertion-sort">3. Insertion Sort</h3>
 <h4 id="principle-2">3.1 Principle</h4>
-<p>[sorted, unsorted]. For each element in unsorted array, insert it to sorted array.</p>
+<p>[sorted, unsorted]. For each element in unsorted array, insert it to
+sorted array.</p>
 <h4 id="implement-2">3.2 Implement</h4>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertionSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;length; i++) <span class="comment">// note: you have to sort the first element</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> key=arr[i];</span><br><span class="line">        <span class="keyword">int</span> j=i<span class="number">-1</span>; <span class="comment">// compare this one with the elements before</span></span><br><span class="line">        <span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; key&lt;arr[j])</span><br><span class="line">        &#123;</span><br><span class="line">            arr[j+<span class="number">1</span>]=arr[j];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[j+<span class="number">1</span>]=key; <span class="comment">// note: at this time: j=-1 or arr[j]&lt;key, so it should be j+1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="performance-2">3.3 Performance</h4>
@@ -341,14 +354,19 @@
 <tr class="odd">
 <td><strong>O(n)</strong>/<strong>O(n<sup>2</sup>)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
 <td><strong>O(1)</strong> <br>(one more element for swapping)</td>
-<td><strong>stable</strong> <br>(no change in relative position for same elements)</td>
+<td><strong>stable</strong> <br>(no change in relative position for same
+elements)</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
-<h3 id="shells-sort-improvement-of-insertion">4. Shell's Sort (Improvement of Insertion)</h3>
+<h3 id="shells-sort-improvement-of-insertion">4. Shell's Sort
+(Improvement of Insertion)</h3>
 <h4 id="principle-3">4.1 Principle</h4>
-<p>Divid the sequence to several subsequence. Sort this sequence locally, then sort the whole sequence with insertion sort. eg. for (0,1,2,3,4,5,6,7): (0,2,4,6) will be subsequence1 and (1,3,5,7) will be subsequence2.</p>
+<p>Divid the sequence to several subsequence. Sort this sequence
+locally, then sort the whole sequence with insertion sort. eg. for
+(0,1,2,3,4,5,6,7): (0,2,4,6) will be subsequence1 and (1,3,5,7) will be
+subsequence2.</p>
 <h4 id="implement-3">4.2 Implement</h4>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> increment = <span class="number">3</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> step=length/increment+<span class="number">1</span>; <span class="comment">// you can choose increment=3 or anything else(&lt;length)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(step&gt;=<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// this part is same with insertion sort</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=step; i&lt;length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> key=arr[i];</span><br><span class="line">            <span class="keyword">int</span> j=i-step;</span><br><span class="line">            <span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; key&lt;arr[j])</span><br><span class="line">            &#123;</span><br><span class="line">                arr[j+step]=arr[j];</span><br><span class="line">                j-=step;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[j+step]=key;</span><br><span class="line">        &#125;</span><br><span class="line">        step=step/increment;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
 <h4 id="performance-3">4.3 Performance</h4>
@@ -367,9 +385,12 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td>The worst case is better than <strong>O(n<sup>2</sup>)</strong>.<br> With certian increment, the worst case can be <strong>O(n<sup>1.3</sup>)</strong></td>
+<td>The worst case is better than <strong>O(n<sup>2</sup>)</strong>.<br>
+With certian increment, the worst case can be
+<strong>O(n<sup>1.3</sup>)</strong></td>
 <td><strong>O(1)</strong> <br>(one more element for swapping)</td>
-<td><strong>unstable</strong> <br>(the insertion sort will be performed with different gaps)</td>
+<td><strong>unstable</strong> <br>(the insertion sort will be performed
+with different gaps)</td>
 </tr>
 </tbody>
 </table>
@@ -377,8 +398,10 @@
 <h3 id="merge-sort">5. Merge Sort</h3>
 <h4 id="principle-4">5.1 Principle</h4>
 <p>Based on Divide and Conquer.</p>
-<p>Divid the sequence to two sub-sequence(new space). Sort them seperatly, then merge two sub-sequence.</p>
-<p>Note: There are two different ways of implementation: recursive and unrecursive way. We only consider recursive way in C++.</p>
+<p>Divid the sequence to two sub-sequence(new space). Sort them
+seperatly, then merge two sub-sequence.</p>
+<p>Note: There are two different ways of implementation: recursive and
+unrecursive way. We only consider recursive way in C++.</p>
 <h4 id="implement-4">5.2 Implement</h4>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// recursive way</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// first, we need to know where the two arrays are located.</span></span><br><span class="line">    <span class="keyword">int</span> leftMid=(startIndex+endIndex)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> rightMid=leftMid+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// we need to allocate new space for sorting</span></span><br><span class="line">    <span class="keyword">int</span> arrayLeft[leftMid-startIndex+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> arrayRight[endIndex-rightMid+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=startIndex; i&lt;=leftMid; i++)  arrayLeft[i-startIndex]=arr[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=rightMid; i&lt;=endIndex; i++)  arrayRight[i-rightMid]=arr[i];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// two pointer to merge</span></span><br><span class="line">    <span class="keyword">int</span> index_L=<span class="number">0</span>, index_R=<span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// merge to the original arr--to save space</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=startIndex; i&lt;=endIndex; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(index_L != (leftMid-startIndex+<span class="number">1</span>) &amp;&amp; index_R != (endIndex-rightMid+<span class="number">1</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arrayLeft[index_L]&lt;arrayRight[index_R])    arr[i]=arrayLeft[index_L++];</span><br><span class="line">            <span class="keyword">else</span>    arr[i]=arrayRight[index_R++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// if left array is done</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(index_L == (leftMid-startIndex+<span class="number">1</span>))  arr[i]=arrayRight[index_R++];</span><br><span class="line">        <span class="comment">// if right array is done</span></span><br><span class="line">        <span class="keyword">else</span>    arr[i]=arrayLeft[index_L++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span> <span class="comment">// since it is a recursive way, we need to save both indices</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(endIndex&gt;startIndex) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">MergeSort</span>(arr, startIndex, (startIndex+endIndex)/<span class="number">2</span>); <span class="comment">// sort left part</span></span><br><span class="line">        <span class="built_in">MergeSort</span>(arr, (startIndex+endIndex)/<span class="number">2</span>+<span class="number">1</span>, endIndex);</span><br><span class="line">        <span class="built_in">Merge</span>(arr, startIndex, endIndex); <span class="comment">// note: we need to sort in [startIndex, endIndex]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h4 id="performance-4">5.3 Performance</h4>
@@ -397,18 +420,21 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>O(nlogn)</strong><br>with improvement, the best can be O(n)</td>
+<td><strong>O(nlogn)</strong><br>with improvement, the best can be
+O(n)</td>
 <td><strong>O(n)</strong> <br></td>
 <td><strong>stable</strong> <br>the stability is ensured in Merge</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
-<h3 id="quicksort-important">6. <strong>QuickSort</strong> (Important)</h3>
+<h3 id="quicksort-important">6. <strong>QuickSort</strong>
+(Important)</h3>
 <h4 id="principle-5">6.1 Principle</h4>
 <p>Based on Divide and conquer. As an improvement of BubbleSort.</p>
 <p>It is the fastest sorting algorithm in average.</p>
-<p>Select a pivot, put smaller (than pivot) elements in pivot's left and larger elements in pivot's right. Do it recursively.</p>
+<p>Select a pivot, put smaller (than pivot) elements in pivot's left and
+larger elements in pivot's right. Do it recursively.</p>
 <h4 id="implement-5">6.2 Implement</h4>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(endIndex&gt;startIndex)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> i=startIndex, j=endIndex;</span><br><span class="line">        <span class="comment">// select pivot</span></span><br><span class="line">        <span class="keyword">int</span> pivot=arr[startIndex];</span><br><span class="line">        <span class="comment">// seperate the sequence</span></span><br><span class="line">        <span class="keyword">while</span>(i&lt;j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;j &amp;&amp; arr[j]&gt;=pivot) j--; <span class="comment">// if you select the most left element as pivot, you should go from right--&gt;so that when i==j, the element will be smaller than pivot.</span></span><br><span class="line">            <span class="keyword">if</span>(i&lt;j) arr[i++]=arr[j]; <span class="comment">// put the smaller one to left</span></span><br><span class="line">            <span class="keyword">while</span>(i&lt;j &amp;&amp; arr[i]&lt;=pivot) i++;</span><br><span class="line">            <span class="keyword">if</span>(i&lt;j) arr[j--]=arr[i]; <span class="comment">// put the larger one to right</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// put the pivot, i==j</span></span><br><span class="line">        arr[i]=pivot; <span class="comment">// the original arr[i] is in arr[i+1/i-1]</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// recursive</span></span><br><span class="line">        <span class="built_in">QuickSort</span>(arr, startIndex, i<span class="number">-1</span>); <span class="comment">// left side</span></span><br><span class="line">        <span class="built_in">QuickSort</span>(arr, i+<span class="number">1</span>, endIndex); <span class="comment">// right side</span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="performance-5">6.3 Performance</h4>
@@ -428,15 +454,18 @@
 <tbody>
 <tr class="odd">
 <td><strong>O(nlogn)</strong>/<strong>O(nlogn)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(logn)</strong><br>(on average, the space complexity it the depth of recursion; for the worst case, it can be O(n))</td>
-<td><strong>unstable</strong> <br>(the swap of pivot makes it unstable)</td>
+<td><strong>O(logn)</strong><br>(on average, the space complexity it the
+depth of recursion; for the worst case, it can be O(n))</td>
+<td><strong>unstable</strong> <br>(the swap of pivot makes it
+unstable)</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
 <h3 id="radixbucket-sort">7. Radix/Bucket Sort</h3>
 <h4 id="principle-6">7.1 Principle</h4>
-<p>Sort input array using counting sort according to the i’th (from the least significant digit to the most significant) digit.</p>
+<p>Sort input array using counting sort according to the i’th (from the
+least significant digit to the most significant) digit.</p>
 <h4 id="implement-6">7.2 Implement</h4>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// helper function, return the max number of digit</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxBit</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d=<span class="number">1</span>; </span><br><span class="line">    <span class="keyword">int</span> p=<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(arr[i]&gt;=<span class="built_in">pow</span>(p,d))    d++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">RadixSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d=<span class="built_in">maxBit</span>(arr, length); <span class="comment">// the max number of digit</span></span><br><span class="line">    <span class="keyword">int</span> temp[length];</span><br><span class="line">    <span class="keyword">int</span> buckets[<span class="number">10</span>]; <span class="comment">// there are 10 buckets (0-9)</span></span><br><span class="line">    <span class="keyword">int</span> base=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> remainder=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=d; i++) <span class="comment">// you need to sort b times</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;<span class="number">10</span>; j++) buckets[j] = <span class="number">0</span>; <span class="comment">// clear buckets</span></span><br><span class="line">        <span class="comment">// put arr[] into buckets</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;length; j++) </span><br><span class="line">        &#123;</span><br><span class="line">            remainder=(arr[j]/base)%<span class="number">10</span>;</span><br><span class="line">            buckets[remainder]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// count the total number of elements that are stored in buckets</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;length; j++) buckets[j]+=buckets[j<span class="number">-1</span>];</span><br><span class="line">        <span class="comment">// you should go from back to front--make sure this algorithm is stable</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=length<span class="number">-1</span>; j&gt;=<span class="number">0</span>; j--)</span><br><span class="line">        &#123;</span><br><span class="line">            remainder=(arr[j]/base)%<span class="number">10</span>;</span><br><span class="line">            temp[buckets[remainder]<span class="number">-1</span>]=arr[j];</span><br><span class="line">            buckets[remainder]--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// put temp back to arr</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;length; j++) arr[j]=temp[j];</span><br><span class="line">        </span><br><span class="line">        base=base*<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="performance-6">7.2 Performance</h4>
@@ -459,7 +488,8 @@
 <p><br></p>
 <h3 id="heap-sort">8. Heap Sort</h3>
 <h4 id="principle-7">8.1 Principle</h4>
-<p>Heap Sort is designed for heap. Heap is a complete binary tree and its childen nodes should be always larger/smaller than parent nodes.</p>
+<p>Heap Sort is designed for heap. Heap is a complete binary tree and
+its childen nodes should be always larger/smaller than parent nodes.</p>
 <p>For a Min-Heap, it satisfiies:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#### 8.2 Implement</span><br><span class="line">```c++</span><br><span class="line">// create maxheap</span><br><span class="line">void MaxHeapify(int arr[], int startIndex, int endIndex)</span><br><span class="line">&#123;</span><br><span class="line">    int parentNode=startIndex;</span><br><span class="line">    int childNode=2*startIndex+1;</span><br><span class="line">    while(childNode&lt;=endIndex)</span><br><span class="line">    &#123;</span><br><span class="line">        // compare the two child nodes, and choose the larger one</span><br><span class="line">        if (childNode+1&lt;=endIndex &amp;&amp; arr[childNode]&lt;arr[childNode+1])  childNode++;</span><br><span class="line">        if (arr[parentNode]&lt;arr[childNode])</span><br><span class="line">        &#123;</span><br><span class="line">            swap(arr[parentNode], arr[childNode]);</span><br><span class="line">            parentNode=childNode;</span><br><span class="line">            childNode=parentNode*2+1;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">            return;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void HeapSort(int arr[], int length)</span><br><span class="line">&#123;</span><br><span class="line">    // create the heap--start from the last parent node</span><br><span class="line">    for(int i=length/2-1; i&gt;=0; i--)    MaxHeapify(arr, i, length-1);</span><br><span class="line"></span><br><span class="line">    for(int i=length-1; i&gt;=0; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        swap(arr[0], arr[i]); // put the largest element to the end of array</span><br><span class="line">        MaxHeapify(arr, 0, i-1); // rebalance the tree</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="performance-7">8.3 Performance</h4>
@@ -478,9 +508,11 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>O(n+nlogn)</strong><br>(n for creating the heap; rebalance the tree(logn) for n times)</td>
+<td><strong>O(n+nlogn)</strong><br>(n for creating the heap; rebalance
+the tree(logn) for n times)</td>
 <td><strong>O(1)</strong><br>(one more element for swapping)</td>
-<td><strong>unstable</strong> <br>(eg. 64, 27, 16, 27. After 64, the second 27 will be ouput.)</td>
+<td><strong>unstable</strong> <br>(eg. 64, 27, 16, 27. After 64, the
+second 27 will be ouput.)</td>
 </tr>
 </tbody>
 </table>
@@ -505,37 +537,46 @@
 <td>Bubble</td>
 <td><strong>O(n<sup>2</sup>)</strong></td>
 <td><strong>O(1)</strong></td>
-<td><strong>stable</strong> <br>(no change in relative position for same elements)</td>
+<td><strong>stable</strong> <br>(no change in relative position for same
+elements)</td>
 </tr>
 <tr class="even">
 <td>Selection</td>
 <td><strong>O(n<sup>2</sup>)</strong></td>
 <td><strong>O(1)</strong> <br>(one more element for swapping)</td>
-<td><strong>unstable</strong> <br>(the swap will let the same element change their relative position)</td>
+<td><strong>unstable</strong> <br>(the swap will let the same element
+change their relative position)</td>
 </tr>
 <tr class="odd">
 <td>Insertion</td>
 <td><strong>O(n)</strong>/<strong>O(n<sup>2</sup>)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
 <td><strong>O(1)</strong> <br>(one more element for swapping)</td>
-<td><strong>stable</strong> <br>(no change in relative position for same elements)</td>
+<td><strong>stable</strong> <br>(no change in relative position for same
+elements)</td>
 </tr>
 <tr class="even">
 <td>Shell</td>
-<td>The worst case is better than <strong>O(n<sup>2</sup>)</strong>.<br> With certian increment, the worst case can be <strong>O(n<sup>1.3</sup>)</strong></td>
+<td>The worst case is better than <strong>O(n<sup>2</sup>)</strong>.<br>
+With certian increment, the worst case can be
+<strong>O(n<sup>1.3</sup>)</strong></td>
 <td><strong>O(1)</strong> <br>(one more element for swapping)</td>
-<td><strong>unstable</strong> <br>(the insertion sort will be performed with different gaps)</td>
+<td><strong>unstable</strong> <br>(the insertion sort will be performed
+with different gaps)</td>
 </tr>
 <tr class="odd">
 <td>Merge</td>
-<td><strong>O(nlogn)</strong><br>with improvement, the best can be O(n)</td>
+<td><strong>O(nlogn)</strong><br>with improvement, the best can be
+O(n)</td>
 <td><strong>O(n)</strong> <br></td>
 <td><strong>stable</strong> <br>the stability is ensured in Merge</td>
 </tr>
 <tr class="even">
 <td>Quick</td>
 <td><strong>O(nlogn)</strong>/<strong>O(nlogn)</strong>/<strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(logn)</strong><br>(on average, the space complexity it the depth of recursion; for the worst case, it can be O(n))</td>
-<td><strong>unstable</strong> <br>(the swap of pivot makes it unstable)</td>
+<td><strong>O(logn)</strong><br>(on average, the space complexity it the
+depth of recursion; for the worst case, it can be O(n))</td>
+<td><strong>unstable</strong> <br>(the swap of pivot makes it
+unstable)</td>
 </tr>
 <tr class="odd">
 <td>Bucket</td>
@@ -545,14 +586,17 @@
 </tr>
 <tr class="even">
 <td>Heap</td>
-<td><strong>O(n+nlogn)</strong><br>(n for creating the heap; rebalance the tree(logn) for n times)</td>
+<td><strong>O(n+nlogn)</strong><br>(n for creating the heap; rebalance
+the tree(logn) for n times)</td>
 <td><strong>O(1)</strong><br>(one more element for swapping)</td>
-<td><strong>unstable</strong> <br>(eg. 64, 27, 16, 27. After 64, the second 27 will be ouput.)</td>
+<td><strong>unstable</strong> <br>(eg. 64, 27, 16, 27. After 64, the
+second 27 will be ouput.)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="performance-in-test">Performance in test</h2>
-<p>Bucket Sort is the fastest sorting algorithm 👑 (it is also stable)!</p>
+<p>Bucket Sort is the fastest sorting algorithm 👑 (it is also
+stable)!</p>
 <table>
 <thead>
 <tr class="header">
@@ -688,7 +732,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort-algorithms"><span class="nav-number">2.</span> <span class="nav-text">Sort Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bubble-sort"><span class="nav-number">2.1.</span> <span class="nav-text">1. Bubble Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance"><span class="nav-number">2.1.3.</span> <span class="nav-text">1.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selection-sort-improvement-of-bubble"><span class="nav-number">2.2.</span> <span class="nav-text">2. Selection Sort (Improvement of Bubble)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insertion-sort"><span class="nav-number">2.3.</span> <span class="nav-text">3. Insertion Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-2"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-2"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shells-sort-improvement-of-insertion"><span class="nav-number">2.4.</span> <span class="nav-text">4. Shell&#39;s Sort (Improvement of Insertion)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-3"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-3"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-3"><span class="nav-number">2.4.3.</span> <span class="nav-text">4.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#merge-sort"><span class="nav-number">2.5.</span> <span class="nav-text">5. Merge Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-4"><span class="nav-number">2.5.1.</span> <span class="nav-text">5.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-4"><span class="nav-number">2.5.2.</span> <span class="nav-text">5.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-4"><span class="nav-number">2.5.3.</span> <span class="nav-text">5.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quicksort-important"><span class="nav-number">2.6.</span> <span class="nav-text">6. QuickSort (Important)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-5"><span class="nav-number">2.6.1.</span> <span class="nav-text">6.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-5"><span class="nav-number">2.6.2.</span> <span class="nav-text">6.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-5"><span class="nav-number">2.6.3.</span> <span class="nav-text">6.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#radixbucket-sort"><span class="nav-number">2.7.</span> <span class="nav-text">7. Radix&#x2F;Bucket Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-6"><span class="nav-number">2.7.1.</span> <span class="nav-text">7.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-6"><span class="nav-number">2.7.2.</span> <span class="nav-text">7.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-6"><span class="nav-number">2.7.3.</span> <span class="nav-text">7.2 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#heap-sort"><span class="nav-number">2.8.</span> <span class="nav-text">8. Heap Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-7"><span class="nav-number">2.8.1.</span> <span class="nav-text">8.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-7"><span class="nav-number">2.8.2.</span> <span class="nav-text">8.3 Performance</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary-on-performance"><span class="nav-number">3.</span> <span class="nav-text">Summary on Performance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#performance-in-test"><span class="nav-number">4.</span> <span class="nav-text">Performance in test</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#testing-code"><span class="nav-number">5.</span> <span class="nav-text">Testing Code</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort-algorithms"><span class="nav-number">2.</span> <span class="nav-text">Sort Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bubble-sort"><span class="nav-number">2.1.</span> <span class="nav-text">1. Bubble Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance"><span class="nav-number">2.1.3.</span> <span class="nav-text">1.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selection-sort-improvement-of-bubble"><span class="nav-number">2.2.</span> <span class="nav-text">2. Selection Sort
+(Improvement of Bubble)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insertion-sort"><span class="nav-number">2.3.</span> <span class="nav-text">3. Insertion Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-2"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-2"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shells-sort-improvement-of-insertion"><span class="nav-number">2.4.</span> <span class="nav-text">4. Shell&#39;s Sort
+(Improvement of Insertion)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-3"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-3"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-3"><span class="nav-number">2.4.3.</span> <span class="nav-text">4.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#merge-sort"><span class="nav-number">2.5.</span> <span class="nav-text">5. Merge Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-4"><span class="nav-number">2.5.1.</span> <span class="nav-text">5.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-4"><span class="nav-number">2.5.2.</span> <span class="nav-text">5.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-4"><span class="nav-number">2.5.3.</span> <span class="nav-text">5.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quicksort-important"><span class="nav-number">2.6.</span> <span class="nav-text">6. QuickSort
+(Important)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-5"><span class="nav-number">2.6.1.</span> <span class="nav-text">6.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-5"><span class="nav-number">2.6.2.</span> <span class="nav-text">6.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-5"><span class="nav-number">2.6.3.</span> <span class="nav-text">6.3 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#radixbucket-sort"><span class="nav-number">2.7.</span> <span class="nav-text">7. Radix&#x2F;Bucket Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-6"><span class="nav-number">2.7.1.</span> <span class="nav-text">7.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-6"><span class="nav-number">2.7.2.</span> <span class="nav-text">7.2 Implement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-6"><span class="nav-number">2.7.3.</span> <span class="nav-text">7.2 Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#heap-sort"><span class="nav-number">2.8.</span> <span class="nav-text">8. Heap Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#principle-7"><span class="nav-number">2.8.1.</span> <span class="nav-text">8.1 Principle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-7"><span class="nav-number">2.8.2.</span> <span class="nav-text">8.3 Performance</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary-on-performance"><span class="nav-number">3.</span> <span class="nav-text">Summary on Performance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#performance-in-test"><span class="nav-number">4.</span> <span class="nav-text">Performance in test</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#testing-code"><span class="nav-number">5.</span> <span class="nav-text">Testing Code</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -704,7 +751,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

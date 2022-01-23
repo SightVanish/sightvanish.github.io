@@ -264,23 +264,33 @@
 
       
         <h3 id="precision">Precision</h3>
-<p><span class="math inline">\(Precision=\frac{actually \ true \&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \ true}\)</span></p>
-<p>The percentage of true labels decided by the model are actually true.</p>
+<p><span class="math inline">\(Precision=\frac{actually \ true
+\&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \
+true}\)</span></p>
+<p>The percentage of true labels decided by the model are actually
+true.</p>
 <h3 id="recall">Recall</h3>
-<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \ true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
+<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \
+true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
 <p>The percentage of true items are decided true by the model.</p>
-<p>If we want higher Precision, we should not take any risk--only take those with highest score.</p>
-<p>But if we want higher Recall, we should take all possible results. That is, we cannot get Precision and Recall improved at the same time.</p>
+<p>If we want higher Precision, we should not take any risk--only take
+those with highest score.</p>
+<p>But if we want higher Recall, we should take all possible results.
+That is, we cannot get Precision and Recall improved at the same
+time.</p>
 <p>So we need a balance benchmark.</p>
 <h3 id="f1-measuref1-score">F1-Measure/F1-Score</h3>
 <p><span class="math display">\[
 F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
 \]</span></p>
 <p>We get F1-Measure when <span class="math inline">\(\alpha=1\)</span>.</p>
-<p>More on <a target="_blank" rel="noopener" href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic Mean</a>--it prevents models that are only good at either of P or R from doing good in F.</p>
+<p>More on <a target="_blank" rel="noopener" href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic
+Mean</a>--it prevents models that are only good at either of P or R from
+doing good in F.</p>
 <p>x=50, y=0~100, here is the score (<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/47980482">ref</a>):</p>
 <p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
-<p>Harmonic mean tries to get a result that neither P nor R is not so bad even if both of them are not really good.</p>
+<p>Harmonic mean tries to get a result that neither P nor R is not so
+bad even if both of them are not really good.</p>
 
     </div>
 
@@ -392,7 +402,7 @@ F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

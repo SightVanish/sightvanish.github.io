@@ -281,52 +281,76 @@
 
       
         <h2 id="introduction">Introduction</h2>
-<p>目标检测： 在RCNN之前--滑动窗口+图像金字塔 RCNN，SSD，YOLO之后--Proposal Region+Anchor based 在18年到现在，新出现了一系列方法，都是Anchor Free的，以<strong>直接检测点</strong>（矩形包围框的角点、中心点等）为思路来做目标检测。</p>
+<p>目标检测： 在RCNN之前--滑动窗口+图像金字塔
+RCNN，SSD，YOLO之后--Proposal Region+Anchor based
+在18年到现在，新出现了一系列方法，都是Anchor
+Free的，以<strong>直接检测点</strong>（矩形包围框的角点、中心点等）为思路来做目标检测。</p>
 <span id="more"></span>
 <h2 id="why-anchor-free">Why Anchor Free？</h2>
-<p>Anchor本质上还是在feature map上用不同大小的box遍历，开销很大，也有很多浪费。</p>
-<p>由于基于遍历，所以往往得到的box里面的“正样本”（即实际检测出foreground的anchor）很少，迫使训练时使用大量“负样本”。同时anchor box的大小怎么确定也很难说，针对不同的物体，大小往往是差异很大的。</p>
+<p>Anchor本质上还是在feature
+map上用不同大小的box遍历，开销很大，也有很多浪费。</p>
+<p>由于基于遍历，所以往往得到的box里面的“正样本”（即实际检测出foreground的anchor）很少，迫使训练时使用大量“负样本”。同时anchor
+box的大小怎么确定也很难说，针对不同的物体，大小往往是差异很大的。</p>
 <p>为此我们引入了CornerNet</p>
-<h2 id="cornernet-detecting-objects-as-paired-keypoints">CornerNet: Detecting Objects as Paired Keypoints</h2>
+<h2 id="cornernet-detecting-objects-as-paired-keypoints">CornerNet:
+Detecting Objects as Paired Keypoints</h2>
 <h3 id="inspiration">Inspiration</h3>
-<p>对于instance object detection，我们需要tag图片的每一个像素，但是对于图片检测而言，其实我们需要的只是一个简单的box用来框住foreground而已，因此为什么不直接回归box（即box的两个对角点）。</p>
+<p>对于instance object
+detection，我们需要tag图片的每一个像素，但是对于图片检测而言，其实我们需要的只是一个简单的box用来框住foreground而已，因此为什么不直接回归box（即box的两个对角点）。</p>
 <h3 id="cornernet">CornerNet</h3>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/1.png" style="zoom:40%;"></p>
 <p>网络结构：</p>
 <p>Image-&gt;Hourglass Network提取特征-&gt;Prediction Module</p>
-<p>Prediction Module分成左上角/右下角两个点，同时对每个点的的提取先经过Corner Pooling，再处理成三个特征：Heatmaps，Embeddings和Offsets。</p>
-<p>Heatmaps和Offsets表示角点的位置，Embeddings用于进一步计算来合并同一个框的两个点。（原文解释同一个物体两个角点的Embedding vetor距离较小）</p>
+<p>Prediction
+Module分成左上角/右下角两个点，同时对每个点的的提取先经过Corner
+Pooling，再处理成三个特征：Heatmaps，Embeddings和Offsets。</p>
+<p>Heatmaps和Offsets表示角点的位置，Embeddings用于进一步计算来合并同一个框的两个点。（原文解释同一个物体两个角点的Embedding
+vetor距离较小）</p>
 <p>文章使用了Hourglass网络（最早提出在姿态检测），呈<strong>沙漏状</strong>，包括downsampling+upsampling。</p>
 <h4 id="houglassnet">HouglassNet</h4>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/2.png" style="zoom:40%;"></p>
-<p>先经过Cov+maxpooling，再通过<strong>skip layer</strong>重新让网络恢复大小。</p>
+<p>先经过Cov+maxpooling，再通过<strong>skip
+layer</strong>重新让网络恢复大小。</p>
 <p>这里恢复大小的操作非常简单：C7经过上采样得到C4'，此时C4'与C4的大小一致，通过<strong>elementwise</strong>的相加（即将C4和C4'相对应的每个元素相加）得到C4b。（note：C1a=C1，仅为其保留的副本）</p>
-<p>这样将feature map层层叠加后，得到最后一层的feature即保留了所有层的信息，又和输入原图大小一致，那么就可以通过1x1卷积生成代表关键点概率的heatmap。</p>
+<p>这样将feature
+map层层叠加后，得到最后一层的feature即保留了所有层的信息，又和输入原图大小一致，那么就可以通过1x1卷积生成代表关键点概率的heatmap。</p>
 <p>又因为单个hourglass的特征提取能力的特征提取能力有限，为此在本文中使用两个网络连续堆积。</p>
 <p>同时作者对hourglass做出了改进--不用maxpooling降维，而是用stride=2的卷积来实现降维。</p>
 <h4 id="residual-block">Residual Block</h4>
-<p>hourglass module之前，需要将image降维为1/4。本文采用了一个7x7卷积和一个<strong>残差单元</strong>。</p>
+<p>hourglass
+module之前，需要将image降维为1/4。本文采用了一个7x7卷积和一个<strong>残差单元</strong>。</p>
 <p>Residual Block本质是一个跳层网络</p>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/3.png" alt="3" style="zoom:50%;"></p>
 <p>残差连接使得信息前后向传播更加顺畅。</p>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/9.png" alt="3" style="zoom:50%;"></p>
 <p>在本文中预测结构的前半部分就有类似这种结构：</p>
-<p>Backbone FeatureMaps分为三路：上两路路经过3x3 Cov，Corner Pooling，合并为一路后Batch Normalization；下路只经过Batch Normalization，最后和上两路合并的结果再合并。</p>
+<p>Backbone FeatureMaps分为三路：上两路路经过3x3 Cov，Corner
+Pooling，合并为一路后Batch Normalization；下路只经过Batch
+Normalization，最后和上两路合并的结果再合并。</p>
 <h4 id="corner-pooling">Corner Pooling</h4>
 <p>为了使卷积网络更好地定位边界框的角点，作者引入了corner pooling。</p>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/4.png" alt="3" style="zoom:50%;"></p>
 <p>如何定位左上角点呢？人眼在看到左上角点时需要往右和往下看来确定这个点是不是一个物体的左上角点。</p>
-<p>当求解某一个点的<strong>top-left corner pooling</strong>时 ，就是以该点为起点，向<strong>右</strong>看遇到的最大值以及向<strong>下</strong>看最大的值之和。</p>
+<p>当求解某一个点的<strong>top-left corner pooling</strong>时
+，就是以该点为起点，向<strong>右</strong>看遇到的最大值以及向<strong>下</strong>看最大的值之和。</p>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/5.png" alt="3" style="zoom:50%;"></p>
-<p>但是实际操作中却是从右往左，从下往上看。这样做有一个好处：我们先按照这个逻辑遍历整张图，之后我们想要填充某个点的top-left corner pooling时只需要直接对照之前得到的结构填充就可以了，而不用再次遍历。</p>
-<p>Corner Pooling引入了一定的人类先验知识，在实验中使得效果大大提升。</p>
+<p>但是实际操作中却是从右往左，从下往上看。这样做有一个好处：我们先按照这个逻辑遍历整张图，之后我们想要填充某个点的top-left
+corner
+pooling时只需要直接对照之前得到的结构填充就可以了，而不用再次遍历。</p>
+<p>Corner
+Pooling引入了一定的人类先验知识，在实验中使得效果大大提升。</p>
 <p>Why corner pooling？</p>
 <p>在目标检测的任务中，object的corner往往在object之外，所以corner的检测不能根据局部的特征，而要对该点所在行的所有特征与列的所有特征进行扫描。</p>
 <h3 id="batch-normalization-bn">Batch Normalization (BN)</h3>
 <p>BN是神经网络中一种特殊的层，在原paper中，BN被建议插入在（每个）ReLU激活层前面。</p>
-<p>对于batch size=m，在前向传播过程中，网络中每个节点都有m个输出，BN希望对这m个结果归一化再输出：</p>
-<p>简单说是将输入的<span class="math inline">\(x\)</span>，先变化成 zero mean unit variance的分布<span class="math inline">\(\hat x\)</span>（Standardization），再变成<span class="math inline">\(y=\gamma * \hat x _i + \beta\)</span>（scale and shift），由此将<span class="math inline">\(x\)</span>变成均值<span class="math inline">\(\beta\)</span>方差<span class="math inline">\(\gamma\)</span>的<span class="math inline">\(y\)</span>（均值、方差待学习）。</p>
-<h2 id="bottom-up-object-detection-by-grouping-extreme-and-center-points">Bottom-up Object Detection by Grouping Extreme and Center Points</h2>
+<p>对于batch
+size=m，在前向传播过程中，网络中每个节点都有m个输出，BN希望对这m个结果归一化再输出：</p>
+<p>简单说是将输入的<span class="math inline">\(x\)</span>，先变化成 zero
+mean unit variance的分布<span class="math inline">\(\hat
+x\)</span>（Standardization），再变成<span class="math inline">\(y=\gamma * \hat x _i + \beta\)</span>（scale and
+shift），由此将<span class="math inline">\(x\)</span>变成均值<span class="math inline">\(\beta\)</span>方差<span class="math inline">\(\gamma\)</span>的<span class="math inline">\(y\)</span>（均值、方差待学习）。</p>
+<h2 id="bottom-up-object-detection-by-grouping-extreme-and-center-points">Bottom-up
+Object Detection by Grouping Extreme and Center Points</h2>
 <p>ExtremeNet与CornerNet不同在于</p>
 <ol type="1">
 <li><p><strong>关键点选取不同</strong>：ExtremeNet的关键点选取为Object的最顶点，最底点，最左点和最右点，而不是包围框的左上角点和右下角的点</p></li>
@@ -338,21 +362,29 @@
 <h3 id="extremenet">ExtremeNet</h3>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/6.png" alt="3" style="zoom:40%;"></p>
 <p>本文作者需要找到5个heatmap，分别是4个物体边缘（extreme），和一个中心（center）。</p>
-<p>在如何Group point上，作者放弃了使用Embedding vector，而是先遍历所可能的extreme point的组合，然后仅保留与center point相吻合的组合。</p>
+<p>在如何Group point上，作者放弃了使用Embedding
+vector，而是先遍历所可能的extreme point的组合，然后仅保留与center
+point相吻合的组合。</p>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/7.png" alt="3" style="zoom:40%;"></p>
 <h3 id="heatmap">Heatmap</h3>
 <h2 id="centernet-objects-as-points">CenterNet: Objects as Points</h2>
 <h3 id="inspiration-2">Inspiration</h3>
 <p>构建模型时将目标作为一个点——即目标BBox的中心点。</p>
 <p>中心关键点一般都是落在了目标内部，其特征相较于之前两篇与物体本身相关性更好。</p>
-<p>由于之前的两篇是通过group point来实现box，因此需要NMS（非极大值抑制）来破除重复，和Embedding来确定哪些点属于同一个object。CenterNet则都不需要，效率更高。</p>
+<p>由于之前的两篇是通过group
+point来实现box，因此需要NMS（非极大值抑制）来破除重复，和Embedding来确定哪些点属于同一个object。CenterNet则都不需要，效率更高。</p>
 <h3 id="centernet">CenterNet</h3>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/8.png" alt="3" style="zoom:40%;"></p>
 <p>Outputs of our network for different tasks:</p>
-<p><em>top</em> for object detection; <em>middle</em> for 3D object detection; <em>bottom:</em> for pose estimation. All modalities are produced from a common backbone, with a different 3 × 3 and 1 × 1 output convolutions separated by a ReLU.</p>
-<h1 id="centernetkeypoint-triplets-for-object-detection">CenterNet：Keypoint Triplets for Object Detection</h1>
+<p><em>top</em> for object detection; <em>middle</em> for 3D object
+detection; <em>bottom:</em> for pose estimation. All modalities are
+produced from a common backbone, with a different 3 × 3 and 1 × 1 output
+convolutions separated by a ReLU.</p>
+<h1 id="centernetkeypoint-triplets-for-object-detection">CenterNet：Keypoint
+Triplets for Object Detection</h1>
 <h3 id="inspiration-3">Inspiration</h3>
-<p>对于cornernet来说，box的选择正确率很低，平均上每生成100个预测框，有37.8个和真值的IoU&lt;0.05。因此作者尝试使用Triplet keypoint--左上角、右下角+中心点。</p>
+<p>对于cornernet来说，box的选择正确率很低，平均上每生成100个预测框，有37.8个和真值的IoU&lt;0.05。因此作者尝试使用Triplet
+keypoint--左上角、右下角+中心点。</p>
 <h3 id="centernet-1">CenterNet</h3>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/10.png" alt="3"></p>
 <p>每个box用一个中心点和一对对角点坐标来表示。</p>
@@ -360,35 +392,49 @@
 <ol type="1">
 <li>选择top k中心点</li>
 <li>根据offset，将中心点重新映射到input image</li>
-<li>为每个box定义一个中心区域（central region），检查中心区域是否包含上述得到的中心点（中心label应该与box label相同）</li>
-<li>若中心区域检测到中心点，保留box。box 分数改变为三个点的平均分。若无，则移除。</li>
+<li>为每个box定义一个中心区域（central
+region），检查中心区域是否包含上述得到的中心点（中心label应该与box
+label相同）</li>
+<li>若中心区域检测到中心点，保留box。box
+分数改变为三个点的平均分。若无，则移除。</li>
 </ol>
 <h4 id="central-region">Central Region</h4>
-<p>中心区域的确定对于结果非常关键，为此central region大小需要与box大小相关。</p>
+<p>中心区域的确定对于结果非常关键，为此central
+region大小需要与box大小相关。</p>
 <p>note：中心区域对于小的边界框倾向于产生一个相对较大的中心区域，而对于大的边界框倾向于产生一个相对较小的中心区域。</p>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/11.png" alt="3" style="zoom:40%;"></p>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/12.png" alt="3" style="zoom:40%;"></p>
 <p>bounding box尺寸小于150时，n=3，当大于等于150时，n=5。</p>
-<p>公式比较复杂，但其实只是为了满足大box小center region，小box大center region而已。</p>
+<p>公式比较复杂，但其实只是为了满足大box小center region，小box大center
+region而已。</p>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/13.png" alt="3" style="zoom:40%;"></p>
 <h4 id="center-pooling">Center Pooling</h4>
-<p>对于一整个物体，物体的语义特征点和物体中心点很可能并不重合。为了充分学习语义信息，使用center pooling：</p>
-<p>对于feature map中的一个像素，找到其水平方向和垂直方向的最大值并相加，作为这个点的置信。</p>
+<p>对于一整个物体，物体的语义特征点和物体中心点很可能并不重合。为了充分学习语义信息，使用center
+pooling：</p>
+<p>对于feature
+map中的一个像素，找到其水平方向和垂直方向的最大值并相加，作为这个点的置信。</p>
 <h4 id="cascade-corner-pooling">Cascade corner pooling</h4>
-<p>corner pooling往往对边缘信息过于敏感，那么本文就使用cascade方式--类似两个corner一起用，来尽可能获取更多的物体中心信息</p>
+<p>corner
+pooling往往对边缘信息过于敏感，那么本文就使用cascade方式--类似两个corner一起用，来尽可能获取更多的物体中心信息</p>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/15.png" alt="3"></p>
 <p>比如对top-left点：找到右侧最大值点A，再在A点向下找最大值B点；找到下方最大值C点，再在C点向右找最大值D点。最后top-left点=A+B+C+D。</p>
 <p>两种pooling统一起来：</p>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/14.png" alt="3"></p>
 <h3 id="focal-loss">Focal Loss</h3>
-<p>Focal loss主要是为了解决one-stage目标检测中正负样本比例严重失衡的问题。</p>
+<p>Focal
+loss主要是为了解决one-stage目标检测中正负样本比例严重失衡的问题。</p>
 <h4 id="crossentropy-loss">CrossEntropy Loss</h4>
 <p><img src="/2021/03/04/Anchor-Free-After-Faster-R-CNN/16.png" alt="3" style="zoom:40%;"></p>
 <p>对于二分类来说则为：</p>
-<p><span class="math inline">\(Loss = -(y*log(y&#39;)+(1-y)*log(1-y&#39;))\)</span>，其中<span class="math inline">\(y\)</span>为ground truth，如果为真则为1，否则为0，其中<span class="math inline">\(y&#39;\)</span>为经过激活函数后的输出，在<span class="math inline">\(0-1\)</span>之间。</p>
+<p><span class="math inline">\(Loss =
+-(y*log(y&#39;)+(1-y)*log(1-y&#39;))\)</span>，其中<span class="math inline">\(y\)</span>为ground
+truth，如果为真则为1，否则为0，其中<span class="math inline">\(y&#39;\)</span>为经过激活函数后的输出，在<span class="math inline">\(0-1\)</span>之间。</p>
 <p>在大量样本中，大多数样本都能被轻易分出，而对于能轻易分出的样本（即正样本高<span class="math inline">\(y&#39;\)</span>，负样本低<span class="math inline">\(y&#39;\)</span>）都造成Loss过小，收敛太慢。</p>
 <p>Focal Loss即是对此进行了改进：</p>
-<p><span class="math inline">\(\begin{equation*}Focal Loss = \end{equation*} \begin{cases} -\alpha(1-y&#39;) ^\gamma logy&#39;  \quad y = 1\\  -(1-\alpha)y&#39; ^\gamma log(1-y&#39;)\quad y = 0 \end{cases}\)</span></p>
+<p><span class="math inline">\(\begin{equation*}Focal Loss =
+\end{equation*} \begin{cases} -\alpha(1-y&#39;) ^\gamma logy&#39;  \quad
+y = 1\\  -(1-\alpha)y&#39; ^\gamma log(1-y&#39;)\quad y = 0
+\end{cases}\)</span></p>
 <p>加入<span class="math inline">\(\gamma\)</span>使得对于正样本高概率时loss降低，对于负样本低概率时loss降低（即概率趋近于0.5，不确定时的loss权重增加）</p>
 <p>加入<span class="math inline">\(\alpha\)</span>来平衡正负样本之间的数量差距。</p>
 
@@ -490,7 +536,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#why-anchor-free"><span class="nav-number">2.</span> <span class="nav-text">Why Anchor Free？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cornernet-detecting-objects-as-paired-keypoints"><span class="nav-number">3.</span> <span class="nav-text">CornerNet: Detecting Objects as Paired Keypoints</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inspiration"><span class="nav-number">3.1.</span> <span class="nav-text">Inspiration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cornernet"><span class="nav-number">3.2.</span> <span class="nav-text">CornerNet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#houglassnet"><span class="nav-number">3.2.1.</span> <span class="nav-text">HouglassNet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#residual-block"><span class="nav-number">3.2.2.</span> <span class="nav-text">Residual Block</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#corner-pooling"><span class="nav-number">3.2.3.</span> <span class="nav-text">Corner Pooling</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#batch-normalization-bn"><span class="nav-number">3.3.</span> <span class="nav-text">Batch Normalization (BN)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bottom-up-object-detection-by-grouping-extreme-and-center-points"><span class="nav-number">4.</span> <span class="nav-text">Bottom-up Object Detection by Grouping Extreme and Center Points</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inspiration-1"><span class="nav-number">4.1.</span> <span class="nav-text">Inspiration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extremenet"><span class="nav-number">4.2.</span> <span class="nav-text">ExtremeNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#heatmap"><span class="nav-number">4.3.</span> <span class="nav-text">Heatmap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#centernet-objects-as-points"><span class="nav-number">5.</span> <span class="nav-text">CenterNet: Objects as Points</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inspiration-2"><span class="nav-number">5.1.</span> <span class="nav-text">Inspiration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centernet"><span class="nav-number">5.2.</span> <span class="nav-text">CenterNet</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#centernetkeypoint-triplets-for-object-detection"><span class="nav-number"></span> <span class="nav-text">CenterNet：Keypoint Triplets for Object Detection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inspiration-3"><span class="nav-number">0.1.</span> <span class="nav-text">Inspiration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centernet-1"><span class="nav-number">0.2.</span> <span class="nav-text">CenterNet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#central-region"><span class="nav-number">0.2.1.</span> <span class="nav-text">Central Region</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#center-pooling"><span class="nav-number">0.2.2.</span> <span class="nav-text">Center Pooling</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cascade-corner-pooling"><span class="nav-number">0.2.3.</span> <span class="nav-text">Cascade corner pooling</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#focal-loss"><span class="nav-number">0.3.</span> <span class="nav-text">Focal Loss</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#crossentropy-loss"><span class="nav-number">0.3.1.</span> <span class="nav-text">CrossEntropy Loss</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#why-anchor-free"><span class="nav-number">2.</span> <span class="nav-text">Why Anchor Free？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cornernet-detecting-objects-as-paired-keypoints"><span class="nav-number">3.</span> <span class="nav-text">CornerNet:
+Detecting Objects as Paired Keypoints</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inspiration"><span class="nav-number">3.1.</span> <span class="nav-text">Inspiration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cornernet"><span class="nav-number">3.2.</span> <span class="nav-text">CornerNet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#houglassnet"><span class="nav-number">3.2.1.</span> <span class="nav-text">HouglassNet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#residual-block"><span class="nav-number">3.2.2.</span> <span class="nav-text">Residual Block</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#corner-pooling"><span class="nav-number">3.2.3.</span> <span class="nav-text">Corner Pooling</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#batch-normalization-bn"><span class="nav-number">3.3.</span> <span class="nav-text">Batch Normalization (BN)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bottom-up-object-detection-by-grouping-extreme-and-center-points"><span class="nav-number">4.</span> <span class="nav-text">Bottom-up
+Object Detection by Grouping Extreme and Center Points</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inspiration-1"><span class="nav-number">4.1.</span> <span class="nav-text">Inspiration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extremenet"><span class="nav-number">4.2.</span> <span class="nav-text">ExtremeNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#heatmap"><span class="nav-number">4.3.</span> <span class="nav-text">Heatmap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#centernet-objects-as-points"><span class="nav-number">5.</span> <span class="nav-text">CenterNet: Objects as Points</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inspiration-2"><span class="nav-number">5.1.</span> <span class="nav-text">Inspiration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centernet"><span class="nav-number">5.2.</span> <span class="nav-text">CenterNet</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#centernetkeypoint-triplets-for-object-detection"><span class="nav-number"></span> <span class="nav-text">CenterNet：Keypoint
+Triplets for Object Detection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inspiration-3"><span class="nav-number">0.1.</span> <span class="nav-text">Inspiration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centernet-1"><span class="nav-number">0.2.</span> <span class="nav-text">CenterNet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#central-region"><span class="nav-number">0.2.1.</span> <span class="nav-text">Central Region</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#center-pooling"><span class="nav-number">0.2.2.</span> <span class="nav-text">Center Pooling</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cascade-corner-pooling"><span class="nav-number">0.2.3.</span> <span class="nav-text">Cascade corner pooling</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#focal-loss"><span class="nav-number">0.3.</span> <span class="nav-text">Focal Loss</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#crossentropy-loss"><span class="nav-number">0.3.1.</span> <span class="nav-text">CrossEntropy Loss</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -506,7 +555,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

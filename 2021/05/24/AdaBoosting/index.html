@@ -285,13 +285,18 @@
 <h3 id="adaboost">AdaBoost</h3>
 <p>如何实现AdaBoosting呢？</p>
 <h4 id="加权误差">加权误差</h4>
-<p>一般 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} 1/n\)</span>，但是在对样本进行加权后 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)} w _i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分类失败）的sample。</p>
+<p>一般 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)}
+1/n\)</span>，但是在对样本进行加权后 <span class="math inline">\(error =
+\Sigma _{y_i \neq h(x _i)} w
+_i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分类失败）的sample。</p>
 <p>如何找弱分类器呢？</p>
 <h4 id="决策树桩">决策树桩</h4>
 <p><img src="/2021/05/24/AdaBoosting/1.png" alt="1" style="zoom:50%;"></p>
 <p>上图中简单的情况，有12种树桩组合。</p>
 <blockquote>
-<p>我们可以对上面的情况做 12 种可能的「测试」。每条分割线边上的数字「2」简单地表示了这样一个事实：位于分割线某一侧的所有点都可能属于 0 类或 1 类。因此，每条分割线嵌入了 2 个「测试」。</p>
+<p>我们可以对上面的情况做 12
+种可能的「测试」。每条分割线边上的数字「2」简单地表示了这样一个事实：位于分割线某一侧的所有点都可能属于
+0 类或 1 类。因此，每条分割线嵌入了 2 个「测试」。</p>
 </blockquote>
 <p>针对不同的问题首先要选好弱分类器h，在迭代的过程中每次选择对当前（加权后）sample分类最优的弱分类器作为基本分类器进行融合。</p>
 <ul>
@@ -409,7 +414,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

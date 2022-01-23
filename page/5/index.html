@@ -203,6 +203,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/05/25/SVM-Support-Vector-Machine/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/25/SVM-Support-Vector-Machine/" class="post-title-link" itemprop="url">SVM(Support Vector Machine)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-25 15:00:11" itemprop="dateCreated datePublished" datetime="2021-05-25T15:00:11+08:00">2021-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-23 17:18:32" itemprop="dateModified" datetime="2021-09-23T17:18:32+08:00">2021-09-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="margin">Margin</h2>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/1.png" alt="1" style="zoom:50%;"></p>
+<p>从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。</p>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/2.png" alt="2" style="zoom:50%;"></p>
+<p>上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/25/SVM-Support-Vector-Machine/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/05/24/AdaBoosting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -431,11 +516,13 @@
       
           <h2 id="rnn">RNN</h2>
 <p>Recurrent Neural Network，循环神经网络。</p>
-<p>RNN 是包含循环的网络，允许信息的持久化，可以充分利用先验的信息知识。</p>
+<p>RNN
+是包含循环的网络，允许信息的持久化，可以充分利用先验的信息知识。</p>
 <p><img src="/2021/03/07/Social-LSTM/1.png" alt="3" style="zoom:20%;"></p>
 <p>本质上RNN就是在<span class="math inline">\(t\)</span>时刻，input=<span class="math inline">\(X _t + h _{t-1}\)</span>。</p>
 <p>LSTM就是一种特殊的RNN。</p>
-<p>对于RNN来说，在语言预测词汇中，对此要预测的词来说，相近的词贡献会很大，而时间间隔越远的词，贡献越少。但是往往存在Long-Term Dependency问题，一些重要信息可能会贯穿全文，如果很早出现但是被忘记，在后续的预测中将会很不利。理论上，RNN当然可以处理这种长期记忆问题，但是实践中却很难做到。为此LSTM出现了。</p>
+<p>对于RNN来说，在语言预测词汇中，对此要预测的词来说，相近的词贡献会很大，而时间间隔越远的词，贡献越少。但是往往存在Long-Term
+Dependency问题，一些重要信息可能会贯穿全文，如果很早出现但是被忘记，在后续的预测中将会很不利。理论上，RNN当然可以处理这种长期记忆问题，但是实践中却很难做到。为此LSTM出现了。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/03/07/Social-LSTM/#more" rel="contents">
@@ -520,7 +607,9 @@
 <ol type="1">
 <li><p><code>sudo vim /private/etc/hosts</code></p></li>
 <li><p>Delete all path about Github</p></li>
-<li><p>Search IP address of <code>github.com</code> and <code>github.global.ssl.fastly.net</code> in <code>https://github.com.ipaddress.com</code></p></li>
+<li><p>Search IP address of <code>github.com</code> and
+<code>github.global.ssl.fastly.net</code> in
+<code>https://github.com.ipaddress.com</code></p></li>
 <li><p>Add</p>
 <p><code>#github</code></p>
 <p><code>140.82.114.4 github.com</code></p>
@@ -601,7 +690,10 @@
 
       
           <h2 id="introduction">Introduction</h2>
-<p>目标检测： 在RCNN之前--滑动窗口+图像金字塔 RCNN，SSD，YOLO之后--Proposal Region+Anchor based 在18年到现在，新出现了一系列方法，都是Anchor Free的，以<strong>直接检测点</strong>（矩形包围框的角点、中心点等）为思路来做目标检测。</p>
+<p>目标检测： 在RCNN之前--滑动窗口+图像金字塔
+RCNN，SSD，YOLO之后--Proposal Region+Anchor based
+在18年到现在，新出现了一系列方法，都是Anchor
+Free的，以<strong>直接检测点</strong>（矩形包围框的角点、中心点等）为思路来做目标检测。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/03/04/Anchor-Free-After-Faster-R-CNN/#more" rel="contents">
@@ -682,7 +774,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>In Ubuntu 20, you can not find a visual interface to adjust monitor brightness.</p>
+          <p>In Ubuntu 20, you can not find a visual interface to adjust monitor
+brightness.</p>
 <p>Try <code>nvidia-settings</code> in terminal, then:</p>
 <p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
 
@@ -758,7 +851,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。 为此引入了PDF（Probability Density Function），直观地理解可以近似理解为概率本身--也就是说如果我们不关心纯粹的概率值，而只要求相对的概率大小，那么就可以使用某个点的PDF值进行计算（比如最大似然估计）。但是要认识到某个点的具体概率值实际为<span class="math inline">\(PDF(x)*dx = 0\)</span>，一个点的概率本身没有意义。</p>
+          <p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。
+为此引入了PDF（Probability Density
+Function），直观地理解可以近似理解为概率本身--也就是说如果我们不关心纯粹的概率值，而只要求相对的概率大小，那么就可以使用某个点的PDF值进行计算（比如最大似然估计）。但是要认识到某个点的具体概率值实际为<span class="math inline">\(PDF(x)*dx =
+0\)</span>，一个点的概率本身没有意义。</p>
 <p>为此需要引入CDF，即为PDF在一定区间上的积分，这使得CDF具有了实际的概率意义。</p>
 
       
@@ -834,10 +930,12 @@
 
       
           <h2 id="发展顺序">发展顺序</h2>
-<p>本文仅关注从R-CNN、SPP-Net（2014）至Fast R-CNN、Faster R-CNN（2015）的图像分割技术。</p>
+<p>本文仅关注从R-CNN、SPP-Net（2014）至Fast R-CNN、Faster
+R-CNN（2015）的图像分割技术。</p>
 <h2 id="r-cnn">R-CNN</h2>
 <p>Region-CNN</p>
-<h3 id="efficient-graph-based-image-segmentation">Efficient Graph-Based Image Segmentation</h3>
+<h3 id="efficient-graph-based-image-segmentation">Efficient Graph-Based
+Image Segmentation</h3>
 <p>主要目的也就是将图像（image）分割成若干个特定的、具有独特性质的区域（region），然后从中提取出感兴趣的目标（object）。</p>
 <p>为了找到有意义的图像区域，我们很容易想到根据灰度gradient变化，但是会产生下图问题：</p>
 <p><img src="/2021/02/22/The-basic-concept-of-faster-RCNN/image1.png" width="50%" height="50%"></p>
@@ -927,13 +1025,20 @@
 <center>
 <p>--恰巧与剑道相关，故而记录一下 1、无明烦恼住地</p>
 <p>​ 无明者，晦暗不明，智慧为闇所述。住地者，迟滞之境。</p>
-<p>​ 佛法修行可分五十二阶位，若于任一阶位，心为尘所滞，即称住地。住，止之意；止，心为尘所取。就兵法而言，于眼剑来之剎那，若心有以剑攻防之意，则心为彼剑所滞，身心失念，即被斩杀，此称心有所住。</p>
-<p>​ 若眼观剑来，不分别思维，见剑则否，心无所住，亦无欲抢先机而反击之意，无有少法，是心所住，入彼剑所及之距，状若败势，逆取彼刃而溃敌手，恰如禅宗所云：“还把枪头倒刺人。”此与无刀流之旨，有同工之妙。</p>
-<p>​ <u>这里可能是说柳生古流里的无刀取，剑道里称之为“活人剑”，是在近距离无刀夺刀制服对手的技巧。</u></p>
-<p>​ 主客交锋，此方彼方，己剑彼剑，拍子节奏，若于是中，心有所住，则行动缓顿，为彼所斩。若临敌时有自身想，心则有住，故不应执着自身。</p>
-<p>​ 修行初始，心易受身形而紧绷，若心住于剑，则为剑所滞；若心欲抢先机，则为欲抢先机所滞，以要言之，若心有住，则失其念，佛法称此迟滞之心为无明住地烦恼。</p>
-<p>​ <u>剑道里有说法叫“望远山”，就是说交剑的时候，注意力不在对手身上，而在对手背后的“远山”。实践中有一点很巧妙—往往人的注意不专注在对手身上，反而能够清晰察觉到对手的攻击意图，这种感觉很微妙，人确实能从非常细节的方面来抓住攻击间隙，但是回想起来却又不明白。</u></p>
-<p>​ <u>而在心态上，剑道称之为“无念”，讲究交剑后心中无所想，不过在我的实际体会中，这种无所想与其说是放下这种打击执念，不如说是千锤百炼之后的稳健心态。我也去问过八段的香田俊秀老师（在苏州），他的意思大致是剑道可以输剑，不能输心，先在内心胜过对手，自己就能保持这种平常心，身体才能不受心所连累。</u></p></center></center>
+<p>​
+佛法修行可分五十二阶位，若于任一阶位，心为尘所滞，即称住地。住，止之意；止，心为尘所取。就兵法而言，于眼剑来之剎那，若心有以剑攻防之意，则心为彼剑所滞，身心失念，即被斩杀，此称心有所住。</p>
+<p>​
+若眼观剑来，不分别思维，见剑则否，心无所住，亦无欲抢先机而反击之意，无有少法，是心所住，入彼剑所及之距，状若败势，逆取彼刃而溃敌手，恰如禅宗所云：“还把枪头倒刺人。”此与无刀流之旨，有同工之妙。</p>
+<p>​
+<u>这里可能是说柳生古流里的无刀取，剑道里称之为“活人剑”，是在近距离无刀夺刀制服对手的技巧。</u></p>
+<p>​
+主客交锋，此方彼方，己剑彼剑，拍子节奏，若于是中，心有所住，则行动缓顿，为彼所斩。若临敌时有自身想，心则有住，故不应执着自身。</p>
+<p>​
+修行初始，心易受身形而紧绷，若心住于剑，则为剑所滞；若心欲抢先机，则为欲抢先机所滞，以要言之，若心有住，则失其念，佛法称此迟滞之心为无明住地烦恼。</p>
+<p>​
+<u>剑道里有说法叫“望远山”，就是说交剑的时候，注意力不在对手身上，而在对手背后的“远山”。实践中有一点很巧妙—往往人的注意不专注在对手身上，反而能够清晰察觉到对手的攻击意图，这种感觉很微妙，人确实能从非常细节的方面来抓住攻击间隙，但是回想起来却又不明白。</u></p>
+<p>​
+<u>而在心态上，剑道称之为“无念”，讲究交剑后心中无所想，不过在我的实际体会中，这种无所想与其说是放下这种打击执念，不如说是千锤百炼之后的稳健心态。我也去问过八段的香田俊秀老师（在苏州），他的意思大致是剑道可以输剑，不能输心，先在内心胜过对手，自己就能保持这种平常心，身体才能不受心所连累。</u></p></center></center>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/01/04/%E3%80%8A%E4%B8%8D%E5%8A%A8%E6%99%BA%E7%A5%9E%E5%A6%99%E5%BD%95%E3%80%8B%E7%AC%94%E8%AE%B0/#more" rel="contents">
@@ -942,81 +1047,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/01/04/How-to-get-matrix-transform-in-python/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/04/How-to-get-matrix-transform-in-python/" class="post-title-link" itemprop="url">How to get matrix transform in python</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-04 17:23:39" itemprop="dateCreated datePublished" datetime="2021-01-04T17:23:39+08:00">2021-01-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 13:58:36" itemprop="dateModified" datetime="2021-09-15T13:58:36+08:00">2021-09-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Here is a special trick:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -1102,7 +1132,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

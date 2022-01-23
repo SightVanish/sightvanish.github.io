@@ -263,16 +263,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Actually what I want to mention is the new type, reference, introduced via c++, but here I just use <code>int&amp;</code>as an example.</p>
+        <p>Actually what I want to mention is the new type, reference,
+introduced via c++, but here I just use <code>int&amp;</code>as an
+example.</p>
 <h2 id="int">int</h2>
 <p>it is apperantly an integer type we are quite familiar with.</p>
 <h2 id="int-1">int*</h2>
-<p>This is a type of int pointer. Since it points at int, so it will read 4 byte to represent an integer and return the first byte. (In C, we do not take it as a type, it is something kinda like an address, and it it presented as <code>int *p</code>)</p>
+<p>This is a type of int pointer. Since it points at int, so it will
+read 4 byte to represent an integer and return the first byte. (In C, we
+do not take it as a type, it is something kinda like an address, and it
+it presented as <code>int *p</code>)</p>
 <h2 id="int-2">int&amp;</h2>
-<p><code>int&amp;</code> is a reference to a pointer. Literally it is just a 'nickname' of an integer. <code>int a; int&amp; p = a;</code>p can be used just like an integer with all operations.</p>
+<p><code>int&amp;</code> is a reference to a pointer. Literally it is
+just a 'nickname' of an integer. <code>int a; int&amp; p = a;</code>p
+can be used just like an integer with all operations.</p>
 <p>So why reference is introduced?</p>
-<p>A: if we do not use reference, there will be something wrong with passing values to function (still we can still solve it via pointer). For example, in a vector class, we have a function that will return a modifiable value of an entry. So we have to introduce reference.</p>
-<p>Note: <strong>reference</strong> is just another name of its origianl type, so it will not allocate a new memory space for it, thus an reference without initilizatin is not permitted, <code>int&amp; p; // error</code></p>
+<p>A: if we do not use reference, there will be something wrong with
+passing values to function (still we can still solve it via pointer).
+For example, in a vector class, we have a function that will return a
+modifiable value of an entry. So we have to introduce reference.</p>
+<p>Note: <strong>reference</strong> is just another name of its origianl
+type, so it will not allocate a new memory space for it, thus an
+reference without initilizatin is not permitted, <code>int&amp; p; //
+error</code></p>
 
     </div>
 
@@ -388,7 +401,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -272,7 +272,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line">export SPARK_HOME=&lt;path to spark-2.4.0-bin-hadoop2.7&gt;</span><br><span class="line">export PATH=$&#123;SPARK_HOME&#125;/bin:$PATH</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br><span class="line">cd &lt;path to spark-2.4.0-bin-hadoop2.7&gt;</span><br><span class="line">cp conf/log4j.properties.template conf/log4j.properties</span><br><span class="line">vim conf/log4j.properties</span><br><span class="line"><span class="meta">#</span><span class="bash"> replace `log4j.rootCategory=INFO, console` with</span></span><br><span class="line">log4j.rootCategory=ERROR, console</span><br></pre></td></tr></table></figure>
 <p>if you want to use pyspark in jupyter notebook,</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> find your own path to the zip file starting with <span class="string">&#x27;py4j&#x27;</span></span></span><br><span class="line">export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH</span><br><span class="line">export PATH=$SPARK_HOME/python:$PATH</span><br><span class="line">export PYSPARK_PYTHON=python3</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br><span class="line">pip install findspark</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>Enter jupyter notebook, import <code>findspark</code> before <code>pyspark</code></strong></p>
+<p><strong>Enter jupyter notebook, import <code>findspark</code> before
+<code>pyspark</code></strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> findspark</span><br><span class="line">findspark.init()</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -385,7 +386,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -266,8 +266,10 @@
 <li><p>Create SSH key</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># change your path to .ssh file</span></span><br><span class="line">cd ~/.ssh</span><br><span class="line"><span class="section"># create new SSH key</span></span><br><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your git email&quot;</span><br><span class="line"><span class="section"># note that name of the file to save key should be &quot;id<span class="emphasis">_rsa&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, it will reprot &quot;Permission denied (publickey).&quot; when &quot;ssh -T git@github.com&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"></span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, remember to add it </span></span></span><br><span class="line"><span class="emphasis"><span class="section">ssh-add ~/.ssh/your_</span>name </span></span><br></pre></td></tr></table></figure></li>
 <li><p>Add SSH key to git</p>
-<p>You are supposed to find <code>id_rsa</code> and <code>id_rsa.pub</code>. The former is you SSH key.</p>
-<p>Create a new SSH key in your github and copy everything in <code>id_rsa.pub</code> to it.</p></li>
+<p>You are supposed to find <code>id_rsa</code> and
+<code>id_rsa.pub</code>. The former is you SSH key.</p>
+<p>Create a new SSH key in your github and copy everything in
+<code>id_rsa.pub</code> to it.</p></li>
 <li><p>Test your connection with git</p>
 <p><code>ssh -T git@github.com</code></p>
 <p>If there is no bug report, you key is acceptable.</p></li>
@@ -385,7 +387,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

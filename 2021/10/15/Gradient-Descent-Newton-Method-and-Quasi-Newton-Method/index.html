@@ -266,18 +266,31 @@
 <p>1.1.1 Derivative</p>
 <p>针对一元函数 <span class="math inline">\(y=f(x)\)</span>，导数 <span class="math inline">\(f&#39;(x_0)\)</span> 表示了该函数在<span class="math inline">\(x_0\)</span>处的函数斜率/增加速率。</p>
 <p>1.1.2 Partial Derivative--偏导数，部分的导数</p>
-<p>针对多元函数（此处考虑二元函数<span class="math inline">\(z=f(x,y)\)</span>），导数 <span class="math inline">\(f&#39;(x_0, y_0)\)</span> 就有些模糊不清了，为此我们先简化到一元的情况：固定 <span class="math inline">\(y=y_0\)</span>，<span class="math inline">\(z=f(x,y)\)</span>，二元函数便降纬为<span class="math inline">\(z=f(x, y_0)\)</span> ，此时我们可以定义在 <span class="math inline">\(x\)</span> 方向上的偏导数 <span class="math inline">\(f&#39;_x(x_0, y_0)\)</span>，其表示该函数在<span class="math inline">\((x_0, y_0)\)</span>点处沿 <span class="math inline">\(x\)</span> 方向函数斜率/增加速率。类似的我们可以得到在 <span class="math inline">\(y\)</span> 方向的偏导数。</p>
+<p>针对多元函数（此处考虑二元函数<span class="math inline">\(z=f(x,y)\)</span>），导数 <span class="math inline">\(f&#39;(x_0, y_0)\)</span>
+就有些模糊不清了，为此我们先简化到一元的情况：固定 <span class="math inline">\(y=y_0\)</span>，<span class="math inline">\(z=f(x,y)\)</span>，二元函数便降纬为<span class="math inline">\(z=f(x, y_0)\)</span> ，此时我们可以定义在 <span class="math inline">\(x\)</span> 方向上的偏导数 <span class="math inline">\(f&#39;_x(x_0, y_0)\)</span>，其表示该函数在<span class="math inline">\((x_0, y_0)\)</span>点处沿 <span class="math inline">\(x\)</span>
+方向函数斜率/增加速率。类似的我们可以得到在 <span class="math inline">\(y\)</span> 方向的偏导数。</p>
 <p>1.1.3 Directional Derivative</p>
-<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(x=x_0\)</span> 或 <span class="math inline">\(y=y_0\)</span> 方向上的函数速率变化了。</p>
-<p>现在基于这两个偏导数我们已经可以求出 <span class="math inline">\(x-y\)</span> 平面任何方向的导数了：假设求 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向的导数（其中<span class="math inline">\(\theta\)</span>表示该向量方向与<span class="math inline">\(x\)</span>轴正方向的夹角，<span class="math inline">\(\vec{i}\)</span>表示<span class="math inline">\(x\)</span>轴正方向，<span class="math inline">\(\vec{j}\)</span>表示<span class="math inline">\(y\)</span>轴正方向） <span class="math display">\[
+<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在
+<span class="math inline">\(x=x_0\)</span> 或 <span class="math inline">\(y=y_0\)</span> 方向上的函数速率变化了。</p>
+<p>现在基于这两个偏导数我们已经可以求出 <span class="math inline">\(x-y\)</span> 平面任何方向的导数了：假设求 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span>
+方向的导数（其中<span class="math inline">\(\theta\)</span>表示该向量方向与<span class="math inline">\(x\)</span>轴正方向的夹角，<span class="math inline">\(\vec{i}\)</span>表示<span class="math inline">\(x\)</span>轴正方向，<span class="math inline">\(\vec{j}\)</span>表示<span class="math inline">\(y\)</span>轴正方向） <span class="math display">\[
 D_uf(x,y)=\lim_{x \to \infty}\frac{f(x_0+tcos\theta,y_0+tsin\theta)}{t}
 \]</span> 本质上方向导数是偏导数的一种推广，通过调整方向导数中 <span class="math inline">\(\theta\)</span> 的值也能够简化为偏导数形式。</p>
-<p>但是如果我们观察 <span class="math inline">\(u\)</span> 本身，在 <span class="math inline">\(u\)</span> 方向求导，其实相当于在 <span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span> 方向分别求偏导之后的线性组合： <span class="math display">\[
+<p>但是如果我们观察 <span class="math inline">\(u\)</span> 本身，在
+<span class="math inline">\(u\)</span> 方向求导，其实相当于在 <span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span>
+方向分别求偏导之后的线性组合： <span class="math display">\[
 D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
 \]</span> 1.1.4 Gradient</p>
-<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\((x_0, y_0)\)</span> 点上在方向 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向上的函数变化速率了。</p>
-<p>那么梯度是什么呢？梯度就是 <span class="math inline">\(z\)</span> 在 <span class="math inline">\((x_0, y_0)\)</span> 点上函数变化速度最快的方向，也就是方向向量最大的方向。</p>
-<p>什么时候方向向量能取到最大呢？<span class="math inline">\(D_uf(x,y)=\begin{bmatrix}f&#39;_x(x,y)&amp;f&#39;_y(x,y)\end{bmatrix}\begin{bmatrix}cos\theta \\ sin\theta\end{bmatrix}=\pmb A*\pmb I\)</span>，当 <span class="math inline">\((cos\theta, sin\theta) // (f&#39;_x(x,y), f&#39;_y(x,y))\)</span> 时能够取到最大值，此时在 <span class="math inline">\((x_0,y_0)\)</span> 的梯度 <span class="math inline">\(\pmb I=\begin{bmatrix}\frac{\partial f}{\partial x_0} \\ \frac{\partial f}{\partial y_0}\end{bmatrix}\)</span></p>
+<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在
+<span class="math inline">\((x_0, y_0)\)</span> 点上在方向 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span>
+方向上的函数变化速率了。</p>
+<p>那么梯度是什么呢？梯度就是 <span class="math inline">\(z\)</span> 在
+<span class="math inline">\((x_0, y_0)\)</span>
+点上函数变化速度最快的方向，也就是方向向量最大的方向。</p>
+<p>什么时候方向向量能取到最大呢？<span class="math inline">\(D_uf(x,y)=\begin{bmatrix}f&#39;_x(x,y)&amp;f&#39;_y(x,y)\end{bmatrix}\begin{bmatrix}cos\theta
+\\ sin\theta\end{bmatrix}=\pmb A*\pmb I\)</span>，当 <span class="math inline">\((cos\theta, sin\theta) // (f&#39;_x(x,y),
+f&#39;_y(x,y))\)</span> 时能够取到最大值，此时在 <span class="math inline">\((x_0,y_0)\)</span> 的梯度 <span class="math inline">\(\pmb I=\begin{bmatrix}\frac{\partial f}{\partial
+x_0} \\ \frac{\partial f}{\partial y_0}\end{bmatrix}\)</span></p>
 <p>梯度本质是<strong>矢量</strong>，在其方向上该点的方向向量最大。</p>
 <span id="more"></span>
 <p>1.2 Gradient Descent</p>
@@ -286,30 +299,53 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
 <p>1.2.2 Algorithm</p>
 <p>首先我们先定义一下问题：</p>
 <blockquote>
-<p>函数 <span class="math inline">\(f(x)\)</span> 为在 <span class="math inline">\(R^n\)</span> 上具有一阶连续偏导数的函数（note：这里 <span class="math inline">\(x\)</span> 其实是 <span class="math inline">\(n\)</span> 维向量 <span class="math inline">\(x=(x_1,x_2,\cdots,x_n)\)</span>）</p>
+<p>函数 <span class="math inline">\(f(x)\)</span> 为在 <span class="math inline">\(R^n\)</span>
+上具有一阶连续偏导数的函数（note：这里 <span class="math inline">\(x\)</span> 其实是 <span class="math inline">\(n\)</span> 维向量 <span class="math inline">\(x=(x_1,x_2,\cdots,x_n)\)</span>）</p>
 <p>在无约束的情况下我们希望得到目标函数 <span class="math inline">\(f(x)\)</span> 的极小值。</p>
 </blockquote>
 <p>具体实现算法：</p>
 <blockquote>
 <p>初始化 <span class="math inline">\(x\)</span> 数值，记作 <span class="math inline">\(x^0\)</span></p>
-<p>第k+1轮迭代：<span class="math inline">\(x^{k+1} = x^k+\lambda_kp_k\)</span> 其中 <span class="math inline">\(p_k\)</span> 为函数更新方向，取第k轮函数的负梯度（函数值下降最快的方向）：<span class="math inline">\(p_k=-\nabla f(x^k)\)</span> 其中 <span class="math inline">\(\lambda_k\)</span> 为函数更新的步长，由一维搜索得到：<span class="math inline">\(\lambda_k=\underset{\lambda}{\operatorname{argmin}}f(x^k+\lambda p_k)=\underset{\lambda}{\operatorname{argmin}}f(x^k-\lambda\nabla f(x^k))\)</span> 具体实现：预先定义多个值进行计算，需要多次尝试。</p>
-<p>当 <span class="math inline">\(\nabla f(x^k)&lt;\epsilon\)</span> 时（即梯度下降缓慢时）停止迭代 注意此算法本身只能保证达到local optimum，不能保证全局最优，因此需要多次重新初始化尝试。</p>
+<p>第k+1轮迭代：<span class="math inline">\(x^{k+1} =
+x^k+\lambda_kp_k\)</span> 其中 <span class="math inline">\(p_k\)</span>
+为函数更新方向，取第k轮函数的负梯度（函数值下降最快的方向）：<span class="math inline">\(p_k=-\nabla f(x^k)\)</span> 其中 <span class="math inline">\(\lambda_k\)</span>
+为函数更新的步长，由一维搜索得到：<span class="math inline">\(\lambda_k=\underset{\lambda}{\operatorname{argmin}}f(x^k+\lambda
+p_k)=\underset{\lambda}{\operatorname{argmin}}f(x^k-\lambda\nabla
+f(x^k))\)</span> 具体实现：预先定义多个值进行计算，需要多次尝试。</p>
+<p>当 <span class="math inline">\(\nabla f(x^k)&lt;\epsilon\)</span>
+时（即梯度下降缓慢时）停止迭代 注意此算法本身只能保证达到local
+optimum，不能保证全局最优，因此需要多次重新初始化尝试。</p>
 </blockquote>
-<p>对于上述的梯度更新规则可以写成 <span class="math inline">\(x^{k+1} = x^k-\lambda_k\nabla f(x^k)\)</span>，这里的 <span class="math inline">\(f(x)\)</span> 只是一个一般性的简写，对于机器学习的问题而言一般是loss function，对于一般的线性回归问题，其业已写成 <span class="math inline">\(Loss=f(w)=(\sum _{j=0}^pw_jx_j-y)^2\)</span>其中 <span class="math inline">\(w=(w_1, w_2, \cdots, w_p)\)</span> 是我们希望更新的参数，它和输出/feature <span class="math inline">\(x=(x_1, x_2, \cdots, x_p)\)</span> 一样是p纬度的向量，<span class="math inline">\(y\)</span> 为该feature的实际label。（注意上述都是仅针对单个样本点的操作）</p>
+<p>对于上述的梯度更新规则可以写成 <span class="math inline">\(x^{k+1} =
+x^k-\lambda_k\nabla f(x^k)\)</span>，这里的 <span class="math inline">\(f(x)\)</span>
+只是一个一般性的简写，对于机器学习的问题而言一般是loss
+function，对于一般的线性回归问题，其业已写成 <span class="math inline">\(Loss=f(w)=(\sum _{j=0}^pw_jx_j-y)^2\)</span>其中
+<span class="math inline">\(w=(w_1, w_2, \cdots, w_p)\)</span>
+是我们希望更新的参数，它和输出/feature <span class="math inline">\(x=(x_1, x_2, \cdots, x_p)\)</span>
+一样是p纬度的向量，<span class="math inline">\(y\)</span>
+为该feature的实际label。（注意上述都是仅针对单个样本点的操作）</p>
 <p>那么具体的梯度求解如下： <span class="math display">\[
 \begin{aligned}
 \frac{\partial Loss}{w_i}
 &amp;=\frac{\partial(\sum _{j=0}^pw_jx_j-y)^2}{\partial w_i}\\
-&amp;=2(\sum _{j=0}^pw_jx_j-y)\frac{\partial(\sum _{j=0}^pw_jx_j-y)}{\partial w_i}\\
+&amp;=2(\sum _{j=0}^pw_jx_j-y)\frac{\partial(\sum
+_{j=0}^pw_jx_j-y)}{\partial w_i}\\
 &amp;=2(\sum _{j=0}^pw_jx_j-y)x_i
 \end{aligned}
-\]</span> 假设我们用单个样本 <span class="math inline">\(x\)</span> 计算梯度下降，求出的Loss导数为 <span class="math inline">\(\begin{bmatrix}\frac{\partial Loss(x)}{\partial w_1} \\ \vdots \\ \frac{\partial Loss(x)}{\partial w_p}\end{bmatrix}\)</span></p>
+\]</span> 假设我们用单个样本 <span class="math inline">\(x\)</span>
+计算梯度下降，求出的Loss导数为 <span class="math inline">\(\begin{bmatrix}\frac{\partial Loss(x)}{\partial
+w_1} \\ \vdots \\ \frac{\partial Loss(x)}{\partial
+w_p}\end{bmatrix}\)</span></p>
 <p>1.2.3 BGD--Batch Gradient Descent</p>
 <p>为了加速参数的更新，往往不会对每一个样本都计算梯度进行更新，事实上是一次性传入一个batch的数据，在更新参数时使用整个batch的数据结果进行更新。</p>
-<p>假设我们用 <span class="math inline">\((x^1,\cdots,x^i,\dots,x^n)\)</span> 一起计算梯度下降，求出的Loss导数为 <span class="math inline">\(\frac{1}{n}\begin{bmatrix}\sum_{i=1}^n\frac{\partial Loss(x^i)}{\partial w_1} \\ \vdots \\ \sum_{i=1}^n\frac{\partial Loss(x^i)}{\partial w_p}\end{bmatrix}\)</span>。</p>
+<p>假设我们用 <span class="math inline">\((x^1,\cdots,x^i,\dots,x^n)\)</span>
+一起计算梯度下降，求出的Loss导数为 <span class="math inline">\(\frac{1}{n}\begin{bmatrix}\sum_{i=1}^n\frac{\partial
+Loss(x^i)}{\partial w_1} \\ \vdots \\ \sum_{i=1}^n\frac{\partial
+Loss(x^i)}{\partial w_p}\end{bmatrix}\)</span>。</p>
 <p>1.2.4 SGD--Stochastic Gradient Descent</p>
 <p>在数据量相当大的时候，BGD的开销也过于庞大了，为此数学家们考虑每次更新随机采样一个样本来控制梯度方向--这样做梯度的变化可能会出现较大的波动，但是数据量足够，数学上期望与BGD相同。SGD训练速度最快。</p>
-<p>此外由于SGD本身受离群样本影响大，因此可能会难以收敛，实际应用中往往采用中折--即每次更新采用样本的部分数据进行训练--MBGD--Mini-batch Gradient Descent。</p>
+<p>此外由于SGD本身受离群样本影响大，因此可能会难以收敛，实际应用中往往采用中折--即每次更新采用样本的部分数据进行训练--MBGD--Mini-batch
+Gradient Descent。</p>
 <h3 id="newton-method">2. Newton Method</h3>
 <p>2.1 Solve Equation</p>
 <p>牛顿法最早使用来求解方程实数根的。问题很简单：求方程 <span class="math inline">\(f(x)\)</span> 的实数根。</p>
@@ -318,24 +354,40 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
 <p>令 <span class="math inline">\(f(x)=0\)</span>，则 <span class="math inline">\(f(x_0)+f&#39;(x_0)(x-x_0)=0\)</span>，<span class="math inline">\(x_1=x_0-f(x_0)/f&#39;(x_0)\)</span></p>
 <p>再将 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x_1\)</span> 处Taylor一阶展开，迭代直到 <span class="math inline">\(||f(x)||&lt;\epsilon\)</span>。</p>
 </blockquote>
-<p>简单解释一下：如果一个方程连续且有正值有负值，那么就一定有根，牛顿法可以从任意起点开始，每次迭代都是沿点的斜率方向向 <span class="math inline">\(x\)</span> 轴做直线，相交得到下一个迭代点，由此理论上必能收敛。</p>
+<p>简单解释一下：如果一个方程连续且有正值有负值，那么就一定有根，牛顿法可以从任意起点开始，每次迭代都是沿点的斜率方向向
+<span class="math inline">\(x\)</span>
+轴做直线，相交得到下一个迭代点，由此理论上必能收敛。</p>
 <p>2.2 Optimization Problem</p>
 <p>回顾一下问题</p>
 <blockquote>
-<p>我们所面对的是无约束的优化问题，希望得到 <span class="math inline">\(minf(x)\)</span>，注意这里对于机器学习问题而言 <span class="math inline">\(x\)</span> 很有可能是多维的，<span class="math inline">\(x\in R^{p*1}\)</span></p>
-<p>梯度下降法里面我们需要假设 <span class="math inline">\(f(x)\)</span> 一阶可导，在牛顿法中需要加强为<strong>二阶可导</strong>。</p>
+<p>我们所面对的是无约束的优化问题，希望得到 <span class="math inline">\(minf(x)\)</span>，注意这里对于机器学习问题而言
+<span class="math inline">\(x\)</span> 很有可能是多维的，<span class="math inline">\(x\in R^{p*1}\)</span></p>
+<p>梯度下降法里面我们需要假设 <span class="math inline">\(f(x)\)</span>
+一阶可导，在牛顿法中需要加强为<strong>二阶可导</strong>。</p>
 </blockquote>
 <blockquote>
 <p>我们将 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x_k\)</span> （此处假设已经迭代了 <span class="math inline">\(k\)</span> 轮）处进行二阶Taylor展开： <span class="math display">\[
 f(x)=f(x^k)+g_k^T(x-x^k)+\frac{1}{2}(x-x^k)^TH(x^k)(x-x^k)
-\]</span> 其中 <span class="math inline">\(g_k=\nabla f(x^k) \in R^{p*1}\)</span> 是 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^k\)</span> 处的梯度；<span class="math inline">\(H(x^k)=\begin{bmatrix}\frac{\partial ^2f(x^k)}{\partial x_i \partial y_i}\end{bmatrix} \in R^{p*p}\)</span> 为 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^k\)</span> 处的Hessian矩阵/二阶导数。</p>
+\]</span> 其中 <span class="math inline">\(g_k=\nabla f(x^k) \in
+R^{p*1}\)</span> 是 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^k\)</span> 处的梯度；<span class="math inline">\(H(x^k)=\begin{bmatrix}\frac{\partial
+^2f(x^k)}{\partial x_i \partial y_i}\end{bmatrix} \in R^{p*p}\)</span>
+为 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^k\)</span> 处的Hessian矩阵/二阶导数。</p>
 </blockquote>
-<p>求解 <span class="math inline">\(f(x)\)</span> 极值的必要条件是什么呢？<span class="math inline">\(f(x)\)</span> 的一阶导数，也就是 <span class="math inline">\(g_k=\nabla f(x^k)=0\)</span>；并且 <span class="math inline">\(H(x^k)\)</span> 为正定矩阵时，得到最小值（可以理解为此点所有方向的二次导数均大于0 <a target="_blank" rel="noopener" href="https://blog.csdn.net/quicmous/article/details/53317512">FYI</a>）</p>
+<p>求解 <span class="math inline">\(f(x)\)</span>
+极值的必要条件是什么呢？<span class="math inline">\(f(x)\)</span>
+的一阶导数，也就是 <span class="math inline">\(g_k=\nabla
+f(x^k)=0\)</span>；并且 <span class="math inline">\(H(x^k)\)</span>
+为正定矩阵时，得到最小值（可以理解为此点所有方向的二次导数均大于0 <a target="_blank" rel="noopener" href="https://blog.csdn.net/quicmous/article/details/53317512">FYI</a>）</p>
 <p>那么这个问题就再次转化为了对 <span class="math inline">\(g_k=0\)</span> 的牛顿法求根：</p>
 <blockquote>
-<p>求 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^0\)</span> 处的梯度 <span class="math inline">\(g_0=\nabla f(x^0)\)</span>，进行一阶Taylor展开：<span class="math inline">\(\nabla f(x)=\nabla f(x^0)+H(x^0)(x-x^0)=0\)</span></p>
-<p>则 <span class="math inline">\(x^1=x^0-H^{-1}(x^0)\nabla f(x)\)</span>，令 <span class="math inline">\(p(x^k)=-H^{-1}(x^k)\nabla f(x^k)\)</span>，可以简化写为 <span class="math inline">\(x_1=x_0+p(x^0)\)</span></p>
-<p>不断迭代直到 <span class="math inline">\(||\nabla f(x)||&lt;\epsilon\)</span></p>
+<p>求 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^0\)</span> 处的梯度 <span class="math inline">\(g_0=\nabla
+f(x^0)\)</span>，进行一阶Taylor展开：<span class="math inline">\(\nabla
+f(x)=\nabla f(x^0)+H(x^0)(x-x^0)=0\)</span></p>
+<p>则 <span class="math inline">\(x^1=x^0-H^{-1}(x^0)\nabla
+f(x)\)</span>，令 <span class="math inline">\(p(x^k)=-H^{-1}(x^k)\nabla
+f(x^k)\)</span>，可以简化写为 <span class="math inline">\(x_1=x_0+p(x^0)\)</span></p>
+<p>不断迭代直到 <span class="math inline">\(||\nabla
+f(x)||&lt;\epsilon\)</span></p>
 <p>其中迭代方程为 <span class="math inline">\(x^{k+1}=x^k-H^{-1}_kg_k=x^k+p_k\)</span></p>
 </blockquote>
 <p>2.3 Comparation with Gradient Descent</p>
@@ -343,21 +395,34 @@ f(x)=f(x^k)+g_k^T(x-x^k)+\frac{1}{2}(x-x^k)^TH(x^k)(x-x^k)
 <p>由于梯度下降法是求梯度，在wiki上解释为用一个平面拟合当前点（所在局部）；但是牛顿法相当于是对梯度进行一阶Taylor展开，所以可以理解为是用一个曲面拟合当前点。</p>
 <p>或者从每次迭代的角度看：梯度下降只考虑了当前点哪个方向梯度最小（函数值下降最快），而牛顿法加入了Hessian矩阵，相当于还考虑了每次迭代后的梯度的变化（而不单单是函数值变化）。</p>
 <p>但是要意识到牛顿法本质是对函数值进行了二阶Taylor展开，所以如果初始值距离极值点太远，那么Taylor近似效果就会很差，所以可以考虑先用梯度下降再用牛顿法。</p>
-<p>对于梯度下降法往往在最后极值点处会出现反复震荡（这也是会什么梯度下降中往往会让步长逐渐缩短），对于牛顿法而言也是如此，因此也需要对步长进行衰减，称之为“阻尼牛顿法”：<span class="math inline">\(x^{k+1}=x^k-\lambda _kH^{-1}_kg_k=x^k+\lambda _kp_k\)</span></p>
+<p>对于梯度下降法往往在最后极值点处会出现反复震荡（这也是会什么梯度下降中往往会让步长逐渐缩短），对于牛顿法而言也是如此，因此也需要对步长进行衰减，称之为“阻尼牛顿法”：<span class="math inline">\(x^{k+1}=x^k-\lambda _kH^{-1}_kg_k=x^k+\lambda
+_kp_k\)</span></p>
 <p>牛顿法是二次收敛（二阶导数收敛）：对于二次函数，Hessian函数退化为常数（二阶导数为常数），因此可以一步到达；对于非二次函数，如果有好的二次性或已经临近收敛，则效果很好。</p>
 <h3 id="quasi-newton-method">3. Quasi-Newton Method</h3>
 <p>3.1 Basic Idea</p>
 <p>牛顿法已经很好了，但是有一个很大的问题--由于input的feature可能会非常多维度，因此Hessian矩阵可能会很大，继而计算Hessian矩阵的逆就会很困难。</p>
-<p>牛顿法的迭代公式（第 <span class="math inline">\(k\)</span> 轮）为：<span class="math inline">\(\nabla f(x)=\nabla f(x^k)+H(x^k)(x-x^k)=0\)</span></p>
-<p>令 <span class="math inline">\(x=x^{k+1}\)</span>，带入原式： <span class="math inline">\(\nabla f(x)=\nabla f(x^k)+H(x^k)(x-x^k)\)</span>，则得到 <span class="math inline">\(\nabla f(x^{k+1})=\nabla f(x^k)+H(x^k)(x^{k+1}-x^k)\)</span></p>
-<p>变形本式得到：<span class="math inline">\(\nabla f(x^{k+1})-\nabla f(x^k)=H(x^k)(x^{k+1}-x^k)\)</span></p>
-<p>令 <span class="math inline">\(y_k=\nabla f(x^{k+1})-\nabla f(x^k)\)</span>，<span class="math inline">\(\delta_k=x^{k+1}-x^k\)</span>，则上式又可以写作 <span class="math inline">\(y_k=H(x^k)\delta_k\)</span>，亦可以写作 <span class="math inline">\(H^{-1}(x^k)y_k=\delta_k\)</span></p>
-<p>此式即为<strong>拟牛顿条件</strong>（quasi-Newton condition），所有对Hessian矩阵近似的方法都应该满足次条件。</p>
-<p>常用的近似方法有：DFP (Davidon-Fletcher-Powell) Algorithm，BFGS (Broyden-Fletcher-Goldfard-Shano) Algorithm，L-BFGS (Limited-memory BFGS) Algorithm</p>
+<p>牛顿法的迭代公式（第 <span class="math inline">\(k\)</span>
+轮）为：<span class="math inline">\(\nabla f(x)=\nabla
+f(x^k)+H(x^k)(x-x^k)=0\)</span></p>
+<p>令 <span class="math inline">\(x=x^{k+1}\)</span>，带入原式： <span class="math inline">\(\nabla f(x)=\nabla
+f(x^k)+H(x^k)(x-x^k)\)</span>，则得到 <span class="math inline">\(\nabla
+f(x^{k+1})=\nabla f(x^k)+H(x^k)(x^{k+1}-x^k)\)</span></p>
+<p>变形本式得到：<span class="math inline">\(\nabla f(x^{k+1})-\nabla
+f(x^k)=H(x^k)(x^{k+1}-x^k)\)</span></p>
+<p>令 <span class="math inline">\(y_k=\nabla f(x^{k+1})-\nabla
+f(x^k)\)</span>，<span class="math inline">\(\delta_k=x^{k+1}-x^k\)</span>，则上式又可以写作
+<span class="math inline">\(y_k=H(x^k)\delta_k\)</span>，亦可以写作
+<span class="math inline">\(H^{-1}(x^k)y_k=\delta_k\)</span></p>
+<p>此式即为<strong>拟牛顿条件</strong>（quasi-Newton
+condition），所有对Hessian矩阵近似的方法都应该满足次条件。</p>
+<p>常用的近似方法有：DFP (Davidon-Fletcher-Powell) Algorithm，BFGS
+(Broyden-Fletcher-Goldfard-Shano) Algorithm，L-BFGS (Limited-memory
+BFGS) Algorithm</p>
 <h3 id="more">More</h3>
 <p>既然牛顿法收敛会快很多，那么为什么深度学习依然使用梯度下降（一阶收敛）呢？</p>
 <ul>
-<li>计算复杂度高--<span class="math inline">\(Hessian \in R^{n*n}\)</span>，Hessian矩阵大小为参数的平方。</li>
+<li>计算复杂度高--<span class="math inline">\(Hessian \in
+R^{n*n}\)</span>，Hessian矩阵大小为参数的平方。</li>
 <li>拟牛顿法对Hessian的近似由于神经网络的不确定性导致其近似方差不确定，会使优化算法本身不稳定</li>
 <li>牛顿法要求目标函数为凸，Hessian才能保证正定。</li>
 <li>牛顿法可以快速得到高精度的参数，但是深层网络对单个参数的精度并不敏感，甚至于不精确的参数对网络的泛化能力有帮助。</li>
@@ -473,7 +538,7 @@ f(x)=f(x^k)+g_k^T(x-x^k)+\frac{1}{2}(x-x^k)^TH(x^k)(x-x^k)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

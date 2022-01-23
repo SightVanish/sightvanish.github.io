@@ -258,27 +258,41 @@
 
       
         <h3 id="pr-curve">PR Curve</h3>
-<p><strong>IoU</strong>(Intersection over union): 两个bounding box( ground truth + proposed)之间重合部分的比例. <span class="math inline">\(IoU=\frac{A \cap B}{A \cup B}\)</span></p>
-<p><strong>TP</strong>(True positive): 对于所有ground truth检测IoU&gt;=IoU<sub>threshold</sub>(IoU<sub>threshold</sub>一般取0.5)--有多少真实的bounding box被detect到(一个ground truth只考虑一次)</p>
-<p><strong>FP</strong>(False positive): 对于所有ground truth检测IoU&lt;IoU<sub>threshold</sub>(IoU<sub>threshold</sub>一般取0.5)--每个ground truth有多少无效(IoU过低)/多余(多次检测同一个)的检测框</p>
-<p><strong>FN</strong>(False negative): 有多少真实的bounding box没有被detect到(一个ground truth只考虑一次)</p>
-<p><strong>Precision</strong> = <span class="math inline">\(\frac{TP}{TP+FP}\)</span>--在检测为真的bounding box中有多少是有效的: <span class="math inline">\(Precision=\frac{TrueSamplesDetected}{AllDetecion}\)</span></p>
-<p><strong>Recall</strong> = <span class="math inline">\(\frac{TP}{TP+FN}\)</span>--ground truth的bounding box有多少能被检测到: <span class="math inline">\(Recall=\frac{TrueSamplesDetected}{AllTrueSamples}\)</span></p>
+<p><strong>IoU</strong>(Intersection over union): 两个bounding box(
+ground truth + proposed)之间重合部分的比例. <span class="math inline">\(IoU=\frac{A \cap B}{A \cup B}\)</span></p>
+<p><strong>TP</strong>(True positive): 对于所有ground
+truth检测IoU&gt;=IoU<sub>threshold</sub>(IoU<sub>threshold</sub>一般取0.5)--有多少真实的bounding
+box被detect到(一个ground truth只考虑一次)</p>
+<p><strong>FP</strong>(False positive): 对于所有ground
+truth检测IoU&lt;IoU<sub>threshold</sub>(IoU<sub>threshold</sub>一般取0.5)--每个ground
+truth有多少无效(IoU过低)/多余(多次检测同一个)的检测框</p>
+<p><strong>FN</strong>(False negative): 有多少真实的bounding
+box没有被detect到(一个ground truth只考虑一次)</p>
+<p><strong>Precision</strong> = <span class="math inline">\(\frac{TP}{TP+FP}\)</span>--在检测为真的bounding
+box中有多少是有效的: <span class="math inline">\(Precision=\frac{TrueSamplesDetected}{AllDetecion}\)</span></p>
+<p><strong>Recall</strong> = <span class="math inline">\(\frac{TP}{TP+FN}\)</span>--ground truth的bounding
+box有多少能被检测到: <span class="math inline">\(Recall=\frac{TrueSamplesDetected}{AllTrueSamples}\)</span></p>
 <p><strong>PR Curve</strong>: recall(x)-precision(y) curve</p>
 <span id="more"></span>
 <h3 id="ap----average-precision">AP -- average precision</h3>
 <ol type="1">
-<li><p>Suppose there are m targets(ground truth) and we propose n bounding boxes(predicted).</p></li>
-<li><p>Mark all bounding boxed with TP/FP. If a target is detected by more than one bounding boxes, mark the bounding box with the highest IoU(&gt;=IoU<sub>threshold</sub>) as TP and others as FP.</p></li>
+<li><p>Suppose there are m targets(ground truth) and we propose n
+bounding boxes(predicted).</p></li>
+<li><p>Mark all bounding boxed with TP/FP. If a target is detected by
+more than one bounding boxes, mark the bounding box with the highest
+IoU(&gt;=IoU<sub>threshold</sub>) as TP and others as FP.</p></li>
 <li><p>Then we can derive PR curve.</p>
 <p>Precision = accumulatedTP / (accumulatedTP+accumulatedFP)</p>
 <p>Recall = accumulatedTP / All ground truth</p>
 <p><img src="/2021/10/15/mAP-in-object-detection/1.jpg"></p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/53405779">image reference</a></p></li>
-<li><p>AP = the area under the PR curve. (可以通过对PR曲线均匀sample得到--sample得到的点通过线性插值得到结果)</p></li>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/53405779">image
+reference</a></p></li>
+<li><p>AP = the area under the PR curve.
+(可以通过对PR曲线均匀sample得到--sample得到的点通过线性插值得到结果)</p></li>
 </ol>
 <h3 id="map">mAP</h3>
-<p>So far, we can derive AP for a <strong>single</strong> type of target. Derive AP for all types-&gt;average-&gt;mAP.</p>
+<p>So far, we can derive AP for a <strong>single</strong> type of
+target. Derive AP for all types-&gt;average-&gt;mAP.</p>
 
     </div>
 
@@ -390,7 +404,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
