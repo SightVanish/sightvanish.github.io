@@ -203,6 +203,179 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/01/23/A-brief-introduction-to-Embedding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/23/A-brief-introduction-to-Embedding/" class="post-title-link" itemprop="url">A brief introduction to Embedding</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-01-23 16:08:52 / Modified: 18:56:08" itemprop="dateCreated datePublished" datetime="2022-01-23T16:08:52+08:00">2022-01-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Embedding a technique widely used in Recommender System. The first
+time I met it, it confuesd me for a long time. Now let me take 5 minutes
+to tell you what is Embedding. It will be just a brief introduction
+without going to details.</p>
+<p>In the field of Compuer Vision, all the data you get is labelled
+images. It is easy to encode an image in computer, like RGB. However,
+for Recommender System, what you get is 'user id', 'historial behavior',
+'item name', 'item category'. Your data may look like that:</p>
+<table>
+<colgroup>
+<col style="width: 7%">
+<col style="width: 43%">
+<col style="width: 35%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>User id</th>
+<th>Historial behavior <br>(what he bought)</th>
+<th>Item name <br>(recommended item)</th>
+<th>Item category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Jack</td>
+<td>Sweater, Shoes, Watch, Banana</td>
+<td>Apple</td>
+<td>Fruit</td>
+</tr>
+<tr class="even">
+<td>John</td>
+<td>Banana, Apple, Watch</td>
+<td>Sweater</td>
+<td>Clothes</td>
+</tr>
+<tr class="odd">
+<td>Steven</td>
+<td>Computer, Credit Card,</td>
+<td>Banana</td>
+<td>Fruit</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>Sweater, Book, Pen, Banana</td>
+<td>Shoes</td>
+<td>Clothes</td>
+</tr>
+</tbody>
+</table>
+<p>(We may also need the category information for items in 'historial
+behavior' in read Recommender.)</p>
+<p>But string type can not be feed to nural net. What can we do? A
+simple way is one-hot.</p>
+<p>After one-hot, item name may look like that:</p>
+<table>
+<thead>
+<tr class="header">
+<th>item category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1000 (Apple)</td>
+</tr>
+<tr class="even">
+<td>0100 (Sweater)</td>
+</tr>
+<tr class="odd">
+<td>0010 (Banana)</td>
+</tr>
+<tr class="even">
+<td>0001 (Shoes)</td>
+</tr>
+</tbody>
+</table>
+<p>Well, it seems one-hot has already solved such problem. So why should
+we introduce embedding?</p>
+<p>The most important reason is one-hot embedding ignores inner relation
+between each value. Such inner relation is also called as high-order
+information. Eg. "Apple" is obviously related to "Banana" but not
+"Shoes". But "Apple" x "Banana" = (1,0,0,0) x (0,0,1,0) = 0; "Apple" x
+"Shoes" = (1,0,0,0) x (0,0,0,1) = 0. One-hot encoding can not present
+the relation between "Apple" and "Shoes".</p>
+<p>Thus, we introduce a single layer of Full-Connnect layer to learn
+such inner relation. Well, this <strong>Full-Connect layer</strong> is
+exactly <strong>embedding</strong>.</p>
+<p>What is the difference between embedding and FC layer?</p>
+<p>From the view of network, they are exactly same. But since the input
+of this FC layer is one-hot encoded, we do not need to really implement
+a FC layer which may be costly. Instead, we implement a look-up table.
+The original string input can look up its value in this look-up table
+via its index in word dictionary. This look-up table is trainable and
+performance just like FC layer. So the truth is: <strong>no embedding,
+just one-hot.</strong></p>
+<p>How to embedding sequence information like historial behavior?</p>
+<p>One way is you can embed sequence input to sequence output. Your net
+may be modified to fit such input with various sequence length. Another
+way is to fuse sequence input to one via mean or something like it.</p>
+<p>The final question is how to build an embedding look-up table?</p>
+<p>The first step is to collect the word dictionary. You have to know
+how many words you have.</p>
+<p>The second step is one-hot encoding. You may hash input first so that
+you can reduce the number of values to be encoded.</p>
+<p>The final step is to construct a trainable look-up table. The init
+value is random.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/01/20/PySpark-Install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -925,104 +1098,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/" class="post-title-link" itemprop="url">Gradient Descent, Newton Method and Quasi-Newton Method</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-15 17:45:52" itemprop="dateCreated datePublished" datetime="2021-10-15T17:45:52+08:00">2021-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-24 23:39:42" itemprop="dateModified" datetime="2021-10-24T23:39:42+08:00">2021-10-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="gradient-descent">1. Gradient Descent</h3>
-<p>1.1 Gradient</p>
-<p>1.1.1 Derivative</p>
-<p>针对一元函数 <span class="math inline">\(y=f(x)\)</span>，导数 <span class="math inline">\(f&#39;(x_0)\)</span> 表示了该函数在<span class="math inline">\(x_0\)</span>处的函数斜率/增加速率。</p>
-<p>1.1.2 Partial Derivative--偏导数，部分的导数</p>
-<p>针对多元函数（此处考虑二元函数<span class="math inline">\(z=f(x,y)\)</span>），导数 <span class="math inline">\(f&#39;(x_0, y_0)\)</span> 就有些模糊不清了，为此我们先简化到一元的情况：固定 <span class="math inline">\(y=y_0\)</span>，<span class="math inline">\(z=f(x,y)\)</span>，二元函数便降纬为<span class="math inline">\(z=f(x, y_0)\)</span> ，此时我们可以定义在 <span class="math inline">\(x\)</span> 方向上的偏导数 <span class="math inline">\(f&#39;_x(x_0, y_0)\)</span>，其表示该函数在<span class="math inline">\((x_0, y_0)\)</span>点处沿 <span class="math inline">\(x\)</span> 方向函数斜率/增加速率。类似的我们可以得到在 <span class="math inline">\(y\)</span> 方向的偏导数。</p>
-<p>1.1.3 Directional Derivative</p>
-<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(x=x_0\)</span> 或 <span class="math inline">\(y=y_0\)</span> 方向上的函数速率变化了。</p>
-<p>现在基于这两个偏导数我们已经可以求出 <span class="math inline">\(x-y\)</span> 平面任何方向的导数了：假设求 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向的导数（其中<span class="math inline">\(\theta\)</span>表示该向量方向与<span class="math inline">\(x\)</span>轴正方向的夹角，<span class="math inline">\(\vec{i}\)</span>表示<span class="math inline">\(x\)</span>轴正方向，<span class="math inline">\(\vec{j}\)</span>表示<span class="math inline">\(y\)</span>轴正方向） <span class="math display">\[
-D_uf(x,y)=\lim_{x \to \infty}\frac{f(x_0+tcos\theta,y_0+tsin\theta)}{t}
-\]</span> 本质上方向导数是偏导数的一种推广，通过调整方向导数中 <span class="math inline">\(\theta\)</span> 的值也能够简化为偏导数形式。</p>
-<p>但是如果我们观察 <span class="math inline">\(u\)</span> 本身，在 <span class="math inline">\(u\)</span> 方向求导，其实相当于在 <span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span> 方向分别求偏导之后的线性组合： <span class="math display">\[
-D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
-\]</span> 1.1.4 Gradient</p>
-<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在 <span class="math inline">\((x_0, y_0)\)</span> 点上在方向 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span> 方向上的函数变化速率了。</p>
-<p>那么梯度是什么呢？梯度就是 <span class="math inline">\(z\)</span> 在 <span class="math inline">\((x_0, y_0)\)</span> 点上函数变化速度最快的方向，也就是方向向量最大的方向。</p>
-<p>什么时候方向向量能取到最大呢？<span class="math inline">\(D_uf(x,y)=\begin{bmatrix}f&#39;_x(x,y)&amp;f&#39;_y(x,y)\end{bmatrix}\begin{bmatrix}cos\theta \\ sin\theta\end{bmatrix}=\pmb A*\pmb I\)</span>，当 <span class="math inline">\((cos\theta, sin\theta) // (f&#39;_x(x,y), f&#39;_y(x,y))\)</span> 时能够取到最大值，此时在 <span class="math inline">\((x_0,y_0)\)</span> 的梯度 <span class="math inline">\(\pmb I=\begin{bmatrix}\frac{\partial f}{\partial x_0} \\ \frac{\partial f}{\partial y_0}\end{bmatrix}\)</span></p>
-<p>梯度本质是<strong>矢量</strong>，在其方向上该点的方向向量最大。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1094,7 +1169,7 @@ D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-count">85</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

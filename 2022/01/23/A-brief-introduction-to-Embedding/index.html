@@ -20,20 +20,19 @@
     var CONFIG = {"hostname":"sightvanish.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="问题描述 在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用easyBCD也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。 ## 问题解决 本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。 我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的">
+  <meta name="description" content="Embedding a technique widely used in Recommender System. The first time I met it, it confuesd me for a long time. Now let me take 5 minutes to tell you what is Embedding. It will be just a brief intro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题">
-<meta property="og:url" content="https://sightvanish.github.io/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="A brief introduction to Embedding">
+<meta property="og:url" content="https://sightvanish.github.io/2022/01/23/A-brief-introduction-to-Embedding/index.html">
 <meta property="og:site_name" content="Wu Times">
-<meta property="og:description" content="问题描述 在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用easyBCD也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。 ## 问题解决 本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。 我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的">
+<meta property="og:description" content="Embedding a technique widely used in Recommender System. The first time I met it, it confuesd me for a long time. Now let me take 5 minutes to tell you what is Embedding. It will be just a brief intro">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-20T09:38:37.000Z">
-<meta property="article:modified_time" content="2021-09-15T06:03:09.674Z">
+<meta property="article:published_time" content="2022-01-23T08:08:52.000Z">
+<meta property="article:modified_time" content="2022-01-23T10:56:08.707Z">
 <meta property="article:author" content="Li Wuchen">
-<meta property="article:tag" content="-ubuntu -install">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://sightvanish.github.io/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/">
+<link rel="canonical" href="https://sightvanish.github.io/2022/01/23/A-brief-introduction-to-Embedding/">
 
 
 <script id="page-configurations">
@@ -46,7 +45,7 @@
   };
 </script>
 
-  <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题 | Wu Times</title>
+  <title>A brief introduction to Embedding | Wu Times</title>
   
 
 
@@ -209,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/01/23/A-brief-introduction-to-Embedding/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -222,7 +221,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题
+          A brief introduction to Embedding
         </h1>
 
         <div class="post-meta">
@@ -231,23 +230,17 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-05-20 17:38:37" itemprop="dateCreated datePublished" datetime="2020-05-20T17:38:37+08:00">2020-05-20</time>
+              <time title="Created: 2022-01-23 16:08:52 / Modified: 18:56:08" itemprop="dateCreated datePublished" datetime="2022-01-23T16:08:52+08:00">2022-01-23</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 14:03:09" itemprop="dateModified" datetime="2021-09-15T14:03:09+08:00">2021-09-15</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
                 </span>
             </span>
 
@@ -262,8 +255,112 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="问题描述">问题描述</h2>
-<p>在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用<code>easyBCD</code>也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。 ## 问题解决 本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。 我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的引导是<code>UEFI+LEGACY</code>，那应该bios也行啊。 但是我抱着试试的态度把它改成<code>UEFI</code>，可能有些主板要改这个比较麻烦，然后上网找了个UEFI引导的ubuntu安装教程。 然后就打开了，困扰了好几天的问题解决了。 --- ## more 注意在bios里面把第一启动项改为ubuntu，然后再打开。 因为ubuntu可以引导windows，但是要让windows引导ubuntu需要用<code>easyuefi</code>自行配置 --- 这个问题很细节，但是同时也很恶心，反正就是要注意教程的环境和自己到底一不一样，还有就是要每一个设置的意义都要明白。</p>
+        <p>Embedding a technique widely used in Recommender System. The first
+time I met it, it confuesd me for a long time. Now let me take 5 minutes
+to tell you what is Embedding. It will be just a brief introduction
+without going to details.</p>
+<p>In the field of Compuer Vision, all the data you get is labelled
+images. It is easy to encode an image in computer, like RGB. However,
+for Recommender System, what you get is 'user id', 'historial behavior',
+'item name', 'item category'. Your data may look like that:</p>
+<table>
+<colgroup>
+<col style="width: 7%">
+<col style="width: 43%">
+<col style="width: 35%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>User id</th>
+<th>Historial behavior <br>(what he bought)</th>
+<th>Item name <br>(recommended item)</th>
+<th>Item category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Jack</td>
+<td>Sweater, Shoes, Watch, Banana</td>
+<td>Apple</td>
+<td>Fruit</td>
+</tr>
+<tr class="even">
+<td>John</td>
+<td>Banana, Apple, Watch</td>
+<td>Sweater</td>
+<td>Clothes</td>
+</tr>
+<tr class="odd">
+<td>Steven</td>
+<td>Computer, Credit Card,</td>
+<td>Banana</td>
+<td>Fruit</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>Sweater, Book, Pen, Banana</td>
+<td>Shoes</td>
+<td>Clothes</td>
+</tr>
+</tbody>
+</table>
+<p>(We may also need the category information for items in 'historial
+behavior' in read Recommender.)</p>
+<p>But string type can not be feed to nural net. What can we do? A
+simple way is one-hot.</p>
+<p>After one-hot, item name may look like that:</p>
+<table>
+<thead>
+<tr class="header">
+<th>item category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1000 (Apple)</td>
+</tr>
+<tr class="even">
+<td>0100 (Sweater)</td>
+</tr>
+<tr class="odd">
+<td>0010 (Banana)</td>
+</tr>
+<tr class="even">
+<td>0001 (Shoes)</td>
+</tr>
+</tbody>
+</table>
+<p>Well, it seems one-hot has already solved such problem. So why should
+we introduce embedding?</p>
+<p>The most important reason is one-hot embedding ignores inner relation
+between each value. Such inner relation is also called as high-order
+information. Eg. "Apple" is obviously related to "Banana" but not
+"Shoes". But "Apple" x "Banana" = (1,0,0,0) x (0,0,1,0) = 0; "Apple" x
+"Shoes" = (1,0,0,0) x (0,0,0,1) = 0. One-hot encoding can not present
+the relation between "Apple" and "Shoes".</p>
+<p>Thus, we introduce a single layer of Full-Connnect layer to learn
+such inner relation. Well, this <strong>Full-Connect layer</strong> is
+exactly <strong>embedding</strong>.</p>
+<p>What is the difference between embedding and FC layer?</p>
+<p>From the view of network, they are exactly same. But since the input
+of this FC layer is one-hot encoded, we do not need to really implement
+a FC layer which may be costly. Instead, we implement a look-up table.
+The original string input can look up its value in this look-up table
+via its index in word dictionary. This look-up table is trainable and
+performance just like FC layer. So the truth is: <strong>no embedding,
+just one-hot.</strong></p>
+<p>How to embedding sequence information like historial behavior?</p>
+<p>One way is you can embed sequence input to sequence output. Your net
+may be modified to fit such input with various sequence length. Another
+way is to fuse sequence input to one via mean or something like it.</p>
+<p>The final question is how to build an embedding look-up table?</p>
+<p>The first step is to collect the word dictionary. You have to know
+how many words you have.</p>
+<p>The second step is one-hot encoding. You may hash input first so that
+you can reduce the number of values to be encoded.</p>
+<p>The final step is to construct a trainable look-up table. The init
+value is random.</p>
 
     </div>
 
@@ -287,9 +384,6 @@
 
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/ubuntu-install/" rel="tag"># -ubuntu -install</a>
-          </div>
 
         
 
@@ -297,13 +391,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/05/20/hexo%E9%83%A8%E7%BD%B2%E5%88%B0git%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/" rel="prev" title="hexo部署到git出现不同步问题">
-      <i class="fa fa-chevron-left"></i> hexo部署到git出现不同步问题
+    <a href="/2022/01/20/PySpark-Install/" rel="prev" title="PySpark Install">
+      <i class="fa fa-chevron-left"></i> PySpark Install
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/" rel="next" title="MAC:已损坏，无法打开。 您应该将它移到废纸篓">
-      MAC:已损坏，无法打开。 您应该将它移到废纸篓 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -362,7 +453,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -490,6 +580,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>

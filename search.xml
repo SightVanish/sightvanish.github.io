@@ -3405,4 +3405,118 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
         <category>essay</category>
       </categories>
   </entry>
+  <entry>
+    <title>A brief introduction to Embedding</title>
+    <url>/2022/01/23/A-brief-introduction-to-Embedding/</url>
+    <content><![CDATA[<p>Embedding a technique widely used in Recommender System. The first
+time I met it, it confuesd me for a long time. Now let me take 5 minutes
+to tell you what is Embedding. It will be just a brief introduction
+without going to details.</p>
+<p>In the field of Compuer Vision, all the data you get is labelled
+images. It is easy to encode an image in computer, like RGB. However,
+for Recommender System, what you get is 'user id', 'historial behavior',
+'item name', 'item category'. Your data may look like that:</p>
+<table>
+<colgroup>
+<col style="width: 7%">
+<col style="width: 43%">
+<col style="width: 35%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>User id</th>
+<th>Historial behavior <br>(what he bought)</th>
+<th>Item name <br>(recommended item)</th>
+<th>Item category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Jack</td>
+<td>Sweater, Shoes, Watch, Banana</td>
+<td>Apple</td>
+<td>Fruit</td>
+</tr>
+<tr class="even">
+<td>John</td>
+<td>Banana, Apple, Watch</td>
+<td>Sweater</td>
+<td>Clothes</td>
+</tr>
+<tr class="odd">
+<td>Steven</td>
+<td>Computer, Credit Card,</td>
+<td>Banana</td>
+<td>Fruit</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>Sweater, Book, Pen, Banana</td>
+<td>Shoes</td>
+<td>Clothes</td>
+</tr>
+</tbody>
+</table>
+<p>(We may also need the category information for items in 'historial
+behavior' in read Recommender.)</p>
+<p>But string type can not be feed to nural net. What can we do? A
+simple way is one-hot.</p>
+<p>After one-hot, item name may look like that:</p>
+<table>
+<thead>
+<tr class="header">
+<th>item category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1000 (Apple)</td>
+</tr>
+<tr class="even">
+<td>0100 (Sweater)</td>
+</tr>
+<tr class="odd">
+<td>0010 (Banana)</td>
+</tr>
+<tr class="even">
+<td>0001 (Shoes)</td>
+</tr>
+</tbody>
+</table>
+<p>Well, it seems one-hot has already solved such problem. So why should
+we introduce embedding?</p>
+<p>The most important reason is one-hot embedding ignores inner relation
+between each value. Such inner relation is also called as high-order
+information. Eg. "Apple" is obviously related to "Banana" but not
+"Shoes". But "Apple" x "Banana" = (1,0,0,0) x (0,0,1,0) = 0; "Apple" x
+"Shoes" = (1,0,0,0) x (0,0,0,1) = 0. One-hot encoding can not present
+the relation between "Apple" and "Shoes".</p>
+<p>Thus, we introduce a single layer of Full-Connnect layer to learn
+such inner relation. Well, this <strong>Full-Connect layer</strong> is
+exactly <strong>embedding</strong>.</p>
+<p>What is the difference between embedding and FC layer?</p>
+<p>From the view of network, they are exactly same. But since the input
+of this FC layer is one-hot encoded, we do not need to really implement
+a FC layer which may be costly. Instead, we implement a look-up table.
+The original string input can look up its value in this look-up table
+via its index in word dictionary. This look-up table is trainable and
+performance just like FC layer. So the truth is: <strong>no embedding,
+just one-hot.</strong></p>
+<p>How to embedding sequence information like historial behavior?</p>
+<p>One way is you can embed sequence input to sequence output. Your net
+may be modified to fit such input with various sequence length. Another
+way is to fuse sequence input to one via mean or something like it.</p>
+<p>The final question is how to build an embedding look-up table?</p>
+<p>The first step is to collect the word dictionary. You have to know
+how many words you have.</p>
+<p>The second step is one-hot encoding. You may hash input first so that
+you can reduce the number of values to be encoded.</p>
+<p>The final step is to construct a trainable look-up table. The init
+value is random.</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
 </search>
