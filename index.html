@@ -301,10 +301,16 @@ Xcode</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-01-23 16:08:52 / Modified: 18:56:08" itemprop="dateCreated datePublished" datetime="2022-01-23T16:08:52+08:00">2022-01-23</time>
+              <time title="Created: 2022-01-23 16:08:52" itemprop="dateCreated datePublished" datetime="2022-01-23T16:08:52+08:00">2022-01-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-28 07:57:11" itemprop="dateModified" datetime="2022-01-28T07:57:11+08:00">2022-01-28</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -330,109 +336,14 @@ Xcode</p>
 time I met it, it confuesd me for a long time. Now let me take 5 minutes
 to tell you what is Embedding. It will be just a brief introduction
 without going to details.</p>
-<p>In the field of Compuer Vision, all the data you get is labelled
-images. It is easy to encode an image in computer, like RGB. However,
-for Recommender System, what you get is 'user id', 'historial behavior',
-'item name', 'item category'. Your data may look like that:</p>
-<table>
-<colgroup>
-<col style="width: 7%">
-<col style="width: 43%">
-<col style="width: 35%">
-<col style="width: 13%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>User id</th>
-<th>Historial behavior <br>(what he bought)</th>
-<th>Item name <br>(recommended item)</th>
-<th>Item category</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Jack</td>
-<td>Sweater, Shoes, Watch, Banana</td>
-<td>Apple</td>
-<td>Fruit</td>
-</tr>
-<tr class="even">
-<td>John</td>
-<td>Banana, Apple, Watch</td>
-<td>Sweater</td>
-<td>Clothes</td>
-</tr>
-<tr class="odd">
-<td>Steven</td>
-<td>Computer, Credit Card,</td>
-<td>Banana</td>
-<td>Fruit</td>
-</tr>
-<tr class="even">
-<td>Bob</td>
-<td>Sweater, Book, Pen, Banana</td>
-<td>Shoes</td>
-<td>Clothes</td>
-</tr>
-</tbody>
-</table>
-<p>(We may also need the category information for items in 'historial
-behavior' in read Recommender.)</p>
-<p>But string type can not be feed to nural net. What can we do? A
-simple way is one-hot.</p>
-<p>After one-hot, item name may look like that:</p>
-<table>
-<thead>
-<tr class="header">
-<th>item category</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1000 (Apple)</td>
-</tr>
-<tr class="even">
-<td>0100 (Sweater)</td>
-</tr>
-<tr class="odd">
-<td>0010 (Banana)</td>
-</tr>
-<tr class="even">
-<td>0001 (Shoes)</td>
-</tr>
-</tbody>
-</table>
-<p>Well, it seems one-hot has already solved such problem. So why should
-we introduce embedding?</p>
-<p>The most important reason is one-hot embedding ignores inner relation
-between each value. Such inner relation is also called as high-order
-information. Eg. "Apple" is obviously related to "Banana" but not
-"Shoes". But "Apple" x "Banana" = (1,0,0,0) x (0,0,1,0) = 0; "Apple" x
-"Shoes" = (1,0,0,0) x (0,0,0,1) = 0. One-hot encoding can not present
-the relation between "Apple" and "Shoes".</p>
-<p>Thus, we introduce a single layer of Full-Connnect layer to learn
-such inner relation. Well, this <strong>Full-Connect layer</strong> is
-exactly <strong>embedding</strong>.</p>
-<p>What is the difference between embedding and FC layer?</p>
-<p>From the view of network, they are exactly same. But since the input
-of this FC layer is one-hot encoded, we do not need to really implement
-a FC layer which may be costly. Instead, we implement a look-up table.
-The original string input can look up its value in this look-up table
-via its index in word dictionary. This look-up table is trainable and
-performance just like FC layer. So the truth is: <strong>no embedding,
-just one-hot.</strong></p>
-<p>How to embedding sequence information like historial behavior?</p>
-<p>One way is you can embed sequence input to sequence output. Your net
-may be modified to fit such input with various sequence length. Another
-way is to fuse sequence input to one via mean or something like it.</p>
-<p>The final question is how to build an embedding look-up table?</p>
-<p>The first step is to collect the word dictionary. You have to know
-how many words you have.</p>
-<p>The second step is one-hot encoding. You may hash input first so that
-you can reduce the number of values to be encoded.</p>
-<p>The final step is to construct a trainable look-up table. The init
-value is random.</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/23/A-brief-introduction-to-Embedding/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -474,10 +385,16 @@ value is random.</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-01-20 15:43:41 / Modified: 15:44:11" itemprop="dateCreated datePublished" datetime="2022-01-20T15:43:41+08:00">2022-01-20</time>
+              <time title="Created: 2022-01-20 15:43:41" itemprop="dateCreated datePublished" datetime="2022-01-20T15:43:41+08:00">2022-01-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-28 07:57:22" itemprop="dateModified" datetime="2022-01-28T07:57:22+08:00">2022-01-28</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -504,22 +421,14 @@ value is random.</p>
 <p>Environement: WSL ubuntu 18</p>
 <h4 id="conda">Conda</h4>
 <p>install anaconda and create a new environment with python=3.6</p>
-<h4 id="java8">Java8</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br><span class="line"><span class="meta">#</span><span class="bash"> java -version</span></span><br></pre></td></tr></table></figure>
-<h4 id="scala">Scala</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.deb # wget may be timeout, try again</span><br><span class="line">sudo dpkg -i scala-2.12.8.deb</span><br><span class="line"><span class="meta">#</span><span class="bash"> scala -version</span></span><br></pre></td></tr></table></figure>
-<h4 id="py4j">py4j</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install py4j</span><br><span class="line"><span class="meta">#</span><span class="bash"> or try `conda install py4j`</span></span><br></pre></td></tr></table></figure>
-<h4 id="spark">Spark</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> this <span class="built_in">command</span> may fail</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> check the current version <span class="keyword">in</span> http://mirrors.tuna.tsinghua.edu.cn/apache/spark</span></span><br><span class="line">wget http://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz </span><br><span class="line">tar xvf  spark-2.4.0-bin-hadoop2.7.tgz</span><br></pre></td></tr></table></figure>
-<h4 id="environment">Environment</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line">export SPARK_HOME=&lt;path to spark-2.4.0-bin-hadoop2.7&gt;</span><br><span class="line">export PATH=$&#123;SPARK_HOME&#125;/bin:$PATH</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br><span class="line">cd &lt;path to spark-2.4.0-bin-hadoop2.7&gt;</span><br><span class="line">cp conf/log4j.properties.template conf/log4j.properties</span><br><span class="line">vim conf/log4j.properties</span><br><span class="line"><span class="meta">#</span><span class="bash"> replace `log4j.rootCategory=INFO, console` with</span></span><br><span class="line">log4j.rootCategory=ERROR, console</span><br></pre></td></tr></table></figure>
-<p>if you want to use pyspark in jupyter notebook,</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> find your own path to the zip file starting with <span class="string">&#x27;py4j&#x27;</span></span></span><br><span class="line">export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH</span><br><span class="line">export PATH=$SPARK_HOME/python:$PATH</span><br><span class="line">export PYSPARK_PYTHON=python3</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br><span class="line">pip install findspark</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>Enter jupyter notebook, import <code>findspark</code> before
-<code>pyspark</code></strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> findspark</span><br><span class="line">findspark.init()</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/20/PySpark-Install/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
