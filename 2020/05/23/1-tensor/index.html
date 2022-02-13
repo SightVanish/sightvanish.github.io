@@ -28,7 +28,7 @@
 <meta property="og:description" content="Definition Tensor--&quot;张量&quot;, actually it is a little bit like the vector to store numbers(linear algebra) Operation import torch 第一步永远是先导入torch库才能使用 0 Initializatin  x &#x3D; torch.empty(a, b) a rows and b col">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-23T09:43:04.000Z">
-<meta property="article:modified_time" content="2021-09-23T09:12:02.505Z">
+<meta property="article:modified_time" content="2021-09-23T09:12:02.000Z">
 <meta property="article:author" content="Li Wuchen">
 <meta name="twitter:card" content="summary">
 
@@ -337,10 +337,11 @@ type float)</li>
 </table>
 <h2 id="addition">1 Addition</h2>
 <p>The following 4 ways are same with same size tensors <code>x</code>
-<code>y</code> <code>z</code> 1. <code>z = x + y</code> 2. <code>z =
-torch.add(x, y)</code> 3. <code>torch.add(x, y, out = z)</code> 4.
-<code>y.add_(x)</code> note: this is an inplace function, each inplace
-function has a postfix<code>_</code></p>
+<code>y</code> <code>z</code> 1. <code>z = x + y</code> 2.
+<code>z = torch.add(x, y)</code> 3.
+<code>torch.add(x, y, out = z)</code> 4. <code>y.add_(x)</code> note:
+this is an inplace function, each inplace function has a
+postfix<code>_</code></p>
 <h2 id="index">2 Index</h2>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y  = x[0,: ] # y points to all of x</span><br><span class="line">y += 1 # all entries will plus 1</span><br></pre></td></tr></table></figure>
 <p>note: with this method, y will share memory with x, so you cannot
@@ -381,8 +382,7 @@ only modify y without touching x</p>
 <li><p>use <code>view()</code>function</p>
 <p><code>y = x.view(a*b)</code>change the shape of x to 1 row 1*b
 column</p>
-<p><code>x.size() = torch.size([a,b]), y.size() =
-torch.size([a*b])</code></p>
+<p><code>x.size() = torch.size([a,b]), y.size() = torch.size([a*b])</code></p>
 <p>note: <code>view()</code> function still shares memory and does not
 change the number of entries</p>
 <p>if you want a copy just use <code>clone</code></p>
@@ -630,14 +630,14 @@ tensor and numpy(数组)</span></a></li><li class="nav-item nav-level-1"><a clas
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">88</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
