@@ -228,7 +228,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-03-18 18:33:36 / Modified: 19:02:34" itemprop="dateCreated datePublished" datetime="2022-03-18T18:33:36+08:00">2022-03-18</time>
+              <time title="Created: 2022-03-18 18:33:36 / Modified: 19:06:56" itemprop="dateCreated datePublished" datetime="2022-03-18T18:33:36+08:00">2022-03-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,34 +258,15 @@
 <code>homebrew</code></li>
 <li>do not forget 'Next steps'</li>
 </ol></li>
-<li><p><code>brew install glfw</code></p></li>
-<li><p>add <code>glfw</code> to the path of xode project</p>
-<ol type="1">
-<li><p>find <code>glfw</code> location via
-<code>brew info glfw</code></p></li>
-<li><p>add <code>glfw</code> include path to Xcode</p>
-<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/1.png" alt="1" style="zoom:50%;"></p></li>
-<li><p>add binary path to Xcode</p>
-<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/2.png" alt="2" style="zoom:25%;"></p>
-<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/3.png" alt="2" style="zoom:25;"></p>
-<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/4.png" alt="2" style="zoom:25%;"></p>
-<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/5.png" alt="2" style="zoom:25%;"></p>
-<p>Find the path to libglfw lib (it is inside the folde of
-glfw).</p></li>
-</ol></li>
-<li><p>test your code:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;GLFW/glfw3.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    GLFWwindow* window;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Initialize the library */</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">glfwInit</span>())</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Create a windowed mode window and its OpenGL context */</span></span><br><span class="line">    window = <span class="built_in">glfwCreateWindow</span>(<span class="number">640</span>, <span class="number">480</span>, <span class="string">&quot;Hello World&quot;</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">if</span> (!window)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">glfwTerminate</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Make the window&#x27;s context current */</span></span><br><span class="line">    <span class="built_in">glfwMakeContextCurrent</span>(window);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Loop until the user closes the window */</span></span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">glfwWindowShouldClose</span>(window))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/* Render here */</span></span><br><span class="line">        <span class="built_in">glClear</span>(GL_COLOR_BUFFER_BIT);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Swap front and back buffers */</span></span><br><span class="line">        <span class="built_in">glfwSwapBuffers</span>(window);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Poll for and process events */</span></span><br><span class="line">        <span class="built_in">glfwPollEvents</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">glfwTerminate</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>Your code will be built and run successfully. But there will be 2
-issues:</p>
-<ol type="1">
-<li><p><code>'glClear' is deprecated: first deprecated in macOS 10.14</code></p>
-<p>Don't worry. We can silence this warning via
-<code>#define GL_SILENCE_DEPRECATION</code>.</p></li>
-<li><p><code>OpenGL is deprecated. Consider migrating to Metal instead.</code>
-No, I refuse to use <code>Metal</code>, just ignore it.</p></li>
-</ol></li>
-</ol>
-
+<li><p><code>brew install glfw</code></p></li></ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
