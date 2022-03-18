@@ -898,20 +898,6 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/C/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/Mac/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sightvanish.github.io/tags/C-C/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -920,6 +906,20 @@
   
   <url>
     <loc>https://sightvanish.github.io/tags/openmp/</loc>
+    <lastmod>2022-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/C/</loc>
+    <lastmod>2022-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/Mac/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -982,7 +982,21 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/Srand/</loc>
+    <loc>https://sightvanish.github.io/tags/Machine-Learning/</loc>
+    <lastmod>2022-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/GMM/</loc>
+    <lastmod>2022-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/Unsupervised-learning/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1003,21 +1017,7 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/Machine-Learning/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/GMM/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/Unsupervised-learning/</loc>
+    <loc>https://sightvanish.github.io/tags/Srand/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1131,14 +1131,14 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Computer-Vision/</loc>
+    <loc>https://sightvanish.github.io/categories/Blender/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Blender/</loc>
+    <loc>https://sightvanish.github.io/categories/Computer-Vision/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1187,14 +1187,14 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Machine-Learning/Object-Detection/</loc>
+    <loc>https://sightvanish.github.io/categories/Rendering/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Rendering/</loc>
+    <loc>https://sightvanish.github.io/categories/Machine-Learning/Object-Detection/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -230,9 +230,9 @@ chartensor(containing characters) cannot</li>
     <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
     <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
 <p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-xFeeeZlBWDKNewNY" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-xFeeeZlBWDKNewNY").style.height=document.getElementById("mmedia-xFeeeZlBWDKNewNY").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-eiPfaiKUnrJrSqNc" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-eiPfaiKUnrJrSqNc").style.height=document.getElementById("mmedia-eiPfaiKUnrJrSqNc").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-xFeeeZlBWDKNewNY").style.height=document.getElementById("mmedia-xFeeeZlBWDKNewNY").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-eiPfaiKUnrJrSqNc").style.height=document.getElementById("mmedia-eiPfaiKUnrJrSqNc").scrollWidth*0.76+"px";
     }; </script>
 ]]></content>
       <categories>
@@ -397,6 +397,55 @@ _i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分
 <li>AdaBoost不需要先验，同时不容易过拟合，同时不依赖弱分类器效果（可以自由分配权重）。</li>
 <li>AdaBoost错误样本权重指数上升--容易受噪音干扰</li>
 </ul>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Add-on in Blender3.0 for Mac(Apple Silicon)</title>
+    <url>/2022/03/13/Add-on-in-Blender3-0-for-Mac-Apple-Silicon/</url>
+    <content><![CDATA[<p>Put your unziped file in:</p>
+<p><code>/Applications/Blender.app/Contents/Resources/3.0/scripts/addons</code></p>
+<p>Enable add-on:</p>
+<p><code>Blender-&gt;Edit-&gt;Preferences-&gt;Add-ons</code></p>
+<p>Search your add-on and enable it.</p>
+]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Benchmark of Neural Network--Precision,Recall,F1-Measure</title>
+    <url>/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/</url>
+    <content><![CDATA[<h3 id="precision">Precision</h3>
+<p><span class="math inline">\(Precision=\frac{actually \ true
+\&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \
+true}\)</span></p>
+<p>The percentage of true labels decided by the model are actually
+true.</p>
+<h3 id="recall">Recall</h3>
+<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \
+true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
+<p>The percentage of true items are decided true by the model.</p>
+<p>If we want higher Precision, we should not take any risk--only take
+those with highest score.</p>
+<p>But if we want higher Recall, we should take all possible results.
+That is, we cannot get Precision and Recall improved at the same
+time.</p>
+<p>So we need a balance benchmark.</p>
+<h3 id="f1-measuref1-score">F1-Measure/F1-Score</h3>
+<p><span class="math display">\[
+F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
+\]</span></p>
+<p>We get F1-Measure when <span class="math inline">\(\alpha=1\)</span>.</p>
+<p>More on <a href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic
+Mean</a>--it prevents models that are only good at either of P or R from
+doing good in F.</p>
+<p>x=50, y=0~100, here is the score (<a href="https://www.zhihu.com/question/47980482">ref</a>):</p>
+<p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
+<p>Harmonic mean tries to get a result that neither P nor R is not so
+bad even if both of them are not really good.</p>
 ]]></content>
       <categories>
         <category>Machine Learning</category>
@@ -572,19 +621,6 @@ y = 1\\  -(1-\alpha)y&#39; ^\gamma log(1-y&#39;)\quad y = 0
       </tags>
   </entry>
   <entry>
-    <title>Add-on in Blender3.0 for Mac(Apple Silicon)</title>
-    <url>/2022/03/13/Add-on-in-Blender3-0-for-Mac-Apple-Silicon/</url>
-    <content><![CDATA[<p>Put your unziped file in:</p>
-<p><code>/Applications/Blender.app/Contents/Resources/3.0/scripts/addons</code></p>
-<p>Enable add-on:</p>
-<p><code>Blender-&gt;Edit-&gt;Preferences-&gt;Add-ons</code></p>
-<p>Search your add-on and enable it.</p>
-]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Blender Cloth Rendering</title>
     <url>/2021/09/14/Blender-Cloth-Rending/</url>
     <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
@@ -599,90 +635,19 @@ y = 1\\  -(1-\alpha)y&#39; ^\gamma log(1-y&#39;)\quad y = 0
       </categories>
   </entry>
   <entry>
-    <title>Benchmark of Neural Network--Precision,Recall,F1-Measure</title>
-    <url>/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/</url>
-    <content><![CDATA[<h3 id="precision">Precision</h3>
-<p><span class="math inline">\(Precision=\frac{actually \ true
-\&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \
-true}\)</span></p>
-<p>The percentage of true labels decided by the model are actually
-true.</p>
-<h3 id="recall">Recall</h3>
-<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \
-true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
-<p>The percentage of true items are decided true by the model.</p>
-<p>If we want higher Precision, we should not take any risk--only take
-those with highest score.</p>
-<p>But if we want higher Recall, we should take all possible results.
-That is, we cannot get Precision and Recall improved at the same
-time.</p>
-<p>So we need a balance benchmark.</p>
-<h3 id="f1-measuref1-score">F1-Measure/F1-Score</h3>
-<p><span class="math display">\[
-F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
-\]</span></p>
-<p>We get F1-Measure when <span class="math inline">\(\alpha=1\)</span>.</p>
-<p>More on <a href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic
-Mean</a>--it prevents models that are only good at either of P or R from
-doing good in F.</p>
-<p>x=50, y=0~100, here is the score (<a href="https://www.zhihu.com/question/47980482">ref</a>):</p>
-<p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
-<p>Harmonic mean tries to get a result that neither P nor R is not so
-bad even if both of them are not really good.</p>
+    <title>C/C++ openmp</title>
+    <url>/2020/05/30/C-C-openmp/</url>
+    <content><![CDATA[<p>Just a note for myself !</p>
+<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del>
+</strong> !!!</p>
 ]]></content>
       <categories>
-        <category>Machine Learning</category>
+        <category>Learning</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Blender尝试NPR场景</title>
-    <url>/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/</url>
-    <content><![CDATA[<p>尝试了NPR的场景渲染，感觉不是特别成功，二次元渲染不仅需要技术，调参也很难，需要一些美学功底更重要的是对渲染节点的深入理解。</p>
-<div align="center">
-<figure>
-<img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/Grass.png" alt="初步的效果">
-<figcaption aria-hidden="true">初步的效果</figcaption>
-</figure>
-<div align="center">
-<figure>
-<img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/real.jpeg" alt="实际想要模仿的效果--图片为实际拍摄">
-<figcaption aria-hidden="true">实际想要模仿的效果--图片为实际拍摄</figcaption>
-</figure>
-</div></div>]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Brief introduction to Unet</title>
-    <url>/2021/10/11/Brief-introduction-to-Unet/</url>
-    <content><![CDATA[<h3 id="structure">Structure</h3>
-<p><img src="/2021/10/11/Brief-introduction-to-Unet/1.png"></p>
-<p>The structure of Unet is symmetric, like a shape of 'U'.</p>
-<p>On the right side the blue box is feature map derived by
-convolution-deconvolution. And the white box is the just the same as the
-blue box on the left side. The grey arrow shows
-<strong>skip-connection</strong>-- putting the two parts together.</p>
-<p>The encoder part is quite simple--3x3 convolutional kernel +
-maxpooling.</p>
-<p>The decoder part is designed to restore the original shape of the
-image using <strong>upsampling</strong>.</p>
-<p>In Unet, upsampling is implmented in <strong>bilinear
-interpolation</strong>.</p>
-<p><code>torch.nn.Upsample(mode=bilinear)</code></p>
-<p>Since upsampling will lose the detailed information of orginal image,
-Unet try to use skip-connection to fix this problem.</p>
-<p><code>torch.cat([low_layer_features, deep_layer_features], dim=1)</code></p>
-<p>(Note: In FCN, two parts are added in pixel level, however, in Unet,
-two part are concatenated together.--concatenating remains more details
-with more time consumed).</p>
-<span id="more"></span>
-<h3 id="code-keras">Code (keras)</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Unet</span>():</span></span><br><span class="line">    inputs = Input((img_rows, img_cols, <span class="number">3</span>)) <span class="comment"># RGB net</span></span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(inputs)</span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv1)</span><br><span class="line">    pool1 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv1)</span><br><span class="line">    <span class="comment"># pool1 = Dropout(0.25)(pool1)</span></span><br><span class="line">    <span class="comment"># pool1 = BatchNormalization()(pool1)</span></span><br><span class="line"></span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool1)</span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv2)</span><br><span class="line">    pool2 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv2)</span><br><span class="line">    <span class="comment"># pool2 = Dropout(0.5)(pool2)</span></span><br><span class="line">    <span class="comment"># pool2 = BatchNormalization()(pool2)</span></span><br><span class="line"></span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool2)</span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv3)</span><br><span class="line">    pool3 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv3)</span><br><span class="line">    <span class="comment"># pool3 = Dropout(0.5)(pool3)</span></span><br><span class="line">    <span class="comment"># pool3 = BatchNormalization()(pool3)</span></span><br><span class="line"></span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool3)</span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv4)</span><br><span class="line">    pool4 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv4)</span><br><span class="line">    <span class="comment"># pool4 = Dropout(0.5)(pool4)</span></span><br><span class="line">    <span class="comment"># pool4 = BatchNormalization()(pool4)</span></span><br><span class="line"></span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool4)</span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv5)</span><br><span class="line"></span><br><span class="line">    up6 = concatenate([Conv2DTranspose(<span class="number">256</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv5), conv4], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up6 = Dropout(0.5)(up6)</span></span><br><span class="line">    <span class="comment"># up6 = BatchNormalization()(up6)</span></span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up6)</span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv6)</span><br><span class="line"></span><br><span class="line">    up7 = concatenate([Conv2DTranspose(<span class="number">128</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv6), conv3], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up7 = Dropout(0.5)(up7)</span></span><br><span class="line">    <span class="comment"># up7 = BatchNormalization()(up7)</span></span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up7)</span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv7)</span><br><span class="line"></span><br><span class="line">    up8 = concatenate([Conv2DTranspose(<span class="number">64</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv7), conv2], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up8 = Dropout(0.5)(up8)</span></span><br><span class="line">    <span class="comment"># up8 = BatchNormalization()(up8)</span></span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up8)</span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv8)</span><br><span class="line"></span><br><span class="line">    up9 = concatenate([Conv2DTranspose(<span class="number">32</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv8), conv1], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up9 = Dropout(0.5)(up9)</span></span><br><span class="line">    <span class="comment"># up9 = BatchNormalization()(up9)</span></span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up9)</span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># conv9 = Dropout(0.5)(conv9)</span></span><br><span class="line"></span><br><span class="line">    conv10 = Conv2D(<span class="number">1</span>, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">&#x27;sigmoid&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    model = Model(inputs=[inputs], outputs=[conv10])</span><br><span class="line"></span><br><span class="line">    model.<span class="built_in">compile</span>(optimizer=Adam(lr=<span class="number">1e-5</span>),</span><br><span class="line">                  loss=dice_coef_loss, metrics=[dice_coef])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>openmp</tag>
+      </tags>
   </entry>
   <entry>
     <title>C++11 in Mac (VsCode)</title>
@@ -718,19 +683,54 @@ file)</p>
       </tags>
   </entry>
   <entry>
-    <title>C/C++ openmp</title>
-    <url>/2020/05/30/C-C-openmp/</url>
-    <content><![CDATA[<p>Just a note for myself !</p>
-<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del>
-</strong> !!!</p>
+    <title>Brief introduction to Unet</title>
+    <url>/2021/10/11/Brief-introduction-to-Unet/</url>
+    <content><![CDATA[<h3 id="structure">Structure</h3>
+<p><img src="/2021/10/11/Brief-introduction-to-Unet/1.png"></p>
+<p>The structure of Unet is symmetric, like a shape of 'U'.</p>
+<p>On the right side the blue box is feature map derived by
+convolution-deconvolution. And the white box is the just the same as the
+blue box on the left side. The grey arrow shows
+<strong>skip-connection</strong>-- putting the two parts together.</p>
+<p>The encoder part is quite simple--3x3 convolutional kernel +
+maxpooling.</p>
+<p>The decoder part is designed to restore the original shape of the
+image using <strong>upsampling</strong>.</p>
+<p>In Unet, upsampling is implmented in <strong>bilinear
+interpolation</strong>.</p>
+<p><code>torch.nn.Upsample(mode=bilinear)</code></p>
+<p>Since upsampling will lose the detailed information of orginal image,
+Unet try to use skip-connection to fix this problem.</p>
+<p><code>torch.cat([low_layer_features, deep_layer_features], dim=1)</code></p>
+<p>(Note: In FCN, two parts are added in pixel level, however, in Unet,
+two part are concatenated together.--concatenating remains more details
+with more time consumed).</p>
+<span id="more"></span>
+<h3 id="code-keras">Code (keras)</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Unet</span>():</span></span><br><span class="line">    inputs = Input((img_rows, img_cols, <span class="number">3</span>)) <span class="comment"># RGB net</span></span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(inputs)</span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv1)</span><br><span class="line">    pool1 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv1)</span><br><span class="line">    <span class="comment"># pool1 = Dropout(0.25)(pool1)</span></span><br><span class="line">    <span class="comment"># pool1 = BatchNormalization()(pool1)</span></span><br><span class="line"></span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool1)</span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv2)</span><br><span class="line">    pool2 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv2)</span><br><span class="line">    <span class="comment"># pool2 = Dropout(0.5)(pool2)</span></span><br><span class="line">    <span class="comment"># pool2 = BatchNormalization()(pool2)</span></span><br><span class="line"></span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool2)</span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv3)</span><br><span class="line">    pool3 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv3)</span><br><span class="line">    <span class="comment"># pool3 = Dropout(0.5)(pool3)</span></span><br><span class="line">    <span class="comment"># pool3 = BatchNormalization()(pool3)</span></span><br><span class="line"></span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool3)</span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv4)</span><br><span class="line">    pool4 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv4)</span><br><span class="line">    <span class="comment"># pool4 = Dropout(0.5)(pool4)</span></span><br><span class="line">    <span class="comment"># pool4 = BatchNormalization()(pool4)</span></span><br><span class="line"></span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool4)</span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv5)</span><br><span class="line"></span><br><span class="line">    up6 = concatenate([Conv2DTranspose(<span class="number">256</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv5), conv4], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up6 = Dropout(0.5)(up6)</span></span><br><span class="line">    <span class="comment"># up6 = BatchNormalization()(up6)</span></span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up6)</span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv6)</span><br><span class="line"></span><br><span class="line">    up7 = concatenate([Conv2DTranspose(<span class="number">128</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv6), conv3], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up7 = Dropout(0.5)(up7)</span></span><br><span class="line">    <span class="comment"># up7 = BatchNormalization()(up7)</span></span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up7)</span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv7)</span><br><span class="line"></span><br><span class="line">    up8 = concatenate([Conv2DTranspose(<span class="number">64</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv7), conv2], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up8 = Dropout(0.5)(up8)</span></span><br><span class="line">    <span class="comment"># up8 = BatchNormalization()(up8)</span></span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up8)</span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv8)</span><br><span class="line"></span><br><span class="line">    up9 = concatenate([Conv2DTranspose(<span class="number">32</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv8), conv1], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up9 = Dropout(0.5)(up9)</span></span><br><span class="line">    <span class="comment"># up9 = BatchNormalization()(up9)</span></span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up9)</span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># conv9 = Dropout(0.5)(conv9)</span></span><br><span class="line"></span><br><span class="line">    conv10 = Conv2D(<span class="number">1</span>, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">&#x27;sigmoid&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    model = Model(inputs=[inputs], outputs=[conv10])</span><br><span class="line"></span><br><span class="line">    model.<span class="built_in">compile</span>(optimizer=Adam(lr=<span class="number">1e-5</span>),</span><br><span class="line">                  loss=dice_coef_loss, metrics=[dice_coef])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Learning</category>
+        <category>Machine Learning</category>
       </categories>
-      <tags>
-        <tag>C/C++</tag>
-        <tag>openmp</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>Blender尝试NPR场景</title>
+    <url>/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/</url>
+    <content><![CDATA[<p>尝试了NPR的场景渲染，感觉不是特别成功，二次元渲染不仅需要技术，调参也很难，需要一些美学功底更重要的是对渲染节点的深入理解。</p>
+<div align="center">
+<figure>
+<img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/Grass.png" alt="初步的效果">
+<figcaption aria-hidden="true">初步的效果</figcaption>
+</figure>
+<div align="center">
+<figure>
+<img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/real.jpeg" alt="实际想要模仿的效果--图片为实际拍摄">
+<figcaption aria-hidden="true">实际想要模仿的效果--图片为实际拍摄</figcaption>
+</figure>
+</div></div>]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
   </entry>
   <entry>
     <title>C++: Difference between int* and int&amp; and int</title>
@@ -868,6 +868,33 @@ modified.</p>
       </tags>
   </entry>
   <entry>
+    <title>Experience of MacOS Big Sur</title>
+    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
+    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named
+with this place, is published recently. The first impression to me is
+that the apparance seems to be exactly same with iPadOS or iOS.
+Smoother--faster finger scanner to unlock machine. The whole machine is
+seemed to be renewed with much more better performance.</p>
+<p>(for test purpose--transfer Blog)</p>
+]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+      <tags>
+        <tag>MacOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GIF test</title>
+    <url>/2021/09/16/GIF-test/</url>
+    <content><![CDATA[<p>You should see this.
+<iframe height="75%" width="75%" src="1.gif"></iframe></p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Difference between new and malloc</title>
     <url>/2020/06/04/Difference-between-new-and-malloc/</url>
     <content><![CDATA[<p>今天写作业的时候要求实现vector，很自然地用
@@ -962,33 +989,6 @@ store，由OS特别管理）上。<code>free store</code>一般都是在heap上�
         <tag>new</tag>
         <tag>malloc</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Experience of MacOS Big Sur</title>
-    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
-    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named
-with this place, is published recently. The first impression to me is
-that the apparance seems to be exactly same with iPadOS or iOS.
-Smoother--faster finger scanner to unlock machine. The whole machine is
-seemed to be renewed with much more better performance.</p>
-<p>(for test purpose--transfer Blog)</p>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-      <tags>
-        <tag>MacOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GIF test</title>
-    <url>/2021/09/16/GIF-test/</url>
-    <content><![CDATA[<p>You should see this.
-<iframe height="75%" width="75%" src="1.gif"></iframe></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
   </entry>
   <entry>
     <title>Games101 Homeworks Summary</title>
@@ -1130,233 +1130,6 @@ width-1)x(0,vheight-1)映射到(-1, 1)x(-1,
 ]]></content>
       <categories>
         <category>Computer Graphics</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Gradient Descent, Newton Method and Quasi-Newton Method</title>
-    <url>/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/</url>
-    <content><![CDATA[<h3 id="gradient-descent">1. Gradient Descent</h3>
-<p>1.1 Gradient</p>
-<p>1.1.1 Derivative</p>
-<p>针对一元函数 <span class="math inline">\(y=f(x)\)</span>，导数 <span class="math inline">\(f&#39;(x_0)\)</span> 表示了该函数在<span class="math inline">\(x_0\)</span>处的函数斜率/增加速率。</p>
-<p>1.1.2 Partial Derivative--偏导数，部分的导数</p>
-<p>针对多元函数（此处考虑二元函数<span class="math inline">\(z=f(x,y)\)</span>），导数 <span class="math inline">\(f&#39;(x_0, y_0)\)</span>
-就有些模糊不清了，为此我们先简化到一元的情况：固定 <span class="math inline">\(y=y_0\)</span>，<span class="math inline">\(z=f(x,y)\)</span>，二元函数便降纬为<span class="math inline">\(z=f(x, y_0)\)</span> ，此时我们可以定义在 <span class="math inline">\(x\)</span> 方向上的偏导数 <span class="math inline">\(f&#39;_x(x_0, y_0)\)</span>，其表示该函数在<span class="math inline">\((x_0, y_0)\)</span>点处沿 <span class="math inline">\(x\)</span>
-方向函数斜率/增加速率。类似的我们可以得到在 <span class="math inline">\(y\)</span> 方向的偏导数。</p>
-<p>1.1.3 Directional Derivative</p>
-<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在
-<span class="math inline">\(x=x_0\)</span> 或 <span class="math inline">\(y=y_0\)</span> 方向上的函数速率变化了。</p>
-<p>现在基于这两个偏导数我们已经可以求出 <span class="math inline">\(x-y\)</span> 平面任何方向的导数了：假设求 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span>
-方向的导数（其中<span class="math inline">\(\theta\)</span>表示该向量方向与<span class="math inline">\(x\)</span>轴正方向的夹角，<span class="math inline">\(\vec{i}\)</span>表示<span class="math inline">\(x\)</span>轴正方向，<span class="math inline">\(\vec{j}\)</span>表示<span class="math inline">\(y\)</span>轴正方向） <span class="math display">\[
-D_uf(x,y)=\lim_{x \to \infty}\frac{f(x_0+tcos\theta,y_0+tsin\theta)}{t}
-\]</span> 本质上方向导数是偏导数的一种推广，通过调整方向导数中 <span class="math inline">\(\theta\)</span> 的值也能够简化为偏导数形式。</p>
-<p>但是如果我们观察 <span class="math inline">\(u\)</span> 本身，在
-<span class="math inline">\(u\)</span> 方向求导，其实相当于在 <span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span>
-方向分别求偏导之后的线性组合： <span class="math display">\[
-D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
-\]</span> 1.1.4 Gradient</p>
-<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在
-<span class="math inline">\((x_0, y_0)\)</span> 点上在方向 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span>
-方向上的函数变化速率了。</p>
-<p>那么梯度是什么呢？梯度就是 <span class="math inline">\(z\)</span> 在
-<span class="math inline">\((x_0, y_0)\)</span>
-点上函数变化速度最快的方向，也就是方向向量最大的方向。</p>
-<p>什么时候方向向量能取到最大呢？<span class="math inline">\(D_uf(x,y)=\begin{bmatrix}f&#39;_x(x,y)&amp;f&#39;_y(x,y)\end{bmatrix}\begin{bmatrix}cos\theta
-\\ sin\theta\end{bmatrix}=\pmb A*\pmb I\)</span>，当 <span class="math inline">\((cos\theta, sin\theta) // (f&#39;_x(x,y),
-f&#39;_y(x,y))\)</span> 时能够取到最大值，此时在 <span class="math inline">\((x_0,y_0)\)</span> 的梯度 <span class="math inline">\(\pmb I=\begin{bmatrix}\frac{\partial f}{\partial
-x_0} \\ \frac{\partial f}{\partial y_0}\end{bmatrix}\)</span></p>
-<p>梯度本质是<strong>矢量</strong>，在其方向上该点的方向向量最大。</p>
-<span id="more"></span>
-<p>1.2 Gradient Descent</p>
-<p>1.2.1 Local optimum</p>
-<p>由于机器学习应用梯度下降一般是为了最小化loss，因此实际上我们想要找到的是一个多元函数的最小值。从一个点出发，如果我们<strong>连续地</strong>在这个函数表面移动，一直往当前梯度最大的负方向（梯度本身定义指向函数值增加方向），这样我们最终一定会停留在函数谷底，也就是得到局部最优解。</p>
-<p>1.2.2 Algorithm</p>
-<p>首先我们先定义一下问题：</p>
-<blockquote>
-<p>函数 <span class="math inline">\(f(x)\)</span> 为在 <span class="math inline">\(R^n\)</span>
-上具有一阶连续偏导数的函数（note：这里 <span class="math inline">\(x\)</span> 其实是 <span class="math inline">\(n\)</span> 维向量 <span class="math inline">\(x=(x_1,x_2,\cdots,x_n)\)</span>）</p>
-<p>在无约束的情况下我们希望得到目标函数 <span class="math inline">\(f(x)\)</span> 的极小值。</p>
-</blockquote>
-<p>具体实现算法：</p>
-<blockquote>
-<p>初始化 <span class="math inline">\(x\)</span> 数值，记作 <span class="math inline">\(x^0\)</span></p>
-<p>第k+1轮迭代：<span class="math inline">\(x^{k+1} =
-x^k+\lambda_kp_k\)</span> 其中 <span class="math inline">\(p_k\)</span>
-为函数更新方向，取第k轮函数的负梯度（函数值下降最快的方向）：<span class="math inline">\(p_k=-\nabla f(x^k)\)</span> 其中 <span class="math inline">\(\lambda_k\)</span>
-为函数更新的步长，由一维搜索得到：<span class="math inline">\(\lambda_k=\underset{\lambda}{\operatorname{argmin}}f(x^k+\lambda
-p_k)=\underset{\lambda}{\operatorname{argmin}}f(x^k-\lambda\nabla
-f(x^k))\)</span> 具体实现：预先定义多个值进行计算，需要多次尝试。</p>
-<p>当 <span class="math inline">\(\nabla f(x^k)&lt;\epsilon\)</span>
-时（即梯度下降缓慢时）停止迭代 注意此算法本身只能保证达到local
-optimum，不能保证全局最优，因此需要多次重新初始化尝试。</p>
-</blockquote>
-<p>对于上述的梯度更新规则可以写成 <span class="math inline">\(x^{k+1} =
-x^k-\lambda_k\nabla f(x^k)\)</span>，这里的 <span class="math inline">\(f(x)\)</span>
-只是一个一般性的简写，对于机器学习的问题而言一般是loss
-function，对于一般的线性回归问题，其业已写成 <span class="math inline">\(Loss=f(w)=(\sum _{j=0}^pw_jx_j-y)^2\)</span>其中
-<span class="math inline">\(w=(w_1, w_2, \cdots, w_p)\)</span>
-是我们希望更新的参数，它和输出/feature <span class="math inline">\(x=(x_1, x_2, \cdots, x_p)\)</span>
-一样是p纬度的向量，<span class="math inline">\(y\)</span>
-为该feature的实际label。（注意上述都是仅针对单个样本点的操作）</p>
-<p>那么具体的梯度求解如下： <span class="math display">\[
-\begin{aligned}
-\frac{\partial Loss}{w_i}
-&amp;=\frac{\partial(\sum _{j=0}^pw_jx_j-y)^2}{\partial w_i}\\
-&amp;=2(\sum _{j=0}^pw_jx_j-y)\frac{\partial(\sum
-_{j=0}^pw_jx_j-y)}{\partial w_i}\\
-&amp;=2(\sum _{j=0}^pw_jx_j-y)x_i
-\end{aligned}
-\]</span> 假设我们用单个样本 <span class="math inline">\(x\)</span>
-计算梯度下降，求出的Loss导数为 <span class="math inline">\(\begin{bmatrix}\frac{\partial Loss(x)}{\partial
-w_1} \\ \vdots \\ \frac{\partial Loss(x)}{\partial
-w_p}\end{bmatrix}\)</span></p>
-<p>1.2.3 BGD--Batch Gradient Descent</p>
-<p>为了加速参数的更新，往往不会对每一个样本都计算梯度进行更新，事实上是一次性传入一个batch的数据，在更新参数时使用整个batch的数据结果进行更新。</p>
-<p>假设我们用 <span class="math inline">\((x^1,\cdots,x^i,\dots,x^n)\)</span>
-一起计算梯度下降，求出的Loss导数为 <span class="math inline">\(\frac{1}{n}\begin{bmatrix}\sum_{i=1}^n\frac{\partial
-Loss(x^i)}{\partial w_1} \\ \vdots \\ \sum_{i=1}^n\frac{\partial
-Loss(x^i)}{\partial w_p}\end{bmatrix}\)</span>。</p>
-<p>1.2.4 SGD--Stochastic Gradient Descent</p>
-<p>在数据量相当大的时候，BGD的开销也过于庞大了，为此数学家们考虑每次更新随机采样一个样本来控制梯度方向--这样做梯度的变化可能会出现较大的波动，但是数据量足够，数学上期望与BGD相同。SGD训练速度最快。</p>
-<p>此外由于SGD本身受离群样本影响大，因此可能会难以收敛，实际应用中往往采用中折--即每次更新采用样本的部分数据进行训练--MBGD--Mini-batch
-Gradient Descent。</p>
-<h3 id="newton-method">2. Newton Method</h3>
-<p>2.1 Solve Equation</p>
-<p>牛顿法最早使用来求解方程实数根的。问题很简单：求方程 <span class="math inline">\(f(x)\)</span> 的实数根。</p>
-<blockquote>
-<p>我们将 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x_0\)</span> 处Taylor一阶展开：<span class="math inline">\(f(x)=f(x_0)+f&#39;(x_0)(x-x_0)\)</span></p>
-<p>令 <span class="math inline">\(f(x)=0\)</span>，则 <span class="math inline">\(f(x_0)+f&#39;(x_0)(x-x_0)=0\)</span>，<span class="math inline">\(x_1=x_0-f(x_0)/f&#39;(x_0)\)</span></p>
-<p>再将 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x_1\)</span> 处Taylor一阶展开，迭代直到 <span class="math inline">\(||f(x)||&lt;\epsilon\)</span>。</p>
-</blockquote>
-<p>简单解释一下：如果一个方程连续且有正值有负值，那么就一定有根，牛顿法可以从任意起点开始，每次迭代都是沿点的斜率方向向
-<span class="math inline">\(x\)</span>
-轴做直线，相交得到下一个迭代点，由此理论上必能收敛。</p>
-<p>2.2 Optimization Problem</p>
-<p>回顾一下问题</p>
-<blockquote>
-<p>我们所面对的是无约束的优化问题，希望得到 <span class="math inline">\(minf(x)\)</span>，注意这里对于机器学习问题而言
-<span class="math inline">\(x\)</span> 很有可能是多维的，<span class="math inline">\(x\in R^{p*1}\)</span></p>
-<p>梯度下降法里面我们需要假设 <span class="math inline">\(f(x)\)</span>
-一阶可导，在牛顿法中需要加强为<strong>二阶可导</strong>。</p>
-</blockquote>
-<blockquote>
-<p>我们将 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x_k\)</span> （此处假设已经迭代了 <span class="math inline">\(k\)</span> 轮）处进行二阶Taylor展开： <span class="math display">\[
-f(x)=f(x^k)+g_k^T(x-x^k)+\frac{1}{2}(x-x^k)^TH(x^k)(x-x^k)
-\]</span> 其中 <span class="math inline">\(g_k=\nabla f(x^k) \in
-R^{p*1}\)</span> 是 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^k\)</span> 处的梯度；<span class="math inline">\(H(x^k)=\begin{bmatrix}\frac{\partial
-^2f(x^k)}{\partial x_i \partial y_i}\end{bmatrix} \in R^{p*p}\)</span>
-为 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^k\)</span> 处的Hessian矩阵/二阶导数。</p>
-</blockquote>
-<p>求解 <span class="math inline">\(f(x)\)</span>
-极值的必要条件是什么呢？<span class="math inline">\(f(x)\)</span>
-的一阶导数，也就是 <span class="math inline">\(g_k=\nabla
-f(x^k)=0\)</span>；并且 <span class="math inline">\(H(x^k)\)</span>
-为正定矩阵时，得到最小值（可以理解为此点所有方向的二次导数均大于0 <a href="https://blog.csdn.net/quicmous/article/details/53317512">FYI</a>）</p>
-<p>那么这个问题就再次转化为了对 <span class="math inline">\(g_k=0\)</span> 的牛顿法求根：</p>
-<blockquote>
-<p>求 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^0\)</span> 处的梯度 <span class="math inline">\(g_0=\nabla
-f(x^0)\)</span>，进行一阶Taylor展开：<span class="math inline">\(\nabla
-f(x)=\nabla f(x^0)+H(x^0)(x-x^0)=0\)</span></p>
-<p>则 <span class="math inline">\(x^1=x^0-H^{-1}(x^0)\nabla
-f(x)\)</span>，令 <span class="math inline">\(p(x^k)=-H^{-1}(x^k)\nabla
-f(x^k)\)</span>，可以简化写为 <span class="math inline">\(x_1=x_0+p(x^0)\)</span></p>
-<p>不断迭代直到 <span class="math inline">\(||\nabla
-f(x)||&lt;\epsilon\)</span></p>
-<p>其中迭代方程为 <span class="math inline">\(x^{k+1}=x^k-H^{-1}_kg_k=x^k+p_k\)</span></p>
-</blockquote>
-<p>2.3 Comparation with Gradient Descent</p>
-<p>梯度下降时一阶收敛，而牛顿法是二阶收敛，总的说牛顿法收敛速度更快，但是因为需要计算Hessian矩阵的逆，所以每次迭代速度更慢。</p>
-<p>由于梯度下降法是求梯度，在wiki上解释为用一个平面拟合当前点（所在局部）；但是牛顿法相当于是对梯度进行一阶Taylor展开，所以可以理解为是用一个曲面拟合当前点。</p>
-<p>或者从每次迭代的角度看：梯度下降只考虑了当前点哪个方向梯度最小（函数值下降最快），而牛顿法加入了Hessian矩阵，相当于还考虑了每次迭代后的梯度的变化（而不单单是函数值变化）。</p>
-<p>但是要意识到牛顿法本质是对函数值进行了二阶Taylor展开，所以如果初始值距离极值点太远，那么Taylor近似效果就会很差，所以可以考虑先用梯度下降再用牛顿法。</p>
-<p>对于梯度下降法往往在最后极值点处会出现反复震荡（这也是会什么梯度下降中往往会让步长逐渐缩短），对于牛顿法而言也是如此，因此也需要对步长进行衰减，称之为“阻尼牛顿法”：<span class="math inline">\(x^{k+1}=x^k-\lambda _kH^{-1}_kg_k=x^k+\lambda
-_kp_k\)</span></p>
-<p>牛顿法是二次收敛（二阶导数收敛）：对于二次函数，Hessian函数退化为常数（二阶导数为常数），因此可以一步到达；对于非二次函数，如果有好的二次性或已经临近收敛，则效果很好。</p>
-<h3 id="quasi-newton-method">3. Quasi-Newton Method</h3>
-<p>3.1 Basic Idea</p>
-<p>牛顿法已经很好了，但是有一个很大的问题--由于input的feature可能会非常多维度，因此Hessian矩阵可能会很大，继而计算Hessian矩阵的逆就会很困难。</p>
-<p>牛顿法的迭代公式（第 <span class="math inline">\(k\)</span>
-轮）为：<span class="math inline">\(\nabla f(x)=\nabla
-f(x^k)+H(x^k)(x-x^k)=0\)</span></p>
-<p>令 <span class="math inline">\(x=x^{k+1}\)</span>，带入原式： <span class="math inline">\(\nabla f(x)=\nabla
-f(x^k)+H(x^k)(x-x^k)\)</span>，则得到 <span class="math inline">\(\nabla
-f(x^{k+1})=\nabla f(x^k)+H(x^k)(x^{k+1}-x^k)\)</span></p>
-<p>变形本式得到：<span class="math inline">\(\nabla f(x^{k+1})-\nabla
-f(x^k)=H(x^k)(x^{k+1}-x^k)\)</span></p>
-<p>令 <span class="math inline">\(y_k=\nabla f(x^{k+1})-\nabla
-f(x^k)\)</span>，<span class="math inline">\(\delta_k=x^{k+1}-x^k\)</span>，则上式又可以写作
-<span class="math inline">\(y_k=H(x^k)\delta_k\)</span>，亦可以写作
-<span class="math inline">\(H^{-1}(x^k)y_k=\delta_k\)</span></p>
-<p>此式即为<strong>拟牛顿条件</strong>（quasi-Newton
-condition），所有对Hessian矩阵近似的方法都应该满足次条件。</p>
-<p>常用的近似方法有：DFP (Davidon-Fletcher-Powell) Algorithm，BFGS
-(Broyden-Fletcher-Goldfard-Shano) Algorithm，L-BFGS (Limited-memory
-BFGS) Algorithm</p>
-<h3 id="more">More</h3>
-<p>既然牛顿法收敛会快很多，那么为什么深度学习依然使用梯度下降（一阶收敛）呢？</p>
-<ul>
-<li>计算复杂度高--<span class="math inline">\(Hessian \in
-R^{n*n}\)</span>，Hessian矩阵大小为参数的平方。</li>
-<li>拟牛顿法对Hessian的近似由于神经网络的不确定性导致其近似方差不确定，会使优化算法本身不稳定</li>
-<li>牛顿法要求目标函数为凸，Hessian才能保证正定。</li>
-<li>牛顿法可以快速得到高精度的参数，但是深层网络对单个参数的精度并不敏感，甚至于不精确的参数对网络的泛化能力有帮助。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to generate random number via C++ (srand version)</title>
-    <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
-    <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Srand</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
-    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
-    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor
-brightness.</p>
-<p>Try <code>nvidia-settings</code> in terminal, then:</p>
-<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to get matrix transform in python</title>
-    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
-    <content><![CDATA[<p>Here is a special trick:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to install Scipy in Apple silicon 2021.11.4</title>
-    <url>/2021/11/04/How-to-install-Scipy-in-Apple-silicon-2021-11-4/</url>
-    <content><![CDATA[<p>The simplest way is</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pip install --pre -i https://pypi.anaconda.org/scipy-wheels-nightly/simple scipy</span><br></pre></td></tr></table></figure>
-<p>However it is just a preview version of spicy, remember to updata it
-afterwrds.</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -1547,6 +1320,233 @@ based on distributions over hidden states.</li>
       </tags>
   </entry>
   <entry>
+    <title>Gradient Descent, Newton Method and Quasi-Newton Method</title>
+    <url>/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/</url>
+    <content><![CDATA[<h3 id="gradient-descent">1. Gradient Descent</h3>
+<p>1.1 Gradient</p>
+<p>1.1.1 Derivative</p>
+<p>针对一元函数 <span class="math inline">\(y=f(x)\)</span>，导数 <span class="math inline">\(f&#39;(x_0)\)</span> 表示了该函数在<span class="math inline">\(x_0\)</span>处的函数斜率/增加速率。</p>
+<p>1.1.2 Partial Derivative--偏导数，部分的导数</p>
+<p>针对多元函数（此处考虑二元函数<span class="math inline">\(z=f(x,y)\)</span>），导数 <span class="math inline">\(f&#39;(x_0, y_0)\)</span>
+就有些模糊不清了，为此我们先简化到一元的情况：固定 <span class="math inline">\(y=y_0\)</span>，<span class="math inline">\(z=f(x,y)\)</span>，二元函数便降纬为<span class="math inline">\(z=f(x, y_0)\)</span> ，此时我们可以定义在 <span class="math inline">\(x\)</span> 方向上的偏导数 <span class="math inline">\(f&#39;_x(x_0, y_0)\)</span>，其表示该函数在<span class="math inline">\((x_0, y_0)\)</span>点处沿 <span class="math inline">\(x\)</span>
+方向函数斜率/增加速率。类似的我们可以得到在 <span class="math inline">\(y\)</span> 方向的偏导数。</p>
+<p>1.1.3 Directional Derivative</p>
+<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在
+<span class="math inline">\(x=x_0\)</span> 或 <span class="math inline">\(y=y_0\)</span> 方向上的函数速率变化了。</p>
+<p>现在基于这两个偏导数我们已经可以求出 <span class="math inline">\(x-y\)</span> 平面任何方向的导数了：假设求 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span>
+方向的导数（其中<span class="math inline">\(\theta\)</span>表示该向量方向与<span class="math inline">\(x\)</span>轴正方向的夹角，<span class="math inline">\(\vec{i}\)</span>表示<span class="math inline">\(x\)</span>轴正方向，<span class="math inline">\(\vec{j}\)</span>表示<span class="math inline">\(y\)</span>轴正方向） <span class="math display">\[
+D_uf(x,y)=\lim_{x \to \infty}\frac{f(x_0+tcos\theta,y_0+tsin\theta)}{t}
+\]</span> 本质上方向导数是偏导数的一种推广，通过调整方向导数中 <span class="math inline">\(\theta\)</span> 的值也能够简化为偏导数形式。</p>
+<p>但是如果我们观察 <span class="math inline">\(u\)</span> 本身，在
+<span class="math inline">\(u\)</span> 方向求导，其实相当于在 <span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span>
+方向分别求偏导之后的线性组合： <span class="math display">\[
+D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
+\]</span> 1.1.4 Gradient</p>
+<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在
+<span class="math inline">\((x_0, y_0)\)</span> 点上在方向 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span>
+方向上的函数变化速率了。</p>
+<p>那么梯度是什么呢？梯度就是 <span class="math inline">\(z\)</span> 在
+<span class="math inline">\((x_0, y_0)\)</span>
+点上函数变化速度最快的方向，也就是方向向量最大的方向。</p>
+<p>什么时候方向向量能取到最大呢？<span class="math inline">\(D_uf(x,y)=\begin{bmatrix}f&#39;_x(x,y)&amp;f&#39;_y(x,y)\end{bmatrix}\begin{bmatrix}cos\theta
+\\ sin\theta\end{bmatrix}=\pmb A*\pmb I\)</span>，当 <span class="math inline">\((cos\theta, sin\theta) // (f&#39;_x(x,y),
+f&#39;_y(x,y))\)</span> 时能够取到最大值，此时在 <span class="math inline">\((x_0,y_0)\)</span> 的梯度 <span class="math inline">\(\pmb I=\begin{bmatrix}\frac{\partial f}{\partial
+x_0} \\ \frac{\partial f}{\partial y_0}\end{bmatrix}\)</span></p>
+<p>梯度本质是<strong>矢量</strong>，在其方向上该点的方向向量最大。</p>
+<span id="more"></span>
+<p>1.2 Gradient Descent</p>
+<p>1.2.1 Local optimum</p>
+<p>由于机器学习应用梯度下降一般是为了最小化loss，因此实际上我们想要找到的是一个多元函数的最小值。从一个点出发，如果我们<strong>连续地</strong>在这个函数表面移动，一直往当前梯度最大的负方向（梯度本身定义指向函数值增加方向），这样我们最终一定会停留在函数谷底，也就是得到局部最优解。</p>
+<p>1.2.2 Algorithm</p>
+<p>首先我们先定义一下问题：</p>
+<blockquote>
+<p>函数 <span class="math inline">\(f(x)\)</span> 为在 <span class="math inline">\(R^n\)</span>
+上具有一阶连续偏导数的函数（note：这里 <span class="math inline">\(x\)</span> 其实是 <span class="math inline">\(n\)</span> 维向量 <span class="math inline">\(x=(x_1,x_2,\cdots,x_n)\)</span>）</p>
+<p>在无约束的情况下我们希望得到目标函数 <span class="math inline">\(f(x)\)</span> 的极小值。</p>
+</blockquote>
+<p>具体实现算法：</p>
+<blockquote>
+<p>初始化 <span class="math inline">\(x\)</span> 数值，记作 <span class="math inline">\(x^0\)</span></p>
+<p>第k+1轮迭代：<span class="math inline">\(x^{k+1} =
+x^k+\lambda_kp_k\)</span> 其中 <span class="math inline">\(p_k\)</span>
+为函数更新方向，取第k轮函数的负梯度（函数值下降最快的方向）：<span class="math inline">\(p_k=-\nabla f(x^k)\)</span> 其中 <span class="math inline">\(\lambda_k\)</span>
+为函数更新的步长，由一维搜索得到：<span class="math inline">\(\lambda_k=\underset{\lambda}{\operatorname{argmin}}f(x^k+\lambda
+p_k)=\underset{\lambda}{\operatorname{argmin}}f(x^k-\lambda\nabla
+f(x^k))\)</span> 具体实现：预先定义多个值进行计算，需要多次尝试。</p>
+<p>当 <span class="math inline">\(\nabla f(x^k)&lt;\epsilon\)</span>
+时（即梯度下降缓慢时）停止迭代 注意此算法本身只能保证达到local
+optimum，不能保证全局最优，因此需要多次重新初始化尝试。</p>
+</blockquote>
+<p>对于上述的梯度更新规则可以写成 <span class="math inline">\(x^{k+1} =
+x^k-\lambda_k\nabla f(x^k)\)</span>，这里的 <span class="math inline">\(f(x)\)</span>
+只是一个一般性的简写，对于机器学习的问题而言一般是loss
+function，对于一般的线性回归问题，其业已写成 <span class="math inline">\(Loss=f(w)=(\sum _{j=0}^pw_jx_j-y)^2\)</span>其中
+<span class="math inline">\(w=(w_1, w_2, \cdots, w_p)\)</span>
+是我们希望更新的参数，它和输出/feature <span class="math inline">\(x=(x_1, x_2, \cdots, x_p)\)</span>
+一样是p纬度的向量，<span class="math inline">\(y\)</span>
+为该feature的实际label。（注意上述都是仅针对单个样本点的操作）</p>
+<p>那么具体的梯度求解如下： <span class="math display">\[
+\begin{aligned}
+\frac{\partial Loss}{w_i}
+&amp;=\frac{\partial(\sum _{j=0}^pw_jx_j-y)^2}{\partial w_i}\\
+&amp;=2(\sum _{j=0}^pw_jx_j-y)\frac{\partial(\sum
+_{j=0}^pw_jx_j-y)}{\partial w_i}\\
+&amp;=2(\sum _{j=0}^pw_jx_j-y)x_i
+\end{aligned}
+\]</span> 假设我们用单个样本 <span class="math inline">\(x\)</span>
+计算梯度下降，求出的Loss导数为 <span class="math inline">\(\begin{bmatrix}\frac{\partial Loss(x)}{\partial
+w_1} \\ \vdots \\ \frac{\partial Loss(x)}{\partial
+w_p}\end{bmatrix}\)</span></p>
+<p>1.2.3 BGD--Batch Gradient Descent</p>
+<p>为了加速参数的更新，往往不会对每一个样本都计算梯度进行更新，事实上是一次性传入一个batch的数据，在更新参数时使用整个batch的数据结果进行更新。</p>
+<p>假设我们用 <span class="math inline">\((x^1,\cdots,x^i,\dots,x^n)\)</span>
+一起计算梯度下降，求出的Loss导数为 <span class="math inline">\(\frac{1}{n}\begin{bmatrix}\sum_{i=1}^n\frac{\partial
+Loss(x^i)}{\partial w_1} \\ \vdots \\ \sum_{i=1}^n\frac{\partial
+Loss(x^i)}{\partial w_p}\end{bmatrix}\)</span>。</p>
+<p>1.2.4 SGD--Stochastic Gradient Descent</p>
+<p>在数据量相当大的时候，BGD的开销也过于庞大了，为此数学家们考虑每次更新随机采样一个样本来控制梯度方向--这样做梯度的变化可能会出现较大的波动，但是数据量足够，数学上期望与BGD相同。SGD训练速度最快。</p>
+<p>此外由于SGD本身受离群样本影响大，因此可能会难以收敛，实际应用中往往采用中折--即每次更新采用样本的部分数据进行训练--MBGD--Mini-batch
+Gradient Descent。</p>
+<h3 id="newton-method">2. Newton Method</h3>
+<p>2.1 Solve Equation</p>
+<p>牛顿法最早使用来求解方程实数根的。问题很简单：求方程 <span class="math inline">\(f(x)\)</span> 的实数根。</p>
+<blockquote>
+<p>我们将 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x_0\)</span> 处Taylor一阶展开：<span class="math inline">\(f(x)=f(x_0)+f&#39;(x_0)(x-x_0)\)</span></p>
+<p>令 <span class="math inline">\(f(x)=0\)</span>，则 <span class="math inline">\(f(x_0)+f&#39;(x_0)(x-x_0)=0\)</span>，<span class="math inline">\(x_1=x_0-f(x_0)/f&#39;(x_0)\)</span></p>
+<p>再将 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x_1\)</span> 处Taylor一阶展开，迭代直到 <span class="math inline">\(||f(x)||&lt;\epsilon\)</span>。</p>
+</blockquote>
+<p>简单解释一下：如果一个方程连续且有正值有负值，那么就一定有根，牛顿法可以从任意起点开始，每次迭代都是沿点的斜率方向向
+<span class="math inline">\(x\)</span>
+轴做直线，相交得到下一个迭代点，由此理论上必能收敛。</p>
+<p>2.2 Optimization Problem</p>
+<p>回顾一下问题</p>
+<blockquote>
+<p>我们所面对的是无约束的优化问题，希望得到 <span class="math inline">\(minf(x)\)</span>，注意这里对于机器学习问题而言
+<span class="math inline">\(x\)</span> 很有可能是多维的，<span class="math inline">\(x\in R^{p*1}\)</span></p>
+<p>梯度下降法里面我们需要假设 <span class="math inline">\(f(x)\)</span>
+一阶可导，在牛顿法中需要加强为<strong>二阶可导</strong>。</p>
+</blockquote>
+<blockquote>
+<p>我们将 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x_k\)</span> （此处假设已经迭代了 <span class="math inline">\(k\)</span> 轮）处进行二阶Taylor展开： <span class="math display">\[
+f(x)=f(x^k)+g_k^T(x-x^k)+\frac{1}{2}(x-x^k)^TH(x^k)(x-x^k)
+\]</span> 其中 <span class="math inline">\(g_k=\nabla f(x^k) \in
+R^{p*1}\)</span> 是 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^k\)</span> 处的梯度；<span class="math inline">\(H(x^k)=\begin{bmatrix}\frac{\partial
+^2f(x^k)}{\partial x_i \partial y_i}\end{bmatrix} \in R^{p*p}\)</span>
+为 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^k\)</span> 处的Hessian矩阵/二阶导数。</p>
+</blockquote>
+<p>求解 <span class="math inline">\(f(x)\)</span>
+极值的必要条件是什么呢？<span class="math inline">\(f(x)\)</span>
+的一阶导数，也就是 <span class="math inline">\(g_k=\nabla
+f(x^k)=0\)</span>；并且 <span class="math inline">\(H(x^k)\)</span>
+为正定矩阵时，得到最小值（可以理解为此点所有方向的二次导数均大于0 <a href="https://blog.csdn.net/quicmous/article/details/53317512">FYI</a>）</p>
+<p>那么这个问题就再次转化为了对 <span class="math inline">\(g_k=0\)</span> 的牛顿法求根：</p>
+<blockquote>
+<p>求 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^0\)</span> 处的梯度 <span class="math inline">\(g_0=\nabla
+f(x^0)\)</span>，进行一阶Taylor展开：<span class="math inline">\(\nabla
+f(x)=\nabla f(x^0)+H(x^0)(x-x^0)=0\)</span></p>
+<p>则 <span class="math inline">\(x^1=x^0-H^{-1}(x^0)\nabla
+f(x)\)</span>，令 <span class="math inline">\(p(x^k)=-H^{-1}(x^k)\nabla
+f(x^k)\)</span>，可以简化写为 <span class="math inline">\(x_1=x_0+p(x^0)\)</span></p>
+<p>不断迭代直到 <span class="math inline">\(||\nabla
+f(x)||&lt;\epsilon\)</span></p>
+<p>其中迭代方程为 <span class="math inline">\(x^{k+1}=x^k-H^{-1}_kg_k=x^k+p_k\)</span></p>
+</blockquote>
+<p>2.3 Comparation with Gradient Descent</p>
+<p>梯度下降时一阶收敛，而牛顿法是二阶收敛，总的说牛顿法收敛速度更快，但是因为需要计算Hessian矩阵的逆，所以每次迭代速度更慢。</p>
+<p>由于梯度下降法是求梯度，在wiki上解释为用一个平面拟合当前点（所在局部）；但是牛顿法相当于是对梯度进行一阶Taylor展开，所以可以理解为是用一个曲面拟合当前点。</p>
+<p>或者从每次迭代的角度看：梯度下降只考虑了当前点哪个方向梯度最小（函数值下降最快），而牛顿法加入了Hessian矩阵，相当于还考虑了每次迭代后的梯度的变化（而不单单是函数值变化）。</p>
+<p>但是要意识到牛顿法本质是对函数值进行了二阶Taylor展开，所以如果初始值距离极值点太远，那么Taylor近似效果就会很差，所以可以考虑先用梯度下降再用牛顿法。</p>
+<p>对于梯度下降法往往在最后极值点处会出现反复震荡（这也是会什么梯度下降中往往会让步长逐渐缩短），对于牛顿法而言也是如此，因此也需要对步长进行衰减，称之为“阻尼牛顿法”：<span class="math inline">\(x^{k+1}=x^k-\lambda _kH^{-1}_kg_k=x^k+\lambda
+_kp_k\)</span></p>
+<p>牛顿法是二次收敛（二阶导数收敛）：对于二次函数，Hessian函数退化为常数（二阶导数为常数），因此可以一步到达；对于非二次函数，如果有好的二次性或已经临近收敛，则效果很好。</p>
+<h3 id="quasi-newton-method">3. Quasi-Newton Method</h3>
+<p>3.1 Basic Idea</p>
+<p>牛顿法已经很好了，但是有一个很大的问题--由于input的feature可能会非常多维度，因此Hessian矩阵可能会很大，继而计算Hessian矩阵的逆就会很困难。</p>
+<p>牛顿法的迭代公式（第 <span class="math inline">\(k\)</span>
+轮）为：<span class="math inline">\(\nabla f(x)=\nabla
+f(x^k)+H(x^k)(x-x^k)=0\)</span></p>
+<p>令 <span class="math inline">\(x=x^{k+1}\)</span>，带入原式： <span class="math inline">\(\nabla f(x)=\nabla
+f(x^k)+H(x^k)(x-x^k)\)</span>，则得到 <span class="math inline">\(\nabla
+f(x^{k+1})=\nabla f(x^k)+H(x^k)(x^{k+1}-x^k)\)</span></p>
+<p>变形本式得到：<span class="math inline">\(\nabla f(x^{k+1})-\nabla
+f(x^k)=H(x^k)(x^{k+1}-x^k)\)</span></p>
+<p>令 <span class="math inline">\(y_k=\nabla f(x^{k+1})-\nabla
+f(x^k)\)</span>，<span class="math inline">\(\delta_k=x^{k+1}-x^k\)</span>，则上式又可以写作
+<span class="math inline">\(y_k=H(x^k)\delta_k\)</span>，亦可以写作
+<span class="math inline">\(H^{-1}(x^k)y_k=\delta_k\)</span></p>
+<p>此式即为<strong>拟牛顿条件</strong>（quasi-Newton
+condition），所有对Hessian矩阵近似的方法都应该满足次条件。</p>
+<p>常用的近似方法有：DFP (Davidon-Fletcher-Powell) Algorithm，BFGS
+(Broyden-Fletcher-Goldfard-Shano) Algorithm，L-BFGS (Limited-memory
+BFGS) Algorithm</p>
+<h3 id="more">More</h3>
+<p>既然牛顿法收敛会快很多，那么为什么深度学习依然使用梯度下降（一阶收敛）呢？</p>
+<ul>
+<li>计算复杂度高--<span class="math inline">\(Hessian \in
+R^{n*n}\)</span>，Hessian矩阵大小为参数的平方。</li>
+<li>拟牛顿法对Hessian的近似由于神经网络的不确定性导致其近似方差不确定，会使优化算法本身不稳定</li>
+<li>牛顿法要求目标函数为凸，Hessian才能保证正定。</li>
+<li>牛顿法可以快速得到高精度的参数，但是深层网络对单个参数的精度并不敏感，甚至于不精确的参数对网络的泛化能力有帮助。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
+    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
+    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor
+brightness.</p>
+<p>Try <code>nvidia-settings</code> in terminal, then:</p>
+<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to get matrix transform in python</title>
+    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
+    <content><![CDATA[<p>Here is a special trick:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to generate random number via C++ (srand version)</title>
+    <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
+    <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Srand</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to install Scipy in Apple silicon 2021.11.4</title>
+    <url>/2021/11/04/How-to-install-Scipy-in-Apple-silicon-2021-11-4/</url>
+    <content><![CDATA[<p>The simplest way is</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pip install --pre -i https://pypi.anaconda.org/scipy-wheels-nightly/simple scipy</span><br></pre></td></tr></table></figure>
+<p>However it is just a preview version of spicy, remember to updata it
+afterwrds.</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
     <title>How to install &#39;labelme&#39; in Macbook M1</title>
     <url>/2021/09/29/How-to-install-labelme-in-Macbook-M1/</url>
     <content><![CDATA[<h3 id="conda-environment">Conda Environment</h3>
@@ -1608,6 +1608,92 @@ repository-&gt;open docker in browser.</p>
       </categories>
   </entry>
   <entry>
+    <title>Install tensorflow_macos on Macbook M1 (Apple silicon)</title>
+    <url>/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/</url>
+    <content><![CDATA[<h1 id="preface">Preface</h1>
+<p>This article in written in 2021.10.27, and current version is
+<code>0.1a3</code>. In the future, Apple may provide a better machine
+learning structure on TensorFlow, so please always remember to check <a href="https://github.com/apple/tensorflow_macos">here</a>.</p>
+<p>My feeling: 🐂🍺 but lots of bugs</p>
+<p>Article <a href="https://github.com/apple/tensorflow_macos/issues/153">reference</a>.</p>
+<h2 id="x-code">X-code</h2>
+<ol type="1">
+<li>Install: <code>xcode-select --install</code></li>
+<li>Check: <code>which xcrun</code>, you should get the path to
+<code>xcrun</code></li>
+</ol>
+<h2 id="miniforge">Miniforge</h2>
+<p>Miniforge is just a substitude of Anaconda.</p>
+<p>Follow the instruction <a href="https://github.com/conda-forge/miniforge#miniforge3">here</a>.</p>
+<span id="more"></span>
+<h2 id="create-virtual-environment">Create virtual environment</h2>
+<ol type="1">
+<li><p>Create <code>environment.yaml</code></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">apple_tensorflow</span></span><br><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">conda-forge</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">nodefaults</span></span><br><span class="line"><span class="attr">dependencies:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">absl-py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">astunparse</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">gast</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">google-pasta</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">grpcio</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">h5py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ipython</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">keras-preprocessing</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">numpy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">opt_einsum</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">pip=20.2.4</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">protobuf</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python-flatbuffers</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python=3.8</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">scipy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorboard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorflow-estimator</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">termcolor</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typeguard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typing_extensions</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wheel</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wrapt</span></span><br><span class="line">  </span><br></pre></td></tr></table></figure></li>
+<li><p>Create new environment:</p>
+<p><code>conda env create --file &lt;PATH_TO_ENVIRONMENT.yaml&gt; --name=&lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
+<li><p>Activate environment:</p>
+<p><code>conda activate &lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
+</ol>
+<h2 id="install-tensorflow">Install Tensorflow</h2>
+<ol type="1">
+<li><p>Directly install whl</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install --upgrade --force --no-dependencies https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_addons_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl</span><br></pre></td></tr></table></figure>
+<p>check <a href="https://github.com/apple/tensorflow_macos/releases">here</a> for
+the latest released version</p></li>
+<li><p>Check:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ python</span><br><span class="line">&gt;&gt;&gt; import tensorflow as tf</span><br></pre></td></tr></table></figure>
+<p>If there is no error, you have already install tensorflow.</p></li>
+<li><p>Here is a demo for TensorFlow.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line"></span><br><span class="line">(x_train, y_train),(x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span></span><br><span class="line"></span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">  tf.keras.layers.Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>)),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">  tf.keras.layers.Dropout(<span class="number">0.2</span>),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">              loss=<span class="string">&#x27;sparse_categorical_crossentropy&#x27;</span>,</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line"></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">end = time.time()</span><br><span class="line"></span><br><span class="line">model.evaluate(x_test, y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;time consumed: &quot;</span>, end - start)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>Congratulations! You have done everything. Now it is time to enjoy
+(be tortured) tensorflow!</p>
+<h1 id="something-more-you-should-note">Something more you should
+note</h1>
+<h2 id="why-not-gpu">Why not GPU</h2>
+<p>If you check your activity monitor, you will find out that GPU is not
+used by tensorflow.</p>
+<p>Apple implemented machine learning acceleration on their own, and the
+eager version of machine learning acceleration is currently only
+available on CPU.</p>
+<p>However, you can still ask tensorflow to use GPU via:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Import mlcompute module to use the optional set_mlc_device API for device selection with ML Compute.</span></span><br><span class="line"><span class="keyword">from</span> tensorflow.python.compiler.mlcompute <span class="keyword">import</span> mlcompute</span><br><span class="line"><span class="comment"># Select CPU device.</span></span><br><span class="line">mlcompute.set_mlc_device(device_name=<span class="string">&#x27;gpu&#x27;</span>) </span><br></pre></td></tr></table></figure>
+<p>If you set <code>mlcompute.set_mlc_device(device_name='any')</code>,
+it will automatically select the best -- generally CPU.</p>
+<p>With GPU, M1 will report
+<code>WARNING:tensorflow:Eager mode uses the CPU. Switching to the CPU.</code></p>
+<p>You can test GPU on your will, but GPU is not recomended (it is much
+less powerful).</p>
+<h2 id="debug">Debug</h2>
+<ol type="1">
+<li><p>If you encounter something like this
+<code>AutoGraph could not transform</code>, it may be caused by
+<code>gast</code>.</p>
+<p><code>pip install gast==0.3.3</code> will help.</p></li>
+<li><p>I also found an error
+<code>Failed to get CPU frequency: 0 Hz</code>. However I still cannot
+solved it. And the repo of tensorflow_macos is archived, so I cannot
+report this issue to Apple. But it seems several people have this
+problem too. May be this is not a big issue <strong>just for
+learning</strong>. Let's wait the beta version of
+tensorflow_macos!</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Image Test</title>
+    <url>/2021/09/15/Image-Test/</url>
+    <content><![CDATA[<p>You see the image? <img src="/2021/09/15/Image-Test/test.jpg" alt="image"></p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Jupyter Notebook Installtion</title>
     <url>/2021/10/09/Jupyter-Notebook-Installtion/</url>
     <content><![CDATA[<ol type="1">
@@ -1629,12 +1715,20 @@ in notebook.</p></li>
       </categories>
   </entry>
   <entry>
-    <title>Image Test</title>
-    <url>/2021/09/15/Image-Test/</url>
-    <content><![CDATA[<p>You see the image? <img src="/2021/09/15/Image-Test/test.jpg" alt="image"></p>
+    <title>Logistic Regression</title>
+    <url>/2021/11/02/Logistic-Regression/</url>
+    <content><![CDATA[<p>方法1:opencv</p>
+<p>opencv可以通过一些操作（主要通过canny和扩张腐蚀）得到特定的轮廓</p>
+<p>但是实际操作下来感觉非常依赖参数的调整和图像预处理，很不稳定，并且道路本身的一些特征（如道路接缝）也会被检测</p>
+<p>方法2:deeplearning</p>
+<p>由于Road Damage
+Detection是一个在深度学习领域很成熟的话题。我直接搜索了相关的竞赛。</p>
+<p>目前排名较高的均为使用YOLO实现，我自己也进行了尝试（YOLO
+v5）但是效果很不理想，几乎检测不到。</p>
+<p>这个领域我还没有深入探索。但是如果我们没有对检测速度很高要求的话，使用maskRCNN或许是更加适合的方案。</p>
 ]]></content>
       <categories>
-        <category>Test</category>
+        <category>Machine Learning</category>
       </categories>
   </entry>
   <entry>
@@ -1777,23 +1871,6 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
-    <title>Logistic Regression</title>
-    <url>/2021/11/02/Logistic-Regression/</url>
-    <content><![CDATA[<p>方法1:opencv</p>
-<p>opencv可以通过一些操作（主要通过canny和扩张腐蚀）得到特定的轮廓</p>
-<p>但是实际操作下来感觉非常依赖参数的调整和图像预处理，很不稳定，并且道路本身的一些特征（如道路接缝）也会被检测</p>
-<p>方法2:deeplearning</p>
-<p>由于Road Damage
-Detection是一个在深度学习领域很成熟的话题。我直接搜索了相关的竞赛。</p>
-<p>目前排名较高的均为使用YOLO实现，我自己也进行了尝试（YOLO
-v5）但是效果很不理想，几乎检测不到。</p>
-<p>这个领域我还没有深入探索。但是如果我们没有对检测速度很高要求的话，使用maskRCNN或许是更加适合的方案。</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
     <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
     <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
@@ -1816,83 +1893,6 @@ Xcode</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Install tensorflow_macos on Macbook M1 (Apple silicon)</title>
-    <url>/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/</url>
-    <content><![CDATA[<h1 id="preface">Preface</h1>
-<p>This article in written in 2021.10.27, and current version is
-<code>0.1a3</code>. In the future, Apple may provide a better machine
-learning structure on TensorFlow, so please always remember to check <a href="https://github.com/apple/tensorflow_macos">here</a>.</p>
-<p>My feeling: 🐂🍺 but lots of bugs</p>
-<p>Article <a href="https://github.com/apple/tensorflow_macos/issues/153">reference</a>.</p>
-<h2 id="x-code">X-code</h2>
-<ol type="1">
-<li>Install: <code>xcode-select --install</code></li>
-<li>Check: <code>which xcrun</code>, you should get the path to
-<code>xcrun</code></li>
-</ol>
-<h2 id="miniforge">Miniforge</h2>
-<p>Miniforge is just a substitude of Anaconda.</p>
-<p>Follow the instruction <a href="https://github.com/conda-forge/miniforge#miniforge3">here</a>.</p>
-<span id="more"></span>
-<h2 id="create-virtual-environment">Create virtual environment</h2>
-<ol type="1">
-<li><p>Create <code>environment.yaml</code></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">apple_tensorflow</span></span><br><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">conda-forge</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">nodefaults</span></span><br><span class="line"><span class="attr">dependencies:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">absl-py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">astunparse</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">gast</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">google-pasta</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">grpcio</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">h5py</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ipython</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">keras-preprocessing</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">numpy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">opt_einsum</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">pip=20.2.4</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">protobuf</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python-flatbuffers</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">python=3.8</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">scipy</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorboard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tensorflow-estimator</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">termcolor</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typeguard</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">typing_extensions</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wheel</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wrapt</span></span><br><span class="line">  </span><br></pre></td></tr></table></figure></li>
-<li><p>Create new environment:</p>
-<p><code>conda env create --file &lt;PATH_TO_ENVIRONMENT.yaml&gt; --name=&lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
-<li><p>Activate environment:</p>
-<p><code>conda activate &lt;YOUR_ENV_NAME_HERE&gt;</code></p></li>
-</ol>
-<h2 id="install-tensorflow">Install Tensorflow</h2>
-<ol type="1">
-<li><p>Directly install whl</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install --upgrade --force --no-dependencies https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_addons_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl</span><br></pre></td></tr></table></figure>
-<p>check <a href="https://github.com/apple/tensorflow_macos/releases">here</a> for
-the latest released version</p></li>
-<li><p>Check:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ python</span><br><span class="line">&gt;&gt;&gt; import tensorflow as tf</span><br></pre></td></tr></table></figure>
-<p>If there is no error, you have already install tensorflow.</p></li>
-<li><p>Here is a demo for TensorFlow.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line"></span><br><span class="line">(x_train, y_train),(x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span></span><br><span class="line"></span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">  tf.keras.layers.Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>)),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">  tf.keras.layers.Dropout(<span class="number">0.2</span>),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">              loss=<span class="string">&#x27;sparse_categorical_crossentropy&#x27;</span>,</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line"></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">end = time.time()</span><br><span class="line"></span><br><span class="line">model.evaluate(x_test, y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;time consumed: &quot;</span>, end - start)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>Congratulations! You have done everything. Now it is time to enjoy
-(be tortured) tensorflow!</p>
-<h1 id="something-more-you-should-note">Something more you should
-note</h1>
-<h2 id="why-not-gpu">Why not GPU</h2>
-<p>If you check your activity monitor, you will find out that GPU is not
-used by tensorflow.</p>
-<p>Apple implemented machine learning acceleration on their own, and the
-eager version of machine learning acceleration is currently only
-available on CPU.</p>
-<p>However, you can still ask tensorflow to use GPU via:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Import mlcompute module to use the optional set_mlc_device API for device selection with ML Compute.</span></span><br><span class="line"><span class="keyword">from</span> tensorflow.python.compiler.mlcompute <span class="keyword">import</span> mlcompute</span><br><span class="line"><span class="comment"># Select CPU device.</span></span><br><span class="line">mlcompute.set_mlc_device(device_name=<span class="string">&#x27;gpu&#x27;</span>) </span><br></pre></td></tr></table></figure>
-<p>If you set <code>mlcompute.set_mlc_device(device_name='any')</code>,
-it will automatically select the best -- generally CPU.</p>
-<p>With GPU, M1 will report
-<code>WARNING:tensorflow:Eager mode uses the CPU. Switching to the CPU.</code></p>
-<p>You can test GPU on your will, but GPU is not recomended (it is much
-less powerful).</p>
-<h2 id="debug">Debug</h2>
-<ol type="1">
-<li><p>If you encounter something like this
-<code>AutoGraph could not transform</code>, it may be caused by
-<code>gast</code>.</p>
-<p><code>pip install gast==0.3.3</code> will help.</p></li>
-<li><p>I also found an error
-<code>Failed to get CPU frequency: 0 Hz</code>. However I still cannot
-solved it. And the repo of tensorflow_macos is archived, so I cannot
-report this issue to Apple. But it seems several people have this
-problem too. May be this is not a big issue <strong>just for
-learning</strong>. Let's wait the beta version of
-tensorflow_macos!</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
       </categories>
   </entry>
   <entry>
@@ -1978,6 +1978,23 @@ tensorflow_macos!</p></li>
       </categories>
   </entry>
   <entry>
+    <title>NPR Cup--a taste to NPR</title>
+    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
+    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果">
+<figcaption aria-hidden="true">简单的一个效果</figcaption>
+</figure>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了">
+<figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Rendering</category>
+      </categories>
+  </entry>
+  <entry>
     <title>ObjectDetection-SSD</title>
     <url>/2022/01/28/ObjectDetection-SSD/</url>
     <content><![CDATA[
@@ -1988,45 +2005,13 @@ tensorflow_macos!</p></li>
       </categories>
   </entry>
   <entry>
-    <title>OpenGL in Xcode (Apple Silicon)</title>
-    <url>/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/</url>
-    <content><![CDATA[<ol type="1">
-<li><p>install <code>homebrew</code></p>
-<ol type="1">
-<li>go to <code>https://brew.sh</code> and download
-<code>homebrew</code></li>
-<li>do not forget 'Next steps'</li>
-</ol></li>
-<li><p><code>brew install glfw</code> <span id="more"></span></p></li>
-<li><p>add <code>glfw</code> to the path of xode project</p>
-<ol type="1">
-<li><p>find <code>glfw</code> location via
-<code>brew info glfw</code></p></li>
-<li><p>add <code>glfw</code> include path to Xcode</p>
-<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/1.png" alt="1" style="zoom:50%;"></p></li>
-<li><p>add binary path to Xcode</p>
-<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/2.png" alt="2" style="zoom:25%;"></p>
-<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/3.png" alt="2" style="zoom:25;"></p>
-<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/4.png" alt="2" style="zoom:25%;"></p>
-<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/5.png" alt="2" style="zoom:25%;"></p>
-<p>Find the path to libglfw lib (it is inside the folde of
-glfw).</p></li>
-</ol></li>
-<li><p>test your code:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;GLFW/glfw3.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    GLFWwindow* window;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Initialize the library */</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">glfwInit</span>())</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Create a windowed mode window and its OpenGL context */</span></span><br><span class="line">    window = <span class="built_in">glfwCreateWindow</span>(<span class="number">640</span>, <span class="number">480</span>, <span class="string">&quot;Hello World&quot;</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">if</span> (!window)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">glfwTerminate</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Make the window&#x27;s context current */</span></span><br><span class="line">    <span class="built_in">glfwMakeContextCurrent</span>(window);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Loop until the user closes the window */</span></span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">glfwWindowShouldClose</span>(window))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/* Render here */</span></span><br><span class="line">        <span class="built_in">glClear</span>(GL_COLOR_BUFFER_BIT);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Swap front and back buffers */</span></span><br><span class="line">        <span class="built_in">glfwSwapBuffers</span>(window);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Poll for and process events */</span></span><br><span class="line">        <span class="built_in">glfwPollEvents</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">glfwTerminate</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>Your code will be built and run successfully. But there will be 2
-issues:</p>
-<ol type="1">
-<li><p><code>'glClear' is deprecated: first deprecated in macOS 10.14</code></p>
-<p>Don't worry. We can silence this warning via
-<code>#define GL_SILENCE_DEPRECATION</code>.</p></li>
-<li><p><code>OpenGL is deprecated. Consider migrating to Metal instead.</code>
-No, I refuse to use <code>Metal</code>, just ignore it.</p></li>
-</ol></li>
-</ol>
+    <title>Overwatch yes</title>
+    <url>/2021/06/10/Overwatch-yes/</url>
+    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
+<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
 ]]></content>
       <categories>
-        <category>Configuration</category>
+        <category>Chat</category>
       </categories>
   </entry>
   <entry>
@@ -2046,33 +2031,6 @@ Function），直观地理解可以近似理解为概率本身--也就是说如�
         <tag>Cumulative Distribution Function</tag>
         <tag>Norm Distribution</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Overwatch yes</title>
-    <url>/2021/06/10/Overwatch-yes/</url>
-    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
-<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>NPR Cup--a taste to NPR</title>
-    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
-    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果">
-<figcaption aria-hidden="true">简单的一个效果</figcaption>
-</figure>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了">
-<figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Rendering</category>
-      </categories>
   </entry>
   <entry>
     <title>Principal Component Analysis</title>
@@ -2439,6 +2397,51 @@ _o*D\)</span>大小。</p>
 ]]></content>
       <categories>
         <category>Computer Vision</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>OpenGL in Xcode (Apple Silicon)</title>
+    <url>/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/</url>
+    <content><![CDATA[<ol type="1">
+<li><p>install <code>homebrew</code></p>
+<ol type="1">
+<li>go to <code>https://brew.sh</code> and download
+<code>homebrew</code></li>
+<li>do not forget 'Next steps'</li>
+</ol></li>
+<li><p><code>brew install glfw</code> <span id="more"></span></p></li>
+<li><p>add <code>glfw</code> to the path of xode project</p>
+<ol type="1">
+<li><p>find <code>glfw</code> location via
+<code>brew info glfw</code></p></li>
+<li><p>add <code>glfw</code> include path to Xcode</p>
+<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/1.png" alt="1" style="zoom:25%;"></p></li>
+<li><p>add binary path to Xcode</p>
+<p>Add OpenGL framework</p>
+<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/2.png" alt="2" style="zoom:25%;"></p>
+<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/3.png" alt="3" style="zoom:25%;"></p>
+<p>Add glfw binary.</p>
+<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/4.png" alt="4" style="zoom:25%;"></p>
+<p><img src="/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/5.png" alt="5" style="zoom:25%;"></p>
+<p>Find the path to libglfw lib (it is inside the folde of glfw). By
+default, the path to it is hidden. Show hidden file via
+<code>shift+command+.</code> in finder.</p></li>
+</ol></li>
+<li><p>test your code:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;GLFW/glfw3.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    GLFWwindow* window;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Initialize the library */</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">glfwInit</span>())</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Create a windowed mode window and its OpenGL context */</span></span><br><span class="line">    window = <span class="built_in">glfwCreateWindow</span>(<span class="number">640</span>, <span class="number">480</span>, <span class="string">&quot;Hello World&quot;</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">if</span> (!window)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">glfwTerminate</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Make the window&#x27;s context current */</span></span><br><span class="line">    <span class="built_in">glfwMakeContextCurrent</span>(window);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Loop until the user closes the window */</span></span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">glfwWindowShouldClose</span>(window))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/* Render here */</span></span><br><span class="line">        <span class="built_in">glClear</span>(GL_COLOR_BUFFER_BIT);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Swap front and back buffers */</span></span><br><span class="line">        <span class="built_in">glfwSwapBuffers</span>(window);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Poll for and process events */</span></span><br><span class="line">        <span class="built_in">glfwPollEvents</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">glfwTerminate</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Your code will be built and run successfully. But there will be 2
+issues:</p>
+<ol type="1">
+<li><p><code>'glClear' is deprecated: first deprecated in macOS 10.14</code></p>
+<p>Don't worry. We can silence this warning via
+<code>#define GL_SILENCE_DEPRECATION</code>.</p></li>
+<li><p><code>OpenGL is deprecated. Consider migrating to Metal instead.</code>
+No, I refuse to use <code>Metal</code>, just ignore it.</p></li>
+</ol></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -3042,6 +3045,15 @@ to dry out</li>
       </categories>
   </entry>
   <entry>
+    <title>TOEFL Writing</title>
+    <url>/2021/10/18/TOEFL-Writing/</url>
+    <content><![CDATA[
+]]></content>
+      <categories>
+        <category>TOEFL</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Test Latex Formula</title>
     <url>/2021/09/15/Test-Latex-Formula/</url>
     <content><![CDATA[<p>This is an inline formula: <span class="math inline">\(x=7\)</span>.
@@ -3057,15 +3069,6 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 ]]></content>
       <categories>
         <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>TOEFL Writing</title>
-    <url>/2021/10/18/TOEFL-Writing/</url>
-    <content><![CDATA[
-]]></content>
-      <categories>
-        <category>TOEFL</category>
       </categories>
   </entry>
   <entry>
@@ -3094,6 +3097,17 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 <script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Use of Tuple in Python</title>
+    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>Tuple最特别在于<br></p>
+<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
       </categories>
   </entry>
   <entry>
@@ -3375,15 +3389,54 @@ loss（即rpn_loss_bbox层计算的soomth L1 loss，该loss中<span class="math 
       </tags>
   </entry>
   <entry>
-    <title>Use of Tuple in Python</title>
-    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<p>Tuple最特别在于<br></p>
-<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
-]]></content>
+    <title>What is the use of activation function</title>
+    <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
+    <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural
+Network</h1>
+<p>The following picture illustrates the basic structure of neural
+network.</p>
+<figure>
+<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn">
+<figcaption aria-hidden="true">nn</figcaption>
+</figure>
+<p>Extracted featrures are passed into the net as input.</p>
+<p># of input node = # of extracted feature types</p>
+<span id="more"></span>
+<h1 id="why-we-need-activation">Why we need activation</h1>
+<p>For a classifiying issue:</p>
+<h3 id="without-activation">Without activation</h3>
+<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
+<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input}
+input+loss_1)+loss_2\)</span></p>
+<p>So bascically, we can derive that no matter how many layers you add
+into the net, without activation, the net can only produce a
+<strong>linear classifier</strong>.</p>
+<h3 id="with-activation">With activation</h3>
+<p>The aim of activation is to transfer a linear classifer to a
+non-linear classifer.</p>
+<p>The basic actication we use is: <span class="math display">\[
+\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0
+\\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
+\]</span> It is same as nerve cell--if the cell is activated it produce
+a signal, otherwise, it does nothing.</p>
+<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
+\sigma(y) = \frac 1 {1+e^{-y}}
+\]</span> (we prefer to ues <span class="math inline">\(y\)</span>,
+because actication is added inside the net which means the input of
+activation is the output of prior layer)</p>
+<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
+<center>
+<p>NN structure with activation</p>
+<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
+<center>
+<p>Output of NN with activation</p>
+</center></center>]]></content>
       <categories>
-        <category>Learning</category>
+        <category>Machine Learning</category>
       </categories>
+      <tags>
+        <tag>Relu</tag>
+      </tags>
   </entry>
   <entry>
     <title>Use of &#39;numpy&#39; package in Python</title>
@@ -3416,9 +3469,9 @@ tensor</h2>
   <entry>
     <title>Video test</title>
     <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-AuMZZYwTapBLZoqW" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-AuMZZYwTapBLZoqW").style.height=document.getElementById("mmedia-AuMZZYwTapBLZoqW").scrollWidth*0.76+"px";
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-iaCYUZOsiylarixL" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-iaCYUZOsiylarixL").style.height=document.getElementById("mmedia-iaCYUZOsiylarixL").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-AuMZZYwTapBLZoqW").style.height=document.getElementById("mmedia-AuMZZYwTapBLZoqW").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-iaCYUZOsiylarixL").style.height=document.getElementById("mmedia-iaCYUZOsiylarixL").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <colgroup>
@@ -3502,56 +3555,6 @@ tensor</h2>
         <category>Machine Learning</category>
         <category>Object Detection</category>
       </categories>
-  </entry>
-  <entry>
-    <title>What is the use of activation function</title>
-    <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
-    <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural
-Network</h1>
-<p>The following picture illustrates the basic structure of neural
-network.</p>
-<figure>
-<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn">
-<figcaption aria-hidden="true">nn</figcaption>
-</figure>
-<p>Extracted featrures are passed into the net as input.</p>
-<p># of input node = # of extracted feature types</p>
-<span id="more"></span>
-<h1 id="why-we-need-activation">Why we need activation</h1>
-<p>For a classifiying issue:</p>
-<h3 id="without-activation">Without activation</h3>
-<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
-<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input}
-input+loss_1)+loss_2\)</span></p>
-<p>So bascically, we can derive that no matter how many layers you add
-into the net, without activation, the net can only produce a
-<strong>linear classifier</strong>.</p>
-<h3 id="with-activation">With activation</h3>
-<p>The aim of activation is to transfer a linear classifer to a
-non-linear classifer.</p>
-<p>The basic actication we use is: <span class="math display">\[
-\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0
-\\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
-\]</span> It is same as nerve cell--if the cell is activated it produce
-a signal, otherwise, it does nothing.</p>
-<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
-\sigma(y) = \frac 1 {1+e^{-y}}
-\]</span> (we prefer to ues <span class="math inline">\(y\)</span>,
-because actication is added inside the net which means the input of
-activation is the output of prior layer)</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
-<center>
-<p>NN structure with activation</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
-<center>
-<p>Output of NN with activation</p>
-</center></center>]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Relu</tag>
-      </tags>
   </entry>
   <entry>
     <title>hexo中使用markdown无法处理特殊字符</title>
@@ -3965,6 +3968,29 @@ target. Derive AP for all types-&gt;average-&gt;mAP.</p>
 </center></center>]]></content>
       <categories>
         <category>Essay</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>使用hexo theme Butterfly 报错</title>
+    <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
+    <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly
+报错</h2>
+<p>直接用github上作者提供的代码</p>
+<p>git clone -b master
+https://github.com/jerryc127/hexo-theme-butterfly.git
+themes/Butterfly</p>
+<p>结果是页面根本无法正常渲染，只有一行字：</p>
+<p><font color="#DC143C">extends includes/layout.pug block content include
+./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include
+includes/pagination.pug</font></p>
+<h2 id="问题解决">问题解决</h2>
+<p>参照原作者提供的文章<a href="https://docs.jerryc.me/#/config/question">Butterfly</a></p>
+<p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
+<hr>
+<h2 id="丝滑进入">丝滑进入</h2>
+]]></content>
+      <categories>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -4465,29 +4491,6 @@ cycle里就能执行多个指令。其中当然还有很多细节问题，但是
 ]]></content>
       <categories>
         <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>使用hexo theme Butterfly 报错</title>
-    <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
-    <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly
-报错</h2>
-<p>直接用github上作者提供的代码</p>
-<p>git clone -b master
-https://github.com/jerryc127/hexo-theme-butterfly.git
-themes/Butterfly</p>
-<p>结果是页面根本无法正常渲染，只有一行字：</p>
-<p><font color="#DC143C">extends includes/layout.pug block content include
-./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include
-includes/pagination.pug</font></p>
-<h2 id="问题解决">问题解决</h2>
-<p>参照原作者提供的文章<a href="https://docs.jerryc.me/#/config/question">Butterfly</a></p>
-<p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
-<hr>
-<h2 id="丝滑进入">丝滑进入</h2>
-]]></content>
-      <categories>
-        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
