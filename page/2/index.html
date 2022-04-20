@@ -203,6 +203,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/01/23/A-brief-introduction-to-Embedding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/23/A-brief-introduction-to-Embedding/" class="post-title-link" itemprop="url">A brief introduction to Embedding</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-01-23 16:08:52" itemprop="dateCreated datePublished" datetime="2022-01-23T16:08:52+08:00">2022-01-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-28 07:57:11" itemprop="dateModified" datetime="2022-01-28T07:57:11+08:00">2022-01-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Embedding a technique widely used in Recommender System. The first
+time I met it, it confuesd me for a long time. Now let me take 5 minutes
+to tell you what is Embedding. It will be just a brief introduction
+without going to details.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/23/A-brief-introduction-to-Embedding/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/01/20/PySpark-Install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1015,96 +1099,6 @@ x_0} \\ \frac{\partial f}{\partial y_0}\end{bmatrix}\)</span></p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/15/mAP-in-object-detection/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/15/mAP-in-object-detection/" class="post-title-link" itemprop="url">mAP in object detection</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-10-15 13:51:53 / Modified: 14:53:35" itemprop="dateCreated datePublished" datetime="2021-10-15T13:51:53+08:00">2021-10-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="pr-curve">PR Curve</h3>
-<p><strong>IoU</strong>(Intersection over union): 两个bounding box(
-ground truth + proposed)之间重合部分的比例. <span class="math inline">\(IoU=\frac{A \cap B}{A \cup B}\)</span></p>
-<p><strong>TP</strong>(True positive): 对于所有ground
-truth检测IoU&gt;=IoU<sub>threshold</sub>(IoU<sub>threshold</sub>一般取0.5)--有多少真实的bounding
-box被detect到(一个ground truth只考虑一次)</p>
-<p><strong>FP</strong>(False positive): 对于所有ground
-truth检测IoU&lt;IoU<sub>threshold</sub>(IoU<sub>threshold</sub>一般取0.5)--每个ground
-truth有多少无效(IoU过低)/多余(多次检测同一个)的检测框</p>
-<p><strong>FN</strong>(False negative): 有多少真实的bounding
-box没有被detect到(一个ground truth只考虑一次)</p>
-<p><strong>Precision</strong> = <span class="math inline">\(\frac{TP}{TP+FP}\)</span>--在检测为真的bounding
-box中有多少是有效的: <span class="math inline">\(Precision=\frac{TrueSamplesDetected}{AllDetecion}\)</span></p>
-<p><strong>Recall</strong> = <span class="math inline">\(\frac{TP}{TP+FN}\)</span>--ground truth的bounding
-box有多少能被检测到: <span class="math inline">\(Recall=\frac{TrueSamplesDetected}{AllTrueSamples}\)</span></p>
-<p><strong>PR Curve</strong>: recall(x)-precision(y) curve</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/10/15/mAP-in-object-detection/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1176,7 +1170,7 @@ box有多少能被检测到: <span class="math inline">\(Recall=\frac{TrueSample
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">93</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
