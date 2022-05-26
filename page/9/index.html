@@ -203,6 +203,163 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2020/06/04/Difference-between-new-and-malloc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/04/Difference-between-new-and-malloc/" class="post-title-link" itemprop="url">Difference between new and malloc</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-04 15:57:29" itemprop="dateCreated datePublished" datetime="2020-06-04T15:57:29+08:00">2020-06-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-25 13:48:13" itemprop="dateModified" datetime="2021-10-25T13:48:13+08:00">2021-10-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天写作业的时候要求实现vector，很自然地用
+<code>malloc</code>，但是告知不能使用<code>stdlib.h</code>，没有办法就只能使用<code>new</code>了。于是忽然想到<code>new</code>、<code>malloc</code>都是在<code>heap</code>上开辟动态空间，那么有什么异同呢？</p>
+<h2 id="malloc">malloc()</h2>
+<p>malloc只负责开辟一个指定大小的空间，类似的<code>calloc</code>则使得在开辟空间的同时初始化为0。
+malloc的特点在于将内存空间视为链表，在内存上找到足够长的初始空间返回给目标空间的开头地址，如果失败就会返回<code>NULL</code>（因此使用malloc必须要检验返回指针）。</p>
+<p>由于malloc开辟的空间在<code>heap</code>上，这就使得可以在函数内定义的变量在函数被销毁会变量不会被同步销毁。因此释放heap的空间只能通过手动<code>free()</code>。</p>
+<p><code>malloc</code>在开辟新空间时往往会多开辟一些空间用于存储空间长度，前后空间指针的信息，由<code>free</code>源码可见，实际上free是将<code>heap</code>上的可用空间定义为指针传入的指针位置减去malloc所要求的大小--所以free本质上是定义了一个指针告诉OS：一个指针到另一个指针之间的空间是可用的<code>free-&gt;is_available = 1;</code>。由此<code>free</code>函数对传入的指针要求非常严格，必须是malloc空间的起始指针。</p>
+<h2 id="new">new()</h2>
+<p>intuitive的区别：
+首先<code>new</code>有个好处可以简单地进行初始化，即使用new时会调用该类型的默认构造函数。并且<code>new</code>开辟的空间需要用<code>delete</code>函数删除。</p>
+<p>更重要的区别是：</p>
+<p><code>new</code>函数调用的空间在C++被抽象为<code>free store</code>（反向定义--new的空间才被视为free
+store，由OS特别管理）上。<code>free store</code>一般都是在heap上，但是取决于<code>new</code>自身的实现，也可以在<code>static</code>区域。</p>
+<p><code>new</code>有多种变体，如定位new--直接使用传入的地址而不考虑是否该地址为空可以使用<code>new (address) int[10]</code></p>
+<p><code>new</code>函数返回的指针类型与开辟空间的数据类型相符合，这就意味着不需要像malloc一样在cast后才能使用，在数据上更加安全。</p>
+<p><code>new</code>如果分配失败，不会返回错误会直接丢出异常，如果想要确认需要使用catch
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">    int *a = new int();</span><br><span class="line">&#125;</span><br><span class="line">catch (bad_alloc)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>summary：</p>
+<table>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 52%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>特征</th>
+<th>new/delete</th>
+<th>malloc/free</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>分配内存的位置</td>
+<td>自由存储区</td>
+<td>堆</td>
+</tr>
+<tr class="even">
+<td>内存分配成功返回值</td>
+<td>完整类型指针</td>
+<td>void*</td>
+</tr>
+<tr class="odd">
+<td>内存分配失败返回值</td>
+<td>默认抛出异常</td>
+<td>返回NULL</td>
+</tr>
+<tr class="even">
+<td>分配内存的大小</td>
+<td>由编译器根据类型计算得出</td>
+<td>必须显式指定字节数</td>
+</tr>
+<tr class="odd">
+<td>处理数组</td>
+<td>有处理数组的new版本new[]</td>
+<td>需要用户计算数组的大小后进行内存分配</td>
+</tr>
+<tr class="even">
+<td>已分配内存的扩充</td>
+<td>无法直观地处理</td>
+<td>使用realloc简单完成</td>
+</tr>
+<tr class="odd">
+<td>是否相互调用</td>
+<td>可以，看具体的operator new/delete实现</td>
+<td>不可调用new</td>
+</tr>
+<tr class="even">
+<td>分配内存时内存不足</td>
+<td>客户能够指定处理函数或重新制定分配器</td>
+<td>无法通过用户代码进行处理</td>
+</tr>
+<tr class="odd">
+<td>函数重载</td>
+<td>允许</td>
+<td>不允许</td>
+</tr>
+<tr class="even">
+<td>构造函数与析构函数</td>
+<td>调用</td>
+<td>不调用</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2020/05/30/C-C-openmp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -967,92 +1124,6 @@ type float)</li>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/" class="post-title-link" itemprop="url">yilia主题的头像配置失败</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-22 12:27:09" itemprop="dateCreated datePublished" datetime="2020-05-22T12:27:09+08:00">2020-05-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 14:04:14" itemprop="dateModified" datetime="2021-09-15T14:04:14+08:00">2021-09-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="问题描述">问题描述</h2>
-<ol type="1">
-<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
-<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code>
-但是打开之后依然无法显示，甚至还有一个问号</li>
-</ol>
-<hr>
-<h2 id="问题解决">问题解决</h2>
-<p>这里有一个很tricky的地方搞了我很久
-在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code>
-比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
-<p><strong>注意</strong>
-麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1124,7 +1195,7 @@ type float)</li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-count">97</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
