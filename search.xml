@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>九月剑道稽古</title>
+    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
+    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
+<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-uqDePQKAtJHcAxsk" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-uqDePQKAtJHcAxsk").style.height=document.getElementById("mmedia-uqDePQKAtJHcAxsk").scrollWidth*0.76+"px";
+    window.onresize = function(){
+      document.getElementById("mmedia-uqDePQKAtJHcAxsk").style.height=document.getElementById("mmedia-uqDePQKAtJHcAxsk").scrollWidth*0.76+"px";
+    }; </script>
+]]></content>
+      <categories>
+        <category>Kendo</category>
+      </categories>
+  </entry>
+  <entry>
     <title>tensor</title>
     <url>/2020/05/23/1-tensor/</url>
     <content><![CDATA[<h1 id="definition">Definition</h1>
@@ -226,20 +240,6 @@ chartensor(containing characters) cannot</li>
       </categories>
   </entry>
   <entry>
-    <title>九月剑道稽古</title>
-    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
-    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
-<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-wSFjOMnbMnctJAzN" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-wSFjOMnbMnctJAzN").style.height=document.getElementById("mmedia-wSFjOMnbMnctJAzN").scrollWidth*0.76+"px";
-    window.onresize = function(){
-      document.getElementById("mmedia-wSFjOMnbMnctJAzN").style.height=document.getElementById("mmedia-wSFjOMnbMnctJAzN").scrollWidth*0.76+"px";
-    }; </script>
-]]></content>
-      <categories>
-        <category>Kendo</category>
-      </categories>
-  </entry>
-  <entry>
     <title>A brief introduction to Embedding</title>
     <url>/2022/01/23/A-brief-introduction-to-Embedding/</url>
     <content><![CDATA[<p>Embedding a technique widely used in Recommender System. The first
@@ -355,19 +355,6 @@ value is random.</p>
       </categories>
   </entry>
   <entry>
-    <title>Add-on in Blender3.0 for Mac(Apple Silicon)</title>
-    <url>/2022/03/13/Add-on-in-Blender3-0-for-Mac-Apple-Silicon/</url>
-    <content><![CDATA[<p>Put your unziped file in:</p>
-<p><code>/Applications/Blender.app/Contents/Resources/3.0/scripts/addons</code></p>
-<p>Enable add-on:</p>
-<p><code>Blender-&gt;Edit-&gt;Preferences-&gt;Add-ons</code></p>
-<p>Search your add-on and enable it.</p>
-]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
     <title>AdaBoosting</title>
     <url>/2021/05/24/AdaBoosting/</url>
     <content><![CDATA[<h3 id="boosting-bagging">Boosting &amp; Bagging</h3>
@@ -413,6 +400,19 @@ _i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分
 ]]></content>
       <categories>
         <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Add-on in Blender3.0 for Mac(Apple Silicon)</title>
+    <url>/2022/03/13/Add-on-in-Blender3-0-for-Mac-Apple-Silicon/</url>
+    <content><![CDATA[<p>Put your unziped file in:</p>
+<p><code>/Applications/Blender.app/Contents/Resources/3.0/scripts/addons</code></p>
+<p>Enable add-on:</p>
+<p><code>Blender-&gt;Edit-&gt;Preferences-&gt;Add-ons</code></p>
+<p>Search your add-on and enable it.</p>
+]]></content>
+      <categories>
+        <category>Blender</category>
       </categories>
   </entry>
   <entry>
@@ -585,6 +585,17 @@ y = 1\\  -(1-\alpha)y&#39; ^\gamma log(1-y&#39;)\quad y = 0
       </tags>
   </entry>
   <entry>
+    <title>Basics of DL: Optimization Algorithms on Matrix Manifold</title>
+    <url>/2022/05/26/Basics-of-DL-Optimization-Algorithms-on-Matrix-Manifold/</url>
+    <content><![CDATA[<p>This could be complicated. But it will help. <a href="https://press.princeton.edu/absil">Optimization Algorithms on
+Matrix Manifold</a>.</p>
+<p>More details will be post later. (Maybe...)</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Benchmark of Neural Network--Precision,Recall,F1-Measure</title>
     <url>/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/</url>
     <content><![CDATA[<h3 id="precision">Precision</h3>
@@ -615,17 +626,6 @@ doing good in F.</p>
 <p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
 <p>Harmonic mean tries to get a result that neither P nor R is not so
 bad even if both of them are not really good.</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Basics of DL: Optimization Algorithms on Matrix Manifold</title>
-    <url>/2022/05/26/Basics-of-DL-Optimization-Algorithms-on-Matrix-Manifold/</url>
-    <content><![CDATA[<p>This could be complicated. But it will help. <a href="https://press.princeton.edu/absil">Optimization Algorithms on
-Matrix Manifold</a>.</p>
-<p>More details will be post later. (Maybe...)</p>
 ]]></content>
       <categories>
         <category>Machine Learning</category>
@@ -665,37 +665,6 @@ Matrix Manifold</a>.</p>
       </categories>
   </entry>
   <entry>
-    <title>Brief introduction to Unet</title>
-    <url>/2021/10/11/Brief-introduction-to-Unet/</url>
-    <content><![CDATA[<h3 id="structure">Structure</h3>
-<p><img src="/2021/10/11/Brief-introduction-to-Unet/1.png"></p>
-<p>The structure of Unet is symmetric, like a shape of 'U'.</p>
-<p>On the right side the blue box is feature map derived by
-convolution-deconvolution. And the white box is the just the same as the
-blue box on the left side. The grey arrow shows
-<strong>skip-connection</strong>-- putting the two parts together.</p>
-<p>The encoder part is quite simple--3x3 convolutional kernel +
-maxpooling.</p>
-<p>The decoder part is designed to restore the original shape of the
-image using <strong>upsampling</strong>.</p>
-<p>In Unet, upsampling is implmented in <strong>bilinear
-interpolation</strong>.</p>
-<p><code>torch.nn.Upsample(mode=bilinear)</code></p>
-<p>Since upsampling will lose the detailed information of orginal image,
-Unet try to use skip-connection to fix this problem.</p>
-<p><code>torch.cat([low_layer_features, deep_layer_features], dim=1)</code></p>
-<p>(Note: In FCN, two parts are added in pixel level, however, in Unet,
-two part are concatenated together.--concatenating remains more details
-with more time consumed).</p>
-<span id="more"></span>
-<h3 id="code-keras">Code (keras)</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Unet</span>():</span></span><br><span class="line">    inputs = Input((img_rows, img_cols, <span class="number">3</span>)) <span class="comment"># RGB net</span></span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(inputs)</span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv1)</span><br><span class="line">    pool1 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv1)</span><br><span class="line">    <span class="comment"># pool1 = Dropout(0.25)(pool1)</span></span><br><span class="line">    <span class="comment"># pool1 = BatchNormalization()(pool1)</span></span><br><span class="line"></span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool1)</span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv2)</span><br><span class="line">    pool2 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv2)</span><br><span class="line">    <span class="comment"># pool2 = Dropout(0.5)(pool2)</span></span><br><span class="line">    <span class="comment"># pool2 = BatchNormalization()(pool2)</span></span><br><span class="line"></span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool2)</span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv3)</span><br><span class="line">    pool3 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv3)</span><br><span class="line">    <span class="comment"># pool3 = Dropout(0.5)(pool3)</span></span><br><span class="line">    <span class="comment"># pool3 = BatchNormalization()(pool3)</span></span><br><span class="line"></span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool3)</span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv4)</span><br><span class="line">    pool4 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv4)</span><br><span class="line">    <span class="comment"># pool4 = Dropout(0.5)(pool4)</span></span><br><span class="line">    <span class="comment"># pool4 = BatchNormalization()(pool4)</span></span><br><span class="line"></span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool4)</span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv5)</span><br><span class="line"></span><br><span class="line">    up6 = concatenate([Conv2DTranspose(<span class="number">256</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv5), conv4], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up6 = Dropout(0.5)(up6)</span></span><br><span class="line">    <span class="comment"># up6 = BatchNormalization()(up6)</span></span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up6)</span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv6)</span><br><span class="line"></span><br><span class="line">    up7 = concatenate([Conv2DTranspose(<span class="number">128</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv6), conv3], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up7 = Dropout(0.5)(up7)</span></span><br><span class="line">    <span class="comment"># up7 = BatchNormalization()(up7)</span></span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up7)</span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv7)</span><br><span class="line"></span><br><span class="line">    up8 = concatenate([Conv2DTranspose(<span class="number">64</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv7), conv2], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up8 = Dropout(0.5)(up8)</span></span><br><span class="line">    <span class="comment"># up8 = BatchNormalization()(up8)</span></span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up8)</span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv8)</span><br><span class="line"></span><br><span class="line">    up9 = concatenate([Conv2DTranspose(<span class="number">32</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv8), conv1], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up9 = Dropout(0.5)(up9)</span></span><br><span class="line">    <span class="comment"># up9 = BatchNormalization()(up9)</span></span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up9)</span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># conv9 = Dropout(0.5)(conv9)</span></span><br><span class="line"></span><br><span class="line">    conv10 = Conv2D(<span class="number">1</span>, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">&#x27;sigmoid&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    model = Model(inputs=[inputs], outputs=[conv10])</span><br><span class="line"></span><br><span class="line">    model.<span class="built_in">compile</span>(optimizer=Adam(lr=<span class="number">1e-5</span>),</span><br><span class="line">                  loss=dice_coef_loss, metrics=[dice_coef])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>C++11 in Mac (VsCode)</title>
     <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
     <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of
@@ -729,6 +698,37 @@ file)</p>
       </tags>
   </entry>
   <entry>
+    <title>Brief introduction to Unet</title>
+    <url>/2021/10/11/Brief-introduction-to-Unet/</url>
+    <content><![CDATA[<h3 id="structure">Structure</h3>
+<p><img src="/2021/10/11/Brief-introduction-to-Unet/1.png"></p>
+<p>The structure of Unet is symmetric, like a shape of 'U'.</p>
+<p>On the right side the blue box is feature map derived by
+convolution-deconvolution. And the white box is the just the same as the
+blue box on the left side. The grey arrow shows
+<strong>skip-connection</strong>-- putting the two parts together.</p>
+<p>The encoder part is quite simple--3x3 convolutional kernel +
+maxpooling.</p>
+<p>The decoder part is designed to restore the original shape of the
+image using <strong>upsampling</strong>.</p>
+<p>In Unet, upsampling is implmented in <strong>bilinear
+interpolation</strong>.</p>
+<p><code>torch.nn.Upsample(mode=bilinear)</code></p>
+<p>Since upsampling will lose the detailed information of orginal image,
+Unet try to use skip-connection to fix this problem.</p>
+<p><code>torch.cat([low_layer_features, deep_layer_features], dim=1)</code></p>
+<p>(Note: In FCN, two parts are added in pixel level, however, in Unet,
+two part are concatenated together.--concatenating remains more details
+with more time consumed).</p>
+<span id="more"></span>
+<h3 id="code-keras">Code (keras)</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Unet</span>():</span></span><br><span class="line">    inputs = Input((img_rows, img_cols, <span class="number">3</span>)) <span class="comment"># RGB net</span></span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(inputs)</span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv1)</span><br><span class="line">    pool1 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv1)</span><br><span class="line">    <span class="comment"># pool1 = Dropout(0.25)(pool1)</span></span><br><span class="line">    <span class="comment"># pool1 = BatchNormalization()(pool1)</span></span><br><span class="line"></span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool1)</span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv2)</span><br><span class="line">    pool2 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv2)</span><br><span class="line">    <span class="comment"># pool2 = Dropout(0.5)(pool2)</span></span><br><span class="line">    <span class="comment"># pool2 = BatchNormalization()(pool2)</span></span><br><span class="line"></span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool2)</span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv3)</span><br><span class="line">    pool3 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv3)</span><br><span class="line">    <span class="comment"># pool3 = Dropout(0.5)(pool3)</span></span><br><span class="line">    <span class="comment"># pool3 = BatchNormalization()(pool3)</span></span><br><span class="line"></span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool3)</span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv4)</span><br><span class="line">    pool4 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv4)</span><br><span class="line">    <span class="comment"># pool4 = Dropout(0.5)(pool4)</span></span><br><span class="line">    <span class="comment"># pool4 = BatchNormalization()(pool4)</span></span><br><span class="line"></span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool4)</span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv5)</span><br><span class="line"></span><br><span class="line">    up6 = concatenate([Conv2DTranspose(<span class="number">256</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv5), conv4], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up6 = Dropout(0.5)(up6)</span></span><br><span class="line">    <span class="comment"># up6 = BatchNormalization()(up6)</span></span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up6)</span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv6)</span><br><span class="line"></span><br><span class="line">    up7 = concatenate([Conv2DTranspose(<span class="number">128</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv6), conv3], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up7 = Dropout(0.5)(up7)</span></span><br><span class="line">    <span class="comment"># up7 = BatchNormalization()(up7)</span></span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up7)</span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv7)</span><br><span class="line"></span><br><span class="line">    up8 = concatenate([Conv2DTranspose(<span class="number">64</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv7), conv2], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up8 = Dropout(0.5)(up8)</span></span><br><span class="line">    <span class="comment"># up8 = BatchNormalization()(up8)</span></span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up8)</span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv8)</span><br><span class="line"></span><br><span class="line">    up9 = concatenate([Conv2DTranspose(<span class="number">32</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv8), conv1], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up9 = Dropout(0.5)(up9)</span></span><br><span class="line">    <span class="comment"># up9 = BatchNormalization()(up9)</span></span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up9)</span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># conv9 = Dropout(0.5)(conv9)</span></span><br><span class="line"></span><br><span class="line">    conv10 = Conv2D(<span class="number">1</span>, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">&#x27;sigmoid&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    model = Model(inputs=[inputs], outputs=[conv10])</span><br><span class="line"></span><br><span class="line">    model.<span class="built_in">compile</span>(optimizer=Adam(lr=<span class="number">1e-5</span>),</span><br><span class="line">                  loss=dice_coef_loss, metrics=[dice_coef])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>C/C++ openmp</title>
     <url>/2020/05/30/C-C-openmp/</url>
     <content><![CDATA[<p>Just a note for myself !</p>
@@ -756,31 +756,6 @@ Google C++ styles.</p>
       <categories>
         <category>Coding</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Cannot get access to Github</title>
-    <url>/2021/03/04/Cannot-get-access-to-Github/</url>
-    <content><![CDATA[<p>MacOS 11.2</p>
-<ol type="1">
-<li><p><code>sudo vim /private/etc/hosts</code></p></li>
-<li><p>Delete all path about Github</p></li>
-<li><p>Search IP address of <code>github.com</code> and
-<code>github.global.ssl.fastly.net</code> in
-<code>https://github.com.ipaddress.com</code></p></li>
-<li><p>Add</p>
-<p><code>#github</code></p>
-<p><code>140.82.114.4 github.com</code></p>
-<p><code>199.232.69.194 github.global.ssl.fastly.net</code></p>
-<p>replace the IP address with the search result.</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-        <tag>MacOS</tag>
-      </tags>
   </entry>
   <entry>
     <title>C++: Difference between int* and int&amp; and int</title>
@@ -818,15 +793,28 @@ reference without initilizatin is not permitted,
       </tags>
   </entry>
   <entry>
-    <title>Copy &amp; Deepcopy in Python</title>
-    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
+    <title>Cannot get access to Github</title>
+    <url>/2021/03/04/Cannot-get-access-to-Github/</url>
+    <content><![CDATA[<p>MacOS 11.2</p>
+<ol type="1">
+<li><p><code>sudo vim /private/etc/hosts</code></p></li>
+<li><p>Delete all path about Github</p></li>
+<li><p>Search IP address of <code>github.com</code> and
+<code>github.global.ssl.fastly.net</code> in
+<code>https://github.com.ipaddress.com</code></p></li>
+<li><p>Add</p>
+<p><code>#github</code></p>
+<p><code>140.82.114.4 github.com</code></p>
+<p><code>199.232.69.194 github.global.ssl.fastly.net</code></p>
+<p>replace the IP address with the search result.</p></li>
+</ol>
 ]]></content>
       <categories>
-        <category>Learning</category>
+        <category>Configuration</category>
       </categories>
       <tags>
-        <tag>Python</tag>
+        <tag>Github</tag>
+        <tag>MacOS</tag>
       </tags>
   </entry>
   <entry>
@@ -854,6 +842,54 @@ override夫类function，返回类型相同。</p></li>
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Copy &amp; Deepcopy in Python</title>
+    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
+    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
+    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
+<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code>
+and <code>const a int</code> are totally same. Both of them tell the
+compiler that the value stored in <code>a</code> can not be modified.
+But when it is combined with pointer, things go complicated</p>
+<h2 id="const-int">const int *</h2>
+<p>For C++, <code>int*</code> is not viewed as a type. Only
+<code>*a</code> be viewed as a mark telling the complier <code>a</code>
+is a pointer. So as we have already known that <code>int const</code> is
+same with <code>const int</code>, <code>int const *a</code> is also same
+with <code>const int *a</code>. Both of them means <code>*a</code> is a
+const, which means the value poined by <code>a</code> can not be
+modified but <code>a</code>, as a pointer, can point to different
+places.</p>
+<h2 id="int-const">int* const</h2>
+<p>By contrast, the <code>const</code> in <code>int* const</code> is a
+mark for <code>a</code>, so <code>a</code>, as a pointer, can only point
+to one specific place(determined when it is initialized), but the value
+pointed by it can be changed.</p>
+<p>Besides, we can combine two usages of <code>const</code>together:
+<code>const int* const a</code>--<code>a</code>, as a pointer, can not
+be modified and the value pointed by <code>a</code> cannot be
+modified.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>const</tag>
+        <tag>pointer</tag>
       </tags>
   </entry>
   <entry>
@@ -953,52 +989,6 @@ store，由OS特别管理）上。<code>free store</code>一般都是在heap上�
       </tags>
   </entry>
   <entry>
-    <title>GIF test</title>
-    <url>/2021/09/16/GIF-test/</url>
-    <content><![CDATA[<p>You should see this.
-<iframe height="75%" width="75%" src="1.gif"></iframe></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
-    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
-    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
-<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code>
-and <code>const a int</code> are totally same. Both of them tell the
-compiler that the value stored in <code>a</code> can not be modified.
-But when it is combined with pointer, things go complicated</p>
-<h2 id="const-int">const int *</h2>
-<p>For C++, <code>int*</code> is not viewed as a type. Only
-<code>*a</code> be viewed as a mark telling the complier <code>a</code>
-is a pointer. So as we have already known that <code>int const</code> is
-same with <code>const int</code>, <code>int const *a</code> is also same
-with <code>const int *a</code>. Both of them means <code>*a</code> is a
-const, which means the value poined by <code>a</code> can not be
-modified but <code>a</code>, as a pointer, can point to different
-places.</p>
-<h2 id="int-const">int* const</h2>
-<p>By contrast, the <code>const</code> in <code>int* const</code> is a
-mark for <code>a</code>, so <code>a</code>, as a pointer, can only point
-to one specific place(determined when it is initialized), but the value
-pointed by it can be changed.</p>
-<p>Besides, we can combine two usages of <code>const</code>together:
-<code>const int* const a</code>--<code>a</code>, as a pointer, can not
-be modified and the value pointed by <code>a</code> cannot be
-modified.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>const</tag>
-        <tag>pointer</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Experience of MacOS Big Sur</title>
     <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
     <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named
@@ -1014,6 +1004,16 @@ seemed to be renewed with much more better performance.</p>
       <tags>
         <tag>MacOS</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>GIF test</title>
+    <url>/2021/09/16/GIF-test/</url>
+    <content><![CDATA[<p>You should see this.
+<iframe height="75%" width="75%" src="1.gif"></iframe></p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
   </entry>
   <entry>
     <title>Games101 Homeworks Summary</title>
@@ -1155,6 +1155,61 @@ width-1)x(0,vheight-1)映射到(-1, 1)x(-1,
 ]]></content>
       <categories>
         <category>Computer Graphics</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Git Lookup Table</title>
+    <url>/2022/07/14/Git-Lookup-Table/</url>
+    <content><![CDATA[<h1 id="git">Git</h1>
+<ol type="1">
+<li><p>check local modification</p>
+<ol type="1">
+<li><code>git stash</code> temporally store modification in stash.</li>
+<li><code>git stash pop</code> restore modification from stash.</li>
+<li><code>git checkout .</code> cancel all local modification.</li>
+<li><code>git reset --hard HASH</code> reset to certain
+<code>HASH</code> commit, losing all local modification.</li>
+</ol></li>
+<li><p><code>ssh -T git@github.com</code> test your ssh connection with
+github.<span id="more"></span></p></li>
+<li><p>for certain case: you may need to last commitment ;create another
+branch, then go back to master
+branch<code>git cherry-pick &lt;commit id&gt;</code></p>
+<ol type="1">
+<li><code>git cherry-pick</code> is a powerful command that enables
+arbitrary git commits to be picked by reference and appended to the
+current working branch HEAD. It is the act of picking commit from a
+branch and applying it to another branch.</li>
+</ol></li>
+<li><p>show your git remote repository</p>
+<ol type="1">
+<li><code>git remote -v</code> or
+<code>git remote show orgin</code></li>
+</ol></li>
+<li><p>modified git commit comments</p>
+<ol type="1">
+<li>if you just want to modify the comment that you just committed.
+<ol type="1">
+<li><code>git commit --amend</code> (please use vim as default in
+terminal)</li>
+<li><code>git push -f</code></li>
+</ol></li>
+<li>if you just want to modify the last <span class="math inline">\(N^{th}\)</span> comment that you just committed.
+<ol type="1">
+<li><code>git rebase -i HEAD~N</code> first you go back</li>
+<li>modify the comment and replace <code>pick</code> with
+<code>edit</code> in corresponding line</li>
+<li><code>git commit --amend</code> do it again</li>
+<li><code>git rebase --continue</code> you can come back now</li>
+<li><code>git push -f</code></li>
+</ol></li>
+<li>if you have local modification, try <code>git stash</code> (to
+archive modifications) and <code>git stash pop</code> (restore)</li>
+</ol></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tutorial</category>
       </categories>
   </entry>
   <entry>
@@ -1519,6 +1574,21 @@ R^{n*n}\)</span>，Hessian矩阵大小为参数的平方。</li>
       </categories>
   </entry>
   <entry>
+    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
+    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
+    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor
+brightness.</p>
+<p>Try <code>nvidia-settings</code> in terminal, then:</p>
+<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo Migration</title>
     <url>/2022/07/14/Hexo-Migration/</url>
     <content><![CDATA[<h1 id="hexo-migration-apple-silicon">Hexo Migration (Apple
@@ -1574,73 +1644,16 @@ keys.</p></li>
       </categories>
   </entry>
   <entry>
-    <title>Git Lookup Table</title>
-    <url>/2022/07/14/Git-Lookup-Table/</url>
-    <content><![CDATA[<h1 id="git">Git</h1>
-<ol type="1">
-<li><p>check local modification</p>
-<ol type="1">
-<li><code>git stash</code> temporally store modification in stash.</li>
-<li><code>git stash pop</code> restore modification from stash.</li>
-<li><code>git checkout .</code> cancel all local modification.</li>
-<li><code>git reset --hard HASH</code> reset to certain
-<code>HASH</code> commit, losing all local modification.</li>
-</ol></li>
-<li><p><code>ssh -T git@github.com</code> test your ssh connection with
-github.<span id="more"></span></p></li>
-<li><p>for certain case: you may need to last commitment ;create another
-branch, then go back to master
-branch<code>git cherry-pick &lt;commit id&gt;</code></p>
-<ol type="1">
-<li><code>git cherry-pick</code> is a powerful command that enables
-arbitrary git commits to be picked by reference and appended to the
-current working branch HEAD. It is the act of picking commit from a
-branch and applying it to another branch.</li>
-</ol></li>
-<li><p>show your git remote repository</p>
-<ol type="1">
-<li><code>git remote -v</code> or
-<code>git remote show orgin</code></li>
-</ol></li>
-<li><p>modified git commit comments</p>
-<ol type="1">
-<li>if you just want to modify the comment that you just committed.
-<ol type="1">
-<li><code>git commit --amend</code> (please use vim as default in
-terminal)</li>
-<li><code>git push -f</code></li>
-</ol></li>
-<li>if you just want to modify the last <span class="math inline">\(N^{th}\)</span> comment that you just committed.
-<ol type="1">
-<li><code>git rebase -i HEAD~N</code> first you go back</li>
-<li>modify the comment and replace <code>pick</code> with
-<code>edit</code> in corresponding line</li>
-<li><code>git commit --amend</code> do it again</li>
-<li><code>git rebase --continue</code> you can come back now</li>
-<li><code>git push -f</code></li>
-</ol></li>
-<li>if you have local modification, try <code>git stash</code> (to
-archive modifications) and <code>git stash pop</code> (restore)</li>
-</ol></li>
-</ol>
+    <title>How to get matrix transform in python</title>
+    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
+    <content><![CDATA[<p>Here is a special trick:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Tutorial</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
-    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
-    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor
-brightness.</p>
-<p>Try <code>nvidia-settings</code> in terminal, then:</p>
-<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
+        <category>Learning</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -1657,25 +1670,34 @@ brightness.</p>
       </tags>
   </entry>
   <entry>
-    <title>How to get matrix transform in python</title>
-    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
-    <content><![CDATA[<p>Here is a special trick:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to install Scipy in Apple silicon 2021.11.4</title>
     <url>/2021/11/04/How-to-install-Scipy-in-Apple-silicon-2021-11-4/</url>
     <content><![CDATA[<p>The simplest way is</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pip install --pre -i https://pypi.anaconda.org/scipy-wheels-nightly/simple scipy</span><br></pre></td></tr></table></figure>
 <p>However it is just a preview version of spicy, remember to updata it
 afterwrds.</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to use docker in Mac M1</title>
+    <url>/2021/10/09/How-to-use-docker-in-Mac-M1/</url>
+    <content><![CDATA[<h3 id="install-docker">Install docker</h3>
+<p>Download docker here:
+https://docs.docker.com/docker-for-mac/apple-m1/</p>
+<p>Note:</p>
+<p>This is just a preview version, which means you may encounter various
+bugs.</p>
+<p>This version is based on <strong>Rosetta2</strong>, so remember to
+install it via <code>$ softwareupdate --install-rosetta</code>.</p>
+<h3 id="check-your-docker">Check your docker</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker -v</span><br><span class="line">$ docker info // it may take a few minutes to start docker</span><br></pre></td></tr></table></figure>
+<h3 id="use-docker-image-mit-6.s081">Use docker image <a href="https://zhuanlan.zhihu.com/p/417668697">MIT 6.S081</a></h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker pull calvinhaynes412/mit6.s081:v1 // pull docker image</span><br><span class="line">$ git clone git@github.com:CalvinHaynes/MIT6.S081-2020Fall.git // pull git repository</span><br></pre></td></tr></table></figure>
+<p>Open the docker image-&gt;set repository to the local git
+repository-&gt;open docker in browser.</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -1715,28 +1737,6 @@ environemnt)</li>
 <li><code>pip install labelme</code></li>
 <li>when everything is done, <code>labelme</code> to use it.</li>
 </ol>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to use docker in Mac M1</title>
-    <url>/2021/10/09/How-to-use-docker-in-Mac-M1/</url>
-    <content><![CDATA[<h3 id="install-docker">Install docker</h3>
-<p>Download docker here:
-https://docs.docker.com/docker-for-mac/apple-m1/</p>
-<p>Note:</p>
-<p>This is just a preview version, which means you may encounter various
-bugs.</p>
-<p>This version is based on <strong>Rosetta2</strong>, so remember to
-install it via <code>$ softwareupdate --install-rosetta</code>.</p>
-<h3 id="check-your-docker">Check your docker</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker -v</span><br><span class="line">$ docker info // it may take a few minutes to start docker</span><br></pre></td></tr></table></figure>
-<h3 id="use-docker-image-mit-6.s081">Use docker image <a href="https://zhuanlan.zhihu.com/p/417668697">MIT 6.S081</a></h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker pull calvinhaynes412/mit6.s081:v1 // pull docker image</span><br><span class="line">$ git clone git@github.com:CalvinHaynes/MIT6.S081-2020Fall.git // pull git repository</span><br></pre></td></tr></table></figure>
-<p>Open the docker image-&gt;set repository to the local git
-repository-&gt;open docker in browser.</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -1945,6 +1945,13 @@ container</p></li>
       </categories>
   </entry>
   <entry>
+    <title>Leetcode (updating)</title>
+    <url>/2022/04/14/Leetcode-updating/</url>
+    <content><![CDATA[<p>Check this <a href="https://github.com/SightVanish/MyLeetcode">repo</a>.</p>
+<p><img src="/2022/04/14/Leetcode-updating/1.jpg" alt="1" style="zoom:50%;"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Jupyter Notebook Installtion</title>
     <url>/2021/10/09/Jupyter-Notebook-Installtion/</url>
     <content><![CDATA[<ol type="1">
@@ -1963,72 +1970,6 @@ in notebook.</p></li>
 ]]></content>
       <categories>
         <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Leetcode (updating)</title>
-    <url>/2022/04/14/Leetcode-updating/</url>
-    <content><![CDATA[<p>Check this <a href="https://github.com/SightVanish/MyLeetcode">repo</a>.</p>
-<p><img src="/2022/04/14/Leetcode-updating/1.jpg" alt="1" style="zoom:50%;"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Linux/Ubuntu Commands</title>
-    <url>/2022/07/14/Linux-Ubuntu-Commands/</url>
-    <content><![CDATA[<h1 id="linux-ubuntu-commands">Linux (Ubuntu) Commands</h1>
-<ol type="1">
-<li><p>Use <code>lshw</code> (list hardware) to show the computer
-hardware information.</p></li>
-<li><p>Use <code>uanme -a</code> to show system information.</p></li>
-<li><p><code>tar</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar –xvf file.tar # unzip .tar</span><br><span class="line">tar -xzvf file.tar.gz # unzip .gz</span><br><span class="line">tar -xjvf file.tar.bz2 # unzip .bz2</span><br><span class="line">tar –xZvf file.tar.Z # unzip .Z</span><br><span class="line">unrar e file.rar # unzip .rar</span><br><span class="line">unzip file.zip # unzip .zip</span><br></pre></td></tr></table></figure></li>
-<li><p>Show the structure of current directory.</p>
-<ol type="1">
-<li><code>sudo apt install tree</code></li>
-<li><code>tree -L N</code> show <span class="math inline">\(N^{th}\)</span> depth.<span id="more"></span></li>
-</ol></li>
-<li><p><code>#!/bin/bash</code> indicates the path to shell. It can only
-be placed at the top of shell script and begun with <code>#!</code>.</p>
-<ol type="1">
-<li><code>#!</code> is known as <code>shebang</code> in Unix.</li>
-<li>This command is used to instruct our system to use <code>bash</code>
-as default shell.</li>
-</ol></li>
-<li><p><code>vim</code> <code>:set number</code> to show the line
-number.</p></li>
-<li><p><code>vim</code> comment out a block (in a shell script
-<code>#</code>)</p>
-<ol type="1">
-<li><code>:10,20s/^/#/g</code> to comment out a block from line 10 to
-20</li>
-<li><code>:10,20s/#//g</code> to delete the comments.</li>
-</ol></li>
-<li><p><code>vim</code> delete a line: click the line-&gt;exit Insert
-mode-&gt;double press d in your keyboard</p></li>
-<li><p>How to calculate the time consumption of a shell script. Here is
-an example. Pay attention to the spaces in this script.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">startTime=`date +%s`</span><br><span class="line">for ((i=1; i&lt;=100; i++)); do</span><br><span class="line">        a=$[$i%20]</span><br><span class="line">        if [ $a -eq 0 ]; then</span><br><span class="line">                echo &quot;i: $i&quot;</span><br><span class="line">        fi</span><br><span class="line">done</span><br><span class="line">endTime=`date +%s`</span><br><span class="line">consumedTime=$[ $endTime - $startTime ]</span><br><span class="line">echo &quot;Time consumed: $consumedTime seconds&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>How to show the folder size in terminal. <code>du</code>:
-summarize disk usage of the set of files, recursively for
-directories.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> du -sh <span class="comment"># show the size of current folder</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> du -h <span class="comment"># show the sizes of all subfolders/files (recurssively)</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> du -h &lt;folder name&gt; <span class="comment"># show the sizes of indicated folder/files</span></span></span><br></pre></td></tr></table></figure></li>
-<li><p><code>find .|xargs grep -ri "characters you want to find"</code>
-search all files under current directory to find specific
-characters.</p></li>
-<li><p>The default editor in Ubuntu is GNU nano. You may dislike it, so
-please use vim in default.</p>
-<ol type="1">
-<li><code>sudo update-alternatives --config editor</code></li>
-<li>choose <code>vim.basic</code></li>
-<li><code>source ~/.bashrc</code></li>
-</ol></li>
-<li><p>If you cannot type in terminal, you may happen to press
-<code>CTRL+S</code> which locks screen. Just press <code>CTRL+Q</code>
-to exit.</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tutorial</category>
       </categories>
   </entry>
   <entry>
@@ -2171,6 +2112,65 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
+    <title>Linux/Ubuntu Commands</title>
+    <url>/2022/07/14/Linux-Ubuntu-Commands/</url>
+    <content><![CDATA[<h1 id="linux-ubuntu-commands">Linux (Ubuntu) Commands</h1>
+<ol type="1">
+<li><p>Use <code>lshw</code> (list hardware) to show the computer
+hardware information.</p></li>
+<li><p>Use <code>uanme -a</code> to show system information.</p></li>
+<li><p><code>tar</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar –xvf file.tar # unzip .tar</span><br><span class="line">tar -xzvf file.tar.gz # unzip .gz</span><br><span class="line">tar -xjvf file.tar.bz2 # unzip .bz2</span><br><span class="line">tar –xZvf file.tar.Z # unzip .Z</span><br><span class="line">unrar e file.rar # unzip .rar</span><br><span class="line">unzip file.zip # unzip .zip</span><br></pre></td></tr></table></figure></li>
+<li><p>Show the structure of current directory.</p>
+<ol type="1">
+<li><code>sudo apt install tree</code></li>
+<li><code>tree -L N</code> show <span class="math inline">\(N^{th}\)</span> depth.<span id="more"></span></li>
+</ol></li>
+<li><p><code>#!/bin/bash</code> indicates the path to shell. It can only
+be placed at the top of shell script and begun with <code>#!</code>.</p>
+<ol type="1">
+<li><code>#!</code> is known as <code>shebang</code> in Unix.</li>
+<li>This command is used to instruct our system to use <code>bash</code>
+as default shell.</li>
+</ol></li>
+<li><p><code>vim</code> <code>:set number</code> to show the line
+number.</p></li>
+<li><p><code>vim</code> comment out a block (in a shell script
+<code>#</code>)</p>
+<ol type="1">
+<li><code>:10,20s/^/#/g</code> to comment out a block from line 10 to
+20</li>
+<li><code>:10,20s/#//g</code> to delete the comments.</li>
+</ol></li>
+<li><p><code>vim</code> delete a line: click the line-&gt;exit Insert
+mode-&gt;double press d in your keyboard</p></li>
+<li><p>How to calculate the time consumption of a shell script. Here is
+an example. Pay attention to the spaces in this script.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">startTime=`date +%s`</span><br><span class="line">for ((i=1; i&lt;=100; i++)); do</span><br><span class="line">        a=$[$i%20]</span><br><span class="line">        if [ $a -eq 0 ]; then</span><br><span class="line">                echo &quot;i: $i&quot;</span><br><span class="line">        fi</span><br><span class="line">done</span><br><span class="line">endTime=`date +%s`</span><br><span class="line">consumedTime=$[ $endTime - $startTime ]</span><br><span class="line">echo &quot;Time consumed: $consumedTime seconds&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>How to show the folder size in terminal. <code>du</code>:
+summarize disk usage of the set of files, recursively for
+directories.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> du -sh <span class="comment"># show the size of current folder</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> du -h <span class="comment"># show the sizes of all subfolders/files (recurssively)</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> du -h &lt;folder name&gt; <span class="comment"># show the sizes of indicated folder/files</span></span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>find .|xargs grep -ri "characters you want to find"</code>
+search all files under current directory to find specific
+characters.</p></li>
+<li><p>The default editor in Ubuntu is GNU nano. You may dislike it, so
+please use vim in default.</p>
+<ol type="1">
+<li><code>sudo update-alternatives --config editor</code></li>
+<li>choose <code>vim.basic</code></li>
+<li><code>source ~/.bashrc</code></li>
+</ol></li>
+<li><p>If you cannot type in terminal, you may happen to press
+<code>CTRL+S</code> which locks screen. Just press <code>CTRL+Q</code>
+to exit.</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tutorial</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Logistic Regression</title>
     <url>/2021/11/02/Logistic-Regression/</url>
     <content><![CDATA[<p>方法1:opencv</p>
@@ -2261,23 +2261,6 @@ Xcode</p>
       </tags>
   </entry>
   <entry>
-    <title>NPR Cup--a taste to NPR</title>
-    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
-    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果">
-<figcaption aria-hidden="true">简单的一个效果</figcaption>
-</figure>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了">
-<figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Rendering</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Numpy np.where</title>
     <url>/2022/04/02/Numpy-np-where/</url>
     <content><![CDATA[<p><code>np.where</code> seems to be an important function that need to
@@ -2329,13 +2312,20 @@ be noticed.</p>
       </categories>
   </entry>
   <entry>
-    <title>Overwatch yes</title>
-    <url>/2021/06/10/Overwatch-yes/</url>
-    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
-<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
+    <title>NPR Cup--a taste to NPR</title>
+    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
+    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果">
+<figcaption aria-hidden="true">简单的一个效果</figcaption>
+</figure>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了">
+<figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
+</figure>
 ]]></content>
       <categories>
-        <category>Chat</category>
+        <category>Rendering</category>
       </categories>
   </entry>
   <entry>
@@ -2399,6 +2389,16 @@ choose to disable it on your own will.</p></li>
 ]]></content>
       <categories>
         <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Overwatch yes</title>
+    <url>/2021/06/10/Overwatch-yes/</url>
+    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
+<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
+]]></content>
+      <categories>
+        <category>Chat</category>
       </categories>
   </entry>
   <entry>
@@ -2506,40 +2506,6 @@ set</h3>
       <categories>
         <category>Python</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Python technique</title>
-    <url>/2020/06/06/Python-technique/</url>
-    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking
-or dynamic programing:</p>
-<p>cause it will avoid reuse of data and reach good performance</p>
-<hr>
-<p>how to create a vector</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
-<p>Directly read/ wirte is quite different from
-<code>append()</code></p>
-<p><code>append()</code> will treat elements as data, which is more
-flexible</p>
-<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned
-vector</p>
-<span id="more"></span>
-<hr>
-<p>spilt part of string</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>init a vector:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
-<p>vector is a row*column size vector with all entries initialized by
-a.</p>
-<p>note <code>a</code> is just a value and can be anything you wang.
-<code>i</code> is just an iterator, even can use <code>_</code></p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
   </entry>
   <entry>
     <title>Pytorch Tips</title>
@@ -2661,16 +2627,6 @@ modify.</p>
       </categories>
   </entry>
   <entry>
-    <title>Show progress bar in jupyter notebook</title>
-    <url>/2022/04/20/Show-progress-bar-in-jupyter-notebook/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">range</span>(<span class="number">10</span>), ncols=<span class="number">10</span>):</span><br><span class="line">  <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">  Your code here.</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-<p><code>ncols</code> will determine the length of process bar.</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-  </entry>
-  <entry>
     <title>SVM(Support Vector Machine)</title>
     <url>/2021/05/25/SVM-Support-Vector-Machine/</url>
     <content><![CDATA[<h2 id="margin">Margin</h2>
@@ -2729,6 +2685,40 @@ replace <span class="math inline">\((X_i\cdot X_j)\)</span>.</p>
       </categories>
       <tags>
         <tag>SVM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python technique</title>
+    <url>/2020/06/06/Python-technique/</url>
+    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking
+or dynamic programing:</p>
+<p>cause it will avoid reuse of data and reach good performance</p>
+<hr>
+<p>how to create a vector</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
+<p>Directly read/ wirte is quite different from
+<code>append()</code></p>
+<p><code>append()</code> will treat elements as data, which is more
+flexible</p>
+<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned
+vector</p>
+<span id="more"></span>
+<hr>
+<p>spilt part of string</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>init a vector:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
+<p>vector is a row*column size vector with all entries initialized by
+a.</p>
+<p>note <code>a</code> is just a value and can be anything you wang.
+<code>i</code> is just an iterator, even can use <code>_</code></p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -2814,6 +2804,16 @@ _o*D\)</span>大小。</p>
 ]]></content>
       <categories>
         <category>Computer Vision</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Show progress bar in jupyter notebook</title>
+    <url>/2022/04/20/Show-progress-bar-in-jupyter-notebook/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">range</span>(<span class="number">10</span>), ncols=<span class="number">10</span>):</span><br><span class="line">  <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">  Your code here.</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>ncols</code> will determine the length of process bar.</p>
+]]></content>
+      <categories>
+        <category>Python</category>
       </categories>
   </entry>
   <entry>
@@ -3330,6 +3330,53 @@ beginning of interglacial period but then it began to rise again.</p>
       </categories>
   </entry>
   <entry>
+    <title>TOEFL Writing</title>
+    <url>/2021/10/18/TOEFL-Writing/</url>
+    <content><![CDATA[
+]]></content>
+      <categories>
+        <category>TOEFL</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Tensorflow Tips</title>
+    <url>/2022/07/14/Tensorflow-Tips/</url>
+    <content><![CDATA[<h1 id="tensorflow-tips">Tensorflow Tips</h1>
+<p>Here is some tips for tensorflow1.x.<span id="more"></span></p>
+<ol type="1">
+<li><p>print tensor</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.p = tf.Print(&lt;<span class="built_in">input</span> tensor&gt;, [<span class="string">&#x27;&lt;message&gt;&#x27;</span>, &lt;printed tensor&gt;], summarize=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">sess.run(model.p)</span><br></pre></td></tr></table></figure></li>
+<li><p>print model weight. find the corresponding op name in
+tensorboard</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">weight=tf.get_default_graph().get_tensor_by_name(<span class="string">&quot;&lt;operation name&gt;:0&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sess.run(weight))</span><br></pre></td></tr></table></figure></li>
+<li><p>print model weight. find the corresponding op name in
+tensorboard</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">weight=tf.get_default_graph().get_tensor_by_name(<span class="string">&quot;&lt;operation name&gt;:0&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sess.run(weight))</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Test Latex Formula</title>
+    <url>/2021/09/15/Test-Latex-Formula/</url>
+    <content><![CDATA[<p>This is an inline formula: <span class="math inline">\(x=7\)</span>.
+This is a simple equation: <span class="math display">\[
+e=mc^2
+\]</span></p>
+<p><span class="math display">\[
+a=\frac{1}{2}
+\]</span></p>
+<p><span class="math display">\[
+f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
+\]</span></p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>TOEFL Notes (based on TPO)</title>
     <url>/2021/10/07/TOEFL-Notes-based-on-TPO/</url>
     <content><![CDATA[<h3 id="tpo1-reading">TPO1 Reading</h3>
@@ -3417,59 +3464,42 @@ to dry out</li>
       </categories>
   </entry>
   <entry>
-    <title>Tensorflow Tips</title>
-    <url>/2022/07/14/Tensorflow-Tips/</url>
-    <content><![CDATA[<h1 id="tensorflow-tips">Tensorflow Tips</h1>
-<p>Here is some tips for tensorflow1.x.<span id="more"></span></p>
-<ol type="1">
-<li><p>print tensor</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.p = tf.Print(&lt;<span class="built_in">input</span> tensor&gt;, [<span class="string">&#x27;&lt;message&gt;&#x27;</span>, &lt;printed tensor&gt;], summarize=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">sess.run(model.p)</span><br></pre></td></tr></table></figure></li>
-<li><p>print model weight. find the corresponding op name in
-tensorboard</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">weight=tf.get_default_graph().get_tensor_by_name(<span class="string">&quot;&lt;operation name&gt;:0&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sess.run(weight))</span><br></pre></td></tr></table></figure></li>
-<li><p>print model weight. find the corresponding op name in
-tensorboard</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">weight=tf.get_default_graph().get_tensor_by_name(<span class="string">&quot;&lt;operation name&gt;:0&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sess.run(weight))</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>TOEFL Writing</title>
-    <url>/2021/10/18/TOEFL-Writing/</url>
-    <content><![CDATA[
-]]></content>
-      <categories>
-        <category>TOEFL</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Test Latex Formula</title>
-    <url>/2021/09/15/Test-Latex-Formula/</url>
-    <content><![CDATA[<p>This is an inline formula: <span class="math inline">\(x=7\)</span>.
-This is a simple equation: <span class="math display">\[
-e=mc^2
-\]</span></p>
-<p><span class="math display">\[
-a=\frac{1}{2}
-\]</span></p>
-<p><span class="math display">\[
-f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
-\]</span></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Test discription</title>
     <url>/2021/09/15/Test-discription/</url>
     <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
 ]]></content>
       <categories>
         <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Test password</title>
+    <url>/2021/09/15/Test-password/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="d0f22fb8ec934b630357bfed8eddaebceee1d75a12c7b7f676982c457b1c24c3">165d50f05814027fb7fe5e4ae8a088d8aa2b5ed724ea7f4f8aea8267289667dd0de0240fdde409598408170417c80b66d2288279e5571a43ddc20d8f87d5d48034dddfe8e1d8a865ebee019b43336466</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Please Eneter Password!</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Use of Tuple in Python</title>
+    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>Tuple最特别在于<br></p>
+<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
       </categories>
   </entry>
   <entry>
@@ -3751,53 +3781,6 @@ loss（即rpn_loss_bbox层计算的soomth L1 loss，该loss中<span class="math 
       </tags>
   </entry>
   <entry>
-    <title>Top K problems</title>
-    <url>/2022/05/03/Top-K-problems/</url>
-    <content><![CDATA[<h3 id="quick-sort">Quick Sort</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  pivot = nums[l]</span><br><span class="line">  i, j = l, r</span><br><span class="line">  <span class="keyword">while</span> i &lt; j:</span><br><span class="line">    <span class="comment"># find the first element smaller than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[j] &gt;= pivot:</span><br><span class="line">      j -= <span class="number">1</span></span><br><span class="line">    nums[i] = nums[j] <span class="comment"># put the smaller one to the left</span></span><br><span class="line">    <span class="comment"># find the first element larger than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[i] &lt;= pivot:</span><br><span class="line">      i += <span class="number">1</span></span><br><span class="line">    nums[j] = nums[i] <span class="comment"># put the larger one to the right</span></span><br><span class="line">  <span class="comment"># i == j, nums[i]=nums[j]&gt;pivot</span></span><br><span class="line">  nums[i] = pivot</span><br><span class="line"> 	<span class="comment"># return pivot index</span></span><br><span class="line">  <span class="keyword">return</span> i</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  <span class="keyword">if</span> l &lt; r:</span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">    quicksort(nums, l, mid - <span class="number">1</span>)</span><br><span class="line">    quicksort(nums, mid + <span class="number">1</span>, r)</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h3 id="quick-selection">Quick Selection</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># split data until the k_th pivot is selected</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">topk_split</span>(<span class="params">nums, k, l, r</span>)</span></span><br><span class="line"><span class="function">  <span class="title">if</span> <span class="title">l</span> &lt; <span class="title">r</span>:</span></span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">  	<span class="keyword">if</span> mid == k:</span><br><span class="line">      <span class="comment"># we have already get the k_th pivot</span></span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">   	<span class="keyword">elif</span> mid &lt; k:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the right side</span></span><br><span class="line">      topk_split(nums, k, mid + <span class="number">1</span>, r)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the left side</span></span><br><span class="line">      topk_split(nums, k, l, mid - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="get-the-k_th-element-incresing">Get the k_th element
-(incresing)</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topk_split(nums, k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[k-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
-<h4 id="get-the-k_th-element-decresing">Get the k_th element
-(decresing)</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topk_split(nums, <span class="built_in">len</span>(nums) - k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[-k]</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>Test password</title>
-    <url>/2021/09/15/Test-password/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Permission Denied!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="d0f22fb8ec934b630357bfed8eddaebceee1d75a12c7b7f676982c457b1c24c3">165d50f05814027fb7fe5e4ae8a088d8aa2b5ed724ea7f4f8aea8267289667dd0de0240fdde409598408170417c80b66d2288279e5571a43ddc20d8f87d5d48034dddfe8e1d8a865ebee019b43336466</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Please Eneter Password!</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Use of Tuple in Python</title>
-    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<p>Tuple最特别在于<br></p>
-<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Use of &#39;numpy&#39; package in Python</title>
     <url>/2020/09/27/Use-of-numpy-package-in-Python/</url>
     <content><![CDATA[<h2 id="import">Import</h2>
@@ -3826,84 +3809,21 @@ tensor</h2>
       </categories>
   </entry>
   <entry>
-    <title>Video test</title>
-    <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-dbddSumOsSKrogKg" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-dbddSumOsSKrogKg").style.height=document.getElementById("mmedia-dbddSumOsSKrogKg").scrollWidth*0.76+"px";
-    window.onresize = function(){
-      document.getElementById("mmedia-dbddSumOsSKrogKg").style.height=document.getElementById("mmedia-dbddSumOsSKrogKg").scrollWidth*0.76+"px";
-    }; </script>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>配置项</th>
-<th>默认</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>bvid</td>
-<td></td>
-<td>视频 bv 号，bvid、aid 和 av 必填一项，推荐使用 bvid</td>
-</tr>
-<tr class="even">
-<td>aid</td>
-<td></td>
-<td>视频 av 号</td>
-</tr>
-<tr class="odd">
-<td>av</td>
-<td></td>
-<td>视频链接地址，不要带分 P 信息，与 aid
-同时填写会被覆盖，不推荐使用</td>
-</tr>
-<tr class="even">
-<td>page</td>
-<td>1</td>
-<td>分 P，填写 av 时才会生效</td>
-</tr>
-<tr class="odd">
-<td>quality</td>
-<td>low</td>
-<td>视频质量，可选 high low</td>
-</tr>
-<tr class="even">
-<td>danmaku</td>
-<td>false</td>
-<td>开启弹幕，带有此参数表示 true，不带表示 false</td>
-</tr>
-<tr class="odd">
-<td>allowfullscreen</td>
-<td>true</td>
-<td>是否允许全屏</td>
-</tr>
-<tr class="even">
-<td>width</td>
-<td>100%</td>
-<td>宽度</td>
-</tr>
-<tr class="odd">
-<td>height</td>
-<td>500px</td>
-<td>高度</td>
-</tr>
-<tr class="even">
-<td>margin</td>
-<td>auto</td>
-<td>位置，css 属性，例： "margin:auto" "margin:0 0 0 auto"</td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://easyhexo.com/3-Plugins-use-and-config/3-5-hexo-tag-mmedia/#bilibili">Reference&amp;Docuement</a></p>
+    <title>Top K problems</title>
+    <url>/2022/05/03/Top-K-problems/</url>
+    <content><![CDATA[<h3 id="quick-sort">Quick Sort</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  pivot = nums[l]</span><br><span class="line">  i, j = l, r</span><br><span class="line">  <span class="keyword">while</span> i &lt; j:</span><br><span class="line">    <span class="comment"># find the first element smaller than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[j] &gt;= pivot:</span><br><span class="line">      j -= <span class="number">1</span></span><br><span class="line">    nums[i] = nums[j] <span class="comment"># put the smaller one to the left</span></span><br><span class="line">    <span class="comment"># find the first element larger than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[i] &lt;= pivot:</span><br><span class="line">      i += <span class="number">1</span></span><br><span class="line">    nums[j] = nums[i] <span class="comment"># put the larger one to the right</span></span><br><span class="line">  <span class="comment"># i == j, nums[i]=nums[j]&gt;pivot</span></span><br><span class="line">  nums[i] = pivot</span><br><span class="line"> 	<span class="comment"># return pivot index</span></span><br><span class="line">  <span class="keyword">return</span> i</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  <span class="keyword">if</span> l &lt; r:</span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">    quicksort(nums, l, mid - <span class="number">1</span>)</span><br><span class="line">    quicksort(nums, mid + <span class="number">1</span>, r)</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="quick-selection">Quick Selection</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># split data until the k_th pivot is selected</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">topk_split</span>(<span class="params">nums, k, l, r</span>)</span></span><br><span class="line"><span class="function">  <span class="title">if</span> <span class="title">l</span> &lt; <span class="title">r</span>:</span></span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">  	<span class="keyword">if</span> mid == k:</span><br><span class="line">      <span class="comment"># we have already get the k_th pivot</span></span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">   	<span class="keyword">elif</span> mid &lt; k:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the right side</span></span><br><span class="line">      topk_split(nums, k, mid + <span class="number">1</span>, r)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the left side</span></span><br><span class="line">      topk_split(nums, k, l, mid - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="get-the-k_th-element-incresing">Get the k_th element
+(incresing)</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topk_split(nums, k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[k-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="get-the-k_th-element-decresing">Get the k_th element
+(decresing)</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topk_split(nums, <span class="built_in">len</span>(nums) - k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[-k]</span><br></pre></td></tr></table></figure>
 ]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
   </entry>
   <entry>
     <title>What is the use of activation function</title>
@@ -3990,20 +3910,83 @@ errors in code.</p>
       </categories>
   </entry>
   <entry>
-    <title>hexo图片在md文档中显示正常但是网页无法显示</title>
-    <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
-    <content><![CDATA[<h4 id="step-1">Step 1</h4>
-<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
-<p><br></p>
-<h4 id="step-2">Step 2</h4>
-<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
-<p><br></p>
-<h4 id="step-3">Step 3</h4>
-<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的
-<code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
+    <title>Video test</title>
+    <url>/2021/09/15/Video-test/</url>
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-UWJKslnddLnlRTgX" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-UWJKslnddLnlRTgX").style.height=document.getElementById("mmedia-UWJKslnddLnlRTgX").scrollWidth*0.76+"px";
+    window.onresize = function(){
+      document.getElementById("mmedia-UWJKslnddLnlRTgX").style.height=document.getElementById("mmedia-UWJKslnddLnlRTgX").scrollWidth*0.76+"px";
+    }; </script>
+<table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>配置项</th>
+<th>默认</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>bvid</td>
+<td></td>
+<td>视频 bv 号，bvid、aid 和 av 必填一项，推荐使用 bvid</td>
+</tr>
+<tr class="even">
+<td>aid</td>
+<td></td>
+<td>视频 av 号</td>
+</tr>
+<tr class="odd">
+<td>av</td>
+<td></td>
+<td>视频链接地址，不要带分 P 信息，与 aid
+同时填写会被覆盖，不推荐使用</td>
+</tr>
+<tr class="even">
+<td>page</td>
+<td>1</td>
+<td>分 P，填写 av 时才会生效</td>
+</tr>
+<tr class="odd">
+<td>quality</td>
+<td>low</td>
+<td>视频质量，可选 high low</td>
+</tr>
+<tr class="even">
+<td>danmaku</td>
+<td>false</td>
+<td>开启弹幕，带有此参数表示 true，不带表示 false</td>
+</tr>
+<tr class="odd">
+<td>allowfullscreen</td>
+<td>true</td>
+<td>是否允许全屏</td>
+</tr>
+<tr class="even">
+<td>width</td>
+<td>100%</td>
+<td>宽度</td>
+</tr>
+<tr class="odd">
+<td>height</td>
+<td>500px</td>
+<td>高度</td>
+</tr>
+<tr class="even">
+<td>margin</td>
+<td>auto</td>
+<td>位置，css 属性，例： "margin:auto" "margin:0 0 0 auto"</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://easyhexo.com/3-Plugins-use-and-config/3-5-hexo-tag-mmedia/#bilibili">Reference&amp;Docuement</a></p>
 ]]></content>
       <categories>
-        <category>Configuration</category>
+        <category>Test</category>
       </categories>
   </entry>
   <entry>
@@ -4034,6 +4017,23 @@ errors in code.</p>
       </tags>
   </entry>
   <entry>
+    <title>hexo图片在md文档中显示正常但是网页无法显示</title>
+    <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
+    <content><![CDATA[<h4 id="step-1">Step 1</h4>
+<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
+<p><br></p>
+<h4 id="step-2">Step 2</h4>
+<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
+<p><br></p>
+<h4 id="step-3">Step 3</h4>
+<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的
+<code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
     <title>how to change you local git name</title>
     <url>/2020/12/21/how-to-change-you-local-git-name/</url>
     <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
@@ -4044,6 +4044,57 @@ errors in code.</p>
       </categories>
       <tags>
         <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>kendo 2-nd dan exam</title>
+    <url>/2020/11/13/kendo-2-nd-dan-exam/</url>
+    <content><![CDATA[<p>1.请叙述重视剑道礼仪的理由</p>
+<p>剑道常常说“以礼始以礼终”，事实上在剑道中礼仪确实无处不在--从进入道场对道场的行礼，到稽古时对对手的行礼，再到结束时集合后的行礼。可以说剑道中的礼仪非常细节而琐碎，几乎对所有的行为都进行了细节的指导，这种礼仪当然有古代剑术遗留下来的一些制度性要求，但是从当今的现代剑道中剑道礼仪也有非常特别的作用。我认为剑道礼仪主要体现了剑道对两方面的要求：其一是剑道技术层面，其二是剑道精神层面。
+a.
+就技术层面上说，剑道中的很多细节的利于本身就是现代剑道乃至古代剑术中的技术指导，而在现在被视为了剑道礼仪中的一部分。比如剑道向对手行礼时要求双眼不能离开对手事实上实在警惕对手随时可能发起的攻击；剑道要求竹刀不能刀尖指向地面放置，在真剑上则实在保护刀尖；剑道稽古前的蹲踞行礼可以视为是维持与对手合理的安全距离，并且激活脚踝和大腿肌肉。等等诸如此类的礼仪细节剑道中数不胜数，这其中有直接对剑道稽古、打击有帮助的内容，也有基于古代剑术的内容，体现了剑道视竹刀为真剑，视稽古为真实战斗的初心。
+b.
+从精神层面上说我认为礼仪最核心的部分则还可以细分为两点：一是剑道作为武力的一种体现，礼仪是对武力的限制，二是剑道在发展中收到的禅学影响。对于第一点上，中国人常说“武以止戈”，武力在出现后就频繁引起争斗，不受限制的武力不仅是危险的而且是无用的。武力本身并不错误，如何使用武力决定了武力的性质。剑道的礼仪就好像是刀的刀柄一般让武力有了被操纵的可能，用理性压制住内心的不安。最后从禅学上说。剑道最初的发展是一项非常注重实用性的技术，是禅宗赋予了其思想内核。铃木和尚在弘法的时候曾经就类比禅宗和剑道的修行（可能当时还没有现代严格意义上的剑道），他说剑道和禅学是一样的，都是通过迫使肉体在极端条件下去有机会来脱离外在世界来探求内心。在我看来剑道的礼仪也是如此，剑道的礼仪和禅宗的打坐诵经并无区别，都是形式罢了，具体的形式如何其实没有任何意义，有意义的是通过这种形式能够收敛内心，能尝试在专注中体会自我。事实上在形式上也有很多有趣的相似，有说法是“剑禅如一”，我们甚至能看到剑道的默想的手印和禅宗的佛印极为相似，礼仪上受到禅宗的影响不可谓不深。
+由此可见，无论是从实用性的技术层面，还是从精神层面学会束缚武力、增强内心上，礼仪都是有实际价值的存在，是剑道修行中不可分割的一部分，值得所有剑道人牢记。
+<br></p>
+<span id="more"></span>
+<p>2.请说明残心。</p>
+<p>剑道残心很多时候被解释为打击后不放松对对对手的警惕，而有时残心也被广义地理解为是对对手无时无刻的警惕，哪怕还没有开始稽古也已经做好来随时应对的准备。单纯从体育的角度来看是十分匪夷所思的：就拿奥运会中类似的击剑而言，在裁判喊开始之前二者都是绝对安全的，而在击中的灯亮起后两者也是绝对安全的，很多运动员都会非常放松。剑道非常特殊，它不仅要求残心，甚至将残心作为比赛胜利的必要组件，强制要求残心。这实际上体现了剑道作为实用性技术的素质同样还体现了剑道在对内心塑造的要求。
+a.
+作为使用性技术，残心使得打击后能够仍保有最低限度的余力应对可能的反击、追击，在打击后不会因为放松而失败悔恨；同样广义上的残心要求人做到随时随地应对的准备--比如在蹲踞起来后应对对手马上发起的攻击，在近距离交锷时防范应对对手可能的退击，在远距离时不放松警惕，防范远距离的进攻。残心在剑道的实际练习和稽古中都是有着非常具体的落实和要求的，而在古代剑术中残心很大程度上更是自己生命安全的必不可少的保证。
+b.
+从精神训练上说，残心不仅仅是形式上表现出来的，更多是内心中的，是精神上的。残心要求精神上时刻保持专注，而不是单纯打击后高举竹刀脱离对手。有意义的残心并不一定要打击后一直向前冲出脱离，而是将专注力放在对手身上，打击后不忘警惕，转身时小心对手。残心在精神上是让剑道练习者在打击后保持游刃有余同时保持警惕心态的必要训练。</p>
+<hr>
+<p>下面是实际提交的版本，我认为修改得更明确了些：</p>
+<figure>
+<img src="/2020/11/13/kendo-2-nd-dan-exam/kendo-2nd-exam.png" alt="kendo-2-nd">
+<figcaption aria-hidden="true">kendo-2-nd</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Kendo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
+    <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<p>在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用<code>easyBCD</code>也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。
+## 问题解决
+本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。
+我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的引导是<code>UEFI+LEGACY</code>，那应该bios也行啊。
+但是我抱着试试的态度把它改成<code>UEFI</code>，可能有些主板要改这个比较麻烦，然后上网找了个UEFI引导的ubuntu安装教程。
+然后就打开了，困扰了好几天的问题解决了。 --- ## more
+注意在bios里面把第一启动项改为ubuntu，然后再打开。
+因为ubuntu可以引导windows，但是要让windows引导ubuntu需要用<code>easyuefi</code>自行配置
+---
+这个问题很细节，但是同时也很恶心，反正就是要注意教程的环境和自己到底一不一样，还有就是要每一个设置的意义都要明白。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>-ubuntu -install</tag>
       </tags>
   </entry>
   <entry>
@@ -4091,35 +4142,6 @@ target. Derive AP for all types-&gt;average-&gt;mAP.</p>
       </categories>
   </entry>
   <entry>
-    <title>kendo 2-nd dan exam</title>
-    <url>/2020/11/13/kendo-2-nd-dan-exam/</url>
-    <content><![CDATA[<p>1.请叙述重视剑道礼仪的理由</p>
-<p>剑道常常说“以礼始以礼终”，事实上在剑道中礼仪确实无处不在--从进入道场对道场的行礼，到稽古时对对手的行礼，再到结束时集合后的行礼。可以说剑道中的礼仪非常细节而琐碎，几乎对所有的行为都进行了细节的指导，这种礼仪当然有古代剑术遗留下来的一些制度性要求，但是从当今的现代剑道中剑道礼仪也有非常特别的作用。我认为剑道礼仪主要体现了剑道对两方面的要求：其一是剑道技术层面，其二是剑道精神层面。
-a.
-就技术层面上说，剑道中的很多细节的利于本身就是现代剑道乃至古代剑术中的技术指导，而在现在被视为了剑道礼仪中的一部分。比如剑道向对手行礼时要求双眼不能离开对手事实上实在警惕对手随时可能发起的攻击；剑道要求竹刀不能刀尖指向地面放置，在真剑上则实在保护刀尖；剑道稽古前的蹲踞行礼可以视为是维持与对手合理的安全距离，并且激活脚踝和大腿肌肉。等等诸如此类的礼仪细节剑道中数不胜数，这其中有直接对剑道稽古、打击有帮助的内容，也有基于古代剑术的内容，体现了剑道视竹刀为真剑，视稽古为真实战斗的初心。
-b.
-从精神层面上说我认为礼仪最核心的部分则还可以细分为两点：一是剑道作为武力的一种体现，礼仪是对武力的限制，二是剑道在发展中收到的禅学影响。对于第一点上，中国人常说“武以止戈”，武力在出现后就频繁引起争斗，不受限制的武力不仅是危险的而且是无用的。武力本身并不错误，如何使用武力决定了武力的性质。剑道的礼仪就好像是刀的刀柄一般让武力有了被操纵的可能，用理性压制住内心的不安。最后从禅学上说。剑道最初的发展是一项非常注重实用性的技术，是禅宗赋予了其思想内核。铃木和尚在弘法的时候曾经就类比禅宗和剑道的修行（可能当时还没有现代严格意义上的剑道），他说剑道和禅学是一样的，都是通过迫使肉体在极端条件下去有机会来脱离外在世界来探求内心。在我看来剑道的礼仪也是如此，剑道的礼仪和禅宗的打坐诵经并无区别，都是形式罢了，具体的形式如何其实没有任何意义，有意义的是通过这种形式能够收敛内心，能尝试在专注中体会自我。事实上在形式上也有很多有趣的相似，有说法是“剑禅如一”，我们甚至能看到剑道的默想的手印和禅宗的佛印极为相似，礼仪上受到禅宗的影响不可谓不深。
-由此可见，无论是从实用性的技术层面，还是从精神层面学会束缚武力、增强内心上，礼仪都是有实际价值的存在，是剑道修行中不可分割的一部分，值得所有剑道人牢记。
-<br></p>
-<span id="more"></span>
-<p>2.请说明残心。</p>
-<p>剑道残心很多时候被解释为打击后不放松对对对手的警惕，而有时残心也被广义地理解为是对对手无时无刻的警惕，哪怕还没有开始稽古也已经做好来随时应对的准备。单纯从体育的角度来看是十分匪夷所思的：就拿奥运会中类似的击剑而言，在裁判喊开始之前二者都是绝对安全的，而在击中的灯亮起后两者也是绝对安全的，很多运动员都会非常放松。剑道非常特殊，它不仅要求残心，甚至将残心作为比赛胜利的必要组件，强制要求残心。这实际上体现了剑道作为实用性技术的素质同样还体现了剑道在对内心塑造的要求。
-a.
-作为使用性技术，残心使得打击后能够仍保有最低限度的余力应对可能的反击、追击，在打击后不会因为放松而失败悔恨；同样广义上的残心要求人做到随时随地应对的准备--比如在蹲踞起来后应对对手马上发起的攻击，在近距离交锷时防范应对对手可能的退击，在远距离时不放松警惕，防范远距离的进攻。残心在剑道的实际练习和稽古中都是有着非常具体的落实和要求的，而在古代剑术中残心很大程度上更是自己生命安全的必不可少的保证。
-b.
-从精神训练上说，残心不仅仅是形式上表现出来的，更多是内心中的，是精神上的。残心要求精神上时刻保持专注，而不是单纯打击后高举竹刀脱离对手。有意义的残心并不一定要打击后一直向前冲出脱离，而是将专注力放在对手身上，打击后不忘警惕，转身时小心对手。残心在精神上是让剑道练习者在打击后保持游刃有余同时保持警惕心态的必要训练。</p>
-<hr>
-<p>下面是实际提交的版本，我认为修改得更明确了些：</p>
-<figure>
-<img src="/2020/11/13/kendo-2-nd-dan-exam/kendo-2nd-exam.png" alt="kendo-2-nd">
-<figcaption aria-hidden="true">kendo-2-nd</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Kendo</category>
-      </categories>
-  </entry>
-  <entry>
     <title>solution to git@github.com出现Permission denied (publickey)</title>
     <url>/2020/12/21/solution-to-git-github-com%E5%87%BA%E7%8E%B0Permission-denied-publickey/</url>
     <content><![CDATA[<ol type="1">
@@ -4143,6 +4165,27 @@ b.
       </tags>
   </entry>
   <entry>
+    <title>yilia主题的头像配置失败</title>
+    <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<ol type="1">
+<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
+<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code>
+但是打开之后依然无法显示，甚至还有一个问号</li>
+</ol>
+<hr>
+<h2 id="问题解决">问题解决</h2>
+<p>这里有一个很tricky的地方搞了我很久
+在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code>
+比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
+<p><strong>注意</strong>
+麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
     <title>使用hexo theme Butterfly 报错</title>
     <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
     <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly
@@ -4160,27 +4203,6 @@ includes/pagination.pug</font></p>
 <p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
 <hr>
 <h2 id="丝滑进入">丝滑进入</h2>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>yilia主题的头像配置失败</title>
-    <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<ol type="1">
-<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
-<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code>
-但是打开之后依然无法显示，甚至还有一个问号</li>
-</ol>
-<hr>
-<h2 id="问题解决">问题解决</h2>
-<p>这里有一个很tricky的地方搞了我很久
-在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code>
-比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
-<p><strong>注意</strong>
-麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -4417,28 +4439,6 @@ includes/pagination.pug</font></p>
       </categories>
   </entry>
   <entry>
-    <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
-    <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<p>在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用<code>easyBCD</code>也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。
-## 问题解决
-本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。
-我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的引导是<code>UEFI+LEGACY</code>，那应该bios也行啊。
-但是我抱着试试的态度把它改成<code>UEFI</code>，可能有些主板要改这个比较麻烦，然后上网找了个UEFI引导的ubuntu安装教程。
-然后就打开了，困扰了好几天的问题解决了。 --- ## more
-注意在bios里面把第一启动项改为ubuntu，然后再打开。
-因为ubuntu可以引导windows，但是要让windows引导ubuntu需要用<code>easyuefi</code>自行配置
----
-这个问题很细节，但是同时也很恶心，反正就是要注意教程的环境和自己到底一不一样，还有就是要每一个设置的意义都要明白。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>-ubuntu -install</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>剑指Offer(全)</title>
     <url>/2021/09/29/%E5%89%91%E6%8C%87Offer-%E5%85%A8/</url>
     <content><![CDATA[<h3 id="prefab">Prefab</h3>
@@ -4509,16 +4509,6 @@ includes/pagination.pug</font></p>
 ]]></content>
       <categories>
         <category>Coding</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>心脏骤停</title>
-    <url>/2022/03/16/%E5%BF%83%E8%84%8F%E9%AA%A4%E5%81%9C/</url>
-    <content><![CDATA[<p>太阳好哥哥在拉仇恨，刚刚飞渡起手准备给拉达冈上一课。没想到是被服务器上了一课。</p>
-<p><img src="/2022/03/16/%E5%BF%83%E8%84%8F%E9%AA%A4%E5%81%9C/eldenring.png"></p>
-]]></content>
-      <categories>
-        <category>Elden Ring</category>
       </categories>
   </entry>
   <entry>
@@ -4836,6 +4826,16 @@ includes/pagination.pug</font></p>
       </categories>
   </entry>
   <entry>
+    <title>心脏骤停</title>
+    <url>/2022/03/16/%E5%BF%83%E8%84%8F%E9%AA%A4%E5%81%9C/</url>
+    <content><![CDATA[<p>太阳好哥哥在拉仇恨，刚刚飞渡起手准备给拉达冈上一课。没想到是被服务器上了一课。</p>
+<p><img src="/2022/03/16/%E5%BF%83%E8%84%8F%E9%AA%A4%E5%81%9C/eldenring.png"></p>
+]]></content>
+      <categories>
+        <category>Elden Ring</category>
+      </categories>
+  </entry>
+  <entry>
     <title>感谢好太阳哥哥们</title>
     <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
     <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
@@ -4908,43 +4908,6 @@ cycle里就能执行多个指令。其中当然还有很多细节问题，但是
       </categories>
   </entry>
   <entry>
-    <title>禅诗解读</title>
-    <url>/2020/11/28/%E7%A6%85%E8%AF%97%E8%A7%A3%E8%AF%BB/</url>
-    <content><![CDATA[<h1 id="僧璨禅师信心铭">僧璨禅师《信心铭》</h1>
-<h3 id="前部分解读">--前部分解读</h3>
-<h2 id="一引言">一、引言</h2>
-<p>僧璨大师是禅宗三祖,一般认为是隋朝初期的禅师。《信心铭》是解读其思想最重要的文献，篇幅很长，思想繁复深邃，此处仅仅结合课上教学选取前几句自己稍微有些感悟的诗句解读。前人对《信心铭》的解读中都提到其最核心的内容在于<u>“不二”</u>，下文也会尝试结合这一核心词进行解读。</p>
-<h2 id="二解读">二、解读</h2>
-<h3 id="信心铭标题">《信心铭》（标题）</h3>
-<p>慧广法师解读信心铭三个字时，解释信为五十一心所法的第三类，也就是善心所中的一个法--“信”。信在字面的意思解释为诚实、不欺骗，做动词也可以解释为相信。信心直观地解释为相信心，也可以解释为诚实的心（将信做为心法，即是做一种观念来对待）。铭字面解释可以说是一种文体，同时也是需要铭记，类似纲领性文字。标题似乎是在说相信自己的内心，也可以说是内心诚实没有迷惘。</p>
-<span id="more"></span>
-<h3 id="至道无难唯嫌拣择但莫憎爱洞然明白">“至道无难，唯嫌拣择，但莫憎爱，洞然明白。”</h3>
-<p>“至道”是最极致的“道”，是一切规则的极致发展，或者是一切规则的起源（统一）。整句解释就是：终极的道没有什么难以理解的，只是不要挑挑拣拣，只要没有憎爱，就能马上明白。首先这里有个问题：拣择的宾语是什么？如果是至道，是不是说至道本身并不唯一？如果是道，是不是说没有选择的道就是至道，还是说至道的理解是建立在所有道之上还是至道本身就是所有道的集合？就我个人而言，既然说世间万物都有佛性，那么应该说是“至道”本身就是普遍的--至道本身是一种道的集合的称谓。而“唯嫌拣择，但莫憎爱”两句和六祖诗句“明镜本清净，何处惹尘埃”有类似的精神内核—事实判断本身没有什么对错。哲学家常常说认识世界总要受到有色眼镜的限制，但是有色眼镜并不待在眼睛上，而是在内心里，所见都是真实，是内心对感受的处理导致了观念的不同，才有了对错的区分。这两句同样都是再说要放下内心的道德判断，屏蔽内心对事实（道）的处理，反而能够得见真实（道）。</p>
-<h3 id="毫厘有差天地悬隔欲得现前莫存顺逆">“毫厘有差，天地悬隔；欲得现前，莫存顺逆。”</h3>
-<p>“毫厘有差，天地悬隔”一句显得很突兀，前后相互联系似乎没有什么内在联系，这里只好先简单地解读为是三祖在作诗时，对弟子的规劝警戒。“欲得现前，莫存顺逆”的对象应当是与前句的“至道”统一，如果至道在面前出现，不要存在内心的顺逆。这和前一句的思想是一致的，都是要放弃自己内心的道德判断，绝对客观地理解、认识世界，不存在“顺逆”。</p>
-<h3 id="违顺相争是为心病不识元旨徒劳念静">“违顺相争，是为心病；不识元旨，徒劳念静。”</h3>
-<p>这里就指出内心“违顺”相互的矛盾，是内心的病灶。这里前半句应和本文“不二”的思想。“不二”应当是对某种绝对存在的表述，这种绝对的存在可以视为思想的统一，也可以视为是独立于外界的某种存在。这里既然说不能存在“顺逆”，那么这里的“不二”也应当是独立的存在（处于内心而又独立于顺逆），而不是统一。这里的“心病”的根源也应当是需要通过摒弃“违顺”来根除。之后提到的“念静”应当就是摒弃内心违顺的一种做法。问题又来了，这里数次指出问题所在，但是从来没有明确过要怎么样解决问题？没有可以用来实际操作的手段。既然“违顺”本身是内心对外界感受处理后的一种内心的状态/反应，那么这里到底应该是在处理之后不做出反应；还是做出的反应不存在主观的“顺逆”反应；还是干脆不处理；甚至更进一步根本就不去感受（禅宗中完全封闭感受的人似乎也是有的），这里都没有说明白。“不识元旨”有人也写作“不识玄旨”，字面解释是不知道最初的意义（旨在古汉语中常作想法、志向解释）。这里的“元旨”到底是什么？联系上下文可以解释说这个“元旨”就是之前说的“莫存顺逆”的道理，即是说这一道理是学习禅最初的道理，也是说这是学习禅最根本的道理（“元”）。这样似乎解释得很顺畅，但是“元旨”也有可能是说世界最根本的道理--客观上的最初的道理，或者说是本来就有的道理。那么这样又可以解释说是在认识世界的时候要去认识“元旨”，世界本来是什么样子的就是什么样子的，不要经过判断地去认识，才能认识到真正的“至道”。</p>
-<p>### “圆同太虚，无欠无余；良由取舍，所以不如。”</p>
-<p>这里的主语应当也还是“至道”，“圆”是说至道本身就是圆满的，“太虚”比较难以解释（“太虚”是道教词汇，《信心铭》除去此处外也有多处使用道教术语），《道德经》中“太虚”一般认为就是“道”的代名词，是世界的本源，但是在古文的语境内，也常常用“太虚”来代指世界所在的宇宙，不过因为当时还没有对世界的观测能力和一般的天文认识，这里“太虚”所指的应当是广义上的世界。“圆同太虚，无欠无余”即是说“至道”如同这个世界一样（或者全部统一为道本身），没有少，也没有多。这里又有难以解释的地方：多、少都是相对的概念，但是在之前的论述中都一直在尝试塑造一个绝对的存在（“至道”），那么这里是说“至道”本身的存在没有多少的比较，强调这个比较的概念本身就不存在，进而从侧面描述一个绝对的概念；还是说“至道”不增不减，反映的是一种早期朴素的物质守恒的观念（当然从目前看物质可以转化为能量，但是是否也意味着世界总体的能量守恒，目前还没有定论）？“良由取舍，所以不如”字面上是说因为（源自于）取舍，所以“不如”。这里的“如”法音法师解释为是“吻合”，是说“跟你生命原本的本来面貌、本来的心态不吻合了……就破坏了你本来的心态，也就是不相应了，就破坏了你跟大宇宙的瑜伽。”我认为这里说的“不如”是类比了世界的不增不减来讲述内心的某种“不增不减”的状态，如同世界、至道是绝对的一样，内心对外界的判断（也是某种境界、状态、反应）
-同样应当是不会改变的（不增不减），联系前文指的就是放弃了所有的道德判断，达到“莫存顺逆”。</p>
-<p>### “莫逐有缘，勿住空忍；一种平怀，泯然自尽。”</p>
-<p>“有缘”和“空忍”明显相应。“莫逐有缘”是说不要去追求“有缘”，“有缘”的解释我查询了很多资料也没能得出一个通顺的解释。很多人解释“缘”为条件，我校老师在文明通识课程中解释佛教的“缘”为万事万物之间普遍的联系。这里粗略地可以解释为不要追求与自身相联系的事物，当然这句的核心应当在于“莫逐”，宾语只能模糊解释。但是紧随其后还有一句“勿住空忍”，不要强行忍受，是指对于这种“逐”的欲望，不要压制而是要消除它，用一种更为根本的方式结局，这种方式与前文也是统一的—没有好恶、放弃道德判断，消除自身的对外界事物的加工理解从而实现。最终的成果就是“一种平怀，泯然自尽”，内心平静，这种顺逆之间的矛盾（对有缘的追求）自己就消散了。</p>
-<h2 id="三结语">三、结语</h2>
-<p>作为禅宗的经典之一，《信心铭》很多的哲学观念与之后的六祖思想一以贯之，有很多类同之处，但同时在理解和表述上总有些许差异。在同时在思想语言表述上明显有我国传统的一些观念影响（全文中反复提到“道”，这一道教术语，但是却没有针对禅宗进行限定明确）。解读上遇到了很多困难：由于以诗为载体，很多语言的表述并不充分、严谨，主语和宾语多有缺失。再加上语言本身随时间就有很多变化，对于字句在当时时代的具体表义不明确等等因素，很多时候解读只能猜测。最重要的是自己本身对禅宗的总体思想把握不够明确，解读出的结果有各种可能，不能确信结果。自己理解不足，而表达更为困难，修改几次也不知道应该怎么说才好，正应了“言语道断”。</p>
-<h2 id="四原文">四、原文</h2>
-<p>原文附上：</p>
-<h3 id="信心铭">《信心铭》</h3>
-<p>僧璨禅师</p>
-<p>至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。违顺相争，是为心病；不识元旨，徒劳念静。圆同太虚，无欠无余；良由取舍，所以不如。莫逐有缘，勿住空忍；一种平怀，泯然自尽。止动归止，止更弥动；唯滞两边，宁知一种。一种不通，两处失功；遣有没有，从空背空。多言多虑，转不相应；绝言绝虑，无处不通。归根得旨，随照失宗；须臾返照，胜却前空。前空转变，皆由妄见；不用求真，唯须息见。至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。欲得现前，莫存顺逆，莫存顺逆。二见不住，慎勿追寻；才有是非，纷然失心。二由一有，一亦莫守。一心不生，万法无咎；无咎无法，不生不心。能随境灭，境逐能沉；境由能境，能由境能。欲知两段，元是一空。一空同两，齐含万象；不见精粗，宁有偏党。大道体宽，无易无难；小见狐疑，转急转迟。执之失度，必入邪路；放之自然，体无去住。任性合道，逍遥绝恼；系念乖真，昏沉不好。不好劳神，何用疏亲。欲取一乘，勿恶六尘；六尘不恶，还同正觉。智者无为，愚人自缚。智者无为，愚人自缚。法无异法，妄自爱着；将心用心，岂非大错。迷生寂乱，悟无好恶；一切二边，良由斟酌。梦幻空花，何劳把捉；得失是非，一时放却。眼若不睡，诸梦自除；心若不异，万法一如。一如体玄，兀尔忘缘；万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。泯其所以，不可方比。止动无动，动止无止；两既不成，一何有尔。究竟穷极，不存轨则；契心平等，所作俱息。狐疑净尽，正信调直。一切不留，无可记忆；虚明自照，不劳心力。非思量处，识情难测；真如法界，无他无自。要急相应，唯言不二；不二皆同，无不包容。十方智者，皆入此宗。宗非促延，一念万年；无在不在，十方目前。极小同大，忘绝境界；极大同小，不见边表。有即是无，无即是有；若不如是，必不须守。一即一切，一切即一，但能如是，何虑不毕。信心不二，不二信心；言语道断，非去来今。信心不二，不二信心；言语道断，非去来今。</p>
-<h2 id="参考文献">参考文献</h2>
-<p>《信心铭》释义，慧广法师，2017 ，“禅宗思想”。</p>
-<p>《信心铭》直解，法音法师，1982，讲述文字。</p>
-]]></content>
-      <categories>
-        <category>Essay</category>
-      </categories>
-  </entry>
-  <entry>
     <title>给你的Vscode加一个毛玻璃特效</title>
     <url>/2020/05/22/%E7%BB%99%E4%BD%A0%E7%9A%84Vscode%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%AF%9B%E7%8E%BB%E7%92%83%E7%89%B9%E6%95%88/</url>
     <content><![CDATA[<h2 id="环境">环境</h2>
@@ -4978,48 +4941,6 @@ been fixed. You can turn off full screen manually.</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>还是大GT优雅</title>
-    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
-    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
-<div align="center">
-<figure>
-<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT">
-<figcaption aria-hidden="true">宾利欧陆GT</figcaption>
-</figure>
-</div>]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>遍历二叉树-前/中/后序-递归/非递归</title>
-    <url>/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/</url>
-    <content><![CDATA[<h3 id="递归方法">递归方法</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line"> 	path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h3 id="非递归方法">非递归方法</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>)); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Reference: https://blog.csdn.net/czy47/article/details/81254984</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Binary Tree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>钻石材质第一次测试Blender</title>
-    <url>/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/</url>
-    <content><![CDATA[<p>初次尝试了blender里钻石材质的生成，接下来会详细分析材质节点的组成并仔细调参。并且会更换钻石模型和适当的场景进行测试。</p>
-<p><img src="/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/Diamond.png"></p>
-]]></content>
-      <categories>
-        <category>Blender</category>
       </categories>
   </entry>
   <entry>
@@ -5064,6 +4985,85 @@ sort，此时也不需要额外空间。数据库中sort也常使用disk mergeso
 ]]></content>
       <categories>
         <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>还是大GT优雅</title>
+    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
+    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
+<div align="center">
+<figure>
+<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT">
+<figcaption aria-hidden="true">宾利欧陆GT</figcaption>
+</figure>
+</div>]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>钻石材质第一次测试Blender</title>
+    <url>/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/</url>
+    <content><![CDATA[<p>初次尝试了blender里钻石材质的生成，接下来会详细分析材质节点的组成并仔细调参。并且会更换钻石模型和适当的场景进行测试。</p>
+<p><img src="/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/Diamond.png"></p>
+]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>遍历二叉树-前/中/后序-递归/非递归</title>
+    <url>/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/</url>
+    <content><![CDATA[<h3 id="递归方法">递归方法</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line"> 	path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="非递归方法">非递归方法</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>)); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Reference: https://blog.csdn.net/czy47/article/details/81254984</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Binary Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>禅诗解读</title>
+    <url>/2020/11/28/%E7%A6%85%E8%AF%97%E8%A7%A3%E8%AF%BB/</url>
+    <content><![CDATA[<h1 id="僧璨禅师信心铭">僧璨禅师《信心铭》</h1>
+<h3 id="前部分解读">--前部分解读</h3>
+<h2 id="一引言">一、引言</h2>
+<p>僧璨大师是禅宗三祖,一般认为是隋朝初期的禅师。《信心铭》是解读其思想最重要的文献，篇幅很长，思想繁复深邃，此处仅仅结合课上教学选取前几句自己稍微有些感悟的诗句解读。前人对《信心铭》的解读中都提到其最核心的内容在于<u>“不二”</u>，下文也会尝试结合这一核心词进行解读。</p>
+<h2 id="二解读">二、解读</h2>
+<h3 id="信心铭标题">《信心铭》（标题）</h3>
+<p>慧广法师解读信心铭三个字时，解释信为五十一心所法的第三类，也就是善心所中的一个法--“信”。信在字面的意思解释为诚实、不欺骗，做动词也可以解释为相信。信心直观地解释为相信心，也可以解释为诚实的心（将信做为心法，即是做一种观念来对待）。铭字面解释可以说是一种文体，同时也是需要铭记，类似纲领性文字。标题似乎是在说相信自己的内心，也可以说是内心诚实没有迷惘。</p>
+<span id="more"></span>
+<h3 id="至道无难唯嫌拣择但莫憎爱洞然明白">“至道无难，唯嫌拣择，但莫憎爱，洞然明白。”</h3>
+<p>“至道”是最极致的“道”，是一切规则的极致发展，或者是一切规则的起源（统一）。整句解释就是：终极的道没有什么难以理解的，只是不要挑挑拣拣，只要没有憎爱，就能马上明白。首先这里有个问题：拣择的宾语是什么？如果是至道，是不是说至道本身并不唯一？如果是道，是不是说没有选择的道就是至道，还是说至道的理解是建立在所有道之上还是至道本身就是所有道的集合？就我个人而言，既然说世间万物都有佛性，那么应该说是“至道”本身就是普遍的--至道本身是一种道的集合的称谓。而“唯嫌拣择，但莫憎爱”两句和六祖诗句“明镜本清净，何处惹尘埃”有类似的精神内核—事实判断本身没有什么对错。哲学家常常说认识世界总要受到有色眼镜的限制，但是有色眼镜并不待在眼睛上，而是在内心里，所见都是真实，是内心对感受的处理导致了观念的不同，才有了对错的区分。这两句同样都是再说要放下内心的道德判断，屏蔽内心对事实（道）的处理，反而能够得见真实（道）。</p>
+<h3 id="毫厘有差天地悬隔欲得现前莫存顺逆">“毫厘有差，天地悬隔；欲得现前，莫存顺逆。”</h3>
+<p>“毫厘有差，天地悬隔”一句显得很突兀，前后相互联系似乎没有什么内在联系，这里只好先简单地解读为是三祖在作诗时，对弟子的规劝警戒。“欲得现前，莫存顺逆”的对象应当是与前句的“至道”统一，如果至道在面前出现，不要存在内心的顺逆。这和前一句的思想是一致的，都是要放弃自己内心的道德判断，绝对客观地理解、认识世界，不存在“顺逆”。</p>
+<h3 id="违顺相争是为心病不识元旨徒劳念静">“违顺相争，是为心病；不识元旨，徒劳念静。”</h3>
+<p>这里就指出内心“违顺”相互的矛盾，是内心的病灶。这里前半句应和本文“不二”的思想。“不二”应当是对某种绝对存在的表述，这种绝对的存在可以视为思想的统一，也可以视为是独立于外界的某种存在。这里既然说不能存在“顺逆”，那么这里的“不二”也应当是独立的存在（处于内心而又独立于顺逆），而不是统一。这里的“心病”的根源也应当是需要通过摒弃“违顺”来根除。之后提到的“念静”应当就是摒弃内心违顺的一种做法。问题又来了，这里数次指出问题所在，但是从来没有明确过要怎么样解决问题？没有可以用来实际操作的手段。既然“违顺”本身是内心对外界感受处理后的一种内心的状态/反应，那么这里到底应该是在处理之后不做出反应；还是做出的反应不存在主观的“顺逆”反应；还是干脆不处理；甚至更进一步根本就不去感受（禅宗中完全封闭感受的人似乎也是有的），这里都没有说明白。“不识元旨”有人也写作“不识玄旨”，字面解释是不知道最初的意义（旨在古汉语中常作想法、志向解释）。这里的“元旨”到底是什么？联系上下文可以解释说这个“元旨”就是之前说的“莫存顺逆”的道理，即是说这一道理是学习禅最初的道理，也是说这是学习禅最根本的道理（“元”）。这样似乎解释得很顺畅，但是“元旨”也有可能是说世界最根本的道理--客观上的最初的道理，或者说是本来就有的道理。那么这样又可以解释说是在认识世界的时候要去认识“元旨”，世界本来是什么样子的就是什么样子的，不要经过判断地去认识，才能认识到真正的“至道”。</p>
+<p>### “圆同太虚，无欠无余；良由取舍，所以不如。”</p>
+<p>这里的主语应当也还是“至道”，“圆”是说至道本身就是圆满的，“太虚”比较难以解释（“太虚”是道教词汇，《信心铭》除去此处外也有多处使用道教术语），《道德经》中“太虚”一般认为就是“道”的代名词，是世界的本源，但是在古文的语境内，也常常用“太虚”来代指世界所在的宇宙，不过因为当时还没有对世界的观测能力和一般的天文认识，这里“太虚”所指的应当是广义上的世界。“圆同太虚，无欠无余”即是说“至道”如同这个世界一样（或者全部统一为道本身），没有少，也没有多。这里又有难以解释的地方：多、少都是相对的概念，但是在之前的论述中都一直在尝试塑造一个绝对的存在（“至道”），那么这里是说“至道”本身的存在没有多少的比较，强调这个比较的概念本身就不存在，进而从侧面描述一个绝对的概念；还是说“至道”不增不减，反映的是一种早期朴素的物质守恒的观念（当然从目前看物质可以转化为能量，但是是否也意味着世界总体的能量守恒，目前还没有定论）？“良由取舍，所以不如”字面上是说因为（源自于）取舍，所以“不如”。这里的“如”法音法师解释为是“吻合”，是说“跟你生命原本的本来面貌、本来的心态不吻合了……就破坏了你本来的心态，也就是不相应了，就破坏了你跟大宇宙的瑜伽。”我认为这里说的“不如”是类比了世界的不增不减来讲述内心的某种“不增不减”的状态，如同世界、至道是绝对的一样，内心对外界的判断（也是某种境界、状态、反应）
+同样应当是不会改变的（不增不减），联系前文指的就是放弃了所有的道德判断，达到“莫存顺逆”。</p>
+<p>### “莫逐有缘，勿住空忍；一种平怀，泯然自尽。”</p>
+<p>“有缘”和“空忍”明显相应。“莫逐有缘”是说不要去追求“有缘”，“有缘”的解释我查询了很多资料也没能得出一个通顺的解释。很多人解释“缘”为条件，我校老师在文明通识课程中解释佛教的“缘”为万事万物之间普遍的联系。这里粗略地可以解释为不要追求与自身相联系的事物，当然这句的核心应当在于“莫逐”，宾语只能模糊解释。但是紧随其后还有一句“勿住空忍”，不要强行忍受，是指对于这种“逐”的欲望，不要压制而是要消除它，用一种更为根本的方式结局，这种方式与前文也是统一的—没有好恶、放弃道德判断，消除自身的对外界事物的加工理解从而实现。最终的成果就是“一种平怀，泯然自尽”，内心平静，这种顺逆之间的矛盾（对有缘的追求）自己就消散了。</p>
+<h2 id="三结语">三、结语</h2>
+<p>作为禅宗的经典之一，《信心铭》很多的哲学观念与之后的六祖思想一以贯之，有很多类同之处，但同时在理解和表述上总有些许差异。在同时在思想语言表述上明显有我国传统的一些观念影响（全文中反复提到“道”，这一道教术语，但是却没有针对禅宗进行限定明确）。解读上遇到了很多困难：由于以诗为载体，很多语言的表述并不充分、严谨，主语和宾语多有缺失。再加上语言本身随时间就有很多变化，对于字句在当时时代的具体表义不明确等等因素，很多时候解读只能猜测。最重要的是自己本身对禅宗的总体思想把握不够明确，解读出的结果有各种可能，不能确信结果。自己理解不足，而表达更为困难，修改几次也不知道应该怎么说才好，正应了“言语道断”。</p>
+<h2 id="四原文">四、原文</h2>
+<p>原文附上：</p>
+<h3 id="信心铭">《信心铭》</h3>
+<p>僧璨禅师</p>
+<p>至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。违顺相争，是为心病；不识元旨，徒劳念静。圆同太虚，无欠无余；良由取舍，所以不如。莫逐有缘，勿住空忍；一种平怀，泯然自尽。止动归止，止更弥动；唯滞两边，宁知一种。一种不通，两处失功；遣有没有，从空背空。多言多虑，转不相应；绝言绝虑，无处不通。归根得旨，随照失宗；须臾返照，胜却前空。前空转变，皆由妄见；不用求真，唯须息见。至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。欲得现前，莫存顺逆，莫存顺逆。二见不住，慎勿追寻；才有是非，纷然失心。二由一有，一亦莫守。一心不生，万法无咎；无咎无法，不生不心。能随境灭，境逐能沉；境由能境，能由境能。欲知两段，元是一空。一空同两，齐含万象；不见精粗，宁有偏党。大道体宽，无易无难；小见狐疑，转急转迟。执之失度，必入邪路；放之自然，体无去住。任性合道，逍遥绝恼；系念乖真，昏沉不好。不好劳神，何用疏亲。欲取一乘，勿恶六尘；六尘不恶，还同正觉。智者无为，愚人自缚。智者无为，愚人自缚。法无异法，妄自爱着；将心用心，岂非大错。迷生寂乱，悟无好恶；一切二边，良由斟酌。梦幻空花，何劳把捉；得失是非，一时放却。眼若不睡，诸梦自除；心若不异，万法一如。一如体玄，兀尔忘缘；万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。泯其所以，不可方比。止动无动，动止无止；两既不成，一何有尔。究竟穷极，不存轨则；契心平等，所作俱息。狐疑净尽，正信调直。一切不留，无可记忆；虚明自照，不劳心力。非思量处，识情难测；真如法界，无他无自。要急相应，唯言不二；不二皆同，无不包容。十方智者，皆入此宗。宗非促延，一念万年；无在不在，十方目前。极小同大，忘绝境界；极大同小，不见边表。有即是无，无即是有；若不如是，必不须守。一即一切，一切即一，但能如是，何虑不毕。信心不二，不二信心；言语道断，非去来今。信心不二，不二信心；言语道断，非去来今。</p>
+<h2 id="参考文献">参考文献</h2>
+<p>《信心铭》释义，慧广法师，2017 ，“禅宗思想”。</p>
+<p>《信心铭》直解，法音法师，1982，讲述文字。</p>
+]]></content>
+      <categories>
+        <category>Essay</category>
       </categories>
   </entry>
 </search>

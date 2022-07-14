@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sightvanish.github.io/photos/index.html</loc>
+    
+    <lastmod>2022-07-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/about/index.html</loc>
+    
+    <lastmod>2022-07-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/schedule/index.html</loc>
+    
+    <lastmod>2022-07-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/maintenance/index.html</loc>
+    
+    <lastmod>2022-07-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://sightvanish.github.io/2022/07/14/Hexo-Migration/</loc>
     
     <lastmod>2022-07-14</lastmod>
@@ -284,24 +320,6 @@
     <loc>https://sightvanish.github.io/2021/11/04/How-to-install-Scipy-in-Apple-silicon-2021-11-4/</loc>
     
     <lastmod>2021-11-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/about/index.html</loc>
-    
-    <lastmod>2021-11-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/schedule/index.html</loc>
-    
-    <lastmod>2021-11-02</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -614,15 +632,6 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/maintenance/index.html</loc>
-    
-    <lastmod>2021-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://sightvanish.github.io/2021/05/24/AdaBoosting/</loc>
     
     <lastmod>2021-09-23</lastmod>
@@ -687,15 +696,6 @@
   
   <url>
     <loc>https://sightvanish.github.io/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</loc>
-    
-    <lastmod>2021-09-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/photos/index.html</loc>
     
     <lastmod>2021-09-16</lastmod>
     
@@ -1043,6 +1043,13 @@
   </url>
   
   <url>
+    <loc>https://sightvanish.github.io/tags/int/</loc>
+    <lastmod>2022-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://sightvanish.github.io/tags/Github/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -1057,28 +1064,7 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/int/</loc>
-    <lastmod>2022-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sightvanish.github.io/tags/Python/</loc>
-    <lastmod>2022-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/new/</loc>
-    <lastmod>2022-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/malloc/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1093,6 +1079,20 @@
   
   <url>
     <loc>https://sightvanish.github.io/tags/pointer/</loc>
+    <lastmod>2022-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/new/</loc>
+    <lastmod>2022-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/malloc/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1127,14 +1127,14 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/Srand/</loc>
+    <loc>https://sightvanish.github.io/tags/python/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/python/</loc>
+    <loc>https://sightvanish.github.io/tags/Srand/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1234,14 +1234,14 @@
 
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Machine-Learning/</loc>
+    <loc>https://sightvanish.github.io/categories/Kendo/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Kendo/</loc>
+    <loc>https://sightvanish.github.io/categories/Machine-Learning/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1283,14 +1283,14 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Test/</loc>
+    <loc>https://sightvanish.github.io/categories/Chat/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Chat/</loc>
+    <loc>https://sightvanish.github.io/categories/Test/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1318,14 +1318,14 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Rendering/</loc>
+    <loc>https://sightvanish.github.io/categories/Python/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Python/</loc>
+    <loc>https://sightvanish.github.io/categories/Rendering/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
