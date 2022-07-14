@@ -203,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/ttttt/">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/Hexo-Migration/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -217,7 +217,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/07/14/ttttt/" class="post-title-link" itemprop="url">ttttt</a>
+            <a href="/2022/07/14/Hexo-Migration/" class="post-title-link" itemprop="url">Hexo Migration</a>
         </h2>
 
         <div class="post-meta">
@@ -228,66 +228,16 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-07-14 22:05:29 / Modified: 22:05:32" itemprop="dateCreated datePublished" datetime="2022-07-14T22:05:29+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 22:36:02 / Modified: 22:36:13" itemprop="dateCreated datePublished" datetime="2022-07-14T22:36:02+08:00">2022-07-14</time>
             </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/tttt/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/14/tttt/" class="post-title-link" itemprop="url">tttt</a>
-        </h2>
-
-        <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-07-14 22:04:09 / Modified: 22:04:14" itemprop="dateCreated datePublished" datetime="2022-07-14T22:04:09+08:00">2022-07-14</time>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
+                </span>
             </span>
 
           
@@ -301,65 +251,53 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/ttt/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/14/ttt/" class="post-title-link" itemprop="url">ttt</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-07-14 22:01:44" itemprop="dateCreated datePublished" datetime="2022-07-14T22:01:44+08:00">2022-07-14</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
+          <h1 id="hexo-migration-apple-silicon">Hexo Migration (Apple
+Silicon)</h1>
+<ol type="1">
+<li><p>Config Git</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config user.name liwuchen</span><br><span class="line">git config user.email liwch@shanghaitech.edu.cn</span><br><span class="line">git config -l # list git config</span><br><span class="line">ssh-keygen -t rsa -C &quot;liwch@shanghaitech.edu.cn&quot;</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>Copy rsa public key to GitHub-&gt;Settings-&gt;SSH and GPG
+keys.</p></li>
+<li><p>Install <a target="_blank" rel="noopener" href="https://nodejs.org/">Nodejs</a></p>
+<ol type="1">
+<li>In China, you may consider install cnpm
+<code>sudo npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+<li>In the following steps, I will use <code>cnpm</code>, same for
+<code>npm</code>.</li>
+</ol></li>
+<li><p>Install hexo with <code>npm</code>
+<code>cnpm install -g hexo-cli</code></p></li>
+<li><p>Install deployment plugin
+<code>cnpm install --save hexo-deployer-git</code></p></li>
+<li><p>Install <a target="_blank" rel="noopener" href="https://brew.sh">Homebrew</a></p>
+<ol type="1">
+<li>In China, you may consider
+<code>/bin/zsh -c "$(curl -fsSL     https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"</code></li>
+</ol></li>
+<li><p>Math equation rendering</p>
+<ol type="1">
+<li><p>Install <code>pandoc</code> <code>brew install pandoc</code></p>
+<ol type="1">
+<li><p>If <code>Error: Command failed with exit 128: git</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-core</span><br><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-cask</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>Uninstall <code>hexo-renderer-marked</code>
+<code>npm uninstall hexo-renderer-marked --save</code></p></li>
+<li><p>Install <code>hexo-renderer-pandoc</code>
+<code>npm install hexo-renderer-pandoc</code></p></li>
+</ol></li>
+<li><p>Done! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉</p></li>
+<li><p><code>hexo clean; hexo g; hexo d</code></p></li>
+<li><p>Here is two shell scripts for you</p>
+<ol type="1">
+<li><code>blog.sh</code></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/zsh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">read</span> input</span> </span><br><span class="line">name=$&#x27;&#x27;</span><br><span class="line">filename=$&#x27;&#x27;</span><br><span class="line">for arg in &quot;$*&quot;</span><br><span class="line">  do</span><br><span class="line">    name=$s$arg</span><br><span class="line">  done</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> create new post</span></span><br><span class="line">hexo n &quot;$name&quot;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> open post</span></span><br><span class="line">name=$(echo $name|sed &quot;s/ /-/g&quot;) # replace space with short dash</span><br><span class="line">open $&#x27;./source/_posts/&#x27;$name$&#x27;.md&#x27; # open markdown file</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li><code>deploy.sh</code></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/zsh</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo clean</span><br><span class="line">hexo d</span><br><span class="line">clear</span><br><span class="line">echo &quot;Blog depolyment done.&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div>
@@ -517,74 +455,6 @@ with dtype=float32</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sort</span></span><br><span class="line">x = torch.tensor([<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>])</span><br><span class="line">sorted_x, sort_index = x.sort(dim=<span class="number">0</span>, descending=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># sort_index is actually the result of x.argsort(dim=0)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># reverse sort</span></span><br><span class="line">original_x = sorted_x.gather(dim=<span class="number">0</span>, index=sort_index.argsort(dim=<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
 <p>you can also use <code>.index_select()</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># the following part is a special case</span></span><br><span class="line">data = [</span><br><span class="line">    torch.Tensor([[<span class="number">11</span>,<span class="number">12</span>],[<span class="number">13</span>,<span class="number">14</span>],[<span class="number">15</span>,<span class="number">16</span>],[<span class="number">17</span>,<span class="number">18</span>]]),</span><br><span class="line">    torch.Tensor([[<span class="number">19</span>,<span class="number">20</span>],[<span class="number">21</span>,<span class="number">22</span>],[<span class="number">23</span>,<span class="number">24</span>]]),</span><br><span class="line">    torch.Tensor([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">10</span>]])</span><br><span class="line">]</span><br><span class="line"><span class="comment"># get the length</span></span><br><span class="line">seq_len = torch.tensor([s.size(<span class="number">0</span>) <span class="keyword">for</span> s <span class="keyword">in</span> data], dtype=torch.<span class="built_in">int</span>)</span><br><span class="line"><span class="comment"># sort based on the lenght</span></span><br><span class="line">seq_len, sorting_index = seq_len.sort(<span class="number">0</span>, descending=<span class="literal">True</span>)</span><br><span class="line">data.sort(key=<span class="keyword">lambda</span> x: <span class="built_in">len</span>(x), reverse=<span class="literal">True</span>)</span><br><span class="line">data = torch.cat(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># data is then padded</span></span><br><span class="line">output = torch.Tensor([</span><br><span class="line">    [[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">10</span>]],</span><br><span class="line">    [[<span class="number">11</span>,<span class="number">12</span>],[<span class="number">13</span>,<span class="number">14</span>],[<span class="number">15</span>,<span class="number">16</span>],[<span class="number">17</span>,<span class="number">18</span>],[<span class="number">0</span>,<span class="number">0</span>]],</span><br><span class="line">    [[<span class="number">19</span>,<span class="number">20</span>],[<span class="number">21</span>,<span class="number">22</span>],[<span class="number">23</span>,<span class="number">24</span>],[<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>]]</span><br><span class="line">])</span><br><span class="line"><span class="comment"># reverse sorting, with padding</span></span><br><span class="line">unsorted_data = output.index_select(<span class="number">0</span>, sorting_index.argsort(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/14/test/" class="post-title-link" itemprop="url">test</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-07-14 21:48:15 / Modified: 21:51:39" itemprop="dateCreated datePublished" datetime="2022-07-14T21:48:15+08:00">2022-07-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Test/" itemprop="url" rel="index"><span itemprop="name">Test</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div class="pdfobject-container" data-target="test.pdf" data-height="500px"></div>
 
       
     </div>
@@ -1048,6 +918,224 @@ container</p></li>
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/C-Coding-Style/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/14/C-Coding-Style/" class="post-title-link" itemprop="url">C++ Coding Style</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-07-14 21:33:10 / Modified: 21:36:39" itemprop="dateCreated datePublished" datetime="2022-07-14T21:33:10+08:00">2022-07-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Coding/" itemprop="url" rel="index"><span itemprop="name">Coding</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="cpplint">cpplint</h1>
+<p><code>cpplint</code> is a static code checker for C++, following
+Google C++ styles.</p>
+<p>– check code format</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install cpplint</span><br><span class="line">cpplint.py --verbose=3 test.cpp <span class="comment"># only consider warning level &gt; 3</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://github.com/google/styleguide">C++ code style</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/05/26/Basics-of-DL-Optimization-Algorithms-on-Matrix-Manifold/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/26/Basics-of-DL-Optimization-Algorithms-on-Matrix-Manifold/" class="post-title-link" itemprop="url">Basics of DL: Optimization Algorithms on Matrix Manifold</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-05-26 20:11:37" itemprop="dateCreated datePublished" datetime="2022-05-26T20:11:37+08:00">2022-05-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-14 21:08:35" itemprop="dateModified" datetime="2022-07-14T21:08:35+08:00">2022-07-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>This could be complicated. But it will help. <a target="_blank" rel="noopener" href="https://press.princeton.edu/absil">Optimization Algorithms on
+Matrix Manifold</a>.</p>
+<p>More details will be post later. (Maybe...)</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/05/03/Top-K-problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/03/Top-K-problems/" class="post-title-link" itemprop="url">Top K problems</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-05-03 17:27:06 / Modified: 17:41:53" itemprop="dateCreated datePublished" datetime="2022-05-03T17:27:06+08:00">2022-05-03</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="quick-sort">Quick Sort</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  pivot = nums[l]</span><br><span class="line">  i, j = l, r</span><br><span class="line">  <span class="keyword">while</span> i &lt; j:</span><br><span class="line">    <span class="comment"># find the first element smaller than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[j] &gt;= pivot:</span><br><span class="line">      j -= <span class="number">1</span></span><br><span class="line">    nums[i] = nums[j] <span class="comment"># put the smaller one to the left</span></span><br><span class="line">    <span class="comment"># find the first element larger than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[i] &lt;= pivot:</span><br><span class="line">      i += <span class="number">1</span></span><br><span class="line">    nums[j] = nums[i] <span class="comment"># put the larger one to the right</span></span><br><span class="line">  <span class="comment"># i == j, nums[i]=nums[j]&gt;pivot</span></span><br><span class="line">  nums[i] = pivot</span><br><span class="line"> 	<span class="comment"># return pivot index</span></span><br><span class="line">  <span class="keyword">return</span> i</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  <span class="keyword">if</span> l &lt; r:</span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">    quicksort(nums, l, mid - <span class="number">1</span>)</span><br><span class="line">    quicksort(nums, mid + <span class="number">1</span>, r)</span><br></pre></td></tr></table></figure>
+<h3 id="quick-selection">Quick Selection</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># split data until the k_th pivot is selected</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">topk_split</span>(<span class="params">nums, k, l, r</span>)</span></span><br><span class="line"><span class="function">  <span class="title">if</span> <span class="title">l</span> &lt; <span class="title">r</span>:</span></span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">  	<span class="keyword">if</span> mid == k:</span><br><span class="line">      <span class="comment"># we have already get the k_th pivot</span></span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">   	<span class="keyword">elif</span> mid &lt; k:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the right side</span></span><br><span class="line">      topk_split(nums, k, mid + <span class="number">1</span>, r)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the left side</span></span><br><span class="line">      topk_split(nums, k, l, mid - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="get-the-k_th-element-incresing">Get the k_th element
+(incresing)</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">topk_split(nums, k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[k-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="get-the-k_th-element-decresing">Get the k_th element
+(decresing)</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">topk_split(nums, <span class="built_in">len</span>(nums) - k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[-k]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1119,7 +1207,7 @@ container</p></li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
