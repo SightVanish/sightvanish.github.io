@@ -228,7 +228,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-07-14 22:36:02 / Modified: 22:36:13" itemprop="dateCreated datePublished" datetime="2022-07-14T22:36:02+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 22:36:02 / Modified: 22:38:51" itemprop="dateCreated datePublished" datetime="2022-07-14T22:36:02+08:00">2022-07-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -263,42 +263,15 @@ keys.</p></li>
 <li>In China, you may consider install cnpm
 <code>sudo npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
 <li>In the following steps, I will use <code>cnpm</code>, same for
-<code>npm</code>.</li>
-</ol></li>
-<li><p>Install hexo with <code>npm</code>
-<code>cnpm install -g hexo-cli</code></p></li>
-<li><p>Install deployment plugin
-<code>cnpm install --save hexo-deployer-git</code></p></li>
-<li><p>Install <a target="_blank" rel="noopener" href="https://brew.sh">Homebrew</a></p>
-<ol type="1">
-<li>In China, you may consider
-<code>/bin/zsh -c "$(curl -fsSL     https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"</code></li>
-</ol></li>
-<li><p>Math equation rendering</p>
-<ol type="1">
-<li><p>Install <code>pandoc</code> <code>brew install pandoc</code></p>
-<ol type="1">
-<li><p>If <code>Error: Command failed with exit 128: git</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-core</span><br><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-cask</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-<li><p>Uninstall <code>hexo-renderer-marked</code>
-<code>npm uninstall hexo-renderer-marked --save</code></p></li>
-<li><p>Install <code>hexo-renderer-pandoc</code>
-<code>npm install hexo-renderer-pandoc</code></p></li>
-</ol></li>
-<li><p>Done! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉</p></li>
-<li><p><code>hexo clean; hexo g; hexo d</code></p></li>
-<li><p>Here is two shell scripts for you</p>
-<ol type="1">
-<li><code>blog.sh</code></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/zsh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">read</span> input</span> </span><br><span class="line">name=$&#x27;&#x27;</span><br><span class="line">filename=$&#x27;&#x27;</span><br><span class="line">for arg in &quot;$*&quot;</span><br><span class="line">  do</span><br><span class="line">    name=$s$arg</span><br><span class="line">  done</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> create new post</span></span><br><span class="line">hexo n &quot;$name&quot;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> open post</span></span><br><span class="line">name=$(echo $name|sed &quot;s/ /-/g&quot;) # replace space with short dash</span><br><span class="line">open $&#x27;./source/_posts/&#x27;$name$&#x27;.md&#x27; # open markdown file</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li><code>deploy.sh</code></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/zsh</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo clean</span><br><span class="line">hexo d</span><br><span class="line">clear</span><br><span class="line">echo &quot;Blog depolyment done.&quot;</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+<code>npm</code>.</li></ol></li></ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/14/Hexo-Migration/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -342,7 +315,7 @@ keys.</p></li>
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-07-14 21:53:49 / Modified: 21:54:16" itemprop="dateCreated datePublished" datetime="2022-07-14T21:53:49+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 21:53:49 / Modified: 22:39:35" itemprop="dateCreated datePublished" datetime="2022-07-14T21:53:49+08:00">2022-07-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -367,17 +340,14 @@ keys.</p></li>
       
           <h1 id="tensorflow-tips">Tensorflow Tips</h1>
 <p>Here is some tips for tensorflow1.x.</p>
-<ol type="1">
-<li><p>print tensor</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">self.p = tf.Print(&lt;<span class="built_in">input</span> tensor&gt;, [<span class="string">&#x27;&lt;message&gt;&#x27;</span>, &lt;printed tensor&gt;], summarize=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">sess.run(model.p)</span><br></pre></td></tr></table></figure></li>
-<li><p>print model weight. find the corresponding op name in
-tensorboard</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">weight=tf.get_default_graph().get_tensor_by_name(<span class="string">&quot;&lt;operation name&gt;:0&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sess.run(weight))</span><br></pre></td></tr></table></figure></li>
-<li><p>print model weight. find the corresponding op name in
-tensorboard</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">weight=tf.get_default_graph().get_tensor_by_name(<span class="string">&quot;&lt;operation name&gt;:0&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sess.run(weight))</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/14/Tensorflow-Tips/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -421,7 +391,7 @@ tensorboard</p>
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-07-14 21:53:14 / Modified: 21:54:25" itemprop="dateCreated datePublished" datetime="2022-07-14T21:53:14+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 21:53:14 / Modified: 22:39:16" itemprop="dateCreated datePublished" datetime="2022-07-14T21:53:14+08:00">2022-07-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -450,12 +420,14 @@ tensorboard</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1</span>]).dtype</span><br><span class="line">torch.int64</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1</span>], dtype=torch.float32).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1.</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.Tensor([<span class="number">1</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="literal">True</span>]).dtype</span><br><span class="line">torch.<span class="built_in">bool</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.Tensor([<span class="literal">True</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>exit()</span><br></pre></td></tr></table></figure>
 <p>note: torch.tensor will auto guess the type; torch.Tensor is same
 with dtype=float32</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = torch.tensor([<span class="number">1</span>])</span><br><span class="line"><span class="comment"># convert a scale in tensor to int</span></span><br><span class="line">x = x.item() <span class="comment"># x = (int)1</span></span><br></pre></td></tr></table></figure>
-<p>sort tensor and reverse sort</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sort</span></span><br><span class="line">x = torch.tensor([<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>])</span><br><span class="line">sorted_x, sort_index = x.sort(dim=<span class="number">0</span>, descending=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># sort_index is actually the result of x.argsort(dim=0)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># reverse sort</span></span><br><span class="line">original_x = sorted_x.gather(dim=<span class="number">0</span>, index=sort_index.argsort(dim=<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
-<p>you can also use <code>.index_select()</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># the following part is a special case</span></span><br><span class="line">data = [</span><br><span class="line">    torch.Tensor([[<span class="number">11</span>,<span class="number">12</span>],[<span class="number">13</span>,<span class="number">14</span>],[<span class="number">15</span>,<span class="number">16</span>],[<span class="number">17</span>,<span class="number">18</span>]]),</span><br><span class="line">    torch.Tensor([[<span class="number">19</span>,<span class="number">20</span>],[<span class="number">21</span>,<span class="number">22</span>],[<span class="number">23</span>,<span class="number">24</span>]]),</span><br><span class="line">    torch.Tensor([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">10</span>]])</span><br><span class="line">]</span><br><span class="line"><span class="comment"># get the length</span></span><br><span class="line">seq_len = torch.tensor([s.size(<span class="number">0</span>) <span class="keyword">for</span> s <span class="keyword">in</span> data], dtype=torch.<span class="built_in">int</span>)</span><br><span class="line"><span class="comment"># sort based on the lenght</span></span><br><span class="line">seq_len, sorting_index = seq_len.sort(<span class="number">0</span>, descending=<span class="literal">True</span>)</span><br><span class="line">data.sort(key=<span class="keyword">lambda</span> x: <span class="built_in">len</span>(x), reverse=<span class="literal">True</span>)</span><br><span class="line">data = torch.cat(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># data is then padded</span></span><br><span class="line">output = torch.Tensor([</span><br><span class="line">    [[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">10</span>]],</span><br><span class="line">    [[<span class="number">11</span>,<span class="number">12</span>],[<span class="number">13</span>,<span class="number">14</span>],[<span class="number">15</span>,<span class="number">16</span>],[<span class="number">17</span>,<span class="number">18</span>],[<span class="number">0</span>,<span class="number">0</span>]],</span><br><span class="line">    [[<span class="number">19</span>,<span class="number">20</span>],[<span class="number">21</span>,<span class="number">22</span>],[<span class="number">23</span>,<span class="number">24</span>],[<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>]]</span><br><span class="line">])</span><br><span class="line"><span class="comment"># reverse sorting, with padding</span></span><br><span class="line">unsorted_data = output.index_select(<span class="number">0</span>, sorting_index.argsort(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/14/Pytorch-Tips/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -474,7 +446,7 @@ with dtype=float32</p>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/Linux-Ubuntu-Tips/">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/Linux-Ubuntu-Commands/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -488,7 +460,7 @@ with dtype=float32</p>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/07/14/Linux-Ubuntu-Tips/" class="post-title-link" itemprop="url">Linux/Ubuntu Tips</a>
+            <a href="/2022/07/14/Linux-Ubuntu-Commands/" class="post-title-link" itemprop="url">Linux/Ubuntu Commands</a>
         </h2>
 
         <div class="post-meta">
@@ -499,7 +471,7 @@ with dtype=float32</p>
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-07-14 21:46:25 / Modified: 21:46:46" itemprop="dateCreated datePublished" datetime="2022-07-14T21:46:25+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 21:46:25 / Modified: 22:42:58" itemprop="dateCreated datePublished" datetime="2022-07-14T21:46:25+08:00">2022-07-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -522,7 +494,7 @@ with dtype=float32</p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="linux-ubuntu-tips">Linux (Ubuntu) Tips</h1>
+          <h1 id="linux-ubuntu-commands">Linux (Ubuntu) Commands</h1>
 <ol type="1">
 <li><p>Use <code>lshw</code> (list hardware) to show the computer
 hardware information.</p></li>
@@ -532,48 +504,15 @@ hardware information.</p></li>
 <li><p>Show the structure of current directory.</p>
 <ol type="1">
 <li><code>sudo apt install tree</code></li>
-<li><code>tree -L N</code> show <span class="math inline">\(N^{th}\)</span> depth.</li>
-</ol></li>
-<li><p><code>#!/bin/bash</code> indicates the path to shell. It can only
-be placed at the top of shell script and begun with <code>#!</code>.</p>
-<ol type="1">
-<li><code>#!</code> is known as <code>shebang</code> in Unix.</li>
-<li>This command is used to instruct our system to use <code>bash</code>
-as default shell.</li>
-</ol></li>
-<li><p><code>vim</code> <code>:set number</code> to show the line
-number.</p></li>
-<li><p><code>vim</code> comment out a block (in a shell script
-<code>#</code>)</p>
-<ol type="1">
-<li><code>:10,20s/^/#/g</code> to comment out a block from line 10 to
-20</li>
-<li><code>:10,20s/#//g</code> to delete the comments.</li>
-</ol></li>
-<li><p><code>vim</code> delete a line: click the line-&gt;exit Insert
-mode-&gt;double press d in your keyboard</p></li>
-<li><p>How to calculate the time consumption of a shell script. Here is
-an example. Pay attention to the spaces in this script.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">startTime=`date +%s`</span><br><span class="line">for ((i=1; i&lt;=100; i++)); do</span><br><span class="line">        a=$[$i%20]</span><br><span class="line">        if [ $a -eq 0 ]; then</span><br><span class="line">                echo &quot;i: $i&quot;</span><br><span class="line">        fi</span><br><span class="line">done</span><br><span class="line">endTime=`date +%s`</span><br><span class="line">consumedTime=$[ $endTime - $startTime ]</span><br><span class="line">echo &quot;Time consumed: $consumedTime seconds&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>How to show the folder size in terminal. <code>du</code>:
-summarize disk usage of the set of files, recursively for
-directories.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> du -sh <span class="comment"># show the size of current folder</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> du -h <span class="comment"># show the sizes of all subfolders/files (recurssively)</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> du -h &lt;folder name&gt; <span class="comment"># show the sizes of indicated folder/files</span></span></span><br></pre></td></tr></table></figure></li>
-<li><p><code>find .|xargs grep -ri "characters you want to find"</code>
-search all files under current directory to find specific
-characters.</p></li>
-<li><p>The default editor in Ubuntu is GNU nano. You may dislike it, so
-please use vim in default.</p>
-<ol type="1">
-<li><code>sudo update-alternatives --config editor</code></li>
-<li>choose <code>vim.basic</code></li>
-<li><code>source ~/.bashrc</code></li>
-</ol></li>
-<li><p>If you cannot type in terminal, you may happen to press
-<code>CTRL+S</code> which locks screen. Just press <code>CTRL+Q</code>
-to exit.</p></li>
-</ol>
-
+<li><code>tree -L N</code> show <span class="math inline">\(N^{th}\)</span> depth.</li></ol></li></ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/14/Linux-Ubuntu-Commands/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -617,7 +556,7 @@ to exit.</p></li>
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-07-14 21:45:36 / Modified: 21:46:04" itemprop="dateCreated datePublished" datetime="2022-07-14T21:45:36+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 21:45:36 / Modified: 22:38:57" itemprop="dateCreated datePublished" datetime="2022-07-14T21:45:36+08:00">2022-07-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -643,56 +582,14 @@ to exit.</p></li>
           <h1 id="easyrec">EasyRec</h1>
 <p>This is a public repository of recommender. It will be replaced by
 DeepRec.</p>
-<p>training on easyrec</p>
-<ol type="1">
-<li><pre><code>   git clone https://github.com/alibaba/EasyRec.git
-   cd EasyRec/</code></pre></li>
-<li><p>download dataset
-<code>wget https://easyrec.oss-cn-beijing.aliyuncs.com/data/easyrec_data_20210818.tar.gz</code></p></li>
-<li><p>generate .py file based on proto
-<code>bash scripts/gen_proto.sh</code></p></li>
-<li><p>install dependency
-<code>pip install -r requirements/runtime.txt</code>
-<code>pip install -r requirements/tests.txt</code></p></li>
-<li><p>train existing model
-<code>python -m easy_rec.python.train_eval --pipeline_config_path samples/model_config/&lt;selected model&gt;</code></p></li>
-<li><p>open dashboard
-<code>cd EasyRec/experiments/&lt;selected model&gt;</code>
-<code>tensorboard --logdir .</code></p></li>
-</ol>
-<h1 id="deeprec">DeepRec</h1>
-<p>This is a public repository of alibaba recommender. It is an upgraded
-version of EasyRec.</p>
-<p>testing on deeprec</p>
-<ol type="1">
-<li><p>build wheel and image
-<code>./ci_build bazel_build cpu</code></p></li>
-<li><p>enter container
-<code>CI_DOCKER_EXTRA_PARAMS=-it ./ci_build bash</code></p></li>
-<li><p>install environment in container
-<code>pip install wheels/tensorflow/&lt;.whl&gt;</code></p></li>
-<li><p>build wheel <code>./ci_build bazel_build cpu</code></p></li>
-</ol>
-<h3 id="alibaba-remote-machine">Alibaba Remote Machine</h3>
-<p>Connect to alibaba remote machine.</p>
-<p>set proxy in MobaXterm.</p>
-<p>K83 usage – with <code>kubectl</code></p>
-<ol type="1">
-<li>check nodes <code>kubectl get nodes</code>,
-<code>--all-namespaces</code> to get all nodes under different
-namespaces</li>
-<li>check existing tfjobs <code>kubectl get tfjobs -o wide</code> note:
-if the tfjob you are intending to create already exists, delete this
-tfjob <code>kubectl delete tfjob &lt;tfjob name&gt;</code></li>
-<li>create a new tfjob <code>kubectl create -f &lt;.yaml&gt;</code></li>
-<li>check pod status <code>watch -n 1 kubectl get pods -o wide</code>
-note: if the status is pending, try change the parameter of
-<code>resources</code> in you yaml file</li>
-<li>check training log
-<code>kubectl logs -f &lt;tfjob name&gt;-chief-0</code></li>
-</ol>
-<h1 id="section"></h1>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/14/Intel-Internship/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -711,7 +608,7 @@ note: if the status is pending, try change the parameter of
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/Git-Tips/">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/Git-Lookup-Table/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -725,7 +622,7 @@ note: if the status is pending, try change the parameter of
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/07/14/Git-Tips/" class="post-title-link" itemprop="url">Git Tips</a>
+            <a href="/2022/07/14/Git-Lookup-Table/" class="post-title-link" itemprop="url">Git Lookup Table</a>
         </h2>
 
         <div class="post-meta">
@@ -736,7 +633,7 @@ note: if the status is pending, try change the parameter of
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-07-14 21:44:49 / Modified: 21:53:01" itemprop="dateCreated datePublished" datetime="2022-07-14T21:44:49+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 21:44:49 / Modified: 22:42:20" itemprop="dateCreated datePublished" datetime="2022-07-14T21:44:49+08:00">2022-07-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -759,7 +656,7 @@ note: if the status is pending, try change the parameter of
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="git-tips">Git Tips</h1>
+          <h1 id="git">Git</h1>
 <ol type="1">
 <li><p>check local modification</p>
 <ol type="1">
@@ -770,43 +667,15 @@ note: if the status is pending, try change the parameter of
 <code>HASH</code> commit, losing all local modification.</li>
 </ol></li>
 <li><p><code>ssh -T git@github.com</code> test your ssh connection with
-github.</p></li>
-<li><p>for certain case: you may need to last commitment ;create another
-branch, then go back to master
-branch<code>git cherry-pick &lt;commit id&gt;</code></p>
-<ol type="1">
-<li><code>git cherry-pick</code> is a powerful command that enables
-arbitrary git commits to be picked by reference and appended to the
-current working branch HEAD. It is the act of picking commit from a
-branch and applying it to another branch.</li>
-</ol></li>
-<li><p>show your git remote repository</p>
-<ol type="1">
-<li><code>git remote -v</code> or
-<code>git remote show orgin</code></li>
-</ol></li>
-<li><p>modified git commit comments</p>
-<ol type="1">
-<li>if you just want to modify the comment that you just committed.
-<ol type="1">
-<li><code>git commit --amend</code> (please use vim as default in
-terminal)</li>
-<li><code>git push -f</code></li>
-</ol></li>
-<li>if you just want to modify the last <span class="math inline">\(N^{th}\)</span> comment that you just committed.
-<ol type="1">
-<li><code>git rebase -i HEAD~N</code> first you go back</li>
-<li>modify the comment and replace <code>pick</code> with
-<code>edit</code> in corresponding line</li>
-<li><code>git commit --amend</code> do it again</li>
-<li><code>git rebase --continue</code> you can come back now</li>
-<li><code>git push -f</code></li>
-</ol></li>
-<li>if you have local modification, try <code>git stash</code> (to
-archive modifications) and <code>git stash pop</code> (restore)</li>
-</ol></li>
-</ol>
-
+github.</p></li></ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/14/Git-Lookup-Table/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -825,7 +694,7 @@ archive modifications) and <code>git stash pop</code> (restore)</li>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/Docker-Tips/">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/Introduction-to-Docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -839,7 +708,7 @@ archive modifications) and <code>git stash pop</code> (restore)</li>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/07/14/Docker-Tips/" class="post-title-link" itemprop="url">Docker Tips</a>
+            <a href="/2022/07/14/Introduction-to-Docker/" class="post-title-link" itemprop="url">Introduction to Docker</a>
         </h2>
 
         <div class="post-meta">
@@ -850,7 +719,7 @@ archive modifications) and <code>git stash pop</code> (restore)</li>
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-07-14 21:38:01 / Modified: 21:52:46" itemprop="dateCreated datePublished" datetime="2022-07-14T21:38:01+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 21:38:01 / Modified: 22:41:05" itemprop="dateCreated datePublished" datetime="2022-07-14T21:38:01+08:00">2022-07-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -885,25 +754,15 @@ hub)</p></li>
 stands for interactive terminal, <code>--rm</code> stands for remove
 after exiting this container, <code>bash</code> is the shell we use in
 container.</li>
-<li><code>cat /etc/os-release</code> show system info</li>
-</ol></li>
-<li><p>List docker images <code>docker images</code></p></li>
-<li><p><code>docker run -dit ubuntu:18.04</code> --run a docker in
-background with interactive pseudo terminal (not assigned)</p>
-<p><code>docker container ls</code> --find your running container</p>
-<p><code>docker exec -i &lt;container id&gt; bash</code> --enter
-container via bash</p>
-<p><code>exit</code> in this bash will not stop docker</p>
-<p><code>docker container stop &lt;container id&gt;</code>--stop
-container</p></li>
-<li><p><code>docker container ls -a</code> --list all containers,
-including stopped container</p>
-<p><code>docker container rm &lt;container id&gt;</code> --remove a
-stopped container</p>
-<p><code>docker container prune</code> --remove all stopped
-container</p></li>
-</ol>
-
+<li><code>cat /etc/os-release</code> show system info</li></ol></li></ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/14/Introduction-to-Docker/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1094,10 +953,16 @@ Matrix Manifold</a>.</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-05-03 17:27:06 / Modified: 17:41:53" itemprop="dateCreated datePublished" datetime="2022-05-03T17:27:06+08:00">2022-05-03</time>
+              <time title="Created: 2022-05-03 17:27:06" itemprop="dateCreated datePublished" datetime="2022-05-03T17:27:06+08:00">2022-05-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-14 22:40:05" itemprop="dateModified" datetime="2022-07-14T22:40:05+08:00">2022-07-14</time>
+              </span>
 
           
 
@@ -1113,15 +978,14 @@ Matrix Manifold</a>.</p>
           <h3 id="quick-sort">Quick Sort</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  pivot = nums[l]</span><br><span class="line">  i, j = l, r</span><br><span class="line">  <span class="keyword">while</span> i &lt; j:</span><br><span class="line">    <span class="comment"># find the first element smaller than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[j] &gt;= pivot:</span><br><span class="line">      j -= <span class="number">1</span></span><br><span class="line">    nums[i] = nums[j] <span class="comment"># put the smaller one to the left</span></span><br><span class="line">    <span class="comment"># find the first element larger than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[i] &lt;= pivot:</span><br><span class="line">      i += <span class="number">1</span></span><br><span class="line">    nums[j] = nums[i] <span class="comment"># put the larger one to the right</span></span><br><span class="line">  <span class="comment"># i == j, nums[i]=nums[j]&gt;pivot</span></span><br><span class="line">  nums[i] = pivot</span><br><span class="line"> 	<span class="comment"># return pivot index</span></span><br><span class="line">  <span class="keyword">return</span> i</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  <span class="keyword">if</span> l &lt; r:</span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">    quicksort(nums, l, mid - <span class="number">1</span>)</span><br><span class="line">    quicksort(nums, mid + <span class="number">1</span>, r)</span><br></pre></td></tr></table></figure>
-<h3 id="quick-selection">Quick Selection</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># split data until the k_th pivot is selected</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">topk_split</span>(<span class="params">nums, k, l, r</span>)</span></span><br><span class="line"><span class="function">  <span class="title">if</span> <span class="title">l</span> &lt; <span class="title">r</span>:</span></span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">  	<span class="keyword">if</span> mid == k:</span><br><span class="line">      <span class="comment"># we have already get the k_th pivot</span></span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">   	<span class="keyword">elif</span> mid &lt; k:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the right side</span></span><br><span class="line">      topk_split(nums, k, mid + <span class="number">1</span>, r)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the left side</span></span><br><span class="line">      topk_split(nums, k, l, mid - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="get-the-k_th-element-incresing">Get the k_th element
-(incresing)</h4>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">topk_split(nums, k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[k-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
-<h4 id="get-the-k_th-element-decresing">Get the k_th element
-(decresing)</h4>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">topk_split(nums, <span class="built_in">len</span>(nums) - k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[-k]</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/03/Top-K-problems/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1207,14 +1071,14 @@ Matrix Manifold</a>.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-count">104</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
