@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>九月剑道稽古</title>
-    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
-    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
-<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-uqDePQKAtJHcAxsk" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-uqDePQKAtJHcAxsk").style.height=document.getElementById("mmedia-uqDePQKAtJHcAxsk").scrollWidth*0.76+"px";
-    window.onresize = function(){
-      document.getElementById("mmedia-uqDePQKAtJHcAxsk").style.height=document.getElementById("mmedia-uqDePQKAtJHcAxsk").scrollWidth*0.76+"px";
-    }; </script>
-]]></content>
-      <categories>
-        <category>Kendo</category>
-      </categories>
-  </entry>
-  <entry>
     <title>tensor</title>
     <url>/2020/05/23/1-tensor/</url>
     <content><![CDATA[<h1 id="definition">Definition</h1>
@@ -240,6 +226,68 @@ chartensor(containing characters) cannot</li>
       </categories>
   </entry>
   <entry>
+    <title>九月剑道稽古</title>
+    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
+    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
+<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-OoBdMWLkfnJyxkXb" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-OoBdMWLkfnJyxkXb").style.height=document.getElementById("mmedia-OoBdMWLkfnJyxkXb").scrollWidth*0.76+"px";
+    window.onresize = function(){
+      document.getElementById("mmedia-OoBdMWLkfnJyxkXb").style.height=document.getElementById("mmedia-OoBdMWLkfnJyxkXb").scrollWidth*0.76+"px";
+    }; </script>
+]]></content>
+      <categories>
+        <category>Kendo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>AdaBoosting</title>
+    <url>/2021/05/24/AdaBoosting/</url>
+    <content><![CDATA[<h3 id="boosting-bagging">Boosting &amp; Bagging</h3>
+<p>Bagging是传统算法常常采用的方法：</p>
+<ol type="1">
+<li>从原始sample中用Bootstraping（类似cross-validation）选出n个样本，进行k次。</li>
+<li>分别对k个训练集训练得到k个模型</li>
+<li>加权得到最终模型</li>
+</ol>
+<ul>
+<li>当算法结果不稳定时使用（训练集、测试集对结果影响大）</li>
+</ul>
+<p>-&gt;Bagging可能出现多个模型对同一样的sample都分类错误</p>
+<p>-&gt;不能并行所有model的训练而要串行（每次关注之前训练不当的地方）</p>
+<p>AdaBoosting</p>
+<ol type="1">
+<li>在整个数据集上训练model（h1）</li>
+<li>对h1表现好的sample降低权重，对h2表现不好的sample增加权重，训练model（h2）</li>
+<li>repeat</li>
+</ol>
+<span id="more"></span>
+<h3 id="adaboost">AdaBoost</h3>
+<p>如何实现AdaBoosting呢？</p>
+<h4 id="加权误差">加权误差</h4>
+<p>一般 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)}
+1/n\)</span>，但是在对样本进行加权后 <span class="math inline">\(error =
+\Sigma _{y_i \neq h(x _i)} w
+_i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分类失败）的sample。</p>
+<p>如何找弱分类器呢？</p>
+<h4 id="决策树桩">决策树桩</h4>
+<p><img src="/2021/05/24/AdaBoosting/1.png" alt="1" style="zoom:50%;"></p>
+<p>上图中简单的情况，有12种树桩组合。</p>
+<blockquote>
+<p>我们可以对上面的情况做 12
+种可能的「测试」。每条分割线边上的数字「2」简单地表示了这样一个事实：位于分割线某一侧的所有点都可能属于
+0 类或 1 类。因此，每条分割线嵌入了 2 个「测试」。</p>
+</blockquote>
+<p>针对不同的问题首先要选好弱分类器h，在迭代的过程中每次选择对当前（加权后）sample分类最优的弱分类器作为基本分类器进行融合。</p>
+<ul>
+<li>AdaBoost不需要先验，同时不容易过拟合，同时不依赖弱分类器效果（可以自由分配权重）。</li>
+<li>AdaBoost错误样本权重指数上升--容易受噪音干扰</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>A brief introduction to Embedding</title>
     <url>/2022/01/23/A-brief-introduction-to-Embedding/</url>
     <content><![CDATA[<p>Embedding a technique widely used in Recommender System. The first
@@ -355,54 +403,6 @@ value is random.</p>
       </categories>
   </entry>
   <entry>
-    <title>AdaBoosting</title>
-    <url>/2021/05/24/AdaBoosting/</url>
-    <content><![CDATA[<h3 id="boosting-bagging">Boosting &amp; Bagging</h3>
-<p>Bagging是传统算法常常采用的方法：</p>
-<ol type="1">
-<li>从原始sample中用Bootstraping（类似cross-validation）选出n个样本，进行k次。</li>
-<li>分别对k个训练集训练得到k个模型</li>
-<li>加权得到最终模型</li>
-</ol>
-<ul>
-<li>当算法结果不稳定时使用（训练集、测试集对结果影响大）</li>
-</ul>
-<p>-&gt;Bagging可能出现多个模型对同一样的sample都分类错误</p>
-<p>-&gt;不能并行所有model的训练而要串行（每次关注之前训练不当的地方）</p>
-<p>AdaBoosting</p>
-<ol type="1">
-<li>在整个数据集上训练model（h1）</li>
-<li>对h1表现好的sample降低权重，对h2表现不好的sample增加权重，训练model（h2）</li>
-<li>repeat</li>
-</ol>
-<span id="more"></span>
-<h3 id="adaboost">AdaBoost</h3>
-<p>如何实现AdaBoosting呢？</p>
-<h4 id="加权误差">加权误差</h4>
-<p>一般 <span class="math inline">\(error = \Sigma _{y_i \neq h(x _i)}
-1/n\)</span>，但是在对样本进行加权后 <span class="math inline">\(error =
-\Sigma _{y_i \neq h(x _i)} w
-_i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分类失败）的sample。</p>
-<p>如何找弱分类器呢？</p>
-<h4 id="决策树桩">决策树桩</h4>
-<p><img src="/2021/05/24/AdaBoosting/1.png" alt="1" style="zoom:50%;"></p>
-<p>上图中简单的情况，有12种树桩组合。</p>
-<blockquote>
-<p>我们可以对上面的情况做 12
-种可能的「测试」。每条分割线边上的数字「2」简单地表示了这样一个事实：位于分割线某一侧的所有点都可能属于
-0 类或 1 类。因此，每条分割线嵌入了 2 个「测试」。</p>
-</blockquote>
-<p>针对不同的问题首先要选好弱分类器h，在迭代的过程中每次选择对当前（加权后）sample分类最优的弱分类器作为基本分类器进行融合。</p>
-<ul>
-<li>AdaBoost不需要先验，同时不容易过拟合，同时不依赖弱分类器效果（可以自由分配权重）。</li>
-<li>AdaBoost错误样本权重指数上升--容易受噪音干扰</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Add-on in Blender3.0 for Mac(Apple Silicon)</title>
     <url>/2022/03/13/Add-on-in-Blender3-0-for-Mac-Apple-Silicon/</url>
     <content><![CDATA[<p>Put your unziped file in:</p>
@@ -410,6 +410,67 @@ _i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分
 <p>Enable add-on:</p>
 <p><code>Blender-&gt;Edit-&gt;Preferences-&gt;Add-ons</code></p>
 <p>Search your add-on and enable it.</p>
+]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Benchmark of Neural Network--Precision,Recall,F1-Measure</title>
+    <url>/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/</url>
+    <content><![CDATA[<h3 id="precision">Precision</h3>
+<p><span class="math inline">\(Precision=\frac{actually \ true
+\&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \
+true}\)</span></p>
+<p>The percentage of true labels decided by the model are actually
+true.</p>
+<h3 id="recall">Recall</h3>
+<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \
+true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
+<p>The percentage of true items are decided true by the model.</p>
+<p>If we want higher Precision, we should not take any risk--only take
+those with highest score.</p>
+<p>But if we want higher Recall, we should take all possible results.
+That is, we cannot get Precision and Recall improved at the same
+time.</p>
+<p>So we need a balance benchmark.</p>
+<h3 id="f1-measuref1-score">F1-Measure/F1-Score</h3>
+<p><span class="math display">\[
+F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
+\]</span></p>
+<p>We get F1-Measure when <span class="math inline">\(\alpha=1\)</span>.</p>
+<p>More on <a href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic
+Mean</a>--it prevents models that are only good at either of P or R from
+doing good in F.</p>
+<p>x=50, y=0~100, here is the score (<a href="https://www.zhihu.com/question/47980482">ref</a>):</p>
+<p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
+<p>Harmonic mean tries to get a result that neither P nor R is not so
+bad even if both of them are not really good.</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Basics of DL: Optimization Algorithms on Matrix Manifold</title>
+    <url>/2022/05/26/Basics-of-DL-Optimization-Algorithms-on-Matrix-Manifold/</url>
+    <content><![CDATA[<p>This could be complicated. But it will help. <a href="https://press.princeton.edu/absil">Optimization Algorithms on
+Matrix Manifold</a>.</p>
+<p>More details will be post later. (Maybe...)</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Blender Cloth Rendering</title>
+    <url>/2021/09/14/Blender-Cloth-Rending/</url>
+    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
+<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
+<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
+<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
+<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
+<p><img src="/2021/09/14/Blender-Cloth-Rending/1.png" width="75%" height="75%"></p>
 ]]></content>
       <categories>
         <category>Blender</category>
@@ -585,67 +646,6 @@ y = 1\\  -(1-\alpha)y&#39; ^\gamma log(1-y&#39;)\quad y = 0
       </tags>
   </entry>
   <entry>
-    <title>Basics of DL: Optimization Algorithms on Matrix Manifold</title>
-    <url>/2022/05/26/Basics-of-DL-Optimization-Algorithms-on-Matrix-Manifold/</url>
-    <content><![CDATA[<p>This could be complicated. But it will help. <a href="https://press.princeton.edu/absil">Optimization Algorithms on
-Matrix Manifold</a>.</p>
-<p>More details will be post later. (Maybe...)</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Benchmark of Neural Network--Precision,Recall,F1-Measure</title>
-    <url>/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/</url>
-    <content><![CDATA[<h3 id="precision">Precision</h3>
-<p><span class="math inline">\(Precision=\frac{actually \ true
-\&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \
-true}\)</span></p>
-<p>The percentage of true labels decided by the model are actually
-true.</p>
-<h3 id="recall">Recall</h3>
-<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \
-true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
-<p>The percentage of true items are decided true by the model.</p>
-<p>If we want higher Precision, we should not take any risk--only take
-those with highest score.</p>
-<p>But if we want higher Recall, we should take all possible results.
-That is, we cannot get Precision and Recall improved at the same
-time.</p>
-<p>So we need a balance benchmark.</p>
-<h3 id="f1-measuref1-score">F1-Measure/F1-Score</h3>
-<p><span class="math display">\[
-F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
-\]</span></p>
-<p>We get F1-Measure when <span class="math inline">\(\alpha=1\)</span>.</p>
-<p>More on <a href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic
-Mean</a>--it prevents models that are only good at either of P or R from
-doing good in F.</p>
-<p>x=50, y=0~100, here is the score (<a href="https://www.zhihu.com/question/47980482">ref</a>):</p>
-<p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
-<p>Harmonic mean tries to get a result that neither P nor R is not so
-bad even if both of them are not really good.</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Blender Cloth Rendering</title>
-    <url>/2021/09/14/Blender-Cloth-Rending/</url>
-    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
-<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
-<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
-<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
-<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
-<p><img src="/2021/09/14/Blender-Cloth-Rending/1.png" width="75%" height="75%"></p>
-]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Blender尝试NPR场景</title>
     <url>/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/</url>
     <content><![CDATA[<p>尝试了NPR的场景渲染，感觉不是特别成功，二次元渲染不仅需要技术，调参也很难，需要一些美学功底更重要的是对渲染节点的深入理解。</p>
@@ -662,6 +662,37 @@ bad even if both of them are not really good.</p>
 </div></div>]]></content>
       <categories>
         <category>Blender</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Brief introduction to Unet</title>
+    <url>/2021/10/11/Brief-introduction-to-Unet/</url>
+    <content><![CDATA[<h3 id="structure">Structure</h3>
+<p><img src="/2021/10/11/Brief-introduction-to-Unet/1.png"></p>
+<p>The structure of Unet is symmetric, like a shape of 'U'.</p>
+<p>On the right side the blue box is feature map derived by
+convolution-deconvolution. And the white box is the just the same as the
+blue box on the left side. The grey arrow shows
+<strong>skip-connection</strong>-- putting the two parts together.</p>
+<p>The encoder part is quite simple--3x3 convolutional kernel +
+maxpooling.</p>
+<p>The decoder part is designed to restore the original shape of the
+image using <strong>upsampling</strong>.</p>
+<p>In Unet, upsampling is implmented in <strong>bilinear
+interpolation</strong>.</p>
+<p><code>torch.nn.Upsample(mode=bilinear)</code></p>
+<p>Since upsampling will lose the detailed information of orginal image,
+Unet try to use skip-connection to fix this problem.</p>
+<p><code>torch.cat([low_layer_features, deep_layer_features], dim=1)</code></p>
+<p>(Note: In FCN, two parts are added in pixel level, however, in Unet,
+two part are concatenated together.--concatenating remains more details
+with more time consumed).</p>
+<span id="more"></span>
+<h3 id="code-keras">Code (keras)</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Unet</span>():</span></span><br><span class="line">    inputs = Input((img_rows, img_cols, <span class="number">3</span>)) <span class="comment"># RGB net</span></span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(inputs)</span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv1)</span><br><span class="line">    pool1 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv1)</span><br><span class="line">    <span class="comment"># pool1 = Dropout(0.25)(pool1)</span></span><br><span class="line">    <span class="comment"># pool1 = BatchNormalization()(pool1)</span></span><br><span class="line"></span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool1)</span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv2)</span><br><span class="line">    pool2 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv2)</span><br><span class="line">    <span class="comment"># pool2 = Dropout(0.5)(pool2)</span></span><br><span class="line">    <span class="comment"># pool2 = BatchNormalization()(pool2)</span></span><br><span class="line"></span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool2)</span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv3)</span><br><span class="line">    pool3 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv3)</span><br><span class="line">    <span class="comment"># pool3 = Dropout(0.5)(pool3)</span></span><br><span class="line">    <span class="comment"># pool3 = BatchNormalization()(pool3)</span></span><br><span class="line"></span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool3)</span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv4)</span><br><span class="line">    pool4 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv4)</span><br><span class="line">    <span class="comment"># pool4 = Dropout(0.5)(pool4)</span></span><br><span class="line">    <span class="comment"># pool4 = BatchNormalization()(pool4)</span></span><br><span class="line"></span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool4)</span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv5)</span><br><span class="line"></span><br><span class="line">    up6 = concatenate([Conv2DTranspose(<span class="number">256</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv5), conv4], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up6 = Dropout(0.5)(up6)</span></span><br><span class="line">    <span class="comment"># up6 = BatchNormalization()(up6)</span></span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up6)</span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv6)</span><br><span class="line"></span><br><span class="line">    up7 = concatenate([Conv2DTranspose(<span class="number">128</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv6), conv3], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up7 = Dropout(0.5)(up7)</span></span><br><span class="line">    <span class="comment"># up7 = BatchNormalization()(up7)</span></span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up7)</span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv7)</span><br><span class="line"></span><br><span class="line">    up8 = concatenate([Conv2DTranspose(<span class="number">64</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv7), conv2], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up8 = Dropout(0.5)(up8)</span></span><br><span class="line">    <span class="comment"># up8 = BatchNormalization()(up8)</span></span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up8)</span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv8)</span><br><span class="line"></span><br><span class="line">    up9 = concatenate([Conv2DTranspose(<span class="number">32</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv8), conv1], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up9 = Dropout(0.5)(up9)</span></span><br><span class="line">    <span class="comment"># up9 = BatchNormalization()(up9)</span></span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up9)</span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># conv9 = Dropout(0.5)(conv9)</span></span><br><span class="line"></span><br><span class="line">    conv10 = Conv2D(<span class="number">1</span>, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">&#x27;sigmoid&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    model = Model(inputs=[inputs], outputs=[conv10])</span><br><span class="line"></span><br><span class="line">    model.<span class="built_in">compile</span>(optimizer=Adam(lr=<span class="number">1e-5</span>),</span><br><span class="line">                  loss=dice_coef_loss, metrics=[dice_coef])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
       </categories>
   </entry>
   <entry>
@@ -696,37 +727,6 @@ file)</p>
         <tag>C++</tag>
         <tag>Mac</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Brief introduction to Unet</title>
-    <url>/2021/10/11/Brief-introduction-to-Unet/</url>
-    <content><![CDATA[<h3 id="structure">Structure</h3>
-<p><img src="/2021/10/11/Brief-introduction-to-Unet/1.png"></p>
-<p>The structure of Unet is symmetric, like a shape of 'U'.</p>
-<p>On the right side the blue box is feature map derived by
-convolution-deconvolution. And the white box is the just the same as the
-blue box on the left side. The grey arrow shows
-<strong>skip-connection</strong>-- putting the two parts together.</p>
-<p>The encoder part is quite simple--3x3 convolutional kernel +
-maxpooling.</p>
-<p>The decoder part is designed to restore the original shape of the
-image using <strong>upsampling</strong>.</p>
-<p>In Unet, upsampling is implmented in <strong>bilinear
-interpolation</strong>.</p>
-<p><code>torch.nn.Upsample(mode=bilinear)</code></p>
-<p>Since upsampling will lose the detailed information of orginal image,
-Unet try to use skip-connection to fix this problem.</p>
-<p><code>torch.cat([low_layer_features, deep_layer_features], dim=1)</code></p>
-<p>(Note: In FCN, two parts are added in pixel level, however, in Unet,
-two part are concatenated together.--concatenating remains more details
-with more time consumed).</p>
-<span id="more"></span>
-<h3 id="code-keras">Code (keras)</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Unet</span>():</span></span><br><span class="line">    inputs = Input((img_rows, img_cols, <span class="number">3</span>)) <span class="comment"># RGB net</span></span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(inputs)</span><br><span class="line">    conv1 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv1)</span><br><span class="line">    pool1 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv1)</span><br><span class="line">    <span class="comment"># pool1 = Dropout(0.25)(pool1)</span></span><br><span class="line">    <span class="comment"># pool1 = BatchNormalization()(pool1)</span></span><br><span class="line"></span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool1)</span><br><span class="line">    conv2 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv2)</span><br><span class="line">    pool2 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv2)</span><br><span class="line">    <span class="comment"># pool2 = Dropout(0.5)(pool2)</span></span><br><span class="line">    <span class="comment"># pool2 = BatchNormalization()(pool2)</span></span><br><span class="line"></span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool2)</span><br><span class="line">    conv3 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv3)</span><br><span class="line">    pool3 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv3)</span><br><span class="line">    <span class="comment"># pool3 = Dropout(0.5)(pool3)</span></span><br><span class="line">    <span class="comment"># pool3 = BatchNormalization()(pool3)</span></span><br><span class="line"></span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool3)</span><br><span class="line">    conv4 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv4)</span><br><span class="line">    pool4 = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(conv4)</span><br><span class="line">    <span class="comment"># pool4 = Dropout(0.5)(pool4)</span></span><br><span class="line">    <span class="comment"># pool4 = BatchNormalization()(pool4)</span></span><br><span class="line"></span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(pool4)</span><br><span class="line">    conv5 = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv5)</span><br><span class="line"></span><br><span class="line">    up6 = concatenate([Conv2DTranspose(<span class="number">256</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv5), conv4], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up6 = Dropout(0.5)(up6)</span></span><br><span class="line">    <span class="comment"># up6 = BatchNormalization()(up6)</span></span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up6)</span><br><span class="line">    conv6 = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv6)</span><br><span class="line"></span><br><span class="line">    up7 = concatenate([Conv2DTranspose(<span class="number">128</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv6), conv3], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up7 = Dropout(0.5)(up7)</span></span><br><span class="line">    <span class="comment"># up7 = BatchNormalization()(up7)</span></span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up7)</span><br><span class="line">    conv7 = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv7)</span><br><span class="line"></span><br><span class="line">    up8 = concatenate([Conv2DTranspose(<span class="number">64</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv7), conv2], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up8 = Dropout(0.5)(up8)</span></span><br><span class="line">    <span class="comment"># up8 = BatchNormalization()(up8)</span></span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up8)</span><br><span class="line">    conv8 = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv8)</span><br><span class="line"></span><br><span class="line">    up9 = concatenate([Conv2DTranspose(<span class="number">32</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(</span><br><span class="line">        <span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&#x27;same&#x27;</span>)(conv8), conv1], axis=<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># up9 = Dropout(0.5)(up9)</span></span><br><span class="line">    <span class="comment"># up9 = BatchNormalization()(up9)</span></span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(up9)</span><br><span class="line">    conv9 = Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>, padding=<span class="string">&#x27;same&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># conv9 = Dropout(0.5)(conv9)</span></span><br><span class="line"></span><br><span class="line">    conv10 = Conv2D(<span class="number">1</span>, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">&#x27;sigmoid&#x27;</span>)(conv9)</span><br><span class="line"></span><br><span class="line">    model = Model(inputs=[inputs], outputs=[conv10])</span><br><span class="line"></span><br><span class="line">    model.<span class="built_in">compile</span>(optimizer=Adam(lr=<span class="number">1e-5</span>),</span><br><span class="line">                  loss=dice_coef_loss, metrics=[dice_coef])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
   </entry>
   <entry>
     <title>C/C++ openmp</title>
@@ -857,42 +857,6 @@ override夫类function，返回类型相同。</p></li>
       </tags>
   </entry>
   <entry>
-    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
-    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
-    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
-<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code>
-and <code>const a int</code> are totally same. Both of them tell the
-compiler that the value stored in <code>a</code> can not be modified.
-But when it is combined with pointer, things go complicated</p>
-<h2 id="const-int">const int *</h2>
-<p>For C++, <code>int*</code> is not viewed as a type. Only
-<code>*a</code> be viewed as a mark telling the complier <code>a</code>
-is a pointer. So as we have already known that <code>int const</code> is
-same with <code>const int</code>, <code>int const *a</code> is also same
-with <code>const int *a</code>. Both of them means <code>*a</code> is a
-const, which means the value poined by <code>a</code> can not be
-modified but <code>a</code>, as a pointer, can point to different
-places.</p>
-<h2 id="int-const">int* const</h2>
-<p>By contrast, the <code>const</code> in <code>int* const</code> is a
-mark for <code>a</code>, so <code>a</code>, as a pointer, can only point
-to one specific place(determined when it is initialized), but the value
-pointed by it can be changed.</p>
-<p>Besides, we can combine two usages of <code>const</code>together:
-<code>const int* const a</code>--<code>a</code>, as a pointer, can not
-be modified and the value pointed by <code>a</code> cannot be
-modified.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>const</tag>
-        <tag>pointer</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Difference between new and malloc</title>
     <url>/2020/06/04/Difference-between-new-and-malloc/</url>
     <content><![CDATA[<p>今天写作业的时候要求实现vector，很自然地用
@@ -1003,6 +967,42 @@ seemed to be renewed with much more better performance.</p>
       </categories>
       <tags>
         <tag>MacOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
+    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
+    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
+<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code>
+and <code>const a int</code> are totally same. Both of them tell the
+compiler that the value stored in <code>a</code> can not be modified.
+But when it is combined with pointer, things go complicated</p>
+<h2 id="const-int">const int *</h2>
+<p>For C++, <code>int*</code> is not viewed as a type. Only
+<code>*a</code> be viewed as a mark telling the complier <code>a</code>
+is a pointer. So as we have already known that <code>int const</code> is
+same with <code>const int</code>, <code>int const *a</code> is also same
+with <code>const int *a</code>. Both of them means <code>*a</code> is a
+const, which means the value poined by <code>a</code> can not be
+modified but <code>a</code>, as a pointer, can point to different
+places.</p>
+<h2 id="int-const">int* const</h2>
+<p>By contrast, the <code>const</code> in <code>int* const</code> is a
+mark for <code>a</code>, so <code>a</code>, as a pointer, can only point
+to one specific place(determined when it is initialized), but the value
+pointed by it can be changed.</p>
+<p>Besides, we can combine two usages of <code>const</code>together:
+<code>const int* const a</code>--<code>a</code>, as a pointer, can not
+be modified and the value pointed by <code>a</code> cannot be
+modified.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>const</tag>
+        <tag>pointer</tag>
       </tags>
   </entry>
   <entry>
@@ -1155,61 +1155,6 @@ width-1)x(0,vheight-1)映射到(-1, 1)x(-1,
 ]]></content>
       <categories>
         <category>Computer Graphics</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Git Lookup Table</title>
-    <url>/2022/07/14/Git-Lookup-Table/</url>
-    <content><![CDATA[<h1 id="git">Git</h1>
-<ol type="1">
-<li><p>check local modification</p>
-<ol type="1">
-<li><code>git stash</code> temporally store modification in stash.</li>
-<li><code>git stash pop</code> restore modification from stash.</li>
-<li><code>git checkout .</code> cancel all local modification.</li>
-<li><code>git reset --hard HASH</code> reset to certain
-<code>HASH</code> commit, losing all local modification.</li>
-</ol></li>
-<li><p><code>ssh -T git@github.com</code> test your ssh connection with
-github.<span id="more"></span></p></li>
-<li><p>for certain case: you may need to last commitment ;create another
-branch, then go back to master
-branch<code>git cherry-pick &lt;commit id&gt;</code></p>
-<ol type="1">
-<li><code>git cherry-pick</code> is a powerful command that enables
-arbitrary git commits to be picked by reference and appended to the
-current working branch HEAD. It is the act of picking commit from a
-branch and applying it to another branch.</li>
-</ol></li>
-<li><p>show your git remote repository</p>
-<ol type="1">
-<li><code>git remote -v</code> or
-<code>git remote show orgin</code></li>
-</ol></li>
-<li><p>modified git commit comments</p>
-<ol type="1">
-<li>if you just want to modify the comment that you just committed.
-<ol type="1">
-<li><code>git commit --amend</code> (please use vim as default in
-terminal)</li>
-<li><code>git push -f</code></li>
-</ol></li>
-<li>if you just want to modify the last <span class="math inline">\(N^{th}\)</span> comment that you just committed.
-<ol type="1">
-<li><code>git rebase -i HEAD~N</code> first you go back</li>
-<li>modify the comment and replace <code>pick</code> with
-<code>edit</code> in corresponding line</li>
-<li><code>git commit --amend</code> do it again</li>
-<li><code>git rebase --continue</code> you can come back now</li>
-<li><code>git push -f</code></li>
-</ol></li>
-<li>if you have local modification, try <code>git stash</code> (to
-archive modifications) and <code>git stash pop</code> (restore)</li>
-</ol></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tutorial</category>
       </categories>
   </entry>
   <entry>
@@ -1398,6 +1343,61 @@ based on distributions over hidden states.</li>
         <tag>GMM</tag>
         <tag>Unsupervised learning</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Git Lookup Table</title>
+    <url>/2022/07/14/Git-Lookup-Table/</url>
+    <content><![CDATA[<h1 id="git">Git</h1>
+<ol type="1">
+<li><p>check local modification</p>
+<ol type="1">
+<li><code>git stash</code> temporally store modification in stash.</li>
+<li><code>git stash pop</code> restore modification from stash.</li>
+<li><code>git checkout .</code> cancel all local modification.</li>
+<li><code>git reset --hard HASH</code> reset to certain
+<code>HASH</code> commit, losing all local modification.</li>
+</ol></li>
+<li><p><code>ssh -T git@github.com</code> test your ssh connection with
+github.<span id="more"></span></p></li>
+<li><p>for certain case: you may need to last commitment ;create another
+branch, then go back to master
+branch<code>git cherry-pick &lt;commit id&gt;</code></p>
+<ol type="1">
+<li><code>git cherry-pick</code> is a powerful command that enables
+arbitrary git commits to be picked by reference and appended to the
+current working branch HEAD. It is the act of picking commit from a
+branch and applying it to another branch.</li>
+</ol></li>
+<li><p>show your git remote repository</p>
+<ol type="1">
+<li><code>git remote -v</code> or
+<code>git remote show orgin</code></li>
+</ol></li>
+<li><p>modified git commit comments</p>
+<ol type="1">
+<li>if you just want to modify the comment that you just committed.
+<ol type="1">
+<li><code>git commit --amend</code> (please use vim as default in
+terminal)</li>
+<li><code>git push -f</code></li>
+</ol></li>
+<li>if you just want to modify the last <span class="math inline">\(N^{th}\)</span> comment that you just committed.
+<ol type="1">
+<li><code>git rebase -i HEAD~N</code> first you go back</li>
+<li>modify the comment and replace <code>pick</code> with
+<code>edit</code> in corresponding line</li>
+<li><code>git commit --amend</code> do it again</li>
+<li><code>git rebase --continue</code> you can come back now</li>
+<li><code>git push -f</code></li>
+</ol></li>
+<li>if you have local modification, try <code>git stash</code> (to
+archive modifications) and <code>git stash pop</code> (restore)</li>
+</ol></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tutorial</category>
+      </categories>
   </entry>
   <entry>
     <title>Gradient Descent, Newton Method and Quasi-Newton Method</title>
@@ -1644,19 +1644,6 @@ keys.</p></li>
       </categories>
   </entry>
   <entry>
-    <title>How to get matrix transform in python</title>
-    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
-    <content><![CDATA[<p>Here is a special trick:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to generate random number via C++ (srand version)</title>
     <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
     <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -1670,38 +1657,17 @@ keys.</p></li>
       </tags>
   </entry>
   <entry>
-    <title>How to install Scipy in Apple silicon 2021.11.4</title>
-    <url>/2021/11/04/How-to-install-Scipy-in-Apple-silicon-2021-11-4/</url>
-    <content><![CDATA[<p>The simplest way is</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pip install --pre -i https://pypi.anaconda.org/scipy-wheels-nightly/simple scipy</span><br></pre></td></tr></table></figure>
-<p>However it is just a preview version of spicy, remember to updata it
-afterwrds.</p>
+    <title>How to get matrix transform in python</title>
+    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
+    <content><![CDATA[<p>Here is a special trick:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Configuration</category>
+        <category>Learning</category>
       </categories>
-  </entry>
-  <entry>
-    <title>How to use docker in Mac M1</title>
-    <url>/2021/10/09/How-to-use-docker-in-Mac-M1/</url>
-    <content><![CDATA[<h3 id="install-docker">Install docker</h3>
-<p>Download docker here:
-https://docs.docker.com/docker-for-mac/apple-m1/</p>
-<p>Note:</p>
-<p>This is just a preview version, which means you may encounter various
-bugs.</p>
-<p>This version is based on <strong>Rosetta2</strong>, so remember to
-install it via <code>$ softwareupdate --install-rosetta</code>.</p>
-<h3 id="check-your-docker">Check your docker</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker -v</span><br><span class="line">$ docker info // it may take a few minutes to start docker</span><br></pre></td></tr></table></figure>
-<h3 id="use-docker-image-mit-6.s081">Use docker image <a href="https://zhuanlan.zhihu.com/p/417668697">MIT 6.S081</a></h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker pull calvinhaynes412/mit6.s081:v1 // pull docker image</span><br><span class="line">$ git clone git@github.com:CalvinHaynes/MIT6.S081-2020Fall.git // pull git repository</span><br></pre></td></tr></table></figure>
-<p>Open the docker image-&gt;set repository to the local git
-repository-&gt;open docker in browser.</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title>How to install &#39;labelme&#39; in Macbook M1</title>
@@ -1737,6 +1703,40 @@ environemnt)</li>
 <li><code>pip install labelme</code></li>
 <li>when everything is done, <code>labelme</code> to use it.</li>
 </ol>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to use docker in Mac M1</title>
+    <url>/2021/10/09/How-to-use-docker-in-Mac-M1/</url>
+    <content><![CDATA[<h3 id="install-docker">Install docker</h3>
+<p>Download docker here:
+https://docs.docker.com/docker-for-mac/apple-m1/</p>
+<p>Note:</p>
+<p>This is just a preview version, which means you may encounter various
+bugs.</p>
+<p>This version is based on <strong>Rosetta2</strong>, so remember to
+install it via <code>$ softwareupdate --install-rosetta</code>.</p>
+<h3 id="check-your-docker">Check your docker</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker -v</span><br><span class="line">$ docker info // it may take a few minutes to start docker</span><br></pre></td></tr></table></figure>
+<h3 id="use-docker-image-mit-6.s081">Use docker image <a href="https://zhuanlan.zhihu.com/p/417668697">MIT 6.S081</a></h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker pull calvinhaynes412/mit6.s081:v1 // pull docker image</span><br><span class="line">$ git clone git@github.com:CalvinHaynes/MIT6.S081-2020Fall.git // pull git repository</span><br></pre></td></tr></table></figure>
+<p>Open the docker image-&gt;set repository to the local git
+repository-&gt;open docker in browser.</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to install Scipy in Apple silicon 2021.11.4</title>
+    <url>/2021/11/04/How-to-install-Scipy-in-Apple-silicon-2021-11-4/</url>
+    <content><![CDATA[<p>The simplest way is</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pip install --pre -i https://pypi.anaconda.org/scipy-wheels-nightly/simple scipy</span><br></pre></td></tr></table></figure>
+<p>However it is just a preview version of spicy, remember to updata it
+afterwrds.</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -1945,13 +1945,6 @@ container</p></li>
       </categories>
   </entry>
   <entry>
-    <title>Leetcode (updating)</title>
-    <url>/2022/04/14/Leetcode-updating/</url>
-    <content><![CDATA[<p>Check this <a href="https://github.com/SightVanish/MyLeetcode">repo</a>.</p>
-<p><img src="/2022/04/14/Leetcode-updating/1.jpg" alt="1" style="zoom:50%;"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Jupyter Notebook Installtion</title>
     <url>/2021/10/09/Jupyter-Notebook-Installtion/</url>
     <content><![CDATA[<ol type="1">
@@ -1971,6 +1964,13 @@ in notebook.</p></li>
       <categories>
         <category>Configuration</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Leetcode (updating)</title>
+    <url>/2022/04/14/Leetcode-updating/</url>
+    <content><![CDATA[<p>Check this <a href="https://github.com/SightVanish/MyLeetcode">repo</a>.</p>
+<p><img src="/2022/04/14/Leetcode-updating/1.jpg" alt="1" style="zoom:50%;"></p>
+]]></content>
   </entry>
   <entry>
     <title>Linear Regression</title>
@@ -2112,6 +2112,23 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
+    <title>Logistic Regression</title>
+    <url>/2021/11/02/Logistic-Regression/</url>
+    <content><![CDATA[<p>方法1:opencv</p>
+<p>opencv可以通过一些操作（主要通过canny和扩张腐蚀）得到特定的轮廓</p>
+<p>但是实际操作下来感觉非常依赖参数的调整和图像预处理，很不稳定，并且道路本身的一些特征（如道路接缝）也会被检测</p>
+<p>方法2:deeplearning</p>
+<p>由于Road Damage
+Detection是一个在深度学习领域很成熟的话题。我直接搜索了相关的竞赛。</p>
+<p>目前排名较高的均为使用YOLO实现，我自己也进行了尝试（YOLO
+v5）但是效果很不理想，几乎检测不到。</p>
+<p>这个领域我还没有深入探索。但是如果我们没有对检测速度很高要求的话，使用maskRCNN或许是更加适合的方案。</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Linux/Ubuntu Commands</title>
     <url>/2022/07/14/Linux-Ubuntu-Commands/</url>
     <content><![CDATA[<h1 id="linux-ubuntu-commands">Linux (Ubuntu) Commands</h1>
@@ -2168,23 +2185,6 @@ to exit.</p></li>
 ]]></content>
       <categories>
         <category>Tutorial</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Logistic Regression</title>
-    <url>/2021/11/02/Logistic-Regression/</url>
-    <content><![CDATA[<p>方法1:opencv</p>
-<p>opencv可以通过一些操作（主要通过canny和扩张腐蚀）得到特定的轮廓</p>
-<p>但是实际操作下来感觉非常依赖参数的调整和图像预处理，很不稳定，并且道路本身的一些特征（如道路接缝）也会被检测</p>
-<p>方法2:deeplearning</p>
-<p>由于Road Damage
-Detection是一个在深度学习领域很成熟的话题。我直接搜索了相关的竞赛。</p>
-<p>目前排名较高的均为使用YOLO实现，我自己也进行了尝试（YOLO
-v5）但是效果很不理想，几乎检测不到。</p>
-<p>这个领域我还没有深入探索。但是如果我们没有对检测速度很高要求的话，使用maskRCNN或许是更加适合的方案。</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
       </categories>
   </entry>
   <entry>
@@ -2261,23 +2261,6 @@ Xcode</p>
       </tags>
   </entry>
   <entry>
-    <title>Numpy np.where</title>
-    <url>/2022/04/02/Numpy-np-where/</url>
-    <content><![CDATA[<p><code>np.where</code> seems to be an important function that need to
-be noticed.</p>
-<p>Two examples to show its function.</p>
-<ol type="1">
-<li><p><code>np.where(condition, x, y)</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.mat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">matrix([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = np.where(x &gt; <span class="number">1</span>, <span class="number">0</span>, x)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]])</span><br></pre></td></tr></table></figure></li>
-<li><p><code>np.where(condition)</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.mat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">matrix([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = np.where(x &gt; <span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line">(array([<span class="number">0</span>, <span class="number">0</span>]), array([<span class="number">1</span>, <span class="number">2</span>]))</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-  </entry>
-  <entry>
     <title>My Donut in Blender</title>
     <url>/2020/08/20/My-Donut-in-Blender/</url>
     <content><![CDATA[<p>OHHHHHHH，终于完成了Blender里的Donut。真的能学的很多，不过说实话这种技术活得练，不然很快就要忘记了orz。</p>
@@ -2326,6 +2309,23 @@ be noticed.</p>
 ]]></content>
       <categories>
         <category>Rendering</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Numpy np.where</title>
+    <url>/2022/04/02/Numpy-np-where/</url>
+    <content><![CDATA[<p><code>np.where</code> seems to be an important function that need to
+be noticed.</p>
+<p>Two examples to show its function.</p>
+<ol type="1">
+<li><p><code>np.where(condition, x, y)</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.mat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">matrix([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = np.where(x &gt; <span class="number">1</span>, <span class="number">0</span>, x)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]])</span><br></pre></td></tr></table></figure></li>
+<li><p><code>np.where(condition)</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.mat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">matrix([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = np.where(x &gt; <span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line">(array([<span class="number">0</span>, <span class="number">0</span>]), array([<span class="number">1</span>, <span class="number">2</span>]))</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python</category>
       </categories>
   </entry>
   <entry>
@@ -2476,6 +2476,16 @@ Component？</h2>
       </categories>
   </entry>
   <entry>
+    <title>Python argparse</title>
+    <url>/2022/04/03/Python-argparse/</url>
+    <content><![CDATA[<p>This is a template of <code>argparse</code>.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&quot;description of this script&quot;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--parameter&#x27;</span>,<span class="string">&#x27;-p&#x27;</span>,<span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="string">&#x27;1&#x27;</span>, <span class="built_in">help</span>=<span class="string">&#x27;epoch&#x27;</span>)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">parameter = args.parameter</span><br><span class="line"><span class="built_in">print</span>(parameter)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Python set</title>
     <url>/2020/09/24/Python-set/</url>
     <content><![CDATA[<h3 id="basic-use-of-set">Basic use of set</h3>
@@ -2498,14 +2508,38 @@ set</h3>
       </categories>
   </entry>
   <entry>
-    <title>Python argparse</title>
-    <url>/2022/04/03/Python-argparse/</url>
-    <content><![CDATA[<p>This is a template of <code>argparse</code>.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&quot;description of this script&quot;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--parameter&#x27;</span>,<span class="string">&#x27;-p&#x27;</span>,<span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="string">&#x27;1&#x27;</span>, <span class="built_in">help</span>=<span class="string">&#x27;epoch&#x27;</span>)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">parameter = args.parameter</span><br><span class="line"><span class="built_in">print</span>(parameter)</span><br></pre></td></tr></table></figure>
+    <title>Python technique</title>
+    <url>/2020/06/06/Python-technique/</url>
+    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking
+or dynamic programing:</p>
+<p>cause it will avoid reuse of data and reach good performance</p>
+<hr>
+<p>how to create a vector</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
+<p>Directly read/ wirte is quite different from
+<code>append()</code></p>
+<p><code>append()</code> will treat elements as data, which is more
+flexible</p>
+<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned
+vector</p>
+<span id="more"></span>
+<hr>
+<p>spilt part of string</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>init a vector:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
+<p>vector is a row*column size vector with all entries initialized by
+a.</p>
+<p>note <code>a</code> is just a value and can be anything you wang.
+<code>i</code> is just an iterator, even can use <code>_</code></p>
 ]]></content>
       <categories>
-        <category>Python</category>
+        <category>Learning</category>
       </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>Pytorch Tips</title>
@@ -2611,22 +2645,6 @@ norm的计算为<strong><u>NP-hard</u></strong>问题。这一点上我没有找
       </categories>
   </entry>
   <entry>
-    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
-    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
-    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
-<p>Literally, it is a <code>const iterator</code>, which means:
-iterator, as a pointer, can not be modified, but the value pointed by
-this iterator is permitted to be modified.</p>
-<h1 id="const_iterator">const_iterator</h1>
-<p><code>const_iterator</code>is a specially defined class. It is
-defined to go through a const container, which we are not intended to
-modify.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>SVM(Support Vector Machine)</title>
     <url>/2021/05/25/SVM-Support-Vector-Machine/</url>
     <content><![CDATA[<h2 id="margin">Margin</h2>
@@ -2688,38 +2706,30 @@ replace <span class="math inline">\((X_i\cdot X_j)\)</span>.</p>
       </tags>
   </entry>
   <entry>
-    <title>Python technique</title>
-    <url>/2020/06/06/Python-technique/</url>
-    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking
-or dynamic programing:</p>
-<p>cause it will avoid reuse of data and reach good performance</p>
-<hr>
-<p>how to create a vector</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
-<p>Directly read/ wirte is quite different from
-<code>append()</code></p>
-<p><code>append()</code> will treat elements as data, which is more
-flexible</p>
-<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned
-vector</p>
-<span id="more"></span>
-<hr>
-<p>spilt part of string</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>init a vector:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
-<p>vector is a row*column size vector with all entries initialized by
-a.</p>
-<p>note <code>a</code> is just a value and can be anything you wang.
-<code>i</code> is just an iterator, even can use <code>_</code></p>
+    <title>Show progress bar in jupyter notebook</title>
+    <url>/2022/04/20/Show-progress-bar-in-jupyter-notebook/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">range</span>(<span class="number">10</span>), ncols=<span class="number">10</span>):</span><br><span class="line">  <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">  Your code here.</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>ncols</code> will determine the length of process bar.</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
+    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
+    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
+<p>Literally, it is a <code>const iterator</code>, which means:
+iterator, as a pointer, can not be modified, but the value pointed by
+this iterator is permitted to be modified.</p>
+<h1 id="const_iterator">const_iterator</h1>
+<p><code>const_iterator</code>is a specially defined class. It is
+defined to go through a const container, which we are not intended to
+modify.</p>
 ]]></content>
       <categories>
         <category>Learning</category>
       </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
   </entry>
   <entry>
     <title>Social LSTM</title>
@@ -2807,13 +2817,90 @@ _o*D\)</span>大小。</p>
       </categories>
   </entry>
   <entry>
-    <title>Show progress bar in jupyter notebook</title>
-    <url>/2022/04/20/Show-progress-bar-in-jupyter-notebook/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">range</span>(<span class="number">10</span>), ncols=<span class="number">10</span>):</span><br><span class="line">  <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">  Your code here.</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-<p><code>ncols</code> will determine the length of process bar.</p>
+    <title>TOEFL Notes (based on TPO)</title>
+    <url>/2021/10/07/TOEFL-Notes-based-on-TPO/</url>
+    <content><![CDATA[<h3 id="tpo1-reading">TPO1 Reading</h3>
+<ol type="1">
+<li>Groundwater(地下水) is the word used to describe water that
+saturates(渗透、浸透) the ground.</li>
+<li>By far(到目前为止) the most
+<strong>abundant</strong>(<strong>大量的</strong>、充足的) type of
+groundwater is meteoric(<strong>大气的</strong>；流星的) water.</li>
+<li>circulate(v. <strong>循环</strong>；流通；流传)</li>
+<li>precipitation(化学沉淀；<strong>降水</strong>；冰雹；坠落)</li>
+<li>sand grains(沙粒)--grain(谷物；颗粒)</li>
+<li>The commonest spaces are those among the particles sand grains and
+tiny pebbles(卵石) of loose, unconsolidated(松散的) sand and
+gravel(沙砾).</li>
+<li>bed(床；<strong>河床</strong>)</li>
+<li>They are found wherever(adv. 任何地方) fast rivers carrying loads
+of(大量的) coarse(粗糙的) sediment(沉淀物) once flowed(流动、涌动).</li>
+<li>ice sheet(冰盖)--sheet(纸张；薄片；板)</li>
+<li>melt away(vi. 融化、消失)</li>
+<li>lade(装载)-laded-laden-&gt;be laden with...</li>
+<li>glacial outwash(冰水沉积)--outwash(术语，专指冰水沉积)</li>
+<li>sandbar(沙洲)</li>
+<li>cement(水泥；粘合剂)--cemented(粘合的；<strong>压实的</strong>)</li>
+<li>minute(n. 分钟；备忘录；一会 adj. <strong>微小的</strong>)</li>
+<li>So much for... 到此为止是关于...</li>
+<li>pore(毛孔；<strong>气孔</strong>)--porous(多孔的)</li>
+<li>percolate(<strong>渗透</strong>；过滤)--percolating
+water(渗透水)</li>
+<li>Most crystalline(结晶的、晶体的) rocks are much more solid; a common
+exception is basalt(玄武岩), a form of solidified(凝固的)
+volcanic(<strong>火山的</strong>；火山岩) lava(岩浆), which is sometimes
+full of tiny bubbles that make it very porous. <span id="more"></span></li>
+<li>cling to...(附着在...；坚持...；紧抓着...)</li>
+<li>be thought of as... (被视为...)</li>
+<li>film(电影；胶卷；<strong>薄膜</strong>)--thin film(薄膜)</li>
+<li>champion(n. 冠军；拥护者 vt. <strong>支持</strong>、拥护)</li>
+<li>anthropologist(人类学家)</li>
+<li>envision(vt. 想象、假想)</li>
+<li>emerge out of...(从...中出现)</li>
+<li>ritual(n. <strong>仪式</strong>；礼节 adj. 礼仪的)</li>
+<li>attribute...to...(把...归结于...)</li>
+<li>Complaints seemed to be an everyday occurrence(事件).</li>
+<li>Perceiving(意识到) an apparent connection between certain actions
+performed by the group and the result it desires, the group repeats,
+refines(精细化), and formalizes(使...形式化) those actions into fixed
+ceremonies(礼节), or rituals(宗教仪式).</li>
+<li>representative(adj. 典型的 n.
+代表；<strong>典型</strong>；众议员)</li>
+<li>costume(服饰；戏服)--custom(n. 习惯；风俗 adj. 定制的)</li>
+<li>mythical(神话中的；虚构的)</li>
+<li>As a people becomes more
+sophisticated(<strong>见多识广的</strong>；复杂精巧的；先进的), its
+conceptions of supernatural forces and causal relationships may
+change.</li>
+<li>act out...(表演...)</li>
+<li>autonomous activity(自发行动)</li>
+<li>efficacious(灵验的--常用于宗教相关)</li>
+<li>Thus, the recalling of an event (a hunt, battle, or other
+feat(伟绩--可数)) is <strong>elaborated</strong>(详细表达) through the
+narrator's pantomime(<strong>手势</strong>；哑剧) and
+<strong>impersonation</strong>(n. 模仿) and eventually through each role
+being assumed(承担) by a different person.</li>
+<li>pantomimic(哑剧的) rhythmical(有节奏的) gymnastic(体育的)</li>
+<li>virtuosity(精湛技艺)</li>
+<li>antecedent(先祖；前因；<strong>起源</strong>)</li>
+<li>set forth(提出；出发)--He sets forth his objections.</li>
+<li>Thus, fantasy or fiction (of which drama is one form) permits people
+to <strong>objectify</strong>(具像化) their anxieties and fears.</li>
+<li>penchant(嗜好、倾向)--penchant for...</li>
+<li>One necessary condition(条件) seems to be a somewhat(有点)
+detached(<strong>脱离的</strong>；客观的) view of human problems.</li>
+<li>detachment(n. 超然)--a sort of lofty detachment</li>
+<li>deviation(背离) from social norms</li>
+<li>vegetation(植被；植物)</li>
+<li>deciduous trees(落叶树、阔叶树)</li>
+<li>deform(扭曲、畸形)</li>
+<li>prone(<strong>易于...</strong>；<strong>俯卧的</strong>)--be prone
+to dry out</li>
+<li>prevalent(普遍的、常见的)</li>
+</ol>
 ]]></content>
       <categories>
-        <category>Python</category>
+        <category>TOEFL</category>
       </categories>
   </entry>
   <entry>
@@ -3201,6 +3288,15 @@ stable)!</p>
       </categories>
   </entry>
   <entry>
+    <title>TOEFL Writing</title>
+    <url>/2021/10/18/TOEFL-Writing/</url>
+    <content><![CDATA[
+]]></content>
+      <categories>
+        <category>TOEFL</category>
+      </categories>
+  </entry>
+  <entry>
     <title>TOEFL Listening</title>
     <url>/2021/10/18/TOEFL-Listening/</url>
     <content><![CDATA[<h3 id="tpo20">TPO20</h3>
@@ -3330,12 +3426,21 @@ beginning of interglacial period but then it began to rise again.</p>
       </categories>
   </entry>
   <entry>
-    <title>TOEFL Writing</title>
-    <url>/2021/10/18/TOEFL-Writing/</url>
-    <content><![CDATA[
+    <title>Test Latex Formula</title>
+    <url>/2021/09/15/Test-Latex-Formula/</url>
+    <content><![CDATA[<p>This is an inline formula: <span class="math inline">\(x=7\)</span>.
+This is a simple equation: <span class="math display">\[
+e=mc^2
+\]</span></p>
+<p><span class="math display">\[
+a=\frac{1}{2}
+\]</span></p>
+<p><span class="math display">\[
+f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
+\]</span></p>
 ]]></content>
       <categories>
-        <category>TOEFL</category>
+        <category>Test</category>
       </categories>
   </entry>
   <entry>
@@ -3359,111 +3464,6 @@ tensorboard</p>
       </categories>
   </entry>
   <entry>
-    <title>Test Latex Formula</title>
-    <url>/2021/09/15/Test-Latex-Formula/</url>
-    <content><![CDATA[<p>This is an inline formula: <span class="math inline">\(x=7\)</span>.
-This is a simple equation: <span class="math display">\[
-e=mc^2
-\]</span></p>
-<p><span class="math display">\[
-a=\frac{1}{2}
-\]</span></p>
-<p><span class="math display">\[
-f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
-\]</span></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>TOEFL Notes (based on TPO)</title>
-    <url>/2021/10/07/TOEFL-Notes-based-on-TPO/</url>
-    <content><![CDATA[<h3 id="tpo1-reading">TPO1 Reading</h3>
-<ol type="1">
-<li>Groundwater(地下水) is the word used to describe water that
-saturates(渗透、浸透) the ground.</li>
-<li>By far(到目前为止) the most
-<strong>abundant</strong>(<strong>大量的</strong>、充足的) type of
-groundwater is meteoric(<strong>大气的</strong>；流星的) water.</li>
-<li>circulate(v. <strong>循环</strong>；流通；流传)</li>
-<li>precipitation(化学沉淀；<strong>降水</strong>；冰雹；坠落)</li>
-<li>sand grains(沙粒)--grain(谷物；颗粒)</li>
-<li>The commonest spaces are those among the particles sand grains and
-tiny pebbles(卵石) of loose, unconsolidated(松散的) sand and
-gravel(沙砾).</li>
-<li>bed(床；<strong>河床</strong>)</li>
-<li>They are found wherever(adv. 任何地方) fast rivers carrying loads
-of(大量的) coarse(粗糙的) sediment(沉淀物) once flowed(流动、涌动).</li>
-<li>ice sheet(冰盖)--sheet(纸张；薄片；板)</li>
-<li>melt away(vi. 融化、消失)</li>
-<li>lade(装载)-laded-laden-&gt;be laden with...</li>
-<li>glacial outwash(冰水沉积)--outwash(术语，专指冰水沉积)</li>
-<li>sandbar(沙洲)</li>
-<li>cement(水泥；粘合剂)--cemented(粘合的；<strong>压实的</strong>)</li>
-<li>minute(n. 分钟；备忘录；一会 adj. <strong>微小的</strong>)</li>
-<li>So much for... 到此为止是关于...</li>
-<li>pore(毛孔；<strong>气孔</strong>)--porous(多孔的)</li>
-<li>percolate(<strong>渗透</strong>；过滤)--percolating
-water(渗透水)</li>
-<li>Most crystalline(结晶的、晶体的) rocks are much more solid; a common
-exception is basalt(玄武岩), a form of solidified(凝固的)
-volcanic(<strong>火山的</strong>；火山岩) lava(岩浆), which is sometimes
-full of tiny bubbles that make it very porous. <span id="more"></span></li>
-<li>cling to...(附着在...；坚持...；紧抓着...)</li>
-<li>be thought of as... (被视为...)</li>
-<li>film(电影；胶卷；<strong>薄膜</strong>)--thin film(薄膜)</li>
-<li>champion(n. 冠军；拥护者 vt. <strong>支持</strong>、拥护)</li>
-<li>anthropologist(人类学家)</li>
-<li>envision(vt. 想象、假想)</li>
-<li>emerge out of...(从...中出现)</li>
-<li>ritual(n. <strong>仪式</strong>；礼节 adj. 礼仪的)</li>
-<li>attribute...to...(把...归结于...)</li>
-<li>Complaints seemed to be an everyday occurrence(事件).</li>
-<li>Perceiving(意识到) an apparent connection between certain actions
-performed by the group and the result it desires, the group repeats,
-refines(精细化), and formalizes(使...形式化) those actions into fixed
-ceremonies(礼节), or rituals(宗教仪式).</li>
-<li>representative(adj. 典型的 n.
-代表；<strong>典型</strong>；众议员)</li>
-<li>costume(服饰；戏服)--custom(n. 习惯；风俗 adj. 定制的)</li>
-<li>mythical(神话中的；虚构的)</li>
-<li>As a people becomes more
-sophisticated(<strong>见多识广的</strong>；复杂精巧的；先进的), its
-conceptions of supernatural forces and causal relationships may
-change.</li>
-<li>act out...(表演...)</li>
-<li>autonomous activity(自发行动)</li>
-<li>efficacious(灵验的--常用于宗教相关)</li>
-<li>Thus, the recalling of an event (a hunt, battle, or other
-feat(伟绩--可数)) is <strong>elaborated</strong>(详细表达) through the
-narrator's pantomime(<strong>手势</strong>；哑剧) and
-<strong>impersonation</strong>(n. 模仿) and eventually through each role
-being assumed(承担) by a different person.</li>
-<li>pantomimic(哑剧的) rhythmical(有节奏的) gymnastic(体育的)</li>
-<li>virtuosity(精湛技艺)</li>
-<li>antecedent(先祖；前因；<strong>起源</strong>)</li>
-<li>set forth(提出；出发)--He sets forth his objections.</li>
-<li>Thus, fantasy or fiction (of which drama is one form) permits people
-to <strong>objectify</strong>(具像化) their anxieties and fears.</li>
-<li>penchant(嗜好、倾向)--penchant for...</li>
-<li>One necessary condition(条件) seems to be a somewhat(有点)
-detached(<strong>脱离的</strong>；客观的) view of human problems.</li>
-<li>detachment(n. 超然)--a sort of lofty detachment</li>
-<li>deviation(背离) from social norms</li>
-<li>vegetation(植被；植物)</li>
-<li>deciduous trees(落叶树、阔叶树)</li>
-<li>deform(扭曲、畸形)</li>
-<li>prone(<strong>易于...</strong>；<strong>俯卧的</strong>)--be prone
-to dry out</li>
-<li>prevalent(普遍的、常见的)</li>
-</ol>
-]]></content>
-      <categories>
-        <category>TOEFL</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Test discription</title>
     <url>/2021/09/15/Test-discription/</url>
     <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
@@ -3471,6 +3471,192 @@ to dry out</li>
       <categories>
         <category>Test</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Use of Tuple in Python</title>
+    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>Tuple最特别在于<br></p>
+<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Top K problems</title>
+    <url>/2022/05/03/Top-K-problems/</url>
+    <content><![CDATA[<h3 id="quick-sort">Quick Sort</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  pivot = nums[l]</span><br><span class="line">  i, j = l, r</span><br><span class="line">  <span class="keyword">while</span> i &lt; j:</span><br><span class="line">    <span class="comment"># find the first element smaller than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[j] &gt;= pivot:</span><br><span class="line">      j -= <span class="number">1</span></span><br><span class="line">    nums[i] = nums[j] <span class="comment"># put the smaller one to the left</span></span><br><span class="line">    <span class="comment"># find the first element larger than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[i] &lt;= pivot:</span><br><span class="line">      i += <span class="number">1</span></span><br><span class="line">    nums[j] = nums[i] <span class="comment"># put the larger one to the right</span></span><br><span class="line">  <span class="comment"># i == j, nums[i]=nums[j]&gt;pivot</span></span><br><span class="line">  nums[i] = pivot</span><br><span class="line"> 	<span class="comment"># return pivot index</span></span><br><span class="line">  <span class="keyword">return</span> i</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  <span class="keyword">if</span> l &lt; r:</span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">    quicksort(nums, l, mid - <span class="number">1</span>)</span><br><span class="line">    quicksort(nums, mid + <span class="number">1</span>, r)</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="quick-selection">Quick Selection</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># split data until the k_th pivot is selected</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">topk_split</span>(<span class="params">nums, k, l, r</span>)</span></span><br><span class="line"><span class="function">  <span class="title">if</span> <span class="title">l</span> &lt; <span class="title">r</span>:</span></span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">  	<span class="keyword">if</span> mid == k:</span><br><span class="line">      <span class="comment"># we have already get the k_th pivot</span></span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">   	<span class="keyword">elif</span> mid &lt; k:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the right side</span></span><br><span class="line">      topk_split(nums, k, mid + <span class="number">1</span>, r)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the left side</span></span><br><span class="line">      topk_split(nums, k, l, mid - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="get-the-k_th-element-incresing">Get the k_th element
+(incresing)</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topk_split(nums, k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[k-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="get-the-k_th-element-decresing">Get the k_th element
+(decresing)</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topk_split(nums, <span class="built_in">len</span>(nums) - k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[-k]</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>Use of &#39;numpy&#39; package in Python</title>
+    <url>/2020/09/27/Use-of-numpy-package-in-Python/</url>
+    <content><![CDATA[<h2 id="import">Import</h2>
+<p><code>import numpy</code> or <code>import numpy as np</code></p>
+<h2 id="feature">Feature</h2>
+<p>The key feature of numpy package is that it introduce a new data
+structure -- array</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">&gt;&gt;&gt;a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">a</span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">type</span>(a)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">numpy</span>.<span class="title">ndarray</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="propertities-of-array">Propertities of array</h4>
+<p>ndarray 的重要属性包括:</p>
+<ol type="1">
+<li>ndarray.ndim：数组的维数，也称为rank</li>
+<li>ndarray.shape：数组各维的大小，对一个n行m列的矩阵来说， shape 为
+(n,m)</li>
+<li>ndarray.size：元素的总数。</li>
+<li>ndarray.dtype：每个元素的类型，可以是numpy.int32, numpy.int16, and
+numpy.float64等</li>
+<li>ndarray.itemsize：每个元素占用的字节数。</li>
+<li>ndarray.data：指向数据内存。</li>
+</ol>
+<h2 id="more-details-similar-with-tensor">More details similar with
+tensor</h2>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Video test</title>
+    <url>/2021/09/15/Video-test/</url>
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-ckkNctakqtYpvBXX" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-ckkNctakqtYpvBXX").style.height=document.getElementById("mmedia-ckkNctakqtYpvBXX").scrollWidth*0.76+"px";
+    window.onresize = function(){
+      document.getElementById("mmedia-ckkNctakqtYpvBXX").style.height=document.getElementById("mmedia-ckkNctakqtYpvBXX").scrollWidth*0.76+"px";
+    }; </script>
+<table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>配置项</th>
+<th>默认</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>bvid</td>
+<td></td>
+<td>视频 bv 号，bvid、aid 和 av 必填一项，推荐使用 bvid</td>
+</tr>
+<tr class="even">
+<td>aid</td>
+<td></td>
+<td>视频 av 号</td>
+</tr>
+<tr class="odd">
+<td>av</td>
+<td></td>
+<td>视频链接地址，不要带分 P 信息，与 aid
+同时填写会被覆盖，不推荐使用</td>
+</tr>
+<tr class="even">
+<td>page</td>
+<td>1</td>
+<td>分 P，填写 av 时才会生效</td>
+</tr>
+<tr class="odd">
+<td>quality</td>
+<td>low</td>
+<td>视频质量，可选 high low</td>
+</tr>
+<tr class="even">
+<td>danmaku</td>
+<td>false</td>
+<td>开启弹幕，带有此参数表示 true，不带表示 false</td>
+</tr>
+<tr class="odd">
+<td>allowfullscreen</td>
+<td>true</td>
+<td>是否允许全屏</td>
+</tr>
+<tr class="even">
+<td>width</td>
+<td>100%</td>
+<td>宽度</td>
+</tr>
+<tr class="odd">
+<td>height</td>
+<td>500px</td>
+<td>高度</td>
+</tr>
+<tr class="even">
+<td>margin</td>
+<td>auto</td>
+<td>位置，css 属性，例： "margin:auto" "margin:0 0 0 auto"</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://easyhexo.com/3-Plugins-use-and-config/3-5-hexo-tag-mmedia/#bilibili">Reference&amp;Docuement</a></p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>What is the use of activation function</title>
+    <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
+    <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural
+Network</h1>
+<p>The following picture illustrates the basic structure of neural
+network.</p>
+<figure>
+<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn">
+<figcaption aria-hidden="true">nn</figcaption>
+</figure>
+<p>Extracted featrures are passed into the net as input.</p>
+<p># of input node = # of extracted feature types</p>
+<span id="more"></span>
+<h1 id="why-we-need-activation">Why we need activation</h1>
+<p>For a classifiying issue:</p>
+<h3 id="without-activation">Without activation</h3>
+<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
+<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input}
+input+loss_1)+loss_2\)</span></p>
+<p>So bascically, we can derive that no matter how many layers you add
+into the net, without activation, the net can only produce a
+<strong>linear classifier</strong>.</p>
+<h3 id="with-activation">With activation</h3>
+<p>The aim of activation is to transfer a linear classifer to a
+non-linear classifer.</p>
+<p>The basic actication we use is: <span class="math display">\[
+\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0
+\\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
+\]</span> It is same as nerve cell--if the cell is activated it produce
+a signal, otherwise, it does nothing.</p>
+<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
+\sigma(y) = \frac 1 {1+e^{-y}}
+\]</span> (we prefer to ues <span class="math inline">\(y\)</span>,
+because actication is added inside the net which means the input of
+activation is the output of prior layer)</p>
+<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
+<center>
+<p>NN structure with activation</p>
+<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
+<center>
+<p>Output of NN with activation</p>
+</center></center>]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Relu</tag>
+      </tags>
   </entry>
   <entry>
     <title>Test password</title>
@@ -3492,14 +3678,36 @@ to dry out</li>
       </categories>
   </entry>
   <entry>
-    <title>Use of Tuple in Python</title>
-    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<p>Tuple最特别在于<br></p>
-<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
+    <title>assert expression in Python</title>
+    <url>/2020/09/24/assert-expression-in-Python/</url>
+    <content><![CDATA[<h2 id="tags">tags:</h2>
+<h3 id="synatx">1. synatx</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert [expression]</span><br><span class="line"># it is same with</span><br><span class="line">if not [expression]:</span><br><span class="line">    raise AssertionError</span><br></pre></td></tr></table></figure>
+<h3 id="with-parameters">2. with parameters</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert expression [, arguments]</span><br><span class="line"># same with</span><br><span class="line">if not expression:</span><br><span class="line">    raise AssertionError(arguments)</span><br></pre></td></tr></table></figure>
+<h3 id="conclusion">conclusion</h3>
+<p>if an assert is not satisfied, throw exception. easy to detect the
+errors in code.</p>
 ]]></content>
       <categories>
         <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo图片在md文档中显示正常但是网页无法显示</title>
+    <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
+    <content><![CDATA[<h4 id="step-1">Step 1</h4>
+<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
+<p><br></p>
+<h4 id="step-2">Step 2</h4>
+<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
+<p><br></p>
+<h4 id="step-3">Step 3</h4>
+<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的
+<code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -3781,215 +3989,6 @@ loss（即rpn_loss_bbox层计算的soomth L1 loss，该loss中<span class="math 
       </tags>
   </entry>
   <entry>
-    <title>Use of &#39;numpy&#39; package in Python</title>
-    <url>/2020/09/27/Use-of-numpy-package-in-Python/</url>
-    <content><![CDATA[<h2 id="import">Import</h2>
-<p><code>import numpy</code> or <code>import numpy as np</code></p>
-<h2 id="feature">Feature</h2>
-<p>The key feature of numpy package is that it introduce a new data
-structure -- array</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">&gt;&gt;&gt;a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">a</span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">type</span>(a)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">numpy</span>.<span class="title">ndarray</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="propertities-of-array">Propertities of array</h4>
-<p>ndarray 的重要属性包括:</p>
-<ol type="1">
-<li>ndarray.ndim：数组的维数，也称为rank</li>
-<li>ndarray.shape：数组各维的大小，对一个n行m列的矩阵来说， shape 为
-(n,m)</li>
-<li>ndarray.size：元素的总数。</li>
-<li>ndarray.dtype：每个元素的类型，可以是numpy.int32, numpy.int16, and
-numpy.float64等</li>
-<li>ndarray.itemsize：每个元素占用的字节数。</li>
-<li>ndarray.data：指向数据内存。</li>
-</ol>
-<h2 id="more-details-similar-with-tensor">More details similar with
-tensor</h2>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Top K problems</title>
-    <url>/2022/05/03/Top-K-problems/</url>
-    <content><![CDATA[<h3 id="quick-sort">Quick Sort</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  pivot = nums[l]</span><br><span class="line">  i, j = l, r</span><br><span class="line">  <span class="keyword">while</span> i &lt; j:</span><br><span class="line">    <span class="comment"># find the first element smaller than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[j] &gt;= pivot:</span><br><span class="line">      j -= <span class="number">1</span></span><br><span class="line">    nums[i] = nums[j] <span class="comment"># put the smaller one to the left</span></span><br><span class="line">    <span class="comment"># find the first element larger than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[i] &lt;= pivot:</span><br><span class="line">      i += <span class="number">1</span></span><br><span class="line">    nums[j] = nums[i] <span class="comment"># put the larger one to the right</span></span><br><span class="line">  <span class="comment"># i == j, nums[i]=nums[j]&gt;pivot</span></span><br><span class="line">  nums[i] = pivot</span><br><span class="line"> 	<span class="comment"># return pivot index</span></span><br><span class="line">  <span class="keyword">return</span> i</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  <span class="keyword">if</span> l &lt; r:</span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">    quicksort(nums, l, mid - <span class="number">1</span>)</span><br><span class="line">    quicksort(nums, mid + <span class="number">1</span>, r)</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h3 id="quick-selection">Quick Selection</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># split data until the k_th pivot is selected</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">topk_split</span>(<span class="params">nums, k, l, r</span>)</span></span><br><span class="line"><span class="function">  <span class="title">if</span> <span class="title">l</span> &lt; <span class="title">r</span>:</span></span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">  	<span class="keyword">if</span> mid == k:</span><br><span class="line">      <span class="comment"># we have already get the k_th pivot</span></span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">   	<span class="keyword">elif</span> mid &lt; k:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the right side</span></span><br><span class="line">      topk_split(nums, k, mid + <span class="number">1</span>, r)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the left side</span></span><br><span class="line">      topk_split(nums, k, l, mid - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="get-the-k_th-element-incresing">Get the k_th element
-(incresing)</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topk_split(nums, k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[k-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
-<h4 id="get-the-k_th-element-decresing">Get the k_th element
-(decresing)</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topk_split(nums, <span class="built_in">len</span>(nums) - k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[-k]</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>What is the use of activation function</title>
-    <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
-    <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural
-Network</h1>
-<p>The following picture illustrates the basic structure of neural
-network.</p>
-<figure>
-<img src="/2020/12/30/What-is-the-use-of-activation-function/nn.jpg" alt="nn">
-<figcaption aria-hidden="true">nn</figcaption>
-</figure>
-<p>Extracted featrures are passed into the net as input.</p>
-<p># of input node = # of extracted feature types</p>
-<span id="more"></span>
-<h1 id="why-we-need-activation">Why we need activation</h1>
-<p>For a classifiying issue:</p>
-<h3 id="without-activation">Without activation</h3>
-<p>If there is only one-layer(input-output), the output is <span class="math inline">\(output = \sum input + loss\)</span></p>
-<p>If there rae two-layers(with one hidden layer), the output is <span class="math inline">\(output = \sum_ {hidden}(\sum_ {input}
-input+loss_1)+loss_2\)</span></p>
-<p>So bascically, we can derive that no matter how many layers you add
-into the net, without activation, the net can only produce a
-<strong>linear classifier</strong>.</p>
-<h3 id="with-activation">With activation</h3>
-<p>The aim of activation is to transfer a linear classifer to a
-non-linear classifer.</p>
-<p>The basic actication we use is: <span class="math display">\[
-\begin{equation} {y}=f(x) =\left\{ \begin{array}{ll}    1 &amp; x&gt;0
-\\  0 &amp; x&lt;0 \end{array}\right. \end{equation}
-\]</span> It is same as nerve cell--if the cell is activated it produce
-a signal, otherwise, it does nothing.</p>
-<p>More then, what we use is <strong>sigmoid</strong> function. <span class="math display">\[
-\sigma(y) = \frac 1 {1+e^{-y}}
-\]</span> (we prefer to ues <span class="math inline">\(y\)</span>,
-because actication is added inside the net which means the input of
-activation is the output of prior layer)</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation1.png"></p>
-<center>
-<p>NN structure with activation</p>
-<p><img src="/2020/12/30/What-is-the-use-of-activation-function/activation2.png"></p>
-<center>
-<p>Output of NN with activation</p>
-</center></center>]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Relu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Xcode build error: &#39;.dylib not valid for use in process&#39;</title>
-    <url>/2022/03/19/Xcode-build-error-dylib-not-valid-for-use-in-process/</url>
-    <content><![CDATA[<p>This project can be build successfully. But it can not run in
-Xcode(13.2.1).</p>
-<p><code>'/opt/homebrew/Cellar/glfw/3.3.6/lib/libglfw.3.3.dylib' not valid for use in process: mapped file has no Team ID and is not a platform binary (signed with custom identity or adhoc?))</code></p>
-<p>The problem is the <code>.dylib</code> you used is not signed by
-apple. You can choose to <code>codesign</code> the lib, otherwise you
-can choose not to sign the project.</p>
-<p>GO TO
-<code>TARGETS-&gt;Build Settings-&gt;Code Signing Identity-&gt;Others</code>.
-In default, it is '-'. Just delete it.</p>
-]]></content>
-      <categories>
-        <category>Xcode</category>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>assert expression in Python</title>
-    <url>/2020/09/24/assert-expression-in-Python/</url>
-    <content><![CDATA[<h2 id="tags">tags:</h2>
-<h3 id="synatx">1. synatx</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert [expression]</span><br><span class="line"># it is same with</span><br><span class="line">if not [expression]:</span><br><span class="line">    raise AssertionError</span><br></pre></td></tr></table></figure>
-<h3 id="with-parameters">2. with parameters</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">assert expression [, arguments]</span><br><span class="line"># same with</span><br><span class="line">if not expression:</span><br><span class="line">    raise AssertionError(arguments)</span><br></pre></td></tr></table></figure>
-<h3 id="conclusion">conclusion</h3>
-<p>if an assert is not satisfied, throw exception. easy to detect the
-errors in code.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Video test</title>
-    <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-UWJKslnddLnlRTgX" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-UWJKslnddLnlRTgX").style.height=document.getElementById("mmedia-UWJKslnddLnlRTgX").scrollWidth*0.76+"px";
-    window.onresize = function(){
-      document.getElementById("mmedia-UWJKslnddLnlRTgX").style.height=document.getElementById("mmedia-UWJKslnddLnlRTgX").scrollWidth*0.76+"px";
-    }; </script>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>配置项</th>
-<th>默认</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>bvid</td>
-<td></td>
-<td>视频 bv 号，bvid、aid 和 av 必填一项，推荐使用 bvid</td>
-</tr>
-<tr class="even">
-<td>aid</td>
-<td></td>
-<td>视频 av 号</td>
-</tr>
-<tr class="odd">
-<td>av</td>
-<td></td>
-<td>视频链接地址，不要带分 P 信息，与 aid
-同时填写会被覆盖，不推荐使用</td>
-</tr>
-<tr class="even">
-<td>page</td>
-<td>1</td>
-<td>分 P，填写 av 时才会生效</td>
-</tr>
-<tr class="odd">
-<td>quality</td>
-<td>low</td>
-<td>视频质量，可选 high low</td>
-</tr>
-<tr class="even">
-<td>danmaku</td>
-<td>false</td>
-<td>开启弹幕，带有此参数表示 true，不带表示 false</td>
-</tr>
-<tr class="odd">
-<td>allowfullscreen</td>
-<td>true</td>
-<td>是否允许全屏</td>
-</tr>
-<tr class="even">
-<td>width</td>
-<td>100%</td>
-<td>宽度</td>
-</tr>
-<tr class="odd">
-<td>height</td>
-<td>500px</td>
-<td>高度</td>
-</tr>
-<tr class="even">
-<td>margin</td>
-<td>auto</td>
-<td>位置，css 属性，例： "margin:auto" "margin:0 0 0 auto"</td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://easyhexo.com/3-Plugins-use-and-config/3-5-hexo-tag-mmedia/#bilibili">Reference&amp;Docuement</a></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
     <title>hexo中使用markdown无法处理特殊字符</title>
     <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
     <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。
@@ -4017,19 +4016,20 @@ errors in code.</p>
       </tags>
   </entry>
   <entry>
-    <title>hexo图片在md文档中显示正常但是网页无法显示</title>
-    <url>/2020/11/13/hexo%E5%9B%BE%E7%89%87%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/</url>
-    <content><![CDATA[<h4 id="step-1">Step 1</h4>
-<p>配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code></p>
-<p><br></p>
-<h4 id="step-2">Step 2</h4>
-<p>此时在<code>_posts</code>文件夹中会出现与创建的md文件同名的文件夹，将图片放在文件夹中</p>
-<p><br></p>
-<h4 id="step-3">Step 3</h4>
-<p>引用图片时注意路径<strong>只能</strong>是相对路径：<code>./name/name.png</code>，注意开头的
-<code>./</code>不能省略，并且很奇怪的是地址开头必须加一个空格，否则deploy后无法显示</p>
+    <title>Xcode build error: &#39;.dylib not valid for use in process&#39;</title>
+    <url>/2022/03/19/Xcode-build-error-dylib-not-valid-for-use-in-process/</url>
+    <content><![CDATA[<p>This project can be build successfully. But it can not run in
+Xcode(13.2.1).</p>
+<p><code>'/opt/homebrew/Cellar/glfw/3.3.6/lib/libglfw.3.3.dylib' not valid for use in process: mapped file has no Team ID and is not a platform binary (signed with custom identity or adhoc?))</code></p>
+<p>The problem is the <code>.dylib</code> you used is not signed by
+apple. You can choose to <code>codesign</code> the lib, otherwise you
+can choose not to sign the project.</p>
+<p>GO TO
+<code>TARGETS-&gt;Build Settings-&gt;Code Signing Identity-&gt;Others</code>.
+In default, it is '-'. Just delete it.</p>
 ]]></content>
       <categories>
+        <category>Xcode</category>
         <category>Configuration</category>
       </categories>
   </entry>
@@ -4074,28 +4074,6 @@ b.
       <categories>
         <category>Kendo</category>
       </categories>
-  </entry>
-  <entry>
-    <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
-    <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<p>在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用<code>easyBCD</code>也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。
-## 问题解决
-本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。
-我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的引导是<code>UEFI+LEGACY</code>，那应该bios也行啊。
-但是我抱着试试的态度把它改成<code>UEFI</code>，可能有些主板要改这个比较麻烦，然后上网找了个UEFI引导的ubuntu安装教程。
-然后就打开了，困扰了好几天的问题解决了。 --- ## more
-注意在bios里面把第一启动项改为ubuntu，然后再打开。
-因为ubuntu可以引导windows，但是要让windows引导ubuntu需要用<code>easyuefi</code>自行配置
----
-这个问题很细节，但是同时也很恶心，反正就是要注意教程的环境和自己到底一不一样，还有就是要每一个设置的意义都要明白。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>-ubuntu -install</tag>
-      </tags>
   </entry>
   <entry>
     <title>mAP in object detection</title>
@@ -4165,25 +4143,26 @@ target. Derive AP for all types-&gt;average-&gt;mAP.</p>
       </tags>
   </entry>
   <entry>
-    <title>yilia主题的头像配置失败</title>
-    <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
+    <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
+    <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<ol type="1">
-<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
-<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code>
-但是打开之后依然无法显示，甚至还有一个问号</li>
-</ol>
-<hr>
-<h2 id="问题解决">问题解决</h2>
-<p>这里有一个很tricky的地方搞了我很久
-在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code>
-比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
-<p><strong>注意</strong>
-麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
+<p>在按照网上随处找的ubuntu双系统安装教程安装ubuntu成功之后，重启，直接进入windows，完全没有引导，用<code>easyBCD</code>也只找到了window一个系统，反复尝试多次把ubuntu干掉重来之后依旧没有进步。
+## 问题解决
+本来人都傻了，这时忽然看到网上有人说安装ubuntu不能看那些太老的教程。
+我想到是不是现在新的电脑bios的问题？于是赶紧进我的微星bios里面看发现自己的引导是<code>UEFI+LEGACY</code>，那应该bios也行啊。
+但是我抱着试试的态度把它改成<code>UEFI</code>，可能有些主板要改这个比较麻烦，然后上网找了个UEFI引导的ubuntu安装教程。
+然后就打开了，困扰了好几天的问题解决了。 --- ## more
+注意在bios里面把第一启动项改为ubuntu，然后再打开。
+因为ubuntu可以引导windows，但是要让windows引导ubuntu需要用<code>easyuefi</code>自行配置
+---
+这个问题很细节，但是同时也很恶心，反正就是要注意教程的环境和自己到底一不一样，还有就是要每一个设置的意义都要明白。</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
+      <tags>
+        <tag>-ubuntu -install</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用hexo theme Butterfly 报错</title>
@@ -4203,6 +4182,27 @@ includes/pagination.pug</font></p>
 <p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
 <hr>
 <h2 id="丝滑进入">丝滑进入</h2>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>yilia主题的头像配置失败</title>
+    <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<ol type="1">
+<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
+<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code>
+但是打开之后依然无法显示，甚至还有一个问号</li>
+</ol>
+<hr>
+<h2 id="问题解决">问题解决</h2>
+<p>这里有一个很tricky的地方搞了我很久
+在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code>
+比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
+<p><strong>注意</strong>
+麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -4412,33 +4412,6 @@ includes/pagination.pug</font></p>
       </categories>
   </entry>
   <entry>
-    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
-    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
-<h2 id="问题原因">问题原因</h2>
-<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错
-因此有一下三种解决办法：</p>
-<ol type="1">
-<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
-<li><p>手动打开preinterpreter</p></li>
-</ol>
-<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<ol start="3" type="1">
-<li>重新为mac安装</li>
-</ol>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
-<p>如果有了就更新一下</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
-<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>剑指Offer(全)</title>
     <url>/2021/09/29/%E5%89%91%E6%8C%87Offer-%E5%85%A8/</url>
     <content><![CDATA[<h3 id="prefab">Prefab</h3>
@@ -4509,6 +4482,33 @@ includes/pagination.pug</font></p>
 ]]></content>
       <categories>
         <category>Coding</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
+    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
+<h2 id="问题原因">问题原因</h2>
+<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错
+因此有一下三种解决办法：</p>
+<ol type="1">
+<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
+<li><p>手动打开preinterpreter</p></li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<ol start="3" type="1">
+<li>重新为mac安装</li>
+</ol>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
+<p>如果有了就更新一下</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
+<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
+]]></content>
+      <categories>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -4850,6 +4850,43 @@ includes/pagination.pug</font></p>
       </categories>
   </entry>
   <entry>
+    <title>禅诗解读</title>
+    <url>/2020/11/28/%E7%A6%85%E8%AF%97%E8%A7%A3%E8%AF%BB/</url>
+    <content><![CDATA[<h1 id="僧璨禅师信心铭">僧璨禅师《信心铭》</h1>
+<h3 id="前部分解读">--前部分解读</h3>
+<h2 id="一引言">一、引言</h2>
+<p>僧璨大师是禅宗三祖,一般认为是隋朝初期的禅师。《信心铭》是解读其思想最重要的文献，篇幅很长，思想繁复深邃，此处仅仅结合课上教学选取前几句自己稍微有些感悟的诗句解读。前人对《信心铭》的解读中都提到其最核心的内容在于<u>“不二”</u>，下文也会尝试结合这一核心词进行解读。</p>
+<h2 id="二解读">二、解读</h2>
+<h3 id="信心铭标题">《信心铭》（标题）</h3>
+<p>慧广法师解读信心铭三个字时，解释信为五十一心所法的第三类，也就是善心所中的一个法--“信”。信在字面的意思解释为诚实、不欺骗，做动词也可以解释为相信。信心直观地解释为相信心，也可以解释为诚实的心（将信做为心法，即是做一种观念来对待）。铭字面解释可以说是一种文体，同时也是需要铭记，类似纲领性文字。标题似乎是在说相信自己的内心，也可以说是内心诚实没有迷惘。</p>
+<span id="more"></span>
+<h3 id="至道无难唯嫌拣择但莫憎爱洞然明白">“至道无难，唯嫌拣择，但莫憎爱，洞然明白。”</h3>
+<p>“至道”是最极致的“道”，是一切规则的极致发展，或者是一切规则的起源（统一）。整句解释就是：终极的道没有什么难以理解的，只是不要挑挑拣拣，只要没有憎爱，就能马上明白。首先这里有个问题：拣择的宾语是什么？如果是至道，是不是说至道本身并不唯一？如果是道，是不是说没有选择的道就是至道，还是说至道的理解是建立在所有道之上还是至道本身就是所有道的集合？就我个人而言，既然说世间万物都有佛性，那么应该说是“至道”本身就是普遍的--至道本身是一种道的集合的称谓。而“唯嫌拣择，但莫憎爱”两句和六祖诗句“明镜本清净，何处惹尘埃”有类似的精神内核—事实判断本身没有什么对错。哲学家常常说认识世界总要受到有色眼镜的限制，但是有色眼镜并不待在眼睛上，而是在内心里，所见都是真实，是内心对感受的处理导致了观念的不同，才有了对错的区分。这两句同样都是再说要放下内心的道德判断，屏蔽内心对事实（道）的处理，反而能够得见真实（道）。</p>
+<h3 id="毫厘有差天地悬隔欲得现前莫存顺逆">“毫厘有差，天地悬隔；欲得现前，莫存顺逆。”</h3>
+<p>“毫厘有差，天地悬隔”一句显得很突兀，前后相互联系似乎没有什么内在联系，这里只好先简单地解读为是三祖在作诗时，对弟子的规劝警戒。“欲得现前，莫存顺逆”的对象应当是与前句的“至道”统一，如果至道在面前出现，不要存在内心的顺逆。这和前一句的思想是一致的，都是要放弃自己内心的道德判断，绝对客观地理解、认识世界，不存在“顺逆”。</p>
+<h3 id="违顺相争是为心病不识元旨徒劳念静">“违顺相争，是为心病；不识元旨，徒劳念静。”</h3>
+<p>这里就指出内心“违顺”相互的矛盾，是内心的病灶。这里前半句应和本文“不二”的思想。“不二”应当是对某种绝对存在的表述，这种绝对的存在可以视为思想的统一，也可以视为是独立于外界的某种存在。这里既然说不能存在“顺逆”，那么这里的“不二”也应当是独立的存在（处于内心而又独立于顺逆），而不是统一。这里的“心病”的根源也应当是需要通过摒弃“违顺”来根除。之后提到的“念静”应当就是摒弃内心违顺的一种做法。问题又来了，这里数次指出问题所在，但是从来没有明确过要怎么样解决问题？没有可以用来实际操作的手段。既然“违顺”本身是内心对外界感受处理后的一种内心的状态/反应，那么这里到底应该是在处理之后不做出反应；还是做出的反应不存在主观的“顺逆”反应；还是干脆不处理；甚至更进一步根本就不去感受（禅宗中完全封闭感受的人似乎也是有的），这里都没有说明白。“不识元旨”有人也写作“不识玄旨”，字面解释是不知道最初的意义（旨在古汉语中常作想法、志向解释）。这里的“元旨”到底是什么？联系上下文可以解释说这个“元旨”就是之前说的“莫存顺逆”的道理，即是说这一道理是学习禅最初的道理，也是说这是学习禅最根本的道理（“元”）。这样似乎解释得很顺畅，但是“元旨”也有可能是说世界最根本的道理--客观上的最初的道理，或者说是本来就有的道理。那么这样又可以解释说是在认识世界的时候要去认识“元旨”，世界本来是什么样子的就是什么样子的，不要经过判断地去认识，才能认识到真正的“至道”。</p>
+<p>### “圆同太虚，无欠无余；良由取舍，所以不如。”</p>
+<p>这里的主语应当也还是“至道”，“圆”是说至道本身就是圆满的，“太虚”比较难以解释（“太虚”是道教词汇，《信心铭》除去此处外也有多处使用道教术语），《道德经》中“太虚”一般认为就是“道”的代名词，是世界的本源，但是在古文的语境内，也常常用“太虚”来代指世界所在的宇宙，不过因为当时还没有对世界的观测能力和一般的天文认识，这里“太虚”所指的应当是广义上的世界。“圆同太虚，无欠无余”即是说“至道”如同这个世界一样（或者全部统一为道本身），没有少，也没有多。这里又有难以解释的地方：多、少都是相对的概念，但是在之前的论述中都一直在尝试塑造一个绝对的存在（“至道”），那么这里是说“至道”本身的存在没有多少的比较，强调这个比较的概念本身就不存在，进而从侧面描述一个绝对的概念；还是说“至道”不增不减，反映的是一种早期朴素的物质守恒的观念（当然从目前看物质可以转化为能量，但是是否也意味着世界总体的能量守恒，目前还没有定论）？“良由取舍，所以不如”字面上是说因为（源自于）取舍，所以“不如”。这里的“如”法音法师解释为是“吻合”，是说“跟你生命原本的本来面貌、本来的心态不吻合了……就破坏了你本来的心态，也就是不相应了，就破坏了你跟大宇宙的瑜伽。”我认为这里说的“不如”是类比了世界的不增不减来讲述内心的某种“不增不减”的状态，如同世界、至道是绝对的一样，内心对外界的判断（也是某种境界、状态、反应）
+同样应当是不会改变的（不增不减），联系前文指的就是放弃了所有的道德判断，达到“莫存顺逆”。</p>
+<p>### “莫逐有缘，勿住空忍；一种平怀，泯然自尽。”</p>
+<p>“有缘”和“空忍”明显相应。“莫逐有缘”是说不要去追求“有缘”，“有缘”的解释我查询了很多资料也没能得出一个通顺的解释。很多人解释“缘”为条件，我校老师在文明通识课程中解释佛教的“缘”为万事万物之间普遍的联系。这里粗略地可以解释为不要追求与自身相联系的事物，当然这句的核心应当在于“莫逐”，宾语只能模糊解释。但是紧随其后还有一句“勿住空忍”，不要强行忍受，是指对于这种“逐”的欲望，不要压制而是要消除它，用一种更为根本的方式结局，这种方式与前文也是统一的—没有好恶、放弃道德判断，消除自身的对外界事物的加工理解从而实现。最终的成果就是“一种平怀，泯然自尽”，内心平静，这种顺逆之间的矛盾（对有缘的追求）自己就消散了。</p>
+<h2 id="三结语">三、结语</h2>
+<p>作为禅宗的经典之一，《信心铭》很多的哲学观念与之后的六祖思想一以贯之，有很多类同之处，但同时在理解和表述上总有些许差异。在同时在思想语言表述上明显有我国传统的一些观念影响（全文中反复提到“道”，这一道教术语，但是却没有针对禅宗进行限定明确）。解读上遇到了很多困难：由于以诗为载体，很多语言的表述并不充分、严谨，主语和宾语多有缺失。再加上语言本身随时间就有很多变化，对于字句在当时时代的具体表义不明确等等因素，很多时候解读只能猜测。最重要的是自己本身对禅宗的总体思想把握不够明确，解读出的结果有各种可能，不能确信结果。自己理解不足，而表达更为困难，修改几次也不知道应该怎么说才好，正应了“言语道断”。</p>
+<h2 id="四原文">四、原文</h2>
+<p>原文附上：</p>
+<h3 id="信心铭">《信心铭》</h3>
+<p>僧璨禅师</p>
+<p>至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。违顺相争，是为心病；不识元旨，徒劳念静。圆同太虚，无欠无余；良由取舍，所以不如。莫逐有缘，勿住空忍；一种平怀，泯然自尽。止动归止，止更弥动；唯滞两边，宁知一种。一种不通，两处失功；遣有没有，从空背空。多言多虑，转不相应；绝言绝虑，无处不通。归根得旨，随照失宗；须臾返照，胜却前空。前空转变，皆由妄见；不用求真，唯须息见。至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。欲得现前，莫存顺逆，莫存顺逆。二见不住，慎勿追寻；才有是非，纷然失心。二由一有，一亦莫守。一心不生，万法无咎；无咎无法，不生不心。能随境灭，境逐能沉；境由能境，能由境能。欲知两段，元是一空。一空同两，齐含万象；不见精粗，宁有偏党。大道体宽，无易无难；小见狐疑，转急转迟。执之失度，必入邪路；放之自然，体无去住。任性合道，逍遥绝恼；系念乖真，昏沉不好。不好劳神，何用疏亲。欲取一乘，勿恶六尘；六尘不恶，还同正觉。智者无为，愚人自缚。智者无为，愚人自缚。法无异法，妄自爱着；将心用心，岂非大错。迷生寂乱，悟无好恶；一切二边，良由斟酌。梦幻空花，何劳把捉；得失是非，一时放却。眼若不睡，诸梦自除；心若不异，万法一如。一如体玄，兀尔忘缘；万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。泯其所以，不可方比。止动无动，动止无止；两既不成，一何有尔。究竟穷极，不存轨则；契心平等，所作俱息。狐疑净尽，正信调直。一切不留，无可记忆；虚明自照，不劳心力。非思量处，识情难测；真如法界，无他无自。要急相应，唯言不二；不二皆同，无不包容。十方智者，皆入此宗。宗非促延，一念万年；无在不在，十方目前。极小同大，忘绝境界；极大同小，不见边表。有即是无，无即是有；若不如是，必不须守。一即一切，一切即一，但能如是，何虑不毕。信心不二，不二信心；言语道断，非去来今。信心不二，不二信心；言语道断，非去来今。</p>
+<h2 id="参考文献">参考文献</h2>
+<p>《信心铭》释义，慧广法师，2017 ，“禅宗思想”。</p>
+<p>《信心铭》直解，法音法师，1982，讲述文字。</p>
+]]></content>
+      <categories>
+        <category>Essay</category>
+      </categories>
+  </entry>
+  <entry>
     <title>理解superscalar和multithreading(简单提及hyperthreading)和multi-core区别</title>
     <url>/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<p>看到网上有一篇文章用汽车收费站来解释这三个概念，想法很好，但是感觉没说那么清楚，于是我自己来说一遍</p>
@@ -4944,6 +4981,38 @@ been fixed. You can turn off full screen manually.</p>
       </categories>
   </entry>
   <entry>
+    <title>还是大GT优雅</title>
+    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
+    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
+<div align="center">
+<figure>
+<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT">
+<figcaption aria-hidden="true">宾利欧陆GT</figcaption>
+</figure>
+</div>]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>遍历二叉树-前/中/后序-递归/非递归</title>
+    <url>/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/</url>
+    <content><![CDATA[<h3 id="递归方法">递归方法</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line"> 	path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="非递归方法">非递归方法</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>)); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Reference: https://blog.csdn.net/czy47/article/details/81254984</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Binary Tree</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>面试问题整理</title>
     <url>/2021/10/24/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<ol type="1">
@@ -4988,20 +5057,6 @@ sort，此时也不需要额外空间。数据库中sort也常使用disk mergeso
       </categories>
   </entry>
   <entry>
-    <title>还是大GT优雅</title>
-    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
-    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
-<div align="center">
-<figure>
-<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT">
-<figcaption aria-hidden="true">宾利欧陆GT</figcaption>
-</figure>
-</div>]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
     <title>钻石材质第一次测试Blender</title>
     <url>/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/</url>
     <content><![CDATA[<p>初次尝试了blender里钻石材质的生成，接下来会详细分析材质节点的组成并仔细调参。并且会更换钻石模型和适当的场景进行测试。</p>
@@ -5009,61 +5064,6 @@ sort，此时也不需要额外空间。数据库中sort也常使用disk mergeso
 ]]></content>
       <categories>
         <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>遍历二叉树-前/中/后序-递归/非递归</title>
-    <url>/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/</url>
-    <content><![CDATA[<h3 id="递归方法">递归方法</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line"> 	path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h3 id="非递归方法">非递归方法</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>)); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="keyword">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="keyword">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Reference: https://blog.csdn.net/czy47/article/details/81254984</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Binary Tree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>禅诗解读</title>
-    <url>/2020/11/28/%E7%A6%85%E8%AF%97%E8%A7%A3%E8%AF%BB/</url>
-    <content><![CDATA[<h1 id="僧璨禅师信心铭">僧璨禅师《信心铭》</h1>
-<h3 id="前部分解读">--前部分解读</h3>
-<h2 id="一引言">一、引言</h2>
-<p>僧璨大师是禅宗三祖,一般认为是隋朝初期的禅师。《信心铭》是解读其思想最重要的文献，篇幅很长，思想繁复深邃，此处仅仅结合课上教学选取前几句自己稍微有些感悟的诗句解读。前人对《信心铭》的解读中都提到其最核心的内容在于<u>“不二”</u>，下文也会尝试结合这一核心词进行解读。</p>
-<h2 id="二解读">二、解读</h2>
-<h3 id="信心铭标题">《信心铭》（标题）</h3>
-<p>慧广法师解读信心铭三个字时，解释信为五十一心所法的第三类，也就是善心所中的一个法--“信”。信在字面的意思解释为诚实、不欺骗，做动词也可以解释为相信。信心直观地解释为相信心，也可以解释为诚实的心（将信做为心法，即是做一种观念来对待）。铭字面解释可以说是一种文体，同时也是需要铭记，类似纲领性文字。标题似乎是在说相信自己的内心，也可以说是内心诚实没有迷惘。</p>
-<span id="more"></span>
-<h3 id="至道无难唯嫌拣择但莫憎爱洞然明白">“至道无难，唯嫌拣择，但莫憎爱，洞然明白。”</h3>
-<p>“至道”是最极致的“道”，是一切规则的极致发展，或者是一切规则的起源（统一）。整句解释就是：终极的道没有什么难以理解的，只是不要挑挑拣拣，只要没有憎爱，就能马上明白。首先这里有个问题：拣择的宾语是什么？如果是至道，是不是说至道本身并不唯一？如果是道，是不是说没有选择的道就是至道，还是说至道的理解是建立在所有道之上还是至道本身就是所有道的集合？就我个人而言，既然说世间万物都有佛性，那么应该说是“至道”本身就是普遍的--至道本身是一种道的集合的称谓。而“唯嫌拣择，但莫憎爱”两句和六祖诗句“明镜本清净，何处惹尘埃”有类似的精神内核—事实判断本身没有什么对错。哲学家常常说认识世界总要受到有色眼镜的限制，但是有色眼镜并不待在眼睛上，而是在内心里，所见都是真实，是内心对感受的处理导致了观念的不同，才有了对错的区分。这两句同样都是再说要放下内心的道德判断，屏蔽内心对事实（道）的处理，反而能够得见真实（道）。</p>
-<h3 id="毫厘有差天地悬隔欲得现前莫存顺逆">“毫厘有差，天地悬隔；欲得现前，莫存顺逆。”</h3>
-<p>“毫厘有差，天地悬隔”一句显得很突兀，前后相互联系似乎没有什么内在联系，这里只好先简单地解读为是三祖在作诗时，对弟子的规劝警戒。“欲得现前，莫存顺逆”的对象应当是与前句的“至道”统一，如果至道在面前出现，不要存在内心的顺逆。这和前一句的思想是一致的，都是要放弃自己内心的道德判断，绝对客观地理解、认识世界，不存在“顺逆”。</p>
-<h3 id="违顺相争是为心病不识元旨徒劳念静">“违顺相争，是为心病；不识元旨，徒劳念静。”</h3>
-<p>这里就指出内心“违顺”相互的矛盾，是内心的病灶。这里前半句应和本文“不二”的思想。“不二”应当是对某种绝对存在的表述，这种绝对的存在可以视为思想的统一，也可以视为是独立于外界的某种存在。这里既然说不能存在“顺逆”，那么这里的“不二”也应当是独立的存在（处于内心而又独立于顺逆），而不是统一。这里的“心病”的根源也应当是需要通过摒弃“违顺”来根除。之后提到的“念静”应当就是摒弃内心违顺的一种做法。问题又来了，这里数次指出问题所在，但是从来没有明确过要怎么样解决问题？没有可以用来实际操作的手段。既然“违顺”本身是内心对外界感受处理后的一种内心的状态/反应，那么这里到底应该是在处理之后不做出反应；还是做出的反应不存在主观的“顺逆”反应；还是干脆不处理；甚至更进一步根本就不去感受（禅宗中完全封闭感受的人似乎也是有的），这里都没有说明白。“不识元旨”有人也写作“不识玄旨”，字面解释是不知道最初的意义（旨在古汉语中常作想法、志向解释）。这里的“元旨”到底是什么？联系上下文可以解释说这个“元旨”就是之前说的“莫存顺逆”的道理，即是说这一道理是学习禅最初的道理，也是说这是学习禅最根本的道理（“元”）。这样似乎解释得很顺畅，但是“元旨”也有可能是说世界最根本的道理--客观上的最初的道理，或者说是本来就有的道理。那么这样又可以解释说是在认识世界的时候要去认识“元旨”，世界本来是什么样子的就是什么样子的，不要经过判断地去认识，才能认识到真正的“至道”。</p>
-<p>### “圆同太虚，无欠无余；良由取舍，所以不如。”</p>
-<p>这里的主语应当也还是“至道”，“圆”是说至道本身就是圆满的，“太虚”比较难以解释（“太虚”是道教词汇，《信心铭》除去此处外也有多处使用道教术语），《道德经》中“太虚”一般认为就是“道”的代名词，是世界的本源，但是在古文的语境内，也常常用“太虚”来代指世界所在的宇宙，不过因为当时还没有对世界的观测能力和一般的天文认识，这里“太虚”所指的应当是广义上的世界。“圆同太虚，无欠无余”即是说“至道”如同这个世界一样（或者全部统一为道本身），没有少，也没有多。这里又有难以解释的地方：多、少都是相对的概念，但是在之前的论述中都一直在尝试塑造一个绝对的存在（“至道”），那么这里是说“至道”本身的存在没有多少的比较，强调这个比较的概念本身就不存在，进而从侧面描述一个绝对的概念；还是说“至道”不增不减，反映的是一种早期朴素的物质守恒的观念（当然从目前看物质可以转化为能量，但是是否也意味着世界总体的能量守恒，目前还没有定论）？“良由取舍，所以不如”字面上是说因为（源自于）取舍，所以“不如”。这里的“如”法音法师解释为是“吻合”，是说“跟你生命原本的本来面貌、本来的心态不吻合了……就破坏了你本来的心态，也就是不相应了，就破坏了你跟大宇宙的瑜伽。”我认为这里说的“不如”是类比了世界的不增不减来讲述内心的某种“不增不减”的状态，如同世界、至道是绝对的一样，内心对外界的判断（也是某种境界、状态、反应）
-同样应当是不会改变的（不增不减），联系前文指的就是放弃了所有的道德判断，达到“莫存顺逆”。</p>
-<p>### “莫逐有缘，勿住空忍；一种平怀，泯然自尽。”</p>
-<p>“有缘”和“空忍”明显相应。“莫逐有缘”是说不要去追求“有缘”，“有缘”的解释我查询了很多资料也没能得出一个通顺的解释。很多人解释“缘”为条件，我校老师在文明通识课程中解释佛教的“缘”为万事万物之间普遍的联系。这里粗略地可以解释为不要追求与自身相联系的事物，当然这句的核心应当在于“莫逐”，宾语只能模糊解释。但是紧随其后还有一句“勿住空忍”，不要强行忍受，是指对于这种“逐”的欲望，不要压制而是要消除它，用一种更为根本的方式结局，这种方式与前文也是统一的—没有好恶、放弃道德判断，消除自身的对外界事物的加工理解从而实现。最终的成果就是“一种平怀，泯然自尽”，内心平静，这种顺逆之间的矛盾（对有缘的追求）自己就消散了。</p>
-<h2 id="三结语">三、结语</h2>
-<p>作为禅宗的经典之一，《信心铭》很多的哲学观念与之后的六祖思想一以贯之，有很多类同之处，但同时在理解和表述上总有些许差异。在同时在思想语言表述上明显有我国传统的一些观念影响（全文中反复提到“道”，这一道教术语，但是却没有针对禅宗进行限定明确）。解读上遇到了很多困难：由于以诗为载体，很多语言的表述并不充分、严谨，主语和宾语多有缺失。再加上语言本身随时间就有很多变化，对于字句在当时时代的具体表义不明确等等因素，很多时候解读只能猜测。最重要的是自己本身对禅宗的总体思想把握不够明确，解读出的结果有各种可能，不能确信结果。自己理解不足，而表达更为困难，修改几次也不知道应该怎么说才好，正应了“言语道断”。</p>
-<h2 id="四原文">四、原文</h2>
-<p>原文附上：</p>
-<h3 id="信心铭">《信心铭》</h3>
-<p>僧璨禅师</p>
-<p>至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。违顺相争，是为心病；不识元旨，徒劳念静。圆同太虚，无欠无余；良由取舍，所以不如。莫逐有缘，勿住空忍；一种平怀，泯然自尽。止动归止，止更弥动；唯滞两边，宁知一种。一种不通，两处失功；遣有没有，从空背空。多言多虑，转不相应；绝言绝虑，无处不通。归根得旨，随照失宗；须臾返照，胜却前空。前空转变，皆由妄见；不用求真，唯须息见。至道无难，唯嫌拣择，但莫憎爱，洞然明白。毫厘有差，天地悬隔；欲得现前，莫存顺逆。欲得现前，莫存顺逆，莫存顺逆。二见不住，慎勿追寻；才有是非，纷然失心。二由一有，一亦莫守。一心不生，万法无咎；无咎无法，不生不心。能随境灭，境逐能沉；境由能境，能由境能。欲知两段，元是一空。一空同两，齐含万象；不见精粗，宁有偏党。大道体宽，无易无难；小见狐疑，转急转迟。执之失度，必入邪路；放之自然，体无去住。任性合道，逍遥绝恼；系念乖真，昏沉不好。不好劳神，何用疏亲。欲取一乘，勿恶六尘；六尘不恶，还同正觉。智者无为，愚人自缚。智者无为，愚人自缚。法无异法，妄自爱着；将心用心，岂非大错。迷生寂乱，悟无好恶；一切二边，良由斟酌。梦幻空花，何劳把捉；得失是非，一时放却。眼若不睡，诸梦自除；心若不异，万法一如。一如体玄，兀尔忘缘；万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。万法齐观，归复自然。泯其所以，不可方比。止动无动，动止无止；两既不成，一何有尔。究竟穷极，不存轨则；契心平等，所作俱息。狐疑净尽，正信调直。一切不留，无可记忆；虚明自照，不劳心力。非思量处，识情难测；真如法界，无他无自。要急相应，唯言不二；不二皆同，无不包容。十方智者，皆入此宗。宗非促延，一念万年；无在不在，十方目前。极小同大，忘绝境界；极大同小，不见边表。有即是无，无即是有；若不如是，必不须守。一即一切，一切即一，但能如是，何虑不毕。信心不二，不二信心；言语道断，非去来今。信心不二，不二信心；言语道断，非去来今。</p>
-<h2 id="参考文献">参考文献</h2>
-<p>《信心铭》释义，慧广法师，2017 ，“禅宗思想”。</p>
-<p>《信心铭》直解，法音法师，1982，讲述文字。</p>
-]]></content>
-      <categories>
-        <category>Essay</category>
       </categories>
   </entry>
 </search>

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://sightvanish.github.io/photos/index.html</loc>
+    <loc>https://sightvanish.github.io/about/index.html</loc>
     
     <lastmod>2022-07-14</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/about/index.html</loc>
+    <loc>https://sightvanish.github.io/photos/index.html</loc>
     
     <lastmod>2022-07-14</lastmod>
     
@@ -1071,20 +1071,6 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/const/</loc>
-    <lastmod>2022-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/pointer/</loc>
-    <lastmod>2022-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sightvanish.github.io/tags/new/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -1093,6 +1079,20 @@
   
   <url>
     <loc>https://sightvanish.github.io/tags/malloc/</loc>
+    <lastmod>2022-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/const/</loc>
+    <lastmod>2022-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/pointer/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1127,14 +1127,14 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/python/</loc>
+    <loc>https://sightvanish.github.io/tags/Srand/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/Srand/</loc>
+    <loc>https://sightvanish.github.io/tags/python/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1183,6 +1183,13 @@
   </url>
   
   <url>
+    <loc>https://sightvanish.github.io/tags/Relu/</loc>
+    <lastmod>2022-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://sightvanish.github.io/tags/Deep-Learning/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -1198,13 +1205,6 @@
   
   <url>
     <loc>https://sightvanish.github.io/tags/Faster-R-CNN/</loc>
-    <lastmod>2022-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/Relu/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1234,14 +1234,14 @@
 
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Kendo/</loc>
+    <loc>https://sightvanish.github.io/categories/Machine-Learning/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Machine-Learning/</loc>
+    <loc>https://sightvanish.github.io/categories/Kendo/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1318,14 +1318,14 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Python/</loc>
+    <loc>https://sightvanish.github.io/categories/Rendering/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Rendering/</loc>
+    <loc>https://sightvanish.github.io/categories/Python/</loc>
     <lastmod>2022-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
