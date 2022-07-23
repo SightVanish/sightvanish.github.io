@@ -345,9 +345,9 @@ value is random.</p>
     <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
     <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
 <p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-LJEKCissoDNUgwNB" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-LJEKCissoDNUgwNB").style.height=document.getElementById("mmedia-LJEKCissoDNUgwNB").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-GBOYsxdpLiQrwQiL" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-GBOYsxdpLiQrwQiL").style.height=document.getElementById("mmedia-GBOYsxdpLiQrwQiL").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-LJEKCissoDNUgwNB").style.height=document.getElementById("mmedia-LJEKCissoDNUgwNB").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-GBOYsxdpLiQrwQiL").style.height=document.getElementById("mmedia-GBOYsxdpLiQrwQiL").scrollWidth*0.76+"px";
     }; </script>
 ]]></content>
       <categories>
@@ -413,6 +413,29 @@ _i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分
 ]]></content>
       <categories>
         <category>Blender</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Bangline</title>
+    <url>/2022/07/23/Bangline/</url>
+    <content><![CDATA[<p>Here is a question: what is the difference between <code>./</code>
+and <code>sh</code> when executing a shell script?</p>
+<ol type="1">
+<li><code>sh test.sh</code> You pass test.sh as a parameter to sh.</li>
+<li><code>./test.sh</code> The system calls out the interpreter program
+and feeds in the scripts contents. So you will need a <strong>bang
+line</strong>(the very first line in the script and starts with #!). The
+rest part of the script will be passed to the program immediately
+after.</li>
+</ol>
+<p>So you can run shell via <code>#!/bin/bash</code>. You can even run
+python via <code>#!/usr/bin/python</code> (the rest code is in
+python)</p>
+<p>reference:
+https://askubuntu.com/questions/22910/what-is-the-difference-between-and-sh-to-run-a-script</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
       </categories>
   </entry>
   <entry>
@@ -654,50 +677,6 @@ bad even if both of them are not really good.</p>
       </categories>
   </entry>
   <entry>
-    <title>Basics of DL: Optimization Algorithms on Matrix Manifold</title>
-    <url>/2022/05/26/Basics-of-DL-Optimization-Algorithms-on-Matrix-Manifold/</url>
-    <content><![CDATA[<p>This could be complicated. But it will help. <a href="https://press.princeton.edu/absil">Optimization Algorithms on
-Matrix Manifold</a>.</p>
-<p>More details will be post later. (Maybe...)</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>C++11 in Mac (VsCode)</title>
-    <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
-    <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of
-<code>gcc</code>. You can still use <code>clang++</code> or
-<code>g++</code> to run a <code>.cpp</code> file. But basically,
-<code>clang</code> will use <code>-std=c++98</code> as default.</p>
-<p>So if you want to switch to new c++ standard in VsCode (Mac), do as
-follows:</p>
-<span id="more"></span>
-<ol type="1">
-<li><p>Edit you c++ settings of VsCode:</p>
-<ol type="1">
-<li><p>create <code>.vscode/c_cpp_properties.json</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Mac&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [],</span><br><span class="line">            &quot;macFrameworkPath&quot;: [</span><br><span class="line">                &quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;/usr/bin/clang&quot;,</span><br><span class="line">            &quot;cStandard&quot;: &quot;c11&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;c++11&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;macos-clang-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>In terminal:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;alias g++=&#x27;g++ -std=c++11&#x27;&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source    ~/.bashrc</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-</ol>
-<p>Run your <code>.cpp</code> files in terminals:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">g++ filename.cpp -o objectname</span><br><span class="line">./objectname</span><br></pre></td></tr></table></figure>
-<p>Note: you can use <code>g++</code> in std11, but <code>clang++</code>
-is still in std98. (<code>clang/gcc</code> is for <code>.c</code>
-file)</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Mac</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Brief introduction to Unet</title>
     <url>/2021/10/11/Brief-introduction-to-Unet/</url>
     <content><![CDATA[<h3 id="structure">Structure</h3>
@@ -742,6 +721,64 @@ with more time consumed).</p>
         <tag>C/C++</tag>
         <tag>openmp</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>C++11 in Mac (VsCode)</title>
+    <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
+    <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of
+<code>gcc</code>. You can still use <code>clang++</code> or
+<code>g++</code> to run a <code>.cpp</code> file. But basically,
+<code>clang</code> will use <code>-std=c++98</code> as default.</p>
+<p>So if you want to switch to new c++ standard in VsCode (Mac), do as
+follows:</p>
+<span id="more"></span>
+<ol type="1">
+<li><p>Edit you c++ settings of VsCode:</p>
+<ol type="1">
+<li><p>create <code>.vscode/c_cpp_properties.json</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Mac&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [],</span><br><span class="line">            &quot;macFrameworkPath&quot;: [</span><br><span class="line">                &quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;/usr/bin/clang&quot;,</span><br><span class="line">            &quot;cStandard&quot;: &quot;c11&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;c++11&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;macos-clang-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>In terminal:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;alias g++=&#x27;g++ -std=c++11&#x27;&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source    ~/.bashrc</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+</ol>
+<p>Run your <code>.cpp</code> files in terminals:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">g++ filename.cpp -o objectname</span><br><span class="line">./objectname</span><br></pre></td></tr></table></figure>
+<p>Note: you can use <code>g++</code> in std11, but <code>clang++</code>
+is still in std98. (<code>clang/gcc</code> is for <code>.c</code>
+file)</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ Coding Style</title>
+    <url>/2022/07/14/C-Coding-Style/</url>
+    <content><![CDATA[<h1 id="cpplint">cpplint</h1>
+<p><code>cpplint</code> is a static code checker for C++, following
+Google C++ styles.</p>
+<p>– check code format</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install cpplint</span><br><span class="line">cpplint.py --verbose=3 test.cpp <span class="comment"># only consider warning level &gt; 3</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/google/styleguide">C++ code style</a></p>
+]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Basics of DL: Optimization Algorithms on Matrix Manifold</title>
+    <url>/2022/05/26/Basics-of-DL-Optimization-Algorithms-on-Matrix-Manifold/</url>
+    <content><![CDATA[<p>This could be complicated. But it will help. <a href="https://press.princeton.edu/absil">Optimization Algorithms on
+Matrix Manifold</a>.</p>
+<p>More details will be post later. (Maybe...)</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
   </entry>
   <entry>
     <title>C++: Difference between int* and int&amp; and int</title>
@@ -813,6 +850,42 @@ reference without initilizatin is not permitted,
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
+    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
+    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
+<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code>
+and <code>const a int</code> are totally same. Both of them tell the
+compiler that the value stored in <code>a</code> can not be modified.
+But when it is combined with pointer, things go complicated</p>
+<h2 id="const-int">const int *</h2>
+<p>For C++, <code>int*</code> is not viewed as a type. Only
+<code>*a</code> be viewed as a mark telling the complier <code>a</code>
+is a pointer. So as we have already known that <code>int const</code> is
+same with <code>const int</code>, <code>int const *a</code> is also same
+with <code>const int *a</code>. Both of them means <code>*a</code> is a
+const, which means the value poined by <code>a</code> can not be
+modified but <code>a</code>, as a pointer, can point to different
+places.</p>
+<h2 id="int-const">int* const</h2>
+<p>By contrast, the <code>const</code> in <code>int* const</code> is a
+mark for <code>a</code>, so <code>a</code>, as a pointer, can only point
+to one specific place(determined when it is initialized), but the value
+pointed by it can be changed.</p>
+<p>Besides, we can combine two usages of <code>const</code>together:
+<code>const int* const a</code>--<code>a</code>, as a pointer, can not
+be modified and the value pointed by <code>a</code> cannot be
+modified.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>const</tag>
+        <tag>pointer</tag>
       </tags>
   </entry>
   <entry>
@@ -927,16 +1000,6 @@ seemed to be renewed with much more better performance.</p>
       <tags>
         <tag>MacOS</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>GIF test</title>
-    <url>/2021/09/16/GIF-test/</url>
-    <content><![CDATA[<p>You should see this.
-<iframe height="75%" width="75%" src="1.gif"></iframe></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
   </entry>
   <entry>
     <title>Games101 Homeworks Summary</title>
@@ -1081,39 +1144,30 @@ width-1)x(0,vheight-1)映射到(-1, 1)x(-1,
       </categories>
   </entry>
   <entry>
-    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
-    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
-    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
-<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code>
-and <code>const a int</code> are totally same. Both of them tell the
-compiler that the value stored in <code>a</code> can not be modified.
-But when it is combined with pointer, things go complicated</p>
-<h2 id="const-int">const int *</h2>
-<p>For C++, <code>int*</code> is not viewed as a type. Only
-<code>*a</code> be viewed as a mark telling the complier <code>a</code>
-is a pointer. So as we have already known that <code>int const</code> is
-same with <code>const int</code>, <code>int const *a</code> is also same
-with <code>const int *a</code>. Both of them means <code>*a</code> is a
-const, which means the value poined by <code>a</code> can not be
-modified but <code>a</code>, as a pointer, can point to different
-places.</p>
-<h2 id="int-const">int* const</h2>
-<p>By contrast, the <code>const</code> in <code>int* const</code> is a
-mark for <code>a</code>, so <code>a</code>, as a pointer, can only point
-to one specific place(determined when it is initialized), but the value
-pointed by it can be changed.</p>
-<p>Besides, we can combine two usages of <code>const</code>together:
-<code>const int* const a</code>--<code>a</code>, as a pointer, can not
-be modified and the value pointed by <code>a</code> cannot be
-modified.</p>
+    <title>Difference between Override &amp; Overload</title>
+    <url>/2020/12/16/Difference-between-Override-Overload/</url>
+    <content><![CDATA[<p>Both of them only happen when difference function using same
+name.</p>
+<ul>
+<li><p>Overloading: picking a method <strong>signature</strong> at
+compile time based on the number and type of the arguments specified</p>
+<p>Overload--在compile时抓取function
+signature，每个function参数列表（参数数目和数量）不同，所以区别开来。</p></li>
+<li><p>Overriding: picking a method <strong>implementation</strong> at
+execution time based on the actual type of the target object (as opposed
+to the compile-time type of the expression)</p>
+<p>Override--在execution时选取不同的function来执行，注意这些function名称相同，参数列表相同。发生在类的继承中，子类function
+override夫类function，返回类型相同。</p></li>
+</ul>
+<span id="more"></span>
+<p>Example (with java):</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">// this function will overload the function above</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">double</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(double)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;		</span><br><span class="line">  	<span class="comment">// this function override the function in Base</span></span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Base b = <span class="keyword">new</span> Child();</span><br><span class="line">b.foo(<span class="number">10</span>); <span class="comment">// Prints Child.foo(int)</span></span><br><span class="line">b.foo(<span class="number">5.0</span>); <span class="comment">// Prints Base.foo(double)</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Learning</category>
       </categories>
       <tags>
         <tag>C++</tag>
-        <tag>const</tag>
-        <tag>pointer</tag>
       </tags>
   </entry>
   <entry>
@@ -1304,31 +1358,14 @@ based on distributions over hidden states.</li>
       </tags>
   </entry>
   <entry>
-    <title>Difference between Override &amp; Overload</title>
-    <url>/2020/12/16/Difference-between-Override-Overload/</url>
-    <content><![CDATA[<p>Both of them only happen when difference function using same
-name.</p>
-<ul>
-<li><p>Overloading: picking a method <strong>signature</strong> at
-compile time based on the number and type of the arguments specified</p>
-<p>Overload--在compile时抓取function
-signature，每个function参数列表（参数数目和数量）不同，所以区别开来。</p></li>
-<li><p>Overriding: picking a method <strong>implementation</strong> at
-execution time based on the actual type of the target object (as opposed
-to the compile-time type of the expression)</p>
-<p>Override--在execution时选取不同的function来执行，注意这些function名称相同，参数列表相同。发生在类的继承中，子类function
-override夫类function，返回类型相同。</p></li>
-</ul>
-<span id="more"></span>
-<p>Example (with java):</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">// this function will overload the function above</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">double</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Base.foo(double)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"></span>&#123;		</span><br><span class="line">  	<span class="comment">// this function override the function in Base</span></span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child.foo(int)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Base b = <span class="keyword">new</span> Child();</span><br><span class="line">b.foo(<span class="number">10</span>); <span class="comment">// Prints Child.foo(int)</span></span><br><span class="line">b.foo(<span class="number">5.0</span>); <span class="comment">// Prints Base.foo(double)</span></span><br></pre></td></tr></table></figure>
+    <title>GIF test</title>
+    <url>/2021/09/16/GIF-test/</url>
+    <content><![CDATA[<p>You should see this.
+<iframe height="75%" width="75%" src="1.gif"></iframe></p>
 ]]></content>
       <categories>
-        <category>Learning</category>
+        <category>Test</category>
       </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
   </entry>
   <entry>
     <title>Git Lookup Table</title>
@@ -1383,61 +1420,6 @@ archive modifications) and <code>git stash pop</code> (restore)</li>
 ]]></content>
       <categories>
         <category>Tutorial</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo Migration</title>
-    <url>/2022/07/14/Hexo-Migration/</url>
-    <content><![CDATA[<h1 id="hexo-migration-apple-silicon">Hexo Migration (Apple
-Silicon)</h1>
-<ol type="1">
-<li><p>Config Git</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name liwuchen</span><br><span class="line">git config user.email liwch@shanghaitech.edu.cn</span><br><span class="line">git config -l # list git config</span><br><span class="line">ssh-keygen -t rsa -C &quot;liwch@shanghaitech.edu.cn&quot;</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p>Copy rsa public key to GitHub-&gt;Settings-&gt;SSH and GPG
-keys.</p></li>
-<li><p>Install <a href="https://nodejs.org/">Nodejs</a></p>
-<ol type="1">
-<li>In China, you may consider install cnpm
-<code>sudo npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
-<li>In the following steps, I will use <code>cnpm</code>, same for
-<code>npm</code>.<span id="more"></span></li>
-</ol></li>
-<li><p>Install hexo with <code>npm</code>
-<code>cnpm install -g hexo-cli</code></p></li>
-<li><p>Install deployment plugin
-<code>cnpm install --save hexo-deployer-git</code></p></li>
-<li><p>Install <a href="https://brew.sh">Homebrew</a></p>
-<ol type="1">
-<li>In China, you may consider
-<code>/bin/zsh -c "$(curl -fsSL     https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"</code></li>
-</ol></li>
-<li><p>Math equation rendering</p>
-<ol type="1">
-<li><p>Install <code>pandoc</code> <code>brew install pandoc</code></p>
-<ol type="1">
-<li><p>If <code>Error: Command failed with exit 128: git</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-core</span><br><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-cask</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-<li><p>Uninstall <code>hexo-renderer-marked</code>
-<code>npm uninstall hexo-renderer-marked --save</code></p></li>
-<li><p>Install <code>hexo-renderer-pandoc</code>
-<code>npm install hexo-renderer-pandoc</code></p></li>
-</ol></li>
-<li><p>Done! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉</p></li>
-<li><p><code>hexo clean; hexo g; hexo d</code></p></li>
-<li><p>Here is two shell scripts for you</p>
-<ol type="1">
-<li><code>blog.sh</code></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/zsh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">read</span> input</span> </span><br><span class="line">name=$&#x27;&#x27;</span><br><span class="line">filename=$&#x27;&#x27;</span><br><span class="line">for arg in &quot;$*&quot;</span><br><span class="line">  do</span><br><span class="line">    name=$s$arg</span><br><span class="line">  done</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> create new post</span></span><br><span class="line">hexo n &quot;$name&quot;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> open post</span></span><br><span class="line">name=$(echo $name|sed &quot;s/ /-/g&quot;) # replace space with short dash</span><br><span class="line">open $&#x27;./source/_posts/&#x27;$name$&#x27;.md&#x27; # open markdown file</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li><code>deploy.sh</code></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/zsh</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo clean</span><br><span class="line">hexo d</span><br><span class="line">clear</span><br><span class="line">echo &quot;Blog depolyment done! Let&#x27;s post more! 🎉🎉🎉&quot;</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -1615,43 +1597,74 @@ R^{n*n}\)</span>，Hessian矩阵大小为参数的平方。</li>
       </categories>
   </entry>
   <entry>
-    <title>C++ Coding Style</title>
-    <url>/2022/07/14/C-Coding-Style/</url>
-    <content><![CDATA[<h1 id="cpplint">cpplint</h1>
-<p><code>cpplint</code> is a static code checker for C++, following
-Google C++ styles.</p>
-<p>– check code format</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install cpplint</span><br><span class="line">cpplint.py --verbose=3 test.cpp <span class="comment"># only consider warning level &gt; 3</span></span><br></pre></td></tr></table></figure>
-<p><a href="https://github.com/google/styleguide">C++ code style</a></p>
-]]></content>
-      <categories>
-        <category>Coding</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to get matrix transform in python</title>
-    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
-    <content><![CDATA[<p>Here is a special trick:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to install Scipy in Apple silicon 2021.11.4</title>
-    <url>/2021/11/04/How-to-install-Scipy-in-Apple-silicon-2021-11-4/</url>
-    <content><![CDATA[<p>The simplest way is</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pip install --pre -i https://pypi.anaconda.org/scipy-wheels-nightly/simple scipy</span><br></pre></td></tr></table></figure>
-<p>However it is just a preview version of spicy, remember to updata it
-afterwrds.</p>
+    <title>Hexo Migration</title>
+    <url>/2022/07/14/Hexo-Migration/</url>
+    <content><![CDATA[<h1 id="hexo-migration-apple-silicon">Hexo Migration (Apple
+Silicon)</h1>
+<ol type="1">
+<li><p>Config Git</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name liwuchen</span><br><span class="line">git config user.email liwch@shanghaitech.edu.cn</span><br><span class="line">git config -l # list git config</span><br><span class="line">ssh-keygen -t rsa -C &quot;liwch@shanghaitech.edu.cn&quot;</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>Copy rsa public key to GitHub-&gt;Settings-&gt;SSH and GPG
+keys.</p></li>
+<li><p>Install <a href="https://nodejs.org/">Nodejs</a></p>
+<ol type="1">
+<li>In China, you may consider install cnpm
+<code>sudo npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+<li>In the following steps, I will use <code>cnpm</code>, same for
+<code>npm</code>.<span id="more"></span></li>
+</ol></li>
+<li><p>Install hexo with <code>npm</code>
+<code>cnpm install -g hexo-cli</code></p></li>
+<li><p>Install deployment plugin
+<code>cnpm install --save hexo-deployer-git</code></p></li>
+<li><p>Install <a href="https://brew.sh">Homebrew</a></p>
+<ol type="1">
+<li>In China, you may consider
+<code>/bin/zsh -c "$(curl -fsSL     https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"</code></li>
+</ol></li>
+<li><p>Math equation rendering</p>
+<ol type="1">
+<li><p>Install <code>pandoc</code> <code>brew install pandoc</code></p>
+<ol type="1">
+<li><p>If <code>Error: Command failed with exit 128: git</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-core</span><br><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-cask</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>Uninstall <code>hexo-renderer-marked</code>
+<code>npm uninstall hexo-renderer-marked --save</code></p></li>
+<li><p>Install <code>hexo-renderer-pandoc</code>
+<code>npm install hexo-renderer-pandoc</code></p></li>
+</ol></li>
+<li><p>Done! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉</p></li>
+<li><p><code>hexo clean; hexo g; hexo d</code></p></li>
+<li><p>Here is two shell scripts for you</p>
+<ol type="1">
+<li><code>blog.sh</code></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/zsh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">read</span> input</span> </span><br><span class="line">name=$&#x27;&#x27;</span><br><span class="line">filename=$&#x27;&#x27;</span><br><span class="line">for arg in &quot;$*&quot;</span><br><span class="line">  do</span><br><span class="line">    name=$s$arg</span><br><span class="line">  done</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> create new post</span></span><br><span class="line">hexo n &quot;$name&quot;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> open post</span></span><br><span class="line">name=$(echo $name|sed &quot;s/ /-/g&quot;) # replace space with short dash</span><br><span class="line">open $&#x27;./source/_posts/&#x27;$name$&#x27;.md&#x27; # open markdown file</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li><code>deploy.sh</code></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/zsh</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo clean</span><br><span class="line">hexo d</span><br><span class="line">clear</span><br><span class="line">echo &quot;Blog depolyment done! Let&#x27;s post more! 🎉🎉🎉&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
+  </entry>
+  <entry>
+    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
+    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
+    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor
+brightness.</p>
+<p>Try <code>nvidia-settings</code> in terminal, then:</p>
+<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
   </entry>
   <entry>
     <title>How to generate random number via C++ (srand version)</title>
@@ -1667,18 +1680,16 @@ afterwrds.</p>
       </tags>
   </entry>
   <entry>
-    <title>How to adjust monitor brightness on Ubuntu20+Nvidia</title>
-    <url>/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/</url>
-    <content><![CDATA[<p>In Ubuntu 20, you can not find a visual interface to adjust monitor
-brightness.</p>
-<p>Try <code>nvidia-settings</code> in terminal, then:</p>
-<p><img src="/2021/03/02/How-to-adjust-monitor-brightness-on-Ubuntu20-Nvidia/1.jpeg" alt="1" style="zoom:50%;"></p>
+    <title>How to get matrix transform in python</title>
+    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
+    <content><![CDATA[<p>Here is a special trick:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Configuration</category>
+        <category>Learning</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -1715,6 +1726,18 @@ environemnt)</li>
 <li><code>pip install labelme</code></li>
 <li>when everything is done, <code>labelme</code> to use it.</li>
 </ol>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to install Scipy in Apple silicon 2021.11.4</title>
+    <url>/2021/11/04/How-to-install-Scipy-in-Apple-silicon-2021-11-4/</url>
+    <content><![CDATA[<p>The simplest way is</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pip install --pre -i https://pypi.anaconda.org/scipy-wheels-nightly/simple scipy</span><br></pre></td></tr></table></figure>
+<p>However it is just a preview version of spicy, remember to updata it
+afterwrds.</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -1907,27 +1930,6 @@ note: if the status is pending, try change the parameter of
       </categories>
   </entry>
   <entry>
-    <title>Jupyter Notebook Installtion</title>
-    <url>/2021/10/09/Jupyter-Notebook-Installtion/</url>
-    <content><![CDATA[<ol type="1">
-<li><p><code>conda create -n &lt;env_name&gt; &lt;python=3.9&gt;</code></p></li>
-<li><p><code>conda install jupyter notebook</code></p></li>
-<li><p><code>pip install jupyter_contrib_nbextensions</code>,
-<code>jupyter contrib nbextension install --user</code>,
-<code>pip install jupyter_nbextensions_configurator</code>,
-<code>jupyter nbextensions_configurator enable --user</code></p></li>
-<li><p>open <code>jupyter notebook</code>-&gt;Nbextension-&gt;Hinterland
-(enable this button)</p></li>
-<li><p><code>conda install nb_conda_kernels</code></p>
-<p>with this package, you are able to select your own conda environment
-in notebook.</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Introduction to Docker</title>
     <url>/2022/07/14/Introduction-to-Docker/</url>
     <content><![CDATA[<h1 id="docker">Docker</h1>
@@ -2112,20 +2114,24 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
-    <title>Logistic Regression</title>
-    <url>/2021/11/02/Logistic-Regression/</url>
-    <content><![CDATA[<p>方法1:opencv</p>
-<p>opencv可以通过一些操作（主要通过canny和扩张腐蚀）得到特定的轮廓</p>
-<p>但是实际操作下来感觉非常依赖参数的调整和图像预处理，很不稳定，并且道路本身的一些特征（如道路接缝）也会被检测</p>
-<p>方法2:deeplearning</p>
-<p>由于Road Damage
-Detection是一个在深度学习领域很成熟的话题。我直接搜索了相关的竞赛。</p>
-<p>目前排名较高的均为使用YOLO实现，我自己也进行了尝试（YOLO
-v5）但是效果很不理想，几乎检测不到。</p>
-<p>这个领域我还没有深入探索。但是如果我们没有对检测速度很高要求的话，使用maskRCNN或许是更加适合的方案。</p>
+    <title>Jupyter Notebook Installtion</title>
+    <url>/2021/10/09/Jupyter-Notebook-Installtion/</url>
+    <content><![CDATA[<ol type="1">
+<li><p><code>conda create -n &lt;env_name&gt; &lt;python=3.9&gt;</code></p></li>
+<li><p><code>conda install jupyter notebook</code></p></li>
+<li><p><code>pip install jupyter_contrib_nbextensions</code>,
+<code>jupyter contrib nbextension install --user</code>,
+<code>pip install jupyter_nbextensions_configurator</code>,
+<code>jupyter nbextensions_configurator enable --user</code></p></li>
+<li><p>open <code>jupyter notebook</code>-&gt;Nbextension-&gt;Hinterland
+(enable this button)</p></li>
+<li><p><code>conda install nb_conda_kernels</code></p>
+<p>with this package, you are able to select your own conda environment
+in notebook.</p></li>
+</ol>
 ]]></content>
       <categories>
-        <category>Machine Learning</category>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -2188,9 +2194,42 @@ to exit.</p></li>
       </categories>
   </entry>
   <entry>
+    <title>Logistic Regression</title>
+    <url>/2021/11/02/Logistic-Regression/</url>
+    <content><![CDATA[<p>方法1:opencv</p>
+<p>opencv可以通过一些操作（主要通过canny和扩张腐蚀）得到特定的轮廓</p>
+<p>但是实际操作下来感觉非常依赖参数的调整和图像预处理，很不稳定，并且道路本身的一些特征（如道路接缝）也会被检测</p>
+<p>方法2:deeplearning</p>
+<p>由于Road Damage
+Detection是一个在深度学习领域很成熟的话题。我直接搜索了相关的竞赛。</p>
+<p>目前排名较高的均为使用YOLO实现，我自己也进行了尝试（YOLO
+v5）但是效果很不理想，几乎检测不到。</p>
+<p>这个领域我还没有深入探索。但是如果我们没有对检测速度很高要求的话，使用maskRCNN或许是更加适合的方案。</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
     <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
     <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MacBook 软件配置</title>
+    <url>/2022/01/23/MacBook-%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>Apps:</p>
+<p>Network Monitor, VPN, The Unarchiver, 迅雷, IINA, Keynotes, Pages,
+GoodNotes, Words, Excel, Typora, Final Cut Pro X, Steam, Chrome, QQ,
+Notion, AltServer, Microsoft Remote Desktop, VScode, Developer,
+Xcode</p>
+<p>Development:</p>
+<p>Conda, Hexo, oh-my-zsh, vim color scheme, homebrew, clang</p>
+<p>PyTorch, tensorflow-apple</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -2231,20 +2270,6 @@ to exit.</p></li>
       </tags>
   </entry>
   <entry>
-    <title>Markdown在github上公式显示错误</title>
-    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _
-后加空格，如<span class="math inline">\(a_
-1\)</span>应写为<code>a_ 1</code></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>My Donut in Blender</title>
     <url>/2020/08/20/My-Donut-in-Blender/</url>
     <content><![CDATA[<p>OHHHHHHH，终于完成了Blender里的Donut。真的能学的很多，不过说实话这种技术活得练，不然很快就要忘记了orz。</p>
@@ -2279,19 +2304,34 @@ to exit.</p></li>
       </categories>
   </entry>
   <entry>
-    <title>MacBook 软件配置</title>
-    <url>/2022/01/23/MacBook-%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>Apps:</p>
-<p>Network Monitor, VPN, The Unarchiver, 迅雷, IINA, Keynotes, Pages,
-GoodNotes, Words, Excel, Typora, Final Cut Pro X, Steam, Chrome, QQ,
-Notion, AltServer, Microsoft Remote Desktop, VScode, Developer,
-Xcode</p>
-<p>Development:</p>
-<p>Conda, Hexo, oh-my-zsh, vim color scheme, homebrew, clang</p>
-<p>PyTorch, tensorflow-apple</p>
+    <title>Markdown在github上公式显示错误</title>
+    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _
+后加空格，如<span class="math inline">\(a_
+1\)</span>应写为<code>a_ 1</code></p>
 ]]></content>
       <categories>
         <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NPR Cup--a taste to NPR</title>
+    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
+    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果">
+<figcaption aria-hidden="true">简单的一个效果</figcaption>
+</figure>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了">
+<figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Rendering</category>
       </categories>
   </entry>
   <entry>
@@ -2309,23 +2349,6 @@ be noticed.</p>
 ]]></content>
       <categories>
         <category>Python</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>NPR Cup--a taste to NPR</title>
-    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
-    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果">
-<figcaption aria-hidden="true">简单的一个效果</figcaption>
-</figure>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了">
-<figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Rendering</category>
       </categories>
   </entry>
   <entry>
@@ -2402,17 +2425,6 @@ choose to disable it on your own will.</p></li>
       </categories>
   </entry>
   <entry>
-    <title>Path to Game Developer</title>
-    <url>/2022/07/15/Path-to-Game-Developer/</url>
-    <content><![CDATA[<ul>
-<li>[ ]</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>PDF &amp; CDF</title>
     <url>/2021/02/24/PDF_CDF/</url>
     <content><![CDATA[<p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。
@@ -2456,6 +2468,16 @@ Component？</h2>
       <tags>
         <tag>PCA</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Python argparse</title>
+    <url>/2022/04/03/Python-argparse/</url>
+    <content><![CDATA[<p>This is a template of <code>argparse</code>.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&quot;description of this script&quot;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--parameter&#x27;</span>,<span class="string">&#x27;-p&#x27;</span>,<span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="string">&#x27;1&#x27;</span>, <span class="built_in">help</span>=<span class="string">&#x27;epoch&#x27;</span>)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">parameter = args.parameter</span><br><span class="line"><span class="built_in">print</span>(parameter)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
   </entry>
   <entry>
     <title>PySpark Install</title>
@@ -2506,6 +2528,59 @@ set</h3>
 ]]></content>
       <categories>
         <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Python technique</title>
+    <url>/2020/06/06/Python-technique/</url>
+    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking
+or dynamic programing:</p>
+<p>cause it will avoid reuse of data and reach good performance</p>
+<hr>
+<p>how to create a vector</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
+<p>Directly read/ wirte is quite different from
+<code>append()</code></p>
+<p><code>append()</code> will treat elements as data, which is more
+flexible</p>
+<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned
+vector</p>
+<span id="more"></span>
+<hr>
+<p>spilt part of string</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>init a vector:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
+<p>vector is a row*column size vector with all entries initialized by
+a.</p>
+<p>note <code>a</code> is just a value and can be anything you wang.
+<code>i</code> is just an iterator, even can use <code>_</code></p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pytorch Tips</title>
+    <url>/2022/07/14/Pytorch-Tips/</url>
+    <content><![CDATA[<h1 id="pytorch-tips">Pytorch Tips</h1>
+<p>Here is some tips for pytorch1.x.</p>
+<h4 id="tensor">tensor</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1</span>]).dtype</span><br><span class="line">torch.int64</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1</span>], dtype=torch.float32).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1.</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.Tensor([<span class="number">1</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="literal">True</span>]).dtype</span><br><span class="line">torch.<span class="built_in">bool</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.Tensor([<span class="literal">True</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>exit()</span><br></pre></td></tr></table></figure>
+<p>note: torch.tensor will auto guess the type; torch.Tensor is same
+with dtype=float32<span id="more"></span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = torch.tensor([<span class="number">1</span>])</span><br><span class="line"><span class="comment"># convert a scale in tensor to int</span></span><br><span class="line">x = x.item() <span class="comment"># x = (int)1</span></span><br></pre></td></tr></table></figure>
+<p>sort tensor and reverse sort</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># sort</span></span><br><span class="line">x = torch.tensor([<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>])</span><br><span class="line">sorted_x, sort_index = x.sort(dim=<span class="number">0</span>, descending=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># sort_index is actually the result of x.argsort(dim=0)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># reverse sort</span></span><br><span class="line">original_x = sorted_x.gather(dim=<span class="number">0</span>, index=sort_index.argsort(dim=<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+<p>you can also use <code>.index_select()</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># the following part is a special case</span></span><br><span class="line">data = [</span><br><span class="line">    torch.Tensor([[<span class="number">11</span>,<span class="number">12</span>],[<span class="number">13</span>,<span class="number">14</span>],[<span class="number">15</span>,<span class="number">16</span>],[<span class="number">17</span>,<span class="number">18</span>]]),</span><br><span class="line">    torch.Tensor([[<span class="number">19</span>,<span class="number">20</span>],[<span class="number">21</span>,<span class="number">22</span>],[<span class="number">23</span>,<span class="number">24</span>]]),</span><br><span class="line">    torch.Tensor([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">10</span>]])</span><br><span class="line">]</span><br><span class="line"><span class="comment"># get the length</span></span><br><span class="line">seq_len = torch.tensor([s.size(<span class="number">0</span>) <span class="keyword">for</span> s <span class="keyword">in</span> data], dtype=torch.<span class="built_in">int</span>)</span><br><span class="line"><span class="comment"># sort based on the lenght</span></span><br><span class="line">seq_len, sorting_index = seq_len.sort(<span class="number">0</span>, descending=<span class="literal">True</span>)</span><br><span class="line">data.sort(key=<span class="keyword">lambda</span> x: <span class="built_in">len</span>(x), reverse=<span class="literal">True</span>)</span><br><span class="line">data = torch.cat(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># data is then padded</span></span><br><span class="line">output = torch.Tensor([</span><br><span class="line">    [[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">10</span>]],</span><br><span class="line">    [[<span class="number">11</span>,<span class="number">12</span>],[<span class="number">13</span>,<span class="number">14</span>],[<span class="number">15</span>,<span class="number">16</span>],[<span class="number">17</span>,<span class="number">18</span>],[<span class="number">0</span>,<span class="number">0</span>]],</span><br><span class="line">    [[<span class="number">19</span>,<span class="number">20</span>],[<span class="number">21</span>,<span class="number">22</span>],[<span class="number">23</span>,<span class="number">24</span>],[<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>]]</span><br><span class="line">])</span><br><span class="line"><span class="comment"># reverse sorting, with padding</span></span><br><span class="line">unsorted_data = output.index_select(<span class="number">0</span>, sorting_index.argsort(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
       </categories>
   </entry>
   <entry>
@@ -2593,16 +2668,6 @@ norm的计算为<strong><u>NP-hard</u></strong>问题。这一点上我没有找
       </categories>
   </entry>
   <entry>
-    <title>Python argparse</title>
-    <url>/2022/04/03/Python-argparse/</url>
-    <content><![CDATA[<p>This is a template of <code>argparse</code>.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&quot;description of this script&quot;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--parameter&#x27;</span>,<span class="string">&#x27;-p&#x27;</span>,<span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="string">&#x27;1&#x27;</span>, <span class="built_in">help</span>=<span class="string">&#x27;epoch&#x27;</span>)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">parameter = args.parameter</span><br><span class="line"><span class="built_in">print</span>(parameter)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-  </entry>
-  <entry>
     <title>SVM(Support Vector Machine)</title>
     <url>/2021/05/25/SVM-Support-Vector-Machine/</url>
     <content><![CDATA[<h2 id="margin">Margin</h2>
@@ -2662,69 +2727,6 @@ replace <span class="math inline">\((X_i\cdot X_j)\)</span>.</p>
       <tags>
         <tag>SVM</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Show progress bar in jupyter notebook</title>
-    <url>/2022/04/20/Show-progress-bar-in-jupyter-notebook/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">range</span>(<span class="number">10</span>), ncols=<span class="number">10</span>):</span><br><span class="line">  <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">  Your code here.</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-<p><code>ncols</code> will determine the length of process bar.</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Python technique</title>
-    <url>/2020/06/06/Python-technique/</url>
-    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking
-or dynamic programing:</p>
-<p>cause it will avoid reuse of data and reach good performance</p>
-<hr>
-<p>how to create a vector</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
-<p>Directly read/ wirte is quite different from
-<code>append()</code></p>
-<p><code>append()</code> will treat elements as data, which is more
-flexible</p>
-<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned
-vector</p>
-<span id="more"></span>
-<hr>
-<p>spilt part of string</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>init a vector:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
-<p>vector is a row*column size vector with all entries initialized by
-a.</p>
-<p>note <code>a</code> is just a value and can be anything you wang.
-<code>i</code> is just an iterator, even can use <code>_</code></p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Pytorch Tips</title>
-    <url>/2022/07/14/Pytorch-Tips/</url>
-    <content><![CDATA[<h1 id="pytorch-tips">Pytorch Tips</h1>
-<p>Here is some tips for pytorch1.x.</p>
-<h4 id="tensor">tensor</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1</span>]).dtype</span><br><span class="line">torch.int64</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1</span>], dtype=torch.float32).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1.</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.Tensor([<span class="number">1</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="literal">True</span>]).dtype</span><br><span class="line">torch.<span class="built_in">bool</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.Tensor([<span class="literal">True</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>exit()</span><br></pre></td></tr></table></figure>
-<p>note: torch.tensor will auto guess the type; torch.Tensor is same
-with dtype=float32<span id="more"></span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = torch.tensor([<span class="number">1</span>])</span><br><span class="line"><span class="comment"># convert a scale in tensor to int</span></span><br><span class="line">x = x.item() <span class="comment"># x = (int)1</span></span><br></pre></td></tr></table></figure>
-<p>sort tensor and reverse sort</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># sort</span></span><br><span class="line">x = torch.tensor([<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>])</span><br><span class="line">sorted_x, sort_index = x.sort(dim=<span class="number">0</span>, descending=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># sort_index is actually the result of x.argsort(dim=0)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># reverse sort</span></span><br><span class="line">original_x = sorted_x.gather(dim=<span class="number">0</span>, index=sort_index.argsort(dim=<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
-<p>you can also use <code>.index_select()</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># the following part is a special case</span></span><br><span class="line">data = [</span><br><span class="line">    torch.Tensor([[<span class="number">11</span>,<span class="number">12</span>],[<span class="number">13</span>,<span class="number">14</span>],[<span class="number">15</span>,<span class="number">16</span>],[<span class="number">17</span>,<span class="number">18</span>]]),</span><br><span class="line">    torch.Tensor([[<span class="number">19</span>,<span class="number">20</span>],[<span class="number">21</span>,<span class="number">22</span>],[<span class="number">23</span>,<span class="number">24</span>]]),</span><br><span class="line">    torch.Tensor([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">10</span>]])</span><br><span class="line">]</span><br><span class="line"><span class="comment"># get the length</span></span><br><span class="line">seq_len = torch.tensor([s.size(<span class="number">0</span>) <span class="keyword">for</span> s <span class="keyword">in</span> data], dtype=torch.<span class="built_in">int</span>)</span><br><span class="line"><span class="comment"># sort based on the lenght</span></span><br><span class="line">seq_len, sorting_index = seq_len.sort(<span class="number">0</span>, descending=<span class="literal">True</span>)</span><br><span class="line">data.sort(key=<span class="keyword">lambda</span> x: <span class="built_in">len</span>(x), reverse=<span class="literal">True</span>)</span><br><span class="line">data = torch.cat(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># data is then padded</span></span><br><span class="line">output = torch.Tensor([</span><br><span class="line">    [[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">10</span>]],</span><br><span class="line">    [[<span class="number">11</span>,<span class="number">12</span>],[<span class="number">13</span>,<span class="number">14</span>],[<span class="number">15</span>,<span class="number">16</span>],[<span class="number">17</span>,<span class="number">18</span>],[<span class="number">0</span>,<span class="number">0</span>]],</span><br><span class="line">    [[<span class="number">19</span>,<span class="number">20</span>],[<span class="number">21</span>,<span class="number">22</span>],[<span class="number">23</span>,<span class="number">24</span>],[<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>]]</span><br><span class="line">])</span><br><span class="line"><span class="comment"># reverse sorting, with padding</span></span><br><span class="line">unsorted_data = output.index_select(<span class="number">0</span>, sorting_index.argsort(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
   </entry>
   <entry>
     <title>Social LSTM</title>
@@ -2812,36 +2814,133 @@ _o*D\)</span>大小。</p>
       </categories>
   </entry>
   <entry>
-    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
-    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
-    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
-<p>Literally, it is a <code>const iterator</code>, which means:
-iterator, as a pointer, can not be modified, but the value pointed by
-this iterator is permitted to be modified.</p>
-<h1 id="const_iterator">const_iterator</h1>
-<p><code>const_iterator</code>is a specially defined class. It is
-defined to go through a const container, which we are not intended to
-modify.</p>
+    <title>TOEFL Listening</title>
+    <url>/2021/10/18/TOEFL-Listening/</url>
+    <content><![CDATA[<h3 id="tpo20">TPO20</h3>
+<h4 id="set1">Set1</h4>
+<p>Listen to a conversation between a student and a library employee.
+Excuse me, I received a letter that I am supposed to return the book
+that I checked out back in September. It is called Modern social
+problems. But I am writing my senior thesis. So I thought I was allowed
+to keep the book for the whole academic year. So you signed up for
+‘extended borrowing <strong>privileges</strong>’. And we are still
+asking you to bring this book back? You can keep it all year as long as
+no one else request it. But some one else has, it looks like one of the
+professors in sociology department, so you have to bring it back. You
+can check it out again when it is returned in a couple of weeks. So what
+if the person renews it and I really need it right now. Is there a
+certain section or chapter you are working with? There is one chapter I
+am particular working with. Because of the circumstances, we can
+photocopy up to one chapter of the book for you. Why do not you do that
+for the one you are working with right now. By the time you need the
+rest of the book, maybe it will have been returned. Is it okay if I
+bring that by in a couple of days? Actually the due day is tomorrow.
+After that, there will be a two-dollar per day fine. But you need to
+return it today if you want to check out any books today. That’s out
+policy. No a lot of people realize that. In fact, every semester we get
+a few students who have had their borrowing privileges suspended
+completed because they haven’t return books. They are allowed to use
+books only in the library. They are not allowed to check anything out
+because of unreturned books. That is not good. I guess I should head
+back down to the dorm room right now. Before you go what you should do
+is fill out a form requesting the book back in two weeks. Then the
+person who requested it won’t be able to renew it, and you will get it
+back quickly.</p>
+<span id="more"></span>
+<h4 id="set2">Set2</h4>
+<p>Listen to part of the lecture in a linguistic class. Okay the
+conventions or assumptions that govern the conversation. These may vary
+from one culture to another. But basically for people who communicate,
+they have to follow certain rules. If I am talking with you and I start
+saying things that are not true. If you cannot tell when I am lying and
+when I am telling the truth. We are not going to have a very
+satisfactory conversation, aren’t we. Why, because it violates one of
+the ‘Gricean maxims’. That is a set of rules or maxims a philosopher
+named P.H Grice <strong>came up with</strong>(提出) in the 1970s. One of
+thes Gricean maxims is ... I've already given you a hint. You just can't
+go around telling lies. Or <strong>as Grice put it</strong>, do not say
+what you believe to be false. That is one of Grice's maxims of quality,
+as he called it. So that is pretty obvious, but there are others that
+are just as important. Supposed you were to ask me what time it was and
+I replied, 'My sister just got married'. No I am not, am I. There is no
+connection at all which feels wrong because you generally expect to find
+one. So one important maxim is simply 'be relevant'. And using this
+so-call maxim of relevance we can infer things as well or rather the
+speaker can imply things an speakers can make inferences. For instance,
+suppose you said you'd really love to have a cup of coffee right now.
+And I said, there a shop around the corner. Well that shop sells coffee
+<strong>for one thing</strong>(一来，首先是). Right, and I believe it is
+open now. Because if I am not implying those things my answer would not
+be relevant. It'd have no connection with what you said before. But
+according to the maxim my response should be relevant to your statement
+meaning 'We should assume some connection between the statement and the
+response'. And this maxim of relevance is quite efficient to use, even
+if I do not <strong>spell out</strong>(拼写，讲清楚) all the details
+details you can still make some useful logical inferences
+<strong>namely</strong>(也就是，即) ‘the shop is open’ and 'it sells
+coffee'. If we actually had to explain all these details, conversations
+would move along pretty slowly, wouldn't they? Then there is the maxims
+of manner including things like 'be clear' and 'avoid ambiguity'. And
+another, more interesting maxim is one of the so-call maxim of quantity,
+quantity of the information, that is. It says to give as much
+information as is required in the situation. So suppoes if you ask me
+what I did yesterday and I said, 'I went to the art museum'. You would
+likely to infer that I saw some works of art. Suppose though that I
+didnot go inside the museum, I just <strong>walked up to</strong>(走进)
+it and left. Then I've violated the quantity maxim by not giving enough
+information. So you can see how important implications are to our
+ability to <strong>carry on</strong>(继续、坚持) a concersation. But
+there are times that people will violate these maxims on purpose. Let's
+say a boss is asked to write a letter of recommendation for a former
+employee seeking engineering job. The letter he writes is quite brief,
+something like Mr.X is polite always dressed neatly. So what does this
+really mean? By not mentioning any important qualities related to the
+job. The boss is implying that this is the best that can be said about
+Mr. X that he is really not qualified. It is a written letter not a
+conversation. But the principle is the same. The boss is conveying a
+negative impression about Mr. X without actually saying anything
+negative about him. So by violating the maxim, it can be a way to be
+<strong>subtle</strong>(不易察觉的), or polite or to convey humor
+through <strong>sarcasm</strong>(讽刺) or irony. Somtimes though, people
+will violate maxims for another purpose--to deceive. Now can you imagine
+who might do such a thing. Some politicians? Or advertisers? Anyone who
+may see an advantage in implying certain things that are untrue without
+explicitly saying something untrue. They think, do not blame us if our
+audiance happens to draw inferences that are simply not true. So next
+time, you see adertisement saying some product could be up to 20% more
+effective, think of these maxims of quantity and relevance and ask
+yourself what inferences you are being led to draw. Think 'more
+effective' than what exactly and why did they use these little phrases
+'could be' and 'up to'. These claims give us a lot less information than
+they seem to.</p>
+<h4 id="set3">Set3</h4>
+<p>Let's take you back about 11 thousand years ago when earth entered
+the latest interglacial period. Interglacial periods are typically
+periods of time between ice ages when the climate warms and glical ice
+<strong>retreats</strong>(撤退、收缩) for a time before things cool off
+again and other ice age begins. And for over the past several million
+year, earth sort of default climate has actually been ice age. But we
+have experienced periodic, regular <strong>thaws</strong>(解冻时期) and
+the last one, the one we are in now, started about 11,000 years ago. Now
+the typically pattern for an interglacial period, and we have studied
+several, is that the concentration of carbon dioxid and
+<strong>methane</strong>(甲烷) gas actually reaches its peak that is
+there is the most carbon dioxid and methane gas, greenhouse gas, in the
+atmosphere just after the beginning of the interglacial period. And then
+for reasons which are not entirely clear, the concentration of
+greenhouse gases gradually goes down. Now the climate continues to warm
+for a while because there is a lag effect, but gradually as the
+concentration of greenhouse gases goes down earth starts to cool again
+and eventually you slip back to an ice age. However for the latest
+interglacial period, the one we are in now, this pattern did not hold.
+That is the concentration of carbon dioxide
+<strong>dipped</strong>(蘸；下降) a little bit after
+<strong>peaking</strong>(vi. 达到最高值) at the beginning near the
+beginning of interglacial period but then it began to rise again.</p>
 ]]></content>
       <categories>
-        <category>Learning</category>
+        <category>TOEFL</category>
       </categories>
-  </entry>
-  <entry>
-    <title>TODO</title>
-    <url>/2022/07/15/TODO/</url>
-    <content><![CDATA[<p>Some topics I want to discuss.</p>
-<ul class="task-list">
-<li><input type="checkbox" disabled>
-cosine distance</li>
-<li><input type="checkbox" disabled>
-pearson correlation</li>
-<li><input type="checkbox" disabled>
-self-attention</li>
-<li><input type="checkbox" disabled>
-git rebase</li>
-</ul>
-]]></content>
   </entry>
   <entry>
     <title>Sort Algorithms</title>
@@ -3228,135 +3327,6 @@ stable)!</p>
       </categories>
   </entry>
   <entry>
-    <title>TOEFL Listening</title>
-    <url>/2021/10/18/TOEFL-Listening/</url>
-    <content><![CDATA[<h3 id="tpo20">TPO20</h3>
-<h4 id="set1">Set1</h4>
-<p>Listen to a conversation between a student and a library employee.
-Excuse me, I received a letter that I am supposed to return the book
-that I checked out back in September. It is called Modern social
-problems. But I am writing my senior thesis. So I thought I was allowed
-to keep the book for the whole academic year. So you signed up for
-‘extended borrowing <strong>privileges</strong>’. And we are still
-asking you to bring this book back? You can keep it all year as long as
-no one else request it. But some one else has, it looks like one of the
-professors in sociology department, so you have to bring it back. You
-can check it out again when it is returned in a couple of weeks. So what
-if the person renews it and I really need it right now. Is there a
-certain section or chapter you are working with? There is one chapter I
-am particular working with. Because of the circumstances, we can
-photocopy up to one chapter of the book for you. Why do not you do that
-for the one you are working with right now. By the time you need the
-rest of the book, maybe it will have been returned. Is it okay if I
-bring that by in a couple of days? Actually the due day is tomorrow.
-After that, there will be a two-dollar per day fine. But you need to
-return it today if you want to check out any books today. That’s out
-policy. No a lot of people realize that. In fact, every semester we get
-a few students who have had their borrowing privileges suspended
-completed because they haven’t return books. They are allowed to use
-books only in the library. They are not allowed to check anything out
-because of unreturned books. That is not good. I guess I should head
-back down to the dorm room right now. Before you go what you should do
-is fill out a form requesting the book back in two weeks. Then the
-person who requested it won’t be able to renew it, and you will get it
-back quickly.</p>
-<span id="more"></span>
-<h4 id="set2">Set2</h4>
-<p>Listen to part of the lecture in a linguistic class. Okay the
-conventions or assumptions that govern the conversation. These may vary
-from one culture to another. But basically for people who communicate,
-they have to follow certain rules. If I am talking with you and I start
-saying things that are not true. If you cannot tell when I am lying and
-when I am telling the truth. We are not going to have a very
-satisfactory conversation, aren’t we. Why, because it violates one of
-the ‘Gricean maxims’. That is a set of rules or maxims a philosopher
-named P.H Grice <strong>came up with</strong>(提出) in the 1970s. One of
-thes Gricean maxims is ... I've already given you a hint. You just can't
-go around telling lies. Or <strong>as Grice put it</strong>, do not say
-what you believe to be false. That is one of Grice's maxims of quality,
-as he called it. So that is pretty obvious, but there are others that
-are just as important. Supposed you were to ask me what time it was and
-I replied, 'My sister just got married'. No I am not, am I. There is no
-connection at all which feels wrong because you generally expect to find
-one. So one important maxim is simply 'be relevant'. And using this
-so-call maxim of relevance we can infer things as well or rather the
-speaker can imply things an speakers can make inferences. For instance,
-suppose you said you'd really love to have a cup of coffee right now.
-And I said, there a shop around the corner. Well that shop sells coffee
-<strong>for one thing</strong>(一来，首先是). Right, and I believe it is
-open now. Because if I am not implying those things my answer would not
-be relevant. It'd have no connection with what you said before. But
-according to the maxim my response should be relevant to your statement
-meaning 'We should assume some connection between the statement and the
-response'. And this maxim of relevance is quite efficient to use, even
-if I do not <strong>spell out</strong>(拼写，讲清楚) all the details
-details you can still make some useful logical inferences
-<strong>namely</strong>(也就是，即) ‘the shop is open’ and 'it sells
-coffee'. If we actually had to explain all these details, conversations
-would move along pretty slowly, wouldn't they? Then there is the maxims
-of manner including things like 'be clear' and 'avoid ambiguity'. And
-another, more interesting maxim is one of the so-call maxim of quantity,
-quantity of the information, that is. It says to give as much
-information as is required in the situation. So suppoes if you ask me
-what I did yesterday and I said, 'I went to the art museum'. You would
-likely to infer that I saw some works of art. Suppose though that I
-didnot go inside the museum, I just <strong>walked up to</strong>(走进)
-it and left. Then I've violated the quantity maxim by not giving enough
-information. So you can see how important implications are to our
-ability to <strong>carry on</strong>(继续、坚持) a concersation. But
-there are times that people will violate these maxims on purpose. Let's
-say a boss is asked to write a letter of recommendation for a former
-employee seeking engineering job. The letter he writes is quite brief,
-something like Mr.X is polite always dressed neatly. So what does this
-really mean? By not mentioning any important qualities related to the
-job. The boss is implying that this is the best that can be said about
-Mr. X that he is really not qualified. It is a written letter not a
-conversation. But the principle is the same. The boss is conveying a
-negative impression about Mr. X without actually saying anything
-negative about him. So by violating the maxim, it can be a way to be
-<strong>subtle</strong>(不易察觉的), or polite or to convey humor
-through <strong>sarcasm</strong>(讽刺) or irony. Somtimes though, people
-will violate maxims for another purpose--to deceive. Now can you imagine
-who might do such a thing. Some politicians? Or advertisers? Anyone who
-may see an advantage in implying certain things that are untrue without
-explicitly saying something untrue. They think, do not blame us if our
-audiance happens to draw inferences that are simply not true. So next
-time, you see adertisement saying some product could be up to 20% more
-effective, think of these maxims of quantity and relevance and ask
-yourself what inferences you are being led to draw. Think 'more
-effective' than what exactly and why did they use these little phrases
-'could be' and 'up to'. These claims give us a lot less information than
-they seem to.</p>
-<h4 id="set3">Set3</h4>
-<p>Let's take you back about 11 thousand years ago when earth entered
-the latest interglacial period. Interglacial periods are typically
-periods of time between ice ages when the climate warms and glical ice
-<strong>retreats</strong>(撤退、收缩) for a time before things cool off
-again and other ice age begins. And for over the past several million
-year, earth sort of default climate has actually been ice age. But we
-have experienced periodic, regular <strong>thaws</strong>(解冻时期) and
-the last one, the one we are in now, started about 11,000 years ago. Now
-the typically pattern for an interglacial period, and we have studied
-several, is that the concentration of carbon dioxid and
-<strong>methane</strong>(甲烷) gas actually reaches its peak that is
-there is the most carbon dioxid and methane gas, greenhouse gas, in the
-atmosphere just after the beginning of the interglacial period. And then
-for reasons which are not entirely clear, the concentration of
-greenhouse gases gradually goes down. Now the climate continues to warm
-for a while because there is a lag effect, but gradually as the
-concentration of greenhouse gases goes down earth starts to cool again
-and eventually you slip back to an ice age. However for the latest
-interglacial period, the one we are in now, this pattern did not hold.
-That is the concentration of carbon dioxide
-<strong>dipped</strong>(蘸；下降) a little bit after
-<strong>peaking</strong>(vi. 达到最高值) at the beginning near the
-beginning of interglacial period but then it began to rise again.</p>
-]]></content>
-      <categories>
-        <category>TOEFL</category>
-      </categories>
-  </entry>
-  <entry>
     <title>TOEFL Notes (based on TPO)</title>
     <url>/2021/10/07/TOEFL-Notes-based-on-TPO/</url>
     <content><![CDATA[<h3 id="tpo1-reading">TPO1 Reading</h3>
@@ -3453,6 +3423,26 @@ to dry out</li>
       </categories>
   </entry>
   <entry>
+    <title>Tensorflow Tips</title>
+    <url>/2022/07/14/Tensorflow-Tips/</url>
+    <content><![CDATA[<h1 id="tensorflow-tips">Tensorflow Tips</h1>
+<p>Here is some tips for tensorflow1.x.<span id="more"></span></p>
+<ol type="1">
+<li><p>print tensor</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.p = tf.Print(&lt;<span class="built_in">input</span> tensor&gt;, [<span class="string">&#x27;&lt;message&gt;&#x27;</span>, &lt;printed tensor&gt;], summarize=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">sess.run(model.p)</span><br></pre></td></tr></table></figure></li>
+<li><p>print model weight. find the corresponding op name in
+tensorboard</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">weight=tf.get_default_graph().get_tensor_by_name(<span class="string">&quot;&lt;operation name&gt;:0&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sess.run(weight))</span><br></pre></td></tr></table></figure></li>
+<li><p>print model weight. find the corresponding op name in
+tensorboard</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">weight=tf.get_default_graph().get_tensor_by_name(<span class="string">&quot;&lt;operation name&gt;:0&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sess.run(weight))</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Test Latex Formula</title>
     <url>/2021/09/15/Test-Latex-Formula/</url>
     <content><![CDATA[<p>This is an inline formula: <span class="math inline">\(x=7\)</span>.
@@ -3471,23 +3461,29 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
       </categories>
   </entry>
   <entry>
-    <title>Tensorflow Tips</title>
-    <url>/2022/07/14/Tensorflow-Tips/</url>
-    <content><![CDATA[<h1 id="tensorflow-tips">Tensorflow Tips</h1>
-<p>Here is some tips for tensorflow1.x.<span id="more"></span></p>
-<ol type="1">
-<li><p>print tensor</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.p = tf.Print(&lt;<span class="built_in">input</span> tensor&gt;, [<span class="string">&#x27;&lt;message&gt;&#x27;</span>, &lt;printed tensor&gt;], summarize=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">sess.run(model.p)</span><br></pre></td></tr></table></figure></li>
-<li><p>print model weight. find the corresponding op name in
-tensorboard</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">weight=tf.get_default_graph().get_tensor_by_name(<span class="string">&quot;&lt;operation name&gt;:0&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sess.run(weight))</span><br></pre></td></tr></table></figure></li>
-<li><p>print model weight. find the corresponding op name in
-tensorboard</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">weight=tf.get_default_graph().get_tensor_by_name(<span class="string">&quot;&lt;operation name&gt;:0&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sess.run(weight))</span><br></pre></td></tr></table></figure></li>
-</ol>
+    <title>Show progress bar in jupyter notebook</title>
+    <url>/2022/04/20/Show-progress-bar-in-jupyter-notebook/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">range</span>(<span class="number">10</span>), ncols=<span class="number">10</span>):</span><br><span class="line">  <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">  Your code here.</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>ncols</code> will determine the length of process bar.</p>
 ]]></content>
       <categories>
-        <category>Machine Learning</category>
+        <category>Python</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>STL iterator--Difference between &#39;const_iterator&#39; and &#39;const iterator&#39;</title>
+    <url>/2020/05/28/STL-iterator-Difference-between-const-iterator-and-const-iterator/</url>
+    <content><![CDATA[<h1 id="const-iterator">const iterator</h1>
+<p>Literally, it is a <code>const iterator</code>, which means:
+iterator, as a pointer, can not be modified, but the value pointed by
+this iterator is permitted to be modified.</p>
+<h1 id="const_iterator">const_iterator</h1>
+<p><code>const_iterator</code>is a specially defined class. It is
+defined to go through a const container, which we are not intended to
+modify.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
       </categories>
   </entry>
   <entry>
@@ -3517,23 +3513,6 @@ tensorboard</p>
       <categories>
         <category>Test</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Top K problems</title>
-    <url>/2022/05/03/Top-K-problems/</url>
-    <content><![CDATA[<h3 id="quick-sort">Quick Sort</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  pivot = nums[l]</span><br><span class="line">  i, j = l, r</span><br><span class="line">  <span class="keyword">while</span> i &lt; j:</span><br><span class="line">    <span class="comment"># find the first element smaller than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[j] &gt;= pivot:</span><br><span class="line">      j -= <span class="number">1</span></span><br><span class="line">    nums[i] = nums[j] <span class="comment"># put the smaller one to the left</span></span><br><span class="line">    <span class="comment"># find the first element larger than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[i] &lt;= pivot:</span><br><span class="line">      i += <span class="number">1</span></span><br><span class="line">    nums[j] = nums[i] <span class="comment"># put the larger one to the right</span></span><br><span class="line">  <span class="comment"># i == j, nums[i]=nums[j]&gt;pivot</span></span><br><span class="line">  nums[i] = pivot</span><br><span class="line"> 	<span class="comment"># return pivot index</span></span><br><span class="line">  <span class="keyword">return</span> i</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  <span class="keyword">if</span> l &lt; r:</span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">    quicksort(nums, l, mid - <span class="number">1</span>)</span><br><span class="line">    quicksort(nums, mid + <span class="number">1</span>, r)</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h3 id="quick-selection">Quick Selection</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># split data until the k_th pivot is selected</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">topk_split</span>(<span class="params">nums, k, l, r</span>)</span></span><br><span class="line"><span class="function">  <span class="title">if</span> <span class="title">l</span> &lt; <span class="title">r</span>:</span></span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">  	<span class="keyword">if</span> mid == k:</span><br><span class="line">      <span class="comment"># we have already get the k_th pivot</span></span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">   	<span class="keyword">elif</span> mid &lt; k:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the right side</span></span><br><span class="line">      topk_split(nums, k, mid + <span class="number">1</span>, r)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the left side</span></span><br><span class="line">      topk_split(nums, k, l, mid - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="get-the-k_th-element-incresing">Get the k_th element
-(incresing)</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topk_split(nums, k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[k-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
-<h4 id="get-the-k_th-element-decresing">Get the k_th element
-(decresing)</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topk_split(nums, <span class="built_in">len</span>(nums) - k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[-k]</span><br></pre></td></tr></table></figure>
-]]></content>
   </entry>
   <entry>
     <title>The basic concept of faster-RCNN</title>
@@ -3814,34 +3793,6 @@ loss（即rpn_loss_bbox层计算的soomth L1 loss，该loss中<span class="math 
       </tags>
   </entry>
   <entry>
-    <title>Use of &#39;numpy&#39; package in Python</title>
-    <url>/2020/09/27/Use-of-numpy-package-in-Python/</url>
-    <content><![CDATA[<h2 id="import">Import</h2>
-<p><code>import numpy</code> or <code>import numpy as np</code></p>
-<h2 id="feature">Feature</h2>
-<p>The key feature of numpy package is that it introduce a new data
-structure -- array</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">&gt;&gt;&gt;a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">a</span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">type</span>(a)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">numpy</span>.<span class="title">ndarray</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="propertities-of-array">Propertities of array</h4>
-<p>ndarray 的重要属性包括:</p>
-<ol type="1">
-<li>ndarray.ndim：数组的维数，也称为rank</li>
-<li>ndarray.shape：数组各维的大小，对一个n行m列的矩阵来说， shape 为
-(n,m)</li>
-<li>ndarray.size：元素的总数。</li>
-<li>ndarray.dtype：每个元素的类型，可以是numpy.int32, numpy.int16, and
-numpy.float64等</li>
-<li>ndarray.itemsize：每个元素占用的字节数。</li>
-<li>ndarray.data：指向数据内存。</li>
-</ol>
-<h2 id="more-details-similar-with-tensor">More details similar with
-tensor</h2>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Use of Tuple in Python</title>
     <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
     <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
@@ -3853,11 +3804,28 @@ tensor</h2>
       </categories>
   </entry>
   <entry>
+    <title>Top K problems</title>
+    <url>/2022/05/03/Top-K-problems/</url>
+    <content><![CDATA[<h3 id="quick-sort">Quick Sort</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  pivot = nums[l]</span><br><span class="line">  i, j = l, r</span><br><span class="line">  <span class="keyword">while</span> i &lt; j:</span><br><span class="line">    <span class="comment"># find the first element smaller than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[j] &gt;= pivot:</span><br><span class="line">      j -= <span class="number">1</span></span><br><span class="line">    nums[i] = nums[j] <span class="comment"># put the smaller one to the left</span></span><br><span class="line">    <span class="comment"># find the first element larger than pivot</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> nums[i] &lt;= pivot:</span><br><span class="line">      i += <span class="number">1</span></span><br><span class="line">    nums[j] = nums[i] <span class="comment"># put the larger one to the right</span></span><br><span class="line">  <span class="comment"># i == j, nums[i]=nums[j]&gt;pivot</span></span><br><span class="line">  nums[i] = pivot</span><br><span class="line"> 	<span class="comment"># return pivot index</span></span><br><span class="line">  <span class="keyword">return</span> i</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort</span>(<span class="params">nums, l, r</span>):</span></span><br><span class="line">  <span class="keyword">if</span> l &lt; r:</span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">    quicksort(nums, l, mid - <span class="number">1</span>)</span><br><span class="line">    quicksort(nums, mid + <span class="number">1</span>, r)</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="quick-selection">Quick Selection</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># split data until the k_th pivot is selected</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">topk_split</span>(<span class="params">nums, k, l, r</span>)</span></span><br><span class="line"><span class="function">  <span class="title">if</span> <span class="title">l</span> &lt; <span class="title">r</span>:</span></span><br><span class="line">    mid = partition(nums, l, r)</span><br><span class="line">  	<span class="keyword">if</span> mid == k:</span><br><span class="line">      <span class="comment"># we have already get the k_th pivot</span></span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">   	<span class="keyword">elif</span> mid &lt; k:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the right side</span></span><br><span class="line">      topk_split(nums, k, mid + <span class="number">1</span>, r)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="comment"># the k_th pivot is on the left side</span></span><br><span class="line">      topk_split(nums, k, l, mid - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="get-the-k_th-element-incresing">Get the k_th element
+(incresing)</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topk_split(nums, k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[k-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="get-the-k_th-element-decresing">Get the k_th element
+(decresing)</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topk_split(nums, <span class="built_in">len</span>(nums) - k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[-k]</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>Video test</title>
     <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-PZlxLbenHcxQnViD" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-PZlxLbenHcxQnViD").style.height=document.getElementById("mmedia-PZlxLbenHcxQnViD").scrollWidth*0.76+"px";
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-DtcGXNbIvsmwUMvj" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-DtcGXNbIvsmwUMvj").style.height=document.getElementById("mmedia-DtcGXNbIvsmwUMvj").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-PZlxLbenHcxQnViD").style.height=document.getElementById("mmedia-PZlxLbenHcxQnViD").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-DtcGXNbIvsmwUMvj").style.height=document.getElementById("mmedia-DtcGXNbIvsmwUMvj").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <colgroup>
@@ -3933,6 +3901,34 @@ tensor</h2>
       </categories>
   </entry>
   <entry>
+    <title>Use of &#39;numpy&#39; package in Python</title>
+    <url>/2020/09/27/Use-of-numpy-package-in-Python/</url>
+    <content><![CDATA[<h2 id="import">Import</h2>
+<p><code>import numpy</code> or <code>import numpy as np</code></p>
+<h2 id="feature">Feature</h2>
+<p>The key feature of numpy package is that it introduce a new data
+structure -- array</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">&gt;&gt;&gt;a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">a</span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">type</span>(a)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">numpy</span>.<span class="title">ndarray</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="propertities-of-array">Propertities of array</h4>
+<p>ndarray 的重要属性包括:</p>
+<ol type="1">
+<li>ndarray.ndim：数组的维数，也称为rank</li>
+<li>ndarray.shape：数组各维的大小，对一个n行m列的矩阵来说， shape 为
+(n,m)</li>
+<li>ndarray.size：元素的总数。</li>
+<li>ndarray.dtype：每个元素的类型，可以是numpy.int32, numpy.int16, and
+numpy.float64等</li>
+<li>ndarray.itemsize：每个元素占用的字节数。</li>
+<li>ndarray.data：指向数据内存。</li>
+</ol>
+<h2 id="more-details-similar-with-tensor">More details similar with
+tensor</h2>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>What is the use of activation function</title>
     <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
     <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural
@@ -4001,17 +3997,6 @@ In default, it is '-'. Just delete it.</p>
       </categories>
   </entry>
   <entry>
-    <title>hexo中使用markdown无法处理特殊字符</title>
-    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。
-比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
-<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>assert expression in Python</title>
     <url>/2020/09/24/assert-expression-in-Python/</url>
     <content><![CDATA[<h2 id="tags">tags:</h2>
@@ -4026,6 +4011,39 @@ errors in code.</p>
       <categories>
         <category>Learning</category>
       </categories>
+  </entry>
+  <entry>
+    <title>alias in linux</title>
+    <url>/2022/07/23/alias-in-linux/</url>
+    <content><![CDATA[<ol type="1">
+<li>display alias: <code>alias</code></li>
+<li>temporary alias:
+<code>alias &lt;name&gt;="&lt;commands&gt;"</code>This alias only work
+in current shell.</li>
+<li>It you want to keep alias permanently, put alias in
+<code>~/.bashrc</code>. note: remeber <code>source ~/.bashrc</code>
+after.</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo部署到git出现不同步问题</title>
+    <url>/2020/05/20/hexo%E9%83%A8%E7%BD%B2%E5%88%B0git%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<ol type="1">
+<li><p>hexo到git上部署首先要检查自己的config里的repo地址对不对</p></li>
+<li><p>如果地址正确可以考虑在_config.yml的repo下面一行添加上</p></li>
+</ol>
+<p><code>branch: master</code></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>-部署</tag>
+      </tags>
   </entry>
   <entry>
     <title>hexo图片在md文档中显示正常但是网页无法显示</title>
@@ -4045,6 +4063,17 @@ errors in code.</p>
       </categories>
   </entry>
   <entry>
+    <title>hexo中使用markdown无法处理特殊字符</title>
+    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。
+比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
+<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
     <title>how to change you local git name</title>
     <url>/2020/12/21/how-to-change-you-local-git-name/</url>
     <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
@@ -4056,51 +4085,6 @@ errors in code.</p>
       <tags>
         <tag>Github</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>hexo部署到git出现不同步问题</title>
-    <url>/2020/05/20/hexo%E9%83%A8%E7%BD%B2%E5%88%B0git%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<ol type="1">
-<li><p>hexo到git上部署首先要检查自己的config里的repo地址对不对</p></li>
-<li><p>如果地址正确可以考虑在_config.yml的repo下面一行添加上</p></li>
-</ol>
-<p><code>branch: master</code></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>-部署</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kendo 2-nd dan exam</title>
-    <url>/2020/11/13/kendo-2-nd-dan-exam/</url>
-    <content><![CDATA[<p>1.请叙述重视剑道礼仪的理由</p>
-<p>剑道常常说“以礼始以礼终”，事实上在剑道中礼仪确实无处不在--从进入道场对道场的行礼，到稽古时对对手的行礼，再到结束时集合后的行礼。可以说剑道中的礼仪非常细节而琐碎，几乎对所有的行为都进行了细节的指导，这种礼仪当然有古代剑术遗留下来的一些制度性要求，但是从当今的现代剑道中剑道礼仪也有非常特别的作用。我认为剑道礼仪主要体现了剑道对两方面的要求：其一是剑道技术层面，其二是剑道精神层面。
-a.
-就技术层面上说，剑道中的很多细节的利于本身就是现代剑道乃至古代剑术中的技术指导，而在现在被视为了剑道礼仪中的一部分。比如剑道向对手行礼时要求双眼不能离开对手事实上实在警惕对手随时可能发起的攻击；剑道要求竹刀不能刀尖指向地面放置，在真剑上则实在保护刀尖；剑道稽古前的蹲踞行礼可以视为是维持与对手合理的安全距离，并且激活脚踝和大腿肌肉。等等诸如此类的礼仪细节剑道中数不胜数，这其中有直接对剑道稽古、打击有帮助的内容，也有基于古代剑术的内容，体现了剑道视竹刀为真剑，视稽古为真实战斗的初心。
-b.
-从精神层面上说我认为礼仪最核心的部分则还可以细分为两点：一是剑道作为武力的一种体现，礼仪是对武力的限制，二是剑道在发展中收到的禅学影响。对于第一点上，中国人常说“武以止戈”，武力在出现后就频繁引起争斗，不受限制的武力不仅是危险的而且是无用的。武力本身并不错误，如何使用武力决定了武力的性质。剑道的礼仪就好像是刀的刀柄一般让武力有了被操纵的可能，用理性压制住内心的不安。最后从禅学上说。剑道最初的发展是一项非常注重实用性的技术，是禅宗赋予了其思想内核。铃木和尚在弘法的时候曾经就类比禅宗和剑道的修行（可能当时还没有现代严格意义上的剑道），他说剑道和禅学是一样的，都是通过迫使肉体在极端条件下去有机会来脱离外在世界来探求内心。在我看来剑道的礼仪也是如此，剑道的礼仪和禅宗的打坐诵经并无区别，都是形式罢了，具体的形式如何其实没有任何意义，有意义的是通过这种形式能够收敛内心，能尝试在专注中体会自我。事实上在形式上也有很多有趣的相似，有说法是“剑禅如一”，我们甚至能看到剑道的默想的手印和禅宗的佛印极为相似，礼仪上受到禅宗的影响不可谓不深。
-由此可见，无论是从实用性的技术层面，还是从精神层面学会束缚武力、增强内心上，礼仪都是有实际价值的存在，是剑道修行中不可分割的一部分，值得所有剑道人牢记。
-<br></p>
-<span id="more"></span>
-<p>2.请说明残心。</p>
-<p>剑道残心很多时候被解释为打击后不放松对对对手的警惕，而有时残心也被广义地理解为是对对手无时无刻的警惕，哪怕还没有开始稽古也已经做好来随时应对的准备。单纯从体育的角度来看是十分匪夷所思的：就拿奥运会中类似的击剑而言，在裁判喊开始之前二者都是绝对安全的，而在击中的灯亮起后两者也是绝对安全的，很多运动员都会非常放松。剑道非常特殊，它不仅要求残心，甚至将残心作为比赛胜利的必要组件，强制要求残心。这实际上体现了剑道作为实用性技术的素质同样还体现了剑道在对内心塑造的要求。
-a.
-作为使用性技术，残心使得打击后能够仍保有最低限度的余力应对可能的反击、追击，在打击后不会因为放松而失败悔恨；同样广义上的残心要求人做到随时随地应对的准备--比如在蹲踞起来后应对对手马上发起的攻击，在近距离交锷时防范应对对手可能的退击，在远距离时不放松警惕，防范远距离的进攻。残心在剑道的实际练习和稽古中都是有着非常具体的落实和要求的，而在古代剑术中残心很大程度上更是自己生命安全的必不可少的保证。
-b.
-从精神训练上说，残心不仅仅是形式上表现出来的，更多是内心中的，是精神上的。残心要求精神上时刻保持专注，而不是单纯打击后高举竹刀脱离对手。有意义的残心并不一定要打击后一直向前冲出脱离，而是将专注力放在对手身上，打击后不忘警惕，转身时小心对手。残心在精神上是让剑道练习者在打击后保持游刃有余同时保持警惕心态的必要训练。</p>
-<hr>
-<p>下面是实际提交的版本，我认为修改得更明确了些：</p>
-<figure>
-<img src="/2020/11/13/kendo-2-nd-dan-exam/kendo-2nd-exam.png" alt="kendo-2-nd">
-<figcaption aria-hidden="true">kendo-2-nd</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Kendo</category>
-      </categories>
   </entry>
   <entry>
     <title>mAP in object detection</title>
@@ -4170,6 +4154,35 @@ target. Derive AP for all types-&gt;average-&gt;mAP.</p>
       </tags>
   </entry>
   <entry>
+    <title>kendo 2-nd dan exam</title>
+    <url>/2020/11/13/kendo-2-nd-dan-exam/</url>
+    <content><![CDATA[<p>1.请叙述重视剑道礼仪的理由</p>
+<p>剑道常常说“以礼始以礼终”，事实上在剑道中礼仪确实无处不在--从进入道场对道场的行礼，到稽古时对对手的行礼，再到结束时集合后的行礼。可以说剑道中的礼仪非常细节而琐碎，几乎对所有的行为都进行了细节的指导，这种礼仪当然有古代剑术遗留下来的一些制度性要求，但是从当今的现代剑道中剑道礼仪也有非常特别的作用。我认为剑道礼仪主要体现了剑道对两方面的要求：其一是剑道技术层面，其二是剑道精神层面。
+a.
+就技术层面上说，剑道中的很多细节的利于本身就是现代剑道乃至古代剑术中的技术指导，而在现在被视为了剑道礼仪中的一部分。比如剑道向对手行礼时要求双眼不能离开对手事实上实在警惕对手随时可能发起的攻击；剑道要求竹刀不能刀尖指向地面放置，在真剑上则实在保护刀尖；剑道稽古前的蹲踞行礼可以视为是维持与对手合理的安全距离，并且激活脚踝和大腿肌肉。等等诸如此类的礼仪细节剑道中数不胜数，这其中有直接对剑道稽古、打击有帮助的内容，也有基于古代剑术的内容，体现了剑道视竹刀为真剑，视稽古为真实战斗的初心。
+b.
+从精神层面上说我认为礼仪最核心的部分则还可以细分为两点：一是剑道作为武力的一种体现，礼仪是对武力的限制，二是剑道在发展中收到的禅学影响。对于第一点上，中国人常说“武以止戈”，武力在出现后就频繁引起争斗，不受限制的武力不仅是危险的而且是无用的。武力本身并不错误，如何使用武力决定了武力的性质。剑道的礼仪就好像是刀的刀柄一般让武力有了被操纵的可能，用理性压制住内心的不安。最后从禅学上说。剑道最初的发展是一项非常注重实用性的技术，是禅宗赋予了其思想内核。铃木和尚在弘法的时候曾经就类比禅宗和剑道的修行（可能当时还没有现代严格意义上的剑道），他说剑道和禅学是一样的，都是通过迫使肉体在极端条件下去有机会来脱离外在世界来探求内心。在我看来剑道的礼仪也是如此，剑道的礼仪和禅宗的打坐诵经并无区别，都是形式罢了，具体的形式如何其实没有任何意义，有意义的是通过这种形式能够收敛内心，能尝试在专注中体会自我。事实上在形式上也有很多有趣的相似，有说法是“剑禅如一”，我们甚至能看到剑道的默想的手印和禅宗的佛印极为相似，礼仪上受到禅宗的影响不可谓不深。
+由此可见，无论是从实用性的技术层面，还是从精神层面学会束缚武力、增强内心上，礼仪都是有实际价值的存在，是剑道修行中不可分割的一部分，值得所有剑道人牢记。
+<br></p>
+<span id="more"></span>
+<p>2.请说明残心。</p>
+<p>剑道残心很多时候被解释为打击后不放松对对对手的警惕，而有时残心也被广义地理解为是对对手无时无刻的警惕，哪怕还没有开始稽古也已经做好来随时应对的准备。单纯从体育的角度来看是十分匪夷所思的：就拿奥运会中类似的击剑而言，在裁判喊开始之前二者都是绝对安全的，而在击中的灯亮起后两者也是绝对安全的，很多运动员都会非常放松。剑道非常特殊，它不仅要求残心，甚至将残心作为比赛胜利的必要组件，强制要求残心。这实际上体现了剑道作为实用性技术的素质同样还体现了剑道在对内心塑造的要求。
+a.
+作为使用性技术，残心使得打击后能够仍保有最低限度的余力应对可能的反击、追击，在打击后不会因为放松而失败悔恨；同样广义上的残心要求人做到随时随地应对的准备--比如在蹲踞起来后应对对手马上发起的攻击，在近距离交锷时防范应对对手可能的退击，在远距离时不放松警惕，防范远距离的进攻。残心在剑道的实际练习和稽古中都是有着非常具体的落实和要求的，而在古代剑术中残心很大程度上更是自己生命安全的必不可少的保证。
+b.
+从精神训练上说，残心不仅仅是形式上表现出来的，更多是内心中的，是精神上的。残心要求精神上时刻保持专注，而不是单纯打击后高举竹刀脱离对手。有意义的残心并不一定要打击后一直向前冲出脱离，而是将专注力放在对手身上，打击后不忘警惕，转身时小心对手。残心在精神上是让剑道练习者在打击后保持游刃有余同时保持警惕心态的必要训练。</p>
+<hr>
+<p>下面是实际提交的版本，我认为修改得更明确了些：</p>
+<figure>
+<img src="/2020/11/13/kendo-2-nd-dan-exam/kendo-2nd-exam.png" alt="kendo-2-nd">
+<figcaption aria-hidden="true">kendo-2-nd</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Kendo</category>
+      </categories>
+  </entry>
+  <entry>
     <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
     <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="问题描述">问题描述</h2>
@@ -4207,29 +4220,6 @@ target. Derive AP for all types-&gt;average-&gt;mAP.</p>
 比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
 <p><strong>注意</strong>
 麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>使用hexo theme Butterfly 报错</title>
-    <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
-    <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly
-报错</h2>
-<p>直接用github上作者提供的代码</p>
-<p>git clone -b master
-https://github.com/jerryc127/hexo-theme-butterfly.git
-themes/Butterfly</p>
-<p>结果是页面根本无法正常渲染，只有一行字：</p>
-<p><font color="#DC143C">extends includes/layout.pug block content include
-./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include
-includes/pagination.pug</font></p>
-<h2 id="问题解决">问题解决</h2>
-<p>参照原作者提供的文章<a href="https://docs.jerryc.me/#/config/question">Butterfly</a></p>
-<p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
-<hr>
-<h2 id="丝滑进入">丝滑进入</h2>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -4439,27 +4429,23 @@ includes/pagination.pug</font></p>
       </categories>
   </entry>
   <entry>
-    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
-    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
-<h2 id="问题原因">问题原因</h2>
-<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错
-因此有一下三种解决办法：</p>
-<ol type="1">
-<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
-<li><p>手动打开preinterpreter</p></li>
-</ol>
-<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<ol start="3" type="1">
-<li>重新为mac安装</li>
-</ol>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
-<p>如果有了就更新一下</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
-<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
+    <title>使用hexo theme Butterfly 报错</title>
+    <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
+    <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly
+报错</h2>
+<p>直接用github上作者提供的代码</p>
+<p>git clone -b master
+https://github.com/jerryc127/hexo-theme-butterfly.git
+themes/Butterfly</p>
+<p>结果是页面根本无法正常渲染，只有一行字：</p>
+<p><font color="#DC143C">extends includes/layout.pug block content include
+./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include
+includes/pagination.pug</font></p>
+<h2 id="问题解决">问题解决</h2>
+<p>参照原作者提供的文章<a href="https://docs.jerryc.me/#/config/question">Butterfly</a></p>
+<p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
+<hr>
+<h2 id="丝滑进入">丝滑进入</h2>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -4539,27 +4525,30 @@ includes/pagination.pug</font></p>
       </categories>
   </entry>
   <entry>
-    <title>心脏骤停</title>
-    <url>/2022/03/16/%E5%BF%83%E8%84%8F%E9%AA%A4%E5%81%9C/</url>
-    <content><![CDATA[<p>太阳好哥哥在拉仇恨，刚刚飞渡起手准备给拉达冈上一课。没想到是被服务器上了一课。</p>
-<p><img src="/2022/03/16/%E5%BF%83%E8%84%8F%E9%AA%A4%E5%81%9C/eldenring.png"></p>
+    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
+    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
+<h2 id="问题原因">问题原因</h2>
+<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错
+因此有一下三种解决办法：</p>
+<ol type="1">
+<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
+<li><p>手动打开preinterpreter</p></li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<ol start="3" type="1">
+<li>重新为mac安装</li>
+</ol>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
+<p>如果有了就更新一下</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
+<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
 ]]></content>
       <categories>
-        <category>Elden Ring</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>感谢好太阳哥哥们</title>
-    <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
-    <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
-<div align="center">
-<figure>
-<img src="/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/1.png" alt="Long May the Sun Shine!">
-<figcaption aria-hidden="true">Long May the Sun Shine!</figcaption>
-</figure>
-</div>]]></content>
-      <categories>
-        <category>Chat</category>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -4877,6 +4866,30 @@ includes/pagination.pug</font></p>
       </categories>
   </entry>
   <entry>
+    <title>心脏骤停</title>
+    <url>/2022/03/16/%E5%BF%83%E8%84%8F%E9%AA%A4%E5%81%9C/</url>
+    <content><![CDATA[<p>太阳好哥哥在拉仇恨，刚刚飞渡起手准备给拉达冈上一课。没想到是被服务器上了一课。</p>
+<p><img src="/2022/03/16/%E5%BF%83%E8%84%8F%E9%AA%A4%E5%81%9C/eldenring.png"></p>
+]]></content>
+      <categories>
+        <category>Elden Ring</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>感谢好太阳哥哥们</title>
+    <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
+    <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
+<div align="center">
+<figure>
+<img src="/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/1.png" alt="Long May the Sun Shine!">
+<figcaption aria-hidden="true">Long May the Sun Shine!</figcaption>
+</figure>
+</div>]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+  </entry>
+  <entry>
     <title>理解superscalar和multithreading(简单提及hyperthreading)和multi-core区别</title>
     <url>/2020/05/24/%E7%90%86%E8%A7%A3superscalar%E5%92%8Cmultithreading(%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%8Bhyperthreading)%E5%92%8Cmulti-core%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<p>看到网上有一篇文章用汽车收费站来解释这三个概念，想法很好，但是感觉没说那么清楚，于是我自己来说一遍</p>
@@ -4935,6 +4948,42 @@ cycle里就能执行多个指令。其中当然还有很多细节问题，但是
       </categories>
   </entry>
   <entry>
+    <title>给你的Vscode加一个毛玻璃特效</title>
+    <url>/2020/05/22/%E7%BB%99%E4%BD%A0%E7%9A%84Vscode%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%AF%9B%E7%8E%BB%E7%92%83%E7%89%B9%E6%95%88/</url>
+    <content><![CDATA[<h2 id="环境">环境</h2>
+<p>macOS：10.15 VScode：1.4 --- ## 问题描述
+在macos下想给vscode加一个酷炫的毛玻璃效果，参考了<a href="https://www.jianshu.com/p/25fecde188d4">炫酷的VS
+Code毛玻璃效果</a>,但是实际操作中css文件并没有生效。 --- ## 问题解决
+起哦一开始以为是mac恶心的权限问题，然后尝试给vscode权限，但是没有用。
+然后我去看了git上原作者的说明：https://github.com/Microsoft/vscode/issues/32257
+&gt;Sorry. This method has failed after the vscode v1.36 update. The
+reason is that a black background color has been added to the window.
+And the Electron's setBackgroundColor() method has some bugs on the
+MacOS. I can't dynamically change the background color in the script.
+Now you can only modify the vscode source to enable the vibrant
+effect.</p>
+<blockquote>
+<p>hi guys. I have some good news. The old way has failed after the
+vscode v1.36 update. I changed the custom.js file: w =
+nodeRequire('electron') .remote .getCurrentWindow();
+w.setBackgroundColor('#00000000'); w.setVibrancy('ultra-dark');
+w.setFullScreen(true); Don't forget to execute the command "Reload
+Custom CSS and JS". with automatic full screen vscode, the problem has
+been fixed. You can turn off full screen manually.</p>
+</blockquote>
+<p>于是首先我尝试降级到1.5之前，事实上成功了。
+然后我采取作者的说法，尝试修改.js文件，但是又不行了，vscode在1.3.7之后又有新的问题。
+巧合的是我看到作者其实好像是个中国人，并且开发了一个vscode拓展。。。。
+这TM就很尴尬，拓展一装就完事了，我其实定制化需求也不是很大</p>
+<p><a href="https://eyhn.in/vscode-vibrancy/">vibrancy</a></p>
+<h2 id="note">Note</h2>
+<p>此插件在windows下同样适用，并且可以自行去作者git上看说明。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
     <title>禅诗解读</title>
     <url>/2020/11/28/%E7%A6%85%E8%AF%97%E8%A7%A3%E8%AF%BB/</url>
     <content><![CDATA[<h1 id="僧璨禅师信心铭">僧璨禅师《信心铭》</h1>
@@ -4972,56 +5021,6 @@ cycle里就能执行多个指令。其中当然还有很多细节问题，但是
       </categories>
   </entry>
   <entry>
-    <title>给你的Vscode加一个毛玻璃特效</title>
-    <url>/2020/05/22/%E7%BB%99%E4%BD%A0%E7%9A%84Vscode%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%AF%9B%E7%8E%BB%E7%92%83%E7%89%B9%E6%95%88/</url>
-    <content><![CDATA[<h2 id="环境">环境</h2>
-<p>macOS：10.15 VScode：1.4 --- ## 问题描述
-在macos下想给vscode加一个酷炫的毛玻璃效果，参考了<a href="https://www.jianshu.com/p/25fecde188d4">炫酷的VS
-Code毛玻璃效果</a>,但是实际操作中css文件并没有生效。 --- ## 问题解决
-起哦一开始以为是mac恶心的权限问题，然后尝试给vscode权限，但是没有用。
-然后我去看了git上原作者的说明：https://github.com/Microsoft/vscode/issues/32257
-&gt;Sorry. This method has failed after the vscode v1.36 update. The
-reason is that a black background color has been added to the window.
-And the Electron's setBackgroundColor() method has some bugs on the
-MacOS. I can't dynamically change the background color in the script.
-Now you can only modify the vscode source to enable the vibrant
-effect.</p>
-<blockquote>
-<p>hi guys. I have some good news. The old way has failed after the
-vscode v1.36 update. I changed the custom.js file: w =
-nodeRequire('electron') .remote .getCurrentWindow();
-w.setBackgroundColor('#00000000'); w.setVibrancy('ultra-dark');
-w.setFullScreen(true); Don't forget to execute the command "Reload
-Custom CSS and JS". with automatic full screen vscode, the problem has
-been fixed. You can turn off full screen manually.</p>
-</blockquote>
-<p>于是首先我尝试降级到1.5之前，事实上成功了。
-然后我采取作者的说法，尝试修改.js文件，但是又不行了，vscode在1.3.7之后又有新的问题。
-巧合的是我看到作者其实好像是个中国人，并且开发了一个vscode拓展。。。。
-这TM就很尴尬，拓展一装就完事了，我其实定制化需求也不是很大</p>
-<p><a href="https://eyhn.in/vscode-vibrancy/">vibrancy</a></p>
-<h2 id="note">Note</h2>
-<p>此插件在windows下同样适用，并且可以自行去作者git上看说明。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>还是大GT优雅</title>
-    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
-    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
-<div align="center">
-<figure>
-<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT">
-<figcaption aria-hidden="true">宾利欧陆GT</figcaption>
-</figure>
-</div>]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
     <title>遍历二叉树-前/中/后序-递归/非递归</title>
     <url>/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/</url>
     <content><![CDATA[<h3 id="递归方法">递归方法</h3>
@@ -5038,16 +5037,6 @@ been fixed. You can turn off full screen manually.</p>
         <tag>C++</tag>
         <tag>Binary Tree</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>钻石材质第一次测试Blender</title>
-    <url>/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/</url>
-    <content><![CDATA[<p>初次尝试了blender里钻石材质的生成，接下来会详细分析材质节点的组成并仔细调参。并且会更换钻石模型和适当的场景进行测试。</p>
-<p><img src="/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/Diamond.png"></p>
-]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
   </entry>
   <entry>
     <title>面试问题整理</title>
@@ -5091,6 +5080,30 @@ sort，此时也不需要额外空间。数据库中sort也常使用disk mergeso
 ]]></content>
       <categories>
         <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>钻石材质第一次测试Blender</title>
+    <url>/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/</url>
+    <content><![CDATA[<p>初次尝试了blender里钻石材质的生成，接下来会详细分析材质节点的组成并仔细调参。并且会更换钻石模型和适当的场景进行测试。</p>
+<p><img src="/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/Diamond.png"></p>
+]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>还是大GT优雅</title>
+    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
+    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
+<div align="center">
+<figure>
+<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT">
+<figcaption aria-hidden="true">宾利欧陆GT</figcaption>
+</figure>
+</div>]]></content>
+      <categories>
+        <category>Chat</category>
       </categories>
   </entry>
 </search>
