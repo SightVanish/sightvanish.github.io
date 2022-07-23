@@ -28,7 +28,7 @@
 <meta property="og:description" content="EasyRec This is a public repository of recommender. It will be replaced by DeepRec.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-14T13:45:36.000Z">
-<meta property="article:modified_time" content="2022-07-14T14:38:57.558Z">
+<meta property="article:modified_time" content="2022-07-23T06:18:54.404Z">
 <meta property="article:author" content="Li Wuchen">
 <meta name="twitter:card" content="summary">
 
@@ -230,10 +230,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-07-14 21:45:36 / Modified: 22:38:57" itemprop="dateCreated datePublished" datetime="2022-07-14T21:45:36+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 21:45:36" itemprop="dateCreated datePublished" datetime="2022-07-14T21:45:36+08:00">2022-07-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-23 14:18:54" itemprop="dateModified" datetime="2022-07-23T14:18:54+08:00">2022-07-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -260,53 +266,55 @@
 DeepRec.<span id="more"></span></p>
 <p>training on easyrec</p>
 <ol type="1">
-<li><pre><code>   git clone https://github.com/alibaba/EasyRec.git
-   cd EasyRec/</code></pre></li>
-<li><p>download dataset
-<code>wget https://easyrec.oss-cn-beijing.aliyuncs.com/data/easyrec_data_20210818.tar.gz</code></p></li>
-<li><p>generate .py file based on proto
-<code>bash scripts/gen_proto.sh</code></p></li>
-<li><p>install dependency
-<code>pip install -r requirements/runtime.txt</code>
-<code>pip install -r requirements/tests.txt</code></p></li>
-<li><p>train existing model
-<code>python -m easy_rec.python.train_eval --pipeline_config_path samples/model_config/&lt;selected model&gt;</code></p></li>
-<li><p>open dashboard
-<code>cd EasyRec/experiments/&lt;selected model&gt;</code>
-<code>tensorboard --logdir .</code></p></li>
+<li><p>pull repo from github</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/alibaba/EasyRec.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> EasyRec/</span></span><br></pre></td></tr></table></figure></li>
+<li><p>download dataset</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://easyrec.oss-cn-beijing.aliyuncs.com/data/easyrec_data_20210818.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li><p>generate .py file based on proto</p>
+<p><code>bash scripts/gen_proto.sh</code></p></li>
+<li><p>install dependency</p>
+<p><code>pip install -r requirements/runtime.txt</code></p>
+<p><code>pip install -r requirements/tests.txt</code></p></li>
+<li><p>train existing model</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m easy_rec.python.train_eval --pipeline_config_path samples/model_config/&lt;selected model&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>open dashboard</p>
+<p><code>cd EasyRec/experiments/&lt;selected model&gt;</code></p>
+<p><code>tensorboard --logdir .</code></p></li>
 </ol>
 <h1 id="deeprec">DeepRec</h1>
 <p>This is a public repository of alibaba recommender. It is an upgraded
 version of EasyRec.</p>
 <p>testing on deeprec</p>
 <ol type="1">
-<li><p>build wheel and image
-<code>./ci_build bazel_build cpu</code></p></li>
-<li><p>enter container
-<code>CI_DOCKER_EXTRA_PARAMS=-it ./ci_build bash</code></p></li>
-<li><p>install environment in container
-<code>pip install wheels/tensorflow/&lt;.whl&gt;</code></p></li>
-<li><p>build wheel <code>./ci_build bazel_build cpu</code></p></li>
+<li><p>build wheel and image</p>
+<p><code>./ci_build bazel_build cpu</code></p></li>
+<li><p>enter container</p>
+<p><code>CI_DOCKER_EXTRA_PARAMS=-it ./ci_build bash</code></p></li>
+<li><p>install environment in container</p>
+<p><code>pip install wheels/tensorflow/&lt;.whl&gt;</code></p></li>
+<li><p>build wheel</p>
+<p><code>./ci_build bazel_build cpu</code></p></li>
 </ol>
 <h3 id="alibaba-remote-machine">Alibaba Remote Machine</h3>
 <p>Connect to alibaba remote machine.</p>
 <p>set proxy in MobaXterm.</p>
 <p>K83 usage – with <code>kubectl</code></p>
 <ol type="1">
-<li>check nodes <code>kubectl get nodes</code>,
+<li><p>check nodes <code>kubectl get nodes</code>,
 <code>--all-namespaces</code> to get all nodes under different
-namespaces</li>
-<li>check existing tfjobs <code>kubectl get tfjobs -o wide</code> note:
-if the tfjob you are intending to create already exists, delete this
-tfjob <code>kubectl delete tfjob &lt;tfjob name&gt;</code></li>
-<li>create a new tfjob <code>kubectl create -f &lt;.yaml&gt;</code></li>
-<li>check pod status <code>watch -n 1 kubectl get pods -o wide</code>
-note: if the status is pending, try change the parameter of
-<code>resources</code> in you yaml file</li>
-<li>check training log
-<code>kubectl logs -f &lt;tfjob name&gt;-chief-0</code></li>
+namespaces</p></li>
+<li><p>check existing tfjobs <code>kubectl get tfjobs -o wide</code></p>
+<p>note: if the tfjob you are intending to create already exists, delete
+this tfjob <code>kubectl delete tfjob &lt;tfjob name&gt;</code></p></li>
+<li><p>create a new tfjob
+<code>kubectl create -f &lt;.yaml&gt;</code></p></li>
+<li><p>check pod status
+<code>watch -n 1 kubectl get pods -o wide</code></p>
+<p>note: if the status is pending, try change the parameter of
+<code>resources</code> in you yaml file</p></li>
+<li><p>check training log
+<code>kubectl logs -f &lt;tfjob name&gt;-chief-0</code></p></li>
 </ol>
-<h1 id="section"></h1>
 
     </div>
 
@@ -337,8 +345,8 @@ note: if the status is pending, try change the parameter of
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/07/14/Git-Lookup-Table/" rel="prev" title="Git Lookup Table">
-      <i class="fa fa-chevron-left"></i> Git Lookup Table
+    <a href="/2022/07/14/Git-Tips/" rel="prev" title="Git Tips">
+      <i class="fa fa-chevron-left"></i> Git Tips
     </a></div>
       <div class="post-nav-item">
     <a href="/2022/07/14/Linux-Ubuntu-Commands/" rel="next" title="Linux/Ubuntu Commands">
@@ -402,7 +410,7 @@ note: if the status is pending, try change the parameter of
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#easyrec"><span class="nav-number">1.</span> <span class="nav-text">EasyRec</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#deeprec"><span class="nav-number">2.</span> <span class="nav-text">DeepRec</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#alibaba-remote-machine"><span class="nav-number">2.0.1.</span> <span class="nav-text">Alibaba Remote Machine</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">3.</span> <span class="nav-text"></span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#easyrec"><span class="nav-number">1.</span> <span class="nav-text">EasyRec</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#deeprec"><span class="nav-number">2.</span> <span class="nav-text">DeepRec</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#alibaba-remote-machine"><span class="nav-number">2.0.1.</span> <span class="nav-text">Alibaba Remote Machine</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

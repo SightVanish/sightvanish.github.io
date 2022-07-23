@@ -228,7 +228,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-07-23 13:35:27 / Modified: 14:09:42" itemprop="dateCreated datePublished" datetime="2022-07-23T13:35:27+08:00">2022-07-23</time>
+              <time title="Created: 2022-07-23 13:35:27 / Modified: 14:20:59" itemprop="dateCreated datePublished" datetime="2022-07-23T13:35:27+08:00">2022-07-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -256,12 +256,12 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> zsh --version</span></span><br><span class="line">zsh 5.8 (x86_64-apple-darwin21.0)</span><br></pre></td></tr></table></figure>
 <h3 id="install-oh-my-zsh">Install oh-my-zsh</h3>
 <ol type="1">
-<li><p><code>sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</code></p>
-<p>In China, try
-<code>sh -c "$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)"</code></p></li>
-<li><p>disable auto-update</p>
-<p>uncomment the line
-<code>zstyle ':omz:update' mode disabled  # disable automatic updates</code></p></li>
+<li><p>install via <code>curl</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+<p>In China, try <code>gitee</code>.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>disable auto-update; uncomment the line</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zstyle &#x27;:omz:update&#x27; mode disabled  # disable automatic updates</span><br></pre></td></tr></table></figure></li>
 <li><p>change theme (find more official themes <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">here</a>)</p>
 <p><code>ZSH_THEME="apple"</code></p></li>
 </ol>
@@ -393,7 +393,7 @@ after.</li>
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-07-23 13:24:17 / Modified: 13:30:36" itemprop="dateCreated datePublished" datetime="2022-07-23T13:24:17+08:00">2022-07-23</time>
+              <time title="Created: 2022-07-23 13:24:17 / Modified: 14:22:54" itemprop="dateCreated datePublished" datetime="2022-07-23T13:24:17+08:00">2022-07-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -429,8 +429,7 @@ after.</li>
 <p>So you can run shell via <code>#!/bin/bash</code>. You can even run
 python via <code>#!/usr/bin/python</code> (the rest code is in
 python)</p>
-<p>reference:
-https://askubuntu.com/questions/22910/what-is-the-difference-between-and-sh-to-run-a-script</p>
+<p>Here is the <a target="_blank" rel="noopener" href="https://askubuntu.com/questions/22910/what-is-the-difference-between-and-sh-to-run-a-script">reference</a>.</p>
 
       
     </div>
@@ -473,10 +472,16 @@ https://askubuntu.com/questions/22910/what-is-the-difference-between-and-sh-to-r
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-07-14 22:36:02 / Modified: 22:47:00" itemprop="dateCreated datePublished" datetime="2022-07-14T22:36:02+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 22:36:02" itemprop="dateCreated datePublished" datetime="2022-07-14T22:36:02+08:00">2022-07-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-23 14:26:41" itemprop="dateModified" datetime="2022-07-23T14:26:41+08:00">2022-07-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -498,19 +503,18 @@ https://askubuntu.com/questions/22910/what-is-the-difference-between-and-sh-to-r
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="hexo-migration-apple-silicon">Hexo Migration (Apple
-Silicon)</h1>
+          <p>The following code is only tested on Apple Silicon.</p>
 <ol type="1">
 <li><p>Config Git</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config user.name liwuchen</span><br><span class="line">git config user.email liwch@shanghaitech.edu.cn</span><br><span class="line">git config -l # list git config</span><br><span class="line">ssh-keygen -t rsa -C &quot;liwch@shanghaitech.edu.cn&quot;</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config user.name liwuchen</span><br><span class="line">git config user.email liwch@shanghaitech.edu.cn</span><br><span class="line">git config -l # list git config</span><br><span class="line">ssh-keygen -t rsa -C &quot;liwch@shanghaitech.edu.cn&quot;</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
 <p>Copy rsa public key to GitHub-&gt;Settings-&gt;SSH and GPG
 keys.</p></li>
 <li><p>Install <a target="_blank" rel="noopener" href="https://nodejs.org/">Nodejs</a></p>
 <ol type="1">
-<li>In China, you may consider install cnpm
-<code>sudo npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
-<li>In the following steps, I will use <code>cnpm</code>, same for
-<code>npm</code>.</li></ol></li></ol>
+<li><p>In China, you may consider install cnpm</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></li>
+<li><p>In the following steps, I will use <code>cnpm</code>, same for
+<code>npm</code>.</p></li></ol></li></ol>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/07/14/Hexo-Migration/#more" rel="contents">
@@ -560,10 +564,16 @@ keys.</p></li>
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-07-14 21:53:49 / Modified: 22:39:35" itemprop="dateCreated datePublished" datetime="2022-07-14T21:53:49+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 21:53:49" itemprop="dateCreated datePublished" datetime="2022-07-14T21:53:49+08:00">2022-07-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-23 14:27:22" itemprop="dateModified" datetime="2022-07-23T14:27:22+08:00">2022-07-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -585,8 +595,12 @@ keys.</p></li>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="tensorflow-tips">Tensorflow Tips</h1>
-<p>Here is some tips for tensorflow1.x.</p>
+          <p>Here is some tips for tensorflow1.x.</p>
+<ol type="1">
+<li><p>print tensor</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">self.p = tf.Print(&lt;<span class="built_in">input</span> tensor&gt;, [<span class="string">&#x27;&lt;message&gt;&#x27;</span>, &lt;printed tensor&gt;], summarize=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">sess.run(model.p)</span><br></pre></td></tr></table></figure></li>
+<li><p>print model weight. find the corresponding op name in
+tensorboard</p></li></ol>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/07/14/Tensorflow-Tips/#more" rel="contents">
@@ -636,10 +650,16 @@ keys.</p></li>
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-07-14 21:53:14 / Modified: 22:39:16" itemprop="dateCreated datePublished" datetime="2022-07-14T21:53:14+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 21:53:14" itemprop="dateCreated datePublished" datetime="2022-07-14T21:53:14+08:00">2022-07-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-23 14:28:08" itemprop="dateModified" datetime="2022-07-23T14:28:08+08:00">2022-07-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -661,8 +681,7 @@ keys.</p></li>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="pytorch-tips">Pytorch Tips</h1>
-<p>Here is some tips for pytorch1.x.</p>
+          <p>Here is some tips for pytorch1.x.</p>
 <h4 id="tensor">tensor</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1</span>]).dtype</span><br><span class="line">torch.int64</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1</span>], dtype=torch.float32).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1.</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.Tensor([<span class="number">1</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="literal">True</span>]).dtype</span><br><span class="line">torch.<span class="built_in">bool</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.Tensor([<span class="literal">True</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>exit()</span><br></pre></td></tr></table></figure>
 <p>note: torch.tensor will auto guess the type; torch.Tensor is same
@@ -716,10 +735,16 @@ with dtype=float32</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-07-14 21:46:25 / Modified: 22:42:58" itemprop="dateCreated datePublished" datetime="2022-07-14T21:46:25+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 21:46:25" itemprop="dateCreated datePublished" datetime="2022-07-14T21:46:25+08:00">2022-07-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-23 14:29:05" itemprop="dateModified" datetime="2022-07-23T14:29:05+08:00">2022-07-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -741,8 +766,7 @@ with dtype=float32</p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="linux-ubuntu-commands">Linux (Ubuntu) Commands</h1>
-<ol type="1">
+          <ol type="1">
 <li><p>Use <code>lshw</code> (list hardware) to show the computer
 hardware information.</p></li>
 <li><p>Use <code>uanme -a</code> to show system information.</p></li>
@@ -801,10 +825,16 @@ hardware information.</p></li>
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-07-14 21:45:36 / Modified: 22:38:57" itemprop="dateCreated datePublished" datetime="2022-07-14T21:45:36+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 21:45:36" itemprop="dateCreated datePublished" datetime="2022-07-14T21:45:36+08:00">2022-07-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-23 14:18:54" itemprop="dateModified" datetime="2022-07-23T14:18:54+08:00">2022-07-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -855,7 +885,7 @@ DeepRec.</p>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/Git-Lookup-Table/">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/Git-Tips/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -869,7 +899,7 @@ DeepRec.</p>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/07/14/Git-Lookup-Table/" class="post-title-link" itemprop="url">Git Lookup Table</a>
+            <a href="/2022/07/14/Git-Tips/" class="post-title-link" itemprop="url">Git Tips</a>
         </h2>
 
         <div class="post-meta">
@@ -878,10 +908,16 @@ DeepRec.</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-07-14 21:44:49 / Modified: 22:42:20" itemprop="dateCreated datePublished" datetime="2022-07-14T21:44:49+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 21:44:49" itemprop="dateCreated datePublished" datetime="2022-07-14T21:44:49+08:00">2022-07-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-23 14:30:00" itemprop="dateModified" datetime="2022-07-23T14:30:00+08:00">2022-07-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -903,8 +939,7 @@ DeepRec.</p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="git">Git</h1>
-<ol type="1">
+          <ol type="1">
 <li><p>check local modification</p>
 <ol type="1">
 <li><code>git stash</code> temporally store modification in stash.</li>
@@ -917,7 +952,7 @@ DeepRec.</p>
 github.</p></li></ol>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/07/14/Git-Lookup-Table/#more" rel="contents">
+              <a class="btn" href="/2022/07/14/Git-Tips/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -964,10 +999,16 @@ github.</p></li></ol>
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-07-14 21:38:01 / Modified: 22:41:05" itemprop="dateCreated datePublished" datetime="2022-07-14T21:38:01+08:00">2022-07-14</time>
+              <time title="Created: 2022-07-14 21:38:01" itemprop="dateCreated datePublished" datetime="2022-07-14T21:38:01+08:00">2022-07-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-23 14:30:52" itemprop="dateModified" datetime="2022-07-23T14:30:52+08:00">2022-07-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -989,8 +1030,7 @@ github.</p></li></ol>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="docker">Docker</h1>
-<ol type="1">
+          <ol type="1">
 <li><p>Pull docker images
 <code>docker pull docker.io/library/ubuntu:18.04</code> or
 <code>docker pull ubuntu:18.04</code> in short (from docker
