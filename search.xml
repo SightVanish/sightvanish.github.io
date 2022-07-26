@@ -230,9 +230,9 @@ chartensor(containing characters) cannot</li>
     <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
     <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
 <p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-wJKEYOWNhgEqinmE" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-wJKEYOWNhgEqinmE").style.height=document.getElementById("mmedia-wJKEYOWNhgEqinmE").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-GiWaRvfnQMbSkiqI" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-GiWaRvfnQMbSkiqI").style.height=document.getElementById("mmedia-GiWaRvfnQMbSkiqI").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-wJKEYOWNhgEqinmE").style.height=document.getElementById("mmedia-wJKEYOWNhgEqinmE").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-GiWaRvfnQMbSkiqI").style.height=document.getElementById("mmedia-GiWaRvfnQMbSkiqI").scrollWidth*0.76+"px";
     }; </script>
 ]]></content>
       <categories>
@@ -400,52 +400,6 @@ _i\)</span>。这就使得训练时模型被迫去关注权重更大（之前分
 ]]></content>
       <categories>
         <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Add-on in Blender3.0 for Mac(Apple Silicon)</title>
-    <url>/2022/03/13/Add-on-in-Blender3-0-for-Mac-Apple-Silicon/</url>
-    <content><![CDATA[<p>Put your unziped file in:</p>
-<p><code>/Applications/Blender.app/Contents/Resources/3.0/scripts/addons</code></p>
-<p>Enable add-on:</p>
-<p><code>Blender-&gt;Edit-&gt;Preferences-&gt;Add-ons</code></p>
-<p>Search your add-on and enable it.</p>
-]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Basics of DL: Optimization Algorithms on Matrix Manifold</title>
-    <url>/2022/05/26/Basics-of-DL-Optimization-Algorithms-on-Matrix-Manifold/</url>
-    <content><![CDATA[<p>This could be complicated. But it will help. <a href="https://press.princeton.edu/absil">Optimization Algorithms on
-Matrix Manifold</a>.</p>
-<p>More details will be post later. (Maybe...)</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Bangline</title>
-    <url>/2022/07/23/Bangline/</url>
-    <content><![CDATA[<p>Here is a question: what is the difference between <code>./</code>
-and <code>sh</code> when executing a shell script?</p>
-<ol type="1">
-<li><code>sh test.sh</code> You pass test.sh as a parameter to sh.</li>
-<li><code>./test.sh</code> The system calls out the interpreter program
-and feeds in the scripts contents. So you will need a <strong>bang
-line</strong>(the very first line in the script and starts with #!). The
-rest part of the script will be passed to the program immediately
-after.</li>
-</ol>
-<p>So you can run shell via <code>#!/bin/bash</code>. You can even run
-python via <code>#!/usr/bin/python</code> (the rest code is in
-python)</p>
-<p>Here is the <a href="https://askubuntu.com/questions/22910/what-is-the-difference-between-and-sh-to-run-a-script">reference</a>.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
       </categories>
   </entry>
   <entry>
@@ -618,6 +572,41 @@ y = 1\\  -(1-\alpha)y&#39; ^\gamma log(1-y&#39;)\quad y = 0
       </tags>
   </entry>
   <entry>
+    <title>Add-on in Blender3.0 for Mac(Apple Silicon)</title>
+    <url>/2022/03/13/Add-on-in-Blender3-0-for-Mac-Apple-Silicon/</url>
+    <content><![CDATA[<p>Put your unziped file in:</p>
+<p><code>/Applications/Blender.app/Contents/Resources/3.0/scripts/addons</code></p>
+<p>Enable add-on:</p>
+<p><code>Blender-&gt;Edit-&gt;Preferences-&gt;Add-ons</code></p>
+<p>Search your add-on and enable it.</p>
+]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Bangline</title>
+    <url>/2022/07/23/Bangline/</url>
+    <content><![CDATA[<p>Here is a question: what is the difference between <code>./</code>
+and <code>sh</code> when executing a shell script?</p>
+<ol type="1">
+<li><code>sh test.sh</code> You pass test.sh as a parameter to sh.</li>
+<li><code>./test.sh</code> The system calls out the interpreter program
+and feeds in the scripts contents. So you will need a <strong>bang
+line</strong>(the very first line in the script and starts with #!). The
+rest part of the script will be passed to the program immediately
+after.</li>
+</ol>
+<p>So you can run shell via <code>#!/bin/bash</code>. You can even run
+python via <code>#!/usr/bin/python</code> (the rest code is in
+python)</p>
+<p>Here is the <a href="https://askubuntu.com/questions/22910/what-is-the-difference-between-and-sh-to-run-a-script">reference</a>.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Beautify you terminal (oh-my-zsh)</title>
     <url>/2022/07/23/Beautify-you-terminal-oh-my-zsh/</url>
     <content><![CDATA[<h3 id="environment">Environment</h3>
@@ -684,6 +673,17 @@ bad even if both of them are not really good.</p>
       </categories>
   </entry>
   <entry>
+    <title>Basics of DL: Optimization Algorithms on Matrix Manifold</title>
+    <url>/2022/05/26/Basics-of-DL-Optimization-Algorithms-on-Matrix-Manifold/</url>
+    <content><![CDATA[<p>This could be complicated. But it will help. <a href="https://press.princeton.edu/absil">Optimization Algorithms on
+Matrix Manifold</a>.</p>
+<p>More details will be post later. (Maybe...)</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Blender Cloth Rendering</title>
     <url>/2021/09/14/Blender-Cloth-Rending/</url>
     <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
@@ -715,21 +715,6 @@ bad even if both of them are not really good.</p>
       <categories>
         <category>Blender</category>
       </categories>
-  </entry>
-  <entry>
-    <title>C/C++ openmp</title>
-    <url>/2020/05/30/C-C-openmp/</url>
-    <content><![CDATA[<p>Just a note for myself !</p>
-<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del>
-</strong> !!!</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C/C++</tag>
-        <tag>openmp</tag>
-      </tags>
   </entry>
   <entry>
     <title>Brief introduction to Unet</title>
@@ -796,6 +781,21 @@ file)</p>
       </tags>
   </entry>
   <entry>
+    <title>C/C++ openmp</title>
+    <url>/2020/05/30/C-C-openmp/</url>
+    <content><![CDATA[<p>Just a note for myself !</p>
+<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del>
+</strong> !!!</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>openmp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ Coding Style</title>
     <url>/2022/07/14/C-Coding-Style/</url>
     <content><![CDATA[<h1 id="cpplint">cpplint</h1>
@@ -808,31 +808,6 @@ Google C++ styles.</p>
       <categories>
         <category>Coding</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Cannot get access to Github</title>
-    <url>/2021/03/04/Cannot-get-access-to-Github/</url>
-    <content><![CDATA[<p>MacOS 11.2</p>
-<ol type="1">
-<li><p><code>sudo vim /private/etc/hosts</code></p></li>
-<li><p>Delete all path about Github</p></li>
-<li><p>Search IP address of <code>github.com</code> and
-<code>github.global.ssl.fastly.net</code> in
-<code>https://github.com.ipaddress.com</code></p></li>
-<li><p>Add</p>
-<p><code>#github</code></p>
-<p><code>140.82.114.4 github.com</code></p>
-<p><code>199.232.69.194 github.global.ssl.fastly.net</code></p>
-<p>replace the IP address with the search result.</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-        <tag>MacOS</tag>
-      </tags>
   </entry>
   <entry>
     <title>C++: Difference between int* and int&amp; and int</title>
@@ -867,6 +842,31 @@ reference without initilizatin is not permitted,
       <tags>
         <tag>C++</tag>
         <tag>int&amp;</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cannot get access to Github</title>
+    <url>/2021/03/04/Cannot-get-access-to-Github/</url>
+    <content><![CDATA[<p>MacOS 11.2</p>
+<ol type="1">
+<li><p><code>sudo vim /private/etc/hosts</code></p></li>
+<li><p>Delete all path about Github</p></li>
+<li><p>Search IP address of <code>github.com</code> and
+<code>github.global.ssl.fastly.net</code> in
+<code>https://github.com.ipaddress.com</code></p></li>
+<li><p>Add</p>
+<p><code>#github</code></p>
+<p><code>140.82.114.4 github.com</code></p>
+<p><code>199.232.69.194 github.global.ssl.fastly.net</code></p>
+<p>replace the IP address with the search result.</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+        <tag>MacOS</tag>
       </tags>
   </entry>
   <entry>
@@ -906,6 +906,42 @@ override夫类function，返回类型相同。</p></li>
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
+    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
+    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
+<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code>
+and <code>const a int</code> are totally same. Both of them tell the
+compiler that the value stored in <code>a</code> can not be modified.
+But when it is combined with pointer, things go complicated</p>
+<h2 id="const-int">const int *</h2>
+<p>For C++, <code>int*</code> is not viewed as a type. Only
+<code>*a</code> be viewed as a mark telling the complier <code>a</code>
+is a pointer. So as we have already known that <code>int const</code> is
+same with <code>const int</code>, <code>int const *a</code> is also same
+with <code>const int *a</code>. Both of them means <code>*a</code> is a
+const, which means the value poined by <code>a</code> can not be
+modified but <code>a</code>, as a pointer, can point to different
+places.</p>
+<h2 id="int-const">int* const</h2>
+<p>By contrast, the <code>const</code> in <code>int* const</code> is a
+mark for <code>a</code>, so <code>a</code>, as a pointer, can only point
+to one specific place(determined when it is initialized), but the value
+pointed by it can be changed.</p>
+<p>Besides, we can combine two usages of <code>const</code>together:
+<code>const int* const a</code>--<code>a</code>, as a pointer, can not
+be modified and the value pointed by <code>a</code> cannot be
+modified.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>const</tag>
+        <tag>pointer</tag>
       </tags>
   </entry>
   <entry>
@@ -1002,42 +1038,6 @@ store，由OS特别管理）上。<code>free store</code>一般都是在heap上�
       <tags>
         <tag>new</tag>
         <tag>malloc</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Difference between &#39;const int*&#39;, &#39;int const*&#39;,&#39;int* const&#39;</title>
-    <url>/2020/06/05/Difference-between-const-int-int-const-int-const/</url>
-    <content><![CDATA[<p>今天写作业被这个const搞得很自闭，因此来总结一下，避免以后踩坑（此处不一定是int，可以是任意type）</p>
-<p><code>const</code>这个东西对于一般变量很简单，<code>const int a</code>
-and <code>const a int</code> are totally same. Both of them tell the
-compiler that the value stored in <code>a</code> can not be modified.
-But when it is combined with pointer, things go complicated</p>
-<h2 id="const-int">const int *</h2>
-<p>For C++, <code>int*</code> is not viewed as a type. Only
-<code>*a</code> be viewed as a mark telling the complier <code>a</code>
-is a pointer. So as we have already known that <code>int const</code> is
-same with <code>const int</code>, <code>int const *a</code> is also same
-with <code>const int *a</code>. Both of them means <code>*a</code> is a
-const, which means the value poined by <code>a</code> can not be
-modified but <code>a</code>, as a pointer, can point to different
-places.</p>
-<h2 id="int-const">int* const</h2>
-<p>By contrast, the <code>const</code> in <code>int* const</code> is a
-mark for <code>a</code>, so <code>a</code>, as a pointer, can only point
-to one specific place(determined when it is initialized), but the value
-pointed by it can be changed.</p>
-<p>Besides, we can combine two usages of <code>const</code>together:
-<code>const int* const a</code>--<code>a</code>, as a pointer, can not
-be modified and the value pointed by <code>a</code> cannot be
-modified.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>const</tag>
-        <tag>pointer</tag>
       </tags>
   </entry>
   <entry>
@@ -1451,58 +1451,6 @@ archive modifications) and <code>git stash pop</code> (restore)</li>
       </categories>
   </entry>
   <entry>
-    <title>Hexo Migration</title>
-    <url>/2022/07/14/Hexo-Migration/</url>
-    <content><![CDATA[<p>The following code is only tested on Apple Silicon.</p>
-<ol type="1">
-<li><p>Config Git</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config user.name liwuchen</span><br><span class="line">git config user.email liwch@shanghaitech.edu.cn</span><br><span class="line">git config -l # list git config</span><br><span class="line">ssh-keygen -t rsa -C &quot;liwch@shanghaitech.edu.cn&quot;</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p>Copy rsa public key to GitHub-&gt;Settings-&gt;SSH and GPG
-keys.</p></li>
-<li><p>Install <a href="https://nodejs.org/">Nodejs</a></p>
-<ol type="1">
-<li><p>In China, you may consider install cnpm</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></li>
-<li><p>In the following steps, I will use <code>cnpm</code>, same for
-<code>npm</code>.<span id="more"></span></p></li>
-</ol></li>
-<li><p>Install hexo with <code>npm</code>
-<code>cnpm install -g hexo-cli</code></p></li>
-<li><p>Install deployment plugin
-<code>cnpm install --save hexo-deployer-git</code></p></li>
-<li><p>Install <a href="https://brew.sh">Homebrew</a></p>
-<p>In China, you may consider <code>HomebrewCN</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/bin/zsh -c &quot;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>Math equation rendering</p>
-<ol type="1">
-<li><p>Install <code>pandoc</code> <code>brew install pandoc</code></p>
-<ol type="1">
-<li><p>If <code>Error: Command failed with exit 128: git</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-core</span><br><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-cask</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-<li><p>Uninstall <code>hexo-renderer-marked</code>
-<code>npm uninstall hexo-renderer-marked --save</code></p></li>
-<li><p>Install <code>hexo-renderer-pandoc</code>
-<code>npm install hexo-renderer-pandoc</code></p></li>
-</ol></li>
-<li><p>Done! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉</p></li>
-<li><p><code>hexo clean; hexo g; hexo d</code></p></li>
-<li><p>Here is two shell scripts for you</p>
-<ol type="1">
-<li><code>blog.sh</code></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/zsh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">read</span> input</span> </span><br><span class="line">name=$&#x27;&#x27;</span><br><span class="line">filename=$&#x27;&#x27;</span><br><span class="line">for arg in &quot;$*&quot;</span><br><span class="line">  do</span><br><span class="line">    name=$s$arg</span><br><span class="line">  done</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> create new post</span></span><br><span class="line">hexo n &quot;$name&quot;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> open post</span></span><br><span class="line">name=$(echo $name|sed &quot;s/ /-/g&quot;) # replace space with short dash</span><br><span class="line">open $&#x27;./source/_posts/&#x27;$name$&#x27;.md&#x27; # open markdown file</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li><code>deploy.sh</code></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/zsh</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo clean</span><br><span class="line">hexo d</span><br><span class="line">clear</span><br><span class="line">echo &quot;Blog depolyment done! Let&#x27;s post more! 🎉🎉🎉&quot;</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Gradient Descent, Newton Method and Quasi-Newton Method</title>
     <url>/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/</url>
     <content><![CDATA[<h3 id="gradient-descent">1. Gradient Descent</h3>
@@ -1692,6 +1640,58 @@ brightness.</p>
       </tags>
   </entry>
   <entry>
+    <title>Hexo Migration</title>
+    <url>/2022/07/14/Hexo-Migration/</url>
+    <content><![CDATA[<p>The following code is only tested on Apple Silicon.</p>
+<ol type="1">
+<li><p>Config Git</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config user.name liwuchen</span><br><span class="line">git config user.email liwch@shanghaitech.edu.cn</span><br><span class="line">git config -l # list git config</span><br><span class="line">ssh-keygen -t rsa -C &quot;liwch@shanghaitech.edu.cn&quot;</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>Copy rsa public key to GitHub-&gt;Settings-&gt;SSH and GPG
+keys.</p></li>
+<li><p>Install <a href="https://nodejs.org/">Nodejs</a></p>
+<ol type="1">
+<li><p>In China, you may consider install cnpm</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></li>
+<li><p>In the following steps, I will use <code>cnpm</code>, same for
+<code>npm</code>.<span id="more"></span></p></li>
+</ol></li>
+<li><p>Install hexo with <code>npm</code>
+<code>cnpm install -g hexo-cli</code></p></li>
+<li><p>Install deployment plugin
+<code>cnpm install --save hexo-deployer-git</code></p></li>
+<li><p>Install <a href="https://brew.sh">Homebrew</a></p>
+<p>In China, you may consider <code>HomebrewCN</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/bin/zsh -c &quot;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>Math equation rendering</p>
+<ol type="1">
+<li><p>Install <code>pandoc</code> <code>brew install pandoc</code></p>
+<ol type="1">
+<li><p>If <code>Error: Command failed with exit 128: git</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-core</span><br><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-cask</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>Uninstall <code>hexo-renderer-marked</code>
+<code>npm uninstall hexo-renderer-marked --save</code></p></li>
+<li><p>Install <code>hexo-renderer-pandoc</code>
+<code>npm install hexo-renderer-pandoc</code></p></li>
+</ol></li>
+<li><p>Done! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉</p></li>
+<li><p><code>hexo clean; hexo g; hexo d</code></p></li>
+<li><p>Here is two shell scripts for you</p>
+<ol type="1">
+<li><code>blog.sh</code></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/zsh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">read</span> input</span> </span><br><span class="line">name=$&#x27;&#x27;</span><br><span class="line">filename=$&#x27;&#x27;</span><br><span class="line">for arg in &quot;$*&quot;</span><br><span class="line">  do</span><br><span class="line">    name=$s$arg</span><br><span class="line">  done</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> create new post</span></span><br><span class="line">hexo n &quot;$name&quot;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> open post</span></span><br><span class="line">name=$(echo $name|sed &quot;s/ /-/g&quot;) # replace space with short dash</span><br><span class="line">open $&#x27;./source/_posts/&#x27;$name$&#x27;.md&#x27; # open markdown file</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li><code>deploy.sh</code></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/zsh</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo clean</span><br><span class="line">hexo d</span><br><span class="line">clear</span><br><span class="line">echo &quot;Blog depolyment done! Let&#x27;s post more! 🎉🎉🎉&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
     <title>How to generate random number via C++ (srand version)</title>
     <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
     <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -1800,24 +1800,6 @@ repository-&gt;open docker in browser.</p>
       </categories>
   </entry>
   <entry>
-    <title>Install OpenCV on M1</title>
-    <url>/2022/04/20/Install-OpenCV-on-M1/</url>
-    <content><![CDATA[<ol type="1">
-<li>install miniconda in M1</li>
-<li>create and enter new environment of conda</li>
-<li><code>conda install -c conda-forge opencv</code>
-<ol type="1">
-<li><code>opencv</code> will be available in this environment.</li>
-</ol></li>
-<li>test <code>opencv</code>:
-<code>python -c "import cv2; print(cv2.__version__)"</code></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Install tensorflow_macos on Macbook M1 (Apple silicon)</title>
     <url>/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/</url>
     <content><![CDATA[<h1 id="preface">Preface</h1>
@@ -1895,6 +1877,61 @@ tensorflow_macos!</p></li>
       </categories>
   </entry>
   <entry>
+    <title>Install OpenCV on M1</title>
+    <url>/2022/04/20/Install-OpenCV-on-M1/</url>
+    <content><![CDATA[<ol type="1">
+<li>install miniconda in M1</li>
+<li>create and enter new environment of conda</li>
+<li><code>conda install -c conda-forge opencv</code>
+<ol type="1">
+<li><code>opencv</code> will be available in this environment.</li>
+</ol></li>
+<li>test <code>opencv</code>:
+<code>python -c "import cv2; print(cv2.__version__)"</code></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Introduction to Docker</title>
+    <url>/2022/07/14/Introduction-to-Docker/</url>
+    <content><![CDATA[<ol type="1">
+<li><p>Pull docker images
+<code>docker pull docker.io/library/ubuntu:18.04</code> or
+<code>docker pull ubuntu:18.04</code> in short (from docker
+hub)</p></li>
+<li><p>Test docker</p>
+<ol type="1">
+<li><code>docker run -it --rm ubuntu:18.04 bash</code>, <code>-it</code>
+stands for interactive terminal, <code>--rm</code> stands for remove
+after exiting this container, <code>bash</code> is the shell we use in
+container.</li>
+<li><code>cat /etc/os-release</code> show system info<span id="more"></span></li>
+</ol></li>
+<li><p>List docker images <code>docker images</code></p></li>
+<li><p><code>docker run -dit ubuntu:18.04</code> --run a docker in
+background with interactive pseudo terminal (not assigned)</p>
+<p><code>docker container ls</code> --find your running container</p>
+<p><code>docker exec -i &lt;container id&gt; bash</code> --enter
+container via bash</p>
+<p><code>exit</code> in this bash will not stop docker</p>
+<p><code>docker container stop &lt;container id&gt;</code>--stop
+container</p></li>
+<li><p><code>docker container ls -a</code> --list all containers,
+including stopped container</p>
+<p><code>docker container rm &lt;container id&gt;</code> --remove a
+stopped container</p>
+<p><code>docker container prune</code> --remove all stopped
+container</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tutorial</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Intel Internship</title>
     <url>/2022/07/14/Intel-Internship/</url>
     <content><![CDATA[<h1 id="easyrec">EasyRec</h1>
@@ -1957,43 +1994,6 @@ this tfjob <code>kubectl delete tfjob &lt;tfjob name&gt;</code></p></li>
       </categories>
   </entry>
   <entry>
-    <title>Introduction to Docker</title>
-    <url>/2022/07/14/Introduction-to-Docker/</url>
-    <content><![CDATA[<ol type="1">
-<li><p>Pull docker images
-<code>docker pull docker.io/library/ubuntu:18.04</code> or
-<code>docker pull ubuntu:18.04</code> in short (from docker
-hub)</p></li>
-<li><p>Test docker</p>
-<ol type="1">
-<li><code>docker run -it --rm ubuntu:18.04 bash</code>, <code>-it</code>
-stands for interactive terminal, <code>--rm</code> stands for remove
-after exiting this container, <code>bash</code> is the shell we use in
-container.</li>
-<li><code>cat /etc/os-release</code> show system info<span id="more"></span></li>
-</ol></li>
-<li><p>List docker images <code>docker images</code></p></li>
-<li><p><code>docker run -dit ubuntu:18.04</code> --run a docker in
-background with interactive pseudo terminal (not assigned)</p>
-<p><code>docker container ls</code> --find your running container</p>
-<p><code>docker exec -i &lt;container id&gt; bash</code> --enter
-container via bash</p>
-<p><code>exit</code> in this bash will not stop docker</p>
-<p><code>docker container stop &lt;container id&gt;</code>--stop
-container</p></li>
-<li><p><code>docker container ls -a</code> --list all containers,
-including stopped container</p>
-<p><code>docker container rm &lt;container id&gt;</code> --remove a
-stopped container</p>
-<p><code>docker container prune</code> --remove all stopped
-container</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tutorial</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Jupyter Notebook Installtion</title>
     <url>/2021/10/09/Jupyter-Notebook-Installtion/</url>
     <content><![CDATA[<ol type="1">
@@ -2020,23 +2020,6 @@ in notebook.</p></li>
     <content><![CDATA[<p>Check this <a href="https://github.com/SightVanish/MyLeetcode">repo</a>.</p>
 <p><img src="/2022/04/14/Leetcode-updating/1.jpg" alt="1" style="zoom:50%;"></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Logistic Regression</title>
-    <url>/2021/11/02/Logistic-Regression/</url>
-    <content><![CDATA[<p>方法1:opencv</p>
-<p>opencv可以通过一些操作（主要通过canny和扩张腐蚀）得到特定的轮廓</p>
-<p>但是实际操作下来感觉非常依赖参数的调整和图像预处理，很不稳定，并且道路本身的一些特征（如道路接缝）也会被检测</p>
-<p>方法2:deeplearning</p>
-<p>由于Road Damage
-Detection是一个在深度学习领域很成熟的话题。我直接搜索了相关的竞赛。</p>
-<p>目前排名较高的均为使用YOLO实现，我自己也进行了尝试（YOLO
-v5）但是效果很不理想，几乎检测不到。</p>
-<p>这个领域我还没有深入探索。但是如果我们没有对检测速度很高要求的话，使用maskRCNN或许是更加适合的方案。</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
   </entry>
   <entry>
     <title>Linear Regression</title>
@@ -2178,22 +2161,6 @@ Regularized \ Maximum \ Likelihood \ Estimate \\
       </categories>
   </entry>
   <entry>
-    <title>MacBook 软件配置</title>
-    <url>/2022/01/23/MacBook-%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>Apps:</p>
-<p>Network Monitor, VPN, The Unarchiver, 迅雷, IINA, Keynotes, Pages,
-GoodNotes, Words, Excel, Typora, Final Cut Pro X, Steam, Chrome, QQ,
-Notion, AltServer, Microsoft Remote Desktop, VScode, Developer,
-Xcode</p>
-<p>Development:</p>
-<p>Conda, Hexo, oh-my-zsh, vim color scheme, homebrew, clang</p>
-<p>PyTorch, tensorflow-apple</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Linux/Ubuntu Commands</title>
     <url>/2022/07/14/Linux-Ubuntu-Commands/</url>
     <content><![CDATA[<ol type="1">
@@ -2252,21 +2219,46 @@ to exit.</p></li>
       </categories>
   </entry>
   <entry>
-    <title>Mac上极好的Github使用教程(转载)</title>
-    <url>/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/Capgras/article/details/100540501">原文链接</a></p>
-<p>以下为截图</p>
-<figure>
-<img src="/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/Github(tutorial).jpg" alt="git">
-<figcaption aria-hidden="true">git</figcaption>
-</figure>
+    <title>Logistic Regression</title>
+    <url>/2021/11/02/Logistic-Regression/</url>
+    <content><![CDATA[<p>方法1:opencv</p>
+<p>opencv可以通过一些操作（主要通过canny和扩张腐蚀）得到特定的轮廓</p>
+<p>但是实际操作下来感觉非常依赖参数的调整和图像预处理，很不稳定，并且道路本身的一些特征（如道路接缝）也会被检测</p>
+<p>方法2:deeplearning</p>
+<p>由于Road Damage
+Detection是一个在深度学习领域很成熟的话题。我直接搜索了相关的竞赛。</p>
+<p>目前排名较高的均为使用YOLO实现，我自己也进行了尝试（YOLO
+v5）但是效果很不理想，几乎检测不到。</p>
+<p>这个领域我还没有深入探索。但是如果我们没有对检测速度很高要求的话，使用maskRCNN或许是更加适合的方案。</p>
 ]]></content>
       <categories>
-        <category>Tutorial</category>
+        <category>Machine Learning</category>
       </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>MacBook 软件配置</title>
+    <url>/2022/01/23/MacBook-%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>Apps:</p>
+<p>Network Monitor, VPN, The Unarchiver, 迅雷, IINA, Keynotes, Pages,
+GoodNotes, Words, Excel, Typora, Final Cut Pro X, Steam, Chrome, QQ,
+Notion, AltServer, Microsoft Remote Desktop, VScode, Developer,
+Xcode</p>
+<p>Development:</p>
+<p>Conda, Hexo, oh-my-zsh, vim color scheme, homebrew, clang</p>
+<p>PyTorch, tensorflow-apple</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
+    <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
+    <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
   </entry>
   <entry>
     <title>Mac上vscode显示没有修改文件权限</title>
@@ -2286,30 +2278,35 @@ to exit.</p></li>
       </categories>
   </entry>
   <entry>
-    <title>MAC:已损坏，无法打开。 您应该将它移到废纸篓</title>
-    <url>/2020/05/22/MAC-%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82-%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
-    <content><![CDATA[<p>不要修改权限，apple官方的回复是按住<code>option</code>右键点击打开</p>
+    <title>Mac上极好的Github使用教程(转载)</title>
+    <url>/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/Capgras/article/details/100540501">原文链接</a></p>
+<p>以下为截图</p>
+<figure>
+<img src="/2020/05/26/Mac%E4%B8%8A%E6%9E%81%E5%A5%BD%E7%9A%84Github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-%E8%BD%AC%E8%BD%BD/Github(tutorial).jpg" alt="git">
+<figcaption aria-hidden="true">git</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Tutorial</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown在github上公式显示错误</title>
+    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _
+后加空格，如<span class="math inline">\(a_
+1\)</span>应写为<code>a_ 1</code></p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
-  </entry>
-  <entry>
-    <title>NPR Cup--a taste to NPR</title>
-    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
-    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果">
-<figcaption aria-hidden="true">简单的一个效果</figcaption>
-</figure>
-<figure>
-<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了">
-<figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Rendering</category>
-      </categories>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
   </entry>
   <entry>
     <title>My Donut in Blender</title>
@@ -2346,18 +2343,37 @@ to exit.</p></li>
       </categories>
   </entry>
   <entry>
-    <title>Markdown在github上公式显示错误</title>
-    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _
-后加空格，如<span class="math inline">\(a_
-1\)</span>应写为<code>a_ 1</code></p>
+    <title>NPR Cup--a taste to NPR</title>
+    <url>/2021/09/16/NPR-Cup-a-taste-to-NPR/</url>
+    <content><![CDATA[<p>尝试了一下NPR，现在的简单理解就是离散的色彩，离散的阴影，描边突出，略微的自发光。接下来应该会有更多的尝试，而且我也想试一下blender的freestyle。</p>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/1.png" alt="简单的一个效果">
+<figcaption aria-hidden="true">简单的一个效果</figcaption>
+</figure>
+<figure>
+<img src="/2021/09/16/NPR-Cup-a-taste-to-NPR/2.png" alt="改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了">
+<figcaption aria-hidden="true">改成正交相机，没有了透视所带来的深度信息，就我个人而言感觉表现更好了</figcaption>
+</figure>
 ]]></content>
       <categories>
-        <category>Configuration</category>
+        <category>Rendering</category>
       </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>Netscope for Caffe</title>
+    <url>/2022/07/26/Netscope-for-Caffe/</url>
+    <content><![CDATA[<p><strong>Netscope</strong> is a web-based tool for visualizing neural
+network architecture (technically any DAG, directed acyclic graph).</p>
+<p>It currently only supports Caffe's prototxt format.</p>
+<p>It is very handy to use, just drag the prototxt to the website and
+<code>shift+enter</code> to visualize the model.</p>
+<p><a href="http://ethereon.github.io/netscope/quickstart.html">Click
+Here</a></p>
+<p><img src="/2022/07/26/Netscope-for-Caffe/netscope.jpg" alt="netscope" style="zoom:50%;"></p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
   </entry>
   <entry>
     <title>Numpy np.where</title>
@@ -2374,16 +2390,6 @@ be noticed.</p>
 ]]></content>
       <categories>
         <category>Python</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Overwatch yes</title>
-    <url>/2021/06/10/Overwatch-yes/</url>
-    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
-<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
-]]></content>
-      <categories>
-        <category>Chat</category>
       </categories>
   </entry>
   <entry>
@@ -2450,33 +2456,32 @@ choose to disable it on your own will.</p></li>
       </categories>
   </entry>
   <entry>
-    <title>PySpark Install</title>
-    <url>/2022/01/20/PySpark-Install/</url>
-    <content><![CDATA[<h1 id="pyspark">PySpark</h1>
-<h2 id="install">Install</h2>
-<p>Environement: WSL ubuntu 18</p>
-<h4 id="conda">Conda</h4>
-<p>install anaconda and create a new environment with python=3.6</p>
-<span id="more"></span>
-<h4 id="java8">Java8</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br><span class="line"><span class="meta">#</span><span class="bash"> java -version</span></span><br></pre></td></tr></table></figure>
-<h4 id="scala">Scala</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.deb # wget may be timeout, try again</span><br><span class="line">sudo dpkg -i scala-2.12.8.deb</span><br><span class="line"><span class="meta">#</span><span class="bash"> scala -version</span></span><br></pre></td></tr></table></figure>
-<h4 id="py4j">py4j</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install py4j</span><br><span class="line"><span class="meta">#</span><span class="bash"> or try `conda install py4j`</span></span><br></pre></td></tr></table></figure>
-<h4 id="spark">Spark</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> this <span class="built_in">command</span> may fail</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> check the current version <span class="keyword">in</span> http://mirrors.tuna.tsinghua.edu.cn/apache/spark</span></span><br><span class="line">wget http://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz </span><br><span class="line">tar xvf  spark-2.4.0-bin-hadoop2.7.tgz</span><br></pre></td></tr></table></figure>
-<h4 id="environment">Environment</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line">export SPARK_HOME=&lt;path to spark-2.4.0-bin-hadoop2.7&gt;</span><br><span class="line">export PATH=$&#123;SPARK_HOME&#125;/bin:$PATH</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br><span class="line">cd &lt;path to spark-2.4.0-bin-hadoop2.7&gt;</span><br><span class="line">cp conf/log4j.properties.template conf/log4j.properties</span><br><span class="line">vim conf/log4j.properties</span><br><span class="line"><span class="meta">#</span><span class="bash"> replace `log4j.rootCategory=INFO, console` with</span></span><br><span class="line">log4j.rootCategory=ERROR, console</span><br></pre></td></tr></table></figure>
-<p>if you want to use pyspark in jupyter notebook,</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> find your own path to the zip file starting with <span class="string">&#x27;py4j&#x27;</span></span></span><br><span class="line">export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH</span><br><span class="line">export PATH=$SPARK_HOME/python:$PATH</span><br><span class="line">export PYSPARK_PYTHON=python3</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br><span class="line">pip install findspark</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>Enter jupyter notebook, import <code>findspark</code> before
-<code>pyspark</code></strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> findspark</span><br><span class="line">findspark.init()</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br></pre></td></tr></table></figure>
+    <title>Overwatch yes</title>
+    <url>/2021/06/10/Overwatch-yes/</url>
+    <content><![CDATA[<p>猩猩真快乐666666666666666</p>
+<p><img src="/2021/06/10/Overwatch-yes/1.png"></p>
 ]]></content>
       <categories>
-        <category>Configuration</category>
+        <category>Chat</category>
       </categories>
+  </entry>
+  <entry>
+    <title>PDF &amp; CDF</title>
+    <url>/2021/02/24/PDF_CDF/</url>
+    <content><![CDATA[<p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。
+为此引入了PDF（Probability Density
+Function），直观地理解可以近似理解为概率本身--也就是说如果我们不关心纯粹的概率值，而只要求相对的概率大小，那么就可以使用某个点的PDF值进行计算（比如最大似然估计）。但是要认识到某个点的具体概率值实际为<span class="math inline">\(PDF(x)*dx =
+0\)</span>，一个点的概率本身没有意义。</p>
+<p>为此需要引入CDF，即为PDF在一定区间上的积分，这使得CDF具有了实际的概率意义。</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Probability Density Function</tag>
+        <tag>Cumulative Distribution Function</tag>
+        <tag>Norm Distribution</tag>
+      </tags>
   </entry>
   <entry>
     <title>Principal Component Analysis</title>
@@ -2506,6 +2511,35 @@ Component？</h2>
       </tags>
   </entry>
   <entry>
+    <title>PySpark Install</title>
+    <url>/2022/01/20/PySpark-Install/</url>
+    <content><![CDATA[<h1 id="pyspark">PySpark</h1>
+<h2 id="install">Install</h2>
+<p>Environement: WSL ubuntu 18</p>
+<h4 id="conda">Conda</h4>
+<p>install anaconda and create a new environment with python=3.6</p>
+<span id="more"></span>
+<h4 id="java8">Java8</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br><span class="line"><span class="meta">#</span><span class="bash"> java -version</span></span><br></pre></td></tr></table></figure>
+<h4 id="scala">Scala</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.deb # wget may be timeout, try again</span><br><span class="line">sudo dpkg -i scala-2.12.8.deb</span><br><span class="line"><span class="meta">#</span><span class="bash"> scala -version</span></span><br></pre></td></tr></table></figure>
+<h4 id="py4j">py4j</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install py4j</span><br><span class="line"><span class="meta">#</span><span class="bash"> or try `conda install py4j`</span></span><br></pre></td></tr></table></figure>
+<h4 id="spark">Spark</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> this <span class="built_in">command</span> may fail</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> check the current version <span class="keyword">in</span> http://mirrors.tuna.tsinghua.edu.cn/apache/spark</span></span><br><span class="line">wget http://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz </span><br><span class="line">tar xvf  spark-2.4.0-bin-hadoop2.7.tgz</span><br></pre></td></tr></table></figure>
+<h4 id="environment">Environment</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line">export SPARK_HOME=&lt;path to spark-2.4.0-bin-hadoop2.7&gt;</span><br><span class="line">export PATH=$&#123;SPARK_HOME&#125;/bin:$PATH</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br><span class="line">cd &lt;path to spark-2.4.0-bin-hadoop2.7&gt;</span><br><span class="line">cp conf/log4j.properties.template conf/log4j.properties</span><br><span class="line">vim conf/log4j.properties</span><br><span class="line"><span class="meta">#</span><span class="bash"> replace `log4j.rootCategory=INFO, console` with</span></span><br><span class="line">log4j.rootCategory=ERROR, console</span><br></pre></td></tr></table></figure>
+<p>if you want to use pyspark in jupyter notebook,</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> find your own path to the zip file starting with <span class="string">&#x27;py4j&#x27;</span></span></span><br><span class="line">export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH</span><br><span class="line">export PATH=$SPARK_HOME/python:$PATH</span><br><span class="line">export PYSPARK_PYTHON=python3</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br><span class="line">pip install findspark</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>Enter jupyter notebook, import <code>findspark</code> before
+<code>pyspark</code></strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> findspark</span><br><span class="line">findspark.init()</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Python argparse</title>
     <url>/2022/04/03/Python-argparse/</url>
     <content><![CDATA[<p>This is a template of <code>argparse</code>.</p>
@@ -2514,24 +2548,6 @@ Component？</h2>
       <categories>
         <category>Python</category>
       </categories>
-  </entry>
-  <entry>
-    <title>PDF &amp; CDF</title>
-    <url>/2021/02/24/PDF_CDF/</url>
-    <content><![CDATA[<p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。
-为此引入了PDF（Probability Density
-Function），直观地理解可以近似理解为概率本身--也就是说如果我们不关心纯粹的概率值，而只要求相对的概率大小，那么就可以使用某个点的PDF值进行计算（比如最大似然估计）。但是要认识到某个点的具体概率值实际为<span class="math inline">\(PDF(x)*dx =
-0\)</span>，一个点的概率本身没有意义。</p>
-<p>为此需要引入CDF，即为PDF在一定区间上的积分，这使得CDF具有了实际的概率意义。</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Probability Density Function</tag>
-        <tag>Cumulative Distribution Function</tag>
-        <tag>Norm Distribution</tag>
-      </tags>
   </entry>
   <entry>
     <title>Python set</title>
@@ -2554,6 +2570,40 @@ set</h3>
       <categories>
         <category>Learning</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Python technique</title>
+    <url>/2020/06/06/Python-technique/</url>
+    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking
+or dynamic programing:</p>
+<p>cause it will avoid reuse of data and reach good performance</p>
+<hr>
+<p>how to create a vector</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
+<p>Directly read/ wirte is quite different from
+<code>append()</code></p>
+<p><code>append()</code> will treat elements as data, which is more
+flexible</p>
+<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned
+vector</p>
+<span id="more"></span>
+<hr>
+<p>spilt part of string</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>init a vector:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
+<p>vector is a row*column size vector with all entries initialized by
+a.</p>
+<p>note <code>a</code> is just a value and can be anything you wang.
+<code>i</code> is just an iterator, even can use <code>_</code></p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>Pytorch Tips</title>
@@ -2674,37 +2724,64 @@ modify.</p>
       </categories>
   </entry>
   <entry>
-    <title>Python technique</title>
-    <url>/2020/06/06/Python-technique/</url>
-    <content><![CDATA[<p>Always try to use <strong>two pointers</strong> before backtracking
-or dynamic programing:</p>
-<p>cause it will avoid reuse of data and reach good performance</p>
-<hr>
-<p>how to create a vector</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="comment"># init a blank vector </span></span><br><span class="line"><span class="comment"># basically it is quite good to store and read data via v[i][j]</span></span><br></pre></td></tr></table></figure>
-<p>Directly read/ wirte is quite different from
-<code>append()</code></p>
-<p><code>append()</code> will treat elements as data, which is more
-flexible</p>
-<p>dirctly read/ write <code>v[][]</code> will ensure it as an aligned
-vector</p>
+    <title>SVM(Support Vector Machine)</title>
+    <url>/2021/05/25/SVM-Support-Vector-Machine/</url>
+    <content><![CDATA[<h2 id="margin">Margin</h2>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/1.png" alt="1" style="zoom:50%;"></p>
+<p>从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。</p>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/2.png" alt="2" style="zoom:50%;"></p>
+<p>上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。</p>
 <span id="more"></span>
-<hr>
-<p>spilt part of string</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">string = <span class="string">&quot;asdfghjkl&quot;</span></span><br><span class="line">part_string = string[<span class="number">2</span>:] <span class="comment"># &quot;dfghjkl&quot; skip two entries</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>init a vector:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vector = [[a <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(column)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
-<p>vector is a row*column size vector with all entries initialized by
-a.</p>
-<p>note <code>a</code> is just a value and can be anything you wang.
-<code>i</code> is just an iterator, even can use <code>_</code></p>
+<h2 id="linear-seperatable-svm">Linear Seperatable SVM</h2>
+<p>首先考虑所有sample本身线性可分。</p>
+<h3 id="problem-definition">Problem Definition</h3>
+<p>对于线性分类器的超平面为：<span class="math inline">\(X^TW+b=0\)</span>。We define those with <span class="math inline">\(X^TW+b&gt;1\)</span> is labeled +1, which means
+geometrically the <em>left-top</em> part of the line is labeled
+positive.</p>
+<p><img src="/2021/05/25/SVM-Support-Vector-Machine/3.png" alt="2" style="zoom:50%;"></p>
+<p>So we can see that <span class="math inline">\(margin =
+\frac{2}{||W||}\)</span>. We want to maximum margin which is same with
+<span class="math inline">\(min||W||^2\)</span>.</p>
+<p>[primal problem]</p>
+<p>The whole problem can be written as :</p>
+<p><span class="math inline">\(min||W||^2, \  st.
+y_i(X_i^TW+b)&gt;=1\)</span>.</p>
+<h3 id="how-to-find-w-b">How to find W, b</h3>
+<p>If all the data is linear seperatable, those points that determine
+margin are called support vectors. For support vectors we have: <span class="math inline">\(y_i(X_i^TW+b)=1\)</span>. For other points, they
+have no influence on this algorithm so that this algorithm is called
+SVM.</p>
+<h2 id="nonlinear-seperatable-svm">NonLinear Seperatable SVM</h2>
+<p>Since the data is not linear speratable itself, we allow SVM has some
+mistakes--<em>soft margin</em>.</p>
+<h3 id="hinge-loss">hinge loss</h3>
+<p>We will modify our objective function by adding hinge loss</p>
+<p>(<span class="math inline">\(l_{hinge}=max(0,1-z),
+z=y_i(X_i^TW+b)\)</span>).</p>
+<p>Objective function: <span class="math inline">\(min \ ||W||^2+C\Sigma
+l_{hinge}\)</span>. C is hyper-parameter. If C-&gt;0, the model allows
+any mistakes--easily undercutting; if C-&gt;∞, the model is same with
+Linear Speratable SVM--easily overfitting.</p>
+<p>[primal problem]</p>
+<p>The whole problem can be written as:</p>
+<p><span class="math inline">\(min||W||^2+C\Sigma_i\xi_i, \
+st.y_i(X_i^TW+b)&gt;=1-\xi_i,\xi&gt;=0\)</span>.</p>
+<h2 id="what-if-the-sample-is-totally-nonlinear-seperatable">What if the
+sample is totally nonlinear seperatable?</h2>
+<h3 id="kernel">Kernel</h3>
+<p>Introduce Lagranginan function and we get dual form of primal
+problem:</p>
+<p><span class="math inline">\(min_{\alpha}\Sigma_i^n\Sigma_j^n\alpha_i\alpha_jy_iy_j(X_i\cdot
+X_j)-\Sigma_i^n\alpha_i. \ st. \Sigma_i^n\alpha_iy_i=0, \
+0\leq\alpha_i&lt;C\)</span>.</p>
+<p>We can choose proper kernel <span class="math inline">\(K\)</span> to
+replace <span class="math inline">\((X_i\cdot X_j)\)</span>.</p>
 ]]></content>
       <categories>
-        <category>Learning</category>
+        <category>Machine Learning</category>
       </categories>
       <tags>
-        <tag>Python</tag>
+        <tag>SVM</tag>
       </tags>
   </entry>
   <entry>
@@ -2800,196 +2877,6 @@ _o*D\)</span>大小。</p>
 ]]></content>
       <categories>
         <category>Computer Vision</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>SVM(Support Vector Machine)</title>
-    <url>/2021/05/25/SVM-Support-Vector-Machine/</url>
-    <content><![CDATA[<h2 id="margin">Margin</h2>
-<p><img src="/2021/05/25/SVM-Support-Vector-Machine/1.png" alt="1" style="zoom:50%;"></p>
-<p>从margin引入，优化理论告诉我们如果我们能找到更大的margin，那么理论上分类器表现就会更好，SVM简单来说就是通过不断迭代找到更好margin的算法。</p>
-<p><img src="/2021/05/25/SVM-Support-Vector-Machine/2.png" alt="2" style="zoom:50%;"></p>
-<p>上图H1，H2，H3三个分类器，由margin可以看出来冥想H3更好（这也符合人的一般直觉）。</p>
-<span id="more"></span>
-<h2 id="linear-seperatable-svm">Linear Seperatable SVM</h2>
-<p>首先考虑所有sample本身线性可分。</p>
-<h3 id="problem-definition">Problem Definition</h3>
-<p>对于线性分类器的超平面为：<span class="math inline">\(X^TW+b=0\)</span>。We define those with <span class="math inline">\(X^TW+b&gt;1\)</span> is labeled +1, which means
-geometrically the <em>left-top</em> part of the line is labeled
-positive.</p>
-<p><img src="/2021/05/25/SVM-Support-Vector-Machine/3.png" alt="2" style="zoom:50%;"></p>
-<p>So we can see that <span class="math inline">\(margin =
-\frac{2}{||W||}\)</span>. We want to maximum margin which is same with
-<span class="math inline">\(min||W||^2\)</span>.</p>
-<p>[primal problem]</p>
-<p>The whole problem can be written as :</p>
-<p><span class="math inline">\(min||W||^2, \  st.
-y_i(X_i^TW+b)&gt;=1\)</span>.</p>
-<h3 id="how-to-find-w-b">How to find W, b</h3>
-<p>If all the data is linear seperatable, those points that determine
-margin are called support vectors. For support vectors we have: <span class="math inline">\(y_i(X_i^TW+b)=1\)</span>. For other points, they
-have no influence on this algorithm so that this algorithm is called
-SVM.</p>
-<h2 id="nonlinear-seperatable-svm">NonLinear Seperatable SVM</h2>
-<p>Since the data is not linear speratable itself, we allow SVM has some
-mistakes--<em>soft margin</em>.</p>
-<h3 id="hinge-loss">hinge loss</h3>
-<p>We will modify our objective function by adding hinge loss</p>
-<p>(<span class="math inline">\(l_{hinge}=max(0,1-z),
-z=y_i(X_i^TW+b)\)</span>).</p>
-<p>Objective function: <span class="math inline">\(min \ ||W||^2+C\Sigma
-l_{hinge}\)</span>. C is hyper-parameter. If C-&gt;0, the model allows
-any mistakes--easily undercutting; if C-&gt;∞, the model is same with
-Linear Speratable SVM--easily overfitting.</p>
-<p>[primal problem]</p>
-<p>The whole problem can be written as:</p>
-<p><span class="math inline">\(min||W||^2+C\Sigma_i\xi_i, \
-st.y_i(X_i^TW+b)&gt;=1-\xi_i,\xi&gt;=0\)</span>.</p>
-<h2 id="what-if-the-sample-is-totally-nonlinear-seperatable">What if the
-sample is totally nonlinear seperatable?</h2>
-<h3 id="kernel">Kernel</h3>
-<p>Introduce Lagranginan function and we get dual form of primal
-problem:</p>
-<p><span class="math inline">\(min_{\alpha}\Sigma_i^n\Sigma_j^n\alpha_i\alpha_jy_iy_j(X_i\cdot
-X_j)-\Sigma_i^n\alpha_i. \ st. \Sigma_i^n\alpha_iy_i=0, \
-0\leq\alpha_i&lt;C\)</span>.</p>
-<p>We can choose proper kernel <span class="math inline">\(K\)</span> to
-replace <span class="math inline">\((X_i\cdot X_j)\)</span>.</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>SVM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TOEFL Listening</title>
-    <url>/2021/10/18/TOEFL-Listening/</url>
-    <content><![CDATA[<h3 id="tpo20">TPO20</h3>
-<h4 id="set1">Set1</h4>
-<p>Listen to a conversation between a student and a library employee.
-Excuse me, I received a letter that I am supposed to return the book
-that I checked out back in September. It is called Modern social
-problems. But I am writing my senior thesis. So I thought I was allowed
-to keep the book for the whole academic year. So you signed up for
-‘extended borrowing <strong>privileges</strong>’. And we are still
-asking you to bring this book back? You can keep it all year as long as
-no one else request it. But some one else has, it looks like one of the
-professors in sociology department, so you have to bring it back. You
-can check it out again when it is returned in a couple of weeks. So what
-if the person renews it and I really need it right now. Is there a
-certain section or chapter you are working with? There is one chapter I
-am particular working with. Because of the circumstances, we can
-photocopy up to one chapter of the book for you. Why do not you do that
-for the one you are working with right now. By the time you need the
-rest of the book, maybe it will have been returned. Is it okay if I
-bring that by in a couple of days? Actually the due day is tomorrow.
-After that, there will be a two-dollar per day fine. But you need to
-return it today if you want to check out any books today. That’s out
-policy. No a lot of people realize that. In fact, every semester we get
-a few students who have had their borrowing privileges suspended
-completed because they haven’t return books. They are allowed to use
-books only in the library. They are not allowed to check anything out
-because of unreturned books. That is not good. I guess I should head
-back down to the dorm room right now. Before you go what you should do
-is fill out a form requesting the book back in two weeks. Then the
-person who requested it won’t be able to renew it, and you will get it
-back quickly.</p>
-<span id="more"></span>
-<h4 id="set2">Set2</h4>
-<p>Listen to part of the lecture in a linguistic class. Okay the
-conventions or assumptions that govern the conversation. These may vary
-from one culture to another. But basically for people who communicate,
-they have to follow certain rules. If I am talking with you and I start
-saying things that are not true. If you cannot tell when I am lying and
-when I am telling the truth. We are not going to have a very
-satisfactory conversation, aren’t we. Why, because it violates one of
-the ‘Gricean maxims’. That is a set of rules or maxims a philosopher
-named P.H Grice <strong>came up with</strong>(提出) in the 1970s. One of
-thes Gricean maxims is ... I've already given you a hint. You just can't
-go around telling lies. Or <strong>as Grice put it</strong>, do not say
-what you believe to be false. That is one of Grice's maxims of quality,
-as he called it. So that is pretty obvious, but there are others that
-are just as important. Supposed you were to ask me what time it was and
-I replied, 'My sister just got married'. No I am not, am I. There is no
-connection at all which feels wrong because you generally expect to find
-one. So one important maxim is simply 'be relevant'. And using this
-so-call maxim of relevance we can infer things as well or rather the
-speaker can imply things an speakers can make inferences. For instance,
-suppose you said you'd really love to have a cup of coffee right now.
-And I said, there a shop around the corner. Well that shop sells coffee
-<strong>for one thing</strong>(一来，首先是). Right, and I believe it is
-open now. Because if I am not implying those things my answer would not
-be relevant. It'd have no connection with what you said before. But
-according to the maxim my response should be relevant to your statement
-meaning 'We should assume some connection between the statement and the
-response'. And this maxim of relevance is quite efficient to use, even
-if I do not <strong>spell out</strong>(拼写，讲清楚) all the details
-details you can still make some useful logical inferences
-<strong>namely</strong>(也就是，即) ‘the shop is open’ and 'it sells
-coffee'. If we actually had to explain all these details, conversations
-would move along pretty slowly, wouldn't they? Then there is the maxims
-of manner including things like 'be clear' and 'avoid ambiguity'. And
-another, more interesting maxim is one of the so-call maxim of quantity,
-quantity of the information, that is. It says to give as much
-information as is required in the situation. So suppoes if you ask me
-what I did yesterday and I said, 'I went to the art museum'. You would
-likely to infer that I saw some works of art. Suppose though that I
-didnot go inside the museum, I just <strong>walked up to</strong>(走进)
-it and left. Then I've violated the quantity maxim by not giving enough
-information. So you can see how important implications are to our
-ability to <strong>carry on</strong>(继续、坚持) a concersation. But
-there are times that people will violate these maxims on purpose. Let's
-say a boss is asked to write a letter of recommendation for a former
-employee seeking engineering job. The letter he writes is quite brief,
-something like Mr.X is polite always dressed neatly. So what does this
-really mean? By not mentioning any important qualities related to the
-job. The boss is implying that this is the best that can be said about
-Mr. X that he is really not qualified. It is a written letter not a
-conversation. But the principle is the same. The boss is conveying a
-negative impression about Mr. X without actually saying anything
-negative about him. So by violating the maxim, it can be a way to be
-<strong>subtle</strong>(不易察觉的), or polite or to convey humor
-through <strong>sarcasm</strong>(讽刺) or irony. Somtimes though, people
-will violate maxims for another purpose--to deceive. Now can you imagine
-who might do such a thing. Some politicians? Or advertisers? Anyone who
-may see an advantage in implying certain things that are untrue without
-explicitly saying something untrue. They think, do not blame us if our
-audiance happens to draw inferences that are simply not true. So next
-time, you see adertisement saying some product could be up to 20% more
-effective, think of these maxims of quantity and relevance and ask
-yourself what inferences you are being led to draw. Think 'more
-effective' than what exactly and why did they use these little phrases
-'could be' and 'up to'. These claims give us a lot less information than
-they seem to.</p>
-<h4 id="set3">Set3</h4>
-<p>Let's take you back about 11 thousand years ago when earth entered
-the latest interglacial period. Interglacial periods are typically
-periods of time between ice ages when the climate warms and glical ice
-<strong>retreats</strong>(撤退、收缩) for a time before things cool off
-again and other ice age begins. And for over the past several million
-year, earth sort of default climate has actually been ice age. But we
-have experienced periodic, regular <strong>thaws</strong>(解冻时期) and
-the last one, the one we are in now, started about 11,000 years ago. Now
-the typically pattern for an interglacial period, and we have studied
-several, is that the concentration of carbon dioxid and
-<strong>methane</strong>(甲烷) gas actually reaches its peak that is
-there is the most carbon dioxid and methane gas, greenhouse gas, in the
-atmosphere just after the beginning of the interglacial period. And then
-for reasons which are not entirely clear, the concentration of
-greenhouse gases gradually goes down. Now the climate continues to warm
-for a while because there is a lag effect, but gradually as the
-concentration of greenhouse gases goes down earth starts to cool again
-and eventually you slip back to an ice age. However for the latest
-interglacial period, the one we are in now, this pattern did not hold.
-That is the concentration of carbon dioxide
-<strong>dipped</strong>(蘸；下降) a little bit after
-<strong>peaking</strong>(vi. 达到最高值) at the beginning near the
-beginning of interglacial period but then it began to rise again.</p>
-]]></content>
-      <categories>
-        <category>TOEFL</category>
       </categories>
   </entry>
   <entry>
@@ -3377,6 +3264,135 @@ stable)!</p>
       </categories>
   </entry>
   <entry>
+    <title>TOEFL Listening</title>
+    <url>/2021/10/18/TOEFL-Listening/</url>
+    <content><![CDATA[<h3 id="tpo20">TPO20</h3>
+<h4 id="set1">Set1</h4>
+<p>Listen to a conversation between a student and a library employee.
+Excuse me, I received a letter that I am supposed to return the book
+that I checked out back in September. It is called Modern social
+problems. But I am writing my senior thesis. So I thought I was allowed
+to keep the book for the whole academic year. So you signed up for
+‘extended borrowing <strong>privileges</strong>’. And we are still
+asking you to bring this book back? You can keep it all year as long as
+no one else request it. But some one else has, it looks like one of the
+professors in sociology department, so you have to bring it back. You
+can check it out again when it is returned in a couple of weeks. So what
+if the person renews it and I really need it right now. Is there a
+certain section or chapter you are working with? There is one chapter I
+am particular working with. Because of the circumstances, we can
+photocopy up to one chapter of the book for you. Why do not you do that
+for the one you are working with right now. By the time you need the
+rest of the book, maybe it will have been returned. Is it okay if I
+bring that by in a couple of days? Actually the due day is tomorrow.
+After that, there will be a two-dollar per day fine. But you need to
+return it today if you want to check out any books today. That’s out
+policy. No a lot of people realize that. In fact, every semester we get
+a few students who have had their borrowing privileges suspended
+completed because they haven’t return books. They are allowed to use
+books only in the library. They are not allowed to check anything out
+because of unreturned books. That is not good. I guess I should head
+back down to the dorm room right now. Before you go what you should do
+is fill out a form requesting the book back in two weeks. Then the
+person who requested it won’t be able to renew it, and you will get it
+back quickly.</p>
+<span id="more"></span>
+<h4 id="set2">Set2</h4>
+<p>Listen to part of the lecture in a linguistic class. Okay the
+conventions or assumptions that govern the conversation. These may vary
+from one culture to another. But basically for people who communicate,
+they have to follow certain rules. If I am talking with you and I start
+saying things that are not true. If you cannot tell when I am lying and
+when I am telling the truth. We are not going to have a very
+satisfactory conversation, aren’t we. Why, because it violates one of
+the ‘Gricean maxims’. That is a set of rules or maxims a philosopher
+named P.H Grice <strong>came up with</strong>(提出) in the 1970s. One of
+thes Gricean maxims is ... I've already given you a hint. You just can't
+go around telling lies. Or <strong>as Grice put it</strong>, do not say
+what you believe to be false. That is one of Grice's maxims of quality,
+as he called it. So that is pretty obvious, but there are others that
+are just as important. Supposed you were to ask me what time it was and
+I replied, 'My sister just got married'. No I am not, am I. There is no
+connection at all which feels wrong because you generally expect to find
+one. So one important maxim is simply 'be relevant'. And using this
+so-call maxim of relevance we can infer things as well or rather the
+speaker can imply things an speakers can make inferences. For instance,
+suppose you said you'd really love to have a cup of coffee right now.
+And I said, there a shop around the corner. Well that shop sells coffee
+<strong>for one thing</strong>(一来，首先是). Right, and I believe it is
+open now. Because if I am not implying those things my answer would not
+be relevant. It'd have no connection with what you said before. But
+according to the maxim my response should be relevant to your statement
+meaning 'We should assume some connection between the statement and the
+response'. And this maxim of relevance is quite efficient to use, even
+if I do not <strong>spell out</strong>(拼写，讲清楚) all the details
+details you can still make some useful logical inferences
+<strong>namely</strong>(也就是，即) ‘the shop is open’ and 'it sells
+coffee'. If we actually had to explain all these details, conversations
+would move along pretty slowly, wouldn't they? Then there is the maxims
+of manner including things like 'be clear' and 'avoid ambiguity'. And
+another, more interesting maxim is one of the so-call maxim of quantity,
+quantity of the information, that is. It says to give as much
+information as is required in the situation. So suppoes if you ask me
+what I did yesterday and I said, 'I went to the art museum'. You would
+likely to infer that I saw some works of art. Suppose though that I
+didnot go inside the museum, I just <strong>walked up to</strong>(走进)
+it and left. Then I've violated the quantity maxim by not giving enough
+information. So you can see how important implications are to our
+ability to <strong>carry on</strong>(继续、坚持) a concersation. But
+there are times that people will violate these maxims on purpose. Let's
+say a boss is asked to write a letter of recommendation for a former
+employee seeking engineering job. The letter he writes is quite brief,
+something like Mr.X is polite always dressed neatly. So what does this
+really mean? By not mentioning any important qualities related to the
+job. The boss is implying that this is the best that can be said about
+Mr. X that he is really not qualified. It is a written letter not a
+conversation. But the principle is the same. The boss is conveying a
+negative impression about Mr. X without actually saying anything
+negative about him. So by violating the maxim, it can be a way to be
+<strong>subtle</strong>(不易察觉的), or polite or to convey humor
+through <strong>sarcasm</strong>(讽刺) or irony. Somtimes though, people
+will violate maxims for another purpose--to deceive. Now can you imagine
+who might do such a thing. Some politicians? Or advertisers? Anyone who
+may see an advantage in implying certain things that are untrue without
+explicitly saying something untrue. They think, do not blame us if our
+audiance happens to draw inferences that are simply not true. So next
+time, you see adertisement saying some product could be up to 20% more
+effective, think of these maxims of quantity and relevance and ask
+yourself what inferences you are being led to draw. Think 'more
+effective' than what exactly and why did they use these little phrases
+'could be' and 'up to'. These claims give us a lot less information than
+they seem to.</p>
+<h4 id="set3">Set3</h4>
+<p>Let's take you back about 11 thousand years ago when earth entered
+the latest interglacial period. Interglacial periods are typically
+periods of time between ice ages when the climate warms and glical ice
+<strong>retreats</strong>(撤退、收缩) for a time before things cool off
+again and other ice age begins. And for over the past several million
+year, earth sort of default climate has actually been ice age. But we
+have experienced periodic, regular <strong>thaws</strong>(解冻时期) and
+the last one, the one we are in now, started about 11,000 years ago. Now
+the typically pattern for an interglacial period, and we have studied
+several, is that the concentration of carbon dioxid and
+<strong>methane</strong>(甲烷) gas actually reaches its peak that is
+there is the most carbon dioxid and methane gas, greenhouse gas, in the
+atmosphere just after the beginning of the interglacial period. And then
+for reasons which are not entirely clear, the concentration of
+greenhouse gases gradually goes down. Now the climate continues to warm
+for a while because there is a lag effect, but gradually as the
+concentration of greenhouse gases goes down earth starts to cool again
+and eventually you slip back to an ice age. However for the latest
+interglacial period, the one we are in now, this pattern did not hold.
+That is the concentration of carbon dioxide
+<strong>dipped</strong>(蘸；下降) a little bit after
+<strong>peaking</strong>(vi. 达到最高值) at the beginning near the
+beginning of interglacial period but then it began to rise again.</p>
+]]></content>
+      <categories>
+        <category>TOEFL</category>
+      </categories>
+  </entry>
+  <entry>
     <title>TOEFL Notes (based on TPO)</title>
     <url>/2021/10/07/TOEFL-Notes-based-on-TPO/</url>
     <content><![CDATA[<h3 id="tpo1-reading">TPO1 Reading</h3>
@@ -3464,15 +3480,6 @@ to dry out</li>
       </categories>
   </entry>
   <entry>
-    <title>TOEFL Writing</title>
-    <url>/2021/10/18/TOEFL-Writing/</url>
-    <content><![CDATA[
-]]></content>
-      <categories>
-        <category>TOEFL</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Tensorflow Tips</title>
     <url>/2022/07/14/Tensorflow-Tips/</url>
     <content><![CDATA[<p>Here is some tips for tensorflow1.x.</p>
@@ -3489,6 +3496,15 @@ tensorboard</p>
 ]]></content>
       <categories>
         <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>TOEFL Writing</title>
+    <url>/2021/10/18/TOEFL-Writing/</url>
+    <content><![CDATA[
+]]></content>
+      <categories>
+        <category>TOEFL</category>
       </categories>
   </entry>
   <entry>
@@ -3816,17 +3832,6 @@ loss（即rpn_loss_bbox层计算的soomth L1 loss，该loss中<span class="math 
       </tags>
   </entry>
   <entry>
-    <title>Use of Tuple in Python</title>
-    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<p>Tuple最特别在于<br></p>
-<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Top K problems</title>
     <url>/2022/05/03/Top-K-problems/</url>
     <content><![CDATA[<h3 id="quick-sort">Quick Sort</h3>
@@ -3842,6 +3847,17 @@ loss（即rpn_loss_bbox层计算的soomth L1 loss，该loss中<span class="math 
 (decresing)</h4>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topk_split(nums, <span class="built_in">len</span>(nums) - k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>)</span><br><span class="line">nums[-k]</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Use of Tuple in Python</title>
+    <url>/2020/09/24/Use-of-Tuple-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>)	<span class="comment"># a is a tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+<span class="number">1</span>	<span class="comment"># error</span></span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">TypeError: can only concatenate <span class="built_in">tuple</span> (<span class="keyword">not</span> <span class="string">&quot;int&quot;</span>) to <span class="built_in">tuple</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+(<span class="number">1</span>,) <span class="comment"># we have to make sure 1 is not an int or string</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># same with following part</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a+b</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>Tuple最特别在于<br></p>
+<p>tuple元素不允许<strong>删除</strong>或<strong>修改</strong>，但是可以通过连接tuple来实现简介修改/或转置为list</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
   </entry>
   <entry>
     <title>Use of &#39;numpy&#39; package in Python</title>
@@ -3874,9 +3890,9 @@ tensor</h2>
   <entry>
     <title>Video test</title>
     <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-cUAbVYfszLbSrohu" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-cUAbVYfszLbSrohu").style.height=document.getElementById("mmedia-cUAbVYfszLbSrohu").scrollWidth*0.76+"px";
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-RoNiZIKZdbIBoLOs" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-RoNiZIKZdbIBoLOs").style.height=document.getElementById("mmedia-RoNiZIKZdbIBoLOs").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-cUAbVYfszLbSrohu").style.height=document.getElementById("mmedia-cUAbVYfszLbSrohu").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-RoNiZIKZdbIBoLOs").style.height=document.getElementById("mmedia-RoNiZIKZdbIBoLOs").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <colgroup>
@@ -4002,23 +4018,6 @@ activation is the output of prior layer)</p>
       </tags>
   </entry>
   <entry>
-    <title>Xcode build error: &#39;.dylib not valid for use in process&#39;</title>
-    <url>/2022/03/19/Xcode-build-error-dylib-not-valid-for-use-in-process/</url>
-    <content><![CDATA[<p>This project can be build successfully. But it can not run in
-Xcode(13.2.1).</p>
-<p><code>'/opt/homebrew/Cellar/glfw/3.3.6/lib/libglfw.3.3.dylib' not valid for use in process: mapped file has no Team ID and is not a platform binary (signed with custom identity or adhoc?))</code></p>
-<p>The problem is the <code>.dylib</code> you used is not signed by
-apple. You can choose to <code>codesign</code> the lib, otherwise you
-can choose not to sign the project.</p>
-<p>GO TO
-<code>TARGETS-&gt;Build Settings-&gt;Code Signing Identity-&gt;Others</code>.
-In default, it is '-'. Just delete it.</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>alias in linux</title>
     <url>/2022/07/23/alias-in-linux/</url>
     <content><![CDATA[<ol type="1">
@@ -4080,6 +4079,19 @@ errors in code.</p>
       </categories>
   </entry>
   <entry>
+    <title>how to change you local git name</title>
+    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
+<p>Your name will be shown on github each time you push to it.</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo部署到git出现不同步问题</title>
     <url>/2020/05/20/hexo%E9%83%A8%E7%BD%B2%E5%88%B0git%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<ol type="1">
@@ -4096,17 +4108,21 @@ errors in code.</p>
       </tags>
   </entry>
   <entry>
-    <title>how to change you local git name</title>
-    <url>/2020/12/21/how-to-change-you-local-git-name/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
-<p>Your name will be shown on github each time you push to it.</p>
+    <title>Xcode build error: &#39;.dylib not valid for use in process&#39;</title>
+    <url>/2022/03/19/Xcode-build-error-dylib-not-valid-for-use-in-process/</url>
+    <content><![CDATA[<p>This project can be build successfully. But it can not run in
+Xcode(13.2.1).</p>
+<p><code>'/opt/homebrew/Cellar/glfw/3.3.6/lib/libglfw.3.3.dylib' not valid for use in process: mapped file has no Team ID and is not a platform binary (signed with custom identity or adhoc?))</code></p>
+<p>The problem is the <code>.dylib</code> you used is not signed by
+apple. You can choose to <code>codesign</code> the lib, otherwise you
+can choose not to sign the project.</p>
+<p>GO TO
+<code>TARGETS-&gt;Build Settings-&gt;Code Signing Identity-&gt;Others</code>.
+In default, it is '-'. Just delete it.</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
       </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
   </entry>
   <entry>
     <title>kendo 2-nd dan exam</title>
@@ -4182,6 +4198,29 @@ target. Derive AP for all types-&gt;average-&gt;mAP.</p>
       </categories>
   </entry>
   <entry>
+    <title>solution to git@github.com出现Permission denied (publickey)</title>
+    <url>/2020/12/21/solution-to-git-github-com%E5%87%BA%E7%8E%B0Permission-denied-publickey/</url>
+    <content><![CDATA[<ol type="1">
+<li><p>Create SSH key</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># change your path to .ssh file</span></span><br><span class="line">cd ~/.ssh</span><br><span class="line"><span class="section"># create new SSH key</span></span><br><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your git email&quot;</span><br><span class="line"><span class="section"># note that name of the file to save key should be &quot;id<span class="emphasis">_rsa&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, it will reprot &quot;Permission denied (publickey).&quot; when &quot;ssh -T git@github.com&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"></span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, remember to add it </span></span></span><br><span class="line"><span class="emphasis"><span class="section">ssh-add ~/.ssh/your_</span>name </span></span><br></pre></td></tr></table></figure></li>
+<li><p>Add SSH key to git</p>
+<p>You are supposed to find <code>id_rsa</code> and
+<code>id_rsa.pub</code>. The former is you SSH key.</p>
+<p>Create a new SSH key in your github and copy everything in
+<code>id_rsa.pub</code> to it.</p></li>
+<li><p>Test your connection with git</p>
+<p><code>ssh -T git@github.com</code></p>
+<p>If there is no bug report, you key is acceptable.</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ubuntu20+window10双系统在建立过程中遇到直接进入windows没有引导的问题</title>
     <url>/2020/05/20/ubuntu20-window10%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5windows%E6%B2%A1%E6%9C%89%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="问题描述">问题描述</h2>
@@ -4223,29 +4262,6 @@ target. Derive AP for all types-&gt;average-&gt;mAP.</p>
       <categories>
         <category>Configuration</category>
       </categories>
-  </entry>
-  <entry>
-    <title>solution to git@github.com出现Permission denied (publickey)</title>
-    <url>/2020/12/21/solution-to-git-github-com%E5%87%BA%E7%8E%B0Permission-denied-publickey/</url>
-    <content><![CDATA[<ol type="1">
-<li><p>Create SSH key</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># change your path to .ssh file</span></span><br><span class="line">cd ~/.ssh</span><br><span class="line"><span class="section"># create new SSH key</span></span><br><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your git email&quot;</span><br><span class="line"><span class="section"># note that name of the file to save key should be &quot;id<span class="emphasis">_rsa&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, it will reprot &quot;Permission denied (publickey).&quot; when &quot;ssh -T git@github.com&quot;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"></span></span></span><br><span class="line"><span class="emphasis"><span class="section"># if you use other name, remember to add it </span></span></span><br><span class="line"><span class="emphasis"><span class="section">ssh-add ~/.ssh/your_</span>name </span></span><br></pre></td></tr></table></figure></li>
-<li><p>Add SSH key to git</p>
-<p>You are supposed to find <code>id_rsa</code> and
-<code>id_rsa.pub</code>. The former is you SSH key.</p>
-<p>Create a new SSH key in your github and copy everything in
-<code>id_rsa.pub</code> to it.</p></li>
-<li><p>Test your connection with git</p>
-<p><code>ssh -T git@github.com</code></p>
-<p>If there is no bug report, you key is acceptable.</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
   </entry>
   <entry>
     <title>《不动智神妙录》笔记</title>
@@ -4544,6 +4560,33 @@ includes/pagination.pug</font></p>
 ]]></content>
       <categories>
         <category>Coding</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
+    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
+<h2 id="问题原因">问题原因</h2>
+<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错
+因此有一下三种解决办法：</p>
+<ol type="1">
+<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
+<li><p>手动打开preinterpreter</p></li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<ol start="3" type="1">
+<li>重新为mac安装</li>
+</ol>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
+<p>如果有了就更新一下</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
+<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
+]]></content>
+      <categories>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -4861,33 +4904,6 @@ includes/pagination.pug</font></p>
       </categories>
   </entry>
   <entry>
-    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
-    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
-<h2 id="问题原因">问题原因</h2>
-<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错
-因此有一下三种解决办法：</p>
-<ol type="1">
-<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
-<li><p>手动打开preinterpreter</p></li>
-</ol>
-<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<ol start="3" type="1">
-<li>重新为mac安装</li>
-</ol>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
-<p>如果有了就更新一下</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
-<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>心脏骤停</title>
     <url>/2022/03/16/%E5%BF%83%E8%84%8F%E9%AA%A4%E5%81%9C/</url>
     <content><![CDATA[<p>太阳好哥哥在拉仇恨，刚刚飞渡起手准备给拉达冈上一课。没想到是被服务器上了一课。</p>
@@ -5043,6 +5059,20 @@ been fixed. You can turn off full screen manually.</p>
       </categories>
   </entry>
   <entry>
+    <title>还是大GT优雅</title>
+    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
+    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
+<div align="center">
+<figure>
+<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT">
+<figcaption aria-hidden="true">宾利欧陆GT</figcaption>
+</figure>
+</div>]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+  </entry>
+  <entry>
     <title>遍历二叉树-前/中/后序-递归/非递归</title>
     <url>/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/</url>
     <content><![CDATA[<h3 id="递归方法">递归方法</h3>
@@ -5112,20 +5142,6 @@ sort，此时也不需要额外空间。数据库中sort也常使用disk mergeso
 ]]></content>
       <categories>
         <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>还是大GT优雅</title>
-    <url>/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/</url>
-    <content><![CDATA[<p>英国车独有一种怀旧、镇定自若的感觉（虽然真的不快，但玩的是意境）</p>
-<div align="center">
-<figure>
-<img src="/2021/07/12/%E8%BF%98%E6%98%AF%E5%A4%A7GT%E4%BC%98%E9%9B%85/1.jpg" alt="宾利欧陆GT">
-<figcaption aria-hidden="true">宾利欧陆GT</figcaption>
-</figure>
-</div>]]></content>
-      <categories>
-        <category>Chat</category>
       </categories>
   </entry>
 </search>
