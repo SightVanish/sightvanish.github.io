@@ -1076,13 +1076,6 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/int/</loc>
-    <lastmod>2022-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sightvanish.github.io/tags/Mac/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -1098,27 +1091,6 @@
   
   <url>
     <loc>https://sightvanish.github.io/tags/MacOS/</loc>
-    <lastmod>2022-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/Python/</loc>
-    <lastmod>2022-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/const/</loc>
-    <lastmod>2022-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/pointer/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1147,6 +1119,34 @@
   
   <url>
     <loc>https://sightvanish.github.io/tags/malloc/</loc>
+    <lastmod>2022-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/Python/</loc>
+    <lastmod>2022-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/int/</loc>
+    <lastmod>2022-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/const/</loc>
+    <lastmod>2022-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/pointer/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1265,14 +1265,14 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/ubuntu-install/</loc>
+    <loc>https://sightvanish.github.io/tags/%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/%E9%83%A8%E7%BD%B2/</loc>
+    <loc>https://sightvanish.github.io/tags/ubuntu-install/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1337,14 +1337,14 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Chat/</loc>
+    <loc>https://sightvanish.github.io/categories/Test/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Test/</loc>
+    <loc>https://sightvanish.github.io/categories/Chat/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1372,14 +1372,14 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Rendering/</loc>
+    <loc>https://sightvanish.github.io/categories/Python/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Python/</loc>
+    <loc>https://sightvanish.github.io/categories/Rendering/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
