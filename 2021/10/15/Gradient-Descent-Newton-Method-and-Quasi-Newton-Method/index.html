@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"sightvanish.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1. Gradient Descent 1.1 Gradient 1.1.1 Derivative 针对一元函数 \(y&#x3D;f(x)\)，导数 \(f&#39;(x_0)\) 表示了该函数在\(x_0\)处的函数斜率&#x2F;增加速率。 1.1.2 Partial Derivative--偏导数，部分的导数 针对多元函数（此处考虑二元函数\(z&#x3D;f(x,y)\)），导数 \(f&#39;(x_0, y_0)">
+  <meta name="description" content="Gradient Descent Gradient Derivative 针对一元函数 \(y&#x3D;f(x)\)，导数 \(f&#39;(x_0)\) 表示了该函数在\(x_0\)处的函数斜率&#x2F;增加速率。 Partial Derivative--偏导数，部分的导数 针对多元函数（此处考虑二元函数\(z&#x3D;f(x,y)\)），导数 \(f&#39;(x_0, y_0)\) 就有些模糊不清了，为此我们先简化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gradient Descent, Newton Method and Quasi-Newton Method">
 <meta property="og:url" content="https://sightvanish.github.io/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/index.html">
 <meta property="og:site_name" content="Wu Times">
-<meta property="og:description" content="1. Gradient Descent 1.1 Gradient 1.1.1 Derivative 针对一元函数 \(y&#x3D;f(x)\)，导数 \(f&#39;(x_0)\) 表示了该函数在\(x_0\)处的函数斜率&#x2F;增加速率。 1.1.2 Partial Derivative--偏导数，部分的导数 针对多元函数（此处考虑二元函数\(z&#x3D;f(x,y)\)），导数 \(f&#39;(x_0, y_0)">
+<meta property="og:description" content="Gradient Descent Gradient Derivative 针对一元函数 \(y&#x3D;f(x)\)，导数 \(f&#39;(x_0)\) 表示了该函数在\(x_0\)处的函数斜率&#x2F;增加速率。 Partial Derivative--偏导数，部分的导数 针对多元函数（此处考虑二元函数\(z&#x3D;f(x,y)\)），导数 \(f&#39;(x_0, y_0)\) 就有些模糊不清了，为此我们先简化">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-15T09:45:52.000Z">
-<meta property="article:modified_time" content="2021-10-24T15:39:42.000Z">
+<meta property="article:modified_time" content="2022-07-26T07:47:37.042Z">
 <meta property="article:author" content="Li Wuchen">
 <meta name="twitter:card" content="summary">
 
@@ -238,7 +238,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-24 23:39:42" itemprop="dateModified" datetime="2021-10-24T23:39:42+08:00">2021-10-24</time>
+                <time title="Modified: 2022-07-26 15:47:37" itemprop="dateModified" datetime="2022-07-26T15:47:37+08:00">2022-07-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,15 +261,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="gradient-descent">1. Gradient Descent</h3>
-<p>1.1 Gradient</p>
-<p>1.1.1 Derivative</p>
+        <h1 id="gradient-descent">Gradient Descent</h1>
+<h2 id="gradient">Gradient</h2>
+<h3 id="derivative">Derivative</h3>
 <p>针对一元函数 <span class="math inline">\(y=f(x)\)</span>，导数 <span class="math inline">\(f&#39;(x_0)\)</span> 表示了该函数在<span class="math inline">\(x_0\)</span>处的函数斜率/增加速率。</p>
-<p>1.1.2 Partial Derivative--偏导数，部分的导数</p>
+<h3 id="partial-derivative--偏导数部分的导数">Partial
+Derivative--偏导数，部分的导数</h3>
 <p>针对多元函数（此处考虑二元函数<span class="math inline">\(z=f(x,y)\)</span>），导数 <span class="math inline">\(f&#39;(x_0, y_0)\)</span>
 就有些模糊不清了，为此我们先简化到一元的情况：固定 <span class="math inline">\(y=y_0\)</span>，<span class="math inline">\(z=f(x,y)\)</span>，二元函数便降纬为<span class="math inline">\(z=f(x, y_0)\)</span> ，此时我们可以定义在 <span class="math inline">\(x\)</span> 方向上的偏导数 <span class="math inline">\(f&#39;_x(x_0, y_0)\)</span>，其表示该函数在<span class="math inline">\((x_0, y_0)\)</span>点处沿 <span class="math inline">\(x\)</span>
 方向函数斜率/增加速率。类似的我们可以得到在 <span class="math inline">\(y\)</span> 方向的偏导数。</p>
-<p>1.1.3 Directional Derivative</p>
+<h3 id="directional-derivative">Directional Derivative</h3>
 <p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在
 <span class="math inline">\(x=x_0\)</span> 或 <span class="math inline">\(y=y_0\)</span> 方向上的函数速率变化了。</p>
 <p>现在基于这两个偏导数我们已经可以求出 <span class="math inline">\(x-y\)</span> 平面任何方向的导数了：假设求 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span>
@@ -280,23 +281,24 @@ D_uf(x,y)=\lim_{x \to \infty}\frac{f(x_0+tcos\theta,y_0+tsin\theta)}{t}
 <span class="math inline">\(u\)</span> 方向求导，其实相当于在 <span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span>
 方向分别求偏导之后的线性组合： <span class="math display">\[
 D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
-\]</span> 1.1.4 Gradient</p>
+\]</span> ### Gradient</p>
 <p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在
 <span class="math inline">\((x_0, y_0)\)</span> 点上在方向 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span>
 方向上的函数变化速率了。</p>
 <p>那么梯度是什么呢？梯度就是 <span class="math inline">\(z\)</span> 在
 <span class="math inline">\((x_0, y_0)\)</span>
 点上函数变化速度最快的方向，也就是方向向量最大的方向。</p>
-<p>什么时候方向向量能取到最大呢？<span class="math inline">\(D_uf(x,y)=\begin{bmatrix}f&#39;_x(x,y)&amp;f&#39;_y(x,y)\end{bmatrix}\begin{bmatrix}cos\theta
+<p>什么时候方向向量能取到最大呢？</p>
+<p><span class="math inline">\(D_uf(x,y)=\begin{bmatrix}f&#39;_x(x,y)&amp;f&#39;_y(x,y)\end{bmatrix}\begin{bmatrix}cos\theta
 \\ sin\theta\end{bmatrix}=\pmb A*\pmb I\)</span>，当 <span class="math inline">\((cos\theta, sin\theta) // (f&#39;_x(x,y),
 f&#39;_y(x,y))\)</span> 时能够取到最大值，此时在 <span class="math inline">\((x_0,y_0)\)</span> 的梯度 <span class="math inline">\(\pmb I=\begin{bmatrix}\frac{\partial f}{\partial
 x_0} \\ \frac{\partial f}{\partial y_0}\end{bmatrix}\)</span></p>
 <p>梯度本质是<strong>矢量</strong>，在其方向上该点的方向向量最大。</p>
 <span id="more"></span>
-<p>1.2 Gradient Descent</p>
-<p>1.2.1 Local optimum</p>
+<h2 id="gradient-descent-1">Gradient Descent</h2>
+<h3 id="local-optimum">Local optimum</h3>
 <p>由于机器学习应用梯度下降一般是为了最小化loss，因此实际上我们想要找到的是一个多元函数的最小值。从一个点出发，如果我们<strong>连续地</strong>在这个函数表面移动，一直往当前梯度最大的负方向（梯度本身定义指向函数值增加方向），这样我们最终一定会停留在函数谷底，也就是得到局部最优解。</p>
-<p>1.2.2 Algorithm</p>
+<h3 id="algorithm">Algorithm</h3>
 <p>首先我们先定义一下问题：</p>
 <blockquote>
 <p>函数 <span class="math inline">\(f(x)\)</span> 为在 <span class="math inline">\(R^n\)</span>
@@ -336,18 +338,19 @@ _{j=0}^pw_jx_j-y)}{\partial w_i}\\
 计算梯度下降，求出的Loss导数为 <span class="math inline">\(\begin{bmatrix}\frac{\partial Loss(x)}{\partial
 w_1} \\ \vdots \\ \frac{\partial Loss(x)}{\partial
 w_p}\end{bmatrix}\)</span></p>
-<p>1.2.3 BGD--Batch Gradient Descent</p>
+<h3 id="bgd--batch-gradient-descent">BGD--Batch Gradient Descent</h3>
 <p>为了加速参数的更新，往往不会对每一个样本都计算梯度进行更新，事实上是一次性传入一个batch的数据，在更新参数时使用整个batch的数据结果进行更新。</p>
 <p>假设我们用 <span class="math inline">\((x^1,\cdots,x^i,\dots,x^n)\)</span>
 一起计算梯度下降，求出的Loss导数为 <span class="math inline">\(\frac{1}{n}\begin{bmatrix}\sum_{i=1}^n\frac{\partial
 Loss(x^i)}{\partial w_1} \\ \vdots \\ \sum_{i=1}^n\frac{\partial
 Loss(x^i)}{\partial w_p}\end{bmatrix}\)</span>。</p>
-<p>1.2.4 SGD--Stochastic Gradient Descent</p>
+<h3 id="sgd--stochastic-gradient-descent">SGD--Stochastic Gradient
+Descent</h3>
 <p>在数据量相当大的时候，BGD的开销也过于庞大了，为此数学家们考虑每次更新随机采样一个样本来控制梯度方向--这样做梯度的变化可能会出现较大的波动，但是数据量足够，数学上期望与BGD相同。SGD训练速度最快。</p>
 <p>此外由于SGD本身受离群样本影响大，因此可能会难以收敛，实际应用中往往采用中折--即每次更新采用样本的部分数据进行训练--MBGD--Mini-batch
 Gradient Descent。</p>
-<h3 id="newton-method">2. Newton Method</h3>
-<p>2.1 Solve Equation</p>
+<h3 id="newton-method">Newton Method</h3>
+<h2 id="solve-equation">Solve Equation</h2>
 <p>牛顿法最早使用来求解方程实数根的。问题很简单：求方程 <span class="math inline">\(f(x)\)</span> 的实数根。</p>
 <blockquote>
 <p>我们将 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x_0\)</span> 处Taylor一阶展开：<span class="math inline">\(f(x)=f(x_0)+f&#39;(x_0)(x-x_0)\)</span></p>
@@ -357,7 +360,7 @@ Gradient Descent。</p>
 <p>简单解释一下：如果一个方程连续且有正值有负值，那么就一定有根，牛顿法可以从任意起点开始，每次迭代都是沿点的斜率方向向
 <span class="math inline">\(x\)</span>
 轴做直线，相交得到下一个迭代点，由此理论上必能收敛。</p>
-<p>2.2 Optimization Problem</p>
+<h2 id="optimization-problem">Optimization Problem</h2>
 <p>回顾一下问题</p>
 <blockquote>
 <p>我们所面对的是无约束的优化问题，希望得到 <span class="math inline">\(minf(x)\)</span>，注意这里对于机器学习问题而言
@@ -390,7 +393,8 @@ f(x^k)\)</span>，可以简化写为 <span class="math inline">\(x_1=x_0+p(x^0)\
 f(x)||&lt;\epsilon\)</span></p>
 <p>其中迭代方程为 <span class="math inline">\(x^{k+1}=x^k-H^{-1}_kg_k=x^k+p_k\)</span></p>
 </blockquote>
-<p>2.3 Comparation with Gradient Descent</p>
+<h2 id="comparation-with-gradient-descent">Comparation with Gradient
+Descent</h2>
 <p>梯度下降时一阶收敛，而牛顿法是二阶收敛，总的说牛顿法收敛速度更快，但是因为需要计算Hessian矩阵的逆，所以每次迭代速度更慢。</p>
 <p>由于梯度下降法是求梯度，在wiki上解释为用一个平面拟合当前点（所在局部）；但是牛顿法相当于是对梯度进行一阶Taylor展开，所以可以理解为是用一个曲面拟合当前点。</p>
 <p>或者从每次迭代的角度看：梯度下降只考虑了当前点哪个方向梯度最小（函数值下降最快），而牛顿法加入了Hessian矩阵，相当于还考虑了每次迭代后的梯度的变化（而不单单是函数值变化）。</p>
@@ -398,8 +402,8 @@ f(x)||&lt;\epsilon\)</span></p>
 <p>对于梯度下降法往往在最后极值点处会出现反复震荡（这也是会什么梯度下降中往往会让步长逐渐缩短），对于牛顿法而言也是如此，因此也需要对步长进行衰减，称之为“阻尼牛顿法”：<span class="math inline">\(x^{k+1}=x^k-\lambda _kH^{-1}_kg_k=x^k+\lambda
 _kp_k\)</span></p>
 <p>牛顿法是二次收敛（二阶导数收敛）：对于二次函数，Hessian函数退化为常数（二阶导数为常数），因此可以一步到达；对于非二次函数，如果有好的二次性或已经临近收敛，则效果很好。</p>
-<h3 id="quasi-newton-method">3. Quasi-Newton Method</h3>
-<p>3.1 Basic Idea</p>
+<h3 id="quasi-newton-method">Quasi-Newton Method</h3>
+<h2 id="basic-idea">Basic Idea</h2>
 <p>牛顿法已经很好了，但是有一个很大的问题--由于input的feature可能会非常多维度，因此Hessian矩阵可能会很大，继而计算Hessian矩阵的逆就会很困难。</p>
 <p>牛顿法的迭代公式（第 <span class="math inline">\(k\)</span>
 轮）为：<span class="math inline">\(\nabla f(x)=\nabla
@@ -418,7 +422,7 @@ condition），所有对Hessian矩阵近似的方法都应该满足次条件。<
 <p>常用的近似方法有：DFP (Davidon-Fletcher-Powell) Algorithm，BFGS
 (Broyden-Fletcher-Goldfard-Shano) Algorithm，L-BFGS (Limited-memory
 BFGS) Algorithm</p>
-<h3 id="more">More</h3>
+<h1 id="qa">Q&amp;A</h1>
 <p>既然牛顿法收敛会快很多，那么为什么深度学习依然使用梯度下降（一阶收敛）呢？</p>
 <ul>
 <li>计算复杂度高--<span class="math inline">\(Hessian \in
@@ -522,7 +526,10 @@ R^{n*n}\)</span>，Hessian矩阵大小为参数的平方。</li>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#gradient-descent"><span class="nav-number">1.</span> <span class="nav-text">1. Gradient Descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#newton-method"><span class="nav-number">2.</span> <span class="nav-text">2. Newton Method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quasi-newton-method"><span class="nav-number">3.</span> <span class="nav-text">3. Quasi-Newton Method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#more"><span class="nav-number">4.</span> <span class="nav-text">More</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gradient-descent"><span class="nav-number">1.</span> <span class="nav-text">Gradient Descent</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gradient"><span class="nav-number">1.1.</span> <span class="nav-text">Gradient</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#derivative"><span class="nav-number">1.1.1.</span> <span class="nav-text">Derivative</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#partial-derivative--%E5%81%8F%E5%AF%BC%E6%95%B0%E9%83%A8%E5%88%86%E7%9A%84%E5%AF%BC%E6%95%B0"><span class="nav-number">1.1.2.</span> <span class="nav-text">Partial
+Derivative--偏导数，部分的导数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#directional-derivative"><span class="nav-number">1.1.3.</span> <span class="nav-text">Directional Derivative</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gradient-descent-1"><span class="nav-number">1.2.</span> <span class="nav-text">Gradient Descent</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#local-optimum"><span class="nav-number">1.2.1.</span> <span class="nav-text">Local optimum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#algorithm"><span class="nav-number">1.2.2.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bgd--batch-gradient-descent"><span class="nav-number">1.2.3.</span> <span class="nav-text">BGD--Batch Gradient Descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sgd--stochastic-gradient-descent"><span class="nav-number">1.2.4.</span> <span class="nav-text">SGD--Stochastic Gradient
+Descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#newton-method"><span class="nav-number">1.2.5.</span> <span class="nav-text">Newton Method</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solve-equation"><span class="nav-number">1.3.</span> <span class="nav-text">Solve Equation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#optimization-problem"><span class="nav-number">1.4.</span> <span class="nav-text">Optimization Problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#comparation-with-gradient-descent"><span class="nav-number">1.5.</span> <span class="nav-text">Comparation with Gradient
+Descent</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#quasi-newton-method"><span class="nav-number">1.5.1.</span> <span class="nav-text">Quasi-Newton Method</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#basic-idea"><span class="nav-number">1.6.</span> <span class="nav-text">Basic Idea</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#qa"><span class="nav-number">2.</span> <span class="nav-text">Q&amp;A</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -538,7 +545,7 @@ R^{n*n}\)</span>，Hessian矩阵大小为参数的平方。</li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-count">110</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

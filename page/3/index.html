@@ -203,6 +203,164 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/04/02/Numpy-np-where/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/02/Numpy-np-where/" class="post-title-link" itemprop="url">Numpy np.where</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-04-02 16:25:18 / Modified: 16:29:00" itemprop="dateCreated datePublished" datetime="2022-04-02T16:25:18+08:00">2022-04-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><code>np.where</code> seems to be an important function that need to
+be noticed.</p>
+<p>Two examples to show its function.</p>
+<ol type="1">
+<li><p><code>np.where(condition, x, y)</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.mat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">matrix([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = np.where(x &gt; <span class="number">1</span>, <span class="number">0</span>, x)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]])</span><br></pre></td></tr></table></figure></li>
+<li><p><code>np.where(condition)</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.mat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">matrix([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = np.where(x &gt; <span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line">(array([<span class="number">0</span>, <span class="number">0</span>]), array([<span class="number">1</span>, <span class="number">2</span>]))</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/03/19/Xcode-build-error-dylib-not-valid-for-use-in-process/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/19/Xcode-build-error-dylib-not-valid-for-use-in-process/" class="post-title-link" itemprop="url">Xcode build error: '.dylib not valid for use in process'</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-19 13:10:33" itemprop="dateCreated datePublished" datetime="2022-03-19T13:10:33+08:00">2022-03-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-23 13:34:13" itemprop="dateModified" datetime="2022-07-23T13:34:13+08:00">2022-07-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>This project can be build successfully. But it can not run in
+Xcode(13.2.1).</p>
+<p><code>'/opt/homebrew/Cellar/glfw/3.3.6/lib/libglfw.3.3.dylib' not valid for use in process: mapped file has no Team ID and is not a platform binary (signed with custom identity or adhoc?))</code></p>
+<p>The problem is the <code>.dylib</code> you used is not signed by
+apple. You can choose to <code>codesign</code> the lib, otherwise you
+can choose not to sign the project.</p>
+<p>GO TO
+<code>TARGETS-&gt;Build Settings-&gt;Code Signing Identity-&gt;Others</code>.
+In default, it is '-'. Just delete it.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,7 +392,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-26 12:00:14" itemprop="dateModified" datetime="2022-07-26T12:00:14+08:00">2022-07-26</time>
+                <time title="Modified: 2022-07-26 15:41:07" itemprop="dateModified" datetime="2022-07-26T15:41:07+08:00">2022-07-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -790,7 +948,7 @@ afterwrds.</p>
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-26 12:53:10" itemprop="dateModified" datetime="2022-07-26T12:53:10+08:00">2022-07-26</time>
+                <time title="Modified: 2022-07-26 15:43:09" itemprop="dateModified" datetime="2022-07-26T15:43:09+08:00">2022-07-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -828,183 +986,6 @@ regularization)</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/11/02/Regularization-in-Deep-Learning/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/11/02/Logistic-Regression/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/02/Logistic-Regression/" class="post-title-link" itemprop="url">Logistic Regression</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-02 20:05:29" itemprop="dateCreated datePublished" datetime="2021-11-02T20:05:29+08:00">2021-11-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-05 17:35:28" itemprop="dateModified" datetime="2022-02-05T17:35:28+08:00">2022-02-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>方法1:opencv</p>
-<p>opencv可以通过一些操作（主要通过canny和扩张腐蚀）得到特定的轮廓</p>
-<p>但是实际操作下来感觉非常依赖参数的调整和图像预处理，很不稳定，并且道路本身的一些特征（如道路接缝）也会被检测</p>
-<p>方法2:deeplearning</p>
-<p>由于Road Damage
-Detection是一个在深度学习领域很成熟的话题。我直接搜索了相关的竞赛。</p>
-<p>目前排名较高的均为使用YOLO实现，我自己也进行了尝试（YOLO
-v5）但是效果很不理想，几乎检测不到。</p>
-<p>这个领域我还没有深入探索。但是如果我们没有对检测速度很高要求的话，使用maskRCNN或许是更加适合的方案。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/" class="post-title-link" itemprop="url">Install tensorflow_macos on Macbook M1 (Apple silicon)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-27 11:39:15" itemprop="dateCreated datePublished" datetime="2021-10-27T11:39:15+08:00">2021-10-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-04 23:49:09" itemprop="dateModified" datetime="2021-11-04T23:49:09+08:00">2021-11-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="preface">Preface</h1>
-<p>This article in written in 2021.10.27, and current version is
-<code>0.1a3</code>. In the future, Apple may provide a better machine
-learning structure on TensorFlow, so please always remember to check <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos">here</a>.</p>
-<p>My feeling: 🐂🍺 but lots of bugs</p>
-<p>Article <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos/issues/153">reference</a>.</p>
-<h2 id="x-code">X-code</h2>
-<ol type="1">
-<li>Install: <code>xcode-select --install</code></li>
-<li>Check: <code>which xcrun</code>, you should get the path to
-<code>xcrun</code></li>
-</ol>
-<h2 id="miniforge">Miniforge</h2>
-<p>Miniforge is just a substitude of Anaconda.</p>
-<p>Follow the instruction <a target="_blank" rel="noopener" href="https://github.com/conda-forge/miniforge#miniforge3">here</a>.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1095,7 +1076,7 @@ learning structure on TensorFlow, so please always remember to check <a target="
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-count">110</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

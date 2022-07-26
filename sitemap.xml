@@ -2,6 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sightvanish.github.io/2021/10/07/TOEFL-Notes/</loc>
+    
+    <lastmod>2022-07-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/2021/10/11/Brief-introduction-to-Unet/</loc>
+    
+    <lastmod>2022-07-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/</loc>
+    
+    <lastmod>2022-07-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/2021/11/02/Regularization-in-Deep-Learning/</loc>
+    
+    <lastmod>2022-07-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/</loc>
+    
+    <lastmod>2022-07-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/2022/07/26/Pytorch-Environment-on-Apple-Silicon/</loc>
+    
+    <lastmod>2022-07-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/2022/07/26/Netscope-for-Caffe/</loc>
+    
+    <lastmod>2022-07-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/2022/07/26/Chmod-in-Ubuntu/</loc>
+    
+    <lastmod>2022-07-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://sightvanish.github.io/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/</loc>
     
     <lastmod>2022-07-26</lastmod>
@@ -92,15 +164,6 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/2021/11/02/Regularization-in-Deep-Learning/</loc>
-    
-    <lastmod>2022-07-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://sightvanish.github.io/2021/06/10/Overwatch-yes/</loc>
     
     <lastmod>2022-07-26</lastmod>
@@ -173,24 +236,6 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/2022/07/26/Netscope-for-Caffe/</loc>
-    
-    <lastmod>2022-07-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/2021/10/11/Brief-introduction-to-Unet/</loc>
-    
-    <lastmod>2022-07-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://sightvanish.github.io/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/</loc>
     
     <lastmod>2022-07-26</lastmod>
@@ -228,15 +273,6 @@
   
   <url>
     <loc>https://sightvanish.github.io/2022/03/16/%E5%BF%83%E8%84%8F%E9%AA%A4%E5%81%9C/</loc>
-    
-    <lastmod>2022-07-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/2022/03/18/OpenGL-in-Xcode-Apple-Silicon/</loc>
     
     <lastmod>2022-07-26</lastmod>
     
@@ -578,15 +614,6 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/</loc>
-    
-    <lastmod>2021-10-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://sightvanish.github.io/2021/09/29/%E5%89%91%E6%8C%87Offer-%E5%85%A8/</loc>
     
     <lastmod>2021-10-24</lastmod>
@@ -599,15 +626,6 @@
     <loc>https://sightvanish.github.io/2021/10/18/TOEFL-Listening/</loc>
     
     <lastmod>2021-10-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/2021/10/07/TOEFL-Notes-based-on-TPO/</loc>
-    
-    <lastmod>2021-10-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1051,20 +1069,6 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/C/</loc>
-    <lastmod>2022-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/Mac/</loc>
-    <lastmod>2022-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sightvanish.github.io/tags/C-C/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -1079,6 +1083,27 @@
   </url>
   
   <url>
+    <loc>https://sightvanish.github.io/tags/C/</loc>
+    <lastmod>2022-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/Mac/</loc>
+    <lastmod>2022-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/int/</loc>
+    <lastmod>2022-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://sightvanish.github.io/tags/Github/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -1087,13 +1112,6 @@
   
   <url>
     <loc>https://sightvanish.github.io/tags/MacOS/</loc>
-    <lastmod>2022-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/int/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1135,13 +1153,6 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/Ubuntu/</loc>
-    <lastmod>2022-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sightvanish.github.io/tags/Machine-Learning/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -1157,6 +1168,13 @@
   
   <url>
     <loc>https://sightvanish.github.io/tags/Unsupervised-learning/</loc>
+    <lastmod>2022-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/Ubuntu/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1184,13 +1202,6 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/PCA/</loc>
-    <lastmod>2022-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sightvanish.github.io/tags/Probability-Density-Function/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -1212,14 +1223,14 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/SVM/</loc>
+    <loc>https://sightvanish.github.io/tags/PCA/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/Relu/</loc>
+    <loc>https://sightvanish.github.io/tags/SVM/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1241,6 +1252,13 @@
   
   <url>
     <loc>https://sightvanish.github.io/tags/Faster-R-CNN/</loc>
+    <lastmod>2022-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/Relu/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1270,14 +1288,14 @@
 
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Kendo/</loc>
+    <loc>https://sightvanish.github.io/categories/Machine-Learning/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Machine-Learning/</loc>
+    <loc>https://sightvanish.github.io/categories/Kendo/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1333,14 +1351,14 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Tutorial/</loc>
+    <loc>https://sightvanish.github.io/categories/Test/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Test/</loc>
+    <loc>https://sightvanish.github.io/categories/Tutorial/</loc>
     <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
