@@ -203,6 +203,307 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/09/07/SQLSummary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/07/SQLSummary/" class="post-title-link" itemprop="url">SQLSummary</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-09-07 21:43:01 / Modified: 21:43:13" itemprop="dateCreated datePublished" datetime="2022-09-07T21:43:01+08:00">2022-09-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>SQL</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/sql/sql-quickref.html">Fast
+Reference</a></p>
+<ol type="1">
+<li><p>select: select columns</p></li>
+<li><p>select distinct: remove redundant data in columns (reduce the
+number of rows)</p></li>
+<li><p>limit: limit the number of results to be displayed</p></li>
+<li><p>where: limit conditions</p>
+<ol type="1">
+<li><p>like: select string with certain pattern (work with <a target="_blank" rel="noopener" href="https://www.runoob.com/sql/sql-wildcards.html">wildcard</a>)</p></li>
+<li><p>in: select from several values</p>
+<ol type="1">
+<li>``` where column in (value1, value2,...) <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. between: select value\/string\/data between two values</span><br><span class="line"></span><br><span class="line">   1. ```</span><br><span class="line">      where column between value1 and value2</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+</ol></li>
+<li><p>alias: set alias (used in select, where)</p></li>
+<li><p>order by: show result in certain order</p></li>
+<li><p>insert into: insert a row with certain columns</p>
+<ol type="1">
+<li><p>``` insert into table_name (column1, column2, column3,...) values
+(value1, value2, value3,...) <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">      You do not need to name the columns if the row inserted contains them all.</span><br><span class="line"></span><br><span class="line">8. update: update certain rows</span><br><span class="line"></span><br><span class="line">   1. ```</span><br><span class="line">      update table_name</span><br><span class="line">      set column1=value1, column2=value2,...</span><br><span class="line">      where &lt;conditoins&gt;</span><br></pre></td></tr></table></figure></p>
+<p>You have to set conditions when using <code>update</code>.</p></li>
+</ol></li>
+<li><p>delete: delete certains rows</p>
+<ol type="1">
+<li>``` delete from table_name where <conditions>; <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">      You have to set conditions when using `delete`.</span><br><span class="line"></span><br><span class="line">10. join: join two several tables</span><br><span class="line"></span><br><span class="line">    1.  ```</span><br><span class="line">        select &lt;columns&gt;</span><br><span class="line">        from table1_name </span><br><span class="line">        join table2_name</span><br><span class="line">        on table1_name.key=table2.name.key;</span><br></pre></td></tr></table></figure></conditions></li>
+</ol></li>
+<li><p>union: union several table (with same number of columns, same
+type in each column and same order of columns)</p>
+<ol type="1">
+<li>``` select <columns> from table1_name union <all> select <columns>
+from table2_name; <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">        Use `all` to allow redundant data in the result of `union`.</span><br><span class="line"></span><br><span class="line">12. insert into select: copy data from a table and insert to another</span><br><span class="line"></span><br><span class="line">    1.  ```</span><br><span class="line">        insert into table2_name &lt;columns&gt;</span><br><span class="line">        select &lt;columns&gt;</span><br><span class="line">        from table1_name</span><br></pre></td></tr></table></figure></columns></all></columns></li>
+</ol></li>
+<li><p>create table: create a new table</p>
+<ol type="1">
+<li><p>``` create table table_name ( column1 data_type(size)
+<constraint_name>, column2 data_type(size) <constraint_name>, ... )
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. constraints: add constraint to give more rules in table</span><br><span class="line"></span><br><span class="line">   1. | not null               | unique                              | primary key                         | foreign key     | check                                   | default           |</span><br><span class="line">      | ---------------------- | ----------------------------------- | ----------------------------------- | --------------- | --------------------------------------- | ----------------- |</span><br><span class="line">      | no null in this column | each value in this column is nuique | set primary key (not null &amp; unique) | set foreign key | each value compromise certain condition | set default value |</span><br><span class="line"></span><br><span class="line">   2.  primary key: every table should have one and only one primary key.</span><br><span class="line"></span><br><span class="line">        1.  ```</span><br><span class="line">            create table table_name</span><br><span class="line">            (</span><br><span class="line">                column1 data_type(size),</span><br><span class="line">                column2 data_type(size),</span><br><span class="line">                ...</span><br><span class="line">                primary key (column1)</span><br><span class="line">            )</span><br></pre></td></tr></table></figure></constraint_name></constraint_name></p></li>
+<li><p>foreign key: foreign key is the primary key of another
+table</p></li>
+<li><p>check: check certain condition</p>
+<ol type="1">
+<li>``` create table table_name ( column1 data_type(size), column2
+data_type(size), ... check <condition> ) <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br></pre></td></tr></table></figure> create table
+table_name ( column1 data_type(size), column2 data_type(size), ...
+constraint constraint_name check <conditions> ) <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">14. index: create index</span><br><span class="line"></span><br><span class="line">    1.  ```</span><br><span class="line">        create &lt;unique&gt; index index_name</span><br><span class="line">        on table_name (column1, column2,...)</span><br></pre></td></tr></table></figure></conditions></condition></li>
+</ol></li>
+</ol></li>
+<li><p>group by: group the results; it should work with aggregate
+function.</p>
+<ol type="1">
+<li><code>select column1, aggregate_function(column_name)     from table_name     group by column1</code></li>
+</ol></li>
+<li><p>having: aggregate function can not work with <code>where</code>
+and that is why we need <code>having</code>.</p>
+<ol type="1">
+<li>the order of these commands is <code>where</code> -&gt;
+<code>group by</code> -&gt; <code>having</code>.</li>
+</ol></li>
+<li><p>exist: return true is the result exists</p></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/09/07/Difference-between-FactTable-and-DimensionalTable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/07/Difference-between-FactTable-and-DimensionalTable/" class="post-title-link" itemprop="url">Difference between FactTable and DimensionalTable</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-09-07 21:42:14 / Modified: 21:42:36" itemprop="dateCreated datePublished" datetime="2022-09-07T21:42:14+08:00">2022-09-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="basics">Basics</h3>
+<p>事实表(Fact
+Table)又称主题表，其本质是记录交易的表，往往维度很大。</p>
+<p>维度表(Dimension
+Table)又称维表，其本质是基础表，类似于事实表的外键，往往维度较少，冗余较大。</p>
+<p>例如商品价格表（包含商品名、价格等）是维度表；售货表（包含商品名、顾客名、交易数量等）是事实表。
+例如顾客信息表（用户昵称、用户ip等）是维度表；顾客交易表（包含商品名、交易数量等）是事实表。</p>
+<h3 id="为什么我们需要维度表">为什么我们需要维度表？</h3>
+<p>事实表一般非常大（往往是宽表），不适合使用常规方法查询，因此需要将一些维度剥离出来作为维度表。维度表出现的目的就是为了使事实表能够减少冗余，提高存储效率。</p>
+<p>维度表用于关联事实表（其本身可能有冗余信息，可以帮助事实表节省空间），用于数据检索。一个事实表都需要和一个或多个维度表相关联。维度表内的内容往往用于描述事实表中的数据，因此多为静态数据。</p>
+<p>维度表和事实表的信息可以聚合在一起形成一个信息全面的表，称之为指标表，又称宽表。在数据中台(middle-end)中使用宽表，可以减轻业务系统压力，同时为前端的服务提供快速的数据查询（相当于把数据压力剥离出来放到独立的系统中）。</p>
+<p>大数据中常提到的星形结构、雪花结构等本质就是针对不同的场景需求对表采取了不同程度的拆分用于提升存储或是查询效率。</p>
+<h3 id="reference">Reference</h3>
+<p>https://blog.csdn.net/weixin_45366499/article/details/120706308
+https://blog.csdn.net/qq_28666081/article/details/104686822</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/09/07/MapReduce/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/07/MapReduce/" class="post-title-link" itemprop="url">MapReduce</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-09-07 21:40:38 / Modified: 21:41:35" itemprop="dateCreated datePublished" datetime="2022-09-07T21:40:38+08:00">2022-09-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="procedure">Procedure</h3>
+<p>HDFS(Hadoop Distributed File System)(stored in blocks)-&gt;Split(# of
+split=# of map tasks)-&gt;Map(Assign each key with value; generate (key,
+value) pairs)-&gt;Shuffle-&gt;Reduce(aggregate value)-&gt;HDFS</p>
+<h3 id="shuffle">Shuffle</h3>
+<p>Let’s focus on shuffle part.</p>
+<p>All the data in the map node will be partitioned(hash to different
+reduce node). Reduce node will get all the data in the corresponding
+partitions from different map nodes and perform reduce task only
+once.</p>
+<p>Shuffle taken on map node = Partition(# of partition=# of reduce
+node) + merge sort(based on key) + (optional) combiner</p>
+<p>Output will be stored in a Ring Buffer(up to 80%). Then reduce nodes
+will capture spill files via HTTP. Reduce node will get data from memory
+and disk of map node. If the map task is not completed yet, reduce node
+will merge sort data in time and wait for map task to finish.</p>
+<p>Shuffle taken on reduce node = all the spill file generated by this
+map task will be merged (based on partition number) and generate (key,
+{value_list}) pair.</p>
+<p>Merge will generate value list (key, {value_list}). Combiner will
+perform reduce task to compress data (key, value). Combiner is designed
+to decrease the IO pressure (from map node to reduce node). Reduce node
+only need to load a combined file instead of many small spill file.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/27/Introduction-to-Data-Analysis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -809,255 +1110,6 @@ Here</a></p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/23/alias-in-linux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/23/alias-in-linux/" class="post-title-link" itemprop="url">alias in linux</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-07-23 13:31:09 / Modified: 13:32:23" itemprop="dateCreated datePublished" datetime="2022-07-23T13:31:09+08:00">2022-07-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol type="1">
-<li>display alias: <code>alias</code></li>
-<li>temporary alias:
-<code>alias &lt;name&gt;="&lt;commands&gt;"</code>This alias only work
-in current shell.</li>
-<li>It you want to keep alias permanently, put alias in
-<code>~/.bashrc</code>. note: remeber <code>source ~/.bashrc</code>
-after.</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/23/Bangline/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/23/Bangline/" class="post-title-link" itemprop="url">Bangline</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-07-23 13:24:17 / Modified: 14:22:54" itemprop="dateCreated datePublished" datetime="2022-07-23T13:24:17+08:00">2022-07-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Here is a question: what is the difference between <code>./</code>
-and <code>sh</code> when executing a shell script?</p>
-<ol type="1">
-<li><code>sh test.sh</code> You pass test.sh as a parameter to sh.</li>
-<li><code>./test.sh</code> The system calls out the interpreter program
-and feeds in the scripts contents. So you will need a <strong>bang
-line</strong>(the very first line in the script and starts with #!). The
-rest part of the script will be passed to the program immediately
-after.</li>
-</ol>
-<p>So you can run shell via <code>#!/bin/bash</code>. You can even run
-python via <code>#!/usr/bin/python</code> (the rest code is in
-python)</p>
-<p>Here is the <a target="_blank" rel="noopener" href="https://askubuntu.com/questions/22910/what-is-the-difference-between-and-sh-to-run-a-script">reference</a>.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/Hexo-Migration/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/14/Hexo-Migration/" class="post-title-link" itemprop="url">Hexo Migration</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-07-14 22:36:02" itemprop="dateCreated datePublished" datetime="2022-07-14T22:36:02+08:00">2022-07-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-23 14:26:41" itemprop="dateModified" datetime="2022-07-23T14:26:41+08:00">2022-07-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>The following code is only tested on Apple Silicon.</p>
-<ol type="1">
-<li><p>Config Git</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config user.name liwuchen</span><br><span class="line">git config user.email liwch@shanghaitech.edu.cn</span><br><span class="line">git config -l # list git config</span><br><span class="line">ssh-keygen -t rsa -C &quot;liwch@shanghaitech.edu.cn&quot;</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p>Copy rsa public key to GitHub-&gt;Settings-&gt;SSH and GPG
-keys.</p></li>
-<li><p>Install <a target="_blank" rel="noopener" href="https://nodejs.org/">Nodejs</a></p>
-<ol type="1">
-<li><p>In China, you may consider install cnpm</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></li>
-<li><p>In the following steps, I will use <code>cnpm</code>, same for
-<code>npm</code>.</p></li></ol></li></ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/14/Hexo-Migration/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1129,14 +1181,14 @@ keys.</p></li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-count">114</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
