@@ -28,7 +28,7 @@
 <meta property="og:description" content="SQL Fast Reference  select: select columns select distinct: remove redundant data in columns (reduce the number of rows) limit: limit the number of results to be displayed where: limit conditions  lik">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-07T13:43:01.000Z">
-<meta property="article:modified_time" content="2022-09-07T13:43:13.070Z">
+<meta property="article:modified_time" content="2022-10-04T07:45:56.712Z">
 <meta property="article:author" content="Li Wuchen">
 <meta name="twitter:card" content="summary">
 
@@ -230,10 +230,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-09-07 21:43:01 / Modified: 21:43:13" itemprop="dateCreated datePublished" datetime="2022-09-07T21:43:01+08:00">2022-09-07</time>
+              <time title="Created: 2022-09-07 21:43:01" itemprop="dateCreated datePublished" datetime="2022-09-07T21:43:01+08:00">2022-09-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-10-04 15:45:56" itemprop="dateModified" datetime="2022-10-04T15:45:56+08:00">2022-10-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -268,46 +274,119 @@ number of rows)</p></li>
 <li><p>like: select string with certain pattern (work with <a target="_blank" rel="noopener" href="https://www.runoob.com/sql/sql-wildcards.html">wildcard</a>)</p></li>
 <li><p>in: select from several values</p>
 <ol type="1">
-<li>``` where column in (value1, value2,...) <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. between: select value\/string\/data between two values</span><br><span class="line"></span><br><span class="line">   1. ```</span><br><span class="line">      where column between value1 and value2</span><br></pre></td></tr></table></figure></li>
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where column in (value1, value2,...)</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>between: select value/string/data between two values</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where column between value1 and value2</span><br></pre></td></tr></table></figure></li>
 </ol></li>
 </ol></li>
 <li><p>alias: set alias (used in select, where)</p></li>
 <li><p>order by: show result in certain order</p></li>
 <li><p>insert into: insert a row with certain columns</p>
 <ol type="1">
-<li><p>``` insert into table_name (column1, column2, column3,...) values
-(value1, value2, value3,...) <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">      You do not need to name the columns if the row inserted contains them all.</span><br><span class="line"></span><br><span class="line">8. update: update certain rows</span><br><span class="line"></span><br><span class="line">   1. ```</span><br><span class="line">      update table_name</span><br><span class="line">      set column1=value1, column2=value2,...</span><br><span class="line">      where &lt;conditoins&gt;</span><br></pre></td></tr></table></figure></p>
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert into table_name (column1, column2, column3,...)</span><br><span class="line">values (value1, value2, value3,...)</span><br></pre></td></tr></table></figure>
+<p>You do not need to name the columns if the row inserted contains them
+all.</p></li>
+</ol></li>
+<li><p>update: update certain rows</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update table_name</span><br><span class="line">set column1=value1, column2=value2,...</span><br><span class="line">where &lt;conditoins&gt;</span><br></pre></td></tr></table></figure>
 <p>You have to set conditions when using <code>update</code>.</p></li>
 </ol></li>
 <li><p>delete: delete certains rows</p>
 <ol type="1">
-<li>``` delete from table_name where <conditions>; <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">      You have to set conditions when using `delete`.</span><br><span class="line"></span><br><span class="line">10. join: join two several tables</span><br><span class="line"></span><br><span class="line">    1.  ```</span><br><span class="line">        select &lt;columns&gt;</span><br><span class="line">        from table1_name </span><br><span class="line">        join table2_name</span><br><span class="line">        on table1_name.key=table2.name.key;</span><br></pre></td></tr></table></figure></conditions></li>
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete from table_name</span><br><span class="line">where &lt;conditions&gt;;</span><br></pre></td></tr></table></figure>
+<p>You have to set conditions when using <code>delete</code>.</p></li>
+</ol></li>
+<li><p>join: join two several tables</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select &lt;columns&gt;</span><br><span class="line">from table1_name </span><br><span class="line">join table2_name</span><br><span class="line">on table1_name.key=table2.name.key;</span><br></pre></td></tr></table></figure></li>
 </ol></li>
 <li><p>union: union several table (with same number of columns, same
 type in each column and same order of columns)</p>
 <ol type="1">
-<li>``` select <columns> from table1_name union <all> select <columns>
-from table2_name; <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">        Use `all` to allow redundant data in the result of `union`.</span><br><span class="line"></span><br><span class="line">12. insert into select: copy data from a table and insert to another</span><br><span class="line"></span><br><span class="line">    1.  ```</span><br><span class="line">        insert into table2_name &lt;columns&gt;</span><br><span class="line">        select &lt;columns&gt;</span><br><span class="line">        from table1_name</span><br></pre></td></tr></table></figure></columns></all></columns></li>
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select &lt;columns&gt; from table1_name</span><br><span class="line">union &lt;all&gt;</span><br><span class="line">select &lt;columns&gt; from table2_name;</span><br></pre></td></tr></table></figure>
+<p>Use <code>all</code> to allow redundant data in the result of
+<code>union</code>.</p></li>
+</ol></li>
+<li><p>insert into select: copy data from a table and insert to
+another</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert into table2_name &lt;columns&gt;</span><br><span class="line">select &lt;columns&gt;</span><br><span class="line">from table1_name</span><br></pre></td></tr></table></figure></li>
 </ol></li>
 <li><p>create table: create a new table</p>
 <ol type="1">
-<li><p>``` create table table_name ( column1 data_type(size)
-<constraint_name>, column2 data_type(size) <constraint_name>, ... )
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. constraints: add constraint to give more rules in table</span><br><span class="line"></span><br><span class="line">   1. | not null               | unique                              | primary key                         | foreign key     | check                                   | default           |</span><br><span class="line">      | ---------------------- | ----------------------------------- | ----------------------------------- | --------------- | --------------------------------------- | ----------------- |</span><br><span class="line">      | no null in this column | each value in this column is nuique | set primary key (not null &amp; unique) | set foreign key | each value compromise certain condition | set default value |</span><br><span class="line"></span><br><span class="line">   2.  primary key: every table should have one and only one primary key.</span><br><span class="line"></span><br><span class="line">        1.  ```</span><br><span class="line">            create table table_name</span><br><span class="line">            (</span><br><span class="line">                column1 data_type(size),</span><br><span class="line">                column2 data_type(size),</span><br><span class="line">                ...</span><br><span class="line">                primary key (column1)</span><br><span class="line">            )</span><br></pre></td></tr></table></figure></constraint_name></constraint_name></p></li>
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size) &lt;constraint_name&gt;,</span><br><span class="line">    column2 data_type(size) &lt;constraint_name&gt;,</span><br><span class="line">    ...</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+<li><p>constraints: add constraint to give more rules in table</p>
+<ol type="1">
+<li><p>Table</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 9%">
+<col style="width: 23%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>not null</th>
+<th>unique</th>
+<th>primary key</th>
+<th>foreign key</th>
+<th>check</th>
+<th>default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>no null in this column</td>
+<td>each value in this column is nuique</td>
+<td>set primary key (not null &amp; unique)</td>
+<td>set foreign key</td>
+<td>each value compromise certain condition</td>
+<td>set default value</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>primary key: every table should have one and only one primary
+key.</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size),</span><br><span class="line">    column2 data_type(size),</span><br><span class="line">    ...</span><br><span class="line">    primary key (column1)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+</ol></li>
 <li><p>foreign key: foreign key is the primary key of another
 table</p></li>
 <li><p>check: check certain condition</p>
 <ol type="1">
-<li>``` create table table_name ( column1 data_type(size), column2
-data_type(size), ... check <condition> ) <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br></pre></td></tr></table></figure> create table
-table_name ( column1 data_type(size), column2 data_type(size), ...
-constraint constraint_name check <conditions> ) <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">14. index: create index</span><br><span class="line"></span><br><span class="line">    1.  ```</span><br><span class="line">        create &lt;unique&gt; index index_name</span><br><span class="line">        on table_name (column1, column2,...)</span><br></pre></td></tr></table></figure></conditions></condition></li>
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size),</span><br><span class="line">    column2 data_type(size),</span><br><span class="line">    ...</span><br><span class="line">    check &lt;condition&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size),</span><br><span class="line">    column2 data_type(size),</span><br><span class="line">    ...</span><br><span class="line">    constraint constraint_name check &lt;conditions&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
 </ol></li>
+</ol></li>
+</ol></li>
+<li><p>index: create index</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create &lt;unique&gt; index index_name</span><br><span class="line">on table_name (column1, column2,...)</span><br></pre></td></tr></table></figure></li>
 </ol></li>
 <li><p>group by: group the results; it should work with aggregate
 function.</p>
 <ol type="1">
-<li><code>select column1, aggregate_function(column_name)     from table_name     group by column1</code></li>
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select column1, aggregate_function(column_name)</span><br><span class="line">from table_name</span><br><span class="line">group by column1</span><br></pre></td></tr></table></figure></li>
 </ol></li>
 <li><p>having: aggregate function can not work with <code>where</code>
 and that is why we need <code>having</code>.</p>
@@ -350,7 +429,10 @@ and that is why we need <code>having</code>.</p>
     <a href="/2022/09/07/Difference-between-FactTable-and-DimensionalTable/" rel="prev" title="Difference between FactTable and DimensionalTable">
       <i class="fa fa-chevron-left"></i> Difference between FactTable and DimensionalTable
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/10/04/Difference-between-dataset-datalake-and-datawarehouse/" rel="next" title="Difference between dataset datalake and datawarehouse">
+      Difference between dataset datalake and datawarehouse <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -424,14 +506,14 @@ and that is why we need <code>having</code>.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

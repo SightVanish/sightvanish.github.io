@@ -203,6 +203,450 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/WSL2-Configuration/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/04/WSL2-Configuration/" class="post-title-link" itemprop="url">WSL2 Configuration</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-10-04 15:43:55 / Modified: 15:44:04" itemprop="dateCreated datePublished" datetime="2022-10-04T15:43:55+08:00">2022-10-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>install WSL2 in Win10</p>
+<ol type="1">
+<li>open <code>powershell</code> as administrator.</li>
+<li><code>winver</code> to check your Windows version.</li>
+<li><code>wsl -l -o</code> to check all available distribution
+package.</li>
+<li><code>wsl --install -d &lt;distribution&gt;</code> to install
+specified Linux version.</li>
+<li>(Optional) if you want to connect to your WSL via VScode, check this
+plugin <code>Remote-WSL</code></li>
+</ol>
+<p>install Anaconda in WSL2</p>
+<ol type="1">
+<li>update <code>sudo apt update; sudo apt upgrade</code></li>
+<li>check the download <a href="%5BAnaconda%20%7C%20Anaconda%20Distribution%5D(https://www.anaconda.com/products/distribution)">link</a></li>
+<li>install via <code>wget</code>, eg.
+<code>wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh</code></li>
+<li>run the installer script to install Anaconda. (remember to run
+<code>conda init</code>)</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/How-to-modify-git-message/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/04/How-to-modify-git-message/" class="post-title-link" itemprop="url">How to modify git message</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-10-04 15:43:13 / Modified: 15:43:23" itemprop="dateCreated datePublished" datetime="2022-10-04T15:43:13+08:00">2022-10-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol type="1">
+<li><p>modify the last commit comment:
+<code>git commit --amend --message="message" --author="my_name &lt;name@email.com&gt;"</code></p></li>
+<li><p>modify historical commit comment:</p>
+<ol type="1">
+<li><p>view your commit history: <code>git log</code></p></li>
+<li><p>rebase: <code>git rebase -i &lt;commmit id&gt;</code> or
+<code>git rebase -i HEAD~n</code></p>
+<ol type="1">
+<li>note: you have to rebase to the commit <strong>before</strong> the
+one you want to modify.</li>
+</ol></li>
+<li><p>change the flag:</p>
+<ul>
+<li>pick: use commit (do nothing)</li>
+<li>reword: use commit, but edit the commit message</li>
+<li>edit: use commit, but stop for amending (u can modify files)</li>
+<li>squash: use commit, but meld into previous commit</li>
+<li>fixup: like "squash", but discard this commit's log message</li>
+<li>exec: run command (the rest of the line) using shell</li>
+<li>drop: remove commit</li>
+</ul>
+<p>If you just want to edit the commit message, choose
+<strong>reword</strong>.</p></li>
+<li><p>modify the message</p></li>
+<li><p>push <code>git push &lt;origin&gt; &lt;branch&gt; -f</code>. You
+have to use the flag <strong><code>-f</code></strong> to push the commit
+by force.</p></li>
+</ol></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/Knapsack-Problem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/04/Knapsack-Problem/" class="post-title-link" itemprop="url">Knapsack Problem</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-10-04 15:42:37 / Modified: 15:46:51" itemprop="dateCreated datePublished" datetime="2022-10-04T15:42:37+08:00">2022-10-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="knapsack-problem">Knapsack Problem</h1>
+<p>Knapsack problem is a constraint optimization problem. You have to
+find an optimal answer given certain constraints (capacity of knapsack).
+There are 3 different variants: <strong>0-1 knapsack</strong>,
+<strong>fractional knapsack</strong> and <strong>unbounded
+knapsack</strong>. We will discuss them one by one.</p>
+<h2 id="knapsack-problem-1">0-1 Knapsack Problem</h2>
+<h3 id="what-is-a-0-1-knapsack-problem">What is a 0-1 Knapsack
+Problem?</h3>
+<p>In the 0-1 knapsack problem, we can either keep an item or not. There
+is no way to split an item. Each item has a value and a weight. The
+knapsack, or the bag, has a weight capacity. Our target is to fill the
+bag with maximum value while not exceeding its capacity.</p>
+<p>Input: bag weight capacity <span class="math inline">\(W\)</span>,
+<span class="math inline">\(n\)</span> items with value
+<code>value[]</code> and weight <code>weight[]</code>.</p>
+<p>Output: maximum feasible value</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/04/Knapsack-Problem/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/A-brief-intro-of-HDFS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/04/A-brief-intro-of-HDFS/" class="post-title-link" itemprop="url">A brief intro of HDFS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-10-04 15:42:06 / Modified: 15:42:16" itemprop="dateCreated datePublished" datetime="2022-10-04T15:42:06+08:00">2022-10-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="hdfs-hadoop-distributed-file-system">HDFS (Hadoop Distributed
+File System)</h1>
+<h3 id="structure">Structure</h3>
+<p>NameNode: control the system</p>
+<p>StandbyNode: handle logs of NameNode and serves as a backup of
+NameNode</p>
+<p>DataNode: store data</p>
+<h3 id="write">Write:</h3>
+<p>NameNode get request from client-&gt;split data-&gt;StandbyNode
+inform NameNode of nodes to store data (workload balance)-&gt;NameNode
+passes the data to the DataNode-&gt;DataNode will pass data to the next
+DataNode (same piece of data will be copied and stored on multiple
+DataNodes)</p>
+<h3 id="read">Read:</h3>
+<p>NameNode get request from client-&gt;StandbyNode inform client where
+to find data-&gt;Client find the data from the nearest DataNode</p>
+<h3 id="how-to-handle-node-failure">How to handle node Failure:</h3>
+<p>DataNode: DataNodes will send signal to NameNode via
+<strong>heartbeat mechanism</strong>.</p>
+<p>NameNode: StandbyNode serves as backup</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/Difference-between-dataset-datalake-and-datawarehouse/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/04/Difference-between-dataset-datalake-and-datawarehouse/" class="post-title-link" itemprop="url">Difference between dataset datalake and datawarehouse</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-10-04 15:40:00 / Modified: 15:40:27" itemprop="dateCreated datePublished" datetime="2022-10-04T15:40:00+08:00">2022-10-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Difference between <strong>Database</strong>,
+<strong>Datalake</strong> and <strong>Datawarehouse</strong>.</p>
+<p>Database support an application. Any interactive application needs
+database to store streaming data. Thus database is good at real-time and
+streaming data ingest.</p>
+<p>Datalake stores raw, untouched data from multiple applications. Data
+lake can support structured, semi-structured and unstructured data. Data
+lake is not designed for handling real-time data ingest. The frequency
+of data lake update depends on the frequency of data ETL (Extract,
+Transform, Load). Data lake provides data for data mining and machine
+learning.</p>
+<p>Datawarehouse is designed for business intelligence. It stores
+predefined, processed data and only supports structured data and
+semi-structured data. Datawarehouse provides data for business report
+and business dashboard.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/09/07/SQLSummary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -226,10 +670,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-09-07 21:43:01 / Modified: 21:43:13" itemprop="dateCreated datePublished" datetime="2022-09-07T21:43:01+08:00">2022-09-07</time>
+              <time title="Created: 2022-09-07 21:43:01" itemprop="dateCreated datePublished" datetime="2022-09-07T21:43:01+08:00">2022-09-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-10-04 15:45:56" itemprop="dateModified" datetime="2022-10-04T15:45:56+08:00">2022-10-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -264,46 +714,119 @@ number of rows)</p></li>
 <li><p>like: select string with certain pattern (work with <a target="_blank" rel="noopener" href="https://www.runoob.com/sql/sql-wildcards.html">wildcard</a>)</p></li>
 <li><p>in: select from several values</p>
 <ol type="1">
-<li>``` where column in (value1, value2,...) <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. between: select value\/string\/data between two values</span><br><span class="line"></span><br><span class="line">   1. ```</span><br><span class="line">      where column between value1 and value2</span><br></pre></td></tr></table></figure></li>
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where column in (value1, value2,...)</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>between: select value/string/data between two values</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where column between value1 and value2</span><br></pre></td></tr></table></figure></li>
 </ol></li>
 </ol></li>
 <li><p>alias: set alias (used in select, where)</p></li>
 <li><p>order by: show result in certain order</p></li>
 <li><p>insert into: insert a row with certain columns</p>
 <ol type="1">
-<li><p>``` insert into table_name (column1, column2, column3,...) values
-(value1, value2, value3,...) <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">      You do not need to name the columns if the row inserted contains them all.</span><br><span class="line"></span><br><span class="line">8. update: update certain rows</span><br><span class="line"></span><br><span class="line">   1. ```</span><br><span class="line">      update table_name</span><br><span class="line">      set column1=value1, column2=value2,...</span><br><span class="line">      where &lt;conditoins&gt;</span><br></pre></td></tr></table></figure></p>
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert into table_name (column1, column2, column3,...)</span><br><span class="line">values (value1, value2, value3,...)</span><br></pre></td></tr></table></figure>
+<p>You do not need to name the columns if the row inserted contains them
+all.</p></li>
+</ol></li>
+<li><p>update: update certain rows</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update table_name</span><br><span class="line">set column1=value1, column2=value2,...</span><br><span class="line">where &lt;conditoins&gt;</span><br></pre></td></tr></table></figure>
 <p>You have to set conditions when using <code>update</code>.</p></li>
 </ol></li>
 <li><p>delete: delete certains rows</p>
 <ol type="1">
-<li>``` delete from table_name where <conditions>; <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">      You have to set conditions when using `delete`.</span><br><span class="line"></span><br><span class="line">10. join: join two several tables</span><br><span class="line"></span><br><span class="line">    1.  ```</span><br><span class="line">        select &lt;columns&gt;</span><br><span class="line">        from table1_name </span><br><span class="line">        join table2_name</span><br><span class="line">        on table1_name.key=table2.name.key;</span><br></pre></td></tr></table></figure></conditions></li>
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete from table_name</span><br><span class="line">where &lt;conditions&gt;;</span><br></pre></td></tr></table></figure>
+<p>You have to set conditions when using <code>delete</code>.</p></li>
+</ol></li>
+<li><p>join: join two several tables</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select &lt;columns&gt;</span><br><span class="line">from table1_name </span><br><span class="line">join table2_name</span><br><span class="line">on table1_name.key=table2.name.key;</span><br></pre></td></tr></table></figure></li>
 </ol></li>
 <li><p>union: union several table (with same number of columns, same
 type in each column and same order of columns)</p>
 <ol type="1">
-<li>``` select <columns> from table1_name union <all> select <columns>
-from table2_name; <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">        Use `all` to allow redundant data in the result of `union`.</span><br><span class="line"></span><br><span class="line">12. insert into select: copy data from a table and insert to another</span><br><span class="line"></span><br><span class="line">    1.  ```</span><br><span class="line">        insert into table2_name &lt;columns&gt;</span><br><span class="line">        select &lt;columns&gt;</span><br><span class="line">        from table1_name</span><br></pre></td></tr></table></figure></columns></all></columns></li>
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select &lt;columns&gt; from table1_name</span><br><span class="line">union &lt;all&gt;</span><br><span class="line">select &lt;columns&gt; from table2_name;</span><br></pre></td></tr></table></figure>
+<p>Use <code>all</code> to allow redundant data in the result of
+<code>union</code>.</p></li>
+</ol></li>
+<li><p>insert into select: copy data from a table and insert to
+another</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert into table2_name &lt;columns&gt;</span><br><span class="line">select &lt;columns&gt;</span><br><span class="line">from table1_name</span><br></pre></td></tr></table></figure></li>
 </ol></li>
 <li><p>create table: create a new table</p>
 <ol type="1">
-<li><p>``` create table table_name ( column1 data_type(size)
-<constraint_name>, column2 data_type(size) <constraint_name>, ... )
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. constraints: add constraint to give more rules in table</span><br><span class="line"></span><br><span class="line">   1. | not null               | unique                              | primary key                         | foreign key     | check                                   | default           |</span><br><span class="line">      | ---------------------- | ----------------------------------- | ----------------------------------- | --------------- | --------------------------------------- | ----------------- |</span><br><span class="line">      | no null in this column | each value in this column is nuique | set primary key (not null &amp; unique) | set foreign key | each value compromise certain condition | set default value |</span><br><span class="line"></span><br><span class="line">   2.  primary key: every table should have one and only one primary key.</span><br><span class="line"></span><br><span class="line">        1.  ```</span><br><span class="line">            create table table_name</span><br><span class="line">            (</span><br><span class="line">                column1 data_type(size),</span><br><span class="line">                column2 data_type(size),</span><br><span class="line">                ...</span><br><span class="line">                primary key (column1)</span><br><span class="line">            )</span><br></pre></td></tr></table></figure></constraint_name></constraint_name></p></li>
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size) &lt;constraint_name&gt;,</span><br><span class="line">    column2 data_type(size) &lt;constraint_name&gt;,</span><br><span class="line">    ...</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+<li><p>constraints: add constraint to give more rules in table</p>
+<ol type="1">
+<li><p>Table</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 9%">
+<col style="width: 23%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>not null</th>
+<th>unique</th>
+<th>primary key</th>
+<th>foreign key</th>
+<th>check</th>
+<th>default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>no null in this column</td>
+<td>each value in this column is nuique</td>
+<td>set primary key (not null &amp; unique)</td>
+<td>set foreign key</td>
+<td>each value compromise certain condition</td>
+<td>set default value</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>primary key: every table should have one and only one primary
+key.</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size),</span><br><span class="line">    column2 data_type(size),</span><br><span class="line">    ...</span><br><span class="line">    primary key (column1)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+</ol></li>
 <li><p>foreign key: foreign key is the primary key of another
 table</p></li>
 <li><p>check: check certain condition</p>
 <ol type="1">
-<li>``` create table table_name ( column1 data_type(size), column2
-data_type(size), ... check <condition> ) <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br></pre></td></tr></table></figure> create table
-table_name ( column1 data_type(size), column2 data_type(size), ...
-constraint constraint_name check <conditions> ) <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">14. index: create index</span><br><span class="line"></span><br><span class="line">    1.  ```</span><br><span class="line">        create &lt;unique&gt; index index_name</span><br><span class="line">        on table_name (column1, column2,...)</span><br></pre></td></tr></table></figure></conditions></condition></li>
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size),</span><br><span class="line">    column2 data_type(size),</span><br><span class="line">    ...</span><br><span class="line">    check &lt;condition&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size),</span><br><span class="line">    column2 data_type(size),</span><br><span class="line">    ...</span><br><span class="line">    constraint constraint_name check &lt;conditions&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
 </ol></li>
+</ol></li>
+</ol></li>
+<li><p>index: create index</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create &lt;unique&gt; index index_name</span><br><span class="line">on table_name (column1, column2,...)</span><br></pre></td></tr></table></figure></li>
 </ol></li>
 <li><p>group by: group the results; it should work with aggregate
 function.</p>
 <ol type="1">
-<li><code>select column1, aggregate_function(column_name)     from table_name     group by column1</code></li>
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select column1, aggregate_function(column_name)</span><br><span class="line">from table_name</span><br><span class="line">group by column1</span><br></pre></td></tr></table></figure></li>
 </ol></li>
 <li><p>having: aggregate function can not work with <code>where</code>
 and that is why we need <code>having</code>.</p>
@@ -680,436 +1203,6 @@ Image Segmentation</h3>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/26/SocialLSTM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/26/SocialLSTM/" class="post-title-link" itemprop="url">SocialLSTM</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-07-26 16:19:01 / Modified: 17:26:46" itemprop="dateCreated datePublished" datetime="2022-07-26T16:19:01+08:00">2022-07-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Computer-Vision/" itemprop="url" rel="index"><span itemprop="name">Computer Vision</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="rnn">RNN</h2>
-<p>Recurrent Neural Network，循环神经网络。</p>
-<p>RNN
-是包含循环的网络，允许信息的持久化，可以充分利用先验的信息知识。</p>
-<p align="center">
-<img src="/2022/07/26/SocialLSTM/1.jpg" alt="3" style="zoom:15%;">
-</p>
-<p>本质上RNN就是在<span class="math inline">\(t\)</span>时刻，input=<span class="math inline">\(X _t + h _{t-1}\)</span>。</p>
-<p>LSTM就是一种特殊的RNN。</p>
-<p>对于RNN来说，在语言预测词汇中，对此要预测的词来说，相近的词贡献会很大，而时间间隔越远的词，贡献越少。但是往往存在Long-Term
-Dependency问题，一些重要信息可能会贯穿全文，如果很早出现但是被忘记，在后续的预测中将会很不利。理论上，RNN当然可以处理这种长期记忆问题，但是实践中却很难做到。为此LSTM出现了。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/26/SocialLSTM/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/26/Chmod-in-Ubuntu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/26/Chmod-in-Ubuntu/" class="post-title-link" itemprop="url">Chmod in Ubuntu</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-07-26 15:08:45 / Modified: 15:19:32" itemprop="dateCreated datePublished" datetime="2022-07-26T15:08:45+08:00">2022-07-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="what-is-chmod">What is chmod</h1>
-<p>chmod: Change the mode of each FILE to MODE.</p>
-<h1 id="lets-know-something-about-the-linux-file-permission">Let's know
-something about the linux file permission</h1>
-<p><code>ls -l</code> the first column will show the permissions for
-files.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ls -l</span></span><br><span class="line">total 40</span><br><span class="line">drwxr-xr-x  3 liwuchen  staff    96 Jul 15 22:05 PaperSharing</span><br><span class="line">-rwxr-xr-x  1 liwuchen  staff   225 Jul 15 22:05 README.md</span><br><span class="line">-rw-r--r--  1 liwuchen  staff   895 Jul 26 10:37 TODO.md</span><br><span class="line">-rw-r--r--@ 1 liwuchen  staff  1779 Jul 26 15:08 chmod.md</span><br><span class="line">-rw-r--r--  1 liwuchen  staff   474 Jul 26 10:37 entropy.md</span><br><span class="line">-rw-r--r--  1 liwuchen  staff   102 Jul 26 10:37 randomforest.md</span><br></pre></td></tr></table></figure>
-<p>On each line, the first character identifies the type of entry that
-is being listed.If it is a dash(-), it is a file. If is the letter
-<code>d</code>, it is a directory.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/26/Chmod-in-Ubuntu/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/26/Pytorch-Environment-on-Apple-Silicon/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/26/Pytorch-Environment-on-Apple-Silicon/" class="post-title-link" itemprop="url">Pytorch Environment on Apple Silicon</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-07-26 15:03:37" itemprop="dateCreated datePublished" datetime="2022-07-26T15:03:37+08:00">2022-07-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-27 18:37:30" itemprop="dateModified" datetime="2022-07-27T18:37:30+08:00">2022-07-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="anaconda">Anaconda</h1>
-<p><a target="_blank" rel="noopener" href="https://www.anaconda.com">CLICK HERE</a> to install
-anaconda.</p>
-<p>Update anaconda to the latest version via
-<code>conda update anaconda</code>.</p>
-<p><code>conda -V</code> to show your anaconda version. My version is
-<code>conda 4.13.0</code>.</p>
-<h1 id="pytorch">Pytorch</h1>
-<ol type="1">
-<li><p>create new environment
-<code>conda create -n &lt;environment name&gt; python=3.9</code></p></li>
-<li><p>change environment
-<code>conda activate &lt;environment name&gt;</code></p></li>
-<li><p>install pytorch <code>conda install -c pytorch pytorch</code></p>
-<p>PyTorch 1.12 supports GPU acceleration on Apple Silicon now.</p></li></ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/26/Pytorch-Environment-on-Apple-Silicon/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/26/Netscope-for-Caffe/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/26/Netscope-for-Caffe/" class="post-title-link" itemprop="url">Netscope for Caffe</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-07-26 10:37:48 / Modified: 15:30:39" itemprop="dateCreated datePublished" datetime="2022-07-26T10:37:48+08:00">2022-07-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>Netscope</strong> is a web-based tool for visualizing neural
-network architecture (technically any DAG, directed acyclic graph).</p>
-<p>It currently only supports Caffe's prototxt format.</p>
-<p>It is very handy to use, just drag the prototxt to the website and
-<code>shift+enter</code> to visualize the model.</p>
-<p><a target="_blank" rel="noopener" href="http://ethereon.github.io/netscope/quickstart.html">Click
-Here</a></p>
-<p align="center">
-<img src="/2022/07/26/Netscope-for-Caffe/netscope.jpg" alt="netscope" style="zoom:67%;">
-</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/23/Beautify-you-terminal-oh-my-zsh/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/23/Beautify-you-terminal-oh-my-zsh/" class="post-title-link" itemprop="url">Beautify you terminal (oh-my-zsh)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-07-23 13:35:27 / Modified: 14:20:59" itemprop="dateCreated datePublished" datetime="2022-07-23T13:35:27+08:00">2022-07-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="environment">Environment</h3>
-<p>MacBook Air (M1, 2020)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> zsh --version</span></span><br><span class="line">zsh 5.8 (x86_64-apple-darwin21.0)</span><br></pre></td></tr></table></figure>
-<h3 id="install-oh-my-zsh">Install oh-my-zsh</h3>
-<ol type="1">
-<li><p>install via <code>curl</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
-<p>In China, try <code>gitee</code>.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>disable auto-update; uncomment the line</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zstyle &#x27;:omz:update&#x27; mode disabled  # disable automatic updates</span><br></pre></td></tr></table></figure></li>
-<li><p>change theme (find more official themes <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">here</a>)</p>
-<p><code>ZSH_THEME="apple"</code></p></li>
-</ol>
-<h3 id="plugins-for-oh-my-zsh">Plugins for oh-my-zsh</h3>
-<ol type="1">
-<li><p>zsh-suggestion</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew install zsh-autosuggestions</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&quot;source /opt/homebrew/Cellar/zsh-autosuggestions/0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh&quot;</span> &gt;&gt;~/.zshrc</span></span><br></pre></td></tr></table></figure></li>
-<li><p>zsh-syntax-highlighting</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew install zsh-syntax-highlighting</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&quot;source /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&quot;</span> &gt;&gt;~/.zshrc</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>Remember <code>source ~/.zshrc</code> to activate changes.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1181,14 +1274,14 @@ Here</a></p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
