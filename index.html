@@ -203,6 +203,66 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/23/why42/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/23/why42/" class="post-title-link" itemprop="url">why42</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-10-23 12:09:38 / Modified: 12:10:55" itemprop="dateCreated datePublished" datetime="2022-10-23T12:09:38+08:00">2022-10-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Please set random seed to 42.</p>
+<p><img src="/2022/10/23/why42/why42.png" alt="why42" style="zoom:75%;"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/WSL2-Configuration/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1116,93 +1176,6 @@ only need to load a combined file instead of many small spill file.</p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/26/Dive-into-FasterRCNN/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/26/Dive-into-FasterRCNN/" class="post-title-link" itemprop="url">Dive into FasterRCNN</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-07-26 16:47:36 / Modified: 16:59:00" itemprop="dateCreated datePublished" datetime="2022-07-26T16:47:36+08:00">2022-07-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Computer-Vision/" itemprop="url" rel="index"><span itemprop="name">Computer Vision</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="发展顺序">发展顺序</h2>
-<p>本文仅关注从R-CNN、SPP-Net（2014）至Fast R-CNN、Faster
-R-CNN（2015）的图像分割技术。</p>
-<h2 id="r-cnn">R-CNN</h2>
-<p>Region-CNN</p>
-<h3 id="efficient-graph-based-image-segmentation">Efficient Graph-Based
-Image Segmentation</h3>
-<p>主要目的也就是将图像（image）分割成若干个特定的、具有独特性质的区域（region），然后从中提取出感兴趣的目标（object）。</p>
-<p>为了找到有意义的图像区域，我们很容易想到根据灰度gradient变化，但是会产生下图问题：</p>
-<p align="center">
-<img src="/2022/07/26/Dive-into-FasterRCNN/image1.jpg" width="40%" height="50%">
-</p>
-<p>左侧图像灰度变化均匀，右侧图像仅有部分区域有灰度变化。上图的例子告诉我们不能使用<strong>灰度的变化</strong>作为分割依据，也不能使用<strong>单一的灰度阈值</strong>来作为分割的评判标准。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/26/Dive-into-FasterRCNN/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1274,7 +1247,7 @@ Image Segmentation</h3>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">120</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

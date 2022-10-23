@@ -203,6 +203,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/Pytorch-Tips/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/14/Pytorch-Tips/" class="post-title-link" itemprop="url">Pytorch Tips</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-07-14 21:53:14" itemprop="dateCreated datePublished" datetime="2022-07-14T21:53:14+08:00">2022-07-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-23 14:28:08" itemprop="dateModified" datetime="2022-07-23T14:28:08+08:00">2022-07-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Here is some tips for pytorch1.x.</p>
+<h4 id="tensor">tensor</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1</span>]).dtype</span><br><span class="line">torch.int64</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1</span>], dtype=torch.float32).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="number">1.</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.Tensor([<span class="number">1</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.tensor([<span class="literal">True</span>]).dtype</span><br><span class="line">torch.<span class="built_in">bool</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.Tensor([<span class="literal">True</span>]).dtype</span><br><span class="line">torch.float32</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>exit()</span><br></pre></td></tr></table></figure>
+<p>note: torch.tensor will auto guess the type; torch.Tensor is same
+with dtype=float32</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/14/Pytorch-Tips/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/14/Linux-Ubuntu-Commands/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -930,72 +1015,6 @@ Matrix Manifold</a>.</p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/04/14/Leetcode-updating/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/14/Leetcode-updating/" class="post-title-link" itemprop="url">Leetcode (updating)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-14 12:12:03" itemprop="dateCreated datePublished" datetime="2022-04-14T12:12:03+08:00">2022-04-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-26 11:05:54" itemprop="dateModified" datetime="2022-07-26T11:05:54+08:00">2022-07-26</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Check this <a target="_blank" rel="noopener" href="https://github.com/SightVanish/MyLeetcode">repo</a>.</p>
-<p><img src="/2022/04/14/Leetcode-updating/1.jpeg" alt="1" style="zoom:50%;"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1067,7 +1086,7 @@ Matrix Manifold</a>.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">120</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
