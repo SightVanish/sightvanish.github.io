@@ -28,7 +28,7 @@
 <meta property="og:description" content="This is a template of argparse. 1234567import argparseparser &#x3D; argparse.ArgumentParser(description&#x3D;&quot;description of this script&quot;)parser.add_argument(&amp;#x27;--parameter&amp;#x27;,&amp;#x27;-p&amp;#x27;,typ">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-03T07:19:08.000Z">
-<meta property="article:modified_time" content="2022-04-03T07:28:10.000Z">
+<meta property="article:modified_time" content="2022-12-21T02:49:36.210Z">
 <meta property="article:author" content="Li Wuchen">
 <meta name="twitter:card" content="summary">
 
@@ -230,10 +230,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-04-03 15:19:08 / Modified: 15:28:10" itemprop="dateCreated datePublished" datetime="2022-04-03T15:19:08+08:00">2022-04-03</time>
+              <time title="Created: 2022-04-03 15:19:08" itemprop="dateCreated datePublished" datetime="2022-04-03T15:19:08+08:00">2022-04-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-21 10:49:36" itemprop="dateModified" datetime="2022-12-21T10:49:36+08:00">2022-12-21</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -257,6 +263,9 @@
       
         <p>This is a template of <code>argparse</code>.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&quot;description of this script&quot;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--parameter&#x27;</span>,<span class="string">&#x27;-p&#x27;</span>,<span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="string">&#x27;1&#x27;</span>, <span class="built_in">help</span>=<span class="string">&#x27;epoch&#x27;</span>)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">parameter = args.parameter</span><br><span class="line"><span class="built_in">print</span>(parameter)</span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&quot;description of this script&quot;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--querID&#x27;</span>,<span class="string">&#x27;-id&#x27;</span>,<span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&#x27;Query ID&#x27;</span>)</span><br><span class="line"></span><br><span class="line">args = parser.parse_args().__dict__</span><br><span class="line"><span class="built_in">print</span>(args)</span><br></pre></td></tr></table></figure>
+<p><code>python script.py -h</code> to show the help of parameters.</p>
 
     </div>
 
@@ -367,14 +376,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">122</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
