@@ -203,6 +203,119 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/" class="post-title-link" itemprop="url">Gradient Descent, Newton Method and Quasi-Newton Method</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-15 17:45:52" itemprop="dateCreated datePublished" datetime="2021-10-15T17:45:52+08:00">2021-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-26 15:47:37" itemprop="dateModified" datetime="2022-07-26T15:47:37+08:00">2022-07-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="gradient-descent">Gradient Descent</h1>
+<h2 id="gradient">Gradient</h2>
+<h3 id="derivative">Derivative</h3>
+<p>针对一元函数 <span class="math inline">\(y=f(x)\)</span>，导数 <span class="math inline">\(f&#39;(x_0)\)</span> 表示了该函数在<span class="math inline">\(x_0\)</span>处的函数斜率/增加速率。</p>
+<h3 id="partial-derivative--偏导数部分的导数">Partial
+Derivative--偏导数，部分的导数</h3>
+<p>针对多元函数（此处考虑二元函数<span class="math inline">\(z=f(x,y)\)</span>），导数 <span class="math inline">\(f&#39;(x_0, y_0)\)</span>
+就有些模糊不清了，为此我们先简化到一元的情况：固定 <span class="math inline">\(y=y_0\)</span>，<span class="math inline">\(z=f(x,y)\)</span>，二元函数便降纬为<span class="math inline">\(z=f(x, y_0)\)</span> ，此时我们可以定义在 <span class="math inline">\(x\)</span> 方向上的偏导数 <span class="math inline">\(f&#39;_x(x_0, y_0)\)</span>，其表示该函数在<span class="math inline">\((x_0, y_0)\)</span>点处沿 <span class="math inline">\(x\)</span>
+方向函数斜率/增加速率。类似的我们可以得到在 <span class="math inline">\(y\)</span> 方向的偏导数。</p>
+<h3 id="directional-derivative">Directional Derivative</h3>
+<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在
+<span class="math inline">\(x=x_0\)</span> 或 <span class="math inline">\(y=y_0\)</span> 方向上的函数速率变化了。</p>
+<p>现在基于这两个偏导数我们已经可以求出 <span class="math inline">\(x-y\)</span> 平面任何方向的导数了：假设求 <span class="math inline">\(z\)</span> 在 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span>
+方向的导数（其中<span class="math inline">\(\theta\)</span>表示该向量方向与<span class="math inline">\(x\)</span>轴正方向的夹角，<span class="math inline">\(\vec{i}\)</span>表示<span class="math inline">\(x\)</span>轴正方向，<span class="math inline">\(\vec{j}\)</span>表示<span class="math inline">\(y\)</span>轴正方向） <span class="math display">\[
+D_uf(x,y)=\lim_{x \to \infty}\frac{f(x_0+tcos\theta,y_0+tsin\theta)}{t}
+\]</span> 本质上方向导数是偏导数的一种推广，通过调整方向导数中 <span class="math inline">\(\theta\)</span> 的值也能够简化为偏导数形式。</p>
+<p>但是如果我们观察 <span class="math inline">\(u\)</span> 本身，在
+<span class="math inline">\(u\)</span> 方向求导，其实相当于在 <span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span>
+方向分别求偏导之后的线性组合： <span class="math display">\[
+D_uf(x,y)=cos\theta f&#39;_x(x,y)+sin\theta f&#39;_y(x,y)
+\]</span> ### Gradient</p>
+<p>由偏导数，我们已经可以得到 <span class="math inline">\(z\)</span> 在
+<span class="math inline">\((x_0, y_0)\)</span> 点上在方向 <span class="math inline">\(u=cos\theta \ \vec{i}+sin\theta \ \vec{j}\)</span>
+方向上的函数变化速率了。</p>
+<p>那么梯度是什么呢？梯度就是 <span class="math inline">\(z\)</span> 在
+<span class="math inline">\((x_0, y_0)\)</span>
+点上函数变化速度最快的方向，也就是方向向量最大的方向。</p>
+<p>什么时候方向向量能取到最大呢？</p>
+<p><span class="math inline">\(D_uf(x,y)=\begin{bmatrix}f&#39;_x(x,y)&amp;f&#39;_y(x,y)\end{bmatrix}\begin{bmatrix}cos\theta
+\\ sin\theta\end{bmatrix}=\pmb A*\pmb I\)</span>，当 <span class="math inline">\((cos\theta, sin\theta) // (f&#39;_x(x,y),
+f&#39;_y(x,y))\)</span> 时能够取到最大值，此时在 <span class="math inline">\((x_0,y_0)\)</span> 的梯度 <span class="math inline">\(\pmb I=\begin{bmatrix}\frac{\partial f}{\partial
+x_0} \\ \frac{\partial f}{\partial y_0}\end{bmatrix}\)</span></p>
+<p>梯度本质是<strong>矢量</strong>，在其方向上该点的方向向量最大。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/10/15/Gradient-Descent-Newton-Method-and-Quasi-Newton-Method/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/15/mAP-in-object-detection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -979,107 +1092,6 @@ groundwater is meteoric(<strong>大气的</strong>；流星的) water.</p></li>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/" class="post-title-link" itemprop="url">Benchmark of Neural Network--Precision,Recall,F1-Measure</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-29 14:58:29" itemprop="dateCreated datePublished" datetime="2021-09-29T14:58:29+08:00">2021-09-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-25 12:13:13" itemprop="dateModified" datetime="2021-10-25T12:13:13+08:00">2021-10-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="precision">Precision</h3>
-<p><span class="math inline">\(Precision=\frac{actually \ true
-\&amp;\&amp; model \ thinks \ it \ is \ true}{model \ thinks \ it \ is \
-true}\)</span></p>
-<p>The percentage of true labels decided by the model are actually
-true.</p>
-<h3 id="recall">Recall</h3>
-<p><span class="math inline">\(Recall=\frac{model \ thinks \ it \ is \
-true \&amp;\&amp;actually \ true}{actually \ true}\)</span></p>
-<p>The percentage of true items are decided true by the model.</p>
-<p>If we want higher Precision, we should not take any risk--only take
-those with highest score.</p>
-<p>But if we want higher Recall, we should take all possible results.
-That is, we cannot get Precision and Recall improved at the same
-time.</p>
-<p>So we need a balance benchmark.</p>
-<h3 id="f1-measuref1-score">F1-Measure/F1-Score</h3>
-<p><span class="math display">\[
-F=\frac{(\alpha ^2+1)PR}{\alpha ^2P+R}
-\]</span></p>
-<p>We get F1-Measure when <span class="math inline">\(\alpha=1\)</span>.</p>
-<p>More on <a target="_blank" rel="noopener" href="http://groups.di.unipi.it/~bozzo/The%20Harmonic%20Mean.htm">Harmonic
-Mean</a>--it prevents models that are only good at either of P or R from
-doing good in F.</p>
-<p>x=50, y=0~100, here is the score (<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/47980482">ref</a>):</p>
-<p><img src="/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/1.png"></p>
-<p>Harmonic mean tries to get a result that neither P nor R is not so
-bad even if both of them are not really good.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1151,14 +1163,14 @@ bad even if both of them are not really good.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -1200,7 +1212,7 @@ bad even if both of them are not really good.</p>
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
