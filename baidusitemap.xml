@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://sightvanish.github.io/maintenance/index.html</loc>
+    <lastmod>2023-05-08</lastmod>
+  </url>
+  <url>
     <loc>https://sightvanish.github.io/2022/03/16/%E5%BF%83%E8%84%8F%E9%AA%A4%E5%81%9C/</loc>
     <lastmod>2023-05-08</lastmod>
   </url>
@@ -291,10 +295,6 @@
   <url>
     <loc>https://sightvanish.github.io/2022/07/14/C-Coding-Style/</loc>
     <lastmod>2022-07-23</lastmod>
-  </url>
-  <url>
-    <loc>https://sightvanish.github.io/maintenance/index.html</loc>
-    <lastmod>2022-07-16</lastmod>
   </url>
   <url>
     <loc>https://sightvanish.github.io/2022/05/03/Top-K-problems/</loc>
