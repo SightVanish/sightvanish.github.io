@@ -1244,20 +1244,6 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/const/</loc>
-    <lastmod>2023-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/pointer/</loc>
-    <lastmod>2023-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sightvanish.github.io/tags/Python/</loc>
     <lastmod>2023-05-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -1279,6 +1265,34 @@
   </url>
   
   <url>
+    <loc>https://sightvanish.github.io/tags/const/</loc>
+    <lastmod>2023-05-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/pointer/</loc>
+    <lastmod>2023-05-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/Ubuntu/</loc>
+    <lastmod>2023-05-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/Srand/</loc>
+    <lastmod>2023-05-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://sightvanish.github.io/tags/Machine-Learning/</loc>
     <lastmod>2023-05-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -1294,20 +1308,6 @@
   
   <url>
     <loc>https://sightvanish.github.io/tags/Unsupervised-learning/</loc>
-    <lastmod>2023-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/Srand/</loc>
-    <lastmod>2023-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sightvanish.github.io/tags/Ubuntu/</loc>
     <lastmod>2023-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1349,13 +1349,6 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/SVM/</loc>
-    <lastmod>2023-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sightvanish.github.io/tags/PCA/</loc>
     <lastmod>2023-05-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -1363,7 +1356,7 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/tags/%E9%83%A8%E7%BD%B2/</loc>
+    <loc>https://sightvanish.github.io/tags/SVM/</loc>
     <lastmod>2023-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1371,6 +1364,13 @@
   
   <url>
     <loc>https://sightvanish.github.io/tags/Relu/</loc>
+    <lastmod>2023-05-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sightvanish.github.io/tags/%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2023-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1414,14 +1414,14 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Coding/</loc>
+    <loc>https://sightvanish.github.io/categories/Blender/</loc>
     <lastmod>2023-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Blender/</loc>
+    <loc>https://sightvanish.github.io/categories/Coding/</loc>
     <lastmod>2023-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1456,14 +1456,14 @@
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Chat/</loc>
+    <loc>https://sightvanish.github.io/categories/Language/</loc>
     <lastmod>2023-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sightvanish.github.io/categories/Language/</loc>
+    <loc>https://sightvanish.github.io/categories/Chat/</loc>
     <lastmod>2023-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
