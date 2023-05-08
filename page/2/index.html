@@ -203,6 +203,296 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/Difference-between-dataset-datalake-and-datawarehouse/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/04/Difference-between-dataset-datalake-and-datawarehouse/" class="post-title-link" itemprop="url">Difference between dataset datalake and datawarehouse</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-10-04 15:40:00 / Modified: 15:40:27" itemprop="dateCreated datePublished" datetime="2022-10-04T15:40:00+08:00">2022-10-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Difference between <strong>Database</strong>,
+<strong>Datalake</strong> and <strong>Datawarehouse</strong>.</p>
+<p>Database support an application. Any interactive application needs
+database to store streaming data. Thus database is good at real-time and
+streaming data ingest.</p>
+<p>Datalake stores raw, untouched data from multiple applications. Data
+lake can support structured, semi-structured and unstructured data. Data
+lake is not designed for handling real-time data ingest. The frequency
+of data lake update depends on the frequency of data ETL (Extract,
+Transform, Load). Data lake provides data for data mining and machine
+learning.</p>
+<p>Datawarehouse is designed for business intelligence. It stores
+predefined, processed data and only supports structured data and
+semi-structured data. Datawarehouse provides data for business report
+and business dashboard.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/09/07/SQLSummary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/07/SQLSummary/" class="post-title-link" itemprop="url">SQLSummary</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-09-07 21:43:01" itemprop="dateCreated datePublished" datetime="2022-09-07T21:43:01+08:00">2022-09-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-05-08 15:10:21" itemprop="dateModified" datetime="2023-05-08T15:10:21+08:00">2023-05-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>SQL</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/sql/sql-quickref.html">Fast
+Reference</a></p>
+<ol type="1">
+<li><p>select: select columns</p></li>
+<li><p>select distinct: remove redundant data in columns (reduce the
+number of rows)</p></li>
+<li><p>limit: limit the number of results to be displayed</p></li>
+<li><p>where: limit conditions</p>
+<ol type="1">
+<li><p>like: select string with certain pattern (work with <a target="_blank" rel="noopener" href="https://www.runoob.com/sql/sql-wildcards.html">wildcard</a>)</p></li>
+<li><p>in: select from several values</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where column in (value1, value2,...)</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>between: select value/string/data between two values</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where column between value1 and value2</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+</ol></li>
+<li><p>alias: set alias (used in select, where)</p></li>
+<li><p>order by: show result in certain order</p></li>
+<li><p>insert into: insert a row with certain columns</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert into table_name (column1, column2, column3,...)</span><br><span class="line">values (value1, value2, value3,...)</span><br></pre></td></tr></table></figure>
+<p>You do not need to name the columns if the row inserted contains them
+all.</p></li>
+</ol></li>
+<li><p>update: update certain rows</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update table_name</span><br><span class="line">set column1=value1, column2=value2,...</span><br><span class="line">where &lt;conditoins&gt;</span><br></pre></td></tr></table></figure>
+<p>You have to set conditions when using <code>update</code>.</p></li>
+</ol></li>
+<li><p>delete: delete certains rows</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete from table_name</span><br><span class="line">where &lt;conditions&gt;;</span><br></pre></td></tr></table></figure>
+<p>You have to set conditions when using <code>delete</code>.</p></li>
+</ol></li>
+<li><p>join: join two several tables</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select &lt;columns&gt;</span><br><span class="line">from table1_name </span><br><span class="line">join table2_name</span><br><span class="line">on table1_name.key=table2.name.key;</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>union: union several table (with same number of columns, same
+type in each column and same order of columns)</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select &lt;columns&gt; from table1_name</span><br><span class="line">union &lt;all&gt;</span><br><span class="line">select &lt;columns&gt; from table2_name;</span><br></pre></td></tr></table></figure>
+<p>Use <code>all</code> to allow redundant data in the result of
+<code>union</code>.</p></li>
+</ol></li>
+<li><p>insert into select: copy data from a table and insert to
+another</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert into table2_name &lt;columns&gt;</span><br><span class="line">select &lt;columns&gt;</span><br><span class="line">from table1_name</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>create table: create a new table</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size) &lt;constraint_name&gt;,</span><br><span class="line">    column2 data_type(size) &lt;constraint_name&gt;,</span><br><span class="line">    ...</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+<li><p>constraints: add constraint to give more rules in table</p>
+<ol type="1">
+<li><p>Table</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 9%">
+<col style="width: 23%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>not null</th>
+<th>unique</th>
+<th>primary key</th>
+<th>foreign key</th>
+<th>check</th>
+<th>default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>no null in this column</td>
+<td>each value in this column is nuique</td>
+<td>set primary key (not null &amp; unique)</td>
+<td>set foreign key</td>
+<td>each value compromise certain condition</td>
+<td>set default value</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>primary key: every table should have one and only one primary
+key.</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size),</span><br><span class="line">    column2 data_type(size),</span><br><span class="line">    ...</span><br><span class="line">    primary key (column1)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>foreign key: foreign key is the primary key of another
+table</p></li>
+<li><p>check: check certain condition</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size),</span><br><span class="line">    column2 data_type(size),</span><br><span class="line">    ...</span><br><span class="line">    check &lt;condition&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size),</span><br><span class="line">    column2 data_type(size),</span><br><span class="line">    ...</span><br><span class="line">    constraint constraint_name check &lt;conditions&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+</ol></li>
+</ol></li>
+<li><p>index: create index</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create &lt;unique&gt; index index_name</span><br><span class="line">on table_name (column1, column2,...)</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>group by: group the results; it should work with aggregate
+function.</p>
+<ol type="1">
+<li><p>eg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select column1, aggregate_function(column_name)</span><br><span class="line">from table_name</span><br><span class="line">group by column1</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>having: aggregate function can not work with <code>where</code>
+and that is why we need <code>having</code>.</p>
+<ol type="1">
+<li>the order of these commands is <code>where</code> -&gt;
+<code>group by</code> -&gt; <code>having</code>.</li>
+</ol></li>
+<li><p>exist: return true is the result exists</p></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/09/07/Difference-between-FactTable-and-DimensionalTable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -406,7 +696,7 @@ only need to load a combined file instead of many small spill file.</p>
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-01 16:06:40" itemprop="dateModified" datetime="2022-08-01T16:06:40+08:00">2022-08-01</time>
+                <time title="Modified: 2023-05-08 15:09:13" itemprop="dateModified" datetime="2023-05-08T15:09:13+08:00">2023-05-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -892,171 +1182,6 @@ Here</a></p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/23/Beautify-you-terminal-oh-my-zsh/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/23/Beautify-you-terminal-oh-my-zsh/" class="post-title-link" itemprop="url">Beautify you terminal (oh-my-zsh)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-07-23 13:35:27 / Modified: 14:20:59" itemprop="dateCreated datePublished" datetime="2022-07-23T13:35:27+08:00">2022-07-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="environment">Environment</h3>
-<p>MacBook Air (M1, 2020)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> zsh --version</span></span><br><span class="line">zsh 5.8 (x86_64-apple-darwin21.0)</span><br></pre></td></tr></table></figure>
-<h3 id="install-oh-my-zsh">Install oh-my-zsh</h3>
-<ol type="1">
-<li><p>install via <code>curl</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
-<p>In China, try <code>gitee</code>.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>disable auto-update; uncomment the line</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zstyle &#x27;:omz:update&#x27; mode disabled  # disable automatic updates</span><br></pre></td></tr></table></figure></li>
-<li><p>change theme (find more official themes <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">here</a>)</p>
-<p><code>ZSH_THEME="apple"</code></p></li>
-</ol>
-<h3 id="plugins-for-oh-my-zsh">Plugins for oh-my-zsh</h3>
-<ol type="1">
-<li><p>zsh-suggestion</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew install zsh-autosuggestions</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&quot;source /opt/homebrew/Cellar/zsh-autosuggestions/0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh&quot;</span> &gt;&gt;~/.zshrc</span></span><br></pre></td></tr></table></figure></li>
-<li><p>zsh-syntax-highlighting</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew install zsh-syntax-highlighting</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&quot;source /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&quot;</span> &gt;&gt;~/.zshrc</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>Remember <code>source ~/.zshrc</code> to activate changes.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/23/alias-in-linux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/23/alias-in-linux/" class="post-title-link" itemprop="url">alias in linux</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-07-23 13:31:09 / Modified: 13:32:23" itemprop="dateCreated datePublished" datetime="2022-07-23T13:31:09+08:00">2022-07-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol type="1">
-<li>display alias: <code>alias</code></li>
-<li>temporary alias:
-<code>alias &lt;name&gt;="&lt;commands&gt;"</code>This alias only work
-in current shell.</li>
-<li>It you want to keep alias permanently, put alias in
-<code>~/.bashrc</code>. note: remeber <code>source ~/.bashrc</code>
-after.</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1128,14 +1253,14 @@ after.</li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

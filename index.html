@@ -203,6 +203,182 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2023/05/08/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%95%B0%E4%BB%93%E5%88%86%E5%B1%82%E5%BB%BA%E6%A8%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/05/08/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%95%B0%E4%BB%93%E5%88%86%E5%B1%82%E5%BB%BA%E6%A8%A1/" class="post-title-link" itemprop="url">数据中台数仓分层建模</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-05-08 15:12:34 / Modified: 15:13:01" itemprop="dateCreated datePublished" datetime="2023-05-08T15:12:34+08:00">2023-05-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>数仓分层:</p>
+<p>ODS(Operational Data Store): 原始数据、和业务系统保持一致 (ODS layer
+stores real-time layer while Data Warehouse stores historical data.)</p>
+<p>DWD(Data Warehouse Detail):
+以业务需求为驱动，将原始数据清洗整合为事实表</p>
+<p>DWS(Data Warehouse Summary): 以分析的主题对象为建模驱动，构建宽表</p>
+<p>ADS(Application Data Service)/DM(Data Mart):
+最终根据需求建立Table/Dashboard</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2023/05/08/Brief-Introduction-to-MILP-Solvers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Li Wuchen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/05/08/Brief-Introduction-to-MILP-Solvers/" class="post-title-link" itemprop="url">Brief Introduction to MILP Solvers</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-05-08 15:04:25 / Modified: 15:11:36" itemprop="dateCreated datePublished" datetime="2023-05-08T15:04:25+08:00">2023-05-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>MILP -- Mixed Integer Linear Programming</p>
+<h1 id="highly-recommended-cvxpy">Highly recommended: <a target="_blank" rel="noopener" href="https://www.cvxpy.org/">CVXPY</a></h1>
+<p><code>CVXPY</code> is an <strong>interface</strong> which is
+compatible with multiple solvers like <code>CBC</code>,
+<code>CPLEX</code>, <code>GUROBI</code>, etc.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cvxpy <span class="keyword">as</span> cp</span><br><span class="line">n = <span class="number">10</span></span><br><span class="line">np.random.seed(<span class="number">3</span>)</span><br><span class="line">a = np.random.randint(<span class="number">1</span>, <span class="number">10</span>, size=n)</span><br><span class="line">b = np.random.randint(<span class="number">1</span>, <span class="number">10</span>, size=n)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Variables</span></span><br><span class="line">x = cp.Variable(shape=n, boolean=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># Objective</span></span><br><span class="line">objective = cp.Minimize(x @ a)</span><br><span class="line"><span class="comment"># Constraints</span></span><br><span class="line">constraints = []</span><br><span class="line">constraints.append(x @ b &gt;= <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Build &amp; Solve Problem</span></span><br><span class="line">problem = cp.Problem(objective, constraints)</span><br><span class="line">problem.solve(solver=cp.CPLEX, verbose=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print Result</span></span><br><span class="line"><span class="built_in">print</span>(problem.status)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;x: &quot;</span>, x.value)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Optimal value: &quot;</span>, problem.value)</span><br></pre></td></tr></table></figure>
+<h1 id="recommended-pulp">Recommended: <a target="_blank" rel="noopener" href="https://coin-or.github.io/pulp/">PULP</a></h1>
+<p><code>PULP</code> is also an <strong>interface</strong> which is
+compatible with multiple solvers like <code>CBC</code>,
+<code>CPLEX</code>, <code>GUROBI</code>, etc.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pulp <span class="keyword">import</span> LpProblem, LpMinimize, lpSum, LpVariable, LpBinary, LpStatus, value</span><br><span class="line"><span class="keyword">from</span> pulp.apis <span class="keyword">import</span> PULP_CBC_CMD</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">n = <span class="number">10</span></span><br><span class="line">np.random.seed(<span class="number">3</span>)</span><br><span class="line">a = np.random.randint(<span class="number">1</span>, <span class="number">10</span>, size=n)</span><br><span class="line">b = np.random.randint(<span class="number">1</span>, <span class="number">10</span>, size=n)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Variables</span></span><br><span class="line">x = np.array([LpVariable(<span class="string">&#x27;x_&#123;0&#125;&#x27;</span>.<span class="built_in">format</span>(i), cat=LpBinary) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)])</span><br><span class="line"><span class="comment"># Objective</span></span><br><span class="line">prob = LpProblem(<span class="string">&quot;PULPDemo&quot;</span>, LpMinimize)</span><br><span class="line">prob += lpSum(x @ a)</span><br><span class="line"><span class="comment"># Constraints</span></span><br><span class="line">prob += lpSum(x @ b) &gt;= <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Build &amp; Solve Problem</span></span><br><span class="line">prob.solve(solver=PULP_CBC_CMD(threads=<span class="number">4</span>, msg=<span class="number">0</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print Result</span></span><br><span class="line"><span class="built_in">print</span>(LpStatus[prob.status])</span><br><span class="line">v = [v.varValue <span class="keyword">for</span> v <span class="keyword">in</span> prob.variables()]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;x: &quot;</span>, v)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Optimal value: &quot;</span>, value(prob.objective))</span><br></pre></td></tr></table></figure>
+<h1 id="give-it-a-try-geatpy">Give It a Try: <a target="_blank" rel="noopener" href="http://geatpy.com/">GEATPY</a></h1>
+<p><code>GEATPY</code> is a genetic and evolutionary algorithm toolbox.
+If you are not an expert in convex optimization and linear programming,
+why not give it a try. Genetic algorithm is always a good solution to
+optimization problem.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> geatpy <span class="keyword">as</span> ea</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">n = <span class="number">10</span></span><br><span class="line">np.random.seed(<span class="number">3</span>)</span><br><span class="line">a = np.random.randint(<span class="number">1</span>, <span class="number">10</span>, size=n)</span><br><span class="line">b = np.random.randint(<span class="number">1</span>, <span class="number">10</span>, size=n)</span><br><span class="line"></span><br><span class="line">r = <span class="number">1</span></span><br><span class="line"><span class="meta">@ea.Problem.single</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">evalVars</span>(<span class="params">Vars</span>):</span></span><br><span class="line">    <span class="comment"># Objective</span></span><br><span class="line">    f = Vars @ a</span><br><span class="line">    <span class="comment"># Constraints</span></span><br><span class="line">    CV = np.array([<span class="number">10</span> - Vars @ b])</span><br><span class="line">    <span class="keyword">return</span> f, CV</span><br><span class="line"></span><br><span class="line"><span class="comment"># Build Problem</span></span><br><span class="line">problem = ea.Problem(name=<span class="string">&#x27;GEATPYDemo&#x27;</span>,</span><br><span class="line">                        M=<span class="number">1</span>, <span class="comment"># objective dimension</span></span><br><span class="line">                        maxormins=[<span class="number">1</span>], <span class="comment"># minimize</span></span><br><span class="line">                        Dim=n, <span class="comment"># variable dimension</span></span><br><span class="line">                        varTypes=[<span class="number">1</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n)], <span class="comment"># variables are integers</span></span><br><span class="line">                        lb=[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n)], <span class="comment"># lower bound of variables</span></span><br><span class="line">                        ub=[<span class="number">1</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n)], <span class="comment"># upper bound of variables</span></span><br><span class="line">                        evalVars=evalVars)</span><br><span class="line">algorithm = ea.soea_SEGA_templet(problem,</span><br><span class="line">                                    ea.Population(Encoding=<span class="string">&#x27;RI&#x27;</span>, NIND=<span class="number">200</span>),</span><br><span class="line">                                    MAXGEN=<span class="number">500</span>, <span class="comment"># max generation </span></span><br><span class="line">                                    logTras=<span class="number">1</span>,  <span class="comment"># record log each logTras generation</span></span><br><span class="line">                                    trappedValue=<span class="number">1e-6</span>,</span><br><span class="line">                                    maxTrappedCount=<span class="number">100</span>)</span><br><span class="line"><span class="comment"># Solve Problem</span></span><br><span class="line">res = ea.optimize(algorithm, seed=<span class="number">1</span>, verbose=<span class="number">0</span>, drawing=<span class="number">0</span>, outputMsg=<span class="number">1</span>, drawLog=<span class="number">0</span>, saveFlag=<span class="number">0</span>, dirName=<span class="string">&#x27;result&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="for-milfp-problems">For MILFP Problems</h1>
+<p>Objective: <span class="math inline">\(maximize(\frac{x * a}{x *
+b})\)</span> where <span class="math inline">\(x\)</span> is variables
+and <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> are matrices. This ratio can be used to
+represent efficiency.</p>
+<p>For a Mixed Integer Linear Fractional Problem (MILFP), you may try to
+implement <strong><em>Charnes-Cooper tansformation</em></strong> which
+can convert a MILFP problem to a MILP problem otherwise you may try in
+<code>CVXPY</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">problem.solve(solver=cp.CPLEX, verbose=<span class="number">0</span>, qcp=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>By default <code>CVXPY</code> only handles <code>DQCP</code> problem,
+but it still has the ability to handle <code>QCP</code> problem like
+<code>MIFLP</code> problem. Warning: not all solvers support
+<code>QCP</code> problem.</p>
+<p>A good solver is a handy tool to solve LP problem. Still it takes
+experience and skill to do some linear transformation so that you can
+solve real world problem.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2023/01/30/Amend-Git-Message/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -226,17 +402,23 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2023-01-30 10:27:53 / Modified: 10:33:21" itemprop="dateCreated datePublished" datetime="2023-01-30T10:27:53+08:00">2023-01-30</time>
+              <time title="Created: 2023-01-30 10:27:53" itemprop="dateCreated datePublished" datetime="2023-01-30T10:27:53+08:00">2023-01-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-05-08 15:07:12" itemprop="dateModified" datetime="2023-05-08T15:07:12+08:00">2023-05-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+                  <a href="/categories/Coding/" itemprop="url" rel="index"><span itemprop="name">Coding</span></a>
                 </span>
             </span>
 
@@ -387,17 +569,23 @@ pushed.</li>
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-12-21 10:41:41 / Modified: 10:43:54" itemprop="dateCreated datePublished" datetime="2022-12-21T10:41:41+08:00">2022-12-21</time>
+              <time title="Created: 2022-12-21 10:41:41" itemprop="dateCreated datePublished" datetime="2022-12-21T10:41:41+08:00">2022-12-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-05-08 15:05:47" itemprop="dateModified" datetime="2023-05-08T15:05:47+08:00">2023-05-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Confiuration/" itemprop="url" rel="index"><span itemprop="name">Confiuration</span></a>
+                  <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
                 </span>
             </span>
 
@@ -602,17 +790,23 @@ plugin <code>Remote-WSL</code></li>
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-10-04 15:43:13 / Modified: 15:43:23" itemprop="dateCreated datePublished" datetime="2022-10-04T15:43:13+08:00">2022-10-04</time>
+              <time title="Created: 2022-10-04 15:43:13" itemprop="dateCreated datePublished" datetime="2022-10-04T15:43:13+08:00">2022-10-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-05-08 15:07:27" itemprop="dateModified" datetime="2023-05-08T15:07:27+08:00">2023-05-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
+                  <a href="/categories/Coding/" itemprop="url" rel="index"><span itemprop="name">Coding</span></a>
                 </span>
             </span>
 
@@ -850,296 +1044,6 @@ to find data-&gt;Client find the data from the nearest DataNode</p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/Difference-between-dataset-datalake-and-datawarehouse/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/04/Difference-between-dataset-datalake-and-datawarehouse/" class="post-title-link" itemprop="url">Difference between dataset datalake and datawarehouse</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-10-04 15:40:00 / Modified: 15:40:27" itemprop="dateCreated datePublished" datetime="2022-10-04T15:40:00+08:00">2022-10-04</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difference between <strong>Database</strong>,
-<strong>Datalake</strong> and <strong>Datawarehouse</strong>.</p>
-<p>Database support an application. Any interactive application needs
-database to store streaming data. Thus database is good at real-time and
-streaming data ingest.</p>
-<p>Datalake stores raw, untouched data from multiple applications. Data
-lake can support structured, semi-structured and unstructured data. Data
-lake is not designed for handling real-time data ingest. The frequency
-of data lake update depends on the frequency of data ETL (Extract,
-Transform, Load). Data lake provides data for data mining and machine
-learning.</p>
-<p>Datawarehouse is designed for business intelligence. It stores
-predefined, processed data and only supports structured data and
-semi-structured data. Datawarehouse provides data for business report
-and business dashboard.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/09/07/SQLSummary/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Li Wuchen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/09/07/SQLSummary/" class="post-title-link" itemprop="url">SQLSummary</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-09-07 21:43:01" itemprop="dateCreated datePublished" datetime="2022-09-07T21:43:01+08:00">2022-09-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-10-04 15:45:56" itemprop="dateModified" datetime="2022-10-04T15:45:56+08:00">2022-10-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>SQL</p>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/sql/sql-quickref.html">Fast
-Reference</a></p>
-<ol type="1">
-<li><p>select: select columns</p></li>
-<li><p>select distinct: remove redundant data in columns (reduce the
-number of rows)</p></li>
-<li><p>limit: limit the number of results to be displayed</p></li>
-<li><p>where: limit conditions</p>
-<ol type="1">
-<li><p>like: select string with certain pattern (work with <a target="_blank" rel="noopener" href="https://www.runoob.com/sql/sql-wildcards.html">wildcard</a>)</p></li>
-<li><p>in: select from several values</p>
-<ol type="1">
-<li><p>eg</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where column in (value1, value2,...)</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-<li><p>between: select value/string/data between two values</p>
-<ol type="1">
-<li><p>eg</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where column between value1 and value2</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-</ol></li>
-<li><p>alias: set alias (used in select, where)</p></li>
-<li><p>order by: show result in certain order</p></li>
-<li><p>insert into: insert a row with certain columns</p>
-<ol type="1">
-<li><p>eg</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert into table_name (column1, column2, column3,...)</span><br><span class="line">values (value1, value2, value3,...)</span><br></pre></td></tr></table></figure>
-<p>You do not need to name the columns if the row inserted contains them
-all.</p></li>
-</ol></li>
-<li><p>update: update certain rows</p>
-<ol type="1">
-<li><p>eg</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update table_name</span><br><span class="line">set column1=value1, column2=value2,...</span><br><span class="line">where &lt;conditoins&gt;</span><br></pre></td></tr></table></figure>
-<p>You have to set conditions when using <code>update</code>.</p></li>
-</ol></li>
-<li><p>delete: delete certains rows</p>
-<ol type="1">
-<li><p>eg</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete from table_name</span><br><span class="line">where &lt;conditions&gt;;</span><br></pre></td></tr></table></figure>
-<p>You have to set conditions when using <code>delete</code>.</p></li>
-</ol></li>
-<li><p>join: join two several tables</p>
-<ol type="1">
-<li><p>eg</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select &lt;columns&gt;</span><br><span class="line">from table1_name </span><br><span class="line">join table2_name</span><br><span class="line">on table1_name.key=table2.name.key;</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-<li><p>union: union several table (with same number of columns, same
-type in each column and same order of columns)</p>
-<ol type="1">
-<li><p>eg</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select &lt;columns&gt; from table1_name</span><br><span class="line">union &lt;all&gt;</span><br><span class="line">select &lt;columns&gt; from table2_name;</span><br></pre></td></tr></table></figure>
-<p>Use <code>all</code> to allow redundant data in the result of
-<code>union</code>.</p></li>
-</ol></li>
-<li><p>insert into select: copy data from a table and insert to
-another</p>
-<ol type="1">
-<li><p>eg</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert into table2_name &lt;columns&gt;</span><br><span class="line">select &lt;columns&gt;</span><br><span class="line">from table1_name</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-<li><p>create table: create a new table</p>
-<ol type="1">
-<li><p>eg</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size) &lt;constraint_name&gt;,</span><br><span class="line">    column2 data_type(size) &lt;constraint_name&gt;,</span><br><span class="line">    ...</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-<li><p>constraints: add constraint to give more rules in table</p>
-<ol type="1">
-<li><p>Table</p>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 13%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 9%">
-<col style="width: 23%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>not null</th>
-<th>unique</th>
-<th>primary key</th>
-<th>foreign key</th>
-<th>check</th>
-<th>default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>no null in this column</td>
-<td>each value in this column is nuique</td>
-<td>set primary key (not null &amp; unique)</td>
-<td>set foreign key</td>
-<td>each value compromise certain condition</td>
-<td>set default value</td>
-</tr>
-</tbody>
-</table></li>
-<li><p>primary key: every table should have one and only one primary
-key.</p>
-<ol type="1">
-<li><p>eg</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size),</span><br><span class="line">    column2 data_type(size),</span><br><span class="line">    ...</span><br><span class="line">    primary key (column1)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-<li><p>foreign key: foreign key is the primary key of another
-table</p></li>
-<li><p>check: check certain condition</p>
-<ol type="1">
-<li><p>eg</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size),</span><br><span class="line">    column2 data_type(size),</span><br><span class="line">    ...</span><br><span class="line">    check &lt;condition&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>or</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table table_name</span><br><span class="line">(</span><br><span class="line">    column1 data_type(size),</span><br><span class="line">    column2 data_type(size),</span><br><span class="line">    ...</span><br><span class="line">    constraint constraint_name check &lt;conditions&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-</ol></li>
-</ol></li>
-<li><p>index: create index</p>
-<ol type="1">
-<li><p>eg</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create &lt;unique&gt; index index_name</span><br><span class="line">on table_name (column1, column2,...)</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-<li><p>group by: group the results; it should work with aggregate
-function.</p>
-<ol type="1">
-<li><p>eg</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select column1, aggregate_function(column_name)</span><br><span class="line">from table_name</span><br><span class="line">group by column1</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-<li><p>having: aggregate function can not work with <code>where</code>
-and that is why we need <code>having</code>.</p>
-<ol type="1">
-<li>the order of these commands is <code>where</code> -&gt;
-<code>group by</code> -&gt; <code>having</code>.</li>
-</ol></li>
-<li><p>exist: return true is the result exists</p></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1211,14 +1115,14 @@ and that is why we need <code>having</code>.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

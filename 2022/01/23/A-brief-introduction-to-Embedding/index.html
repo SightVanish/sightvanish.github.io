@@ -28,7 +28,7 @@
 <meta property="og:description" content="Embedding a technique widely used in Recommender System. The first time I met it, it confuesd me for a long time. Now let me take 5 minutes to tell you what is Embedding. It will be just a brief intro">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-01-23T08:08:52.000Z">
-<meta property="article:modified_time" content="2022-01-27T23:57:11.000Z">
+<meta property="article:modified_time" content="2023-05-08T07:14:06.029Z">
 <meta property="article:author" content="Li Wuchen">
 <meta name="twitter:card" content="summary">
 
@@ -238,7 +238,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-28 07:57:11" itemprop="dateModified" datetime="2022-01-28T07:57:11+08:00">2022-01-28</time>
+                <time title="Modified: 2023-05-08 15:14:06" itemprop="dateModified" datetime="2023-05-08T15:14:06+08:00">2023-05-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -356,7 +356,8 @@ the relation between "Apple" and "Shoes".</p>
 <p>Thus, we introduce a single layer of Full-Connnect layer to learn
 such inner relation. Well, this <strong>Full-Connect layer</strong> is
 exactly <strong>embedding</strong>.</p>
-<p>What is the difference between embedding and FC layer?</p>
+<h3 id="what-is-the-difference-between-embedding-and-fc-layer">What is
+the difference between embedding and FC layer?</h3>
 <p>From the view of network, they are exactly same. But since the input
 of this FC layer is one-hot encoded, we do not need to really implement
 a FC layer which may be costly. Instead, we implement a look-up table.
@@ -375,6 +376,10 @@ how many words you have.</p>
 you can reduce the number of values to be encoded.</p>
 <p>The final step is to construct a trainable look-up table. The init
 value is random.</p>
+<p>对embedding的补充：数学上embedding是将一个扁宽的矩阵（行少列多）去乘以输入向量-&gt;数据降维、也可以理解为提取数据背后隐藏的要素。由于数据向量往往是稀疏的（在推荐系统中），特别是one-hot编码后的，所以实际上在计算矩阵乘法时可以只计算特定几个数值即可，因此框架实现了embedding（一层无偏置的全连接层）或者embedding
+lookup（通过直接查表的方式获取嵌入向量，只需寻址即可获得）。所谓word
+vector本质就是one-hot+embedding。one-hot编码方式割裂了word和word之间的相互联系，完全独立（由于one-hot编码出的vector都相互正交），同时随着词袋的扩大，one-hot编码也会越发庞大。word
+vector通过降维得到密集矩阵，同时让相互独立的向量之间有了相互的联系。</p>
 
     </div>
 
@@ -470,6 +475,8 @@ value is random.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-the-difference-between-embedding-and-fc-layer"><span class="nav-number">1.</span> <span class="nav-text">What is
+the difference between embedding and FC layer?</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -485,14 +492,14 @@ value is random.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
