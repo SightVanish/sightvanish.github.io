@@ -226,6 +226,37 @@ chartensor(containing characters) cannot</li>
       </categories>
   </entry>
   <entry>
+    <title>九月剑道稽古</title>
+    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
+    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
+<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-FJlVCeIIqVnEQBDL" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-FJlVCeIIqVnEQBDL").style.height=document.getElementById("mmedia-FJlVCeIIqVnEQBDL").scrollWidth*0.76+"px";
+    window.onresize = function(){
+      document.getElementById("mmedia-FJlVCeIIqVnEQBDL").style.height=document.getElementById("mmedia-FJlVCeIIqVnEQBDL").scrollWidth*0.76+"px";
+    }; </script>
+]]></content>
+      <categories>
+        <category>Kendo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>A Taste of Road Damage Detection</title>
+    <url>/2021/11/02/A-Taste-of-Road-Damage-Detection/</url>
+    <content><![CDATA[<p>方法1:opencv</p>
+<p>opencv可以通过一些操作（主要通过canny和扩张腐蚀）得到特定的轮廓</p>
+<p>但是实际操作下来感觉非常依赖参数的调整和图像预处理，很不稳定，并且道路本身的一些特征（如道路接缝）也会被检测</p>
+<p>方法2:deeplearning</p>
+<p>由于Road Damage
+Detection是一个在深度学习领域很成熟的话题。我直接搜索了相关的竞赛。</p>
+<p>目前排名较高的均为使用YOLO实现，我自己也进行了尝试（YOLO
+v5）但是效果很不理想，几乎检测不到。</p>
+<p>这个领域我还没有深入探索。但是如果我们没有对检测速度很高要求的话，使用maskRCNN或许是更加适合的方案。</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
     <title>A brief intro of HDFS</title>
     <url>/2022/10/04/A-brief-intro-of-HDFS/</url>
     <content><![CDATA[<h1 id="hdfs-hadoop-distributed-file-system">HDFS (Hadoop Distributed
@@ -251,20 +282,6 @@ to find data-&gt;Client find the data from the nearest DataNode</p>
 ]]></content>
       <categories>
         <category>Big Data</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>九月剑道稽古</title>
-    <url>/2021/09/15/9%E6%9C%88%E5%89%91%E9%81%93keigo/</url>
-    <content><![CDATA[<p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
-<p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-ifStazyXHBwFYnby" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-ifStazyXHBwFYnby").style.height=document.getElementById("mmedia-ifStazyXHBwFYnby").scrollWidth*0.76+"px";
-    window.onresize = function(){
-      document.getElementById("mmedia-ifStazyXHBwFYnby").style.height=document.getElementById("mmedia-ifStazyXHBwFYnby").scrollWidth*0.76+"px";
-    }; </script>
-]]></content>
-      <categories>
-        <category>Kendo</category>
       </categories>
   </entry>
   <entry>
@@ -438,20 +455,16 @@ vector通过降维得到密集矩阵，同时让相互独立的向量之间有�
       </categories>
   </entry>
   <entry>
-    <title>A Taste of Road Damage Detection</title>
-    <url>/2021/11/02/A-Taste-of-Road-Damage-Detection/</url>
-    <content><![CDATA[<p>方法1:opencv</p>
-<p>opencv可以通过一些操作（主要通过canny和扩张腐蚀）得到特定的轮廓</p>
-<p>但是实际操作下来感觉非常依赖参数的调整和图像预处理，很不稳定，并且道路本身的一些特征（如道路接缝）也会被检测</p>
-<p>方法2:deeplearning</p>
-<p>由于Road Damage
-Detection是一个在深度学习领域很成熟的话题。我直接搜索了相关的竞赛。</p>
-<p>目前排名较高的均为使用YOLO实现，我自己也进行了尝试（YOLO
-v5）但是效果很不理想，几乎检测不到。</p>
-<p>这个领域我还没有深入探索。但是如果我们没有对检测速度很高要求的话，使用maskRCNN或许是更加适合的方案。</p>
+    <title>Add-on in Blender3.0 for Mac(Apple Silicon)</title>
+    <url>/2022/03/13/Add-on-in-Blender3-0-for-Mac-Apple-Silicon/</url>
+    <content><![CDATA[<p>Put your unziped file in:</p>
+<p><code>/Applications/Blender.app/Contents/Resources/3.0/scripts/addons</code></p>
+<p>Enable add-on:</p>
+<p><code>Blender-&gt;Edit-&gt;Preferences-&gt;Add-ons</code></p>
+<p>Search your add-on and enable it.</p>
 ]]></content>
       <categories>
-        <category>Machine Learning</category>
+        <category>Blender</category>
       </categories>
   </entry>
   <entry>
@@ -486,82 +499,6 @@ pushed.</li>
 ]]></content>
       <categories>
         <category>Coding</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Add-on in Blender3.0 for Mac(Apple Silicon)</title>
-    <url>/2022/03/13/Add-on-in-Blender3-0-for-Mac-Apple-Silicon/</url>
-    <content><![CDATA[<p>Put your unziped file in:</p>
-<p><code>/Applications/Blender.app/Contents/Resources/3.0/scripts/addons</code></p>
-<p>Enable add-on:</p>
-<p><code>Blender-&gt;Edit-&gt;Preferences-&gt;Add-ons</code></p>
-<p>Search your add-on and enable it.</p>
-]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Bangline</title>
-    <url>/2022/07/23/Bangline/</url>
-    <content><![CDATA[<p>Here is a question: what is the difference between <code>./</code>
-and <code>sh</code> when executing a shell script?</p>
-<ol type="1">
-<li><code>sh test.sh</code> You pass test.sh as a parameter to sh.</li>
-<li><code>./test.sh</code> The system calls out the interpreter program
-and feeds in the scripts contents. So you will need a <strong>bang
-line</strong>(the very first line in the script and starts with #!). The
-rest part of the script will be passed to the program immediately
-after.</li>
-</ol>
-<p>So you can run shell via <code>#!/bin/bash</code>. You can even run
-python via <code>#!/usr/bin/python</code> (the rest code is in
-python)</p>
-<p>Here is the <a href="https://askubuntu.com/questions/22910/what-is-the-difference-between-and-sh-to-run-a-script">reference</a>.</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Basics of DL: Optimization Algorithms on Matrix Manifold</title>
-    <url>/2022/05/26/Basics-of-DL-Optimization-Algorithms-on-Matrix-Manifold/</url>
-    <content><![CDATA[<p>This could be complicated. But it will help. <a href="https://press.princeton.edu/absil">Optimization Algorithms on
-Matrix Manifold</a>.</p>
-<p>More details will be post later. (Maybe...)</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Beautify you terminal (oh-my-zsh)</title>
-    <url>/2022/07/23/Beautify-you-terminal-oh-my-zsh/</url>
-    <content><![CDATA[<h3 id="environment">Environment</h3>
-<p>MacBook Air (M1, 2020)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">zsh --version</span></span><br><span class="line">zsh 5.8 (x86_64-apple-darwin21.0)</span><br></pre></td></tr></table></figure>
-<h3 id="install-oh-my-zsh">Install oh-my-zsh</h3>
-<ol type="1">
-<li><p>install via <code>curl</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
-<p>In China, try <code>gitee</code>.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>disable auto-update; uncomment the line</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">zstyle &#x27;:omz:update&#x27; mode disabled  # disable automatic updates</span><br></pre></td></tr></table></figure></li>
-<li><p>change theme (find more official themes <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">here</a>)</p>
-<p><code>ZSH_THEME="apple"</code></p></li>
-</ol>
-<h3 id="plugins-for-oh-my-zsh">Plugins for oh-my-zsh</h3>
-<ol type="1">
-<li><p>zsh-suggestion</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">brew install zsh-autosuggestions</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> <span class="string">&quot;source /opt/homebrew/Cellar/zsh-autosuggestions/0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh&quot;</span> &gt;&gt;~/.zshrc</span></span><br></pre></td></tr></table></figure></li>
-<li><p>zsh-syntax-highlighting</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">brew install zsh-syntax-highlighting</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> <span class="string">&quot;source /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&quot;</span> &gt;&gt;~/.zshrc</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>Remember <code>source ~/.zshrc</code> to activate changes.</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -765,6 +702,69 @@ y = 1\\  -(1-\alpha)y&#39; ^\gamma log(1-y&#39;)\quad y = 0
       </tags>
   </entry>
   <entry>
+    <title>Bangline</title>
+    <url>/2022/07/23/Bangline/</url>
+    <content><![CDATA[<p>Here is a question: what is the difference between <code>./</code>
+and <code>sh</code> when executing a shell script?</p>
+<ol type="1">
+<li><code>sh test.sh</code> You pass test.sh as a parameter to sh.</li>
+<li><code>./test.sh</code> The system calls out the interpreter program
+and feeds in the scripts contents. So you will need a <strong>bang
+line</strong>(the very first line in the script and starts with #!). The
+rest part of the script will be passed to the program immediately
+after.</li>
+</ol>
+<p>So you can run shell via <code>#!/bin/bash</code>. You can even run
+python via <code>#!/usr/bin/python</code> (the rest code is in
+python)</p>
+<p>Here is the <a href="https://askubuntu.com/questions/22910/what-is-the-difference-between-and-sh-to-run-a-script">reference</a>.</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Basics of DL: Optimization Algorithms on Matrix Manifold</title>
+    <url>/2022/05/26/Basics-of-DL-Optimization-Algorithms-on-Matrix-Manifold/</url>
+    <content><![CDATA[<p>This could be complicated. But it will help. <a href="https://press.princeton.edu/absil">Optimization Algorithms on
+Matrix Manifold</a>.</p>
+<p>More details will be post later. (Maybe...)</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Beautify you terminal (oh-my-zsh)</title>
+    <url>/2022/07/23/Beautify-you-terminal-oh-my-zsh/</url>
+    <content><![CDATA[<h3 id="environment">Environment</h3>
+<p>MacBook Air (M1, 2020)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">zsh --version</span></span><br><span class="line">zsh 5.8 (x86_64-apple-darwin21.0)</span><br></pre></td></tr></table></figure>
+<h3 id="install-oh-my-zsh">Install oh-my-zsh</h3>
+<ol type="1">
+<li><p>install via <code>curl</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+<p>In China, try <code>gitee</code>.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>disable auto-update; uncomment the line</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">zstyle &#x27;:omz:update&#x27; mode disabled  # disable automatic updates</span><br></pre></td></tr></table></figure></li>
+<li><p>change theme (find more official themes <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">here</a>)</p>
+<p><code>ZSH_THEME="apple"</code></p></li>
+</ol>
+<h3 id="plugins-for-oh-my-zsh">Plugins for oh-my-zsh</h3>
+<ol type="1">
+<li><p>zsh-suggestion</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">brew install zsh-autosuggestions</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> <span class="string">&quot;source /opt/homebrew/Cellar/zsh-autosuggestions/0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh&quot;</span> &gt;&gt;~/.zshrc</span></span><br></pre></td></tr></table></figure></li>
+<li><p>zsh-syntax-highlighting</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">brew install zsh-syntax-highlighting</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> <span class="string">&quot;source /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&quot;</span> &gt;&gt;~/.zshrc</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>Remember <code>source ~/.zshrc</code> to activate changes.</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Benchmark of Neural Network--Precision,Recall,F1-Measure</title>
     <url>/2021/09/29/Benchmark-of-Neural-Network-Precision-Recall-F1-Measure/</url>
     <content><![CDATA[<h3 id="precision">Precision</h3>
@@ -801,22 +801,6 @@ bad even if both of them are not really good.</p>
       </categories>
   </entry>
   <entry>
-    <title>Blender Cloth Rendering</title>
-    <url>/2021/09/14/Blender-Cloth-Rending/</url>
-    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
-<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
-<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
-<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
-<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
-<p align="center">
-<img src="/2021/09/14/Blender-Cloth-Rending/1.jpg" width="75%" height="75%">
-</p>
-]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Blender尝试NPR场景</title>
     <url>/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/</url>
     <content><![CDATA[<p>尝试了NPR的场景渲染，感觉不是特别成功，二次元渲染不仅需要技术，调参也很难，需要一些美学功底更重要的是对渲染节点的深入理解。</p>
@@ -828,6 +812,22 @@ bad even if both of them are not really good.</p>
 </center>
 <p align="center">
 <img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/real.jpeg" alt="real" style="zoom:14%;">
+</p>
+]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Blender Cloth Rendering</title>
+    <url>/2021/09/14/Blender-Cloth-Rending/</url>
+    <content><![CDATA[<p>总结一下实践Blender布料系统的感想:</p>
+<p>首先是blender的布料并不好用，在一些简单的demo中确实可以有比较好的表现，但是在比较复杂的运动中表现会有很多问题--比如撕裂，比如穿模，等等等，而且计算量特别大（因为它本质使用弹性网格而不是直接的物理系统）。</p>
+<p>现在做的比较好的基本都不能直接用布料结算，通过物体代理实现是非常好的一个想法，也是现在的多数做法--用简单的代理物体来实现布料结算和碰撞，然后绑定到一起。或者干脆用骨骼驱动，这也是mmd原生的处理方法。计算量被极大减少的同时，碰撞造成的一系列复杂问题都消失了，但就是不真实。</p>
+<p>同时blender的布料结算感觉更倾向于丝绸的材质？可能是由于节点数量不足，如果按照正常的节点重量来设置会有很大问题，因此我在实践的时候gravity，shear等等抗形变的数值都会拉得很大。这里还要提到一个问题：在做布料的时候，布料上的饰品就很难处理，而且由于布料要pin在节点上，结果会有很明显的凸起（这里要去手动刷权重值才能勉强调整一下）。</p>
+<p>接下来准备去实践一下MD，看起来效果很好很多。先上手出个结果，blender真的让人头大</p>
+<p align="center">
+<img src="/2021/09/14/Blender-Cloth-Rending/1.jpg" width="75%" height="75%">
 </p>
 ]]></content>
       <categories>
@@ -878,39 +878,6 @@ solve real world problem.</p>
       </categories>
   </entry>
   <entry>
-    <title>C++11 in Mac (VsCode)</title>
-    <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
-    <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of
-<code>gcc</code>. You can still use <code>clang++</code> or
-<code>g++</code> to run a <code>.cpp</code> file. But basically,
-<code>clang</code> will use <code>-std=c++98</code> as default.</p>
-<p>So if you want to switch to new c++ standard in VsCode (Mac), do as
-follows:</p>
-<span id="more"></span>
-<ol type="1">
-<li><p>Edit you c++ settings of VsCode:</p>
-<ol type="1">
-<li><p>create <code>.vscode/c_cpp_properties.json</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Mac&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [],</span><br><span class="line">            &quot;macFrameworkPath&quot;: [</span><br><span class="line">                &quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;/usr/bin/clang&quot;,</span><br><span class="line">            &quot;cStandard&quot;: &quot;c11&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;c++11&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;macos-clang-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>In terminal:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;alias g++=&#x27;g++ -std=c++11&#x27;&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source    ~/.bashrc</span><br></pre></td></tr></table></figure></li>
-</ol></li>
-</ol>
-<p>Run your <code>.cpp</code> files in terminals:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">g++ filename.cpp -o objectname</span><br><span class="line">./objectname</span><br></pre></td></tr></table></figure>
-<p>Note: you can use <code>g++</code> in std11, but <code>clang++</code>
-is still in std98. (<code>clang/gcc</code> is for <code>.c</code>
-file)</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Mac</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Brief introduction to Unet</title>
     <url>/2021/10/11/Brief-introduction-to-Unet/</url>
     <content><![CDATA[<h3 id="structure">Structure</h3>
@@ -944,6 +911,39 @@ with more time consumed).</p>
       </categories>
   </entry>
   <entry>
+    <title>C++11 in Mac (VsCode)</title>
+    <url>/2021/07/02/C-11-in-Mac-VsCode/</url>
+    <content><![CDATA[<p>For some purposes, mac is using <code>clang</code> instead of
+<code>gcc</code>. You can still use <code>clang++</code> or
+<code>g++</code> to run a <code>.cpp</code> file. But basically,
+<code>clang</code> will use <code>-std=c++98</code> as default.</p>
+<p>So if you want to switch to new c++ standard in VsCode (Mac), do as
+follows:</p>
+<span id="more"></span>
+<ol type="1">
+<li><p>Edit you c++ settings of VsCode:</p>
+<ol type="1">
+<li><p>create <code>.vscode/c_cpp_properties.json</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Mac&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [],</span><br><span class="line">            &quot;macFrameworkPath&quot;: [</span><br><span class="line">                &quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;/usr/bin/clang&quot;,</span><br><span class="line">            &quot;cStandard&quot;: &quot;c11&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;c++11&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;macos-clang-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>In terminal:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;alias g++=&#x27;g++ -std=c++11&#x27;&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source    ~/.bashrc</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+</ol>
+<p>Run your <code>.cpp</code> files in terminals:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">g++ filename.cpp -o objectname</span><br><span class="line">./objectname</span><br></pre></td></tr></table></figure>
+<p>Note: you can use <code>g++</code> in std11, but <code>clang++</code>
+is still in std98. (<code>clang/gcc</code> is for <code>.c</code>
+file)</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ Coding Style</title>
     <url>/2022/07/14/C-Coding-Style/</url>
     <content><![CDATA[<h1 id="cpplint">cpplint</h1>
@@ -956,6 +956,21 @@ Google C++ styles.</p>
       <categories>
         <category>Coding</category>
       </categories>
+  </entry>
+  <entry>
+    <title>C/C++ openmp</title>
+    <url>/2020/05/30/C-C-openmp/</url>
+    <content><![CDATA[<p>Just a note for myself !</p>
+<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del>
+</strong> !!!</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>openmp</tag>
+      </tags>
   </entry>
   <entry>
     <title>C++: Difference between int* and int&amp; and int</title>
@@ -993,21 +1008,6 @@ reference without initilizatin is not permitted,
       </tags>
   </entry>
   <entry>
-    <title>C/C++ openmp</title>
-    <url>/2020/05/30/C-C-openmp/</url>
-    <content><![CDATA[<p>Just a note for myself !</p>
-<p><strong>For C/C++: <code>-fopenmp</code> not <del>-openmp</del>
-</strong> !!!</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C/C++</tag>
-        <tag>openmp</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Cannot get access to Github</title>
     <url>/2021/03/04/Cannot-get-access-to-Github/</url>
     <content><![CDATA[<p>MacOS 11.2</p>
@@ -1030,18 +1030,6 @@ reference without initilizatin is not permitted,
       <tags>
         <tag>Github</tag>
         <tag>MacOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Copy &amp; Deepcopy in Python</title>
-    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1128,6 +1116,18 @@ HERE</a> for more information.</p>
       </categories>
   </entry>
   <entry>
+    <title>Copy &amp; Deepcopy in Python</title>
+    <url>/2021/04/14/Copy-Deepcopy-in-Python/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [a,a,a]</span><br><span class="line"><span class="comment"># Copy</span></span><br><span class="line">c = b</span><br><span class="line">d = b.copy()</span><br><span class="line"><span class="comment"># b c d all point at the same object. if one of the them is changed, all of them are changed.</span></span><br><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">f = deepcopy(b)</span><br><span class="line"><span class="comment"># python offers a function called deepcopy that allows to create a new object so that you can do anything with f while there is no influence on b.</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Counter -- a pythonic way to counting</title>
     <url>/2023/06/15/Counter-pythonic-way-to-counting/</url>
     <content><![CDATA[<p><code>Counter</code> is a pythonic way to handle counting repeating
@@ -1196,29 +1196,6 @@ modified.</p>
         <tag>const</tag>
         <tag>pointer</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Difference between dataset datalake and datawarehouse</title>
-    <url>/2022/10/04/Difference-between-dataset-datalake-and-datawarehouse/</url>
-    <content><![CDATA[<p>Difference between <strong>Database</strong>,
-<strong>Datalake</strong> and <strong>Datawarehouse</strong>.</p>
-<p>Database support an application. Any interactive application needs
-database to store streaming data. Thus database is good at real-time and
-streaming data ingest.</p>
-<p>Datalake stores raw, untouched data from multiple applications. Data
-lake can support structured, semi-structured and unstructured data. Data
-lake is not designed for handling real-time data ingest. The frequency
-of data lake update depends on the frequency of data ETL (Extract,
-Transform, Load). Data lake provides data for data mining and machine
-learning.</p>
-<p>Datawarehouse is designed for business intelligence. It stores
-predefined, processed data and only supports structured data and
-semi-structured data. Datawarehouse provides data for business report
-and business dashboard.</p>
-]]></content>
-      <categories>
-        <category>Big Data</category>
-      </categories>
   </entry>
   <entry>
     <title>Difference between new and malloc</title>
@@ -1342,6 +1319,29 @@ override夫类function，返回类型相同。</p></li>
       <tags>
         <tag>C++</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Difference between dataset datalake and datawarehouse</title>
+    <url>/2022/10/04/Difference-between-dataset-datalake-and-datawarehouse/</url>
+    <content><![CDATA[<p>Difference between <strong>Database</strong>,
+<strong>Datalake</strong> and <strong>Datawarehouse</strong>.</p>
+<p>Database support an application. Any interactive application needs
+database to store streaming data. Thus database is good at real-time and
+streaming data ingest.</p>
+<p>Datalake stores raw, untouched data from multiple applications. Data
+lake can support structured, semi-structured and unstructured data. Data
+lake is not designed for handling real-time data ingest. The frequency
+of data lake update depends on the frequency of data ETL (Extract,
+Transform, Load). Data lake provides data for data mining and machine
+learning.</p>
+<p>Datawarehouse is designed for business intelligence. It stores
+predefined, processed data and only supports structured data and
+semi-structured data. Datawarehouse provides data for business report
+and business dashboard.</p>
+]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
   </entry>
   <entry>
     <title>Dive into FasterRCNN</title>
@@ -1652,33 +1652,6 @@ loss（即rpn_loss_bbox层计算的soomth L1 loss，该loss中<span class="math 
       </categories>
   </entry>
   <entry>
-    <title>Experience of MacOS Big Sur</title>
-    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
-    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named
-with this place, is published recently. The first impression to me is
-that the apparance seems to be exactly same with iPadOS or iOS.
-Smoother--faster finger scanner to unlock machine. The whole machine is
-seemed to be renewed with much more better performance.</p>
-<p>(for test purpose--transfer Blog)</p>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-      <tags>
-        <tag>MacOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GIF test</title>
-    <url>/2021/09/16/GIF-test/</url>
-    <content><![CDATA[<p>You should see this.
-<iframe height="80%" width="50%" src="1.gif"></iframe></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
     <title>English Vocabulary</title>
     <url>/2021/10/07/English-Vocabulary/</url>
     <content><![CDATA[<ol type="1">
@@ -1917,6 +1890,16 @@ offensive)</p></li>
       </categories>
   </entry>
   <entry>
+    <title>GIF test</title>
+    <url>/2021/09/16/GIF-test/</url>
+    <content><![CDATA[<p>You should see this.
+<iframe height="80%" width="50%" src="1.gif"></iframe></p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Games101 Homeworks Summary</title>
     <url>/2021/09/29/Games101-Homework-Summary/</url>
     <content><![CDATA[<h3 id="prefab">Prefab</h3>
@@ -2011,58 +1994,21 @@ width-1)x(0,vheight-1)映射到(-1, 1)x(-1,
       </categories>
   </entry>
   <entry>
-    <title>Git Tips</title>
-    <url>/2022/07/14/Git-Tips/</url>
-    <content><![CDATA[<ol type="1">
-<li><p>check local modification</p>
-<ol type="1">
-<li><code>git stash</code> temporally store modification in stash.</li>
-<li><code>git stash pop</code> restore modification from stash.</li>
-<li><code>git checkout .</code> cancel all local modification.</li>
-<li><code>git reset --hard HASH</code> reset to certain
-<code>HASH</code> commit, losing all local modification.</li>
-</ol></li>
-<li><p><code>ssh -T git@github.com</code> test your ssh connection with
-github.<span id="more"></span></p></li>
-<li><p>for certain case: you may need to last commitment ;create another
-branch, then go back to master
-branch<code>git cherry-pick &lt;commit id&gt;</code></p>
-<ol type="1">
-<li><code>git cherry-pick</code> is a powerful command that enables
-arbitrary git commits to be picked by reference and appended to the
-current working branch HEAD. It is the act of picking commit from a
-branch and applying it to another branch.</li>
-</ol></li>
-<li><p>show your git remote repository</p>
-<ol type="1">
-<li><code>git remote -v</code> or
-<code>git remote show orgin</code></li>
-</ol></li>
-<li><p>modified git commit comments</p>
-<ol type="1">
-<li>if you just want to modify the comment that you just committed.
-<ol type="1">
-<li><code>git commit --amend</code> (please use vim as default in
-terminal)</li>
-<li><code>git push -f</code></li>
-</ol></li>
-<li>if you just want to modify the last <span class="math inline">\(N^{th}\)</span> comment that you just committed.
-<ol type="1">
-<li><code>git rebase -i HEAD~N</code> first you go back</li>
-<li>modify the comment and replace <code>pick</code> with
-<code>edit</code> in corresponding line</li>
-<li><code>git commit --amend</code> do it again</li>
-<li><code>git rebase --continue</code> you can come back now</li>
-<li><code>git push -f</code></li>
-</ol></li>
-<li>if you have local modification, try <code>git stash</code> (to
-archive modifications) and <code>git stash pop</code> (restore)</li>
-</ol></li>
-</ol>
+    <title>Experience of MacOS Big Sur</title>
+    <url>/2020/11/24/Experience-of-MacOS-Big-Sur/</url>
+    <content><![CDATA[<p>Big Sur is a beautiful beach in California. The latest MacOs, named
+with this place, is published recently. The first impression to me is
+that the apparance seems to be exactly same with iPadOS or iOS.
+Smoother--faster finger scanner to unlock machine. The whole machine is
+seemed to be renewed with much more better performance.</p>
+<p>(for test purpose--transfer Blog)</p>
 ]]></content>
       <categories>
-        <category>Coding</category>
+        <category>Chat</category>
       </categories>
+      <tags>
+        <tag>MacOS</tag>
+      </tags>
   </entry>
   <entry>
     <title>Gaussian Mixture Model (GMM) &amp; Expectation Maximization (EM)</title>
@@ -2277,55 +2223,57 @@ based on distributions over hidden states.</li>
       </tags>
   </entry>
   <entry>
-    <title>Hexo Migration</title>
-    <url>/2022/07/14/Hexo-Migration/</url>
-    <content><![CDATA[<p>The following code is only tested on Apple Silicon.</p>
+    <title>Git Tips</title>
+    <url>/2022/07/14/Git-Tips/</url>
+    <content><![CDATA[<ol type="1">
+<li><p>check local modification</p>
 <ol type="1">
-<li><p>Config Git</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config user.name &lt;your_name&gt;</span><br><span class="line">git config user.email &lt;your@email.address&gt;</span><br><span class="line">git config -l # list git config</span><br><span class="line">ssh-keygen -t rsa -C &quot;your@email.address&quot;</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p>Copy rsa public key to GitHub-&gt;Settings-&gt;SSH and GPG
-keys.</p></li>
-<li><p>Install <a href="https://nodejs.org/">Nodejs</a></p>
-<ol type="1">
-<li><p>In China, you may consider install cnpm</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></li>
-<li><p>In the following steps, I will use <code>cnpm</code>, same for
-<code>npm</code>.<span id="more"></span></p></li>
+<li><code>git stash</code> temporally store modification in stash.</li>
+<li><code>git stash pop</code> restore modification from stash.</li>
+<li><code>git checkout .</code> cancel all local modification.</li>
+<li><code>git reset --hard HASH</code> reset to certain
+<code>HASH</code> commit, losing all local modification.</li>
 </ol></li>
-<li><p>Install hexo with <code>npm</code>
-<code>cnpm install -g hexo-cli</code></p></li>
-<li><p>Install deployment plugin
-<code>cnpm install --save hexo-deployer-git</code></p></li>
-<li><p>Install <a href="https://brew.sh">Homebrew</a></p>
-<p>In China, you may consider <code>HomebrewCN</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/bin/zsh -c &quot;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>Math equation rendering</p>
+<li><p><code>ssh -T git@github.com</code> test your ssh connection with
+github.<span id="more"></span></p></li>
+<li><p>for certain case: you may need to last commitment ;create another
+branch, then go back to master
+branch<code>git cherry-pick &lt;commit id&gt;</code></p>
 <ol type="1">
-<li><p>Install <code>pandoc</code> <code>brew install pandoc</code></p>
-<ol type="1">
-<li><p>If <code>Error: Command failed with exit 128: git</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-core</span><br><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-cask</span><br></pre></td></tr></table></figure></li>
+<li><code>git cherry-pick</code> is a powerful command that enables
+arbitrary git commits to be picked by reference and appended to the
+current working branch HEAD. It is the act of picking commit from a
+branch and applying it to another branch.</li>
 </ol></li>
-<li><p>Uninstall <code>hexo-renderer-marked</code>
-<code>npm uninstall hexo-renderer-marked --save</code></p></li>
-<li><p>Install <code>hexo-renderer-pandoc</code>
-<code>npm install hexo-renderer-pandoc</code></p></li>
-</ol></li>
-<li><p>Done! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉</p></li>
-<li><p><code>hexo clean; hexo g; hexo d</code></p></li>
-<li><p>Here is two shell scripts for you</p>
+<li><p>show your git remote repository</p>
 <ol type="1">
-<li><code>blog.sh</code></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/zsh</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">read</span> input</span> </span><br><span class="line">name=$&#x27;&#x27;</span><br><span class="line">filename=$&#x27;&#x27;</span><br><span class="line">for arg in &quot;$*&quot;</span><br><span class="line">  do</span><br><span class="line">    name=$s$arg</span><br><span class="line">  done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">create new post</span></span><br><span class="line">hexo n &quot;$name&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">open post</span></span><br><span class="line">name=$(echo $name|sed &quot;s/ /-/g&quot;) # replace space with short dash</span><br><span class="line">open $&#x27;./source/_posts/&#x27;$name$&#x27;.md&#x27; # open markdown file</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li><code>deploy.sh</code></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/zsh</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo clean</span><br><span class="line">hexo d</span><br><span class="line">clear</span><br><span class="line">echo &quot;Blog depolyment done! Let&#x27;s post more! 🎉🎉🎉&quot;</span><br></pre></td></tr></table></figure></li>
+<li><code>git remote -v</code> or
+<code>git remote show orgin</code></li>
+</ol></li>
+<li><p>modified git commit comments</p>
+<ol type="1">
+<li>if you just want to modify the comment that you just committed.
+<ol type="1">
+<li><code>git commit --amend</code> (please use vim as default in
+terminal)</li>
+<li><code>git push -f</code></li>
+</ol></li>
+<li>if you just want to modify the last <span class="math inline">\(N^{th}\)</span> comment that you just committed.
+<ol type="1">
+<li><code>git rebase -i HEAD~N</code> first you go back</li>
+<li>modify the comment and replace <code>pick</code> with
+<code>edit</code> in corresponding line</li>
+<li><code>git commit --amend</code> do it again</li>
+<li><code>git rebase --continue</code> you can come back now</li>
+<li><code>git push -f</code></li>
+</ol></li>
+<li>if you have local modification, try <code>git stash</code> (to
+archive modifications) and <code>git stash pop</code> (restore)</li>
+</ol></li>
 </ol>
 ]]></content>
       <categories>
-        <category>Configuration</category>
+        <category>Coding</category>
       </categories>
   </entry>
   <entry>
@@ -2522,6 +2470,63 @@ brightness.</p>
       </tags>
   </entry>
   <entry>
+    <title>Hexo Migration</title>
+    <url>/2022/07/14/Hexo-Migration/</url>
+    <content><![CDATA[<p>The following code is only tested on Apple Silicon.</p>
+<ol type="1">
+<li><p>Config Git</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config user.name &lt;your_name&gt;</span><br><span class="line">git config user.email &lt;your@email.address&gt;</span><br><span class="line">git config -l # list git config</span><br><span class="line">ssh-keygen -t rsa -C &quot;your@email.address&quot;</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>Copy rsa public key to GitHub-&gt;Settings-&gt;SSH and GPG
+keys.</p></li>
+<li><p>Install <a href="https://nodejs.org/">Nodejs</a></p>
+<ol type="1">
+<li><p>In China, you may consider install cnpm</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></li>
+<li><p>In the following steps, I will use <code>cnpm</code>, same for
+<code>npm</code>.<span id="more"></span></p></li>
+</ol></li>
+<li><p>Install hexo with <code>npm</code>
+<code>cnpm install -g hexo-cli</code></p></li>
+<li><p>Install deployment plugin
+<code>cnpm install --save hexo-deployer-git</code></p></li>
+<li><p>Install <a href="https://brew.sh">Homebrew</a></p>
+<p>In China, you may consider <code>HomebrewCN</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/bin/zsh -c &quot;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>Math equation rendering</p>
+<ol type="1">
+<li><p>Install <code>pandoc</code> <code>brew install pandoc</code></p>
+<ol type="1">
+<li><p>If <code>Error: Command failed with exit 128: git</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-core</span><br><span class="line">git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-cask</span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>Uninstall <code>hexo-renderer-marked</code>
+<code>npm uninstall hexo-renderer-marked --save</code></p></li>
+<li><p>Install <code>hexo-renderer-pandoc</code>
+<code>npm install hexo-renderer-pandoc</code></p></li>
+</ol></li>
+<li><p>Support local search in Next theme</p>
+<ol type="1">
+<li><p>install plug-in</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure></li>
+<li><p>set local search to true in Next config file</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>Done! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉</p></li>
+<li><p><code>hexo clean; hexo g; hexo d</code></p></li>
+<li><p>Here is two shell scripts for you</p></li>
+<li><p><code>blog.sh</code></p></li>
+</ol>
+<p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/zsh</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">read</span> input</span> </span><br><span class="line">name=$&#x27;&#x27;</span><br><span class="line">filename=$&#x27;&#x27;</span><br><span class="line">for arg in &quot;$*&quot;</span><br><span class="line">  do</span><br><span class="line">    name=$s$arg</span><br><span class="line">  done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">create new post</span></span><br><span class="line">hexo n &quot;$name&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">open post</span></span><br><span class="line">name=$(echo $name|sed &quot;s/ /-/g&quot;) # replace space with short dash</span><br><span class="line">open $&#x27;./source/_posts/&#x27;$name$&#x27;.md&#x27; # open markdown file</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<ol start="2" type="1">
+<li><code>deploy.sh</code></li>
+</ol>
+<p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/zsh</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo clean</span><br><span class="line">hexo d</span><br><span class="line">clear</span><br><span class="line">echo &quot;Blog depolyment done! Let&#x27;s post more! 🎉🎉🎉&quot;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
     <title>How to generate random number via C++ (srand version)</title>
     <url>/2020/05/27/How-to-generate-random-number-via-C-srand-version/</url>
     <content><![CDATA[<p>Just make a backup. <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="type">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">9</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -2532,19 +2537,6 @@ brightness.</p>
       <tags>
         <tag>C++</tag>
         <tag>Srand</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to get matrix transform in python</title>
-    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
-    <content><![CDATA[<p>Here is a special trick:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -2599,6 +2591,41 @@ environemnt)</li>
       </categories>
   </entry>
   <entry>
+    <title>How to use docker in Mac M1</title>
+    <url>/2021/10/09/How-to-use-docker-in-Mac-M1/</url>
+    <content><![CDATA[<h3 id="install-docker">Install docker</h3>
+<p>Download docker here:
+https://docs.docker.com/docker-for-mac/apple-m1/</p>
+<p>Note:</p>
+<p>This is just a preview version, which means you may encounter various
+bugs.</p>
+<p>This version is based on <strong>Rosetta2</strong>, so remember to
+install it via <code>$ softwareupdate --install-rosetta</code>.</p>
+<h3 id="check-your-docker">Check your docker</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker -v</span><br><span class="line">$ docker info // it may take a few minutes to start docker</span><br></pre></td></tr></table></figure>
+<h3 id="use-docker-image-mit-6.s081">Use docker image <a href="https://zhuanlan.zhihu.com/p/417668697">MIT 6.S081</a></h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker pull calvinhaynes412/mit6.s081:v1 // pull docker image</span><br><span class="line">$ git clone git@github.com:CalvinHaynes/MIT6.S081-2020Fall.git // pull git repository</span><br></pre></td></tr></table></figure>
+<p>Open the docker image-&gt;set repository to the local git
+repository-&gt;open docker in browser.</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to get matrix transform in python</title>
+    <url>/2021/01/04/How-to-get-matrix-transform-in-python/</url>
+    <content><![CDATA[<p>Here is a special trick:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">zip</span>(*a)</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x7fadf143f780</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(*a))</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to modify git message</title>
     <url>/2022/10/04/How-to-modify-git-message/</url>
     <content><![CDATA[<ol type="1">
@@ -2634,40 +2661,6 @@ by force.</p></li>
 ]]></content>
       <categories>
         <category>Coding</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to use docker in Mac M1</title>
-    <url>/2021/10/09/How-to-use-docker-in-Mac-M1/</url>
-    <content><![CDATA[<h3 id="install-docker">Install docker</h3>
-<p>Download docker here:
-https://docs.docker.com/docker-for-mac/apple-m1/</p>
-<p>Note:</p>
-<p>This is just a preview version, which means you may encounter various
-bugs.</p>
-<p>This version is based on <strong>Rosetta2</strong>, so remember to
-install it via <code>$ softwareupdate --install-rosetta</code>.</p>
-<h3 id="check-your-docker">Check your docker</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker -v</span><br><span class="line">$ docker info // it may take a few minutes to start docker</span><br></pre></td></tr></table></figure>
-<h3 id="use-docker-image-mit-6.s081">Use docker image <a href="https://zhuanlan.zhihu.com/p/417668697">MIT 6.S081</a></h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker pull calvinhaynes412/mit6.s081:v1 // pull docker image</span><br><span class="line">$ git clone git@github.com:CalvinHaynes/MIT6.S081-2020Fall.git // pull git repository</span><br></pre></td></tr></table></figure>
-<p>Open the docker image-&gt;set repository to the local git
-repository-&gt;open docker in browser.</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Image Test</title>
-    <url>/2021/09/15/Image-Test/</url>
-    <content><![CDATA[<p>You see the image?</p>
-<p align="center">
-<img src="/2021/09/15/Image-Test/test.jpg" alt="test" style="zoom:15%;">
-</p>
-]]></content>
-      <categories>
-        <category>Test</category>
       </categories>
   </entry>
   <entry>
@@ -2763,6 +2756,68 @@ tensorflow_macos!</p></li>
 ]]></content>
       <categories>
         <category>Machine Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Intel Internship</title>
+    <url>/2022/07/14/Intel-Internship/</url>
+    <content><![CDATA[<h1 id="easyrec">EasyRec</h1>
+<p>This is a public repository of recommender. It will be replaced by
+DeepRec.<span id="more"></span></p>
+<p>training on easyrec</p>
+<ol type="1">
+<li><p>pull repo from github</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/alibaba/EasyRec.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> EasyRec/</span></span><br></pre></td></tr></table></figure></li>
+<li><p>download dataset</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://easyrec.oss-cn-beijing.aliyuncs.com/data/easyrec_data_20210818.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li><p>generate .py file based on proto</p>
+<p><code>bash scripts/gen_proto.sh</code></p></li>
+<li><p>install dependency</p>
+<p><code>pip install -r requirements/runtime.txt</code></p>
+<p><code>pip install -r requirements/tests.txt</code></p></li>
+<li><p>train existing model</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python -m easy_rec.python.train_eval --pipeline_config_path samples/model_config/&lt;selected model&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>open dashboard</p>
+<p><code>cd EasyRec/experiments/&lt;selected model&gt;</code></p>
+<p><code>tensorboard --logdir .</code></p></li>
+</ol>
+<h1 id="deeprec">DeepRec</h1>
+<p>This is a public repository of alibaba recommender. It is an upgraded
+version of EasyRec.</p>
+<p>testing on deeprec</p>
+<ol type="1">
+<li><p>build wheel and image</p>
+<p><code>./ci_build bazel_build cpu</code></p></li>
+<li><p>enter container</p>
+<p><code>CI_DOCKER_EXTRA_PARAMS=-it ./ci_build bash</code></p></li>
+<li><p>install environment in container</p>
+<p><code>pip install wheels/tensorflow/&lt;.whl&gt;</code></p></li>
+<li><p>build wheel</p>
+<p><code>./ci_build bazel_build cpu</code></p></li>
+</ol>
+<h3 id="alibaba-remote-machine">Alibaba Remote Machine</h3>
+<p>Connect to alibaba remote machine.</p>
+<p>set proxy in MobaXterm.</p>
+<p>K83 usage – with <code>kubectl</code></p>
+<ol type="1">
+<li><p>check nodes <code>kubectl get nodes</code>,
+<code>--all-namespaces</code> to get all nodes under different
+namespaces</p></li>
+<li><p>check existing tfjobs <code>kubectl get tfjobs -o wide</code></p>
+<p>note: if the tfjob you are intending to create already exists, delete
+this tfjob <code>kubectl delete tfjob &lt;tfjob name&gt;</code></p></li>
+<li><p>create a new tfjob
+<code>kubectl create -f &lt;.yaml&gt;</code></p></li>
+<li><p>check pod status
+<code>watch -n 1 kubectl get pods -o wide</code></p>
+<p>note: if the status is pending, try change the parameter of
+<code>resources</code> in you yaml file</p></li>
+<li><p>check training log
+<code>kubectl logs -f &lt;tfjob name&gt;-chief-0</code></p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Career</category>
       </categories>
   </entry>
   <entry>
@@ -2886,6 +2941,18 @@ container</p></li>
       </categories>
   </entry>
   <entry>
+    <title>Image Test</title>
+    <url>/2021/09/15/Image-Test/</url>
+    <content><![CDATA[<p>You see the image?</p>
+<p align="center">
+<img src="/2021/09/15/Image-Test/test.jpg" alt="test" style="zoom:15%;">
+</p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Jupyter Notebook Installtion</title>
     <url>/2021/10/09/Jupyter-Notebook-Installtion/</url>
     <content><![CDATA[<ol type="1">
@@ -2909,65 +2976,97 @@ in notebook.</p></li>
       </categories>
   </entry>
   <entry>
-    <title>Intel Internship</title>
-    <url>/2022/07/14/Intel-Internship/</url>
-    <content><![CDATA[<h1 id="easyrec">EasyRec</h1>
-<p>This is a public repository of recommender. It will be replaced by
-DeepRec.<span id="more"></span></p>
-<p>training on easyrec</p>
-<ol type="1">
-<li><p>pull repo from github</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/alibaba/EasyRec.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> EasyRec/</span></span><br></pre></td></tr></table></figure></li>
-<li><p>download dataset</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://easyrec.oss-cn-beijing.aliyuncs.com/data/easyrec_data_20210818.tar.gz</span><br></pre></td></tr></table></figure></li>
-<li><p>generate .py file based on proto</p>
-<p><code>bash scripts/gen_proto.sh</code></p></li>
-<li><p>install dependency</p>
-<p><code>pip install -r requirements/runtime.txt</code></p>
-<p><code>pip install -r requirements/tests.txt</code></p></li>
-<li><p>train existing model</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python -m easy_rec.python.train_eval --pipeline_config_path samples/model_config/&lt;selected model&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>open dashboard</p>
-<p><code>cd EasyRec/experiments/&lt;selected model&gt;</code></p>
-<p><code>tensorboard --logdir .</code></p></li>
-</ol>
-<h1 id="deeprec">DeepRec</h1>
-<p>This is a public repository of alibaba recommender. It is an upgraded
-version of EasyRec.</p>
-<p>testing on deeprec</p>
-<ol type="1">
-<li><p>build wheel and image</p>
-<p><code>./ci_build bazel_build cpu</code></p></li>
-<li><p>enter container</p>
-<p><code>CI_DOCKER_EXTRA_PARAMS=-it ./ci_build bash</code></p></li>
-<li><p>install environment in container</p>
-<p><code>pip install wheels/tensorflow/&lt;.whl&gt;</code></p></li>
-<li><p>build wheel</p>
-<p><code>./ci_build bazel_build cpu</code></p></li>
-</ol>
-<h3 id="alibaba-remote-machine">Alibaba Remote Machine</h3>
-<p>Connect to alibaba remote machine.</p>
-<p>set proxy in MobaXterm.</p>
-<p>K83 usage – with <code>kubectl</code></p>
-<ol type="1">
-<li><p>check nodes <code>kubectl get nodes</code>,
-<code>--all-namespaces</code> to get all nodes under different
-namespaces</p></li>
-<li><p>check existing tfjobs <code>kubectl get tfjobs -o wide</code></p>
-<p>note: if the tfjob you are intending to create already exists, delete
-this tfjob <code>kubectl delete tfjob &lt;tfjob name&gt;</code></p></li>
-<li><p>create a new tfjob
-<code>kubectl create -f &lt;.yaml&gt;</code></p></li>
-<li><p>check pod status
-<code>watch -n 1 kubectl get pods -o wide</code></p>
-<p>note: if the status is pending, try change the parameter of
-<code>resources</code> in you yaml file</p></li>
-<li><p>check training log
-<code>kubectl logs -f &lt;tfjob name&gt;-chief-0</code></p></li>
-</ol>
+    <title>Knapsack Problem</title>
+    <url>/2022/10/04/Knapsack-Problem/</url>
+    <content><![CDATA[<h1 id="knapsack-problem">Knapsack Problem</h1>
+<p>Knapsack problem is a constraint optimization problem. You have to
+find an optimal answer given certain constraints (capacity of knapsack).
+There are 3 different variants: <strong>0-1 knapsack</strong>,
+<strong>fractional knapsack</strong> and <strong>unbounded
+knapsack</strong>. We will discuss them one by one.</p>
+<h2 id="knapsack-problem-1">0-1 Knapsack Problem</h2>
+<h3 id="what-is-a-0-1-knapsack-problem">What is a 0-1 Knapsack
+Problem?</h3>
+<p>In the 0-1 knapsack problem, we can either keep an item or not. There
+is no way to split an item. Each item has a value and a weight. The
+knapsack, or the bag, has a weight capacity. Our target is to fill the
+bag with maximum value while not exceeding its capacity.</p>
+<p>Input: bag weight capacity <span class="math inline">\(W\)</span>,
+<span class="math inline">\(n\)</span> items with value
+<code>value[]</code> and weight <code>weight[]</code>.</p>
+<p>Output: maximum feasible value <span id="more"></span></p>
+<h3 id="let-try-robust-methods">Let' try robust methods</h3>
+<p>For knapsack problem, greedy algorithm does not work, we will not
+discuss the details about the greedy algorithm in this article. Please
+refer to this <a href="https://www.scaler.com/topics/knapsack-problem/">article</a>.</p>
+<p>A basic idea is to search all possible subsets. We starts with an
+empty bag and put items one by one. The initial state of this bag is 0
+value and <span class="math inline">\(W\)</span> remaining capacity. Now
+we pick the first item. Value of the first item is <code>value[0]</code>
+and weight of it is <code>weight[0]</code>. If the bag can hold this
+item, namely <code>weight[0] &lt;= W</code>, we put it in and update the
+status of bag to
+<code>value = value[0], remaining capacity = W - weight[0]</code>. If
+the bag cannot hold this item, namely <code>weight[0] &gt; W</code>,
+just skip this item. Continue adding new items until all items are used
+up or the capacity of the bag is used up.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">KnapsackProblem</span>(<span class="params">W:<span class="built_in">int</span>, itemIndex:<span class="built_in">int</span>, weight:<span class="built_in">list</span>, value:<span class="built_in">list</span></span>):</span><br><span class="line">    <span class="comment"># if all items or used up or the capacity of bag is used up, return</span></span><br><span class="line">    <span class="keyword">if</span> itemIndex &gt;= <span class="built_in">len</span>(weight) <span class="keyword">or</span> W &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="comment"># add new item</span></span><br><span class="line">    <span class="keyword">if</span> weight[itemIndex] &gt; W:</span><br><span class="line">        <span class="comment"># skip this item</span></span><br><span class="line">        <span class="keyword">return</span> KnapsackProblem(W, itemIndex + <span class="number">1</span>, weight, value)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># recursion</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(KnapsackProblem(W, itemIndex + <span class="number">1</span>, weight, value), KnapsackProblem(W - weight[itemIndex], itemIndex + <span class="number">1</span>, weight, value) + value[itemIndex])</span><br></pre></td></tr></table></figure>
+<p>The algorithm above works pretty well, but there is one big problem:
+we do a lot repeated calculation which will significantly increase time
+consumption. For each item, we have to consider 2 cases, either this
+item is included or not. So the time complexity is <span class="math inline">\(O(2^n)\)</span>.</p>
+<h3 id="trade-off-time-or-space">Trade-off: time or space</h3>
+<p>In order to solve such overlapping subproblems, we can use dynamic
+programming. The basic idea of it is to use additional space to memorize
+repeated results so that the search process can be speed up.</p>
+<p>A good way to reduce the repeated calculation is to store the results
+of intermediate subproblems in an array o vector. <code>DP[n][W]</code>
+will store the optimal results with the first n items and the bag with W
+capacity.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DP = [[-<span class="number">1</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(W + <span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(weight) + <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">KnapsackProblem</span>(<span class="params">W:<span class="built_in">int</span>, itemIndex:<span class="built_in">int</span>, weight:<span class="built_in">list</span>, value:<span class="built_in">list</span></span>):</span><br><span class="line">    <span class="comment"># if all items or used up or the capacity of bag is used up, return</span></span><br><span class="line">    <span class="keyword">if</span> itemIndex &gt;= <span class="built_in">len</span>(weight) <span class="keyword">or</span> W &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># check existing DP data</span></span><br><span class="line">    <span class="keyword">if</span> DP[itemIndex][W] != -<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> DP[itemIndex][W]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># add new item</span></span><br><span class="line">    <span class="keyword">if</span> weight[itemIndex] &gt; W:</span><br><span class="line">        <span class="comment"># skip this item</span></span><br><span class="line">        DP[itemIndex][W] = KnapsackProblem(W, itemIndex + <span class="number">1</span>, weight, value)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># recursion</span></span><br><span class="line">        DP[itemIndex][W] = <span class="built_in">max</span>(KnapsackProblem(W, itemIndex + <span class="number">1</span>, weight, value), KnapsackProblem(W - weight[itemIndex], itemIndex + <span class="number">1</span>, weight, value) + value[itemIndex])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> DP[itemIndex][W]</span><br></pre></td></tr></table></figure>
+<p>Since the index of a list starts from 0 in python, the size of DP is
+<span class="math inline">\((W+1)*(n+1)\)</span>. All we need to do is
+to fill the matrix, DP. Thus the time complexity is <span class="math inline">\(O(n*W)\)</span> and the space complexity is also
+<span class="math inline">\(O(n*W)\)</span>.</p>
+<p>You may notice that: actually we do not need to memorize all
+intermediate results and what really matters is just the optimal result
+for different bag capacity. When we consider the <span class="math inline">\(i^{th}\)</span> , we do not need to consider</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DP = [-<span class="number">1</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(W+<span class="number">1</span>)]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">KnapsackProblem</span>(<span class="params">W:<span class="built_in">int</span>, itemIndex:<span class="built_in">int</span>, weight:<span class="built_in">list</span>, value:<span class="built_in">list</span></span>):</span><br><span class="line">    <span class="keyword">if</span> itemIndex &gt;= <span class="built_in">len</span>(weight) <span class="keyword">or</span> W &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> weight[itemIndex] &gt; W:</span><br><span class="line">        <span class="keyword">return</span> KnapsackProblem(W, itemIndex+<span class="number">1</span>, weight, value)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        DP[W] = <span class="built_in">max</span>(KnapsackProblem(W, itemIndex+<span class="number">1</span>, weight, value), KnapsackProblem(W-weight[itemIndex], itemIndex+<span class="number">1</span>, weight, value)+value[itemIndex])</span><br><span class="line">        <span class="keyword">return</span> DP[W]</span><br></pre></td></tr></table></figure>
+<p>The optimized method has <span class="math inline">\(O(n *
+W)\)</span> time complexity and <span class="math inline">\(O(W)\)</span> space complexity.</p>
+<h3 id="take-away">Take-away</h3>
+<p>The key of dynamic programming is to trade space for time. Through
+memorizing overlapping intermediate results, the algorithm is speed
+up.</p>
+<h2 id="fractional-knapsack-problem">Fractional Knapsack Problem</h2>
+<h3 id="what-is-fractional-knapsack-problem">What is Fractional Knapsack
+Problem?</h3>
+<p>The only difference between 0-1 knapsack problem and fractional
+knapsack problem is that we can break items to fill the bag. Thus we can
+use greedy approach. We always prefer the item with the largest <span class="math inline">\(value/weight\)</span> ratio.</p>
+<h3 id="implementation">Implementation</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">KnapsackProblem</span>(<span class="params">W:<span class="built_in">int</span>, itemIndex:<span class="built_in">int</span>, weight:<span class="built_in">list</span>, value:<span class="built_in">list</span></span>):</span><br><span class="line">    <span class="comment"># sort items based on value/weight ratio</span></span><br><span class="line">    itemIndex = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(weight))]</span><br><span class="line">    itemIndex.sort(key=<span class="keyword">lambda</span> i: value[i] / weight[i], reverse=<span class="literal">True</span>)</span><br><span class="line">	</span><br><span class="line">    <span class="comment"># init result</span></span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># go throught all items</span></span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> itemIndex:</span><br><span class="line">        <span class="keyword">if</span> weight[index] &lt;= W:</span><br><span class="line">            <span class="comment"># add this item</span></span><br><span class="line">            W -= weight[index]</span><br><span class="line">            ans += value[index]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># add part of this item an break</span></span><br><span class="line">            ans += value[index] / weight[index] * W</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+<h2 id="unbounded-knapsack-problem">Unbounded Knapsack Problem</h2>
+<h3 id="what-is-unbounded-knapsack-problem">What is Unbounded Knapsack
+Problem?</h3>
+<p>The difference between unbounded knapsack problem and 0-1 knapsack
+problem is that: there is no limit on the number of a certain item,
+namely repetition of items is allowed.</p>
+<h3 id="same-with-0-1-knapsack-problem">Same with 0-1 Knapsack
+Problem?</h3>
+<p>The only part we need to modify in the algorithm is: do not update
+the <code>itemIndex</code> if we decide to pick this item (because there
+is no limit on the number of item); continue considering this item until
+this item cannot fit knapsack.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DP = [[-<span class="number">1</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(W + <span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(weight) + <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">KnapsackProblem</span>(<span class="params">W:<span class="built_in">int</span>, itemIndex:<span class="built_in">int</span>, weight:<span class="built_in">list</span>, value:<span class="built_in">list</span></span>):</span><br><span class="line">    <span class="keyword">if</span> itemIndex &gt;= <span class="built_in">len</span>(weight) <span class="keyword">or</span> W &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># if it is the last item</span></span><br><span class="line">    <span class="keyword">if</span> itemIndex == <span class="built_in">len</span>(weight) - <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> W // weight[-<span class="number">1</span>] * value[-<span class="number">1</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> DP[itemIndex][W] != -<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> DP[itemIndex][W]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> weight[itemIndex] &gt; W:</span><br><span class="line">        DP[itemIndex][W] = KnapsackProblem(W, itemIndex + <span class="number">1</span>, weight, value)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># if we pick this item, do not itemIndex + 1, continue focusing on this item</span></span><br><span class="line">        DP[itemIndex][W] = <span class="built_in">max</span>(KnapsackProblem(W, itemIndex + <span class="number">1</span>, weight, value), KnapsackProblem(W - weight[itemIndex], itemIndex, weight, value) + value[itemIndex])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> DP[itemIndex][W]</span><br></pre></td></tr></table></figure>
+<p>Time Complexity: <span class="math inline">\(O(n * W)\)</span>. Space
+Complexity: <span class="math inline">\(O(n * W)\)</span>.</p>
+<p>We can also improve the space complexity (similar to what we did to
+the 0-1 Knapsack Problem).</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Career</category>
+        <category>Algorithm</category>
       </categories>
   </entry>
   <entry>
@@ -3186,100 +3285,6 @@ to exit.</p></li>
       </categories>
   </entry>
   <entry>
-    <title>Knapsack Problem</title>
-    <url>/2022/10/04/Knapsack-Problem/</url>
-    <content><![CDATA[<h1 id="knapsack-problem">Knapsack Problem</h1>
-<p>Knapsack problem is a constraint optimization problem. You have to
-find an optimal answer given certain constraints (capacity of knapsack).
-There are 3 different variants: <strong>0-1 knapsack</strong>,
-<strong>fractional knapsack</strong> and <strong>unbounded
-knapsack</strong>. We will discuss them one by one.</p>
-<h2 id="knapsack-problem-1">0-1 Knapsack Problem</h2>
-<h3 id="what-is-a-0-1-knapsack-problem">What is a 0-1 Knapsack
-Problem?</h3>
-<p>In the 0-1 knapsack problem, we can either keep an item or not. There
-is no way to split an item. Each item has a value and a weight. The
-knapsack, or the bag, has a weight capacity. Our target is to fill the
-bag with maximum value while not exceeding its capacity.</p>
-<p>Input: bag weight capacity <span class="math inline">\(W\)</span>,
-<span class="math inline">\(n\)</span> items with value
-<code>value[]</code> and weight <code>weight[]</code>.</p>
-<p>Output: maximum feasible value <span id="more"></span></p>
-<h3 id="let-try-robust-methods">Let' try robust methods</h3>
-<p>For knapsack problem, greedy algorithm does not work, we will not
-discuss the details about the greedy algorithm in this article. Please
-refer to this <a href="https://www.scaler.com/topics/knapsack-problem/">article</a>.</p>
-<p>A basic idea is to search all possible subsets. We starts with an
-empty bag and put items one by one. The initial state of this bag is 0
-value and <span class="math inline">\(W\)</span> remaining capacity. Now
-we pick the first item. Value of the first item is <code>value[0]</code>
-and weight of it is <code>weight[0]</code>. If the bag can hold this
-item, namely <code>weight[0] &lt;= W</code>, we put it in and update the
-status of bag to
-<code>value = value[0], remaining capacity = W - weight[0]</code>. If
-the bag cannot hold this item, namely <code>weight[0] &gt; W</code>,
-just skip this item. Continue adding new items until all items are used
-up or the capacity of the bag is used up.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">KnapsackProblem</span>(<span class="params">W:<span class="built_in">int</span>, itemIndex:<span class="built_in">int</span>, weight:<span class="built_in">list</span>, value:<span class="built_in">list</span></span>):</span><br><span class="line">    <span class="comment"># if all items or used up or the capacity of bag is used up, return</span></span><br><span class="line">    <span class="keyword">if</span> itemIndex &gt;= <span class="built_in">len</span>(weight) <span class="keyword">or</span> W &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="comment"># add new item</span></span><br><span class="line">    <span class="keyword">if</span> weight[itemIndex] &gt; W:</span><br><span class="line">        <span class="comment"># skip this item</span></span><br><span class="line">        <span class="keyword">return</span> KnapsackProblem(W, itemIndex + <span class="number">1</span>, weight, value)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># recursion</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(KnapsackProblem(W, itemIndex + <span class="number">1</span>, weight, value), KnapsackProblem(W - weight[itemIndex], itemIndex + <span class="number">1</span>, weight, value) + value[itemIndex])</span><br></pre></td></tr></table></figure>
-<p>The algorithm above works pretty well, but there is one big problem:
-we do a lot repeated calculation which will significantly increase time
-consumption. For each item, we have to consider 2 cases, either this
-item is included or not. So the time complexity is <span class="math inline">\(O(2^n)\)</span>.</p>
-<h3 id="trade-off-time-or-space">Trade-off: time or space</h3>
-<p>In order to solve such overlapping subproblems, we can use dynamic
-programming. The basic idea of it is to use additional space to memorize
-repeated results so that the search process can be speed up.</p>
-<p>A good way to reduce the repeated calculation is to store the results
-of intermediate subproblems in an array o vector. <code>DP[n][W]</code>
-will store the optimal results with the first n items and the bag with W
-capacity.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DP = [[-<span class="number">1</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(W + <span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(weight) + <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">KnapsackProblem</span>(<span class="params">W:<span class="built_in">int</span>, itemIndex:<span class="built_in">int</span>, weight:<span class="built_in">list</span>, value:<span class="built_in">list</span></span>):</span><br><span class="line">    <span class="comment"># if all items or used up or the capacity of bag is used up, return</span></span><br><span class="line">    <span class="keyword">if</span> itemIndex &gt;= <span class="built_in">len</span>(weight) <span class="keyword">or</span> W &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># check existing DP data</span></span><br><span class="line">    <span class="keyword">if</span> DP[itemIndex][W] != -<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> DP[itemIndex][W]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># add new item</span></span><br><span class="line">    <span class="keyword">if</span> weight[itemIndex] &gt; W:</span><br><span class="line">        <span class="comment"># skip this item</span></span><br><span class="line">        DP[itemIndex][W] = KnapsackProblem(W, itemIndex + <span class="number">1</span>, weight, value)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># recursion</span></span><br><span class="line">        DP[itemIndex][W] = <span class="built_in">max</span>(KnapsackProblem(W, itemIndex + <span class="number">1</span>, weight, value), KnapsackProblem(W - weight[itemIndex], itemIndex + <span class="number">1</span>, weight, value) + value[itemIndex])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> DP[itemIndex][W]</span><br></pre></td></tr></table></figure>
-<p>Since the index of a list starts from 0 in python, the size of DP is
-<span class="math inline">\((W+1)*(n+1)\)</span>. All we need to do is
-to fill the matrix, DP. Thus the time complexity is <span class="math inline">\(O(n*W)\)</span> and the space complexity is also
-<span class="math inline">\(O(n*W)\)</span>.</p>
-<p>You may notice that: actually we do not need to memorize all
-intermediate results and what really matters is just the optimal result
-for different bag capacity. When we consider the <span class="math inline">\(i^{th}\)</span> , we do not need to consider</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DP = [-<span class="number">1</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(W+<span class="number">1</span>)]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">KnapsackProblem</span>(<span class="params">W:<span class="built_in">int</span>, itemIndex:<span class="built_in">int</span>, weight:<span class="built_in">list</span>, value:<span class="built_in">list</span></span>):</span><br><span class="line">    <span class="keyword">if</span> itemIndex &gt;= <span class="built_in">len</span>(weight) <span class="keyword">or</span> W &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> weight[itemIndex] &gt; W:</span><br><span class="line">        <span class="keyword">return</span> KnapsackProblem(W, itemIndex+<span class="number">1</span>, weight, value)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        DP[W] = <span class="built_in">max</span>(KnapsackProblem(W, itemIndex+<span class="number">1</span>, weight, value), KnapsackProblem(W-weight[itemIndex], itemIndex+<span class="number">1</span>, weight, value)+value[itemIndex])</span><br><span class="line">        <span class="keyword">return</span> DP[W]</span><br></pre></td></tr></table></figure>
-<p>The optimized method has <span class="math inline">\(O(n *
-W)\)</span> time complexity and <span class="math inline">\(O(W)\)</span> space complexity.</p>
-<h3 id="take-away">Take-away</h3>
-<p>The key of dynamic programming is to trade space for time. Through
-memorizing overlapping intermediate results, the algorithm is speed
-up.</p>
-<h2 id="fractional-knapsack-problem">Fractional Knapsack Problem</h2>
-<h3 id="what-is-fractional-knapsack-problem">What is Fractional Knapsack
-Problem?</h3>
-<p>The only difference between 0-1 knapsack problem and fractional
-knapsack problem is that we can break items to fill the bag. Thus we can
-use greedy approach. We always prefer the item with the largest <span class="math inline">\(value/weight\)</span> ratio.</p>
-<h3 id="implementation">Implementation</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">KnapsackProblem</span>(<span class="params">W:<span class="built_in">int</span>, itemIndex:<span class="built_in">int</span>, weight:<span class="built_in">list</span>, value:<span class="built_in">list</span></span>):</span><br><span class="line">    <span class="comment"># sort items based on value/weight ratio</span></span><br><span class="line">    itemIndex = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(weight))]</span><br><span class="line">    itemIndex.sort(key=<span class="keyword">lambda</span> i: value[i] / weight[i], reverse=<span class="literal">True</span>)</span><br><span class="line">	</span><br><span class="line">    <span class="comment"># init result</span></span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># go throught all items</span></span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> itemIndex:</span><br><span class="line">        <span class="keyword">if</span> weight[index] &lt;= W:</span><br><span class="line">            <span class="comment"># add this item</span></span><br><span class="line">            W -= weight[index]</span><br><span class="line">            ans += value[index]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># add part of this item an break</span></span><br><span class="line">            ans += value[index] / weight[index] * W</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
-<h2 id="unbounded-knapsack-problem">Unbounded Knapsack Problem</h2>
-<h3 id="what-is-unbounded-knapsack-problem">What is Unbounded Knapsack
-Problem?</h3>
-<p>The difference between unbounded knapsack problem and 0-1 knapsack
-problem is that: there is no limit on the number of a certain item,
-namely repetition of items is allowed.</p>
-<h3 id="same-with-0-1-knapsack-problem">Same with 0-1 Knapsack
-Problem?</h3>
-<p>The only part we need to modify in the algorithm is: do not update
-the <code>itemIndex</code> if we decide to pick this item (because there
-is no limit on the number of item); continue considering this item until
-this item cannot fit knapsack.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DP = [[-<span class="number">1</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(W + <span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(weight) + <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">KnapsackProblem</span>(<span class="params">W:<span class="built_in">int</span>, itemIndex:<span class="built_in">int</span>, weight:<span class="built_in">list</span>, value:<span class="built_in">list</span></span>):</span><br><span class="line">    <span class="keyword">if</span> itemIndex &gt;= <span class="built_in">len</span>(weight) <span class="keyword">or</span> W &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># if it is the last item</span></span><br><span class="line">    <span class="keyword">if</span> itemIndex == <span class="built_in">len</span>(weight) - <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> W // weight[-<span class="number">1</span>] * value[-<span class="number">1</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> DP[itemIndex][W] != -<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> DP[itemIndex][W]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> weight[itemIndex] &gt; W:</span><br><span class="line">        DP[itemIndex][W] = KnapsackProblem(W, itemIndex + <span class="number">1</span>, weight, value)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># if we pick this item, do not itemIndex + 1, continue focusing on this item</span></span><br><span class="line">        DP[itemIndex][W] = <span class="built_in">max</span>(KnapsackProblem(W, itemIndex + <span class="number">1</span>, weight, value), KnapsackProblem(W - weight[itemIndex], itemIndex, weight, value) + value[itemIndex])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> DP[itemIndex][W]</span><br></pre></td></tr></table></figure>
-<p>Time Complexity: <span class="math inline">\(O(n * W)\)</span>. Space
-Complexity: <span class="math inline">\(O(n * W)\)</span>.</p>
-<p>We can also improve the space complexity (similar to what we did to
-the 0-1 Knapsack Problem).</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-  </entry>
-  <entry>
     <title>MacBook 软件配置</title>
     <url>/2022/01/23/MacBook-%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>Apps:</p>
@@ -3358,6 +3363,20 @@ only need to load a combined file instead of many small spill file.</p>
       </categories>
   </entry>
   <entry>
+    <title>Markdown在github上公式显示错误</title>
+    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _
+后加空格，如<span class="math inline">\(a_
+1\)</span>应写为<code>a_ 1</code></p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MultiThreading in Python</title>
     <url>/2022/12/21/MultiThreading-in-Python/</url>
     <content><![CDATA[<h2 id="multi-threading">Multi-threading</h2>
@@ -3383,20 +3402,6 @@ without waiting for sub-thread</h3>
 <p>You do not have to create sub-processes one by one.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">show</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;num: &#123;0&#125;&#x27;</span>.<span class="built_in">format</span>(num))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    pool = Pool(processes=<span class="number">4</span>) <span class="comment"># max concurrent process &lt;= num of physical cores</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">        pool.apply_async(func=show, args=(i,))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;===== apply_async =====&#x27;</span>)</span><br><span class="line">    pool.close() <span class="comment"># close pool after all sub-processes are finished</span></span><br><span class="line">    pool.join() <span class="comment"># main process will wait for sub-process (after close())</span></span><br></pre></td></tr></table></figure>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Markdown在github上公式显示错误</title>
-    <url>/2020/12/15/Markdown%E5%9C%A8github%E4%B8%8A%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<p>注意github对markdown更加严格，<strong>一定</strong>要在 _
-后加空格，如<span class="math inline">\(a_
-1\)</span>应写为<code>a_ 1</code></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
   </entry>
   <entry>
     <title>My Donut in Blender</title>
@@ -3452,6 +3457,23 @@ without waiting for sub-thread</h3>
       </categories>
   </entry>
   <entry>
+    <title>Numpy np.where</title>
+    <url>/2022/04/02/Numpy-np-where/</url>
+    <content><![CDATA[<p><code>np.where</code> seems to be an important function that need to
+be noticed.</p>
+<p>Two examples to show its function.</p>
+<ol type="1">
+<li><p><code>np.where(condition, x, y)</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.mat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">matrix([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = np.where(x &gt; <span class="number">1</span>, <span class="number">0</span>, x)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]])</span><br></pre></td></tr></table></figure></li>
+<li><p><code>np.where(condition)</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.mat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">matrix([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = np.where(x &gt; <span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line">(array([<span class="number">0</span>, <span class="number">0</span>]), array([<span class="number">1</span>, <span class="number">2</span>]))</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Netscope for Caffe</title>
     <url>/2022/07/26/Netscope-for-Caffe/</url>
     <content><![CDATA[<p><strong>Netscope</strong> is a web-based tool for visualizing neural
@@ -3467,23 +3489,6 @@ Here</a></p>
 ]]></content>
       <categories>
         <category>Machine Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Numpy np.where</title>
-    <url>/2022/04/02/Numpy-np-where/</url>
-    <content><![CDATA[<p><code>np.where</code> seems to be an important function that need to
-be noticed.</p>
-<p>Two examples to show its function.</p>
-<ol type="1">
-<li><p><code>np.where(condition, x, y)</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.mat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">matrix([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = np.where(x &gt; <span class="number">1</span>, <span class="number">0</span>, x)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]])</span><br></pre></td></tr></table></figure></li>
-<li><p><code>np.where(condition)</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.mat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">matrix([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = np.where(x &gt; <span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line">(array([<span class="number">0</span>, <span class="number">0</span>]), array([<span class="number">1</span>, <span class="number">2</span>]))</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Coding</category>
       </categories>
   </entry>
   <entry>
@@ -3576,6 +3581,24 @@ choose to disable it on your own will.</p></li>
       </categories>
   </entry>
   <entry>
+    <title>PDF &amp; CDF</title>
+    <url>/2021/02/24/PDF_CDF/</url>
+    <content><![CDATA[<p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。
+为此引入了PDF（Probability Density
+Function），直观地理解可以近似理解为概率本身--也就是说如果我们不关心纯粹的概率值，而只要求相对的概率大小，那么就可以使用某个点的PDF值进行计算（比如最大似然估计）。但是要认识到某个点的具体概率值实际为<span class="math inline">\(PDF(x)*dx =
+0\)</span>，一个点的概率本身没有意义。</p>
+<p>为此需要引入CDF，即为PDF在一定区间上的积分，这使得CDF具有了实际的概率意义。</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Probability Density Function</tag>
+        <tag>Cumulative Distribution Function</tag>
+        <tag>Norm Distribution</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Principal Component Analysis</title>
     <url>/2021/05/27/Principal-Component-Analysis/</url>
     <content><![CDATA[<h1 id="principal-component-analysis-pca">Principal Component Analysis
@@ -3601,46 +3624,6 @@ Component？</h2>
       <tags>
         <tag>PCA</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>PDF &amp; CDF</title>
-    <url>/2021/02/24/PDF_CDF/</url>
-    <content><![CDATA[<p>对于离散量的概率统计来说，概率是相对直观的：5的红色球+5个白色球，随机拿出红色球的概率为1/2。但是当离散量变为连续量时，基于枚举的统计方式就不可靠了：在一条连续直线内选出某个点的概率为0。
-为此引入了PDF（Probability Density
-Function），直观地理解可以近似理解为概率本身--也就是说如果我们不关心纯粹的概率值，而只要求相对的概率大小，那么就可以使用某个点的PDF值进行计算（比如最大似然估计）。但是要认识到某个点的具体概率值实际为<span class="math inline">\(PDF(x)*dx =
-0\)</span>，一个点的概率本身没有意义。</p>
-<p>为此需要引入CDF，即为PDF在一定区间上的积分，这使得CDF具有了实际的概率意义。</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Probability Density Function</tag>
-        <tag>Cumulative Distribution Function</tag>
-        <tag>Norm Distribution</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python set</title>
-    <url>/2020/09/24/Python-set/</url>
-    <content><![CDATA[<h3 id="basic-use-of-set">Basic use of set</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;x = <span class="built_in">set</span>(<span class="string">&#x27;runoob&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;y = <span class="built_in">set</span>(<span class="string">&#x27;google&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;x, y</span><br><span class="line">(<span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>]), <span class="built_in">set</span>([<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>]))   <span class="comment"># delete duplicated items</span></span><br><span class="line">&gt;&gt;&gt;x &amp; y         <span class="comment"># return the same items in both set</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;o&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x | y         <span class="comment"># return all the items</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x - y         <span class="comment"># like difference</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;n&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h3 id="practice">Practice</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;a = <span class="built_in">set</span>(<span class="string">&quot;Google&quot;</span>)</span><br><span class="line">a</span><br><span class="line">&#123;<span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;e&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;b = <span class="built_in">set</span>(<span class="string">&quot;Bob&quot;</span>)</span><br><span class="line">b</span><br><span class="line">&#123;<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;o&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;a.difference(b)</span><br><span class="line">&#123;<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># set A and set B</span></span><br><span class="line"><span class="comment"># deep copy set</span></span><br><span class="line">C = A.copy()</span><br><span class="line"><span class="comment"># add elements in B to A</span></span><br><span class="line">A.update(B)</span><br></pre></td></tr></table></figure>
-<h3 id="how-to-init">How to init</h3>
-<ol type="1">
-<li><code>s = set([1,2,3,4,5])</code></li>
-<li><code>s = &#123;1,2,3,4,5&#125; # it is a set</code></li>
-</ol>
-<h3 id="how-to-determine-an-empty-set">How to determine an empty
-set</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> s: <span class="comment"># if the set is empty</span></span><br><span class="line">	<span class="comment"># do sth</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
   </entry>
   <entry>
     <title>PySpark Install</title>
@@ -3669,6 +3652,43 @@ set</h3>
 ]]></content>
       <categories>
         <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Python argparse</title>
+    <url>/2022/04/03/Python-argparse/</url>
+    <content><![CDATA[<p>This is a template of <code>argparse</code>.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&quot;description of this script&quot;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--parameter&#x27;</span>,<span class="string">&#x27;-p&#x27;</span>,<span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="string">&#x27;1&#x27;</span>, <span class="built_in">help</span>=<span class="string">&#x27;epoch&#x27;</span>)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">parameter = args.parameter</span><br><span class="line"><span class="built_in">print</span>(parameter)</span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&quot;description of this script&quot;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--querID&#x27;</span>,<span class="string">&#x27;-id&#x27;</span>,<span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&#x27;Query ID&#x27;</span>)</span><br><span class="line"></span><br><span class="line">args = parser.parse_args().__dict__</span><br><span class="line"><span class="built_in">print</span>(args)</span><br></pre></td></tr></table></figure>
+<p>Pass boolean flag via</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">parser.add_argument(<span class="string">&#x27;--flag&#x27;</span>, action=<span class="string">&quot;store_true&quot;</span>, <span class="built_in">help</span>=<span class="string">&quot;this is your boolean value&quot;</span>)</span><br><span class="line"><span class="comment"># enable this flag via: python test.py --flag</span></span><br></pre></td></tr></table></figure>
+<p><code>python script.py -h</code> to show the help of parameters.</p>
+]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Python set</title>
+    <url>/2020/09/24/Python-set/</url>
+    <content><![CDATA[<h3 id="basic-use-of-set">Basic use of set</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;x = <span class="built_in">set</span>(<span class="string">&#x27;runoob&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;y = <span class="built_in">set</span>(<span class="string">&#x27;google&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;x, y</span><br><span class="line">(<span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>]), <span class="built_in">set</span>([<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>]))   <span class="comment"># delete duplicated items</span></span><br><span class="line">&gt;&gt;&gt;x &amp; y         <span class="comment"># return the same items in both set</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;o&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x | y         <span class="comment"># return all the items</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>])</span><br><span class="line">&gt;&gt;&gt;x - y         <span class="comment"># like difference</span></span><br><span class="line"><span class="built_in">set</span>([<span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;n&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="practice">Practice</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;a = <span class="built_in">set</span>(<span class="string">&quot;Google&quot;</span>)</span><br><span class="line">a</span><br><span class="line">&#123;<span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;e&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;b = <span class="built_in">set</span>(<span class="string">&quot;Bob&quot;</span>)</span><br><span class="line">b</span><br><span class="line">&#123;<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;o&#x27;</span>&#125;</span><br><span class="line">&gt;&gt;&gt;a.difference(b)</span><br><span class="line">&#123;<span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;l&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># set A and set B</span></span><br><span class="line"><span class="comment"># deep copy set</span></span><br><span class="line">C = A.copy()</span><br><span class="line"><span class="comment"># add elements in B to A</span></span><br><span class="line">A.update(B)</span><br></pre></td></tr></table></figure>
+<h3 id="how-to-init">How to init</h3>
+<ol type="1">
+<li><code>s = set([1,2,3,4,5])</code></li>
+<li><code>s = &#123;1,2,3,4,5&#125; # it is a set</code></li>
+</ol>
+<h3 id="how-to-determine-an-empty-set">How to determine an empty
+set</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> s: <span class="comment"># if the set is empty</span></span><br><span class="line">	<span class="comment"># do sth</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
       </categories>
   </entry>
   <entry>
@@ -3704,21 +3724,6 @@ a.</p>
       <tags>
         <tag>Python</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Python argparse</title>
-    <url>/2022/04/03/Python-argparse/</url>
-    <content><![CDATA[<p>This is a template of <code>argparse</code>.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&quot;description of this script&quot;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--parameter&#x27;</span>,<span class="string">&#x27;-p&#x27;</span>,<span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="string">&#x27;1&#x27;</span>, <span class="built_in">help</span>=<span class="string">&#x27;epoch&#x27;</span>)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">parameter = args.parameter</span><br><span class="line"><span class="built_in">print</span>(parameter)</span><br></pre></td></tr></table></figure>
-<p>or</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&quot;description of this script&quot;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--querID&#x27;</span>,<span class="string">&#x27;-id&#x27;</span>,<span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&#x27;Query ID&#x27;</span>)</span><br><span class="line"></span><br><span class="line">args = parser.parse_args().__dict__</span><br><span class="line"><span class="built_in">print</span>(args)</span><br></pre></td></tr></table></figure>
-<p>Pass boolean flag via</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">parser.add_argument(<span class="string">&#x27;--flag&#x27;</span>, action=<span class="string">&quot;store_true&quot;</span>, <span class="built_in">help</span>=<span class="string">&quot;this is your boolean value&quot;</span>)</span><br><span class="line"><span class="comment"># enable this flag via: python test.py --flag</span></span><br></pre></td></tr></table></figure>
-<p><code>python script.py -h</code> to show the help of parameters.</p>
-]]></content>
-      <categories>
-        <category>Coding</category>
-      </categories>
   </entry>
   <entry>
     <title>Pytorch Environment on Apple Silicon</title>
@@ -4723,6 +4728,15 @@ tensorboard</p>
       </categories>
   </entry>
   <entry>
+    <title>Test discription</title>
+    <url>/2021/09/15/Test-discription/</url>
+    <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Test Latex Formula</title>
     <url>/2021/09/15/Test-Latex-Formula/</url>
     <content><![CDATA[<p>This is an inline formula: <span class="math inline">\(x=7\)</span>.
@@ -4735,15 +4749,6 @@ a=\frac{1}{2}
 <p><span class="math display">\[
 f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})
 \]</span></p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Test discription</title>
-    <url>/2021/09/15/Test-discription/</url>
-    <content><![CDATA[<p>You are not supposed to see this. <span id="more"></span> Another way.</p>
 ]]></content>
       <categories>
         <category>Test</category>
@@ -4827,9 +4832,9 @@ tensor</h2>
   <entry>
     <title>Video test</title>
     <url>/2021/09/15/Video-test/</url>
-    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-lkOANEdjeOhffXvH" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-lkOANEdjeOhffXvH").style.height=document.getElementById("mmedia-lkOANEdjeOhffXvH").scrollWidth*0.76+"px";
+    <content><![CDATA[<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-WYboADzMbgUhocCC" src="https://player.bilibili.com/player.html?bvid=BV12K4y1W7vZ&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-WYboADzMbgUhocCC").style.height=document.getElementById("mmedia-WYboADzMbgUhocCC").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-lkOANEdjeOhffXvH").style.height=document.getElementById("mmedia-lkOANEdjeOhffXvH").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-WYboADzMbgUhocCC").style.height=document.getElementById("mmedia-WYboADzMbgUhocCC").scrollWidth*0.76+"px";
     }; </script>
 <table>
 <colgroup>
@@ -4905,6 +4910,78 @@ tensor</h2>
       </categories>
   </entry>
   <entry>
+    <title>WSL2 Configuration</title>
+    <url>/2022/10/04/WSL2-Configuration/</url>
+    <content><![CDATA[<p>install WSL2 in Win10</p>
+<ol type="1">
+<li>open <code>powershell</code> as administrator.</li>
+<li><code>winver</code> to check your Windows version.</li>
+<li><code>wsl -l -o</code> to check all available distribution
+package.</li>
+<li><code>wsl --install -d &lt;distribution&gt;</code> to install
+specified Linux version.</li>
+<li>(Optional) if you want to connect to your WSL via VScode, check this
+plugin <code>Remote-WSL</code></li>
+</ol>
+<p>install Anaconda in WSL2</p>
+<ol type="1">
+<li>update <code>sudo apt update; sudo apt upgrade</code></li>
+<li>check the download <a href="%5BAnaconda%20%7C%20Anaconda%20Distribution%5D(https://www.anaconda.com/products/distribution)">link</a></li>
+<li>install via <code>wget</code>, eg.
+<code>wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh</code></li>
+<li>run the installer script to install Anaconda. (remember to run
+<code>conda init</code>)</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>What is Detached Head in GIT</title>
+    <url>/2023/06/15/What-is-Detached-Head-in-GIT/</url>
+    <content><![CDATA[<p>HEAD is a symbolic ref pointing the branch which is also a ref
+pointing the latest commit oid. like this</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> .git/HEAD</span> </span><br><span class="line">ref: refs/heads/main</span><br></pre></td></tr></table></figure>
+<p>In this case, if u make a new commit, git will not actually change
+the HEAD but change the branch pointed by HEAD. Bad thing happens if u
+checkout a commit by its oid. Checking a commit by its oid means HEAD
+will be not be a symbolic ref and HEAD will point at a commit directly.
+like this</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout e53fae9913340f71ade680e5b1c477892a2abd90</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> .git/HEAD</span> </span><br><span class="line">e53fae9913340f71ade680e5b1c477892a2abd90</span><br></pre></td></tr></table></figure>
+<p><code>e53fae9913340f71ade680e5b1c477892a2abd90</code> is a commit
+id.</p>
+<p>U will get a warning when u try
+<code>git checkout &lt;commit oid&gt;</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Note: switching to &#x27;e53fae9913340f71ade680e5b1c477892a2abd90&#x27;.</span><br><span class="line"></span><br><span class="line">You are in &#x27;detached HEAD&#x27; state. You can look around, make experimental</span><br><span class="line">changes and commit them, and you can discard any commits you make in this</span><br><span class="line">state without impacting any branches by switching back to a branch.</span><br></pre></td></tr></table></figure>
+<p>Now if u do some changes and commits, HEAD will record everything.
+But if u switch to a branch, u will lose the changes and commits because
+there is no branch tracking ur modification (these commits are recorded
+by git but u can only track them via their oid). U should avoid this
+situation (create a new branch instead), or tag the commits before
+leaving.</p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>What to compare two excel in Python?</title>
+    <url>/2023/06/15/What-to-compare-two-excel-in-python/</url>
+    <content><![CDATA[<ol type="1">
+<li><p>if it is about aggregate data -- copy and paste (minus)</p></li>
+<li><p>if it is about detail data -- try <code>datacompy</code> in
+python</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> datacompy <span class="comment"># pip install datacompy</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">files = []</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    files = [sys.argv[<span class="number">1</span>], sys.argv[<span class="number">2</span>]]</span><br><span class="line">    sheet = <span class="built_in">int</span>(sys.argv[<span class="number">3</span>]) </span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">raise</span> Exception(<span class="string">&#x27;No Input&#x27;</span>)</span><br><span class="line"></span><br><span class="line">df1 = pd.read_excel(files[<span class="number">0</span>], sheet_name=sheet)</span><br><span class="line">df2 = pd.read_excel(files[<span class="number">1</span>], sheet_name=sheet)</span><br><span class="line">join_columns = [<span class="string">&#x27;xxx&#x27;</span>] <span class="comment"># key to join </span></span><br><span class="line"></span><br><span class="line">compare = datacompy.Compare(df1, </span><br><span class="line">                            df2, </span><br><span class="line">                            join_columns=join_columns,</span><br><span class="line">                            rel_tol=<span class="number">0.01</span>, <span class="comment"># difference between two float &lt;= 0.01</span></span><br><span class="line">                            df1_name=<span class="string">&#x27;data 1&#x27;</span>,</span><br><span class="line">                            df2_name=<span class="string">&#x27;data 2&#x27;</span></span><br><span class="line">                            )</span><br><span class="line"><span class="built_in">print</span>(compare.matches()) <span class="comment"># return bool</span></span><br><span class="line"><span class="built_in">print</span>(compare.report()) <span class="comment"># return detailed report</span></span><br></pre></td></tr></table></figure>
+<p>what it does is joining two tables and comparing each column and each
+row.</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+  </entry>
+  <entry>
     <title>What is the use of activation function</title>
     <url>/2020/12/30/What-is-the-use-of-activation-function/</url>
     <content><![CDATA[<h1 id="brief-intro-to-neural-network">Brief intro to Neural
@@ -4962,50 +5039,6 @@ Output of NN with activation
       </tags>
   </entry>
   <entry>
-    <title>What is Detached Head in GIT</title>
-    <url>/2023/06/15/What-is-Detached-Head-in-GIT/</url>
-    <content><![CDATA[<p>HEAD is a symbolic ref pointing the branch which is also a ref
-pointing the latest commit oid. like this</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> .git/HEAD</span> </span><br><span class="line">ref: refs/heads/main</span><br></pre></td></tr></table></figure>
-<p>In this case, if u make a new commit, git will not actually change
-the HEAD but change the branch pointed by HEAD. Bad thing happens if u
-checkout a commit by its oid. Checking a commit by its oid means HEAD
-will be not be a symbolic ref and HEAD will point at a commit directly.
-like this</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout e53fae9913340f71ade680e5b1c477892a2abd90</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> .git/HEAD</span> </span><br><span class="line">e53fae9913340f71ade680e5b1c477892a2abd90</span><br></pre></td></tr></table></figure>
-<p><code>e53fae9913340f71ade680e5b1c477892a2abd90</code> is a commit
-id.</p>
-<p>U will get a warning when u try
-<code>git checkout &lt;commit oid&gt;</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Note: switching to &#x27;e53fae9913340f71ade680e5b1c477892a2abd90&#x27;.</span><br><span class="line"></span><br><span class="line">You are in &#x27;detached HEAD&#x27; state. You can look around, make experimental</span><br><span class="line">changes and commit them, and you can discard any commits you make in this</span><br><span class="line">state without impacting any branches by switching back to a branch.</span><br></pre></td></tr></table></figure>
-<p>Now if u do some changes and commits, HEAD will record everything.
-But if u switch to a branch, u will lose the changes and commits because
-there is no branch tracking ur modification (these commits are recorded
-by git but u can only track them via their oid). U should avoid this
-situation (create a new branch instead), or tag the commits before
-leaving.</p>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>What to compare two excel in Python?</title>
-    <url>/2023/06/15/What-to-compare-two-excel-in-python/</url>
-    <content><![CDATA[<ol type="1">
-<li><p>if it is about aggregate data -- copy and paste (minus)</p></li>
-<li><p>if it is about detail data -- try <code>datacompy</code> in
-python</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> datacompy <span class="comment"># pip install datacompy</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">files = []</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    files = [sys.argv[<span class="number">1</span>], sys.argv[<span class="number">2</span>]]</span><br><span class="line">    sheet = <span class="built_in">int</span>(sys.argv[<span class="number">3</span>]) </span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">raise</span> Exception(<span class="string">&#x27;No Input&#x27;</span>)</span><br><span class="line"></span><br><span class="line">df1 = pd.read_excel(files[<span class="number">0</span>], sheet_name=sheet)</span><br><span class="line">df2 = pd.read_excel(files[<span class="number">1</span>], sheet_name=sheet)</span><br><span class="line">join_columns = [<span class="string">&#x27;xxx&#x27;</span>] <span class="comment"># key to join </span></span><br><span class="line"></span><br><span class="line">compare = datacompy.Compare(df1, </span><br><span class="line">                            df2, </span><br><span class="line">                            join_columns=join_columns,</span><br><span class="line">                            rel_tol=<span class="number">0.01</span>, <span class="comment"># difference between two float &lt;= 0.01</span></span><br><span class="line">                            df1_name=<span class="string">&#x27;data 1&#x27;</span>,</span><br><span class="line">                            df2_name=<span class="string">&#x27;data 2&#x27;</span></span><br><span class="line">                            )</span><br><span class="line"><span class="built_in">print</span>(compare.matches()) <span class="comment"># return bool</span></span><br><span class="line"><span class="built_in">print</span>(compare.report()) <span class="comment"># return detailed report</span></span><br></pre></td></tr></table></figure>
-<p>what it does is joining two tables and comparing each column and each
-row.</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Xcode build error: &#39;.dylib not valid for use in process&#39;</title>
     <url>/2022/03/19/Xcode-build-error-dylib-not-valid-for-use-in-process/</url>
     <content><![CDATA[<p>This project can be build successfully. But it can not run in
@@ -5017,34 +5050,6 @@ can choose not to sign the project.</p>
 <p>GO TO
 <code>TARGETS-&gt;Build Settings-&gt;Code Signing Identity-&gt;Others</code>.
 In default, it is '-'. Just delete it.</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>WSL2 Configuration</title>
-    <url>/2022/10/04/WSL2-Configuration/</url>
-    <content><![CDATA[<p>install WSL2 in Win10</p>
-<ol type="1">
-<li>open <code>powershell</code> as administrator.</li>
-<li><code>winver</code> to check your Windows version.</li>
-<li><code>wsl -l -o</code> to check all available distribution
-package.</li>
-<li><code>wsl --install -d &lt;distribution&gt;</code> to install
-specified Linux version.</li>
-<li>(Optional) if you want to connect to your WSL via VScode, check this
-plugin <code>Remote-WSL</code></li>
-</ol>
-<p>install Anaconda in WSL2</p>
-<ol type="1">
-<li>update <code>sudo apt update; sudo apt upgrade</code></li>
-<li>check the download <a href="%5BAnaconda%20%7C%20Anaconda%20Distribution%5D(https://www.anaconda.com/products/distribution)">link</a></li>
-<li>install via <code>wget</code>, eg.
-<code>wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh</code></li>
-<li>run the installer script to install Anaconda. (remember to run
-<code>conda init</code>)</li>
-</ol>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -5076,6 +5081,17 @@ or的规则：强制转化为bool类型，表达式的值是从<strong>左到右
 ]]></content>
   </entry>
   <entry>
+    <title>hexo中使用markdown无法处理特殊字符</title>
+    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。
+比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
+<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
     <title>assert expression in Python</title>
     <url>/2020/09/24/assert-expression-in-Python/</url>
     <content><![CDATA[<h2 id="tags">tags:</h2>
@@ -5089,17 +5105,6 @@ errors in code.</p>
 ]]></content>
       <categories>
         <category>Learning</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>hexo中使用markdown无法处理特殊字符</title>
-    <url>/2021/09/19/hexo%E4%B8%AD%E4%BD%BF%E7%94%A8markdown%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>之前写hexo文章的时候想打出infinity符号，就用了<span class="math inline">\(\infin\)</span>，在markdown中能正常显示，但是在hexo中就不行。查了一下发现hexo并不能直接转译，而是要用实体命名或者十进制编码。
-比如想打出刚刚的字符就要用<code>&amp;infin;</code>∞，注意这里的<code>;</code>是不能省略的。</p>
-<p>以下为<a href="https://www.pandashen.com">转载</a>的表格，供以后查询，国内使用这个<a href="https://www.jianshu.com/p/a8748bf8df1b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">链接</a>。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -5266,15 +5271,6 @@ target. Derive AP for all types-&gt;average-&gt;mAP.</p>
       </tags>
   </entry>
   <entry>
-    <title>win11修改右键菜单</title>
-    <url>/2022/12/21/win11%E4%BF%AE%E6%94%B9%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/</url>
-    <content><![CDATA[<p>open <code>CMD</code> with admin right. <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">reg.exe add &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot; /f /ve # win10 mode</span><br><span class="line">reg.exe delete &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot; /va /f # win11 mode</span><br><span class="line"></span><br><span class="line">taskkill /f /im explorer.exe &amp; start explorer.exe # reboot machine or run this line</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>why42</title>
     <url>/2022/10/23/why42/</url>
     <content><![CDATA[<p>Please set random seed to 42.</p>
@@ -5282,44 +5278,9 @@ target. Derive AP for all types-&gt;average-&gt;mAP.</p>
 ]]></content>
   </entry>
   <entry>
-    <title>yilia主题的头像配置失败</title>
-    <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<ol type="1">
-<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
-<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code>
-但是打开之后依然无法显示，甚至还有一个问号</li>
-</ol>
-<hr>
-<h2 id="问题解决">问题解决</h2>
-<p>这里有一个很tricky的地方搞了我很久
-在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code>
-比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
-<p><strong>注意</strong>
-麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>使用hexo theme Butterfly 报错</title>
-    <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
-    <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly
-报错</h2>
-<p>直接用github上作者提供的代码</p>
-<p>git clone -b master
-https://github.com/jerryc127/hexo-theme-butterfly.git
-themes/Butterfly</p>
-<p>结果是页面根本无法正常渲染，只有一行字：</p>
-<p><font color="#DC143C">extends includes/layout.pug block content include
-./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include
-includes/pagination.pug</font></p>
-<h2 id="问题解决">问题解决</h2>
-<p>参照原作者提供的文章<a href="https://docs.jerryc.me/#/config/question">Butterfly</a></p>
-<p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
-<hr>
-<h2 id="丝滑进入">丝滑进入</h2>
+    <title>win11修改右键菜单</title>
+    <url>/2022/12/21/win11%E4%BF%AE%E6%94%B9%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/</url>
+    <content><![CDATA[<p>open <code>CMD</code> with admin right. <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">reg.exe add &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot; /f /ve # win10 mode</span><br><span class="line">reg.exe delete &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot; /va /f # win11 mode</span><br><span class="line"></span><br><span class="line">taskkill /f /im explorer.exe &amp; start explorer.exe # reboot machine or run this line</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>Configuration</category>
@@ -5526,6 +5487,77 @@ includes/pagination.pug</font></p>
 </center></center>]]></content>
       <categories>
         <category>Essay</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
+    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
+<h2 id="问题原因">问题原因</h2>
+<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错
+因此有一下三种解决办法：</p>
+<ol type="1">
+<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
+<li><p>手动打开preinterpreter</p></li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<ol start="3" type="1">
+<li>重新为mac安装</li>
+</ol>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
+<p>如果有了就更新一下</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
+<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
+<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>yilia主题的头像配置失败</title>
+    <url>/2020/05/22/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E5%A4%B4%E5%83%8F%E9%85%8D%E7%BD%AE%E5%A4%B1%E8%B4%A5/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<ol type="1">
+<li>已经在hexo/yilia主题内<code>_config.yml</code>中的<code>avatar</code>配置了路径</li>
+<li>在<code>root</code>路径下配置<code>_config.yml</code>中<code>post_asset_folder: true</code>
+但是打开之后依然无法显示，甚至还有一个问号</li>
+</ol>
+<hr>
+<h2 id="问题解决">问题解决</h2>
+<p>这里有一个很tricky的地方搞了我很久
+在<code>yilia</code>主题下的<code>_config.yml</code>所配置的根目录不是<code>/themes/yilia</code>而是<code>/themes/yilia/source</code>
+比如我所配置的路径<code>/themes/yilia/source/assets/imags/avatar.png</code>，那么在<code>_config.yml</code>中配置的路径就只能是<code>/assets/imags/avatar.png</code></p>
+<p><strong>注意</strong>
+麻烦的地方就在这里，全路径在deploy到服务器时会出现问题，很基础，但一定要注意。</p>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>使用hexo theme Butterfly 报错</title>
+    <url>/2020/05/22/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
+    <content><![CDATA[<h2 id="使用hexo-theme-butterfly-报错">使用hexo theme Butterfly
+报错</h2>
+<p>直接用github上作者提供的代码</p>
+<p>git clone -b master
+https://github.com/jerryc127/hexo-theme-butterfly.git
+themes/Butterfly</p>
+<p>结果是页面根本无法正常渲染，只有一行字：</p>
+<p><font color="#DC143C">extends includes/layout.pug block content include
+./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include
+includes/pagination.pug</font></p>
+<h2 id="问题解决">问题解决</h2>
+<p>参照原作者提供的文章<a href="https://docs.jerryc.me/#/config/question">Butterfly</a></p>
+<p>按照方法安装<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>然后打开</p>
+<hr>
+<h2 id="丝滑进入">丝滑进入</h2>
+]]></content>
+      <categories>
+        <category>Configuration</category>
       </categories>
   </entry>
   <entry>
@@ -5963,49 +5995,10 @@ includes/pagination.pug</font></p>
       </categories>
   </entry>
   <entry>
-    <title>在为mac安装openmp时遇到link不能正常使用的问题</title>
-    <url>/2020/05/19/%E5%9C%A8%E4%B8%BAmac%E5%AE%89%E8%A3%85openmp%E6%97%B6%E9%81%87%E5%88%B0link%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
-<h2 id="已经按照网上的教程把openmp安装好了也已经配置了path但是在实际使用的时候无法调用库">已经按照网上的教程把openmp安装好了，也已经配置了path，但是在实际使用的时候无法调用库</h2>
-<h2 id="问题原因">问题原因</h2>
-<p>原因应该和mac操作系统有关，mac自动将gcc指向clang，在实际使用的时候会出错
-因此有一下三种解决办法：</p>
-<ol type="1">
-<li><p>手动link 这个可以考虑手动link库，去网上找就有了</p></li>
-<li><p>手动打开preinterpreter</p></li>
-</ol>
-<p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -Xpreprocessor -fopenmp -lomp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<ol start="3" type="1">
-<li>重新为mac安装</li>
-</ol>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install gcc</span><br></pre></td></tr></table></figure></p>
-<p>如果有了就更新一下</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip reinstall gcc</span><br></pre></td></tr></table></figure></p>
-<p>然后指名自己的gcc去运行（此方法来自助教，可以有效解决很多mac上gcc问题）</p>
-<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc-9 -openmp xxxx.c</span><br></pre></td></tr></table></figure></p>
-<h5 id="simple但是搞了我好久mac上面开发环境什么都有就是权限上各种问题还有各种私货">Simple，但是搞了我好久，mac上面开发环境什么都有就是权限上各种问题，还有各种私货。</h5>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-  </entry>
-  <entry>
     <title>心脏骤停</title>
     <url>/2022/03/16/%E5%BF%83%E8%84%8F%E9%AA%A4%E5%81%9C/</url>
     <content><![CDATA[<p>太阳好哥哥在拉仇恨，刚刚飞渡起手准备给拉达冈上一课。没想到是被服务器上了一课。</p>
 <p><img src="/2022/03/16/%E5%BF%83%E8%84%8F%E9%AA%A4%E5%81%9C/eldenring.jpg"></p>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>感谢好太阳哥哥们</title>
-    <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
-    <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
-<p align="center">
-<img src="/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/1.jpg" alt="1" style="zoom:25%;">
-</p>
 ]]></content>
       <categories>
         <category>Chat</category>
@@ -6025,6 +6018,18 @@ stores real-time layer while Data Warehouse stores historical data.)</p>
 ]]></content>
       <categories>
         <category>Big Data</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>感谢好太阳哥哥们</title>
+    <url>/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/</url>
+    <content><![CDATA[<p>之前一直是离线玩家，但是离线多周目之后确实无聊。然后买了个加速器去线上，快乐无穷啊，各种亲切老哥，特别是王子、校长、传火门前那是无数金光，快乐max！</p>
+<p align="center">
+<img src="/2020/05/22/%E6%84%9F%E8%B0%A2%E5%A5%BD%E5%A4%AA%E9%98%B3%E5%93%A5%E5%93%A5%E4%BB%AC/1.jpg" alt="1" style="zoom:25%;">
+</p>
+]]></content>
+      <categories>
+        <category>Chat</category>
       </categories>
   </entry>
   <entry>
@@ -6131,6 +6136,36 @@ cycle里就能执行多个指令。其中当然还有很多细节问题，但是
       </categories>
   </entry>
   <entry>
+    <title>还是GT好</title>
+    <url>/2021/07/12/%E8%BF%98%E6%98%AFGT%E5%A5%BD/</url>
+    <content><![CDATA[<p>宾利欧陆GT。公路上比起超跑还是GT更合适了。</p>
+<p align="center">
+<img src="/2021/07/12/%E8%BF%98%E6%98%AFGT%E5%A5%BD/1.jpeg" alt="1" style="zoom:35%;">
+</p>
+]]></content>
+      <categories>
+        <category>Chat</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>遍历二叉树-前/中/后序-递归/非递归</title>
+    <url>/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/</url>
+    <content><![CDATA[<h3 id="递归方法">递归方法</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line"> 	path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="非递归方法">非递归方法</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="type">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="type">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>)); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="type">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="type">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="type">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="type">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Reference: https://blog.csdn.net/czy47/article/details/81254984</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Binary Tree</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>给你的Vscode加一个毛玻璃特效</title>
     <url>/2020/05/22/%E7%BB%99%E4%BD%A0%E7%9A%84Vscode%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%AF%9B%E7%8E%BB%E7%92%83%E7%89%B9%E6%95%88/</url>
     <content><![CDATA[<h2 id="环境">环境</h2>
@@ -6165,48 +6200,6 @@ been fixed. You can turn off full screen manually.</p>
       <categories>
         <category>Configuration</category>
       </categories>
-  </entry>
-  <entry>
-    <title>还是GT好</title>
-    <url>/2021/07/12/%E8%BF%98%E6%98%AFGT%E5%A5%BD/</url>
-    <content><![CDATA[<p>宾利欧陆GT。公路上比起超跑还是GT更合适了。</p>
-<p align="center">
-<img src="/2021/07/12/%E8%BF%98%E6%98%AFGT%E5%A5%BD/1.jpeg" alt="1" style="zoom:35%;">
-</p>
-]]></content>
-      <categories>
-        <category>Chat</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>钻石材质第一次测试Blender</title>
-    <url>/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/</url>
-    <content><![CDATA[<p>初次尝试了blender里钻石材质的生成，接下来会详细分析材质节点的组成并仔细调参。并且会更换钻石模型和适当的场景进行测试。</p>
-<p align="center">
-<img src="/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/Diamond.jpg" alt="Diamond" style="zoom:30%;">
-</p>
-]]></content>
-      <categories>
-        <category>Blender</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>遍历二叉树-前/中/后序-递归/非递归</title>
-    <url>/2021/09/16/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91-%E5%89%8D-%E4%B8%AD-%E5%90%8E%E5%BA%8F-%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92/</url>
-    <content><![CDATA[<h3 id="递归方法">递归方法</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line"> 	path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="literal">nullptr</span>)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;left, path);</span><br><span class="line">    <span class="built_in">preorder</span>(root-&gt;right, path);</span><br><span class="line">    path.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h3 id="非递归方法">非递归方法</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">preorder</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="type">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="type">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>)); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="type">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="type">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt;&amp;path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;pair(TreeNode*, <span class="type">bool</span>)&gt; s;</span><br><span class="line">    <span class="comment">// initiate stack</span></span><br><span class="line">    s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="type">bool</span> visited = <span class="literal">false</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        p = s.top.first;</span><br><span class="line">        visited = s.top.second;</span><br><span class="line">        </span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>)	<span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (visited)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p, <span class="literal">true</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;right, <span class="literal">false</span>));</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(p-&gt;left, <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Reference: https://blog.csdn.net/czy47/article/details/81254984</p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Binary Tree</tag>
-      </tags>
   </entry>
   <entry>
     <title>面试问题整理</title>
@@ -6250,6 +6243,18 @@ sort，此时也不需要额外空间。数据库中sort也常使用disk mergeso
 ]]></content>
       <categories>
         <category>Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>钻石材质第一次测试Blender</title>
+    <url>/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/</url>
+    <content><![CDATA[<p>初次尝试了blender里钻石材质的生成，接下来会详细分析材质节点的组成并仔细调参。并且会更换钻石模型和适当的场景进行测试。</p>
+<p align="center">
+<img src="/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/Diamond.jpg" alt="Diamond" style="zoom:30%;">
+</p>
+]]></content>
+      <categories>
+        <category>Blender</category>
       </categories>
   </entry>
 </search>
