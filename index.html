@@ -83,7 +83,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-maintenance"><a href="/maintenance/" rel="section"><i class="fa fa-book fa-fw"></i>Maintenance</a></li><li class="menu-item menu-item-outheaven"><a href="/outheaven/" rel="section"><i class="fa fa-lock fa-fw"></i>OutHeaven</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-maintenance"><a href="/maintenance/" rel="section"><i class="fa fa-book fa-fw"></i>Maintenance</a></li><li class="menu-item menu-item-outerheaven"><a href="/outerheaven/" rel="section"><i class="fa fa-lock fa-fw"></i>OuterHeaven</a></li>
   </ul>
 </nav>
 
@@ -122,13 +122,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -160,6 +160,343 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2023/06/15/and-or-in-python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/15/and-or-in-python/" class="post-title-link" itemprop="url">and/or in python</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-06-15 22:37:48 / Modified: 22:38:21" itemprop="dateCreated datePublished" datetime="2023-06-15T22:37:48+08:00">2023-06-15</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>python里and
+or的规则：强制转化为bool类型，表达式的值是从<strong>左到右第一个</strong>能够确定表达式的变量的值</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; 0 or 1</span></span><br><span class="line">1</span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; 0 or 1 or 2</span></span><br><span class="line">1</span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; 0 or 1 and 2</span></span><br><span class="line">2</span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; 0 or 1 or 3 and 2</span></span><br><span class="line">1</span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; 0 or 1 or 3 and 0</span></span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2023/06/15/Counter-pythonic-way-to-counting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/15/Counter-pythonic-way-to-counting/" class="post-title-link" itemprop="url">Counter -- a pythonic way to counting</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-06-15 22:36:43 / Modified: 22:37:33" itemprop="dateCreated datePublished" datetime="2023-06-15T22:36:43+08:00">2023-06-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>Counter</code> is a pythonic way to handle counting repeating
+elements in a list.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">Counter([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>]) <span class="comment"># actually this is a dictionary</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2023/06/15/What-to-compare-two-excel-in-python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/15/What-to-compare-two-excel-in-python/" class="post-title-link" itemprop="url">What to compare two excel in Python?</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-06-15 22:33:33 / Modified: 22:35:11" itemprop="dateCreated datePublished" datetime="2023-06-15T22:33:33+08:00">2023-06-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol type="1">
+<li><p>if it is about aggregate data -- copy and paste (minus)</p></li>
+<li><p>if it is about detail data -- try <code>datacompy</code> in
+python</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datacompy <span class="comment"># pip install datacompy</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">files = []</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    files = [sys.argv[<span class="number">1</span>], sys.argv[<span class="number">2</span>]]</span><br><span class="line">    sheet = <span class="built_in">int</span>(sys.argv[<span class="number">3</span>]) </span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">raise</span> Exception(<span class="string">&#x27;No Input&#x27;</span>)</span><br><span class="line"></span><br><span class="line">df1 = pd.read_excel(files[<span class="number">0</span>], sheet_name=sheet)</span><br><span class="line">df2 = pd.read_excel(files[<span class="number">1</span>], sheet_name=sheet)</span><br><span class="line">join_columns = [<span class="string">&#x27;xxx&#x27;</span>] <span class="comment"># key to join </span></span><br><span class="line"></span><br><span class="line">compare = datacompy.Compare(df1, </span><br><span class="line">                            df2, </span><br><span class="line">                            join_columns=join_columns,</span><br><span class="line">                            rel_tol=<span class="number">0.01</span>, <span class="comment"># difference between two float &lt;= 0.01</span></span><br><span class="line">                            df1_name=<span class="string">&#x27;data 1&#x27;</span>,</span><br><span class="line">                            df2_name=<span class="string">&#x27;data 2&#x27;</span></span><br><span class="line">                            )</span><br><span class="line"><span class="built_in">print</span>(compare.matches()) <span class="comment"># return bool</span></span><br><span class="line"><span class="built_in">print</span>(compare.report()) <span class="comment"># return detailed report</span></span><br></pre></td></tr></table></figure>
+<p>what it does is joining two tables and comparing each column and each
+row.</p></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2023/06/15/What-is-Detached-Head-in-GIT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/15/What-is-Detached-Head-in-GIT/" class="post-title-link" itemprop="url">What is Detached Head in GIT</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-06-15 22:32:01 / Modified: 22:32:54" itemprop="dateCreated datePublished" datetime="2023-06-15T22:32:01+08:00">2023-06-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>HEAD is a symbolic ref pointing the branch which is also a ref
+pointing the latest commit oid. like this</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> .git/HEAD</span> </span><br><span class="line">ref: refs/heads/main</span><br></pre></td></tr></table></figure>
+<p>In this case, if u make a new commit, git will not actually change
+the HEAD but change the branch pointed by HEAD. Bad thing happens if u
+checkout a commit by its oid. Checking a commit by its oid means HEAD
+will be not be a symbolic ref and HEAD will point at a commit directly.
+like this</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout e53fae9913340f71ade680e5b1c477892a2abd90</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> .git/HEAD</span> </span><br><span class="line">e53fae9913340f71ade680e5b1c477892a2abd90</span><br></pre></td></tr></table></figure>
+<p><code>e53fae9913340f71ade680e5b1c477892a2abd90</code> is a commit
+id.</p>
+<p>U will get a warning when u try
+<code>git checkout &lt;commit oid&gt;</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Note: switching to &#x27;e53fae9913340f71ade680e5b1c477892a2abd90&#x27;.</span><br><span class="line"></span><br><span class="line">You are in &#x27;detached HEAD&#x27; state. You can look around, make experimental</span><br><span class="line">changes and commit them, and you can discard any commits you make in this</span><br><span class="line">state without impacting any branches by switching back to a branch.</span><br></pre></td></tr></table></figure>
+<p>Now if u do some changes and commits, HEAD will record everything.
+But if u switch to a branch, u will lose the changes and commits because
+there is no branch tracking ur modification (these commits are recorded
+by git but u can only track them via their oid). U should avoid this
+situation (create a new branch instead), or tag the commits before
+leaving.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -665,418 +1002,6 @@ pushed.</li>
     <div class="post-body" itemprop="articleBody">
           <p>Please set random seed to 42.</p>
 <p><img src="/2022/10/23/why42/why42.png" alt="why42" style="zoom:75%;"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/WSL2-Configuration/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Wuchen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/04/WSL2-Configuration/" class="post-title-link" itemprop="url">WSL2 Configuration</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-10-04 15:43:55 / Modified: 15:44:04" itemprop="dateCreated datePublished" datetime="2022-10-04T15:43:55+08:00">2022-10-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>install WSL2 in Win10</p>
-<ol type="1">
-<li>open <code>powershell</code> as administrator.</li>
-<li><code>winver</code> to check your Windows version.</li>
-<li><code>wsl -l -o</code> to check all available distribution
-package.</li>
-<li><code>wsl --install -d &lt;distribution&gt;</code> to install
-specified Linux version.</li>
-<li>(Optional) if you want to connect to your WSL via VScode, check this
-plugin <code>Remote-WSL</code></li>
-</ol>
-<p>install Anaconda in WSL2</p>
-<ol type="1">
-<li>update <code>sudo apt update; sudo apt upgrade</code></li>
-<li>check the download <a href="%5BAnaconda%20%7C%20Anaconda%20Distribution%5D(https://www.anaconda.com/products/distribution)">link</a></li>
-<li>install via <code>wget</code>, eg.
-<code>wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh</code></li>
-<li>run the installer script to install Anaconda. (remember to run
-<code>conda init</code>)</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/How-to-modify-git-message/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Wuchen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/04/How-to-modify-git-message/" class="post-title-link" itemprop="url">How to modify git message</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-10-04 15:43:13" itemprop="dateCreated datePublished" datetime="2022-10-04T15:43:13+08:00">2022-10-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-05-08 15:07:27" itemprop="dateModified" datetime="2023-05-08T15:07:27+08:00">2023-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Coding/" itemprop="url" rel="index"><span itemprop="name">Coding</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ol type="1">
-<li><p>modify the last commit comment:
-<code>git commit --amend --message="message" --author="my_name &lt;name@email.com&gt;"</code></p></li>
-<li><p>modify historical commit comment:</p>
-<ol type="1">
-<li><p>view your commit history: <code>git log</code></p></li>
-<li><p>rebase: <code>git rebase -i &lt;commmit id&gt;</code> or
-<code>git rebase -i HEAD~n</code></p>
-<ol type="1">
-<li>note: you have to rebase to the commit <strong>before</strong> the
-one you want to modify.</li>
-</ol></li>
-<li><p>change the flag:</p>
-<ul>
-<li>pick: use commit (do nothing)</li>
-<li>reword: use commit, but edit the commit message</li>
-<li>edit: use commit, but stop for amending (u can modify files)</li>
-<li>squash: use commit, but meld into previous commit</li>
-<li>fixup: like "squash", but discard this commit's log message</li>
-<li>exec: run command (the rest of the line) using shell</li>
-<li>drop: remove commit</li>
-</ul>
-<p>If you just want to edit the commit message, choose
-<strong>reword</strong>.</p></li>
-<li><p>modify the message</p></li>
-<li><p>push <code>git push &lt;origin&gt; &lt;branch&gt; -f</code>. You
-have to use the flag <strong><code>-f</code></strong> to push the commit
-by force.</p></li>
-</ol></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/Knapsack-Problem/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Wuchen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/04/Knapsack-Problem/" class="post-title-link" itemprop="url">Knapsack Problem</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-10-04 15:42:37 / Modified: 15:46:51" itemprop="dateCreated datePublished" datetime="2022-10-04T15:42:37+08:00">2022-10-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="knapsack-problem">Knapsack Problem</h1>
-<p>Knapsack problem is a constraint optimization problem. You have to
-find an optimal answer given certain constraints (capacity of knapsack).
-There are 3 different variants: <strong>0-1 knapsack</strong>,
-<strong>fractional knapsack</strong> and <strong>unbounded
-knapsack</strong>. We will discuss them one by one.</p>
-<h2 id="knapsack-problem-1">0-1 Knapsack Problem</h2>
-<h3 id="what-is-a-0-1-knapsack-problem">What is a 0-1 Knapsack
-Problem?</h3>
-<p>In the 0-1 knapsack problem, we can either keep an item or not. There
-is no way to split an item. Each item has a value and a weight. The
-knapsack, or the bag, has a weight capacity. Our target is to fill the
-bag with maximum value while not exceeding its capacity.</p>
-<p>Input: bag weight capacity <span class="math inline">\(W\)</span>,
-<span class="math inline">\(n\)</span> items with value
-<code>value[]</code> and weight <code>weight[]</code>.</p>
-<p>Output: maximum feasible value</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/04/Knapsack-Problem/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/A-brief-intro-of-HDFS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Wuchen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/04/A-brief-intro-of-HDFS/" class="post-title-link" itemprop="url">A brief intro of HDFS</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-10-04 15:42:06 / Modified: 15:42:16" itemprop="dateCreated datePublished" datetime="2022-10-04T15:42:06+08:00">2022-10-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="hdfs-hadoop-distributed-file-system">HDFS (Hadoop Distributed
-File System)</h1>
-<h3 id="structure">Structure</h3>
-<p>NameNode: control the system</p>
-<p>StandbyNode: handle logs of NameNode and serves as a backup of
-NameNode</p>
-<p>DataNode: store data</p>
-<h3 id="write">Write:</h3>
-<p>NameNode get request from client-&gt;split data-&gt;StandbyNode
-inform NameNode of nodes to store data (workload balance)-&gt;NameNode
-passes the data to the DataNode-&gt;DataNode will pass data to the next
-DataNode (same piece of data will be copied and stored on multiple
-DataNodes)</p>
-<h3 id="read">Read:</h3>
-<p>NameNode get request from client-&gt;StandbyNode inform client where
-to find data-&gt;Client find the data from the nearest DataNode</p>
-<h3 id="how-to-handle-node-failure">How to handle node Failure:</h3>
-<p>DataNode: DataNodes will send signal to NameNode via
-<strong>heartbeat mechanism</strong>.</p>
-<p>NameNode: StandbyNode serves as backup</p>
 
       
     </div>

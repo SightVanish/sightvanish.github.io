@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://sightvanish.github.io/2022/07/14/Hexo-Migration/</loc>
+    <lastmod>2023-06-15</lastmod>
+  </url>
+  <url>
+    <loc>https://sightvanish.github.io/2023/06/15/and-or-in-python/</loc>
+    <lastmod>2023-06-15</lastmod>
+  </url>
+  <url>
+    <loc>https://sightvanish.github.io/2023/06/15/Counter-pythonic-way-to-counting/</loc>
+    <lastmod>2023-06-15</lastmod>
+  </url>
+  <url>
+    <loc>https://sightvanish.github.io/2023/06/15/What-to-compare-two-excel-in-python/</loc>
+    <lastmod>2023-06-15</lastmod>
+  </url>
+  <url>
+    <loc>https://sightvanish.github.io/2023/06/15/What-is-Detached-Head-in-GIT/</loc>
+    <lastmod>2023-06-15</lastmod>
+  </url>
+  <url>
+    <loc>https://sightvanish.github.io/2022/04/03/Python-argparse/</loc>
+    <lastmod>2023-06-15</lastmod>
+  </url>
+  <url>
     <loc>https://sightvanish.github.io/2022/01/23/A-brief-introduction-to-Embedding/</loc>
-    <lastmod>2023-05-09</lastmod>
+    <lastmod>2023-05-10</lastmod>
   </url>
   <url>
     <loc>https://sightvanish.github.io/maintenance/index.html</loc>
@@ -61,10 +85,6 @@
     <lastmod>2023-05-08</lastmod>
   </url>
   <url>
-    <loc>https://sightvanish.github.io/2022/04/03/Python-argparse/</loc>
-    <lastmod>2023-05-08</lastmod>
-  </url>
-  <url>
     <loc>https://sightvanish.github.io/2022/04/20/Show-progress-bar-in-jupyter-notebook/</loc>
     <lastmod>2023-05-08</lastmod>
   </url>
@@ -83,10 +103,6 @@
   <url>
     <loc>https://sightvanish.github.io/2022/12/21/win11%E4%BF%AE%E6%94%B9%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/</loc>
     <lastmod>2023-05-08</lastmod>
-  </url>
-  <url>
-    <loc>https://sightvanish.github.io/2022/07/14/Hexo-Migration/</loc>
-    <lastmod>2023-01-30</lastmod>
   </url>
   <url>
     <loc>https://sightvanish.github.io/2022/12/21/MultiThreading-in-Python/</loc>

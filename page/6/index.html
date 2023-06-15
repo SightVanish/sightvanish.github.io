@@ -83,7 +83,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-maintenance"><a href="/maintenance/" rel="section"><i class="fa fa-book fa-fw"></i>Maintenance</a></li><li class="menu-item menu-item-outheaven"><a href="/outheaven/" rel="section"><i class="fa fa-lock fa-fw"></i>OutHeaven</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-maintenance"><a href="/maintenance/" rel="section"><i class="fa fa-book fa-fw"></i>Maintenance</a></li><li class="menu-item menu-item-outerheaven"><a href="/outerheaven/" rel="section"><i class="fa fa-lock fa-fw"></i>OuterHeaven</a></li>
   </ul>
 </nav>
 
@@ -122,13 +122,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -160,6 +160,421 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/11/02/Regularization-in-Deep-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/02/Regularization-in-Deep-Learning/" class="post-title-link" itemprop="url">Regularization in Deep Learning</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-11-02 21:41:08" itemprop="dateCreated datePublished" datetime="2021-11-02T21:41:08+08:00">2021-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-26 15:43:09" itemprop="dateModified" datetime="2022-07-26T15:43:09+08:00">2022-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="regularization">Regularization</h2>
+<p>本来想自己写的，但是<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/29360425">这篇文章</a>写得太好了，几乎没有死角，所以就在以下简单写写补充的内容好了。</p>
+<h2 id="what-is-l1-l2-regularization">What is L1, L2 regularization</h2>
+<h3 id="overfitting">Overfitting</h3>
+<p><strong>VC dimension</strong> is a measurement of <strong>model
+complexity</strong>. VC dimension <span class="math inline">\(\alpha\)</span> # of model parameters.</p>
+<p>Depress overfitting =&gt; Limit model complexity =&gt; Limit VC
+dimension =&gt; Limit number of model parameters =&gt;
+Dropout/Regularization (Dropout can also been seen as a special
+regularization)</p>
+<p>L0 norm = number of non-zero parameters.</p>
+<p>It would be a good idea to add L0 norm to the Loss function.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/11/02/Regularization-in-Deep-Learning/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/11/02/A-Taste-of-Road-Damage-Detection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/02/A-Taste-of-Road-Damage-Detection/" class="post-title-link" itemprop="url">A Taste of Road Damage Detection</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-11-02 20:05:29" itemprop="dateCreated datePublished" datetime="2021-11-02T20:05:29+08:00">2021-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-26 16:29:41" itemprop="dateModified" datetime="2022-07-26T16:29:41+08:00">2022-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>方法1:opencv</p>
+<p>opencv可以通过一些操作（主要通过canny和扩张腐蚀）得到特定的轮廓</p>
+<p>但是实际操作下来感觉非常依赖参数的调整和图像预处理，很不稳定，并且道路本身的一些特征（如道路接缝）也会被检测</p>
+<p>方法2:deeplearning</p>
+<p>由于Road Damage
+Detection是一个在深度学习领域很成熟的话题。我直接搜索了相关的竞赛。</p>
+<p>目前排名较高的均为使用YOLO实现，我自己也进行了尝试（YOLO
+v5）但是效果很不理想，几乎检测不到。</p>
+<p>这个领域我还没有深入探索。但是如果我们没有对检测速度很高要求的话，使用maskRCNN或许是更加适合的方案。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/" class="post-title-link" itemprop="url">Install tensorflow_macos on Macbook M1 (Apple silicon)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-27 11:39:15" itemprop="dateCreated datePublished" datetime="2021-10-27T11:39:15+08:00">2021-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2021-11-04 23:49:09" itemprop="dateModified" datetime="2021-11-04T23:49:09+08:00">2021-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="preface">Preface</h1>
+<p>This article in written in 2021.10.27, and current version is
+<code>0.1a3</code>. In the future, Apple may provide a better machine
+learning structure on TensorFlow, so please always remember to check <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos">here</a>.</p>
+<p>My feeling: 🐂🍺 but lots of bugs</p>
+<p>Article <a target="_blank" rel="noopener" href="https://github.com/apple/tensorflow_macos/issues/153">reference</a>.</p>
+<h2 id="x-code">X-code</h2>
+<ol type="1">
+<li>Install: <code>xcode-select --install</code></li>
+<li>Check: <code>which xcrun</code>, you should get the path to
+<code>xcrun</code></li>
+</ol>
+<h2 id="miniforge">Miniforge</h2>
+<p>Miniforge is just a substitude of Anaconda.</p>
+<p>Follow the instruction <a target="_blank" rel="noopener" href="https://github.com/conda-forge/miniforge#miniforge3">here</a>.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/10/27/Install-tensorflow-macos-on-Macbook-M1-Apple-silicon/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/24/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/24/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/" class="post-title-link" itemprop="url">面试问题整理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-24 21:58:05" itemprop="dateCreated datePublished" datetime="2021-10-24T21:58:05+08:00">2021-10-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-20 15:49:50" itemprop="dateModified" datetime="2022-01-20T15:49:50+08:00">2022-01-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol type="1">
+<li><p>如何实现shuffle</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pseudocode</span></span><br><span class="line">list=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=list.<span class="built_in">size</span>()<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> x=<span class="built_in">random</span>(<span class="number">0</span>,i);</span><br><span class="line">    <span class="built_in">swap</span>(list[i], list[x]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>手写排序算法（quicksort为什么最快）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Quick_Sort</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; vec, <span class="type">int</span> start_index, <span class="type">int</span> end_index)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(end_index&lt;=start_index)	<span class="keyword">return</span>;</span><br><span class="line">    <span class="type">int</span> p1 = start_index, p2 = end_index+<span class="number">1</span>, pivot = vec[start_index];</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(vec[++p1]&lt;pivot &amp;&amp; p1&lt;=end_index);</span><br><span class="line">        <span class="keyword">while</span>(vec[--p2]&gt;pivot &amp;&amp; p2&gt;=start_index);</span><br><span class="line">        <span class="keyword">if</span>(p1&gt;=p2)	<span class="keyword">break</span>;</span><br><span class="line">        <span class="built_in">swap</span>(vec[p1], vec[p2]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">swap</span>(vec[start_index], vec[p2]);</span><br><span class="line">    <span class="built_in">Quick_Sort</span>(vec, start_index, p2<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">Quick_Sort</span>(vec, p2+<span class="number">1</span>, end_index);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>QuickSort为什么最快？</p>
+<ul>
+<li>复杂度系数：roughly no difference</li>
+<li>cache
+locality：quicksort每次会尝试读取一段连续的内存，而heapsort为了维护heap需要跳跃地读取内存</li>
+<li>In-place：quicksort实现不需要额外空间，而mergesort需要额外的空间，在数据量足够大时差异会很明显</li>
+</ul>
+<p>QuickSort为什么不够快？</p>
+<ul>
+<li><p>worst
+situation：quicksort对pivot选择要求很高，最坏情况会退化成bubble，所以对pivot选择要求很高，而STL中也对quicksort进行了优化--使用introspective
+sort</p></li>
+<li><p>stable：quicksort总体上stable，但不能保证stable</p></li>
+<li><p>在特殊情况下使用bucket sort还会更快</p></li>
+<li><p>对于处理linked list，cache
+locality就不复存在，quicksort没有优势，常使用merge
+sort，此时也不需要额外空间。数据库中sort也常使用disk mergesort</p></li></ul></li></ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/10/24/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -800,383 +1215,6 @@ install it via <code>$ softwareupdate --install-rosetta</code>.</p>
 <p>Open the docker image-&gt;set repository to the local git
 repository-&gt;open docker in browser.</p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/10/07/English-Vocabulary/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Wuchen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/10/07/English-Vocabulary/" class="post-title-link" itemprop="url">English Vocabulary</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-10-07 20:49:30" itemprop="dateCreated datePublished" datetime="2021-10-07T20:49:30+08:00">2021-10-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-05-08 15:06:16" itemprop="dateModified" datetime="2023-05-08T15:06:16+08:00">2023-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Language/" itemprop="url" rel="index"><span itemprop="name">Language</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ol type="1">
-<li><p>Groundwater(地下水) is the word used to describe water that
-saturates(渗透、浸透) the ground.</p></li>
-<li><p>By far(到目前为止) the most
-<strong>abundant</strong>(<strong>大量的</strong>、充足的) type of
-groundwater is meteoric(<strong>大气的</strong>；流星的) water.</p></li>
-<li><p>circulate(v. <strong>循环</strong>；流通；流传)</p></li>
-<li><p>precipitation(化学沉淀；<strong>降水</strong>；冰雹；坠落)</p></li>
-<li><p>sand grains(沙粒)--grain(谷物；颗粒)</p></li></ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/10/07/English-Vocabulary/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Wuchen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/" class="post-title-link" itemprop="url">Blender尝试NPR场景</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-30 15:58:47" itemprop="dateCreated datePublished" datetime="2021-09-30T15:58:47+08:00">2021-09-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-26 16:07:32" itemprop="dateModified" datetime="2022-07-26T16:07:32+08:00">2022-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Blender/" itemprop="url" rel="index"><span itemprop="name">Blender</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>尝试了NPR的场景渲染，感觉不是特别成功，二次元渲染不仅需要技术，调参也很难，需要一些美学功底更重要的是对渲染节点的深入理解。</p>
-<p align="center">
-<img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/Grass.jpg" alt="Grass" style="zoom:30%;">
-</p>
-<center>
-以下是一个真实的图片作为参考
-</center>
-<p align="center">
-<img src="/2021/09/30/Blender%E5%B0%9D%E8%AF%95NPR%E5%9C%BA%E6%99%AF/real.jpeg" alt="real" style="zoom:14%;">
-</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Wuchen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/" class="post-title-link" itemprop="url">钻石材质第一次测试Blender</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-30 00:32:10" itemprop="dateCreated datePublished" datetime="2021-09-30T00:32:10+08:00">2021-09-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-26 15:57:45" itemprop="dateModified" datetime="2022-07-26T15:57:45+08:00">2022-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Blender/" itemprop="url" rel="index"><span itemprop="name">Blender</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>初次尝试了blender里钻石材质的生成，接下来会详细分析材质节点的组成并仔细调参。并且会更换钻石模型和适当的场景进行测试。</p>
-<p align="center">
-<img src="/2021/09/30/%E9%92%BB%E7%9F%B3%E6%9D%90%E8%B4%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%95Blender/Diamond.jpg" alt="Diamond" style="zoom:30%;">
-</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2021/09/29/%E5%89%91%E6%8C%87Offer-%E5%85%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Wuchen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/29/%E5%89%91%E6%8C%87Offer-%E5%85%A8/" class="post-title-link" itemprop="url">剑指Offer(全)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-29 16:29:22" itemprop="dateCreated datePublished" datetime="2021-09-29T16:29:22+08:00">2021-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2021-10-24 18:34:49" itemprop="dateModified" datetime="2021-10-24T18:34:49+08:00">2021-10-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Coding/" itemprop="url" rel="index"><span itemprop="name">Coding</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="prefab">Prefab</h3>
-<p>本文记录了我自己在刷剑指offer时的代码。题目顺序根据<a target="_blank" rel="noopener" href="https://www.nowcoder.com">牛客网</a>，代码没有极致追求高效，但是尽可能使用优雅简明的实现方式，但同时也不会为了简单而使用大量STL自带的方法（若使用，尽可能给出具体实现方式）。</p>
-<h3 id="jz1">JZ1</h3>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">Find</span><span class="params">(<span class="type">int</span> target, vector&lt;vector&lt;<span class="type">int</span>&gt; &gt; array)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i=array.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span> &amp;&amp; j&lt;array[<span class="number">0</span>].<span class="built_in">size</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(array[i][j]&gt;target)    i--;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(array[i][j]&lt;target)    j++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(array[i][j]==target)   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/09/29/%E5%89%91%E6%8C%87Offer-%E5%85%A8/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
