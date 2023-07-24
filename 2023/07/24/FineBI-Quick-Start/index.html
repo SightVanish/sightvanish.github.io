@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"sightvanish.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="FineBI Quick Start What is FinBI FineBI是商业自主分析软件，类似大众熟悉的Tableau和PowerBI，相比于使用Excel的优势在于  轻量，速度快（部署在远端服务器，本地的操作全部在网页完成） 支持数据库同步（链接数据库，数据下载和Query查询都可以实现，而且更快更简单） 丰富的对图&#x2F;表的支持，和Excel透视表功能类似，同时已经构建了大量常用功能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FineBI Quick Start">
+<meta property="og:url" content="https://sightvanish.github.io/2023/07/24/FineBI-Quick-Start/index.html">
+<meta property="og:site_name" content="Wu Times">
+<meta property="og:description" content="FineBI Quick Start What is FinBI FineBI是商业自主分析软件，类似大众熟悉的Tableau和PowerBI，相比于使用Excel的优势在于  轻量，速度快（部署在远端服务器，本地的操作全部在网页完成） 支持数据库同步（链接数据库，数据下载和Query查询都可以实现，而且更快更简单） 丰富的对图&#x2F;表的支持，和Excel透视表功能类似，同时已经构建了大量常用功能">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-07-24T11:59:11.000Z">
+<meta property="article:modified_time" content="2023-07-24T12:00:24.561Z">
+<meta property="article:author" content="Wuchen">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://sightvanish.github.io/2023/07/24/FineBI-Quick-Start/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sightvanish.github.io/2023/07/24/FineBI-Quick-Start/","path":"2023/07/24/FineBI-Quick-Start/","title":"FineBI Quick Start"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>FineBI Quick Start | Wu Times</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Wu Times</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-maintenance"><a href="/maintenance/" rel="section"><i class="fa fa-book fa-fw"></i>Maintenance</a></li><li class="menu-item menu-item-outerheaven"><a href="/outerheaven/" rel="section"><i class="fa fa-lock fa-fw"></i>OuterHeaven</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#finebi-quick-start"><span class="nav-number">1.</span> <span class="nav-text">FineBI Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-is-finbi"><span class="nav-number">1.1.</span> <span class="nav-text">What is FinBI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#login"><span class="nav-number">1.2.</span> <span class="nav-text">LOGIN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#public-data"><span class="nav-number">1.3.</span> <span class="nav-text">Public Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#my-analysis"><span class="nav-number">1.4.</span> <span class="nav-text">My Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#collaboration"><span class="nav-number">1.5.</span> <span class="nav-text">Collaboration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#more"><span class="nav-number">1.6.</span> <span class="nav-text">More</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wuchen"
+      src="/images/avatar.JPG">
+  <p class="site-author-name" itemprop="name">Wuchen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sightvanish" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sightvanish" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1105416184@qq.com" title="E-Mail → mailto:1105416184@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/7541448" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;7541448" rel="noopener me" target="_blank"><i class="fab fa-youtube fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2023/07/24/FineBI-Quick-Start/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="FineBI Quick Start | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          FineBI Quick Start
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-07-24 19:59:11 / Modified: 20:00:24" itemprop="dateCreated datePublished" datetime="2023-07-24T19:59:11+08:00">2023-07-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="finebi-quick-start">FineBI Quick Start</h1>
+<h2 id="what-is-finbi">What is FinBI</h2>
+<p>FineBI是商业自主分析软件，类似大众熟悉的Tableau和PowerBI，相比于使用Excel的优势在于</p>
+<ol type="1">
+<li><strong>轻量，速度快</strong>（部署在远端服务器，本地的操作全部在网页完成）</li>
+<li>支持数据库同步（链接数据库，数据下载和Query查询都可以实现，而且更快更简单）</li>
+<li><strong>丰富的对图/表的支持</strong>，和Excel透视表功能类似，同时已经构建了大量常用功能</li>
+</ol>
+<p>今天和大家做一个使用分享，简要介绍接FineBI的功能和优势特点。</p>
+<h2 id="login">LOGIN</h2>
+<p>左侧栏中用户常用功能是My Analysis和Public Data部分。<strong>My
+Analysis中保存了所有的看板和图表</strong>，主要的分析功能都会集中在这里。<strong>Public
+Data中是数据源</strong>，所有My Analysis中的看板数据都出自Public
+Data。</p>
+<h2 id="public-data">Public Data</h2>
+<p>数据分析所有的数据源全部来源于Public Data</p>
+<ol type="1">
+<li>找一个文件夹/新建一个文件夹，新建Database，SQL，Excel。Database为链接数据库里的某张表，SQL支持写代码（目前需要使用postgre
+sql语法），Excel支持手工上传线下Excel表。
+<ol type="1">
+<li>选择Database可以选中自己需要的表；<strong>如果需要的数据不存在，可以联系IT，我们可以根据需求构建一张宽表，包含需要使用到的所有字段。</strong></li>
+<li>如果想要自己写Query查询，可以选择SQL，右上角可以点击Preview预览查询的数据。</li>
+<li>对于线下手工维护的数据也可以通过Excel的方式上传到数据库中保存。</li>
+</ol></li>
+<li>需要特别注意的是：
+<ol type="1">
+<li>FineBI的数据不会和数据库同步更新，<strong>需要手动设置更新方式</strong>。点击Update
+Information，选择数据更新方式。数据中台一般会在每日凌晨抽取数据，FineBI中可以考虑配置在每日8点左右更新数据。</li>
+</ol></li>
+<li>打开My Analysis，点击New subject建立数据看板，在public
+data中选择对应的数据源即可。</li>
+</ol>
+<p>Public
+Data首先可以<strong>满足大家数据下载的需求</strong>，用Excel透视表分析首先就需要跑一段Query把数据查出来；FineBI可以直接连接到数据库，<strong>临时想查数/计算指标可以直接在线上完成</strong>，需要深入的分析也可以下载所有的数据明细到本地excel进一步加工。</p>
+<h2 id="my-analysis">My Analysis</h2>
+<p>Analysis就是Excel中使用的<strong>数据透视表</strong>。它分为3个部分：Data，Component，DashBoard。</p>
+<ol type="1">
+<li><p>Data负责数据，点击Data旁的“+”号<strong>增加新的表</strong>。
+对于同一张表可以进行新增/减少字段，grouping，filter，多张表join和union等一系列操作。<strong>最右侧的竖栏会记录每一次操作，因此基本没有误操作风险，可以随意回退。</strong></p></li>
+<li><p>之后进入到Component。</p>
+<p><strong>Component是Analysis的核心，本质同Excel透视表逻辑相同</strong>。<strong>通过拖拽左侧的字段到Dimension，Indicators中自动完成数据透视功能。</strong></p>
+<p>需要着重提到的特点有两个：</p>
+<ol type="1">
+<li>Component支持了<strong>多种图表类型</strong>，包括交叉表，明细表，折线图，饼图，玫瑰图等等</li>
+<li><strong>常用的指标计算方式都已经内置</strong>，比如计算百分比，均值，<strong>同比环比</strong>等</li>
+<li>没有支持的计算方式可以通过<strong>Calculation
+Indicators</strong>完成，比如计算加权平均数。</li>
+<li>此外也可以自由<strong>修改字段名，排序，筛选条件</strong>，颜色等细节</li>
+</ol></li>
+<li><p>报表分析最终产出的结果是<strong>Dashboard</strong>，Dashboard是通过不同的Component组合而成。</p>
+<ol type="1">
+<li>拖动图表到Dashboard上</li>
+<li>添加<strong>Filters</strong>，需要手动指定Filter控制哪些表</li>
+<li>也可以增加额外在component中增加文字，Tab，图片等</li>
+</ol></li>
+</ol>
+<h2 id="collaboration">Collaboration</h2>
+<ol type="1">
+<li>Public Link，可以让其他人也能看得到，没有权限管理。</li>
+<li>在My Analysis中点击Collaboration，赋予其他人可以浏览或修改</li>
+</ol>
+<h2 id="more">More</h2>
+<p>FineBI相比于Excel最大的优势就在于链接数据库，当<strong>数据量特别大</strong>几百万数据的时候，使用Excel分析，无论是<strong>下载数据</strong>，<strong>数据透视表</strong>都会很慢，但是FineBI可以提供一个<strong>快速查询</strong>的入口，在FineBI上链接数据库，做一些轻度的汇总筛选再下载到本地深入分析。</p>
+<p>功能手册：<a target="_blank" rel="noopener" href="https://help.fanruan.com/finebi/">FineBI帮助文档
+FineBI帮助文档 (fanruan.com)</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/alipay.png" alt="Wuchen Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/07/24/Difference-between-Induction-and-Deduction/" rel="prev" title="Difference between Induction and Deduction">
+                  <i class="fa fa-chevron-left"></i> Difference between Induction and Deduction
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/07/24/Python-Filters/" rel="next" title="Python Filters">
+                  Python Filters <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wuchen</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
