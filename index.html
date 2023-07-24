@@ -155,7 +155,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -226,7 +226,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-07-24 20:04:50 / Modified: 20:05:06" itemprop="dateCreated datePublished" datetime="2023-07-24T20:04:50+08:00">2023-07-24</time>
+      <time title="Created: 2023-07-24 20:04:50 / Modified: 20:22:05" itemprop="dateCreated datePublished" datetime="2023-07-24T20:04:50+08:00">2023-07-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -234,7 +234,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Math/" itemprop="url" rel="index"><span itemprop="name">Math</span></a>
+          <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
         </span>
     </span>
 
@@ -320,7 +320,7 @@ number of combination that selecting 3 things out of 5 without order is
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-07-24 20:03:06 / Modified: 20:04:26" itemprop="dateCreated datePublished" datetime="2023-07-24T20:03:06+08:00">2023-07-24</time>
+      <time title="Created: 2023-07-24 20:03:06 / Modified: 20:12:19" itemprop="dateCreated datePublished" datetime="2023-07-24T20:03:06+08:00">2023-07-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -353,43 +353,14 @@ Complexity: <span class="math inline">\(O(nlogn)\)</span></li>
 <li><strong><u>Quick Selection</u></strong>; Average Time Complexity:
 <span class="math inline">\(O(n)\)</span></li>
 </ol>
-<h2 id="quick-selection">Quick Selection</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">partition</span>(<span class="params">nums, l, r</span>):</span><br><span class="line">	<span class="comment"># generally pick the first/last element as pivot</span></span><br><span class="line">	pivot = nums[l]</span><br><span class="line">	<span class="keyword">while</span> r &gt; l:</span><br><span class="line">		<span class="comment"># choose the first element &lt; pivot from right side</span></span><br><span class="line">		<span class="keyword">while</span> nums[r] &gt;= pivot <span class="keyword">and</span> r &gt; l: r -= <span class="number">1</span></span><br><span class="line">		nums[l] = nums[r] <span class="comment"># move this to the left side</span></span><br><span class="line">		<span class="comment"># choose the first element &gt; pivot from left side</span></span><br><span class="line">		<span class="keyword">while</span> nums[l] &lt;= pivot <span class="keyword">and</span> r &gt; l: l += <span class="number">1</span></span><br><span class="line">		nums[r] = nums[l] <span class="comment"># move this to the right side</span></span><br><span class="line">	nums[l] = pivot <span class="comment"># do not forget pivot </span></span><br><span class="line">	<span class="keyword">return</span> l <span class="comment"># return pivot index</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Time Complexity: O(nlogn), Space Complexity: O(logn)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">quick_sort</span>(<span class="params">nums, l, r</span>):</span><br><span class="line">	<span class="keyword">if</span> l &gt;= r: <span class="keyword">return</span>  </span><br><span class="line">	<span class="comment"># choose pivot and sort the array based on this pivot</span></span><br><span class="line">	pivot = partition(nums, l, r)</span><br><span class="line">	quick_sort(nums, l, pivot - <span class="number">1</span>) <span class="comment"># sort left part</span></span><br><span class="line">	quick_sort(nums, pivot + <span class="number">1</span>, r) <span class="comment"># sort right part</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Time Complexity: O(n), Space Complexity: O(logn)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">quick_selection</span>(<span class="params">nums, k, l, r</span>):</span><br><span class="line">	<span class="keyword">if</span> l &gt;= r: <span class="keyword">return</span></span><br><span class="line">	pivot = partition(nums, l, r)</span><br><span class="line">	<span class="keyword">if</span> k == pivot: <span class="keyword">return</span> <span class="comment"># hit top k</span></span><br><span class="line">	<span class="keyword">elif</span> k &lt; pivot: quick_selection(nums, k, l, pivot - <span class="number">1</span>) <span class="comment"># hit left part</span></span><br><span class="line">	<span class="keyword">elif</span> k &gt; pivot: quick_selection(nums, k, pivot + <span class="number">1</span>, r) <span class="comment"># hit right part</span></span><br><span class="line"></span><br><span class="line">quick_selection(nums, k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>) <span class="comment"># select min top k: nums[:k]</span></span><br><span class="line">quick_selection(nums, <span class="built_in">len</span>(nums) - k, <span class="number">0</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span>) <span class="comment"># select max top k: nums[-k:]</span></span><br></pre></td></tr></table></figure>
-<p>The key idea of <strong>Quick Sort</strong> is <strong><u>Divide and
-Conquer</u></strong> (solving problem by solving multiple
-<u>subproblems</u>). <strong><u>Quick Selection</u></strong> can be
-considered as a special case of Quick Sort. Its basic idea is
-<strong><u>Reduce and Conquer</u></strong> (solving problem by solving
-one certain subproblem).</p>
-<p>The average time complexity of <strong>Quick Selection</strong> is
-<span class="math inline">\(O(n)\)</span> (sounds good right?) but the
-worst case could be <span class="math inline">\(O(n^2)\)</span>. Thus we
-introduce <strong><u>Median of Medians</u></strong> (also know as
-<strong>BFPRT</strong>, last names of the authors) to supply a better
-pivot.</p>
-<h2 id="median-of-medians">Median of Medians</h2>
-<p>Median of medians finds an <em>approximate</em> median in linear time
-and can be used to find an improved pivot in Quick Sort and Quick
-Selection which reduces the <em>worst-case complexity</em>.</p>
-<p>Steps:</p>
-<ol type="1">
-<li>Divide input into groups of at most <strong>five</strong>
-elements.</li>
-<li>Find the medians of each group.</li>
-<li>Find the median of medians.</li>
-</ol>
-<p>The median of medians algorithm computes an approximate median which
-is guaranteed to be between 30% and 70%.</p>
-<blockquote>
-<p>Suppose there are <span class="math inline">\(n\)</span> elements and
-divided to <span class="math inline">\(\lceil n/5 \rceil\)</span>
-groups. Thus we can derive <span class="math inline">\(\lceil n/5
-\rceil\)</span> medians.</p>
-<p>The median of medians is greater than at least <span class="math inline">\(\lfloor\lceil n/5 \rceil / 2\rfloor\)</span>
-medians which means it is greater than <span class="math inline">\(\lfloor\lceil n/5 \rceil / 2\rfloor *3 + 2 \geq
-\lfloor 3n/10 \rfloor\)</span> elements, thus 30% elements.</p>
-</blockquote>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/07/24/Top-K-problems/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -445,7 +416,7 @@ medians which means it is greater than <span class="math inline">\(\lfloor\lceil
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-07-24 20:02:34 / Modified: 20:09:32" itemprop="dateCreated datePublished" datetime="2023-07-24T20:02:34+08:00">2023-07-24</time>
+      <time title="Created: 2023-07-24 20:02:34 / Modified: 20:11:48" itemprop="dateCreated datePublished" datetime="2023-07-24T20:02:34+08:00">2023-07-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -472,266 +443,14 @@ medians which means it is greater than <span class="math inline">\(\lfloor\lceil
 vertex. <span class="math inline">\(|V|\)</span> denotes the number of
 vertices. <span class="math inline">\(|E|\)</span> denotes the number of
 edges.</p>
-<h1 id="dijkstras-algorithm">Dijkstra's Algorithm</h1>
-<h2 id="steps">Steps</h2>
-<ol type="1">
-<li><p>Initialize a shortest path tree (<code>spt</code>) to keep tack
-of the vertices included in the shortest path. <code>spt</code> is an
-empty set in the beginning.</p></li>
-<li><p>Assign distance value to all vertices, initially as infinity. Set
-distance value of source vertex to 0.</p></li>
-<li><p><u>Always add the vertex <code>u</code> with the minimum distance
-value to <code>spt</code> then update the distance value of all adjacent
-vertices of <code>u</code>.</u></p>
-<p>To keep track of the path, create a parental array and update parent
-of each vertex each time when new vertex is added to
-<code>spt</code>.</p></li>
-<li><p>If end vertex is added to <code>spt</code>, break the loop and
-return the distance value of end vertex.</p></li>
-</ol>
-<h2 id="complexity">Complexity</h2>
-<p>Time Complexity: <span class="math inline">\(O(|V|^2)\)</span>; Space
-Complexity: <span class="math inline">\(O(|V|)\)</span>.</p>
-<h2 id="more-you-should-know-about-dijkstras-algorithm">More you should
-know about Dijkstra's Algorithm</h2>
-<ol type="1">
-<li><p>Dijkstra's Algorithm is a <strong>greedy
-algorithm</strong>.</p></li>
-<li><p>Proof of correctness of Dijkstra's Algorithm.</p>
-<p>Distance value of vertex <code>v</code> is denoted as
-<code>d[v]</code>; Distance of the shortest path from <code>s</code> to
-<code>v</code> is denoted as <code>delta(s, v)</code></p>
-<ol type="1">
-<li>Lemma 1: Shortest paths are composed of shortest paths.</li>
-<li>Lemma 2: If <code>s</code>-&gt;<span class="math inline">\(\cdots\)</span>-&gt;<code>u</code>-&gt;<code>v</code>
-is a shortest path from <code>s</code> to <code>v</code>, then after
-<code>u</code> is added to <code>spt</code>, <code>d[v]</code> is
-updated to <code>delta(s, v)</code> and will not change afterwards.</li>
-</ol>
-<p>As per Dijkstra's Algorithm, <u>we assert that
-<code>d[u] = delta(s, u)</code> for all <code>u</code> in
-<code>spt</code></u></p>
-<ol type="1">
-<li>Assume <code>u</code> is the first vertex added to <code>spt</code>
-where <code>d[u] &gt; delta(s, u)</code>. There must exist a shortest
-path from <code>s</code> to <code>u</code>: <code>s</code>-&gt;<span class="math inline">\(\cdots\)</span>-&gt;<code>x</code>-&gt;<code>y</code>-&gt;<code>u</code>.
-Assume <code>x</code> is within <code>spt</code> and <code>y</code> is
-the first vertex not in <code>spt</code>.</li>
-<li><code>d[x] = delta(s, x)</code> then update <code>d[y]</code>:
-<code>d[y]=delta(s, y)&lt;=delta(s, u)&lt;=d[u]</code>.</li>
-<li>If <code>y</code> is added to <code>spt</code> before
-<code>u</code>, then when <code>u</code> is added to <code>spt</code>:
-<code>d[u]=d[y]+d(y, u)=delta(u)</code>. <em>Contradiction</em></li>
-<li>Else <code>u</code> is added to <code>spt</code> before
-<code>y</code>, then <code>d[u]&lt;=d[y]&lt;=delta(s, u)</code>.
-<em>Contradiction</em></li>
-</ol></li>
-<li><p>Dijkstra's Algorithm supports <strong>directed</strong> graphs as
-well as <strong>undirected</strong> graphs.</p></li>
-<li><p>Dijkstra's Algorithm <strong>does not</strong> work for graphs
-with <strong>negative weight</strong> edges.</p></li>
-<li><p>With <strong>priority queue</strong>/<strong>heap</strong>, time
-complexity of Dijkstra's Algorithm can be reduced to <span class="math inline">\(O(|V| + |E|log|V|)\)</span>.</p>
-<ol type="1">
-<li>Graph should be presented as adjacency matrix</li>
-<li>Use priority queue to keep track of vertex with minimum distance
-value. Since items in priority queue can not be modified, push multiple
-copies of vertices to priority queue.</li>
-<li>It takes <span class="math inline">\(O(log|V|)\)</span> to find the
-the vertex with minimum distance value then it takes <span class="math inline">\(O(|E|)\)</span> to update all adjacent
-vertices.</li>
-</ol></li>
-<li><p>If weights of all edges are same, Dijkstra's Algorithm is same
-with <strong>BFS</strong> (Breath-First Search).</p></li>
-</ol>
-<h1 id="bellman-ford-algorithm">Bellman-Ford Algorithm</h1>
-<p>The basic idea is: for a graph without negative cycle, the shortest
-path between any two vertices consist of at most <code>V-1</code>
-edges.</p>
-<h2 id="steps-1">Steps</h2>
-<ol type="1">
-<li><p>Initialize a shortest path tree (<code>spt</code>) to keep tack
-of the vertices included in the shortest path. <code>spt</code> is an
-empty set in the beginning.</p></li>
-<li><p>Assign distance value to all vertices, initially as infinity. Set
-distance value of source vertex to 0.</p></li>
-<li><p>Do following <code>V-1</code> times:</p>
-<p>For each edge <code>u</code>-&gt;<code>v</code>, update
-<code>d[v] = min(d[v], d[u]+weight of u-&gt;v)</code>.</p></li>
-<li><p>Traverse every edge <code>u</code>-&gt;<code>v</code> again: if
-<code>d[v] &gt; d[u]+weight of u-&gt;v</code>, there exists negative
-weight cycle.</p></li>
-</ol>
-<h2 id="complexity-1">Complexity</h2>
-<p>Time Complexity: <span class="math inline">\(O(|E||V|)\)</span>;
-Space Complexity: <span class="math inline">\(O(|V|)\)</span>.</p>
-<h2 id="more-you-should-know-about-bellman-ford-algorithm">More you
-should know about Bellman-Ford Algorithm</h2>
-<ol type="1">
-<li><p>Proof of correctness of Bellman-Ford Algorithm</p>
-<p>Correctness of Bellman-Ford Algorithm is relatively intuitive. The
-basic idea is to prove by induction: after iteration <span class="math inline">\(i\)</span> of Bellman-Ford, <span class="math inline">\(d[v] &lt;= min\{w(p)\}\)</span> where <span class="math inline">\(p\)</span> is the possible path from <span class="math inline">\(u\)</span> to <span class="math inline">\(v\)</span> with at most <span class="math inline">\(i\)</span> edges.</p></li>
-<li><p>Bellman-Ford Algorithm works well for <strong>negative</strong>
-weight graphs <strong>without negative cycle</strong> and suits well for
-distributed systems.</p></li>
-<li><p>Bellman-Ford Algorithm does not apply for undirected graph.
-(Undirected graph can be viewed as directed graph)</p></li>
-<li><p>If no distance value is updated in one iteration, Bellman-Ford
-Algorithm can end in advance.</p></li>
-<li><p>An improvement of Bellman-Ford Algorithm: Shortest Path Faster
-Algorithm (<strong>SPFA</strong>)</p>
-<ol type="1">
-<li>Initialize a priority queue <code>Q</code> and push source vertex in
-it.</li>
-<li>Assign distance value to all vertices, initially as infinity. Set
-distance value of source vertex to 0.</li>
-<li>While <code>Q</code> is not empty:
-<ol type="1">
-<li>For each edge <code>u</code>-&gt;<code>v</code>: update
-<code>d[v] = min(d[v], d[u]+weight of u-&gt;v)</code> and if
-<code>d[v]</code> is updated and <code>v</code> not in <code>Q</code>
-then push <code>v</code> in <code>Q</code>.</li>
-</ol></li>
-</ol></li>
-</ol>
-<h1 id="floyd-warshall-algorithm">Floyd Warshall Algorithm</h1>
-<p>This algorithm is aimed to find every pair of vertices in a weighted
-directed graph.</p>
-<h2 id="steps-2">Steps</h2>
-<ol type="1">
-<li><p>Initialize <code>distance[v][u]</code> to keep tack of the
-distance between <code>v</code> and <code>u</code>. Initially if there
-is a edge<code>u</code>-&gt;<code>v</code>, set
-<code>distance[v][u]</code> to the weight of edge, else as
-infinity.</p></li>
-<li><p>do following</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for k in range(V):</span><br><span class="line">	for i in range(V):</span><br><span class="line">		for j in range(V):</span><br><span class="line">			distance[i][j] = min(distance[i][j], distancep[i][k] + distance[k][j])</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="complexity-2">Complexity</h2>
-<p>Time Complexity: <span class="math inline">\(O(|V|^3)\)</span>; Space
-Complexity: <span class="math inline">\(O(|V|^2)\)</span>.</p>
-<h2 id="more-you-should-know-about-floyd-warshall-algorithm">More you
-should know about Floyd Warshall Algorithm</h2>
-<ol type="1">
-<li><p>The basic idea is to pick all vertices and update all shortest
-paths which include picked vertex as intermediate vertex.</p>
-<p>Proof can be given via induction.</p></li>
-<li><p>Floyd Warshall Algorithm works well for <strong>negative</strong>
-weight graphs <strong>without negative cycle</strong> and also suits
-well for distributed systems.</p></li>
-<li><p>Floyd Warshall Algorithm does not apply for undirected graph.
-(Undirected graph can be viewed as directed graph)</p></li>
-</ol>
-<h1 id="a-search-algorithm">A* Search Algorithm</h1>
-<p>A star algorithm is one of the most popular techniques used in
-path-finding especially games. Consider a square grid having obstacles
-and we want to reach to target cell from a given starting cell.</p>
-<p>Let's introduce <strong>Heuristic Function</strong> of A* Algorithm:
-<span class="math display">\[
-f(n) = g(n)+h(n)
-\]</span> <span class="math inline">\(f\)</span> is the
-<strong>evaluation cost</strong> of node <code>n</code>; <span class="math inline">\(g\)</span> is the movement cost from starting node
-to <code>n</code>; <span class="math inline">\(h\)</span> is the
-<em>estimated</em> movement cost from <code>n</code> to goal node.</p>
-<h2 id="steps-3">Steps</h2>
-<ol type="1">
-<li>Initialize <em>open list</em> and <em>close list</em>. Put starting
-node on <code>o</code> and set <code>f</code> value of starting node to
-0.</li>
-<li>while open list is not empty:
-<ol type="1">
-<li>Always find the node <code>q</code> with the <strong>least</strong>
-<span class="math inline">\(f\)</span> and pop the node.</li>
-<li>If <code>q</code> is the goal node, stop.</li>
-<li>Else:
-<ol type="1">
-<li>Push <code>q</code> to close set</li>
-<li>Traverse all adjacent nodes <code>m</code> of <code>q</code>:
-<ol type="1">
-<li>Update <span class="math inline">\(f\)</span>;
-<code>m.g = q.g + distance(q, m)</code>;
-<code>m.h = distance(goal node, m)</code></li>
-<li>If <code>m</code> in closed list, skip</li>
-<li>If <code>m</code> in open list and
-<code>m.g &lt;= updated m.g</code>, skip</li>
-<li>Else: update or push <code>m</code> to open list and set parent of
-<code>m</code> to <code>q</code></li>
-</ol></li>
-</ol></li>
-</ol></li>
-</ol>
-<h2 id="complexity-3">Complexity</h2>
-<p>Complexity of A* Algorithm should be same with Dijkstra Algorithm (in
-the worst case).</p>
-<p>But for A* Algorithm, measuring complexity in terms of <span class="math inline">\(|V|\)</span> and <span class="math inline">\(|E|\)</span> could be <em>meaningless</em>: <span class="math inline">\(|V|\)</span> may be infinite and in most cases we
-won't examine the entire graph.</p>
-<p>In the domain of AI, we measure complexity as:</p>
-<p>Time Complexity: <span class="math inline">\(O(b^d)\)</span> where
-<span class="math inline">\(b\)</span> is the branching factor and <span class="math inline">\(d\)</span> is the depth of goal node (typically
-the number of nodes on the resulting path.)</p>
-<h2 id="more-you-should-know-about-a-search-algorithm">More you should
-know about A* Search Algorithm</h2>
-<ol type="1">
-<li><p>A* Algorithm is a <strong>heuristic</strong> algorithm, starting
-with a good guess.</p></li>
-<li><p>Performance of A* Algorithm largely depends on a good heuristic
-function.</p>
-<ol type="1">
-<li>If <span class="math inline">\(h(n)=0\)</span>, A* Algorithm is
-exactly same with Dijkstra Algorithm.</li>
-<li>If <span class="math inline">\(h(n)\)</span> is same with the <span class="math inline">\(distance(goal, n)\)</span>, great but time
-consuming.</li>
-<li><strong>If <span class="math inline">\(h(n)&lt;distance(goal,
-n)\)</span>, A* Algorithm can always find the shortest
-path.</strong></li>
-<li>If <span class="math inline">\(h(n)&gt;distance(goal, n)\)</span>,
-solution of A* Algorithm is not guaranteed to be the shortest path.</li>
-<li>If <span class="math inline">\(h(n) &gt;&gt; distance(goal,
-n)\)</span> which makes <span class="math inline">\(f(n)\)</span>
-approximately equals to <span class="math inline">\(h(n)\)</span>, A*
-Algorithm will be same with Best-First Search.</li>
-</ol></li>
-<li><p>A heuristic approximation way is used to calculate <span class="math inline">\(h(n)\)</span>:</p>
-<ol type="1">
-<li><p>If agent is just allowed to move in <strong>four</strong>
-directions only (up, down, left, right), use <strong>Manhattan
-Distance</strong>. <span class="math display">\[
-dx = abs(u.x-v.x) \\
-dy = abs(u.y-v.y) \\
-Manhatten(u, v) = D*(dx+dy)
-\]</span> where <span class="math inline">\(D\)</span> is the length of
-each node.</p></li>
-<li><p>If agent is allowed to move in eight directions, use
-<strong>Diagonal Distance</strong>. <span class="math display">\[
-dx = abs(u.x-v.x) \\
-dy = abs(u.y-v.y) \\
-Diagonal(u, v) = D*(dx+dy) + (D2-2*D)*min(dx, dy)
-\]</span> where <span class="math inline">\(D\)</span> is the length of
-each node, <span class="math inline">\(D2\)</span> is the diagonal
-distance of each node.</p></li>
-<li><p>If agent is allowed to move in any direction, use
-<strong>Euclidean Distance</strong>. <span class="math display">\[
-Euclidean(u, v) = D*\sqrt{(u.x-v.x)^2+(u.y-v.y)^2}
-\]</span> where <span class="math inline">\(D\)</span> is the length of
-each node.</p></li>
-</ol></li>
-<li><p>Correctness of A* Algorithm. Only provide an intuitive
-<em>proof</em> here.</p>
-<p><u>If the heuristic function used by A* Algorithm is
-<strong>admissible</strong> then A* Algorithm is guaranteed to return an
-optimal solution.</u></p>
-<p>Suppose the distance of the shortest path from <code>u</code> to
-<code>v</code> is <code>delta(u, v)</code> and <code>p</code> is a node
-in the shortest path and <code>q</code> is another node selected via A*
-algorithm but not in the shortest path.</p>
-<p>The key idea is <span class="math inline">\(h(n)\)</span> will be
-<u>an accurate approximation</u> when <code>n</code> is <u>close
-enough</u> to goal node:</p>
-<p><span class="math inline">\(f(q) = g(q)+h(q) &gt; g(goal)\)</span>
-and <span class="math inline">\(f(p) = g(p)+h(p) &lt;=
-g(p)+distance(goal, p) = g(goal) &lt; f(q)\)</span></p></li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/07/24/A-Brief-Review-of-Shortest-Path-Algorithms/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -867,7 +586,7 @@ g(p)+distance(goal, p) = g(goal) &lt; f(q)\)</span></p></li>
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-07-24 19:59:11 / Modified: 20:00:24" itemprop="dateCreated datePublished" datetime="2023-07-24T19:59:11+08:00">2023-07-24</time>
+      <time title="Created: 2023-07-24 19:59:11 / Modified: 20:11:58" itemprop="dateCreated datePublished" datetime="2023-07-24T19:59:11+08:00">2023-07-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -897,64 +616,14 @@ g(p)+distance(goal, p) = g(goal) &lt; f(q)\)</span></p></li>
 <li>支持数据库同步（链接数据库，数据下载和Query查询都可以实现，而且更快更简单）</li>
 <li><strong>丰富的对图/表的支持</strong>，和Excel透视表功能类似，同时已经构建了大量常用功能</li>
 </ol>
-<p>今天和大家做一个使用分享，简要介绍接FineBI的功能和优势特点。</p>
-<h2 id="login">LOGIN</h2>
-<p>左侧栏中用户常用功能是My Analysis和Public Data部分。<strong>My
-Analysis中保存了所有的看板和图表</strong>，主要的分析功能都会集中在这里。<strong>Public
-Data中是数据源</strong>，所有My Analysis中的看板数据都出自Public
-Data。</p>
-<h2 id="public-data">Public Data</h2>
-<p>数据分析所有的数据源全部来源于Public Data</p>
-<ol type="1">
-<li>找一个文件夹/新建一个文件夹，新建Database，SQL，Excel。Database为链接数据库里的某张表，SQL支持写代码（目前需要使用postgre
-sql语法），Excel支持手工上传线下Excel表。
-<ol type="1">
-<li>选择Database可以选中自己需要的表；<strong>如果需要的数据不存在，可以联系IT，我们可以根据需求构建一张宽表，包含需要使用到的所有字段。</strong></li>
-<li>如果想要自己写Query查询，可以选择SQL，右上角可以点击Preview预览查询的数据。</li>
-<li>对于线下手工维护的数据也可以通过Excel的方式上传到数据库中保存。</li>
-</ol></li>
-<li>需要特别注意的是：
-<ol type="1">
-<li>FineBI的数据不会和数据库同步更新，<strong>需要手动设置更新方式</strong>。点击Update
-Information，选择数据更新方式。数据中台一般会在每日凌晨抽取数据，FineBI中可以考虑配置在每日8点左右更新数据。</li>
-</ol></li>
-<li>打开My Analysis，点击New subject建立数据看板，在public
-data中选择对应的数据源即可。</li>
-</ol>
-<p>Public
-Data首先可以<strong>满足大家数据下载的需求</strong>，用Excel透视表分析首先就需要跑一段Query把数据查出来；FineBI可以直接连接到数据库，<strong>临时想查数/计算指标可以直接在线上完成</strong>，需要深入的分析也可以下载所有的数据明细到本地excel进一步加工。</p>
-<h2 id="my-analysis">My Analysis</h2>
-<p>Analysis就是Excel中使用的<strong>数据透视表</strong>。它分为3个部分：Data，Component，DashBoard。</p>
-<ol type="1">
-<li><p>Data负责数据，点击Data旁的“+”号<strong>增加新的表</strong>。
-对于同一张表可以进行新增/减少字段，grouping，filter，多张表join和union等一系列操作。<strong>最右侧的竖栏会记录每一次操作，因此基本没有误操作风险，可以随意回退。</strong></p></li>
-<li><p>之后进入到Component。</p>
-<p><strong>Component是Analysis的核心，本质同Excel透视表逻辑相同</strong>。<strong>通过拖拽左侧的字段到Dimension，Indicators中自动完成数据透视功能。</strong></p>
-<p>需要着重提到的特点有两个：</p>
-<ol type="1">
-<li>Component支持了<strong>多种图表类型</strong>，包括交叉表，明细表，折线图，饼图，玫瑰图等等</li>
-<li><strong>常用的指标计算方式都已经内置</strong>，比如计算百分比，均值，<strong>同比环比</strong>等</li>
-<li>没有支持的计算方式可以通过<strong>Calculation
-Indicators</strong>完成，比如计算加权平均数。</li>
-<li>此外也可以自由<strong>修改字段名，排序，筛选条件</strong>，颜色等细节</li>
-</ol></li>
-<li><p>报表分析最终产出的结果是<strong>Dashboard</strong>，Dashboard是通过不同的Component组合而成。</p>
-<ol type="1">
-<li>拖动图表到Dashboard上</li>
-<li>添加<strong>Filters</strong>，需要手动指定Filter控制哪些表</li>
-<li>也可以增加额外在component中增加文字，Tab，图片等</li>
-</ol></li>
-</ol>
-<h2 id="collaboration">Collaboration</h2>
-<ol type="1">
-<li>Public Link，可以让其他人也能看得到，没有权限管理。</li>
-<li>在My Analysis中点击Collaboration，赋予其他人可以浏览或修改</li>
-</ol>
-<h2 id="more">More</h2>
-<p>FineBI相比于Excel最大的优势就在于链接数据库，当<strong>数据量特别大</strong>几百万数据的时候，使用Excel分析，无论是<strong>下载数据</strong>，<strong>数据透视表</strong>都会很慢，但是FineBI可以提供一个<strong>快速查询</strong>的入口，在FineBI上链接数据库，做一些轻度的汇总筛选再下载到本地深入分析。</p>
-<p>功能手册：<a target="_blank" rel="noopener" href="https://help.fanruan.com/finebi/">FineBI帮助文档
-FineBI帮助文档 (fanruan.com)</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/07/24/FineBI-Quick-Start/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1010,7 +679,7 @@ FineBI帮助文档 (fanruan.com)</a></p>
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-07-24 19:56:30 / Modified: 19:58:26" itemprop="dateCreated datePublished" datetime="2023-07-24T19:56:30+08:00">2023-07-24</time>
+      <time title="Created: 2023-07-24 19:56:30 / Modified: 20:11:29" itemprop="dateCreated datePublished" datetime="2023-07-24T19:56:30+08:00">2023-07-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">

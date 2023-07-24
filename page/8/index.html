@@ -155,7 +155,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -718,7 +718,7 @@ _p\)</span> is a vector.</p>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/17/Sorting-Algorithms/" class="post-title-link" itemprop="url">Sort Algorithms</a>
+          <a href="/2021/09/17/Sorting-Algorithms/" class="post-title-link" itemprop="url">Sorting Algorithms</a>
         </h2>
 
         <div class="post-meta-container">
@@ -736,7 +736,7 @@ _p\)</span> is a vector.</p>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-26 12:57:02" itemprop="dateModified" datetime="2022-07-26T12:57:02+08:00">2022-07-26</time>
+      <time title="Modified: 2023-07-24 20:19:17" itemprop="dateModified" datetime="2023-07-24T20:19:17+08:00">2023-07-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -744,7 +744,7 @@ _p\)</span> is a vector.</p>
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
+          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
         </span>
     </span>
 
@@ -765,37 +765,6 @@ _p\)</span> is a vector.</p>
 更优雅的实现；更完整的测试；只考虑int排序；只实现主要算法；使用<code>vector</code>；</p>
 <p>note：如果你在我的Github Blog上查看此post，在github
 仓库源代码中有同名文件，其中包含了以下算法的<code>cpp</code>文件。</p>
-<p><br></p>
-<h2 id="sort-algorithms">Sort Algorithms</h2>
-<h3 id="bubble-sort">1. Bubble Sort</h3>
-<h4 id="principle">1.1 Principle</h4>
-<p>Compare the adjacent two elements and put the larger one the the
-right then move to the next pair.</p>
-<h4 id="implement">1.2 Implement</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr==<span class="literal">NULL</span> || length&lt;=<span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;length<span class="number">-1</span>; i++) <span class="comment">// note: it should be length-1</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>; j&lt;length<span class="number">-1</span>-i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>]) <span class="built_in">swap</span>(arr[j],arr[j+<span class="number">1</span>]); <span class="comment">// note: swap is also suitable for array</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="performance">1.3 Performance</h4>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time Complexity (Best/Worst/Average)</th>
-<th>Space Complexity</th>
-<th>Stability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>O(n<sup>2</sup>)</strong></td>
-<td><strong>O(1)</strong></td>
-<td><strong>stable</strong> <br>(no change in relative position for same
-elements)</td>
-</tr>
-</tbody>
-</table>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/09/17/Sorting-Algorithms/#more" rel="contents">
@@ -865,7 +834,7 @@ elements)</td>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2021-09-23 17:12:14" itemprop="dateModified" datetime="2021-09-23T17:12:14+08:00">2021-09-23</time>
+      <time title="Modified: 2023-07-24 20:19:36" itemprop="dateModified" datetime="2023-07-24T20:19:36+08:00">2023-07-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -873,7 +842,7 @@ elements)</td>
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
+          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
         </span>
     </span>
 
@@ -1161,9 +1130,9 @@ elements)</td>
     <div class="post-body" itemprop="articleBody">
           <p>馆长迫于招生压力开始发视频了，浓浓的抖音风（不过他本身就是这个这个方向的，笑）。</p>
 <p>发出来才看到还是有很多问题的。不过也挺快乐</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-DYVMZvZSXELmmUto" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-DYVMZvZSXELmmUto").style.height=document.getElementById("mmedia-DYVMZvZSXELmmUto").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-UGcSVmUxiRKTABQb" src="https://player.bilibili.com/player.html?bvid=BV1Cg411V7VN&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-UGcSVmUxiRKTABQb").style.height=document.getElementById("mmedia-UGcSVmUxiRKTABQb").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-DYVMZvZSXELmmUto").style.height=document.getElementById("mmedia-DYVMZvZSXELmmUto").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-UGcSVmUxiRKTABQb").style.height=document.getElementById("mmedia-UGcSVmUxiRKTABQb").scrollWidth*0.76+"px";
     }; </script>
 
       
