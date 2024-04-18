@@ -149,13 +149,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">140</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -187,6 +187,555 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/12/21/MultiThreading-in-Python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/12/21/MultiThreading-in-Python/" class="post-title-link" itemprop="url">MultiThreading in Python</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-12-21 10:51:05 / Modified: 10:51:33" itemprop="dateCreated datePublished" datetime="2022-12-21T10:51:05+08:00">2022-12-21</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="multi-threading">Multi-threading</h2>
+<h3 id="create-sub-thread">Create sub-thread</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="comment"># this is target function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Current task is&#x27;</span>, name)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># create sub-thread</span></span><br><span class="line">    t1 = threading.Thread(target=run, args=(<span class="string">&#x27;Thread 1&#x27;</span>,))</span><br><span class="line">    t2 = threading.Thread(target=run, args=(<span class="string">&#x27;Thread 2&#x27;</span>,))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># main thread waits for sub-thread</span></span><br><span class="line">    t1.join()</span><br><span class="line">    t2.join()</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Exit&#x27;</span>)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/12/21/MultiThreading-in-Python/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/12/21/win11%E4%BF%AE%E6%94%B9%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/12/21/win11%E4%BF%AE%E6%94%B9%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/" class="post-title-link" itemprop="url">win11修改右键菜单</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-12-21 10:41:41" itemprop="dateCreated datePublished" datetime="2022-12-21T10:41:41+08:00">2022-12-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-05-08 15:05:47" itemprop="dateModified" datetime="2023-05-08T15:05:47+08:00">2023-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>open <code>CMD</code> with admin right. <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">reg.exe add &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot; /f /ve # win10 mode</span><br><span class="line">reg.exe delete &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot; /va /f # win11 mode</span><br><span class="line"></span><br><span class="line">taskkill /f /im explorer.exe &amp; start explorer.exe # reboot machine or run this line</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/23/why42/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/23/why42/" class="post-title-link" itemprop="url">why42</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-10-23 12:09:38 / Modified: 12:10:55" itemprop="dateCreated datePublished" datetime="2022-10-23T12:09:38+08:00">2022-10-23</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Please set random seed to 42.</p>
+<p><img src="/2022/10/23/why42/why42.png" alt="why42" style="zoom:75%;"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/WSL2-Configuration/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/04/WSL2-Configuration/" class="post-title-link" itemprop="url">WSL2 Configuration</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-10-04 15:43:55 / Modified: 15:44:04" itemprop="dateCreated datePublished" datetime="2022-10-04T15:43:55+08:00">2022-10-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>install WSL2 in Win10</p>
+<ol type="1">
+<li>open <code>powershell</code> as administrator.</li>
+<li><code>winver</code> to check your Windows version.</li>
+<li><code>wsl -l -o</code> to check all available distribution
+package.</li>
+<li><code>wsl --install -d &lt;distribution&gt;</code> to install
+specified Linux version.</li>
+<li>(Optional) if you want to connect to your WSL via VScode, check this
+plugin <code>Remote-WSL</code></li>
+</ol>
+<p>install Anaconda in WSL2</p>
+<ol type="1">
+<li>update <code>sudo apt update; sudo apt upgrade</code></li>
+<li>check the download <a href="%5BAnaconda%20%7C%20Anaconda%20Distribution%5D(https://www.anaconda.com/products/distribution)">link</a></li>
+<li>install via <code>wget</code>, eg.
+<code>wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh</code></li>
+<li>run the installer script to install Anaconda. (remember to run
+<code>conda init</code>)</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/How-to-modify-git-message/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/04/How-to-modify-git-message/" class="post-title-link" itemprop="url">How to modify git message</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-10-04 15:43:13" itemprop="dateCreated datePublished" datetime="2022-10-04T15:43:13+08:00">2022-10-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-05-08 15:07:27" itemprop="dateModified" datetime="2023-05-08T15:07:27+08:00">2023-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Coding/" itemprop="url" rel="index"><span itemprop="name">Coding</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol type="1">
+<li><p>modify the last commit comment:
+<code>git commit --amend --message="message" --author="my_name &lt;name@email.com&gt;"</code></p></li>
+<li><p>modify historical commit comment:</p>
+<ol type="1">
+<li><p>view your commit history: <code>git log</code></p></li>
+<li><p>rebase: <code>git rebase -i &lt;commmit id&gt;</code> or
+<code>git rebase -i HEAD~n</code></p>
+<ol type="1">
+<li>note: you have to rebase to the commit <strong>before</strong> the
+one you want to modify.</li>
+</ol></li>
+<li><p>change the flag:</p>
+<ul>
+<li>pick: use commit (do nothing)</li>
+<li>reword: use commit, but edit the commit message</li>
+<li>edit: use commit, but stop for amending (u can modify files)</li>
+<li>squash: use commit, but meld into previous commit</li>
+<li>fixup: like "squash", but discard this commit's log message</li>
+<li>exec: run command (the rest of the line) using shell</li>
+<li>drop: remove commit</li>
+</ul>
+<p>If you just want to edit the commit message, choose
+<strong>reword</strong>.</p></li>
+<li><p>modify the message</p></li>
+<li><p>push <code>git push &lt;origin&gt; &lt;branch&gt; -f</code>. You
+have to use the flag <strong><code>-f</code></strong> to push the commit
+by force.</p></li>
+</ol></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/10/04/Knapsack-Problem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/04/Knapsack-Problem/" class="post-title-link" itemprop="url">Knapsack Problem</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-10-04 15:42:37 / Modified: 15:46:51" itemprop="dateCreated datePublished" datetime="2022-10-04T15:42:37+08:00">2022-10-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="knapsack-problem">Knapsack Problem</h1>
+<p>Knapsack problem is a constraint optimization problem. You have to
+find an optimal answer given certain constraints (capacity of knapsack).
+There are 3 different variants: <strong>0-1 knapsack</strong>,
+<strong>fractional knapsack</strong> and <strong>unbounded
+knapsack</strong>. We will discuss them one by one.</p>
+<h2 id="knapsack-problem-1">0-1 Knapsack Problem</h2>
+<h3 id="what-is-a-0-1-knapsack-problem">What is a 0-1 Knapsack
+Problem?</h3>
+<p>In the 0-1 knapsack problem, we can either keep an item or not. There
+is no way to split an item. Each item has a value and a weight. The
+knapsack, or the bag, has a weight capacity. Our target is to fill the
+bag with maximum value while not exceeding its capacity.</p>
+<p>Input: bag weight capacity <span class="math inline">\(W\)</span>,
+<span class="math inline">\(n\)</span> items with value
+<code>value[]</code> and weight <code>weight[]</code>.</p>
+<p>Output: maximum feasible value</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/04/Knapsack-Problem/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -674,612 +1223,6 @@ Table)又称维表，其本质是基础表，类似于事实表的外键，往�
 <p>https://blog.csdn.net/weixin_45366499/article/details/120706308
 https://blog.csdn.net/qq_28666081/article/details/104686822</p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/09/07/MapReduce/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Wuchen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/07/MapReduce/" class="post-title-link" itemprop="url">MapReduce</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-09-07 21:40:38 / Modified: 21:41:35" itemprop="dateCreated datePublished" datetime="2022-09-07T21:40:38+08:00">2022-09-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="procedure">Procedure</h3>
-<p>HDFS(Hadoop Distributed File System)(stored in blocks)-&gt;Split(# of
-split=# of map tasks)-&gt;Map(Assign each key with value; generate (key,
-value) pairs)-&gt;Shuffle-&gt;Reduce(aggregate value)-&gt;HDFS</p>
-<h3 id="shuffle">Shuffle</h3>
-<p>Let’s focus on shuffle part.</p>
-<p>All the data in the map node will be partitioned(hash to different
-reduce node). Reduce node will get all the data in the corresponding
-partitions from different map nodes and perform reduce task only
-once.</p>
-<p>Shuffle taken on map node = Partition(# of partition=# of reduce
-node) + merge sort(based on key) + (optional) combiner</p>
-<p>Output will be stored in a Ring Buffer(up to 80%). Then reduce nodes
-will capture spill files via HTTP. Reduce node will get data from memory
-and disk of map node. If the map task is not completed yet, reduce node
-will merge sort data in time and wait for map task to finish.</p>
-<p>Shuffle taken on reduce node = all the spill file generated by this
-map task will be merged (based on partition number) and generate (key,
-{value_list}) pair.</p>
-<p>Merge will generate value list (key, {value_list}). Combiner will
-perform reduce task to compress data (key, value). Combiner is designed
-to decrease the IO pressure (from map node to reduce node). Reduce node
-only need to load a combined file instead of many small spill file.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/27/Introduction-to-Data-Analysis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Wuchen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/27/Introduction-to-Data-Analysis/" class="post-title-link" itemprop="url">Introduction to Data Analysis</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-07-27 17:57:50" itemprop="dateCreated datePublished" datetime="2022-07-27T17:57:50+08:00">2022-07-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-05-08 15:09:13" itemprop="dateModified" datetime="2023-05-08T15:09:13+08:00">2023-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="prefab">Prefab</h1>
-<p>Here is everything you need to know about <code>pandas</code>.</p>
-<h1 id="environment">Environment</h1>
-<p>The following code is tested on Macbook Air (Apple Silicon). MacOS
-12.3.</p>
-<h2 id="anaconda">Anaconda</h2>
-<p>Refer to <a href="https://sightvanish.github.io/2022/07/26/Pytorch-Environment-on-Apple-Silicon/">THIS</a>.</p>
-<h3 id="virtual-environment">Virtual environment</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda create -n &lt;<span class="built_in">env</span> name&gt; python=3.9</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda activate &lt;<span class="built_in">env</span> name&gt;</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda install pandas</span></span><br></pre></td></tr></table></figure>
-<h2 id="jupyter-notebook">Jupyter notebook</h2>
-<p>Refer to <a href="https://sightvanish.github.io/2021/10/09/Jupyter-Notebook-Installtion/">THIS</a></p>
-<h2 id="dependency">Dependency</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">numpy</span><br><span class="line">pandas</span><br><span class="line">xlrd</span><br><span class="line">xlwt</span><br><span class="line">openpyxl</span><br><span class="line">tabulate</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/27/Introduction-to-Data-Analysis/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/26/Dive-into-FasterRCNN/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Wuchen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/26/Dive-into-FasterRCNN/" class="post-title-link" itemprop="url">Dive into FasterRCNN</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-07-26 16:47:36 / Modified: 16:59:00" itemprop="dateCreated datePublished" datetime="2022-07-26T16:47:36+08:00">2022-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Computer-Vision/" itemprop="url" rel="index"><span itemprop="name">Computer Vision</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="发展顺序">发展顺序</h2>
-<p>本文仅关注从R-CNN、SPP-Net（2014）至Fast R-CNN、Faster
-R-CNN（2015）的图像分割技术。</p>
-<h2 id="r-cnn">R-CNN</h2>
-<p>Region-CNN</p>
-<h3 id="efficient-graph-based-image-segmentation">Efficient Graph-Based
-Image Segmentation</h3>
-<p>主要目的也就是将图像（image）分割成若干个特定的、具有独特性质的区域（region），然后从中提取出感兴趣的目标（object）。</p>
-<p>为了找到有意义的图像区域，我们很容易想到根据灰度gradient变化，但是会产生下图问题：</p>
-<p align="center">
-<img src="/2022/07/26/Dive-into-FasterRCNN/image1.jpg" width="40%" height="50%">
-</p>
-<p>左侧图像灰度变化均匀，右侧图像仅有部分区域有灰度变化。上图的例子告诉我们不能使用<strong>灰度的变化</strong>作为分割依据，也不能使用<strong>单一的灰度阈值</strong>来作为分割的评判标准。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/26/Dive-into-FasterRCNN/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/26/SocialLSTM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Wuchen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/26/SocialLSTM/" class="post-title-link" itemprop="url">SocialLSTM</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-07-26 16:19:01 / Modified: 17:26:46" itemprop="dateCreated datePublished" datetime="2022-07-26T16:19:01+08:00">2022-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Computer-Vision/" itemprop="url" rel="index"><span itemprop="name">Computer Vision</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="rnn">RNN</h2>
-<p>Recurrent Neural Network，循环神经网络。</p>
-<p>RNN
-是包含循环的网络，允许信息的持久化，可以充分利用先验的信息知识。</p>
-<p align="center">
-<img src="/2022/07/26/SocialLSTM/1.jpg" alt="3" style="zoom:15%;">
-</p>
-<p>本质上RNN就是在<span class="math inline">\(t\)</span>时刻，input=<span class="math inline">\(X _t + h _{t-1}\)</span>。</p>
-<p>LSTM就是一种特殊的RNN。</p>
-<p>对于RNN来说，在语言预测词汇中，对此要预测的词来说，相近的词贡献会很大，而时间间隔越远的词，贡献越少。但是往往存在Long-Term
-Dependency问题，一些重要信息可能会贯穿全文，如果很早出现但是被忘记，在后续的预测中将会很不利。理论上，RNN当然可以处理这种长期记忆问题，但是实践中却很难做到。为此LSTM出现了。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/26/SocialLSTM/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/26/Chmod-in-Ubuntu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Wuchen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/26/Chmod-in-Ubuntu/" class="post-title-link" itemprop="url">Chmod in Ubuntu</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-07-26 15:08:45" itemprop="dateCreated datePublished" datetime="2022-07-26T15:08:45+08:00">2022-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-07-24 20:17:06" itemprop="dateModified" datetime="2023-07-24T20:17:06+08:00">2023-07-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Coding/" itemprop="url" rel="index"><span itemprop="name">Coding</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="what-is-chmod">What is chmod</h1>
-<p>chmod: Change the mode of each FILE to MODE.</p>
-<h1 id="lets-know-something-about-the-linux-file-permission">Let's know
-something about the linux file permission</h1>
-<p><code>ls -l</code> the first column will show the permissions for
-files.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span> -l</span></span><br><span class="line">total 40</span><br><span class="line">drwxr-xr-x  3 liwuchen  staff    96 Jul 15 22:05 PaperSharing</span><br><span class="line">-rwxr-xr-x  1 liwuchen  staff   225 Jul 15 22:05 README.md</span><br><span class="line">-rw-r--r--  1 liwuchen  staff   895 Jul 26 10:37 TODO.md</span><br><span class="line">-rw-r--r--@ 1 liwuchen  staff  1779 Jul 26 15:08 chmod.md</span><br><span class="line">-rw-r--r--  1 liwuchen  staff   474 Jul 26 10:37 entropy.md</span><br><span class="line">-rw-r--r--  1 liwuchen  staff   102 Jul 26 10:37 randomforest.md</span><br></pre></td></tr></table></figure>
-<p>On each line, the first character identifies the type of entry that
-is being listed.If it is a dash(-), it is a file. If is the letter
-<code>d</code>, it is a directory.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/26/Chmod-in-Ubuntu/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2022/07/26/Pytorch-Environment-on-Apple-Silicon/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Wuchen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Wu Times">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/26/Pytorch-Environment-on-Apple-Silicon/" class="post-title-link" itemprop="url">Pytorch Environment on Apple Silicon</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-07-26 15:03:37" itemprop="dateCreated datePublished" datetime="2022-07-26T15:03:37+08:00">2022-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-27 18:37:30" itemprop="dateModified" datetime="2022-07-27T18:37:30+08:00">2022-07-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="anaconda">Anaconda</h1>
-<p><a target="_blank" rel="noopener" href="https://www.anaconda.com">CLICK HERE</a> to install
-anaconda.</p>
-<p>Update anaconda to the latest version via
-<code>conda update anaconda</code>.</p>
-<p><code>conda -V</code> to show your anaconda version. My version is
-<code>conda 4.13.0</code>.</p>
-<h1 id="pytorch">Pytorch</h1>
-<ol type="1">
-<li><p>create new environment
-<code>conda create -n &lt;environment name&gt; python=3.9</code></p></li>
-<li><p>change environment
-<code>conda activate &lt;environment name&gt;</code></p></li>
-<li><p>install pytorch <code>conda install -c pytorch pytorch</code></p>
-<p>PyTorch 1.12 supports GPU acceleration on Apple Silicon now.</p></li></ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/26/Pytorch-Environment-on-Apple-Silicon/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 

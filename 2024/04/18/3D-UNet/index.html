@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"sightvanish.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Understanding and Implementing 3D UNet for Medical Image Segmentation in PyTorch Introduction to 3D UNet 3D UNet is a powerful convolutional neural network architecture widely utilized for image segme">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3D UNet">
+<meta property="og:url" content="https://sightvanish.github.io/2024/04/18/3D-UNet/index.html">
+<meta property="og:site_name" content="Wu Times">
+<meta property="og:description" content="Understanding and Implementing 3D UNet for Medical Image Segmentation in PyTorch Introduction to 3D UNet 3D UNet is a powerful convolutional neural network architecture widely utilized for image segme">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-04-18T07:47:37.000Z">
+<meta property="article:modified_time" content="2024-04-18T07:48:19.861Z">
+<meta property="article:author" content="Wuchen">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://sightvanish.github.io/2024/04/18/3D-UNet/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sightvanish.github.io/2024/04/18/3D-UNet/","path":"2024/04/18/3D-UNet/","title":"3D UNet"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>3D UNet | Wu Times</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Wu Times</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-maintenance"><a href="/maintenance/" rel="section"><i class="fa fa-book fa-fw"></i>Maintenance</a></li><li class="menu-item menu-item-outerheaven"><a href="/outerheaven/" rel="section"><i class="fa fa-lock fa-fw"></i>OuterHeaven</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#understanding-and-implementing-3d-unet-for-medical-image-segmentation-in-pytorch"><span class="nav-number">1.</span> <span class="nav-text">Understanding
+and Implementing 3D UNet for Medical Image Segmentation in PyTorch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction-to-3d-unet"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction to 3D UNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prerequisite"><span class="nav-number">1.2.</span> <span class="nav-text">Prerequisite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unet-components"><span class="nav-number">1.3.</span> <span class="nav-text">UNet Components</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unet-model"><span class="nav-number">1.4.</span> <span class="nav-text">UNet Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loss-function"><span class="nav-number">1.5.</span> <span class="nav-text">Loss Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#closing-thoughts"><span class="nav-number">1.6.</span> <span class="nav-text">Closing Thoughts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pros"><span class="nav-number">1.6.1.</span> <span class="nav-text">Pros:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cons"><span class="nav-number">1.6.2.</span> <span class="nav-text">Cons:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#current-application"><span class="nav-number">1.6.3.</span> <span class="nav-text">Current Application:</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wuchen"
+      src="/images/avatar.JPG">
+  <p class="site-author-name" itemprop="name">Wuchen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">140</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sightvanish" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sightvanish" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1105416184@qq.com" title="E-Mail → mailto:1105416184@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/7541448" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;7541448" rel="noopener me" target="_blank"><i class="fab fa-youtube fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sightvanish.github.io/2024/04/18/3D-UNet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Wuchen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="3D UNet | Wu Times">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          3D UNet
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-04-18 15:47:37 / Modified: 15:48:19" itemprop="dateCreated datePublished" datetime="2024-04-18T15:47:37+08:00">2024-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="understanding-and-implementing-3d-unet-for-medical-image-segmentation-in-pytorch">Understanding
+and Implementing 3D UNet for Medical Image Segmentation in PyTorch</h1>
+<h2 id="introduction-to-3d-unet">Introduction to 3D UNet</h2>
+<p>3D UNet is a powerful convolutional neural network architecture
+widely utilized for image segmentation tasks, particularly in medical
+imaging applications such as MRI and CBCT scans. It has proven to be one
+of the most effective methods for delineating structures within
+volumetric data.</p>
+<p>This article provides an in-depth introduction to the architecture of
+3D UNet and presents a PyTorch implementation along with detailed
+explanations of each part of the code.</p>
+<span id="more"></span>
+<h2 id="prerequisite">Prerequisite</h2>
+<p>Before diving into the implementation, ensure you have the necessary
+Python packages installed:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> nibabel <span class="keyword">as</span> nib</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> Dataset, DataLoader</span><br></pre></td></tr></table></figure>
+<p>GPU Usage: Given the computational intensity of 3D UNet, it is highly
+recommended to leverage <strong>GPU</strong> acceleration for
+training:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">device = torch.device(<span class="string">&#x27;cuda&#x27;</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&#x27;cpu&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="unet-components">UNet Components</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DoubleConv</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, in_channels, out_channels</span>):</span><br><span class="line">        <span class="built_in">super</span>(DoubleConv, self).__init__()</span><br><span class="line">        self.double_conv = nn.Sequential(</span><br><span class="line">            nn.Conv3d(in_channels, out_channels, kernel_size=<span class="number">3</span>, padding=<span class="number">1</span>, stride=<span class="number">1</span>), <span class="comment"># keep the same size</span></span><br><span class="line">            nn.BatchNorm3d(out_channels),</span><br><span class="line">            nn.ReLU(inplace=<span class="literal">True</span>), <span class="comment"># save memory usage</span></span><br><span class="line">            nn.Conv3d(out_channels, out_channels, kernel_size=<span class="number">3</span>, padding=<span class="number">1</span>, stride=<span class="number">1</span>),</span><br><span class="line">            nn.BatchNorm3d(out_channels),</span><br><span class="line">            nn.ReLU(inplace=<span class="literal">True</span>)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> self.double_conv(x)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Down</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, in_channels, out_channels</span>):</span><br><span class="line">        <span class="built_in">super</span>(Down, self).__init__()</span><br><span class="line">        self.maxpool_conv = nn.Sequential(</span><br><span class="line">            nn.MaxPool3d(<span class="number">2</span>), <span class="comment"># reduce the size by half, output size = input size // 2</span></span><br><span class="line">            DoubleConv(in_channels, out_channels)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> self.maxpool_conv(x)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Up</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, in_channels, out_channels</span>):</span><br><span class="line">        <span class="built_in">super</span>(Up, self).__init__()</span><br><span class="line">        <span class="comment"># ConvTranspose3d = dilating(with zeros) + standard cov</span></span><br><span class="line">        <span class="comment"># stride: how much the output size is increased; kernel_size: affect overlap</span></span><br><span class="line">        self.up = nn.ConvTranspose3d(in_channels, in_channels // <span class="number">2</span>, kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>)</span><br><span class="line">        self.conv = DoubleConv(in_channels, out_channels)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x1, x2</span>):</span><br><span class="line">        x1 = self.up(x1) <span class="comment"># upsampling</span></span><br><span class="line">        <span class="comment"># padding x1 to x2 shape</span></span><br><span class="line">        diffZ = x2.size()[<span class="number">2</span>] - x1.size()[<span class="number">2</span>]</span><br><span class="line">        diffY = x2.size()[<span class="number">3</span>] - x1.size()[<span class="number">3</span>]</span><br><span class="line">        diffX = x2.size()[<span class="number">4</span>] - x1.size()[<span class="number">4</span>]</span><br><span class="line">        x1 = F.pad(x1, [diffX // <span class="number">2</span>, diffX - diffX // <span class="number">2</span>,</span><br><span class="line">                        diffY // <span class="number">2</span>, diffY - diffY // <span class="number">2</span>,</span><br><span class="line">                        diffZ // <span class="number">2</span>, diffZ - diffZ // <span class="number">2</span>])</span><br><span class="line">        x = torch.cat([x2, x1], dim=<span class="number">1</span>) <span class="comment"># concat in channel dimension</span></span><br><span class="line">        <span class="keyword">return</span> self.conv(x)</span><br></pre></td></tr></table></figure>
+<p>Understanding UNet Components:</p>
+<ol type="1">
+<li><p><strong>DoubleConv:</strong> The <code>DoubleConv</code> class
+defines a basic unit consisting of two <strong>3D convolutional
+layers</strong> with <strong>batch normalization</strong> and
+<strong>ReLU activation</strong>. It is the fundamental building block
+for both encoding and decoding stages of the UNet.</p></li>
+<li><p><strong>Down:</strong> The <code>Down</code> class represents the
+down-sampling or <strong>encoding</strong> part of the UNet. It combines
+a <strong>3D max-pooling laye</strong>r to reduce spatial dimensions and
+the <code>DoubleConv</code> unit to capture hierarchical
+features.</p></li>
+<li><p><strong>Up:</strong> The <code>Up</code> class corresponds to the
+up-sampling or <strong>decoding</strong> section. It employs <strong>3D
+transposed convolution</strong> (deconvolution) for up-sampling and
+concatenates the features from the corresponding encoding layer before
+applying the <code>DoubleConv</code> unit.</p></li>
+</ol>
+<h2 id="unet-model">UNet Model</h2>
+<p>Putting Components All Together:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UNet3D</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, n_channels, n_classes</span>):</span><br><span class="line">        <span class="built_in">super</span>(UNet3D, self).__init__()</span><br><span class="line">        self.n_channels = n_channels <span class="comment"># input channels = 1 for grayscale image</span></span><br><span class="line">        self.n_classes = n_classes <span class="comment"># output classes = 2 for teeth/non-teeth</span></span><br><span class="line">        <span class="comment"># input</span></span><br><span class="line">        self.<span class="built_in">input</span> = DoubleConv(n_channels, <span class="number">64</span>)</span><br><span class="line">        <span class="comment"># downsample</span></span><br><span class="line">        self.down1 = Down(<span class="number">64</span>, <span class="number">128</span>)</span><br><span class="line">        self.down2 = Down(<span class="number">128</span>, <span class="number">256</span>)</span><br><span class="line">        self.down3 = Down(<span class="number">256</span>, <span class="number">512</span>)</span><br><span class="line">        self.down4 = Down(<span class="number">512</span>, <span class="number">1024</span>)</span><br><span class="line">        <span class="comment"># upsample</span></span><br><span class="line">        self.up1 = Up(<span class="number">1024</span>, <span class="number">512</span>)</span><br><span class="line">        self.up2 = Up(<span class="number">512</span>, <span class="number">256</span>)</span><br><span class="line">        self.up3 = Up(<span class="number">256</span>, <span class="number">128</span>)</span><br><span class="line">        self.up4 = Up(<span class="number">128</span>, <span class="number">64</span>)</span><br><span class="line">        <span class="comment"># output</span></span><br><span class="line">        self.output = nn.Conv3d(<span class="number">64</span>, n_classes, kernel_size=<span class="number">1</span>)</span><br><span class="line">        self.sigmoid = nn.Sigmoid()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x1 = self.<span class="built_in">input</span>(x)</span><br><span class="line">        x2 = self.down1(x1)</span><br><span class="line">        x3 = self.down2(x2)</span><br><span class="line">        x4 = self.down3(x3)</span><br><span class="line">        x5 = self.down4(x4)</span><br><span class="line">        x = self.up1(x5, x4)</span><br><span class="line">        x = self.up2(x, x3)</span><br><span class="line">        x = self.up3(x, x2)</span><br><span class="line">        x = self.up4(x, x1)</span><br><span class="line">        output = self.output(x)</span><br><span class="line">        output = self.sigmoid(output)</span><br><span class="line">        <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
+<p>The main <code>UNet3D</code> class assembles the entire 3D UNet
+model. It consists of an input layer, four encoding blocks
+(<code>Down</code>), four decoding blocks (<code>Up</code>), and an
+output layer with a sigmoid activation for binary segmentation.</p>
+<h2 id="loss-function">Loss Function</h2>
+<p>The <code>dice_loss</code> function computes the Dice coefficient and
+minimizes the dissimilarity between the predicted and ground truth
+masks.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">dice_loss</span>(<span class="params">pred, target, smooth=<span class="number">1e-5</span></span>):</span><br><span class="line">    <span class="keyword">assert</span> target.size() == pred.size()</span><br><span class="line">    pred, target = pred.contiguous(), target.contiguous()</span><br><span class="line">    pred_flat, target_flat = pred.view(pred.size(<span class="number">0</span>), -<span class="number">1</span>), target.view(target.size(<span class="number">0</span>), -<span class="number">1</span>) <span class="comment"># flatten and keep the batch size</span></span><br><span class="line">    <span class="comment"># intersection = AnB, union = A+B, dice = 1 - (2*AnB)/(A+B), smooth is used to avoid 0</span></span><br><span class="line">    intersection = (pred_flat * target_flat).<span class="built_in">sum</span>(<span class="number">1</span>)</span><br><span class="line">    union = pred_flat.<span class="built_in">sum</span>(<span class="number">1</span>) + target_flat.<span class="built_in">sum</span>(<span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    dice = (<span class="number">2</span> * intersection + smooth) / (union + smooth) <span class="comment"># add smooth to avoid 0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> - dice.mean()</span><br></pre></td></tr></table></figure>
+<h2 id="closing-thoughts">Closing Thoughts</h2>
+<p>3D UNet stands out as a robust and straightforward model
+architecture, particularly well-suited for medical image segmentation
+tasks, such as MRI and CBCT scans. Its strength lies in its ability to
+capture intricate spatial dependencies and hierarchical features within
+volumetric data. However, delving into the details of implementation and
+training may reveal challenges, including the need for careful
+hyperparameter tuning, handling class imbalances, and addressing data
+augmentation strategies.</p>
+<h3 id="pros">Pros:</h3>
+<ul>
+<li>Robust spatial feature capture: 3D UNet excels in capturing spatial
+dependencies, making it effective for volumetric medical image
+segmentation.</li>
+<li>Hierarchical feature extraction: The model's architecture allows for
+the extraction of hierarchical features, aiding in the accurate
+delineation of structures.</li>
+</ul>
+<h3 id="cons">Cons:</h3>
+<ul>
+<li>Computational Intensity: Training a 3D UNet can be computationally
+intensive, necessitating powerful hardware resources, preferably
+GPUs.</li>
+<li>Implementation Nuances: Achieving optimal performance may require
+fine-tuning various aspects, such as learning rates and regularization
+techniques.</li>
+</ul>
+<h3 id="current-application">Current Application:</h3>
+<p>3D UNet finds widespread application in medical imaging, contributing
+to tasks such as organ segmentation, tumor detection, and anatomical
+structure delineation. Its ability to handle volumetric data makes it a
+go-to choice for three-dimensional medical image analysis.</p>
+<p>For those seeking a more convenient solution, <strong>nnUNet</strong>
+provides a pre-configured framework that encapsulates best practices and
+offers a user-friendly approach to deploying segmentation models.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/alipay.png" alt="Wuchen Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/07/24/Understanding-of-Combination/" rel="prev" title="Understanding of Combination">
+                  <i class="fa fa-chevron-left"></i> Understanding of Combination
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/04/18/Diet-Plan/" rel="next" title="Diet Plan">
+                  Diet Plan <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wuchen</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
