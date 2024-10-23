@@ -88,7 +88,8 @@
             <div class="contact-info">
               <p class="contact-title">Phone</p>
 
-              <a href="tel:+16693027032" class="contact-link">+1 (669) 302-7032</a>
+              <!-- <a href="tel:+16693027032" class="contact-link">+1 (669) 302-7032</a> -->
+              <a href="tel:+1xxxxxxxxxx" class="contact-link">+1 (xxx) xxx-xxxx</a>
             </div>
 
           </li>
@@ -96,13 +97,13 @@
           <li class="contact-item">
 
             <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
+              <ion-icon name="school-outline"></ion-icon>
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Birthday</p>
+              <p class="contact-title">School</p>
 
-              <time datetime="2000-10-03">October 03, 2000</time>
+              <time datetime="2000-10-03">Cornell University</time>
             </div>
 
           </li>
@@ -356,10 +357,15 @@
       -->
 
       <article class="resume" data-page="resume">
-
         <header>
           <h2 class="h2 article-title">Resume</h2>
         </header>
+
+        <div class="resume-download">
+          <a href="./assets/resume.pdf" download="Wuchen_Resume.pdf">
+            <button class="download-btn">Full Resume (PDF)</button>
+          </a>
+        </div>
 
         <section class="timeline">
 
@@ -581,22 +587,41 @@
     <ul class="project-list">
 
       <li class="project-item active" data-filter-item data-category="machine learning">
-        <a href="#">
+        <a href="https://github.com/SightVanish/MetaTensor.git">
 
           <figure class="project-img">
             <div class="project-item-icon-box">
               <ion-icon name="eye-outline"></ion-icon>
             </div>
 
-            <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
+            <img src="./assets/images/metatensor.jpg" alt="Meta Tensor" loading="lazy">
           </figure>
 
-          <h3 class="project-title">Finance</h3>
+          <h3 class="project-title">Meta Tensor - Deep Learning Framework</h3>
 
           <p class="project-category">Machine Learning</p>
 
         </a>
       </li>
+
+      <li class="project-item active" data-filter-item data-category="machine learning">
+        <a href="https://github.com/DeepRec-AI/DeepRec">
+
+          <figure class="project-img">
+            <div class="project-item-icon-box">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+
+            <img src="./assets/images/deeprec.png" alt="Deep Rec" loading="lazy">
+          </figure>
+
+          <h3 class="project-title">Contributor to Open Source Project DeepRec</h3>
+
+          <p class="project-category">Machine Learning</p>
+
+        </a>
+      </li>
+
 
       <li class="project-item active" data-filter-item data-category="computer vision">
         <a href="#">
@@ -606,10 +631,10 @@
               <ion-icon name="eye-outline"></ion-icon>
             </div>
 
-            <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
+            <img src="./assets/images/nutrition.jpg" alt="Nutrition" loading="lazy">
           </figure>
 
-          <h3 class="project-title">Orizon</h3>
+          <h3 class="project-title">Nutirtion Estimation via Simple Image</h3>
 
           <p class="project-category">Computer Vision</p>
 
@@ -617,17 +642,17 @@
       </li>
 
       <li class="project-item active" data-filter-item data-category="data science">
-        <a href="#">
+        <a href="https://github.com/SightVanish/PortfolioSelection.git">
 
           <figure class="project-img">
             <div class="project-item-icon-box">
               <ion-icon name="eye-outline"></ion-icon>
             </div>
 
-            <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
+            <img src="./assets/images/portfolio.jpg" alt="PortfolioSelection" loading="lazy">
           </figure>
 
-          <h3 class="project-title">Fundo</h3>
+          <h3 class="project-title">Financing Asset Portfolio Selection Project</h3>
 
           <p class="project-category">Data Science</p>
 
@@ -702,7 +727,7 @@
       <article class="contact" data-page="contact">
 
         <header>
-          <h2 class="h2 article-title">Contact</h2>
+          <h2 class="h2 article-title">Location</h2>
         </header>
 
         <section class="mapbox" data-mapbox>
@@ -713,28 +738,28 @@
           </figure>
         </section>
 
-        <section class="contact-form">
+      <!-- Contact Section -->
+      <section id="contact">
+        <header>
+          <h2 class="h2 article-title">Contact Me</h2>
+        </header>
 
-          <h3 class="h3 form-title">Contact Form</h3>
+        <div class="contact-info">
+          <!-- Email -->
+          <div class="contact-item">
+            <h4 class="contact-title">Email</h4>
+            <a href="mailto:wl758@cornell.edu" class="contact-link">wl758/cornell/edu</a>
+          </div>
 
-          <form action="#" class="form" data-form>
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-            </div>
-
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
-
-          </form>
-
-        </section>
+          <!-- Address -->
+          <div class="contact-item">
+            <h4 class="contact-title">Address</h4>
+            <address class="contact-address">
+              Cornell Tech, 2 West Loop Road, New York, NY, 10044, USA
+            </address>
+          </div>
+        </div>
+      </section>
 
       </article>
 

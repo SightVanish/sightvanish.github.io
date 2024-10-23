@@ -1902,3 +1902,21 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 }
 
+.download-btn {
+  background-color: hsl(35, 100%, 60%); /* --orange-yellow-crayola */
+  border: none;
+  color: white;
+  padding: 8px 16px; /* Reduced padding to make the button smaller */
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px; /* Smaller font size */
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+.download-btn:hover {
+  background-color: hsl(35, 100%, 50%); /* Darker shade of orange-yellow-crayola on hover */
+}
+
