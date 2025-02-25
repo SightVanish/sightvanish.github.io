@@ -108,3 +108,22 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// Google Analytics Tracking Script
+(function() {
+  let GA_MEASUREMENT_ID = "G-3E08RYVGKY";
+
+  // Load Google Analytics script dynamically
+  let script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  document.head.appendChild(script);
+
+  // Initialize Google Analytics
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+
+  gtag("js", new Date());
+  gtag("config", GA_MEASUREMENT_ID);
+})();
