@@ -1918,3 +1918,33 @@ textarea.form-input::-webkit-resizer { display: none; }
   background-color: hsl(35, 100%, 50%); /* Darker shade of orange-yellow-crayola on hover */
 }
 
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.skill-box {
+  position: relative;
+  background: var(--border-gradient-onyx);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-2);
+  text-align: center;
+  color: var(--light-gray);
+  font-size: 0.9rem;
+  font-weight: 400;
+  z-index: 1;
+}
+
+.skill-box::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+}
+
