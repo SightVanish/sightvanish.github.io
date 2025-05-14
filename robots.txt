@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sightvanish.github.io/sitemap.xml 
