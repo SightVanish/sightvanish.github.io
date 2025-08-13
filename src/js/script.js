@@ -6,9 +6,28 @@ const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+const sidebarClose = document.querySelector("[data-sidebar-close]");
 
 // sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+sidebarBtn.addEventListener("click", function () { 
+  sidebar.classList.add("active");
+});
+
+// sidebar close functionality for mobile
+if (sidebarClose) {
+  sidebarClose.addEventListener("click", function () { 
+    sidebar.classList.remove("active");
+  });
+}
+
+// Close sidebar when clicking outside on mobile
+document.addEventListener('click', function(event) {
+  if (window.innerWidth < 1024) { // Only on mobile
+    if (!sidebar.contains(event.target) && !sidebarBtn.contains(event.target)) {
+      sidebar.classList.remove("active");
+    }
+  }
+});
 
 // custom select variables
 const select = document.querySelector("[data-select]");
@@ -60,8 +79,18 @@ for (let i = 0; i < filterBtn.length; i++) {
     selectValue.innerText = this.innerText;
     filterFunc(selectedValue);
 
-    lastClickedBtn.classList.remove("active");
+    // Remove active class from all buttons
+    filterBtn.forEach(btn => {
+      btn.classList.remove("active");
+      btn.classList.remove("text-blue-600");
+      btn.classList.add("text-gray-700");
+    });
+    
+    // Add active class to clicked button
     this.classList.add("active");
+    this.classList.remove("text-gray-700");
+    this.classList.add("text-blue-600");
+    
     lastClickedBtn = this;
 
   });
@@ -87,27 +116,114 @@ for (let i = 0; i < formInputs.length; i++) {
   });
 }
 
-// page navigation variables
+// Smooth scrolling navigation
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
 
 // add event to all nav links
 for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
-
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
+  navigationLinks[i].addEventListener("click", function (e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    const targetSection = document.querySelector(targetId);
+    
+    if (targetSection) {
+      // Calculate offset for fixed navbar
+      const navbarHeight = document.querySelector('.navbar').offsetHeight;
+      const targetPosition = targetSection.offsetTop - navbarHeight - 20; // 20px extra padding
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+      
+      // Update navigation link styles
+      navigationLinks.forEach(link => {
+        link.classList.remove("active");
+        link.classList.remove("text-blue-600");
+        link.classList.add("text-gray-700");
+      });
+      
+      this.classList.add("active");
+      this.classList.remove("text-gray-700");
+      this.classList.add("text-blue-600");
     }
-
   });
 }
+
+// Update active navigation link based on scroll position
+window.addEventListener('scroll', function() {
+  const sections = document.querySelectorAll('section[id]');
+  const scrollPos = window.scrollY + 100; // Offset for navbar
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute('id');
+    
+    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+      // Remove active class from all navigation links
+      navigationLinks.forEach(link => {
+        link.classList.remove("active");
+        link.classList.remove("text-blue-600");
+        link.classList.add("text-gray-700");
+      });
+      
+      // Add active class to corresponding navigation link
+      const activeLink = document.querySelector(`[href="#${sectionId}"]`);
+      if (activeLink) {
+        activeLink.classList.add("active");
+        activeLink.classList.remove("text-gray-700");
+        activeLink.classList.add("text-blue-600");
+      }
+    }
+  });
+});
+
+// Initialize the first navigation link as active
+document.addEventListener('DOMContentLoaded', function() {
+  // Set initial navigation link state
+  const firstNavLink = document.querySelector('[data-nav-link]');
+  
+  if (firstNavLink) {
+    firstNavLink.classList.add('active');
+    firstNavLink.classList.remove('text-gray-700');
+    firstNavLink.classList.add('text-blue-600');
+  }
+  
+  // Set initial filter button state
+  if (filterBtn[0]) {
+    filterBtn[0].classList.add('active');
+    filterBtn[0].classList.remove('text-gray-700');
+    filterBtn[0].classList.add('text-blue-600');
+  }
+});
+
+// Add smooth animations for section transitions
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+// Observe all sections for animation
+document.addEventListener('DOMContentLoaded', function() {
+  const sections = document.querySelectorAll('section');
+  sections.forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(section);
+  });
+});
 
 // Google Analytics Tracking Script
 (function() {
