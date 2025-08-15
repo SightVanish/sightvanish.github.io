@@ -147,6 +147,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <!-- Mobile-specific meta tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -163,16 +166,28 @@
     - #MAIN
   -->
 
-  <main class="flex min-h-screen">
+  <main class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
 
-    <!--
-      - #SIDEBAR (Fixed on the left)
-    -->
+    <!-- Mobile Header (Profile Section) -->
+    <header class="mobile-header lg:hidden bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-lg sticky top-0 z-40">
+      <div class="flex items-center p-3">
+        <div class="flex items-center gap-3">
+          <figure class="avatar-box bg-gradient-to-br from-blue-100 to-purple-100 p-1.5 rounded-xl shadow-lg">
+            <img src="assets/images/wuchen.jpg" alt="Wuchen Li" width="40" height="40" class="rounded-lg">
+          </figure>
+          <div class="info-content">
+            <h1 class="name text-base font-semibold text-gray-800" title="Wuchen Li">Wuchen Li</h1>
+            <p class="title bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xs font-medium px-2 py-0.5 rounded-full inline-block">MSIS Student at Cornell Tech</p>
+          </div>
+        </div>
+      </div>
+    </header>
 
+    <!-- Desktop Sidebar (Hidden on mobile) -->
     <aside class="sidebar bg-white/80 backdrop-blur-lg border-r border-gray-200 p-6 shadow-xl w-80 flex-shrink-0 fixed top-0 left-0 h-screen overflow-y-auto hidden lg:block z-50" data-sidebar>
 
       <!-- Mobile close button -->
-      <button class="lg:hidden absolute top-4 right-4 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-xl px-3 py-2 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" data-sidebar-close>
+      <button class="lg:hidden absolute top-4 right-4 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-xl px-3 py-2 text-sm font-medium shadow-lg transition-all duration-300" data-sidebar-close>
         <ion-icon name="close-outline" class="text-xl"></ion-icon>
       </button>
 
@@ -279,33 +294,17 @@
 
     </aside>
 
-    <!--
-      - #main-content
-    -->
+    <!-- Main Content Area -->
+    <div class="main-content lg:ml-80">
 
-    <div class="main-content flex-1 flex flex-col lg:ml-80">
+      <!-- Desktop Navigation (Hidden on mobile) -->
+      <nav class="navbar bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-lg z-40 fixed top-0 left-80 right-0 hidden lg:block">
 
-      <!--
-        - #NAVBAR (Fixed at top)
-      -->
-
-      <nav class="navbar bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-lg z-40 fixed top-0 left-0 right-0 lg:left-80">
-
-        <div class="flex justify-between items-center p-4">
-          <!-- Mobile menu button -->
-          <button class="lg:hidden bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl px-4 py-2 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" data-sidebar-btn>
-            <ion-icon name="menu-outline" class="text-xl"></ion-icon>
-          </button>
-
-          <!-- Navigation links -->
+        <div class="flex justify-center items-center p-4">
           <ul class="navbar-list flex justify-center items-center gap-6">
 
             <li class="navbar-item">
               <a href="#about" class="navbar-link active text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300 py-4 px-2" data-nav-link>About</a>
-            </li>
-
-            <li class="navbar-item">
-              <a href="#services" class="navbar-link text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300 py-4 px-2" data-nav-link>Services</a>
             </li>
 
             <li class="navbar-item">
@@ -321,15 +320,12 @@
             </li>
 
           </ul>
-
-          <!-- Spacer for mobile -->
-          <div class="lg:hidden w-12"></div>
         </div>
 
       </nav>
 
       <!-- Content area with padding -->
-      <div class="flex-1 p-4 pb-20 pt-20">
+      <div class="p-4 pb-24 lg:pb-8 lg:pt-20">
 
         <!--
           - #ABOUT
@@ -341,7 +337,7 @@
             <h2 class="h2 article-title text-3xl font-bold text-gray-800 mb-4 relative">About me</h2>
           </header>
 
-          <section class="about-text">
+          <section class="about-text mb-8">
             <p class="text-gray-600 text-lg leading-relaxed">
               Hi! I'm Wuchen Li, a Master's student in Information Systems at Cornell Tech passionate about AI and technology. 
               I specialize in computer vision and machine learning, with experience building scalable data systems and AI solutions.
@@ -349,110 +345,89 @@
             </p>
           </section>
 
-        </section>
-
-        <!--
-          - #SERVICES
-        -->
-
-        <section id="services" class="services bg-white/80 backdrop-blur-lg border border-gray-200 rounded-3xl p-6 lg:p-8 shadow-xl animate-fade-in mb-8">
-
-          <header class="mb-6">
-            <h2 class="h2 article-title text-3xl font-bold text-gray-800 mb-4 relative">What I'm Doing</h2>
-          </header>
-
-          <!--
-            - service
-          -->
-          <head>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-          </head>
-
-          <section class="service">
-
-            <ul class="service-list grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-              <!-- Machine Learning -->
-              <li class="service-item bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div class="service-header flex items-center gap-4 mb-4">
-                  <div class="service-icon-box">
-                    <a href="https://github.com/SightVanish/MetaTensor.git" target="_blank" class="block">
-                      <i class="fas fa-network-wired service-icon text-4xl text-blue-600 hover:text-purple-600 transition-colors duration-300"></i>
-                    </a>
-                  </div>
-                  <h4 class="h4 service-item-title text-xl font-semibold text-gray-800">
-                    <a href="https://github.com/SightVanish/MetaTensor.git" target="_blank" class="hover:text-blue-600 transition-colors duration-300">Machine Learning</a>
-                  </h4>
+          <ul class="service-list grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+            <!-- Machine Learning -->
+            <li class="service-item bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div class="service-header flex items-center gap-4 mb-4">
+                <div class="service-icon-box">
+                  <a href="https://github.com/SightVanish/MetaTensor.git" target="_blank" class="block">
+                    <i class="fas fa-network-wired service-icon text-4xl text-blue-600 hover:text-purple-600 transition-colors duration-300"></i>
+                  </a>
                 </div>
-                <div class="service-content-box">
-                  <p class="service-item-text text-gray-600 leading-relaxed">
-                    Computer vision and deep learning applications.
-                  </p>
+                <h4 class="h4 service-item-title text-xl font-semibold text-gray-800">
+                  <a href="https://github.com/SightVanish/MetaTensor.git" target="_blank" class="hover:text-blue-600 transition-colors duration-300">Machine Learning</a>
+                </h4>
+              </div>
+              <div class="service-content-box">
+                <p class="service-item-text text-gray-600 leading-relaxed">
+                  Computer vision and deep learning applications.
+                </p>
+              </div>
+            </li>
+      
+            <!-- Data Science -->
+            <li class="service-item bg-gradient-to-br from-green-50 to-blue-50 border border-green-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div class="service-header flex items-center gap-4 mb-4">
+                <div class="service-icon-box">
+                  <a href="https://github.com/SightVanish/PortfolioSelection.git" target="_blank" class="block">
+                    <i class="fas fa-chart-line service-icon text-4xl text-green-600 hover:text-blue-600 transition-colors duration-300"></i>
+                  </a>
                 </div>
-              </li>
-          
-              <!-- Data Science -->
-              <li class="service-item bg-gradient-to-br from-green-50 to-blue-50 border border-green-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div class="service-header flex items-center gap-4 mb-4">
-                  <div class="service-icon-box">
-                    <a href="https://github.com/SightVanish/PortfolioSelection.git" target="_blank" class="block">
-                      <i class="fas fa-chart-line service-icon text-4xl text-green-600 hover:text-blue-600 transition-colors duration-300"></i>
-                    </a>
-                  </div>
-                  <h4 class="h4 service-item-title text-xl font-semibold text-gray-800">
-                    <a href="https://github.com/SightVanish/PortfolioSelection.git" target="_blank" class="hover:text-blue-600 transition-colors duration-300">Data Science</a>
-                  </h4>
+                <h4 class="h4 service-item-title text-xl font-semibold text-gray-800">
+                  <a href="https://github.com/SightVanish/PortfolioSelection.git" target="_blank" class="hover:text-blue-600 transition-colors duration-300">Data Science</a>
+                </h4>
+              </div>
+              <div class="service-content-box">
+                <p class="service-item-text text-gray-600 leading-relaxed">
+                  Data modeling and analysis for business intelligence.
+                </p>
+              </div>
+            </li>
+      
+            <!-- Software Engineering -->
+            <li class="service-item bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div class="service-header flex items-center gap-4 mb-4">
+                <div class="service-icon-box">
+                  <a href="https://github.com/DeepRec-AI/DeepRec.git" target="_blank" class="block">
+                    <i class="fas fa-laptop-code service-icon text-4xl text-purple-600 hover:text-pink-600 transition-colors duration-300"></i>
+                  </a>
                 </div>
-                <div class="service-content-box">
-                  <p class="service-item-text text-gray-600 leading-relaxed">
-                    Data modeling and analysis for business intelligence.
-                  </p>
+                <h4 class="h4 service-item-title text-xl font-semibold text-gray-800">
+                  <a href="https://github.com/DeepRec-AI/DeepRec.git" target="_blank" class="hover:text-blue-600 transition-colors duration-300">Software Engineering</a>
+                </h4>
+              </div>
+              <div class="service-content-box">
+                <p class="service-item-text text-gray-600 leading-relaxed">
+                  Scalable software systems with AI integration.
+                </p>
+              </div>
+            </li>
+      
+            <!-- Kendo -->
+            <li class="service-item bg-gradient-to-br from-orange-50 to-red-50 border border-orange-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div class="service-header flex items-center gap-4 mb-4">
+                <div class="service-icon-box">
+                  <a href="https://shidogakuin.com/" target="_blank" class="block">
+                    <i class="fas fa-user-ninja service-icon text-4xl text-orange-600 hover:text-red-600 transition-colors duration-300"></i>
+                  </a>
                 </div>
-              </li>
-          
-              <!-- Software Engineering -->
-              <li class="service-item bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div class="service-header flex items-center gap-4 mb-4">
-                  <div class="service-icon-box">
-                    <a href="https://github.com/DeepRec-AI/DeepRec.git" target="_blank" class="block">
-                      <i class="fas fa-laptop-code service-icon text-4xl text-purple-600 hover:text-pink-600 transition-colors duration-300"></i>
-                    </a>
-                  </div>
-                  <h4 class="h4 service-item-title text-xl font-semibold text-gray-800">
-                    <a href="https://github.com/DeepRec-AI/DeepRec.git" target="_blank" class="hover:text-blue-600 transition-colors duration-300">Software Engineering</a>
-                  </h4>
-                </div>
-                <div class="service-content-box">
-                  <p class="service-item-text text-gray-600 leading-relaxed">
-                    Scalable software systems with AI integration.
-                  </p>
-                </div>
-              </li>
-          
-              <!-- Kendo -->
-              <li class="service-item bg-gradient-to-br from-orange-50 to-red-50 border border-orange-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div class="service-header flex items-center gap-4 mb-4">
-                  <div class="service-icon-box">
-                    <a href="https://shidogakuin.com/" target="_blank" class="block">
-                      <i class="fas fa-user-ninja service-icon text-4xl text-orange-600 hover:text-red-600 transition-colors duration-300"></i>
-                    </a>
-                  </div>
-                  <h4 class="h4 service-item-title text-xl font-semibold text-gray-800">
-                    <a href="https://shidogakuin.com/" target="_blank" class="hover:text-blue-600 transition-colors duration-300">Kendo</a>
-                  </h4>
-                </div>
-                <div class="service-content-box">
-                  <p class="service-item-text text-gray-600 leading-relaxed">
-                    Traditional Japanese martial art (2nd dan). Member of NY Shidokan.
-                  </p>
-                </div>
-              </li>
-          
-            </ul>
-
-          </section>
+                <h4 class="h4 service-item-title text-xl font-semibold text-gray-800">
+                  <a href="https://shidogakuin.com/" target="_blank" class="hover:text-blue-600 transition-colors duration-300">Kendo</a>
+                </h4>
+              </div>
+              <div class="service-content-box">
+                <p class="service-item-text text-gray-600 leading-relaxed">
+                  Traditional Japanese martial art (2nd dan). Member of NY Shidokan.
+                </p>
+              </div>
+            </li>
+      
+          </ul>
 
         </section>
+
+
 
         <!--
           - #PARTNERS
@@ -833,6 +808,28 @@
       </div>
 
     </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-lg border-t border-gray-200 shadow-lg z-50">
+      <div class="flex justify-around items-center p-2">
+        <a href="#about" class="nav-item flex flex-col items-center p-3 rounded-xl transition-all duration-300 active" data-nav-link>
+          <ion-icon name="person-outline" class="text-xl mb-1"></ion-icon>
+          <span class="text-xs font-medium">About</span>
+        </a>
+        <a href="#resume" class="nav-item flex flex-col items-center p-3 rounded-xl transition-all duration-300" data-nav-link>
+          <ion-icon name="document-text-outline" class="text-xl mb-1"></ion-icon>
+          <span class="text-xs font-medium">Resume</span>
+        </a>
+        <a href="#projects" class="nav-item flex flex-col items-center p-3 rounded-xl transition-all duration-300" data-nav-link>
+          <ion-icon name="folder-outline" class="text-xl mb-1"></ion-icon>
+          <span class="text-xs font-medium">Projects</span>
+        </a>
+        <a href="#contact" class="nav-item flex flex-col items-center p-3 rounded-xl transition-all duration-300" data-nav-link>
+          <ion-icon name="mail-outline" class="text-xl mb-1"></ion-icon>
+          <span class="text-xs font-medium">Contact</span>
+        </a>
+      </div>
+    </nav>
 
   </main>
 

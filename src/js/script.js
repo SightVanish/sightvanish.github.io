@@ -9,12 +9,14 @@ const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 const sidebarClose = document.querySelector("[data-sidebar-close]");
 
 // sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function (e) { 
-  e.preventDefault();
-  e.stopPropagation();
-  sidebar.classList.add("active");
-  document.body.style.overflow = 'hidden'; // Prevent background scrolling
-});
+if (sidebarBtn) {
+  sidebarBtn.addEventListener("click", function (e) { 
+    e.preventDefault();
+    e.stopPropagation();
+    sidebar.classList.add("active");
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  });
+}
 
 // sidebar close functionality for mobile
 if (sidebarClose) {
@@ -29,7 +31,7 @@ if (sidebarClose) {
 // Close sidebar when clicking outside on mobile
 document.addEventListener('click', function(event) {
   if (window.innerWidth < 1024) { // Only on mobile
-    if (!sidebar.contains(event.target) && !sidebarBtn.contains(event.target)) {
+    if (sidebar && !sidebar.contains(event.target) && sidebarBtn && !sidebarBtn.contains(event.target)) {
       sidebar.classList.remove("active");
       document.body.style.overflow = ''; // Restore scrolling
     }
@@ -39,8 +41,10 @@ document.addEventListener('click', function(event) {
 // Close sidebar on escape key
 document.addEventListener('keydown', function(event) {
   if (event.key === 'Escape' && window.innerWidth < 1024) {
-    sidebar.classList.remove("active");
-    document.body.style.overflow = '';
+    if (sidebar) {
+      sidebar.classList.remove("active");
+      document.body.style.overflow = '';
+    }
   }
 });
 
@@ -50,15 +54,17 @@ const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-selecct-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
-select.addEventListener("click", function () { elementToggleFunc(this); });
+if (select) {
+  select.addEventListener("click", function () { elementToggleFunc(this); });
+}
 
 // add event in all select items
 for (let i = 0; i < selectItems.length; i++) {
   selectItems[i].addEventListener("click", function () {
 
     let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
+    if (selectValue) selectValue.innerText = this.innerText;
+    if (select) elementToggleFunc(select);
     filterFunc(selectedValue);
 
   });
@@ -91,7 +97,7 @@ for (let i = 0; i < filterBtn.length; i++) {
   filterBtn[i].addEventListener("click", function () {
 
     let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
+    if (selectValue) selectValue.innerText = this.innerText;
     filterFunc(selectedValue);
 
     // Remove active class from all buttons
@@ -122,16 +128,16 @@ for (let i = 0; i < formInputs.length; i++) {
   formInputs[i].addEventListener("input", function () {
 
     // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
+    if (form && form.checkValidity()) {
+      if (formBtn) formBtn.removeAttribute("disabled");
     } else {
-      formBtn.setAttribute("disabled", "");
+      if (formBtn) formBtn.setAttribute("disabled", "");
     }
 
   });
 }
 
-// Smooth scrolling navigation
+// Smooth scrolling navigation - handle both desktop and mobile navigation
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 
 // add event to all nav links
@@ -143,11 +149,21 @@ for (let i = 0; i < navigationLinks.length; i++) {
     const targetSection = document.querySelector(targetId);
     
     if (targetSection) {
-      // Use the CSS scroll-margin-top for consistent spacing
-      // The CSS already handles the navbar offset via scroll-margin-top
-      targetSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+      // Calculate offset based on device type
+      let offset = 0;
+      if (window.innerWidth < 1024) {
+        // Mobile: account for mobile header + bottom nav
+        offset = 60 + 80; // Reduced header height + bottom nav
+      } else {
+        // Desktop: account for navbar
+        offset = 80;
+      }
+      
+      const targetPosition = targetSection.offsetTop - offset;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
       });
       
       // Update navigation link styles
@@ -162,7 +178,7 @@ for (let i = 0; i < navigationLinks.length; i++) {
       this.classList.add("text-blue-600");
       
       // Close mobile sidebar if open
-      if (window.innerWidth < 1024) {
+      if (window.innerWidth < 1024 && sidebar) {
         sidebar.classList.remove("active");
         document.body.style.overflow = '';
       }
@@ -173,15 +189,24 @@ for (let i = 0; i < navigationLinks.length; i++) {
 // Update active navigation link based on scroll position
 window.addEventListener('scroll', function() {
   const sections = document.querySelectorAll('section[id]');
-  // Only apply offset if we've actually scrolled, not on initial load
-  const scrollPos = window.scrollY > 0 ? window.scrollY + 100 : window.scrollY;
+  const scrollPos = window.scrollY;
+  
+  // Calculate offset based on device type
+  let offset = 0;
+  if (window.innerWidth < 1024) {
+    // Mobile: account for mobile header + bottom nav
+    offset = 140;
+  } else {
+    // Desktop: account for navbar
+    offset = 100;
+  }
   
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.offsetHeight;
     const sectionId = section.getAttribute('id');
     
-    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+    if (scrollPos + offset >= sectionTop && scrollPos + offset < sectionTop + sectionHeight) {
       // Remove active class from all navigation links
       navigationLinks.forEach(link => {
         link.classList.remove("active");
@@ -220,25 +245,23 @@ document.addEventListener('DOMContentLoaded', function() {
     filterBtn[0].classList.remove('text-gray-700');
     filterBtn[0].classList.add('text-blue-600');
   }
-});
+  
+  // Add smooth animations for section transitions
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
 
-// Add smooth animations for section transitions
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-}, observerOptions);
-
-// Observe all sections for animation
-document.addEventListener('DOMContentLoaded', function() {
+  // Observe all sections for animation
   const sections = document.querySelectorAll('section');
   sections.forEach(section => {
     section.style.opacity = '0';
@@ -246,6 +269,21 @@ document.addEventListener('DOMContentLoaded', function() {
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(section);
   });
+  
+  // Add touch feedback for mobile
+  if ('ontouchstart' in window) {
+    const touchElements = document.querySelectorAll('.service-item, .project-item, .skill-box, .nav-item, .contact-item');
+    
+    touchElements.forEach(element => {
+      element.addEventListener('touchstart', function() {
+        this.style.transform = 'scale(0.98)';
+      });
+      
+      element.addEventListener('touchend', function() {
+        this.style.transform = '';
+      });
+    });
+  }
 });
 
 // Ensure page is at top after all resources are loaded
@@ -259,6 +297,24 @@ window.addEventListener('load', function() {
 // Handle scroll restoration on page refresh
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
+}
+
+// Handle window resize for responsive behavior
+window.addEventListener('resize', function() {
+  // Close sidebar on desktop if it was open on mobile
+  if (window.innerWidth >= 1024 && sidebar) {
+    sidebar.classList.remove("active");
+    document.body.style.overflow = '';
+  }
+});
+
+// Add smooth scrolling for iOS Safari
+if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g)) {
+  document.addEventListener('touchmove', function(e) {
+    if (e.target.closest('.sidebar')) {
+      e.preventDefault();
+    }
+  }, { passive: false });
 }
 
 // Google Analytics Tracking Script
