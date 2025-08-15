@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
   <title>Wuchen Li - Personal Website</title>
 
   <!-- SEO Meta Tags -->
@@ -147,6 +147,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Mobile-specific meta tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Wuchen Li">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#3b82f6">
+  <meta name="msapplication-TileColor" content="#3b82f6">
+
 </head>
 
 <body class="bg-gradient-to-br from-blue-50 via-white to-purple-50 min-h-screen font-['Poppins']">
@@ -161,7 +169,7 @@
       - #SIDEBAR (Fixed on the left)
     -->
 
-    <aside class="sidebar bg-white/80 backdrop-blur-lg border-r border-gray-200 p-6 shadow-xl w-80 flex-shrink-0 fixed top-0 left-0 h-screen overflow-y-auto hidden lg:block" data-sidebar>
+    <aside class="sidebar bg-white/80 backdrop-blur-lg border-r border-gray-200 p-6 shadow-xl w-80 flex-shrink-0 fixed top-0 left-0 h-screen overflow-y-auto hidden lg:block z-50" data-sidebar>
 
       <!-- Mobile close button -->
       <button class="lg:hidden absolute top-4 right-4 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-xl px-3 py-2 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" data-sidebar-close>
@@ -281,7 +289,7 @@
         - #NAVBAR (Fixed at top)
       -->
 
-      <nav class="navbar bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-lg z-50 fixed top-0 left-0 right-0 lg:left-80">
+      <nav class="navbar bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-lg z-40 fixed top-0 left-0 right-0 lg:left-80">
 
         <div class="flex justify-between items-center p-4">
           <!-- Mobile menu button -->
@@ -290,10 +298,14 @@
           </button>
 
           <!-- Navigation links -->
-          <ul class="navbar-list flex justify-center items-center gap-8">
+          <ul class="navbar-list flex justify-center items-center gap-6">
 
             <li class="navbar-item">
               <a href="#about" class="navbar-link active text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300 py-4 px-2" data-nav-link>About</a>
+            </li>
+
+            <li class="navbar-item">
+              <a href="#services" class="navbar-link text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300 py-4 px-2" data-nav-link>Services</a>
             </li>
 
             <li class="navbar-item">
@@ -317,25 +329,37 @@
       </nav>
 
       <!-- Content area with padding -->
-      <div class="flex-1 pt-20 p-4 pb-20">
+      <div class="flex-1 p-4 pb-20 pt-20">
 
         <!--
           - #ABOUT
         -->
 
-        <section id="about" class="about bg-white/80 backdrop-blur-lg border border-gray-200 rounded-3xl p-8 shadow-xl animate-fade-in mb-8">
+        <section id="about" class="about bg-white/80 backdrop-blur-lg border border-gray-200 rounded-3xl p-6 lg:p-8 shadow-xl animate-fade-in mb-8">
 
           <header class="mb-6">
             <h2 class="h2 article-title text-3xl font-bold text-gray-800 mb-4 relative">About me</h2>
           </header>
 
-          <section class="about-text mb-8">
+          <section class="about-text">
             <p class="text-gray-600 text-lg leading-relaxed">
               Hi! I'm Wuchen Li, a Master's student in Information Systems at Cornell Tech passionate about AI and technology. 
               I specialize in computer vision and machine learning, with experience building scalable data systems and AI solutions.
               When not coding, I practice Kendo (2nd dan) - a Japanese martial art that teaches discipline and precision.
             </p>
           </section>
+
+        </section>
+
+        <!--
+          - #SERVICES
+        -->
+
+        <section id="services" class="services bg-white/80 backdrop-blur-lg border border-gray-200 rounded-3xl p-6 lg:p-8 shadow-xl animate-fade-in mb-8">
+
+          <header class="mb-6">
+            <h2 class="h2 article-title text-3xl font-bold text-gray-800 mb-4 relative">What I'm Doing</h2>
+          </header>
 
           <!--
             - service
@@ -344,10 +368,8 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
           </head>
 
-          <section class="service mb-12">
+          <section class="service">
 
-            <h3 class="h3 service-title text-2xl font-bold text-gray-800 mb-8">What I'm Doing</h3>
-          
             <ul class="service-list grid grid-cols-1 md:grid-cols-2 gap-6">
           
               <!-- Machine Learning -->
@@ -427,14 +449,22 @@
               </li>
           
             </ul>
-          
-          <!--
-            - clients
-          -->
 
-          <section class="clients mt-12">
+          </section>
 
-            <h3 class="h3 clients-title text-2xl font-bold text-gray-800 mb-8">Partners & Institutions</h3>
+        </section>
+
+        <!--
+          - #PARTNERS
+        -->
+
+        <section id="partners" class="partners bg-white/80 backdrop-blur-lg border border-gray-200 rounded-3xl p-6 lg:p-8 shadow-xl animate-fade-in mb-8">
+
+          <header class="mb-6">
+            <h2 class="h2 article-title text-3xl font-bold text-gray-800 mb-4 relative">Partners & Institutions</h2>
+          </header>
+
+          <section class="clients">
 
             <ul class="clients-list flex gap-8 overflow-x-auto pb-4 px-4">
 

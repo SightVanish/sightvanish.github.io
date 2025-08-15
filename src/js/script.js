@@ -9,14 +9,20 @@ const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 const sidebarClose = document.querySelector("[data-sidebar-close]");
 
 // sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { 
+sidebarBtn.addEventListener("click", function (e) { 
+  e.preventDefault();
+  e.stopPropagation();
   sidebar.classList.add("active");
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
 });
 
 // sidebar close functionality for mobile
 if (sidebarClose) {
-  sidebarClose.addEventListener("click", function () { 
+  sidebarClose.addEventListener("click", function (e) { 
+    e.preventDefault();
+    e.stopPropagation();
     sidebar.classList.remove("active");
+    document.body.style.overflow = ''; // Restore scrolling
   });
 }
 
@@ -25,7 +31,16 @@ document.addEventListener('click', function(event) {
   if (window.innerWidth < 1024) { // Only on mobile
     if (!sidebar.contains(event.target) && !sidebarBtn.contains(event.target)) {
       sidebar.classList.remove("active");
+      document.body.style.overflow = ''; // Restore scrolling
     }
+  }
+});
+
+// Close sidebar on escape key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape' && window.innerWidth < 1024) {
+    sidebar.classList.remove("active");
+    document.body.style.overflow = '';
   }
 });
 
@@ -128,13 +143,11 @@ for (let i = 0; i < navigationLinks.length; i++) {
     const targetSection = document.querySelector(targetId);
     
     if (targetSection) {
-      // Calculate offset for fixed navbar
-      const navbarHeight = document.querySelector('.navbar').offsetHeight;
-      const targetPosition = targetSection.offsetTop - navbarHeight - 20; // 20px extra padding
-      
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
+      // Use the CSS scroll-margin-top for consistent spacing
+      // The CSS already handles the navbar offset via scroll-margin-top
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
       });
       
       // Update navigation link styles
@@ -147,6 +160,12 @@ for (let i = 0; i < navigationLinks.length; i++) {
       this.classList.add("active");
       this.classList.remove("text-gray-700");
       this.classList.add("text-blue-600");
+      
+      // Close mobile sidebar if open
+      if (window.innerWidth < 1024) {
+        sidebar.classList.remove("active");
+        document.body.style.overflow = '';
+      }
     }
   });
 }
@@ -154,7 +173,8 @@ for (let i = 0; i < navigationLinks.length; i++) {
 // Update active navigation link based on scroll position
 window.addEventListener('scroll', function() {
   const sections = document.querySelectorAll('section[id]');
-  const scrollPos = window.scrollY + 100; // Offset for navbar
+  // Only apply offset if we've actually scrolled, not on initial load
+  const scrollPos = window.scrollY > 0 ? window.scrollY + 100 : window.scrollY;
   
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
@@ -182,6 +202,9 @@ window.addEventListener('scroll', function() {
 
 // Initialize the first navigation link as active
 document.addEventListener('DOMContentLoaded', function() {
+  // Ensure page starts at the top
+  window.scrollTo(0, 0);
+  
   // Set initial navigation link state
   const firstNavLink = document.querySelector('[data-nav-link]');
   
@@ -224,6 +247,19 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(section);
   });
 });
+
+// Ensure page is at top after all resources are loaded
+window.addEventListener('load', function() {
+  // Force scroll to top to prevent any scroll restoration issues
+  if (window.scrollY > 0) {
+    window.scrollTo(0, 0);
+  }
+});
+
+// Handle scroll restoration on page refresh
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
 
 // Google Analytics Tracking Script
 (function() {

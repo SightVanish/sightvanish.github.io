@@ -17,6 +17,17 @@ body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: #374151;
+  /* Prevent zoom on input focus for iOS */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Safe area variables for iOS */
+:root {
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
 }
 
 /* Custom animations */
@@ -370,10 +381,14 @@ body {
     left: -100%;
     width: 100%;
     height: 100vh;
+    height: 100dvh; /* Use dynamic viewport height for mobile */
     z-index: 1000;
     transition: left 0.3s ease;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
+    padding: 1rem;
+    padding-top: env(safe-area-inset-top, 1rem);
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
   }
   
   .sidebar.active {
@@ -397,29 +412,92 @@ body {
   .sidebar.active::before {
     opacity: 1;
   }
-}
-
-/* Desktop layout adjustments */
-@media (min-width: 1024px) {
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    overflow-y: auto;
-    z-index: 50;
+  
+  /* Mobile navbar adjustments */
+  .navbar {
+    padding-top: env(safe-area-inset-top, 0);
   }
   
+  /* Mobile content adjustments */
+  .main-content {
+    padding-top: calc(1rem + env(safe-area-inset-top, 0));
+  }
+  
+  /* Mobile touch improvements */
+  .service-item,
+  .project-item,
+  .skill-box {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  
+  /* Mobile text sizing */
+  .h2.article-title {
+    font-size: 1.75rem;
+  }
+  
+  .h3 {
+    font-size: 1.5rem;
+  }
+  
+  /* Mobile spacing adjustments */
+  .about,
+  .services,
+  .partners,
+  .resume,
+  .projects,
+  .contact {
+    padding: 1.5rem;
+  }
+  
+  /* Reduce top margin for first section on mobile */
+  .about {
+    margin-top: 0;
+  }
+}
+
+  /* Desktop layout adjustments */
+  @media (min-width: 1024px) {
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 50;
+    }
+    
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 320px; /* 80 * 4 (w-80 = 20rem = 320px) */
+      right: 0;
+      z-index: 40;
+    }
+    
+    .main-content {
+      margin-left: 320px; /* 80 * 4 (w-80 = 20rem = 320px) */
+    }
+    
+    /* Ensure all sections have proper scroll margin for desktop */
+    section[id] {
+      scroll-margin-top: calc(4rem + 2rem);
+    }
+  }
+
+/* iPhone specific adjustments */
+@supports (padding: max(0px)) {
   .navbar {
-    position: fixed;
-    top: 0;
-    left: 320px; /* 80 * 4 (w-80 = 20rem = 320px) */
-    right: 0;
-    z-index: 40;
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  
+  .sidebar {
+    padding-top: max(1.5rem, env(safe-area-inset-top));
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
   }
   
   .main-content {
-    margin-left: 320px; /* 80 * 4 (w-80 = 20rem = 320px) */
+    padding-top: max(2rem, calc(2rem + env(safe-area-inset-top)));
   }
 }
 
@@ -491,6 +569,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Prevent scroll restoration on page load */
+body {
+  scroll-behavior: auto;
+}
+
 /* Custom properties for easy theming */
 :root {
   --primary-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
@@ -501,6 +584,142 @@ html {
   --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   --shadow-heavy: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Prevent horizontal scrolling */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Content area with navbar height + safe area */
+  .main-content > div:first-child {
+    padding-top: calc(4rem + 2rem + env(safe-area-inset-top, 0));
+  }
+  
+  /* Ensure proper spacing for mobile navbar */
+  .main-content .flex-1 {
+    padding-top: calc(5rem + env(safe-area-inset-top, 0));
+  }
+  
+  /* Desktop content area */
+  @media (min-width: 1024px) {
+    .main-content > div:first-child {
+      padding-top: calc(4rem + 2rem);
+    }
+    
+    /* Ensure proper spacing for desktop navbar */
+    .main-content .flex-1 {
+      padding-top: 5rem;
+    }
+  }
+  
+  /* Ensure first section is not covered by navbar */
+  .about {
+    margin-top: 0;
+    scroll-margin-top: calc(4rem + 2rem + env(safe-area-inset-top, 0));
+  }
+  
+  /* Ensure all sections have proper scroll margin for mobile */
+  section[id] {
+    scroll-margin-top: calc(4rem + 2rem + env(safe-area-inset-top, 0));
+  }
+  
+  /* Improve touch targets */
+  button,
+  a,
+  .service-item,
+  .project-item,
+  .skill-box {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better mobile navigation */
+  .navbar-list {
+    gap: 1rem;
+  }
+  
+  .navbar-link {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Mobile grid adjustments */
+  .service-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .project-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  /* Mobile image optimizations */
+  .clients-list {
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .clients-item img {
+    height: 3rem;
+  }
+  
+  /* Mobile timeline adjustments */
+  .timeline-list {
+    margin-left: 1rem;
+  }
+  
+  .timeline-item::before {
+    left: -1.25rem;
+  }
+  
+  .timeline-item::after {
+    left: -0.75rem;
+  }
+  
+  /* Prevent iOS Safari zoom on input focus */
+  input, select, textarea {
+    font-size: 16px;
+  }
+  
+  /* Better mobile scrolling */
+  .sidebar {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Mobile button improvements */
+  .download-btn,
+  [data-sidebar-btn],
+  [data-sidebar-close] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  /* Mobile hover state improvements */
+  .service-item:hover,
+  .project-item:hover,
+  .skill-box:hover {
+    transform: none;
+  }
+  
+  /* Mobile active state improvements */
+  .service-item:active,
+  .project-item:active,
+  .skill-box:active {
+    transform: scale(0.98);
+  }
 }
 
 /* Additional utility classes */
