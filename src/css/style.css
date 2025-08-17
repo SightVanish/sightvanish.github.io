@@ -14,6 +14,20 @@
   box-sizing: border-box;
 }
 
+/* Main Content Area - Always light background */
+.main-content {
+  background: linear-gradient(135deg, #eff6ff, #ffffff, #faf5ff);
+  min-height: 100vh;
+}
+
+/* Ensure all sections in main content have white background */
+.main-content section {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  color: #374151 !important;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
@@ -857,6 +871,21 @@ section:hover {
   
   .main-content {
     margin-left: 320px;
+    background: linear-gradient(135deg, #eff6ff, #ffffff, #faf5ff);
+    min-height: 100vh;
+  }
+  
+  /* Ensure main content sections always have white background */
+  .main-content section,
+  .main-content .about,
+  .main-content .partners,
+  .main-content .resume,
+  .main-content .projects,
+  .main-content .contact {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: #374151 !important;
   }
   
   .mobile-header,
@@ -953,9 +982,16 @@ input, select, textarea {
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
-  section {
-    background: rgba(30, 41, 59, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  /* Override dark mode for main content sections to keep them white */
+  .main-content section,
+  .about,
+  .partners,
+  .resume,
+  .projects,
+  .contact {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: #374151 !important;
   }
   
   .mobile-header,
