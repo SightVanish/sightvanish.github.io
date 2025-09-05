@@ -1,39 +1,39 @@
 'use strict';
 
-// element toggle function
+// Element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
-// sidebar variables
+// Sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 const sidebarClose = document.querySelector("[data-sidebar-close]");
 
-// sidebar toggle functionality for mobile
+// Sidebar toggle functionality for mobile
 if (sidebarBtn) {
   sidebarBtn.addEventListener("click", function (e) { 
     e.preventDefault();
     e.stopPropagation();
     sidebar.classList.add("active");
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
   });
 }
 
-// sidebar close functionality for mobile
+// Sidebar close functionality for mobile
 if (sidebarClose) {
   sidebarClose.addEventListener("click", function (e) { 
     e.preventDefault();
     e.stopPropagation();
     sidebar.classList.remove("active");
-    document.body.style.overflow = ''; // Restore scrolling
+    document.body.style.overflow = '';
   });
 }
 
 // Close sidebar when clicking outside on mobile
 document.addEventListener('click', function(event) {
-  if (window.innerWidth < 1024) { // Only on mobile
+  if (window.innerWidth < 1024) {
     if (sidebar && !sidebar.contains(event.target) && sidebarBtn && !sidebarBtn.contains(event.target)) {
       sidebar.classList.remove("active");
-      document.body.style.overflow = ''; // Restore scrolling
+      document.body.style.overflow = '';
     }
   }
 });
@@ -48,7 +48,7 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
-// custom select variables
+// Custom select variables
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-selecct-value]");
@@ -58,25 +58,21 @@ if (select) {
   select.addEventListener("click", function () { elementToggleFunc(this); });
 }
 
-// add event in all select items
+// Add event in all select items
 for (let i = 0; i < selectItems.length; i++) {
   selectItems[i].addEventListener("click", function () {
-
     let selectedValue = this.innerText.toLowerCase();
     if (selectValue) selectValue.innerText = this.innerText;
     if (select) elementToggleFunc(select);
     filterFunc(selectedValue);
-
   });
 }
 
-// filter variables
+// Filter variables
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = function (selectedValue) {
-
   for (let i = 0; i < filterItems.length; i++) {
-
     if (selectedValue === "all") {
       filterItems[i].classList.add("active");
     } else if (selectedValue === filterItems[i].dataset.category) {
@@ -84,18 +80,14 @@ const filterFunc = function (selectedValue) {
     } else {
       filterItems[i].classList.remove("active");
     }
-
   }
-
 }
 
-// add event in all filter button items for large screen
+// Add event in all filter button items for large screen
 let lastClickedBtn = filterBtn[0];
 
 for (let i = 0; i < filterBtn.length; i++) {
-
   filterBtn[i].addEventListener("click", function () {
-
     let selectedValue = this.innerText.toLowerCase();
     if (selectValue) selectValue.innerText = this.innerText;
     filterFunc(selectedValue);
@@ -113,34 +105,30 @@ for (let i = 0; i < filterBtn.length; i++) {
     this.classList.add("text-blue-600");
     
     lastClickedBtn = this;
-
   });
-
 }
 
-// contact form variables
+// Contact form variables
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
-// add event to all form input field
+// Add event to all form input field
 for (let i = 0; i < formInputs.length; i++) {
   formInputs[i].addEventListener("input", function () {
-
-    // check form validation
+    // Check form validation
     if (form && form.checkValidity()) {
       if (formBtn) formBtn.removeAttribute("disabled");
     } else {
       if (formBtn) formBtn.setAttribute("disabled", "");
     }
-
   });
 }
 
 // Smooth scrolling navigation - handle both desktop and mobile navigation
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 
-// add event to all nav links
+// Add event to all nav links
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function (e) {
     e.preventDefault();
@@ -153,7 +141,7 @@ for (let i = 0; i < navigationLinks.length; i++) {
       let offset = 0;
       if (window.innerWidth < 1024) {
         // Mobile: account for mobile header + bottom nav
-        offset = 60 + 80; // Reduced header height + bottom nav
+        offset = 60 + 80;
       } else {
         // Desktop: account for navbar
         offset = 80;
@@ -288,7 +276,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Ensure page is at top after all resources are loaded
 window.addEventListener('load', function() {
-  // Force scroll to top to prevent any scroll restoration issues
   if (window.scrollY > 0) {
     window.scrollTo(0, 0);
   }
@@ -301,7 +288,6 @@ if ('scrollRestoration' in history) {
 
 // Handle window resize for responsive behavior
 window.addEventListener('resize', function() {
-  // Close sidebar on desktop if it was open on mobile
   if (window.innerWidth >= 1024 && sidebar) {
     sidebar.classList.remove("active");
     document.body.style.overflow = '';
@@ -319,10 +305,10 @@ if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g)) {
 
 // Google Analytics Tracking Script
 (function() {
-  let GA_MEASUREMENT_ID = "G-3E08RYVGKY";
+  const GA_MEASUREMENT_ID = "G-3E08RYVGKY";
 
   // Load Google Analytics script dynamically
-  let script = document.createElement("script");
+  const script = document.createElement("script");
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
   document.head.appendChild(script);

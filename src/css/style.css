@@ -1,10 +1,10 @@
 /*-----------------------------------*\
-  #style.css - Mobile-First Responsive Design
+  #style.css - Personal Website Styles
 \*-----------------------------------*/
 
 /**
  * Mobile-first responsive design for Wuchen Li's personal website
- * Optimized for iPhone 16 Pro and modern mobile devices
+ * Clean and optimized styles
  */
 
 /* Base styles */
@@ -14,18 +14,10 @@
   box-sizing: border-box;
 }
 
-/* Main Content Area - Always light background */
+/* Main Content Area */
 .main-content {
   background: linear-gradient(135deg, #eff6ff, #ffffff, #faf5ff);
   min-height: 100vh;
-}
-
-/* Ensure all sections in main content have white background */
-.main-content section {
-  background: rgba(255, 255, 255, 0.8) !important;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  color: #374151 !important;
 }
 
 html {
@@ -302,27 +294,11 @@ body {
   position: relative;
 }
 
-/* Section title underline completely removed - cache bust */
-
-/* Force remove any underlines from section titles */
+/* Section title styles */
 .section-title::after,
 .section-title::before {
   display: none !important;
   content: none !important;
-}
-
-/* Status Indicator - Removed all CSS rules to eliminate any potential glow effects */
-
-/* Text Gradients - Removed background from .name class */
-.name {
-  /* background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-  background-size: 200% 200%;
-  animation: textGradient 3s ease infinite; */
-}
-
-@keyframes textGradient {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
 }
 
 .sidebar.active {
@@ -401,9 +377,7 @@ section:hover {
   position: relative;
 }
 
-/* Article title underline completely removed - cache bust */
-
-/* Force remove any underlines from article titles */
+/* Article title styles */
 .article-title::after,
 .article-title::before,
 h2.article-title::after,
@@ -865,13 +839,8 @@ h2.article-title::before,
     min-height: 100vh;
   }
   
-  /* Ensure main content sections always have white background */
-  .main-content section,
-  .main-content .about,
-  .main-content .partners,
-  .main-content .resume,
-  .main-content .projects,
-  .main-content .contact {
+  /* Main content sections styling */
+  .main-content section {
     background: rgba(255, 255, 255, 0.8) !important;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 0, 0, 0.1) !important;
@@ -972,13 +941,8 @@ input, select, textarea {
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
-  /* Override dark mode for main content sections to keep them white */
-  .main-content section,
-  .about,
-  .partners,
-  .resume,
-  .projects,
-  .contact {
+  /* Override dark mode for main content sections */
+  .main-content section {
     background: rgba(255, 255, 255, 0.8) !important;
     border: 1px solid rgba(0, 0, 0, 0.1) !important;
     color: #374151 !important;
