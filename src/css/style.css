@@ -302,38 +302,22 @@ body {
   position: relative;
 }
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 30px;
-  height: 2px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-  border-radius: 1px;
+/* Section title underline completely removed - cache bust */
+
+/* Force remove any underlines from section titles */
+.section-title::after,
+.section-title::before {
+  display: none !important;
+  content: none !important;
 }
 
-/* Status Indicator */
-.status-indicator {
-  position: relative;
-}
+/* Status Indicator - Removed all CSS rules to eliminate any potential glow effects */
 
-.status-indicator::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  background: linear-gradient(45deg, #10b981, #34d399);
-  border-radius: 20px;
-  opacity: 0.3;
-  filter: blur(8px);
-  animation: pulse 2s infinite;
-}
-
-/* Text Gradients */
+/* Text Gradients - Removed background from .name class */
 .name {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  /* background: linear-gradient(135deg, #3b82f6, #8b5cf6);
   background-size: 200% 200%;
-  animation: textGradient 3s ease infinite;
+  animation: textGradient 3s ease infinite; */
 }
 
 @keyframes textGradient {
@@ -417,15 +401,21 @@ section:hover {
   position: relative;
 }
 
-.article-title::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 60px;
-  height: 4px;
-  background: var(--primary-gradient);
-  border-radius: 2px;
+/* Article title underline completely removed - cache bust */
+
+/* Force remove any underlines from article titles */
+.article-title::after,
+.article-title::before,
+h2.article-title::after,
+h2.article-title::before,
+.h2.article-title::after,
+.h2.article-title::before {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  border: none !important;
+  height: 0 !important;
+  width: 0 !important;
 }
 
 /* Service items */
